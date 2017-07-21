@@ -6,21 +6,14 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>如何绑定两个github帐号 | zhulg笔记</title>
+  <title>Tag: spring | zhulg笔记</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一般情况下，一台电脑上有自己的一个github账号，有时你可能会要跟公司和个人的账号分开来进行使用。此时，需要在一台电脑上操作2个github账号进行项目管理。你不能有多个账号添加了同一个公钥，否则你可能会遇到这样类似错误“ERROR: Permission to XXX.git denied to user”。要解决github账号分别对应公钥，需要在创建一个。（假设你已经在用一个自己的git">
-<meta name="keywords" content="git&#x2F;github&#x2F;gitlab">
-<meta property="og:type" content="article">
-<meta property="og:title" content="如何绑定两个github帐号">
-<meta property="og:url" content="http://yoursite.com/2017/07/19/twoGithubAccount/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="zhulg笔记">
+<meta property="og:url" content="http://yoursite.com/tags/spring/index.html">
 <meta property="og:site_name" content="zhulg笔记">
-<meta property="og:description" content="一般情况下，一台电脑上有自己的一个github账号，有时你可能会要跟公司和个人的账号分开来进行使用。此时，需要在一台电脑上操作2个github账号进行项目管理。你不能有多个账号添加了同一个公钥，否则你可能会遇到这样类似错误“ERROR: Permission to XXX.git denied to user”。要解决github账号分别对应公钥，需要在创建一个。（假设你已经在用一个自己的git">
-<meta property="og:image" content="http://yoursite.com/images/coffee.jpg">
-<meta property="og:updated_time" content="2017-07-21T23:19:53.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="如何绑定两个github帐号">
-<meta name="twitter:description" content="一般情况下，一台电脑上有自己的一个github账号，有时你可能会要跟公司和个人的账号分开来进行使用。此时，需要在一台电脑上操作2个github账号进行项目管理。你不能有多个账号添加了同一个公钥，否则你可能会遇到这样类似错误“ERROR: Permission to XXX.git denied to user”。要解决github账号分别对应公钥，需要在创建一个。（假设你已经在用一个自己的git">
-<meta name="twitter:image" content="http://yoursite.com/images/coffee.jpg">
+<meta name="twitter:title" content="zhulg笔记">
   
     <link rel="alternative" href="/atom.xml" title="zhulg笔记" type="application/atom+xml">
   
@@ -156,197 +149,60 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-twoGithubAccount" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      如何绑定两个github帐号
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2017" class="archive-year">2017</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2017/07/22/springjpa/" class="archive-article-date">
+  	<time datetime="2017-07-21T22:44:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-22</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2017/07/22/springjpa/">jpa/hibernate/spring data/spring data jpa都是什么</a>
     </h1>
   
 
-        
-        <a href="/2017/07/19/twoGithubAccount/" class="archive-article-date">
-  	<time datetime="2017-07-19T05:44:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-19</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="/images/coffee.jpg" alt=""></p>
-<p>一般情况下，一台电脑上有自己的一个github账号，有时你可能会要跟公司和个人的账号分开来进行使用。此时，需要在一台电脑上操作2个github账号进行项目管理。你不能有多个账号添加了同一个公钥，否则你可能会遇到这样类似错误“ERROR: Permission to XXX.git denied to user”。要解决github账号分别对应公钥，需要在创建一个。（假设你已经在用一个自己的github账号绑定了自己的ssh公钥）</p>
-<h2 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h2><ul>
-<li>进入到.ssh目录下查看已有的秘钥</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ cd ~/.ssh </div><div class="line">$ ls</div></pre></td></tr></table></figure>
-<p>如果已经存在id_rsa ,id_rsa.pub等，你需要为你新的github账号创建新的ssh公钥。</p>
-<ul>
-<li>生成新的key,需要注意的his，之前你创建可能还是一路回车，此刻需要你输入新的名字，比如id_rsa_second,让后回车。否则会自动覆盖你之前的sshkey.创建完后需要把你新的sshkey 拷贝到新的github账号下。</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ssh-keygen -t rsa -C &quot;your_email@example.com&quot;</div><div class="line">Generating public/private rsa key pair.</div><div class="line">Enter file in which to save the key (/Users/zhulianggang/.ssh/id_rsa):</div></pre></td></tr></table></figure>
-<ul>
-<li>配置config,没有的话需要创建个,在.ssh路径下</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">#default github</div><div class="line">Host github.com</div><div class="line">HostName github.com</div><div class="line">IdentityFile ~/.ssh/id_rsa</div><div class="line"></div><div class="line">#新的账号，注意github_second</div><div class="line">Host github_second</div><div class="line">HostName github.com</div><div class="line">IdentityFile ~/.ssh/id_rsa_second</div></pre></td></tr></table></figure>
-<ul>
-<li>取消全局用名配置，如果之前你有设置全局github用名,为你使用的工程里重新设置对应的用名名</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">取消global</div><div class="line">git config --global --unset user.name</div><div class="line">git config --global --unset user.email</div><div class="line">每一个工程设置用户名</div><div class="line">git config  user.email &quot;xxxx@xx.com&quot;</div><div class="line">git config  user.name “xxxx”</div></pre></td></tr></table></figure>
-<ul>
-<li>新的github账号使用别名pull/push</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git clone git@github_second:username/reponame</div></pre></td></tr></table></figure>
-<h2 id="检测"><a href="#检测" class="headerlink" title="检测"></a>检测</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$ssh -T git@github.com</div><div class="line">Hi xxxx! You&apos;ve successfully authenticated, but GitHub does not provide shell access.</div><div class="line"></div><div class="line">ssh -T git@github_second.github.com</div><div class="line">Hi xxx! You&apos;ve successfully authenticated, but GitHub does not provide shell access.</div><div class="line"></div><div class="line">说明已经可以成功使用，注意新账号使用别名（github_second）即可。</div></pre></td></tr></table></figure>
-
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">git/github/gitlab</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">spring</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/07/19/twoGithubAccount/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2017/07/22/springjpa/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          jpa/hibernate/spring data/spring data jpa都是什么
-        
-      </div>
-    </a>
   
   
-    <a href="/2017/07/06/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Hello World</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
-
-  
+    
 
 
           </div>
@@ -369,9 +225,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
