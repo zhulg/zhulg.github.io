@@ -185,8 +185,15 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">复杂查询可以用SQL语句方便的在一个表以及多个表之间做非常复杂的数据查询。</div><div class="line">事务支持使得对于安全性能很高的数据访问要求得以实现.</div></pre></td></tr></table></figure>
 <h4 id="MongoDB是什么"><a href="#MongoDB是什么" class="headerlink" title="MongoDB是什么"></a>MongoDB是什么</h4><ul>
 <li>MongoDB 是由C++语言编写的，是一个基于分布式文件存储的开源数据库系统。<br>在高负载的情况下，添加更多的节点，可以保证服务器性能。<br>MongoDB 旨在为WEB应用提供可扩展的高性能数据存储解决方案。<br>MongoDB 将数据存储为一个文档，数据结构由键值(key=&gt;value)对组成。MongoDB 文档类似于 JSON 对象。字段值可以包含其他文档，数组及文档数组。</li>
+<li>MongoDB是一个介于关系数据库和非关系数据库之间的产品，是非关系数据库当中功能最丰富，最像关系数据库的。他支持的数据结构非常松散，是类似json的bson格式，因此可以存储比较复杂的数据类型。</li>
 </ul>
-
+<h4 id="Mac安装mongodb"><a href="#Mac安装mongodb" class="headerlink" title="Mac安装mongodb"></a>Mac安装mongodb</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew install mongodb</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">==&gt; Downloading https://homebrew.bintray.com/bottles/mongodb-3.4.6.sierra.bottle.tar.gz</div><div class="line">######################################################################## 100.0%</div><div class="line">==&gt; Pouring mongodb-3.4.6.sierra.bottle.tar.gz</div><div class="line">==&gt; Using the sandbox</div><div class="line">==&gt; Caveats</div><div class="line">To have launchd start mongodb now and restart at login:</div><div class="line">  brew services start mongodb</div><div class="line">Or, if you don&apos;t want/need a background service you can just run:</div><div class="line">  mongod --config /usr/local/etc/mongod.conf</div><div class="line">==&gt; Summary</div><div class="line">🍺  /usr/local/Cellar/mongodb/3.4.6: 18 files, 266.9MB \</div></pre></td></tr></table></figure>
+<ul>
+<li>按照以上安装成功提示启动</li>
+<li>连接到mongodb</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mongo</div></pre></td></tr></table></figure>
       
 
       
@@ -1154,7 +1161,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
+                <a href="javascript:void(0)" class="js-tag color3">springboot相关</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1162,7 +1169,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">springboot相关</a>
+                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
               </li>
              
               <li class="article-tag-list-item">
