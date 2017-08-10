@@ -183,7 +183,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">mvn clean package</div><div class="line">分别以peer1和peeer2 配置信息启动eureka</div><div class="line">java -jar eureka-server-1.0.0.jar --spring.profiles.active=peer1</div><div class="line">java -jar eureka-server-1.0.0.jar --spring.profiles.active=peer2</div></pre></td></tr></table></figure>
 <p>5,启动 <a href="http://localhost:8001/" target="_blank" rel="external">http://localhost:8001/</a></p>
 <p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/eureka.png" alt="eureka"></p>
-<p>6,异常备注，开始折腾了很久，遇到什么权限没有，端口不能访问时。需要把服务彻底关掉，开启服务peer1时可能会有错误，原因服务没起来忽略即可。出去下上图说明已经建立成功。多个集群同理配置。</p>
+<p>6,异常备注，开始折腾了很久，遇到什么权限没有，端口不能访问时。需要把服务彻底关掉，开启服务peer1时可能会有错误，原因服务没起来忽略即可。出去下上图说明已经建立成功。多个集群同理配置。<br>7，在MAC 环境下网上很多demo端口为1001之类的，在mac上端口会占用失败，继采用8001端口。</p>
 
       
 
@@ -1159,15 +1159,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
+                <a href="javascript:void(0)" class="js-tag color3">springboot相关</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">redis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">springboot相关</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1176,6 +1172,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">spring</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
               </li>
              
               <li class="article-tag-list-item">
