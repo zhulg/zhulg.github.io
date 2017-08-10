@@ -8,17 +8,17 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>springboot里几个常用注解 | zhulg笔记</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Spring里几个常用注解区别 @RestController和Controller都在类上注解 @Controller 用于页面的跳转（return “index”）跳转到index页面去，否则返回的内容就是字符串 “index” 当类使用@Controller注解，而对应的接口方法需要返回JSON，XML或自定义mediaType内容到页面，则需要在对应的方法上加上@ResponseBody注">
+  <meta name="description" content="Spring里几个常用注解区别   注解 用途     @Controller 处理http请求   @RestController spring 4 新加注解，@RestController = @Controller + @ResponseBody   @RequestMapping 配置url映射   @PathVariable 获取url中的数据   @RequestParam 获取请求参">
 <meta name="keywords" content="springboot相关">
 <meta property="og:type" content="article">
 <meta property="og:title" content="springboot里几个常用注解">
 <meta property="og:url" content="http://yoursite.com/2017/08/04/springboot里几个常用注解/index.html">
 <meta property="og:site_name" content="zhulg笔记">
-<meta property="og:description" content="Spring里几个常用注解区别 @RestController和Controller都在类上注解 @Controller 用于页面的跳转（return “index”）跳转到index页面去，否则返回的内容就是字符串 “index” 当类使用@Controller注解，而对应的接口方法需要返回JSON，XML或自定义mediaType内容到页面，则需要在对应的方法上加上@ResponseBody注">
-<meta property="og:updated_time" content="2017-08-04T10:50:52.000Z">
+<meta property="og:description" content="Spring里几个常用注解区别   注解 用途     @Controller 处理http请求   @RestController spring 4 新加注解，@RestController = @Controller + @ResponseBody   @RequestMapping 配置url映射   @PathVariable 获取url中的数据   @RequestParam 获取请求参">
+<meta property="og:updated_time" content="2017-08-10T10:40:10.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="springboot里几个常用注解">
-<meta name="twitter:description" content="Spring里几个常用注解区别 @RestController和Controller都在类上注解 @Controller 用于页面的跳转（return “index”）跳转到index页面去，否则返回的内容就是字符串 “index” 当类使用@Controller注解，而对应的接口方法需要返回JSON，XML或自定义mediaType内容到页面，则需要在对应的方法上加上@ResponseBody注">
+<meta name="twitter:description" content="Spring里几个常用注解区别   注解 用途     @Controller 处理http请求   @RestController spring 4 新加注解，@RestController = @Controller + @ResponseBody   @RequestMapping 配置url映射   @PathVariable 获取url中的数据   @RequestParam 获取请求参">
   
     <link rel="alternative" href="/atom.xml" title="zhulg笔记" type="application/atom+xml">
   
@@ -172,7 +172,42 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="Spring里几个常用注解区别"><a href="#Spring里几个常用注解区别" class="headerlink" title="Spring里几个常用注解区别"></a>Spring里几个常用注解区别</h4><ul>
+        <h4 id="Spring里几个常用注解区别"><a href="#Spring里几个常用注解区别" class="headerlink" title="Spring里几个常用注解区别"></a>Spring里几个常用注解区别</h4><table>
+<thead>
+<tr>
+<th>注解</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>@Controller</td>
+<td>处理http请求</td>
+</tr>
+<tr>
+<td>@RestController</td>
+<td>spring 4 新加注解，@RestController = @Controller + @ResponseBody</td>
+</tr>
+<tr>
+<td>@RequestMapping</td>
+<td>配置url映射</td>
+</tr>
+<tr>
+<td>@PathVariable</td>
+<td>获取url中的数据</td>
+</tr>
+<tr>
+<td>@RequestParam</td>
+<td>获取请求参数的值</td>
+</tr>
+<tr>
+<td>@GetMapping</td>
+<td>组合注解 (  @RequestMapping(value = “/hello” , method = RequestMethod.GET) 等价于 @GegMapping(“/hello”)</td>
+</tr>
+</tbody>
+</table>
+<p>作者：渝潼不肖生<br>链接：<a href="http://www.jianshu.com/p/50d80a5db9fe" target="_blank" rel="external">http://www.jianshu.com/p/50d80a5db9fe</a><br>來源：简书<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
+<ul>
 <li>@RestController和Controller都在类上注解</li>
 <li>@Controller 用于页面的跳转（return “index”）跳转到index页面去，否则返回的内容就是字符串 “index”</li>
 <li><p>当类使用@Controller注解，而对应的接口方法需要返回JSON，XML或自定义mediaType内容到页面，则需要在对应的方法上加上@ResponseBody注解。</p>
@@ -427,11 +462,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">springboot相关</a>
+                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">redis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">springboot相关</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -440,10 +479,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">spring</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
               </li>
              
               <li class="article-tag-list-item">
