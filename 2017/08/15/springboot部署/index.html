@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>mac安装redis | zhulg笔记</title>
+  <title>springboot部署 | zhulg笔记</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Mac使用brew安装redis 下载redis 1brew install redis  启动服务 1brew services start redis  进入redis 1redis-cli  停止服务 1brew services stop redis   Redis是一个使用ANSI C编写的开源、支持网络、基于内存、可选持久性的键值对存储数据库， 是一个高性能的 key-value 数据">
-<meta name="keywords" content="redis">
+  <meta name="description" content="Springboot部署阿里云 环境准备 123451,mac下准备ssh shell2,准备云服务地址3,使用ssh shell 登录服务地址4,构建服务端运行环境5,部署springboot项目   环境安装记录： java 环境安装：采用先下载到本地，在scp到远程服务器(直接服务器上下载后无法解压成功，其下载是个html压缩包，不是真实jdk) 1scp jdk-8u144-linux-x">
+<meta name="keywords" content="springboot">
 <meta property="og:type" content="article">
-<meta property="og:title" content="mac安装redis">
-<meta property="og:url" content="http://yoursite.com/2017/07/26/mac安装redis/index.html">
+<meta property="og:title" content="springboot部署">
+<meta property="og:url" content="http://yoursite.com/2017/08/15/springboot部署/index.html">
 <meta property="og:site_name" content="zhulg笔记">
-<meta property="og:description" content="Mac使用brew安装redis 下载redis 1brew install redis  启动服务 1brew services start redis  进入redis 1redis-cli  停止服务 1brew services stop redis   Redis是一个使用ANSI C编写的开源、支持网络、基于内存、可选持久性的键值对存储数据库， 是一个高性能的 key-value 数据">
-<meta property="og:updated_time" content="2017-08-01T09:44:33.000Z">
+<meta property="og:description" content="Springboot部署阿里云 环境准备 123451,mac下准备ssh shell2,准备云服务地址3,使用ssh shell 登录服务地址4,构建服务端运行环境5,部署springboot项目   环境安装记录： java 环境安装：采用先下载到本地，在scp到远程服务器(直接服务器上下载后无法解压成功，其下载是个html压缩包，不是真实jdk) 1scp jdk-8u144-linux-x">
+<meta property="og:updated_time" content="2017-08-15T10:57:53.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="mac安装redis">
-<meta name="twitter:description" content="Mac使用brew安装redis 下载redis 1brew install redis  启动服务 1brew services start redis  进入redis 1redis-cli  停止服务 1brew services stop redis   Redis是一个使用ANSI C编写的开源、支持网络、基于内存、可选持久性的键值对存储数据库， 是一个高性能的 key-value 数据">
+<meta name="twitter:title" content="springboot部署">
+<meta name="twitter:description" content="Springboot部署阿里云 环境准备 123451,mac下准备ssh shell2,准备云服务地址3,使用ssh shell 登录服务地址4,构建服务端运行环境5,部署springboot项目   环境安装记录： java 环境安装：采用先下载到本地，在scp到远程服务器(直接服务器上下载后无法解压成功，其下载是个html压缩包，不是真实jdk) 1scp jdk-8u144-linux-x">
   
     <link rel="alternative" href="/atom.xml" title="zhulg笔记" type="application/atom+xml">
   
@@ -152,41 +152,53 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-mac安装redis" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-springboot部署" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      mac安装redis
+      springboot部署
     </h1>
   
 
         
-        <a href="/2017/07/26/mac安装redis/" class="archive-article-date">
-  	<time datetime="2017-07-26T09:52:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-26</time>
+        <a href="/2017/08/15/springboot部署/" class="archive-article-date">
+  	<time datetime="2017-08-15T10:13:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-15</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="Mac使用brew安装redis"><a href="#Mac使用brew安装redis" class="headerlink" title="Mac使用brew安装redis"></a>Mac使用brew安装redis</h3><ul>
-<li><p>下载redis<br></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew install redis</div></pre></td></tr></table></figure>
-</li>
-<li><p>启动服务<br></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew services start redis</div></pre></td></tr></table></figure>
-</li>
-<li><p>进入redis<br></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">redis-cli</div></pre></td></tr></table></figure>
-</li>
-<li><p>停止服务<br></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew services stop redis</div></pre></td></tr></table></figure>
+        <h3 id="Springboot部署阿里云"><a href="#Springboot部署阿里云" class="headerlink" title="Springboot部署阿里云"></a>Springboot部署阿里云</h3><ul>
+<li><p>环境准备<br></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">1,mac下准备ssh shell</div><div class="line">2,准备云服务地址</div><div class="line">3,使用ssh shell 登录服务地址</div><div class="line">4,构建服务端运行环境</div><div class="line">5,部署springboot项目</div></pre></td></tr></table></figure>
 </li>
 </ul>
-<p>Redis是一个使用ANSI C编写的开源、支持网络、基于内存、可选持久性的键值对存储数据库， 是一个高性能的 key-value 数据库。GitHub 地址：<a href="https://github.com/antirez/redis" target="_blank" rel="external">https://github.com/antirez/redis</a> </p>
+<h4 id="环境安装记录："><a href="#环境安装记录：" class="headerlink" title="环境安装记录："></a>环境安装记录：</h4><ul>
+<li><p>java 环境安装：采用先下载到本地，在scp到远程服务器(直接服务器上下载后无法解压成功，其下载是个html压缩包，不是真实jdk)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">scp jdk-8u144-linux-x64.tar.gz  root@120.76.xxx.xxx:/root/zhulg/jdk/jdk-8u144-linux-x64.tar.gz</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>后续输入密码</p>
+<ul>
+<li>解压</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tar -zxvf jdk-xxxxx</div></pre></td></tr></table></figure>
+<ul>
+<li>环境变量配置:系统环境变量 vi /etc/environment 添加以下内容</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">PATH=&quot;/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:$JAVA_HOME/bin&quot;</div><div class="line">export CLASSPATH=.:$JAVA_HOME/lib:$JAVA_HOME/jre/lib</div><div class="line">export JAVA_HOME=/root/jdk/jdk1.8.0_144</div></pre></td></tr></table></figure>
+<ul>
+<li>用户环境变量: vi /etc/profile 添加以下内容</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">export JAVA_HOME=/root/sdk/jdk1.8.0_141</div><div class="line">export JRE_HOME=$JAVA_HOME/jre</div><div class="line">export CLASSPATH=.:$JAVA_HOME/lib:$JRE_HOME/lib:$CLASSPATH</div><div class="line">export PATH=$JAVA_HOME/bin:$JRE_HOME/bin:$PATH</div></pre></td></tr></table></figure>
+<ul>
+<li>生效以上配置：source /etc/profile  source /etc/environment</li>
+<li>查看Java是否安装好：java -version  or java </li>
+</ul>
 
       
 
@@ -221,7 +233,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">redis</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">springboot</a>
         		</li>
       		
 		</ul>
@@ -277,7 +289,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/07/26/mac安装redis/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/08/15/springboot部署/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -291,18 +303,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/07/27/机器学习入门/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/08/16/Apache Camel/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          机器学习入门
+          Apache Camel
         
       </div>
     </a>
   
   
-    <a href="/2017/07/25/spring概念/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">spring/SpringMVC/SpringBoot/Springcloud概念</div>
+    <a href="/2017/08/10/springcloud-eureka注册中心集群/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">springcloud eureka注册中心集群</div>
       <i class="icon-circle-right"></i>
     </a>
   
