@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/09/06/nginx安装记录/index.html">
 <meta property="og:site_name" content="zhulg笔记">
 <meta property="og:description" content="Mac安装Nginx 使用brew安装nginx  1brew install nginx  启动Nginx  1brew services start nginx  版本查看  1nginx -v  关闭Nginx  1brew services stop nginx  重新加载,（修改配置后进行重新加载即可）  1nginx -s reload  相关安装文件路径(可进行更改)  123/us">
-<meta property="og:updated_time" content="2017-09-06T06:14:30.000Z">
+<meta property="og:updated_time" content="2017-09-06T07:17:26.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="nginx安装记录">
 <meta name="twitter:description" content="Mac安装Nginx 使用brew安装nginx  1brew install nginx  启动Nginx  1brew services start nginx  版本查看  1nginx -v  关闭Nginx  1brew services stop nginx  重新加载,（修改配置后进行重新加载即可）  1nginx -s reload  相关安装文件路径(可进行更改)  123/us">
@@ -196,7 +196,22 @@
 <li>相关安装文件路径(可进行更改)</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">/usr/local/etc/nginx/nginx.conf （配置文件路径）</div><div class="line">/usr/local/var/www （服务器默认路径）</div><div class="line">/usr/local/Cellar/nginx/1.12.1 （安装路径）</div></pre></td></tr></table></figure>
-
+<h3 id="Nginx-常用场景："><a href="#Nginx-常用场景：" class="headerlink" title="Nginx 常用场景："></a>Nginx 常用场景：</h3><ul>
+<li>反向代理：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">反向代理（Reverse Proxy）方式是指以代理服务器来接受internet上的连接请求，然后将请求转发给内部网络上的服务器，并将从服务器上得到的结果返回给internet上请求连接的客户端，此时代理服务器对外就表现为一个反向代理服务器。简单来说就是真实的服务器不能直接被外部网络访问，所以需要一台代理服务器，而代理服务器能被外部网络访问的同时又跟真实服务器在同一个网络环境，当然也可能是同一台服务器，端口不同而已</div></pre></td></tr></table></figure>
+<ul>
+<li>负载均衡</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">负载均衡也是Nginx常用的一个功能，负载均衡其意思就是分摊到多个操作单元上进行执行，例如Web服务器、FTP服务器、企业关键应用服务器和其它关键任务服务器等，从而共同完成工作任务。简单而言就是当有2台或以上服务器时，根据规则随机的将请求分发到指定的服务器上处理，负载均衡配置一般都需要同时配置反向代理，通过反向代理跳转到负载均衡。而Nginx目前支持自带3种负载均衡策略，还有2种常用的第三方策略</div></pre></td></tr></table></figure>
+<ul>
+<li>http服务器</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Nginx本身也是一个静态资源的服务器，当只有静态资源的时候，就可以使用Nginx来做服务器，同时现在也很流行动静分离，就可以通过Nginx来实现</div></pre></td></tr></table></figure>
+<ul>
+<li>正向代理</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">正向代理，意思是一个位于客户端和原始服务器(origin server)之间的服务器，为了从原始服务器取得内容，客户端向代理发送一个请求并指定目标(原始服务器)，然后代理向原始服务器转交请求并将获得的内容返回给客户端。客户端才能使用正向代理。当你需要把你的服务器作为代理服务器的时候，可以用Nginx来实现正向代理，但是目前Nginx有一个问题，那么就是不支持HTTPS ....</div></pre></td></tr></table></figure>
       
 
       
@@ -434,19 +449,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">springboot相关</a>
+                <a href="javascript:void(0)" class="js-tag color2">springcloud</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">springcloud</a>
+                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">springboot相关</a>
               </li>
              
               <li class="article-tag-list-item">
