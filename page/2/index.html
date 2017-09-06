@@ -149,6 +149,103 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-mongodb介绍" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/02/mongodb介绍/">mongodb介绍</a>
+    </h1>
+  
+
+        
+        <a href="/2017/08/02/mongodb介绍/" class="archive-article-date">
+  	<time datetime="2017-08-02T03:12:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-02</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="SQL-和-NoSQL-的区别"><a href="#SQL-和-NoSQL-的区别" class="headerlink" title="SQL 和 NoSQL 的区别"></a>SQL 和 NoSQL 的区别</h4><ul>
+<li>SQL (Structured Query Language) 数据库，指关系型数据库 - 主要代表：SQL Server，Oracle，MySQL(开源)，PostgreSQL(开源)。</li>
+<li>NoSQL（Not Only SQL）泛指非关系型数据库 - 主要代表：MongoDB，Redis，CouchDB。</li>
+<li>一般将NoSQL数据库分为四大类：键值(Key-Value)存储数据库、列存储数据库、文档型数据库和图形(Graph)数据库</li>
+<li>今天我们可以通过第三方平台（如：Google,Facebook等）可以很容易的访问和抓取数据。用户的个人信息，社交网络，地理位置，用户生成的数据和用户操作日志已经成倍的增加。我们如果要对这些用户数据进行挖掘，那SQL数据库已经不适合这些应用了, NoSQL数据库的发展也却能很好的处理这些大的数据</li>
+</ul>
+<h4 id="关系型与非关系型数据库"><a href="#关系型与非关系型数据库" class="headerlink" title="关系型与非关系型数据库"></a>关系型与非关系型数据库</h4><ul>
+<li><p>非关系型数据库的优势：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">性能NOSQL是基于键值对的，可以想象成表中的主键和值的对应关系，而且不需要经过SQL       层的解析，所以性能非常高。</div><div class="line">可扩展性同样也是因为基于键值对，数据之间没有耦合性，所以非常容易水平扩展。</div></pre></td></tr></table></figure>
+</li>
+<li><p>关系型数据库的优势：</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">复杂查询可以用SQL语句方便的在一个表以及多个表之间做非常复杂的数据查询。</div><div class="line">事务支持使得对于安全性能很高的数据访问要求得以实现.</div></pre></td></tr></table></figure>
+<h4 id="MongoDB是什么"><a href="#MongoDB是什么" class="headerlink" title="MongoDB是什么"></a>MongoDB是什么</h4><ul>
+<li>MongoDB 是由C++语言编写的，是一个基于分布式文件存储的开源数据库系统。<br>在高负载的情况下，添加更多的节点，可以保证服务器性能。<br>MongoDB 旨在为WEB应用提供可扩展的高性能数据存储解决方案。<br>MongoDB 将数据存储为一个文档，数据结构由键值(key=&gt;value)对组成。MongoDB 文档类似于 JSON 对象。字段值可以包含其他文档，数组及文档数组。</li>
+<li>MongoDB是一个介于关系数据库和非关系数据库之间的产品，是非关系数据库当中功能最丰富，最像关系数据库的。他支持的数据结构非常松散，是类似json的bson格式，因此可以存储比较复杂的数据类型。</li>
+</ul>
+<h4 id="Mac安装mongodb"><a href="#Mac安装mongodb" class="headerlink" title="Mac安装mongodb"></a>Mac安装mongodb</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew install mongodb</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">==&gt; Downloading https://homebrew.bintray.com/bottles/mongodb-3.4.6.sierra.bottle.tar.gz</div><div class="line">######################################################################## 100.0%</div><div class="line">==&gt; Pouring mongodb-3.4.6.sierra.bottle.tar.gz</div><div class="line">==&gt; Using the sandbox</div><div class="line">==&gt; Caveats</div><div class="line">To have launchd start mongodb now and restart at login:</div><div class="line">  brew services start mongodb</div><div class="line">Or, if you don&apos;t want/need a background service you can just run:</div><div class="line">  mongod --config /usr/local/etc/mongod.conf</div><div class="line">==&gt; Summary</div><div class="line">🍺  /usr/local/Cellar/mongodb/3.4.6: 18 files, 266.9MB \</div></pre></td></tr></table></figure>
+<ul>
+<li>按照以上安装成功提示启动</li>
+<li>连接到mongodb</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mongo</div></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">springboot相关</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/08/02/mongodb介绍/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-机器学习-K-近邻算法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -963,103 +1060,6 @@
 
 
   
-    <article id="post-twoGithubAccount" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/07/19/twoGithubAccount/">如何绑定两个github帐号</a>
-    </h1>
-  
-
-        
-        <a href="/2017/07/19/twoGithubAccount/" class="archive-article-date">
-  	<time datetime="2017-07-19T05:44:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-19</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="/images/coffee.jpg" alt=""></p>
-<p>一般情况下，一台电脑上有自己的一个github账号，有时你可能会要跟公司和个人的账号分开来进行使用。此时，需要在一台电脑上操作2个github账号进行项目管理。你不能有多个账号添加了同一个公钥，否则你可能会遇到这样类似错误“ERROR: Permission to XXX.git denied to user”。要解决github账号分别对应公钥，需要在创建一个。（假设你已经在用一个自己的github账号绑定了自己的ssh公钥）</p>
-<h2 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h2><ul>
-<li>进入到.ssh目录下查看已有的秘钥</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ cd ~/.ssh </div><div class="line">$ ls</div></pre></td></tr></table></figure>
-<p>如果已经存在id_rsa ,id_rsa.pub等，你需要为你新的github账号创建新的ssh公钥。</p>
-<ul>
-<li>生成新的key,需要注意的his，之前你创建可能还是一路回车，此刻需要你输入新的名字，比如id_rsa_second,让后回车。否则会自动覆盖你之前的sshkey.创建完后需要把你新的sshkey 拷贝到新的github账号下。</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ssh-keygen -t rsa -C &quot;your_email@example.com&quot;</div><div class="line">Generating public/private rsa key pair.</div><div class="line">Enter file in which to save the key (/Users/zhulianggang/.ssh/id_rsa):</div></pre></td></tr></table></figure>
-<ul>
-<li>配置config,没有的话需要创建个,在.ssh路径下</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">#default github</div><div class="line">Host github.com</div><div class="line">HostName github.com</div><div class="line">IdentityFile ~/.ssh/id_rsa</div><div class="line"></div><div class="line">#新的账号，注意github_second</div><div class="line">Host github_second</div><div class="line">HostName github.com</div><div class="line">IdentityFile ~/.ssh/id_rsa_second</div></pre></td></tr></table></figure>
-<ul>
-<li>取消全局用名配置，如果之前你有设置全局github用名,为你使用的工程里重新设置对应的用名名</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">取消global</div><div class="line">git config --global --unset user.name</div><div class="line">git config --global --unset user.email</div><div class="line">每一个工程设置用户名</div><div class="line">git config  user.email &quot;xxxx@xx.com&quot;</div><div class="line">git config  user.name “xxxx”</div></pre></td></tr></table></figure>
-<ul>
-<li>新的github账号使用别名pull/push</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git clone git@github_second:username/reponame</div></pre></td></tr></table></figure>
-<h2 id="检测"><a href="#检测" class="headerlink" title="检测"></a>检测</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$ssh -T git@github.com</div><div class="line">Hi xxxx! You&apos;ve successfully authenticated, but GitHub does not provide shell access.</div><div class="line"></div><div class="line">ssh -T git@github_second.github.com</div><div class="line">Hi xxx! You&apos;ve successfully authenticated, but GitHub does not provide shell access.</div><div class="line"></div><div class="line">说明已经可以成功使用，注意新账号使用别名（github_second）即可。</div></pre></td></tr></table></figure>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">git/github/gitlab</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/07/19/twoGithubAccount/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
@@ -1157,15 +1157,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">分布式/集群</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">springboot</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">springboot相关</a>
+                <a href="javascript:void(0)" class="js-tag color2">分布式/集群</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1177,7 +1173,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">spring相关</a>
+                <a href="javascript:void(0)" class="js-tag color3">springboot相关</a>
               </li>
              
               <li class="article-tag-list-item">
