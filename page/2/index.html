@@ -899,8 +899,13 @@
 <li><p>停止服务<br></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew services stop redis</div></pre></td></tr></table></figure>
 </li>
+<li><p>常用配置含义</p>
+</li>
 </ul>
-<p>Redis是一个使用ANSI C编写的开源、支持网络、基于内存、可选持久性的键值对存储数据库， 是一个高性能的 key-value 数据库。GitHub 地址：<a href="https://github.com/antirez/redis" target="_blank" rel="external">https://github.com/antirez/redis</a> </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"># REDIS (RedisProperties)</div><div class="line"># Redis数据库索引（默认为0）</div><div class="line">spring.redis.database=0</div><div class="line"># Redis服务器地址</div><div class="line">spring.redis.host=localhost</div><div class="line"># Redis服务器连接端口</div><div class="line">spring.redis.port=6379</div><div class="line"># Redis服务器连接密码（默认为空）</div><div class="line">spring.redis.password=</div><div class="line"># 连接池最大连接数（使用负值表示没有限制）</div><div class="line">spring.redis.pool.max-active=8</div><div class="line"># 连接池最大阻塞等待时间（使用负值表示没有限制）</div><div class="line">spring.redis.pool.max-wait=-1</div><div class="line"># 连接池中的最大空闲连接</div><div class="line">spring.redis.pool.max-idle=8</div><div class="line"># 连接池中的最小空闲连接</div><div class="line">spring.redis.pool.min-idle=0</div><div class="line"># 连接超时时间（毫秒）</div><div class="line">spring.redis.timeout=0</div></pre></td></tr></table></figure>
+<ul>
+<li>Redis是一个使用ANSI C编写的开源、支持网络、基于内存、可选持久性的键值对存储数据库， 是一个高性能的 key-value 数据库。GitHub 地址：<a href="https://github.com/antirez/redis" target="_blank" rel="external">https://github.com/antirez/redis</a> </li>
+</ul>
 
       
 
@@ -1151,11 +1156,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redis</a>
+                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
               </li>
              
               <li class="article-tag-list-item">
