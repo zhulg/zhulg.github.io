@@ -149,6 +149,117 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-mac-Elasticsearch" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/09/13/mac-Elasticsearch/">mac Elasticsearch</a>
+    </h1>
+  
+
+        
+        <a href="/2017/09/13/mac-Elasticsearch/" class="archive-article-date">
+  	<time datetime="2017-09-13T02:53:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="1-Mac安装Elasticsearch"><a href="#1-Mac安装Elasticsearch" class="headerlink" title="1,Mac安装Elasticsearch"></a>1,Mac安装Elasticsearch</h3><ul>
+<li>Elasticsearch 是一个基于 Apache Lucene(TM) 的开源搜索引擎。被认为是迄今为止最先进、性能最好的、功能最全的搜索引擎库。并通过简单的 RESTful API 来隐藏 Lucene 的复杂性，从而让全文搜索变得简单。</li>
+<li>mac 安装</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew install elasticsearch</div></pre></td></tr></table></figure>
+<ul>
+<li>安装结果</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">==&gt; Downloading https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.6.0.tar.gz</div><div class="line">######################################################################## 100.0%</div><div class="line">==&gt; Caveats</div><div class="line">Data:    /usr/local/var/elasticsearch/elasticsearch_zhulianggang/</div><div class="line">Logs:    /usr/local/var/log/elasticsearch/elasticsearch_zhulianggang.log</div><div class="line">Plugins: /usr/local/opt/elasticsearch/libexec/plugins/</div><div class="line">Config:  /usr/local/etc/elasticsearch/</div><div class="line">plugin script: /usr/local/opt/elasticsearch/libexec/bin/elasticsearch-plugin</div><div class="line"></div><div class="line">To have launchd start elasticsearch now and restart at login:</div><div class="line">  brew services start elasticsearch</div><div class="line">Or, if you don&apos;t want/need a background service you can just run:</div><div class="line">  elasticsearch</div><div class="line">==&gt; Summary</div><div class="line">🍺  /usr/local/Cellar/elasticsearch/5.6.0: 104 files, 35.9MB, built in 15 minutes 21 seconds</div></pre></td></tr></table></figure>
+<ul>
+<li><p>安装信息查询</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew info elasticsearch</div></pre></td></tr></table></figure>
+</li>
+<li><p>启动（不想后台运行的话）</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">elasticsearch</div></pre></td></tr></table></figure>
+<ul>
+<li>查看 <a href="http://127.0.0.1:9200/" target="_blank" rel="external">http://127.0.0.1:9200/</a></li>
+</ul>
+<h3 id="2-安装可视化插件-elasticsearch-head"><a href="#2-安装可视化插件-elasticsearch-head" class="headerlink" title="2,安装可视化插件 elasticsearch-head"></a>2,安装可视化插件 elasticsearch-head</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">git clone git://github.com/mobz/elasticsearch-head.git</div><div class="line">cd elasticsearch-head</div><div class="line">npm install</div><div class="line">npm run start</div></pre></td></tr></table></figure>
+<ul>
+<li>其中 npm install 可能失败。失败执行 npm install grunt –save-dev</li>
+<li>访问 <a href="http://localhost:9100/" target="_blank" rel="external">http://localhost:9100/</a>  查看可视化 Elasticsearch。</li>
+<li><strong>下次启动可以直接npm run start</strong></li>
+</ul>
+<h3 id="3-修改配置文件（为了允许-elasticsearch-head-运行时的跨域）"><a href="#3-修改配置文件（为了允许-elasticsearch-head-运行时的跨域）" class="headerlink" title="3,修改配置文件（为了允许 elasticsearch-head 运行时的跨域）"></a>3,修改配置文件（为了允许 elasticsearch-head 运行时的跨域）</h3><ul>
+<li><p>Elasticsearch 配置文件，即 config/elasticsearch.yml。这里我们需要在配置中增加以下配置，为了允许 elasticsearch-head 运行时的跨域：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"> # allow origin</div><div class="line">http.cors.enabled: true</div><div class="line">http.cors.allow-origin: &quot;*&quot;</div></pre></td></tr></table></figure>
+</li>
+<li><p>运行一般在后台起守护线程启动 Elasticsearch，在命令行加入 -d 指定。自然，也可以加入 -p ，可将进程 ID 记录到文件中。<strong>cd 到/usr/local目录</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./bin/elasticsearch -d</div></pre></td></tr></table></figure>
+</li>
+<li><p>访问 <a href="http://localhost:9200/" target="_blank" rel="external">http://localhost:9200/</a></p>
+</li>
+<li><p>要关闭 Elasticsearch 进程，需要通过 ps 找到对应的 pid，在 kill pid 即可。</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ps aux |grep elasticsearch</div><div class="line">kill -7 pid</div></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">springcloud</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/09/13/mac-Elasticsearch/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-springcloud-网关服务记录" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1009,125 +1120,6 @@
 
 
   
-    <article id="post-springboot里几个常用注解" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/04/springboot里几个常用注解/">springboot里几个常用注解</a>
-    </h1>
-  
-
-        
-        <a href="/2017/08/04/springboot里几个常用注解/" class="archive-article-date">
-  	<time datetime="2017-08-04T10:23:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-04</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="Spring里几个常用注解区别"><a href="#Spring里几个常用注解区别" class="headerlink" title="Spring里几个常用注解区别"></a>Spring里几个常用注解区别</h4><table>
-<thead>
-<tr>
-<th>注解</th>
-<th>用途</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>@Controller</td>
-<td>处理http请求</td>
-</tr>
-<tr>
-<td>@RestController</td>
-<td>spring 4 新加注解，@RestController = @Controller + @ResponseBody</td>
-</tr>
-<tr>
-<td>@RequestMapping</td>
-<td>配置url映射</td>
-</tr>
-<tr>
-<td>@PathVariable</td>
-<td>获取url中的数据</td>
-</tr>
-<tr>
-<td>@RequestParam</td>
-<td>获取请求参数的值</td>
-</tr>
-<tr>
-<td>@GetMapping</td>
-<td>组合注解 (  @RequestMapping(value = “/hello” , method = RequestMethod.GET) 等价于 @GegMapping(“/hello”)</td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li>@RestController和Controller都在类上注解</li>
-<li>@Controller 用于页面的跳转（return “index”）跳转到index页面去，否则返回的内容就是字符串 “index”</li>
-<li><p>当类使用@Controller注解，而对应的接口方法需要返回JSON，XML或自定义mediaType内容到页面，则需要在对应的方法上加上@ResponseBody注解。</p>
-</li>
-<li><p>以下代码不跳转</p>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">@RestController</div><div class="line">public class HelloController &#123;</div><div class="line">    </div><div class="line">    @RequestMapping(&quot;/hello&quot;)</div><div class="line">    public String hello() &#123;</div><div class="line">        return &quot;Hello World&quot;;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<ul>
-<li>以下代码进行跳转</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">@Controller</div><div class="line">public class HelloController &#123;</div><div class="line">    </div><div class="line">    //当使用@Controller，想要返回内容。则添加@ResponseBody</div><div class="line">    @ResponseBody</div><div class="line">    @RequestMapping(&quot;/hello&quot;)</div><div class="line">    public String hello() &#123;</div><div class="line">        return &quot;Hello World&quot;;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @RequestMapping(&quot;/&quot;)</div><div class="line">    public String index(ModelMap map) &#123;</div><div class="line">        map.addAttribute(&quot;host&quot;, &quot;hello jason&quot;);</div><div class="line">        return &quot;index&quot;;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">springboot相关</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/04/springboot里几个常用注解/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1233,7 +1225,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redis</a>
+                <a href="javascript:void(0)" class="js-tag color2">springcloud</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1241,11 +1233,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">springboot相关</a>
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">springcloud</a>
+                <a href="javascript:void(0)" class="js-tag color3">springboot相关</a>
               </li>
              
               <li class="article-tag-list-item">
