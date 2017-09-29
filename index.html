@@ -149,6 +149,89 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-springcloud架构和技术点" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/09/29/springcloud架构和技术点/">springcloud架构和技术点</a>
+    </h1>
+  
+
+        
+        <a href="/2017/09/29/springcloud架构和技术点/" class="archive-article-date">
+  	<time datetime="2017-09-29T08:57:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-29</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="SpringCloud架构图"><a href="#SpringCloud架构图" class="headerlink" title="SpringCloud架构图"></a>SpringCloud架构图</h3><p><img src="https://github.com/zhulg/allpic/blob/master/spring-cloud-architecture.png?raw=true" alt=""></p>
+<ul>
+<li>外部或者内部的非Spring Cloud项目都统一通过API网关（Zuul）来访问内部服务.</li>
+<li>网关接收到请求后，从注册中心（Eureka）获取可用服务</li>
+<li>由Ribbon进行均衡负载后，分发到后端的具体实例</li>
+<li>微服务之间通过Feign进行通信处理业务</li>
+<li>Hystrix负责处理服务超时熔断</li>
+<li>Turbine监控服务间的调用和熔断相关指标</li>
+</ul>
+<h3 id="SpringCloud相关技术点"><a href="#SpringCloud相关技术点" class="headerlink" title="SpringCloud相关技术点"></a>SpringCloud相关技术点</h3><p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/SpringCloudTechs.png" alt=""></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">springcloud</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/09/29/springcloud架构和技术点/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-redis常用场景" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1032,91 +1115,6 @@
 
 
   
-    <article id="post-springcloud-Eureka" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/08/springcloud-Eureka/">springcloud Eureka</a>
-    </h1>
-  
-
-        
-        <a href="/2017/08/08/springcloud-Eureka/" class="archive-article-date">
-  	<time datetime="2017-08-08T03:08:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-08</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="关于Eureka"><a href="#关于Eureka" class="headerlink" title="关于Eureka"></a>关于Eureka</h3><ul>
-<li>Eureka，是 Spring Cloud Eureka 的简称，是 Spring Cloud Netflix 组件之一。Spring Cloud Netflix 中核心的组件包括了服务治理（Eureka），服务容断（Hystrix），路由（Zuul）和客户端负载均衡（Ribbon）等</li>
-<li>它提供了完整的Service Registry和Service Discovery实现。也是springcloud体系中最重要最核心的组件之一。</li>
-<li>Eureka由两个组件组成：Eureka服务器和Eureka客户端。Eureka服务器用作服务注册服务器。Eureka客户端是一个java客户端，用来简化与服务器的交互、作为轮询负载均衡器，并提供服务的故障切换支持。Netflix在其生产环境中使用的是另外的客户端，它提供基于流量、资源利用率以及出错状态的加权负载均衡。</li>
-<li>Eureka 架构图</li>
-</ul>
-<p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/eureka-architecture.png" alt="eureka架构图"></p>
-<ul>
-<li>Eureka Server：提供服务注册和发现</li>
-<li>Service Provider：服务提供方，将自身服务注册到Eureka，从而使服务消费方能够找到</li>
-<li>Service Consumer：服务消费方，从Eureka获取注册服务列表，从而能够消费服务</li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">springcloud</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/08/springcloud-Eureka/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1214,11 +1212,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">springboot</a>
+                <a href="javascript:void(0)" class="js-tag color2">springcloud</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
+                <a href="javascript:void(0)" class="js-tag color1">springboot</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1226,7 +1224,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">springcloud</a>
+                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
               </li>
              
               <li class="article-tag-list-item">
