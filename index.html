@@ -149,6 +149,120 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-springcloud-Gateway记录" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/10/17/springcloud-Gateway记录/">springcloud-Gateway记录</a>
+    </h1>
+  
+
+        
+        <a href="/2017/10/17/springcloud-Gateway记录/" class="archive-article-date">
+  	<time datetime="2017-10-17T03:17:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-17</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="SpringCloud-Gateway相关点"><a href="#SpringCloud-Gateway相关点" class="headerlink" title="SpringCloud Gateway相关点"></a>SpringCloud Gateway相关点</h3><ul>
+<li>在微服务架构中，后端服务往往不直接开放给调用端，而是通过一个API网关根据请求的url，路由到相应的服务。</li>
+<li>当添加API网关后，在第三方调用端和服务提供方之间就创建了一面墙，这面墙直接与调用方通信进行权限控制，后将请求均衡分发给后台服务端。</li>
+</ul>
+<h4 id="Spring-Cloud-Zuul"><a href="#Spring-Cloud-Zuul" class="headerlink" title="Spring Cloud Zuul"></a>Spring Cloud Zuul</h4><ul>
+<li>springcloud zull 路由是微服务架构的不可或缺的一部分，提供动态路由，监控，弹性，安全等的边缘服务。Zuul是Netflix出品的一个基于JVM路由和服务端的负载均衡器。</li>
+</ul>
+<h3 id="使用方式"><a href="#使用方式" class="headerlink" title="使用方式"></a>使用方式</h3><h4 id="1，简单使用"><a href="#1，简单使用" class="headerlink" title="1，简单使用"></a>1，简单使用</h4><ul>
+<li><p><strong>单实例配置：通过一组zuul.routes.\<route>.path与zuul.routes.\<route>.url参数对的方式配置，\<route>是相关的服务名：比如:</route></route></route></strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">#这里的配置表示，访问/user/** 直接重定向到http://xxxx/**</div><div class="line">zuul.routes.user-service.path=/user-service/**</div><div class="line">zuul.routes.user-service.url=http://localhost:8080/</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>####2，服务化方式，通过对于的服务名称</p>
+<ul>
+<li>通过一组zuul.routes.\<route>.path与zuul.routes.\<route>.serviceId参数对的方式配置</route></route></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">zuul.routes.user-service.path=/user-service/**</div><div class="line">zuul.routes.user-service.serviceId=user-service</div></pre></td></tr></table></figure>
+<p>####3，简洁的配置方式</p>
+<p><strong>zuul.routes.\<serviceid>=\<path></path>，其中<serviceid>用来指定路由的具体服务名，<path></path>用来配置匹配的请求表达式。比如下面的例子，它的路由规则等价于上面通过path与serviceId组合使用的配置方式</serviceid></serviceid></strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">zuul.routes.user-service=/user-service/**</div></pre></td></tr></table></figure>
+<h4 id="4-默认的配置，网关的默认路由规则"><a href="#4-默认的配置，网关的默认路由规则" class="headerlink" title="4,默认的配置，网关的默认路由规则"></a>4,默认的配置，网关的默认路由规则</h4><ul>
+<li><p>如果后端服务多达十几个的时候，每一个都这样配置也挺麻烦的，spring cloud zuul已经帮我们做了默认配置。默认情况下，Zuul会代理所有注册到Eureka Server的微服务，并且Zuul的路由规则如下：<a href="http://ZUUL_HOST:ZUUL_PORT/微服务在Eureka上的serviceId/**会被转发到serviceId对应的微服务。" target="_blank" rel="external">http://ZUUL_HOST:ZUUL_PORT/微服务在Eureka上的serviceId/**会被转发到serviceId对应的微服务。</a></p>
+</li>
+<li><p>在Spring Cloud Netflix中，Zuul巧妙的整合了Eureka来实现面向服务的路由。实际上，我们可以直接将API网关也看做是Eureka服务治理下的一个普通微服务应用。它除了会将自己注册到Eureka服务注册中心上之外，也会从注册中心获取所有服务以及它们的实例清单。所以，在Eureka的帮助下，API网关服务本身就已经维护了系统中所有serviceId与实例地址的映射关系。当有外部请求到达API网关的时候，根据请求的URL路径找到最佳匹配的path规则，API网关就可以知道要将该请求路由到哪个具体的serviceId上去。由于在API网关中已经知道serviceId对应服务实例的地址清单，那么只需要通过Ribbon的负载均衡策略，直接在这些清单中选择一个具体的实例进行转发就能完成路由工作了。</p>
+</li>
+</ul>
+<h3 id="Zuul的更常用方式："><a href="#Zuul的更常用方式：" class="headerlink" title="Zuul的更常用方式："></a>Zuul的更常用方式：</h3><p>我们对于Zuul的第一印象通常是这样的：它包含了对请求的路由和过滤两个功能，其中路由功能负责将外部请求转发到具体的微服务实例上，是实现外部访问统一入口的基础；而过滤器功能则负责对请求的处理过程进行干预，是实现请求校验、服务聚合等功能的基础。然而实际上，路由功能在真正运行时，它的路由映射和请求转发都是由几个不同的过滤器完成的。其中，路由映射主要通过pre类型的过滤器完成，它将请求路径与配置的路由规则进行匹配，以找到需要转发的目标地址；而请求转发的部分则是由route类型的过滤器来完成，对pre类型过滤器获得的路由地址进行转发。所以，过滤器可以说是Zuul实现API网关功能最为核心的部件，每一个进入Zuul的HTTP请求都会经过一系列的过滤器处理链得到请求响应并返回给客户端。</p>
+<h4 id="过滤器的使用"><a href="#过滤器的使用" class="headerlink" title="过滤器的使用"></a>过滤器的使用</h4><ul>
+<li>在Spring Cloud Zuul中实现的过滤器必须包含4个基本特征：过滤类型、执行顺序、执行条件、具体操作。这些元素看着似乎非常的熟悉，实际上它就是ZuulFilter接口中定义的四个抽象方法</li>
+<li>实现方式：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">1,过滤类实现ZuulFilter接口</div><div class="line">2，实现主要的4个方法</div><div class="line"> @Override</div><div class="line">    public String filterType() &#123;</div><div class="line">    &#125;</div><div class="line">    @Override</div><div class="line">    public int filterOrder() &#123;</div><div class="line">    &#125;</div><div class="line">    @Override</div><div class="line">    public boolean shouldFilter() &#123;</div><div class="line">    &#125;</div><div class="line">    @Override</div><div class="line">    public Object run() &#123;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>filterType：该函数需要返回一个字符串来代表过滤器的类型，而这个类型就是在HTTP请求过程中定义的各个阶段。在Zuul中默认定义了四种不同生命周期的过滤器类型，具体如下：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">pre：可以在请求被路由之前调用。</div><div class="line">routing：在路由请求时候被调用。</div><div class="line">post：在routing和error过滤器之后被调用。</div><div class="line">error：处理请求时发生错误时被调用。</div></pre></td></tr></table></figure>
+<ul>
+<li>filterOrder：通过int值来定义过滤器的执行顺序，数值越小优先级越高。</li>
+<li>shouldFilter：返回一个boolean类型来判断该过滤器是否要执行。我们可以通过此方法来指定过滤器的有效范围。</li>
+<li>run：过滤器的具体逻辑。在该函数中，我们可以实现自定义的过滤逻辑，来确定是否要拦截当前的请求，不对其进行后续的路由，或是在请求路由返回结果之后，对处理结果做一些加工等。</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">springcloud</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/10/17/springcloud-Gateway记录/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-springcloud-Hystrix记录" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -224,6 +338,23 @@
 <li>曲线：用来记录2分钟内流量的相对变化，我们可以通过它来观察到流量的上升和下降趋势。</li>
 </ul>
 <p><img src="http://blog.didispace.com/content/images/posts/spring-cloud-starter-dalston-5-1-4.png" alt=""></p>
+<p>###Turbine</p>
+<ul>
+<li>在复杂的分布式系统中，相同服务的节点经常需要部署上百甚至上千个，很多时候，运维人员希望能够把相同服务的节点状态以一个整体集群的形式展现出来，这样可以更好的把握整个系统的状态。 为此，Netflix提供了一个开源项目（Turbine）来提供把多个hystrix.stream的内容聚合为一个数据源供Dashboard展示。</li>
+</ul>
+<ul>
+<li>配置文件</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">spring.application.name=hystrix-dashboard-turbine</div><div class="line">server.port=8001</div><div class="line">turbine.appConfig=node01,node02</div><div class="line">turbine.aggregator.clusterConfig= default</div><div class="line">turbine.clusterNameExpression= new String(&quot;default&quot;)</div></pre></td></tr></table></figure>
+<ul>
+<li>eureka.client.serviceUrl.defaultZone=<a href="http://localhost:8000/eureka/" target="_blank" rel="external">http://localhost:8000/eureka/</a></li>
+<li>turbine.appConfig ：配置Eureka中的serviceId列表，表明监控哪些服务<br>turbine.aggregator.clusterConfig ：指定聚合哪些集群，多个使用”,”分割，默认为default。可使用<a href="http://.../turbine.stream?cluster={clusterConfig之一}访问" target="_blank" rel="external">http://.../turbine.stream?cluster={clusterConfig之一}访问</a><br>turbine.clusterNameExpression ：<ol>
+<li>clusterNameExpression指定集群名称，默认表达式appName；此时：turbine.aggregator.clusterConfig需要配置想要监控的应用名称；</li>
+<li>当clusterNameExpression: default时，turbine.aggregator.clusterConfig可以不写，因为默认就是default；</li>
+<li>当clusterNameExpression: metadata[‘cluster’]时，假设想要监控的应用配置了eureka.instance.metadata-map.cluster: ABC，则需要配置，同时turbine.aggregator.clusterConfig: ABC</li>
+</ol>
+</li>
+</ul>
 
       
 
@@ -1018,123 +1149,6 @@
 
 
   
-    <article id="post-springboot部署" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/15/springboot部署/">springboot部署</a>
-    </h1>
-  
-
-        
-        <a href="/2017/08/15/springboot部署/" class="archive-article-date">
-  	<time datetime="2017-08-15T10:13:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="Springboot部署阿里云"><a href="#Springboot部署阿里云" class="headerlink" title="Springboot部署阿里云"></a>Springboot部署阿里云</h3><ul>
-<li><p>环境准备<br></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">1,mac下准备ssh shell</div><div class="line">2,准备云服务地址</div><div class="line">3,使用ssh shell 登录服务地址</div><div class="line">4,构建服务端运行环境</div><div class="line">5,部署springboot项目</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h4 id="环境安装记录："><a href="#环境安装记录：" class="headerlink" title="环境安装记录："></a>环境安装记录：</h4><ul>
-<li><p>java 环境安装：采用先下载到本地，在scp到远程服务器(直接服务器上下载后无法解压成功，其下载是个html压缩包，不是真实jdk)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">scp jdk-8u144-linux-x64.tar.gz  root@120.76.xxx.xxx:/root/zhulg/jdk/jdk-8u144-linux-x64.tar.gz</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>后续输入密码</p>
-<ul>
-<li>解压</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tar -zxvf jdk-xxxxx</div></pre></td></tr></table></figure>
-<ul>
-<li>环境变量配置:系统环境变量 vi /etc/environment 添加以下内容</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">PATH=&quot;/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:$JAVA_HOME/bin&quot;</div><div class="line">export CLASSPATH=.:$JAVA_HOME/lib:$JAVA_HOME/jre/lib</div><div class="line">export JAVA_HOME=/root/jdk/jdk1.8.0_144</div></pre></td></tr></table></figure>
-<ul>
-<li>用户环境变量: vi /etc/profile 添加以下内容</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">export JAVA_HOME=/root/sdk/jdk1.8.0_141</div><div class="line">export JRE_HOME=$JAVA_HOME/jre</div><div class="line">export CLASSPATH=.:$JAVA_HOME/lib:$JRE_HOME/lib:$CLASSPATH</div><div class="line">export PATH=$JAVA_HOME/bin:$JRE_HOME/bin:$PATH</div></pre></td></tr></table></figure>
-<ul>
-<li>生效以上配置：source /etc/profile  source /etc/environment</li>
-<li>查看Java是否安装好：java -version  or java </li>
-<li>可以安装其他需要的环境</li>
-</ul>
-<h3 id="springboot-demo部署"><a href="#springboot-demo部署" class="headerlink" title="springboot demo部署"></a>springboot demo部署</h3><ul>
-<li>使用sftp放到服务器</li>
-</ul>
-<p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/springboot_d.png" alt=""></p>
-<ul>
-<li><p>java -jar xxx.jar 启动springboot </p>
-</li>
-<li><p>要保证关闭shell应用在后台一直能运行</p>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">1,vim start.sh 添加 java -jar xxx,jar</div><div class="line">2,chmod 777 start.sh</div><div class="line">3,nohup ./start.sh</div></pre></td></tr></table></figure>
-<ul>
-<li>查看和关闭应用</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">查看其对应的进程号 </div><div class="line">netstat -anp | grep 80</div><div class="line"></div><div class="line">关闭sid的端口，即关闭应用</div><div class="line">kill sid</div></pre></td></tr></table></figure>
-<p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/springboot_close.png" alt=""></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">springboot</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/15/springboot部署/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1232,11 +1246,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">springboot</a>
+                <a href="javascript:void(0)" class="js-tag color2">分布式/集群</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">分布式/集群</a>
+                <a href="javascript:void(0)" class="js-tag color1">springboot</a>
               </li>
              
               <li class="article-tag-list-item">

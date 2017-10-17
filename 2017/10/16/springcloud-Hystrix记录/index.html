@@ -18,7 +18,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/zhulg/allpic/master/hystrix_dashboard.png">
 <meta property="og:image" content="http://blog.didispace.com/content/images/posts/spring-cloud-starter-dalston-5-1-3.png">
 <meta property="og:image" content="http://blog.didispace.com/content/images/posts/spring-cloud-starter-dalston-5-1-4.png">
-<meta property="og:updated_time" content="2017-10-16T13:11:56.000Z">
+<meta property="og:updated_time" content="2017-10-17T02:09:23.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="springcloud Hystrix记录点">
 <meta name="twitter:description" content="SpringCloud-Hystrix记录点 背景  1雪崩效应:在微服务架构中通常会有多个服务层调用，基础服务的故障可能会导致级联故障，进而造成整个系统不可用的情况，这种现象被称为服务雪崩效应。服务雪崩效应是一种因“服务提供者”的不可用导致“服务消费者”的不可用,并将不可用逐渐放大的过程 Hystrix特性1.断路器机制 断路器很好理解, 当Hystrix Command请求后端服务失败数量超过">
@@ -231,6 +231,23 @@
 <li>曲线：用来记录2分钟内流量的相对变化，我们可以通过它来观察到流量的上升和下降趋势。</li>
 </ul>
 <p><img src="http://blog.didispace.com/content/images/posts/spring-cloud-starter-dalston-5-1-4.png" alt=""></p>
+<p>###Turbine</p>
+<ul>
+<li>在复杂的分布式系统中，相同服务的节点经常需要部署上百甚至上千个，很多时候，运维人员希望能够把相同服务的节点状态以一个整体集群的形式展现出来，这样可以更好的把握整个系统的状态。 为此，Netflix提供了一个开源项目（Turbine）来提供把多个hystrix.stream的内容聚合为一个数据源供Dashboard展示。</li>
+</ul>
+<ul>
+<li>配置文件</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">spring.application.name=hystrix-dashboard-turbine</div><div class="line">server.port=8001</div><div class="line">turbine.appConfig=node01,node02</div><div class="line">turbine.aggregator.clusterConfig= default</div><div class="line">turbine.clusterNameExpression= new String(&quot;default&quot;)</div></pre></td></tr></table></figure>
+<ul>
+<li>eureka.client.serviceUrl.defaultZone=<a href="http://localhost:8000/eureka/" target="_blank" rel="external">http://localhost:8000/eureka/</a></li>
+<li>turbine.appConfig ：配置Eureka中的serviceId列表，表明监控哪些服务<br>turbine.aggregator.clusterConfig ：指定聚合哪些集群，多个使用”,”分割，默认为default。可使用<a href="http://.../turbine.stream?cluster={clusterConfig之一}访问" target="_blank" rel="external">http://.../turbine.stream?cluster={clusterConfig之一}访问</a><br>turbine.clusterNameExpression ：<ol>
+<li>clusterNameExpression指定集群名称，默认表达式appName；此时：turbine.aggregator.clusterConfig需要配置想要监控的应用名称；</li>
+<li>当clusterNameExpression: default时，turbine.aggregator.clusterConfig可以不写，因为默认就是default；</li>
+<li>当clusterNameExpression: metadata[‘cluster’]时，假设想要监控的应用配置了eureka.instance.metadata-map.cluster: ABC，则需要配置，同时turbine.aggregator.clusterConfig: ABC</li>
+</ol>
+</li>
+</ul>
 
       
 
@@ -334,6 +351,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2017/10/17/springcloud-Gateway记录/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          springcloud-Gateway记录
+        
+      </div>
+    </a>
   
   
     <a href="/2017/09/30/nginx配置文件/" id="article-nav-older" class="article-nav-link-wrap">
@@ -461,11 +487,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">springboot</a>
+                <a href="javascript:void(0)" class="js-tag color2">分布式/集群</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">分布式/集群</a>
+                <a href="javascript:void(0)" class="js-tag color1">springboot</a>
               </li>
              
               <li class="article-tag-list-item">
