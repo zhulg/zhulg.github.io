@@ -149,6 +149,323 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-docker知识点记录" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/10/21/docker知识点记录/">docker知识点记录</a>
+    </h1>
+  
+
+        
+        <a href="/2017/10/21/docker知识点记录/" class="archive-article-date">
+  	<time datetime="2017-10-21T02:37:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-21</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="Docker概念点"><a href="#Docker概念点" class="headerlink" title="Docker概念点"></a>Docker概念点</h3><ul>
+<li><strong>镜像（Image）</strong><br><br>可以认为：镜像 = 操作系统 + 运行环境 + 应用程序。譬如，我们可以将 Centos7 操作系统、JVM 和 Java 应用程序做成一个镜像。我们交付的软件不再是 zip 包或者 war 包，而是镜像。Docker 镜像技术实现了应用程序运行环境与主机环境的无关性。</li>
+<li><strong>容器（Container）</strong><br><br>容器是镜像的运行态。通过 docker run 命令即可快速的基于镜像创建一个或多个容器。<ul>
+<li><strong>镜像仓库（Registry）</strong><br><br>在项目或者产品的不断迭代过程中，应用的各版本镜像存储在镜像仓库中，类似于代码仓库 for source code 或 Maven 仓库 for Jar file。</li>
+</ul>
+</li>
+</ul>
+<h3 id="Docker理念和使用"><a href="#Docker理念和使用" class="headerlink" title="Docker理念和使用"></a>Docker理念和使用</h3><ul>
+<li>Docker 的理念为“Build, Ship and Run Any App, Anywhere”，通过容器和镜像的特性让 DevOps 变得容易，但 Docker 的前景，更在于支持分布式、服务化设计，实现一系列可独立开发、独立部署和独立扩展的服务组合，以保证业务的灵活性和稳定性。</li>
+<li>当前 AWS、微软、阿里云、IBM、Redhat、VMware、华为、Intel 等各大公有云和私有云提供商都不约而同地大力投资 Docker，实际上就是认可了这样的趋势。</li>
+<li>利用 Docker 搭建微服务架构，就需要了解一些必需的 Docker 知识，比如镜像构建、容器创建、容器编排、集群管理、文件存储、容器网络、容器监控、容器日志。</li>
+<li><strong>拿一个包含 ABC 组件的微服务系统为例，我们会利用持续集成工具（例如 Jenkins）创建镜像，并将镜像推送到镜像仓库中（例如 Docker Registry，Harbor），再利用编排工具（例如 Docker Compose）创建并启动容器</strong>.</li>
+<li>容器启动后，ABC 组件就会随着容器一起启动，这时就需要考虑 ABC 组件的数据文件如何持久化存储，分布在不同主机上的组件如何网络通信（Docker 容器默认不能跨主机通信），容器资源使用情况如何监控，容器日志如何查看</li>
+</ul>
+<h3 id="Docker安装"><a href="#Docker安装" class="headerlink" title="Docker安装"></a>Docker安装</h3><ul>
+<li>使用 Homebrew 安装，Homebrew 的 Cask 已经支持 Docker for Mac，因此可以很方便的使用 Homebrew Cask 来进行安装：<br>brew cask install docker</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">安装后查看：</div><div class="line">docker --version</div><div class="line">Docker version 1.13.0, build 49bf474</div><div class="line">docker-compose --version</div><div class="line">docker-compose version 1.10.0, build 4bd6f1a</div><div class="line">docker-machine --version</div><div class="line">docker-machine version 0.9.0, build 15fd4c7</div></pre></td></tr></table></figure>
+<h3 id="使用Docker优势"><a href="#使用Docker优势" class="headerlink" title="使用Docker优势"></a>使用Docker优势</h3><ul>
+<li>环境依赖隔离</li>
+<li>计算机资源隔离<br><br>Docker 利用 Linux 的名称空间 (Namesaces)、控制组 (Contorl groups)、Union 文件系统和容器格式 (Container format) 实现了资源（例如 CPU、内存、IO 等）的隔离，保证同一台主机上的多个应用不会互相抢占资源。</li>
+<li>迁移方便</li>
+<li>版本管理更便捷<br><br>之前，对于版本的管理，更多考虑的源代码级的，比如开个 Branch 或打个 Tag。现在，版本是一个包含了运行环境和程序包的镜像。在上线失败的时候，可以很快回滚到之前的版本。</li>
+<li>编排的支持<br><br><strong>微服务架构下，一个系统包含多个程序包，而多个程序包之间是有依赖关系的。Docker 编排工具可以帮助管理这些依赖关系，从而达到一键创建整个系统的目的</strong></li>
+</ul>
+<h3 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h3><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>docker images</td>
+<td>列表本地所有镜像</td>
+</tr>
+<tr>
+<td>docker search</td>
+<td>关键词    在Docker Hub中搜索镜像</td>
+</tr>
+<tr>
+<td>docker pull</td>
+<td>镜像名称    下载Docker镜像</td>
+</tr>
+<tr>
+<td>docker rmi</td>
+<td>镜像id    删除Docker镜像。加参数-f表示强制删除。</td>
+</tr>
+<tr>
+<td>docker run</td>
+<td>镜像名称    启动Docker镜像</td>
+</tr>
+<tr>
+<td>docker ps</td>
+<td>列表所有运行中的Docker容器。该命令参数比较多，-a：列表所有容器；-f：过滤；-q 只列表容器的id。</td>
+</tr>
+<tr>
+<td>docker version</td>
+<td>查看Docker版本信息</td>
+</tr>
+<tr>
+<td>docker info</td>
+<td>查看Docker系统信息，例如：CPU、内存、容器个数等等</td>
+</tr>
+<tr>
+<td>docker kill</td>
+<td>容器id    杀死id对应容器</td>
+</tr>
+<tr>
+<td>docker start / stop / restart</td>
+<td>容器id    启动、停止、重启指定容器</td>
+</tr>
+<tr>
+<td>docker build -t</td>
+<td>标签名称 目录    构建Docker镜像，-t 表示指定一个标签</td>
+</tr>
+<tr>
+<td>docker tag</td>
+<td>为镜像打标签</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>docker run 应该是我们最常用的命令了(docker run -d -p 8080:8080 xxxx)</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-d</td>
+<td>后台运行</td>
+</tr>
+<tr>
+<td>-P</td>
+<td>随机端口映射</td>
+</tr>
+<tr>
+<td>-p</td>
+<td>指定端口映射 格式：<br>ip:hostPort:containerPort<br> ip::containerPort <br>hostPort:containerPort<br> containerPort</td>
+</tr>
+</tbody>
+</table>
+<h3 id="Docker部署springcloud项目"><a href="#Docker部署springcloud项目" class="headerlink" title="Docker部署springcloud项目"></a>Docker部署springcloud项目</h3><ul>
+<li><strong>dockerfile文件的构成,如下dockerfile</strong></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">FROM frolvlad/alpine-oraclejdk8:slim</div><div class="line">VOLUME /tmp</div><div class="line">ADD eureka-server-0.0.1-SNAPSHOT.jar app.jar</div><div class="line">#RUN bash -c &apos;touch /app.jar&apos;</div><div class="line">ENTRYPOINT [&quot;java&quot;,&quot;-Djava.security.egd=file:/dev/./urandom&quot;,&quot;-jar&quot;,&quot;/app.jar&quot;]</div><div class="line">EXPOSE 8761</div></pre></td></tr></table></figure>
+<ul>
+<li>docker file编写指令：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">FROM</div><div class="line">    FROM &lt;image&gt;</div><div class="line">    FROM &lt;image&gt;:&lt;tag&gt;</div><div class="line">    FROM &lt;image&gt; &lt;digest&gt;</div></pre></td></tr></table></figure>
+<p>FROM指令必须指定且需要在Dockerfile其他指令的前面，指定的基础image可以是官方远程仓库中的，也可以位于本地仓库。后续的指令都依赖于该指令指定的image。当在同一个Dockerfile中建立多个镜像时，可以使用多个FROM指令。</p>
+<ul>
+<li><p><strong>VOLUME 格式为：VOLUME [“/data”]</strong><br><br>使容器中的一个目录具有持久化存储数据的功能，该目录可以被容器本身使用，也可以共享给其他容器。当容器中的应用有持久化数据的需求时可以在Dockerfile中使用该指令。</p>
+</li>
+<li><p><strong>ADD</strong><br><br>从src目录复制文件到容器的dest。其中src可以是Dockerfile所在目录的相对路径，也可以是一个URL，还可以是一个压缩包</p>
+</li>
+<li><p><strong>ENTRYPOINT</strong><br><br>指定Docker容器启动时执行的命令，可以多次设置，但是只有最后一个有效。<br><code>ENTRYPOINT</code>: 执行项目 <code>app.jar</code> 。为了缩短 Tomcat 启动时间，添加一个系统属性指向 <code>/dev/urandom</code> 作为 <code>Entropy Source</code>。</p>
+</li>
+</ul>
+<ul>
+<li><strong>EXPOSE</strong><br><br>为Docker容器设置对外的端口号。在启动时，可以使用-p选项或者-P选项做映射。</li>
+</ul>
+<h3 id="docker-Compose"><a href="#docker-Compose" class="headerlink" title="docker Compose"></a>docker Compose</h3><ul>
+<li>Dockerfile 可以让用户管理一个单独的容器，那么如果我要管理多个容器呢，例如：我需要管理一个Web应用的同时还要加上其后端的数据库服务容器呢？Compose就是这样的一个工具。让我们看下官网对Compose的定义：</li>
+<li>Compose 是一个用于定义和运行多容器的Docker应用的工具。使用Compose，你可以在一个配置文件（yaml格式）中配置你应用的服务，然后使用一个命令，即可创建并启动配置中引用的所有服务</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">docker</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/10/21/docker知识点记录/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-springcloud-sleuth记录" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/10/18/springcloud-sleuth记录/">springcloud-sleuth记录</a>
+    </h1>
+  
+
+        
+        <a href="/2017/10/18/springcloud-sleuth记录/" class="archive-article-date">
+  	<time datetime="2017-10-18T09:09:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-18</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="SpringCloud-Sleuth记录"><a href="#SpringCloud-Sleuth记录" class="headerlink" title="SpringCloud Sleuth记录"></a>SpringCloud Sleuth记录</h3><ul>
+<li>Spring Cloud Sleuth为Spring Cloud提供了分布式追踪方案<h4 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h4></li>
+<li>对系统进行全链路的监控是非常有必要的。在单体应用中，传统的方式是软件开发者，通过自定义日志的level，日志文件的方式记录单体应用的运行日志。从而排查线上系统出现运行过慢，出现故障，异常等问题，但是在微服务架构或分布式系统中，一个系统被拆分成了A、B、C、D、E等多个服务，而每个服务可能又有多个实例组成集群，采用上诉定位问题的方式就行不通了，你充其量就知道某个服务是应用的瓶颈，但中间发生了什么你完全不知道。而且问题的查询，因为有海量各种各样的日志等文件，导致追溯定位问题等极其不方便。因此需要全链路监控系统的收集，上报，对海量日志实时计算生成，监控告警，视图报表，帮助开发人员快速定位问题。</li>
+</ul>
+<h4 id="服务追踪分析"><a href="#服务追踪分析" class="headerlink" title="服务追踪分析"></a>服务追踪分析</h4><ul>
+<li>一个由微服务构成的应用系统由N个服务实例组成，通过REST请求或者RPC协议等来通讯完成一个业务流程的调用。对于入口的一个调用可能需要有多个后台服务协同完成，链路上任何一个调用超时或出错都可能造成前端请求的失败。服务的调用链也会越来越长，并形成一个树形的调用链。</li>
+<li>针对服务化应用全链路追踪的问题，Google发表了Dapper论文，介绍了他们如何进行服务追踪分析。其基本思路是在服务调用的请求和响应中加入ID，标明上下游请求的关系。利用这些信息，可以可视化地分析服务调用链路和服务间的依赖关系。</li>
+</ul>
+<h4 id="Spring-Cloud-Sleuth"><a href="#Spring-Cloud-Sleuth" class="headerlink" title="Spring Cloud Sleuth"></a>Spring Cloud Sleuth</h4><ul>
+<li>Spring Cloud Sleuth就是APM(Application Performance Monitor),全链路监控的APM的一部分，如果要完整的使用该组件需要自己定制化或者和开源的系统集成，例如:ZipKin。</li>
+<li>APM（Application Performance Monitor）这个领域最近异常火热,例如淘宝鹰眼Eagle Eyes，点评的CAT，微博的Watchman，twitter的Zipkin</li>
+<li>zipkin是基于goole的<a href="https://research.google.com/pubs/pub36356.html" target="_blank" rel="external">google-Dapper</a>实现。</li>
+</ul>
+<p>###ZipKin的架构<br><img src="http://zipkin.io/public/img/architecture-1.png" alt=""></p>
+<ul>
+<li>collector 收集器</li>
+<li>storage 存储</li>
+<li>api 查询api</li>
+<li>ui 界面</li>
+</ul>
+<p>####zipkin存储</p>
+<ul>
+<li>zipkin存储默认使用inMemory</li>
+<li>支持存储模式</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">inMemory</div><div class="line">mysql</div><div class="line">Cassandra</div><div class="line">Elasticsearch</div></pre></td></tr></table></figure>
+<p>####ZipKin数据模型</p>
+<ul>
+<li>Trace：一组代表一次用户请求所包含的spans，其中根span只有一个。</li>
+<li>Span： 一组代表一次HTTP/RPC请求所包含的annotations。</li>
+<li>annotation：包括一个值，时间戳，主机名(留痕迹)。</li>
+</ul>
+<p>几个时间</p>
+<ul>
+<li>cs：客户端发起请求，标志Span的开始</li>
+<li>sr：服务端接收到请求，并开始处理内部事务，其中sr - cs则为网络延迟和时钟抖动</li>
+<li>ss：服务端处理完请求，返回响应内容，其中ss - sr则为服务端处理请求耗时</li>
+<li>cr：客户端接收到服务端响应内容，标志着Span的结束，其中cr - ss则为网络延迟和时钟抖动</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">springcloud</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/10/18/springcloud-sleuth记录/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-springcloud-Gateway记录" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -209,6 +526,7 @@
 <li>filterOrder：通过int值来定义过滤器的执行顺序，数值越小优先级越高。</li>
 <li>shouldFilter：返回一个boolean类型来判断该过滤器是否要执行。我们可以通过此方法来指定过滤器的有效范围。</li>
 <li>run：过滤器的具体逻辑。在该函数中，我们可以实现自定义的过滤逻辑，来确定是否要拦截当前的请求，不对其进行后续的路由，或是在请求路由返回结果之后，对处理结果做一些加工等。</li>
+<li><strong>项目中的多个filter类时，根据order的顺序进行执行，数值越小优先级越高。数值可以相同。这些顺序都依赖于filterType的类型。 先类型后顺序</strong>。<br><img src="https://camo.githubusercontent.com/4eb7754152028cdebd5c09d1c6f5acc7683f0094/687474703a2f2f6e6574666c69782e6769746875622e696f2f7a75756c2f696d616765732f7a75756c2d726571756573742d6c6966656379636c652e706e67" alt=""></li>
 </ul>
 
       
@@ -950,208 +1268,9 @@
 
 
   
-    <article id="post-springcloud-consul-mac安装" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/23/springcloud-consul-mac安装/">springcloud consul mac安装</a>
-    </h1>
-  
-
-        
-        <a href="/2017/08/23/springcloud-consul-mac安装/" class="archive-article-date">
-  	<time datetime="2017-08-23T08:50:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="Spring-cloud-Consul安装"><a href="#Spring-cloud-Consul安装" class="headerlink" title="Spring cloud Consul安装"></a>Spring cloud Consul安装</h3><ul>
-<li>Consul 是 HashiCorp 公司推出的开源工具，用于实现分布式系统的服务发现与配置</li>
-<li>它包含多个组件，但是作为一个整体，在微服务架构中为我们的基础设施提供服务发现和服务配置的工具</li>
-<li>与其他分布式服务注册与发现的方案，Consul的方案更“一站式”，内置了服务注册与发现框 架、分布一致性协议实现、健康检查、Key/Value存储、多数据中心方案，不再需要依赖其他工具（比如ZooKeeper等）</li>
-</ul>
-<h3 id="Mac下安装使用"><a href="#Mac下安装使用" class="headerlink" title="Mac下安装使用"></a>Mac下安装使用</h3><ul>
-<li>下载</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew install consul</div></pre></td></tr></table></figure>
-<ul>
-<li>启动</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">consul agent -dev</div></pre></td></tr></table></figure>
-<ul>
-<li><p>启动后可以配合springboot工程进行注册<br><img src="https://raw.githubusercontent.com/zhulg/allpic/master/consulstart.png" alt=""></p>
-</li>
-<li><p>启动后：<br><img src="https://raw.githubusercontent.com/zhulg/allpic/master/springcloudConsul1.png" alt="启动"></p>
-</li>
-<li><p>注册服务提供client端：(启动自己springboot工程client端)<br><img src="https://raw.githubusercontent.com/zhulg/allpic/master/springcloudConsulClient.png" alt=""></p>
-</li>
-<li><p>服务消费端:（启动自己springboot工程consumer端）<br><img src="https://raw.githubusercontent.com/zhulg/allpic/master/springcloudConsulConsumer.png" alt=""></p>
-</li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">springcloud</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/23/springcloud-consul-mac安装/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Apache Camel" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/16/Apache Camel/">Apache Camel</a>
-    </h1>
-  
-
-        
-        <a href="/2017/08/16/Apache Camel/" class="archive-article-date">
-  	<time datetime="2017-08-16T10:13:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="Apache-Camel"><a href="#Apache-Camel" class="headerlink" title="Apache Camel"></a>Apache Camel</h3><ul>
-<li>Camel 是一个开源的企业应用集成框架。</li>
-<li>它采用URI来描述各种组件，这样你可以很方便地与各种传输或者消息模块进行交互，比如HTTP、 ActiveMQ、JMS、JBI、SCA、MINA或CXF Bus API。这些模块是采用可插拔的方式进行工作的。Apache Camel拥有小巧、依赖少等特点，能够很容易将其集成在各种Java应用中。</li>
-<li><strong>其核心的思想就是从一个from源头得到数据,通过processor处理,再发到一个to目的的</strong></li>
-<li>在企业系统集成中做路由,流程控制一个非常好的框架</li>
-</ul>
-<h3 id="Apache-Camel的常用组件"><a href="#Apache-Camel的常用组件" class="headerlink" title="Apache Camel的常用组件"></a>Apache Camel的常用组件</h3><ul>
-<li><p><strong>Message</strong>: 是Camel中一个基本的包含数据和路由的实体，Camel中消息以及数据都是以message类型进行传递</p>
-<p>1,header：message中包含头信息，存放在header中</p>
-<p>2,body：路由中消息和数据传输的实际内容存放在body中</p>
-<p>3,fault flag：错误标记，使用来标记正常或者错误的标记</p>
-</li>
-<li><p><strong>Exchange</strong>：是路由之间传递消息，通信，交换数据的抽象，用来传递，交换数据</p>
-<p>1, Exchange ID：每次交换数据的时候都会产生一个Exchange ID</p>
-<p>2, MEP ：一个类似InOnly或者InOut的消息交换模式。当模式是InOnly的时候，消息交换中  只包含IN-Message</p>
-<p>3, Exception：在路由过程中出现的异常</p>
-<p>4, Properties：类似与message 的headers ，但是他们将持续到整个exchange结束，Camel还可能利用他们进行一些特殊的通信。</p>
-<p>5, IN-Message：输入消息，在对消息处理之前，首先需要获取上个endpoint节点的消息</p>
-<p>6, OUT-Message：输出消息，向下一个endpoint传输的消息</p>
-</li>
-<li><p><strong>Endpoint</strong> 是Camel路由中的通道端点，可以发送和接受消息，在Camel中Endpoint使用URI来配置。在运行时Camel通过获取URL来查找到对应的组件。端点的功能强大、全面而且又可维护</p>
-</li>
-<li><p><strong>Component</strong> 是一些Endpoints URI的集合。他们通过连接码来链接（例如file:,jms:），而且作为一个endpoint的工厂。现在Camel中有超过80个Component。也可以通过扩展类来实现自己的Component</p>
-</li>
-<li><p><strong>Route</strong> 路由，它定义了Message如何在一个系统中传输的真实路径或者通道。路由引擎自身并不暴露给开发者，但是开发者可以自己定义路由，并且需要信任引擎可以完成复杂的传输工作。每个路由都有一个唯一的标识符，用来记录日志、调试、监控，以及启动或者停止路由。<br>路由也有一个输入的Message，因此他们也有效的链接到一个输入端点。路由定义了一种领域特有的语言（DSL）。Camel提供了java、scala和基于xml的Route-DSL。</p>
-</li>
-<li><p><strong>Processor</strong> 是一个消息接受者和消息通信的处理器。当然，Processor是Route的一个元素，可用来消息格式转换或者其他的一些变换。在路由传输消息的过程中，有时候需要对消息和数据进行处理在传输到下一个Endpoint中，Processor中就定义了一系列消息处理的过程</p>
-</li>
-</ul>
-<h3 id="架构原理图"><a href="#架构原理图" class="headerlink" title="架构原理图"></a>架构原理图</h3><p><img src="http://camel.apache.org/architecture.data/camel-components.png" alt="原理"></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">springboot</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/16/Apache Camel/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 
@@ -1246,11 +1365,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">springboot</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">分布式/集群</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">springboot</a>
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
               </li>
              
               <li class="article-tag-list-item">

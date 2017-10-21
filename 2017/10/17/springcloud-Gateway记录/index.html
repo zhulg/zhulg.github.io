@@ -15,10 +15,12 @@
 <meta property="og:url" content="http://yoursite.com/2017/10/17/springcloud-Gateway记录/index.html">
 <meta property="og:site_name" content="zhulg笔记">
 <meta property="og:description" content="SpringCloud Gateway相关点 在微服务架构中，后端服务往往不直接开放给调用端，而是通过一个API网关根据请求的url，路由到相应的服务。 当添加API网关后，在第三方调用端和服务提供方之间就创建了一面墙，这面墙直接与调用方通信进行权限控制，后将请求均衡分发给后台服务端。  Spring Cloud Zuul springcloud zull 路由是微服务架构的不可或缺的一部分，提供">
-<meta property="og:updated_time" content="2017-10-17T12:16:00.000Z">
+<meta property="og:image" content="https://camo.githubusercontent.com/4eb7754152028cdebd5c09d1c6f5acc7683f0094/687474703a2f2f6e6574666c69782e6769746875622e696f2f7a75756c2f696d616765732f7a75756c2d726571756573742d6c6966656379636c652e706e67">
+<meta property="og:updated_time" content="2017-10-18T07:14:48.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="springcloud-Gateway记录">
 <meta name="twitter:description" content="SpringCloud Gateway相关点 在微服务架构中，后端服务往往不直接开放给调用端，而是通过一个API网关根据请求的url，路由到相应的服务。 当添加API网关后，在第三方调用端和服务提供方之间就创建了一面墙，这面墙直接与调用方通信进行权限控制，后将请求均衡分发给后台服务端。  Spring Cloud Zuul springcloud zull 路由是微服务架构的不可或缺的一部分，提供">
+<meta name="twitter:image" content="https://camo.githubusercontent.com/4eb7754152028cdebd5c09d1c6f5acc7683f0094/687474703a2f2f6e6574666c69782e6769746875622e696f2f7a75756c2f696d616765732f7a75756c2d726571756573742d6c6966656379636c652e706e67">
   
     <link rel="alternative" href="/atom.xml" title="zhulg笔记" type="application/atom+xml">
   
@@ -212,6 +214,7 @@
 <li>filterOrder：通过int值来定义过滤器的执行顺序，数值越小优先级越高。</li>
 <li>shouldFilter：返回一个boolean类型来判断该过滤器是否要执行。我们可以通过此方法来指定过滤器的有效范围。</li>
 <li>run：过滤器的具体逻辑。在该函数中，我们可以实现自定义的过滤逻辑，来确定是否要拦截当前的请求，不对其进行后续的路由，或是在请求路由返回结果之后，对处理结果做一些加工等。</li>
+<li><strong>项目中的多个filter类时，根据order的顺序进行执行，数值越小优先级越高。数值可以相同。这些顺序都依赖于filterType的类型。 先类型后顺序</strong>。<br><img src="https://camo.githubusercontent.com/4eb7754152028cdebd5c09d1c6f5acc7683f0094/687474703a2f2f6e6574666c69782e6769746875622e696f2f7a75756c2f696d616765732f7a75756c2d726571756573742d6c6966656379636c652e706e67" alt=""></li>
 </ul>
 
       
@@ -316,6 +319,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2017/10/18/springcloud-sleuth记录/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          springcloud-sleuth记录
+        
+      </div>
+    </a>
   
   
     <a href="/2017/10/16/springcloud-Hystrix记录/" id="article-nav-older" class="article-nav-link-wrap">
@@ -443,11 +455,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">springboot</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">分布式/集群</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">springboot</a>
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
               </li>
              
               <li class="article-tag-list-item">
