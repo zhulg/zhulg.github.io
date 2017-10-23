@@ -6,14 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | zhulg笔记</title>
+  <title>java后端一般架构 | zhulg笔记</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="zhulg笔记">
-<meta property="og:url" content="http://yoursite.com/archives/page/3/index.html">
+  <meta name="description" content="Java后端一般架构  MVC框架：从十年前流行的Struts1、2到现在最为推崇的SpringMVC、Jersey以及国人开发的JFinal、阿里的WebX等等，这些框架尤其是后面流行的这些都是各有千秋的。选型的主要因素是看你的团队是否有一个对某框架能够做二次开发、定制的人在。很多时候，针对这些通用的框架，你是需要做一些特定的开发才能满足特定的需求的。比如，很多团队传递参数使用的都是UnderS">
+<meta name="keywords" content="springcloud">
+<meta property="og:type" content="article">
+<meta property="og:title" content="java后端一般架构">
+<meta property="og:url" content="http://yoursite.com/2017/10/23/java后端一般架构/index.html">
 <meta property="og:site_name" content="zhulg笔记">
+<meta property="og:description" content="Java后端一般架构  MVC框架：从十年前流行的Struts1、2到现在最为推崇的SpringMVC、Jersey以及国人开发的JFinal、阿里的WebX等等，这些框架尤其是后面流行的这些都是各有千秋的。选型的主要因素是看你的团队是否有一个对某框架能够做二次开发、定制的人在。很多时候，针对这些通用的框架，你是需要做一些特定的开发才能满足特定的需求的。比如，很多团队传递参数使用的都是UnderS">
+<meta property="og:image" content="https://raw.githubusercontent.com/zhulg/allpic/master/server-basic-tech-stack.png">
+<meta property="og:updated_time" content="2017-10-23T07:16:52.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="zhulg笔记">
+<meta name="twitter:title" content="java后端一般架构">
+<meta name="twitter:description" content="Java后端一般架构  MVC框架：从十年前流行的Struts1、2到现在最为推崇的SpringMVC、Jersey以及国人开发的JFinal、阿里的WebX等等，这些框架尤其是后面流行的这些都是各有千秋的。选型的主要因素是看你的团队是否有一个对某框架能够做二次开发、定制的人在。很多时候，针对这些通用的框架，你是需要做一些特定的开发才能满足特定的需求的。比如，很多团队传递参数使用的都是UnderS">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/zhulg/allpic/master/server-basic-tech-stack.png">
   
     <link rel="alternative" href="/atom.xml" title="zhulg笔记" type="application/atom+xml">
   
@@ -147,405 +154,183 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-java后端一般架构" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      java后端一般架构
+    </h1>
+  
+
+        
+        <a href="/2017/10/23/java后端一般架构/" class="archive-article-date">
+  	<time datetime="2017-10-23T06:51:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-23</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="Java后端一般架构"><a href="#Java后端一般架构" class="headerlink" title="Java后端一般架构"></a>Java后端一般架构</h3><p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/server-basic-tech-stack.png" alt=""></p>
+<ul>
+<li><strong>MVC框架</strong>：从十年前流行的Struts1、2到现在最为推崇的SpringMVC、Jersey以及国人开发的JFinal、阿里的WebX等等，这些框架尤其是后面流行的这些都是各有千秋的。选型的主要因素是看你的团队是否有一个对某框架能够做二次开发、定制的人在。很多时候，针对这些通用的框架，你是需要做一些特定的开发才能满足特定的需求的。比如，很多团队传递参数使用的都是UnderScore的命名法(下划线连接单词)，但是Java中确是使用LowCamel命名的。对于SpringMVC，可以通过注解的alias来指定，但这样需要对每一个参数都要指定alias有点效率太低，此外ModelAttribute也不支持别名，更好的方式是在框架层面统一对参数做Camel命名的转换达到目的。</li>
+<li><strong>IOC框架</strong>：ioc带来的好处无须多言。目前Java中最为流行的Spring自诞生就天然支持IOC。</li>
+<li><strong>ORM框架</strong>：MyBatis是目前最为流行的orm框架。此外，Spring ORM中提供的JdbcTemplate也很不错。当然，对于分库分表、主从分离这些需求，一般就需要实现自己的ORM框架来支持了，像阿里的tddl。此外，为了在服务层面统一解决分库分表、主从分离、主备切换、缓存、故障恢复等问题，很多公司都是有自己的数据库中间件的，比如阿里的Cobar、360的Atlas、网易的DDB，还有官方提供的MySQL Proxy以及开源的MyCat、kingshard和收费的oneproxy。目前，线上有一定规模使用的应该是kingshard，当然如果不缺钱也可以上oneproxy。</li>
+<li><strong>缓存框架</strong>：缓存框架主要指的是对redis、memcached这些缓存服务器的操作统一封装，一般使用Spring的RedisTemplate即可，也可以使用jedis做自己的封装，支持客户端分布式方案、主从等。</li>
+<li><strong>性能检测框架</strong>：对于线上的JavaEE应用，需要有一个统一的框架集成到每一个业务中检测每一个请求、方法调用、jdbc连接、redis连接等的耗时、状态等。</li>
+<li><strong>搜索引擎</strong>: 搜索引擎也是后端应用中一个很关键的组件，尤其是对内容类、电商类的应用，通过关键词、关键字搜索内容、商品是一个很常见的用户场景。比较成熟的开源搜索引擎有Solr和Elasticsearch，很多中小型互联网公司搜索引擎都是基于这两个开源系统搭建的。它们都是基于Lucence来实现的，不同之处主要在于termIndex的存储、分布式架构的支持等等。</li>
+<li><strong>消息队列</strong>:软件的组织结构，从开始的面向组件到SOA、SAAS是一个逐渐演变的过程。而到了今天微服务盛行的时代，你都不好意思说自己的系统只是单一的一个系统而没有解耦成一个个service。当然，小的系统的确没有拆分的必要性，但一个复杂的系统拆成一个个service做微服务架构确实是不得不做的事情。那么问题就来了，service之间的通信如何来做呢？使用什么协议？通过什么方式调用？都是需要考虑的问题。</li>
+<li><strong>文件存储</strong>: 不管是业务应用、依赖的后端服务还是其他的各种服务，最终还是要依赖于底层文件存储的。通常来说，文件存储需要满足的特性有：可靠性、容灾性、稳定性，即要保证存储的数据不会轻易丢失，即使发生故障也能够有回滚方案，也要保证高可用率。在底层可以采用传统的RAID作为解决方案，再上一层，目前hadoop的hdfs则是最为普遍的分布式文件存储方案，当然还有NFS、Samba这种共享文件系统也提供了简单的分布式存储的特性。</li>
+<li><strong>统一认证中心</strong>: 统一认证中心，主要是对app用户、内部用户、app等的认证服务，包括<br>用户的注册、登录验证、token鉴权<br>内部信息系统用户的管理和登录鉴权<br>App的管理，包括app的secret生成，app信息的验证(如验证接口签名)等。<br>之所以需要统一认证中心，就是为了能够集中对这些所有app都会用到的信息进行管理，也给所有应用提供统一的认证服务。尤其是在有很多业务需要共享用户数据的时候，构建一个统一认证中心是非常必要的。此外，通过统一认证中心构建移动app的单点登录也是水到渠成的事情(模仿web的机制，将认证后的信息加密存储到本地磁盘中供多个app使用)。<br><strong>SSO单点登录系统</strong>: 目前很多大的在线web网站都是有单点登录系统的，通俗的来说就是只需要一次用户登录，就能够进入多个业务应用(权限可以不相同)，非常方便用户的操作。而在移动互联网公司中，内部的各种管理、信息系统同样也需要单点登录系统。目前，比较成熟的、用的最多的单点登录系统应该是耶鲁大学开源的CAS.</li>
+<li><strong>统一配置中心</strong>: 在Java后端应用中，一种读写配置比较通用的方式就是将配置文件写在propeties、yaml、HCON文件中，修改的时候只需要更新文件重新部署即可，可以做到不牵扯代码层面改动的目的。统一配置中心，则是基于这种方式之上的统一对所有业务或者基础后端服务的相关配置文件进行管理的统一服务</li>
+<li><strong>服务治理框架</strong>: 对于外部API调用或者客户端对后端api的访问，可以使用http协议或者说restful(当然也可以直接通过最原始的socket来调用)。但对于内部服务间的调用，一般都是通过RPC机制来调用的。目前主流的RPC协议有：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">RMI</div><div class="line">Hessian</div><div class="line">Thrift</div><div class="line">Dubbo</div></pre></td></tr></table></figure>
+<p>这些RPC协议各有优劣点，需要针对业务需求做出相应的最好的选择。<br></p>
+<ul>
+<li><strong>统一调度中心</strong>: 在很多业务中，定时调度是一个非常普遍的场景，比如定时去抓取数据、定时刷新订单的状态等。通常的做法就是针对各自的业务依赖Linux的cron机制或者java中的quartz。统一调度中心则是对所有的调度任务进行管理，这样能够统一对调度集群进行调优、扩展、任务管理等。azkaban和oozie是hadoop的流式工作管理引擎，也可以作为统一调度中心来使用。当然，你也可以使用cron或者quartz来实现自己的统一调度中心。<br>根据cron表达式调度任务<br>动态修改、停止、删除任务<br>支持任务工作流：比如一个任务完成之后再执行下一个任务<br>任务支持脚本、代码、url等多种形式<br>任务执行的日志记录、故障报警<br>对于Java的quartz这里需要说明一下：这个quartz需要和spring quartz区分，后者是spring对quartz框架的简单实现也是目前使用的最多的一种调度方式。但是，其并没有做高可用集群的支持。而quartz虽然有集群的支持，但是配置起来非常复杂。现在很多方案都是使用zookeeper来实现spring quartz集群的。<br></li>
+<li><strong>统一日志服务</strong>: 日志是开发过程必不可少的东西。有时候，打印日志的时机、技巧是很能体现出工程师编码水平的。毕竟，日志是线上服务能够定位、排查异常最为直接的信息。通常的，将日志分散在各个业务中非常不方便对问题的管理和排查。统一日志服务则使用单独的日志服务器记录日志，各个业务通过统一的日志框架将日志输出到日志服务器上。可以通过实现log4j后者logback的appender来实现统一日志框架，然后通过RPC调用将日志打印到日志服务器上。</li>
+</ul>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/08/02/mongodb介绍/" class="archive-article-date">
-  	<time datetime="2017-08-02T03:12:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-02</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/08/02/mongodb介绍/">mongodb介绍</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">springboot相关</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">springcloud</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/10/23/java后端一般架构/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/07/31/机器学习-K-近邻算法/" class="archive-article-date">
-  	<time datetime="2017-07-31T15:03:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-31</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2017/10/21/docker知识点记录/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">docker知识点记录</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/07/31/机器学习-K-近邻算法/">机器学习，K-近邻算法</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/07/30/mac-python机器学习包安装/" class="archive-article-date">
-  	<time datetime="2017-07-30T13:45:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-30</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/07/30/mac-python机器学习包安装/">mac python机器学习相关包安装</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/07/28/mac安装zookeeper记录/" class="archive-article-date">
-  	<time datetime="2017-07-28T07:46:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-28</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/07/28/mac安装zookeeper记录/">mac安装zookeeper记录</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">分布式/集群</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/07/28/SOA与分布式/" class="archive-article-date">
-  	<time datetime="2017-07-28T05:48:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-28</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/07/28/SOA与分布式/">SOA与分布式相关术语</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">分布式/集群</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/07/27/分布式与集群/" class="archive-article-date">
-  	<time datetime="2017-07-27T06:12:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-27</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/07/27/分布式与集群/">分布式与集群</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">分布式/集群</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/07/27/机器学习入门/" class="archive-article-date">
-  	<time datetime="2017-07-27T03:01:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-27</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/07/27/机器学习入门/">机器学习入门</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/07/26/mac安装redis/" class="archive-article-date">
-  	<time datetime="2017-07-26T09:52:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-26</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/07/26/mac安装redis/">mac安装redis</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">redis</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/07/25/spring概念/" class="archive-article-date">
-  	<time datetime="2017-07-25T07:35:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-25</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/07/25/spring概念/">spring/SpringMVC/SpringBoot/Springcloud概念</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">spring</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/07/22/springjpa/" class="archive-article-date">
-  	<time datetime="2017-07-21T22:44:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/07/22/springjpa/">jpa/hibernate/spring data/spring data jpa都是什么</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">spring</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/page/2/">&laquo; Prev</a><a class="page-number" href="/archives/">1</a><a class="page-number" href="/archives/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/archives/page/4/">4</a><a class="extend next" rel="next" href="/archives/page/4/">Next &raquo;</a>
-    </nav>
   
 
 
@@ -569,8 +354,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
