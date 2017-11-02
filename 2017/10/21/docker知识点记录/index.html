@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/10/21/docker知识点记录/index.html">
 <meta property="og:site_name" content="zhulg笔记">
 <meta property="og:description" content="Docker概念点 镜像（Image）可以认为：镜像 = 操作系统 + 运行环境 + 应用程序。譬如，我们可以将 Centos7 操作系统、JVM 和 Java 应用程序做成一个镜像。我们交付的软件不再是 zip 包或者 war 包，而是镜像。Docker 镜像技术实现了应用程序运行环境与主机环境的无关性。 容器（Container）容器是镜像的运行态。通过 docker run 命令即可快速的基">
-<meta property="og:updated_time" content="2017-10-21T08:57:02.000Z">
+<meta property="og:updated_time" content="2017-11-02T06:12:49.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="docker知识点记录">
 <meta name="twitter:description" content="Docker概念点 镜像（Image）可以认为：镜像 = 操作系统 + 运行环境 + 应用程序。譬如，我们可以将 Centos7 操作系统、JVM 和 Java 应用程序做成一个镜像。我们交付的软件不再是 zip 包或者 war 包，而是镜像。Docker 镜像技术实现了应用程序运行环境与主机环境的无关性。 容器（Container）容器是镜像的运行态。通过 docker run 命令即可快速的基">
@@ -300,6 +300,11 @@
 <ul>
 <li><strong>EXPOSE</strong><br><br>为Docker容器设置对外的端口号。在启动时，可以使用-p选项或者-P选项做映射。</li>
 </ul>
+<h3 id="docker-amp-springboot-构建命令"><a href="#docker-amp-springboot-构建命令" class="headerlink" title="docker&amp;springboot 构建命令"></a>docker&amp;springboot 构建命令</h3><ul>
+<li>mvn package docker:build 构建镜像</li>
+<li>docker run -p 8761: 8761 -t forezp/eureka-server 运行镜像</li>
+<li>参考例子 <a href="http://blog.csdn.net/forezp/article/details/70198649" target="_blank" rel="external">http://blog.csdn.net/forezp/article/details/70198649</a></li>
+</ul>
 <h3 id="docker-Compose"><a href="#docker-Compose" class="headerlink" title="docker Compose"></a>docker Compose</h3><ul>
 <li>Dockerfile 可以让用户管理一个单独的容器，那么如果我要管理多个容器呢，例如：我需要管理一个Web应用的同时还要加上其后端的数据库服务容器呢？Compose就是这样的一个工具。让我们看下官网对Compose的定义：</li>
 <li>Compose 是一个用于定义和运行多容器的Docker应用的工具。使用Compose，你可以在一个配置文件（yaml格式）中配置你应用的服务，然后使用一个命令，即可创建并启动配置中引用的所有服务</li>
@@ -543,7 +548,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">springboot</a>
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -551,11 +556,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">docker</a>
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">springcloud</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">springboot</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -564,10 +573,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">springboot相关</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -149,6 +149,89 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-springboot整合Apache-Shiro" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/10/24/springboot整合Apache-Shiro/">springboot整合Apache Shiro</a>
+    </h1>
+  
+
+        
+        <a href="/2017/10/24/springboot整合Apache-Shiro/" class="archive-article-date">
+  	<time datetime="2017-10-24T11:44:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-24</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="Shiro的记录"><a href="#Shiro的记录" class="headerlink" title="Shiro的记录"></a>Shiro的记录</h3><ul>
+<li>在Java领域一般有Spring Security、Apache Shiro等安全框架，但是由于Spring Security过于庞大和复杂，大多数公司会选择Apache Shiro来使用。</li>
+<li>Apache Shiro是一个功能强大、灵活的，开源的安全框架。它可以干净利落地处理身份验证、授权、企业会话管理和加密。</li>
+<li>Apache Shiro是一个全面的、蕴含丰富功能的安全框架。<br>Authentication（认证）, Authorization（授权）, Session Management（会话管理）, Cryptography（加密）被 Shiro 框架的开发团队称之为应用安全的四大基石。那么就让我们来看看它们吧：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Authentication（认证）：用户身份识别，通常被称为用户“登录”</div><div class="line">Authorization（授权）：访问控制。比如某个用户是否具有某个操作的使用权限。</div><div class="line">Session Management（会话管理）：特定于用户的会话管理,甚至在非web 或 EJB 应用程序。</div><div class="line">Cryptography（加密）：在对数据源使用加密算法加密的同时</div></pre></td></tr></table></figure>
+<ul>
+<li>Shiro 配置要配置的是ShiroConfig类，Apache Shiro 核心通过 Filter 来实现，就好像SpringMvc 通过DispachServlet 来主控制一样。<br>既然是使用 Filter 一般也就能猜到，是通过URL规则来进行过滤和权限校验，所以我们需要定义一系列关于URL的规则和访问权限。</li>
+<li><a href="http://www.cnblogs.com/ityouknow/p/7089177.html参考记录" target="_blank" rel="external">http://www.cnblogs.com/ityouknow/p/7089177.html参考记录</a></li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">springcloud</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/10/24/springboot整合Apache-Shiro/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-java后端一般架构" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -389,6 +472,11 @@
 </ul>
 <ul>
 <li><strong>EXPOSE</strong><br><br>为Docker容器设置对外的端口号。在启动时，可以使用-p选项或者-P选项做映射。</li>
+</ul>
+<h3 id="docker-amp-springboot-构建命令"><a href="#docker-amp-springboot-构建命令" class="headerlink" title="docker&amp;springboot 构建命令"></a>docker&amp;springboot 构建命令</h3><ul>
+<li>mvn package docker:build 构建镜像</li>
+<li>docker run -p 8761: 8761 -t forezp/eureka-server 运行镜像</li>
+<li>参考例子 <a href="http://blog.csdn.net/forezp/article/details/70198649" target="_blank" rel="external">http://blog.csdn.net/forezp/article/details/70198649</a></li>
 </ul>
 <h3 id="docker-Compose"><a href="#docker-Compose" class="headerlink" title="docker Compose"></a>docker Compose</h3><ul>
 <li>Dockerfile 可以让用户管理一个单独的容器，那么如果我要管理多个容器呢，例如：我需要管理一个Web应用的同时还要加上其后端的数据库服务容器呢？Compose就是这样的一个工具。让我们看下官网对Compose的定义：</li>
@@ -1169,86 +1257,6 @@
 
 
   
-    <article id="post-springcloud-网关服务记录" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/07/springcloud-网关服务记录/">springcloud 网关服务记录</a>
-    </h1>
-  
-
-        
-        <a href="/2017/09/07/springcloud-网关服务记录/" class="archive-article-date">
-  	<time datetime="2017-09-07T09:27:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-07</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>###SpringCloud 网关记录</p>
-<p><strong>1, 注册相关服务到eureka</strong><br><img src="https://raw.githubusercontent.com/zhulg/allpic/master/api-gateway1.png" alt=""></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">当我们这里构建的api-gateway应用启动并注册到eureka之后，服务网关会发现上面我们启动的两个服务eureka-client和eureka-consumer，这时候Zuul就会创建两个路由规则。每个路由规则都包含两部分，一部分是外部请求的匹配规则，另一部分是路由的服务ID。针对当前示例的情况，Zuul会创建下面的两个路由规则：</div><div class="line"></div><div class="line">转发到eureka-client服务的请求规则为：/eureka-client/**</div><div class="line">转发到eureka-consumer服务的请求规则为：/eureka-consumer/**</div></pre></td></tr></table></figure>
-<p><strong>2,通过api-gateway 地址访问，默认已经进行路由</strong><br><img src="https://github.com/zhulg/allpic/blob/master/api-gateway2.png?raw=true" alt=""></p>
-<p><strong>3,在api-gateway里有配置zuul对应的映射路径：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">spring:</div><div class="line">  application:</div><div class="line">    name: api-gateway</div><div class="line"></div><div class="line">server:</div><div class="line">  port: 1101</div><div class="line"></div><div class="line">zuul:</div><div class="line">  routes:</div><div class="line">    api-a:</div><div class="line">      path: /api-a/**</div><div class="line">      serviceId: eureka-client</div><div class="line"></div><div class="line">eureka:</div><div class="line">  client:</div><div class="line">    serviceUrl:</div><div class="line">      defaultZone: http://localhost:8001/eureka/</div></pre></td></tr></table></figure>
-<p><strong>4,所以有上边里的zuul里的routers配置，可以通过api-gateway里配置的映射路径进行访问</strong><br><img src="https://raw.githubusercontent.com/zhulg/allpic/master/api-gateway3.png" alt=""></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">springcloud</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/09/07/springcloud-网关服务记录/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1346,7 +1354,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">springboot</a>
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1354,11 +1362,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">docker</a>
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">springcloud</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">springboot</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1367,10 +1379,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">springboot相关</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>分布式与集群 | zhulg笔记</title>
+  <title>springboot整合Apache Shiro | zhulg笔记</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="分布式与集群的理解 规范定义分布式系统是一组电脑（computer），通过网络相互链接传递消息与通信后并协调它们的行为而形成的系统。组件之间彼此进行交互以实现一个共同的目标。把需要进行大量计算的工程数据分区成小块，由多台计算机分别计算，再上传运算结果后，将结果统一合并得出数据结论的科学。计算机集群简称集群是一种计算机系统，它通过一组松散集成的计算机软件和/或硬件连接起来高度紧密地协作完成计算工作。">
-<meta name="keywords" content="分布式&#x2F;集群">
+  <meta name="description" content="Shiro的记录 在Java领域一般有Spring Security、Apache Shiro等安全框架，但是由于Spring Security过于庞大和复杂，大多数公司会选择Apache Shiro来使用。 Apache Shiro是一个功能强大、灵活的，开源的安全框架。它可以干净利落地处理身份验证、授权、企业会话管理和加密。 Apache Shiro是一个全面的、蕴含丰富功能的安全框架。Aut">
+<meta name="keywords" content="springcloud">
 <meta property="og:type" content="article">
-<meta property="og:title" content="分布式与集群">
-<meta property="og:url" content="http://yoursite.com/2017/07/27/分布式与集群/index.html">
+<meta property="og:title" content="springboot整合Apache Shiro">
+<meta property="og:url" content="http://yoursite.com/2017/10/24/springboot整合Apache-Shiro/index.html">
 <meta property="og:site_name" content="zhulg笔记">
-<meta property="og:description" content="分布式与集群的理解 规范定义分布式系统是一组电脑（computer），通过网络相互链接传递消息与通信后并协调它们的行为而形成的系统。组件之间彼此进行交互以实现一个共同的目标。把需要进行大量计算的工程数据分区成小块，由多台计算机分别计算，再上传运算结果后，将结果统一合并得出数据结论的科学。计算机集群简称集群是一种计算机系统，它通过一组松散集成的计算机软件和/或硬件连接起来高度紧密地协作完成计算工作。">
-<meta property="og:updated_time" content="2017-07-27T06:28:26.000Z">
+<meta property="og:description" content="Shiro的记录 在Java领域一般有Spring Security、Apache Shiro等安全框架，但是由于Spring Security过于庞大和复杂，大多数公司会选择Apache Shiro来使用。 Apache Shiro是一个功能强大、灵活的，开源的安全框架。它可以干净利落地处理身份验证、授权、企业会话管理和加密。 Apache Shiro是一个全面的、蕴含丰富功能的安全框架。Aut">
+<meta property="og:updated_time" content="2017-10-24T12:37:50.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="分布式与集群">
-<meta name="twitter:description" content="分布式与集群的理解 规范定义分布式系统是一组电脑（computer），通过网络相互链接传递消息与通信后并协调它们的行为而形成的系统。组件之间彼此进行交互以实现一个共同的目标。把需要进行大量计算的工程数据分区成小块，由多台计算机分别计算，再上传运算结果后，将结果统一合并得出数据结论的科学。计算机集群简称集群是一种计算机系统，它通过一组松散集成的计算机软件和/或硬件连接起来高度紧密地协作完成计算工作。">
+<meta name="twitter:title" content="springboot整合Apache Shiro">
+<meta name="twitter:description" content="Shiro的记录 在Java领域一般有Spring Security、Apache Shiro等安全框架，但是由于Spring Security过于庞大和复杂，大多数公司会选择Apache Shiro来使用。 Apache Shiro是一个功能强大、灵活的，开源的安全框架。它可以干净利落地处理身份验证、授权、企业会话管理和加密。 Apache Shiro是一个全面的、蕴含丰富功能的安全框架。Aut">
   
     <link rel="alternative" href="/atom.xml" title="zhulg笔记" type="application/atom+xml">
   
@@ -152,33 +152,35 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-分布式与集群" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-springboot整合Apache-Shiro" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      分布式与集群
+      springboot整合Apache Shiro
     </h1>
   
 
         
-        <a href="/2017/07/27/分布式与集群/" class="archive-article-date">
-  	<time datetime="2017-07-27T06:12:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-27</time>
+        <a href="/2017/10/24/springboot整合Apache-Shiro/" class="archive-article-date">
+  	<time datetime="2017-10-24T11:44:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-24</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="分布式与集群的理解"><a href="#分布式与集群的理解" class="headerlink" title="分布式与集群的理解"></a>分布式与集群的理解</h3><ul>
-<li><p>规范定义<br><br>分布式系统是一组电脑（computer），通过网络相互链接传递消息与通信后并协调它们的行为而形成的系统。组件之间彼此进行交互以实现一个共同的目标。把需要进行大量计算的工程数据分区成小块，由多台计算机分别计算，再上传运算结果后，将结果统一合并得出数据结论的科学。<br><br>计算机集群简称集群是一种计算机系统，它通过一组松散集成的计算机软件和/或硬件连接起来高度紧密地协作完成计算工作。在某种意义上，他们可以被看作是一台计算机。集群系统中的单个计算机通常称为节点，通常通过局域网连接，但也有其它的可能连接方式。集群计算机通常用来改进单个计算机的计算速度和/或可靠性。</p>
-</li>
-<li><p>简单记忆<br><br>分布式：一个业务分拆多个子业务，部署在不同的服务器上<br><br>集群：同一个业务，部署在多个服务器上</p>
-</li>
-<li><p>通俗理解<br><br>小饭店原来只有一个厨师，切菜洗菜备料炒菜全干。后来客人多了，厨房一个厨师忙不过来，又请了个厨师，两个厨师都能炒一样的菜，这两个厨师的关系是集群。为了让厨师专心炒菜，把菜做到极致，又请了个配菜师负责切菜，备菜，备料，厨师和配菜师的关系是分布式，一个配菜师也忙不过来了，又请了个配菜师，两个配菜师关系是集群</p>
-</li>
+        <h3 id="Shiro的记录"><a href="#Shiro的记录" class="headerlink" title="Shiro的记录"></a>Shiro的记录</h3><ul>
+<li>在Java领域一般有Spring Security、Apache Shiro等安全框架，但是由于Spring Security过于庞大和复杂，大多数公司会选择Apache Shiro来使用。</li>
+<li>Apache Shiro是一个功能强大、灵活的，开源的安全框架。它可以干净利落地处理身份验证、授权、企业会话管理和加密。</li>
+<li>Apache Shiro是一个全面的、蕴含丰富功能的安全框架。<br>Authentication（认证）, Authorization（授权）, Session Management（会话管理）, Cryptography（加密）被 Shiro 框架的开发团队称之为应用安全的四大基石。那么就让我们来看看它们吧：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Authentication（认证）：用户身份识别，通常被称为用户“登录”</div><div class="line">Authorization（授权）：访问控制。比如某个用户是否具有某个操作的使用权限。</div><div class="line">Session Management（会话管理）：特定于用户的会话管理,甚至在非web 或 EJB 应用程序。</div><div class="line">Cryptography（加密）：在对数据源使用加密算法加密的同时</div></pre></td></tr></table></figure>
+<ul>
+<li>Shiro 配置要配置的是ShiroConfig类，Apache Shiro 核心通过 Filter 来实现，就好像SpringMvc 通过DispachServlet 来主控制一样。<br>既然是使用 Filter 一般也就能猜到，是通过URL规则来进行过滤和权限校验，所以我们需要定义一系列关于URL的规则和访问权限。</li>
+<li><a href="http://www.cnblogs.com/ityouknow/p/7089177.html参考记录" target="_blank" rel="external">http://www.cnblogs.com/ityouknow/p/7089177.html参考记录</a></li>
 </ul>
 
       
@@ -214,7 +216,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">分布式/集群</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">springcloud</a>
         		</li>
       		
 		</ul>
@@ -270,7 +272,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/07/27/分布式与集群/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/10/24/springboot整合Apache-Shiro/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -284,18 +286,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/07/28/SOA与分布式/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          SOA与分布式相关术语
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/07/27/机器学习入门/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">机器学习入门</div>
+    <a href="/2017/10/23/java后端一般架构/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">java后端一般架构</div>
       <i class="icon-circle-right"></i>
     </a>
   
