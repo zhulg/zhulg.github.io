@@ -6,15 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2017 | zhulg笔记</title>
+  <title>mac minikube本地集群 | zhulg笔记</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="zhulg笔记">
-<meta property="og:url" content="http://yoursite.com/archives/2017/page/2/index.html">
+  <meta name="description" content="Minikube 本地集群 Minikube可以在任意主机上运行单节点的小型集群，这个工具默认安装和配置了一个Linux  VM，Docker和Kubernetes的相关组件，并且提供Dashboard。目前支持在Linux, OS X及Windows上安装 Minikube是一个本地的kubernetes Minitube项目地址：https://github.com/kubernetes/mi">
+<meta name="keywords" content="K8S">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mac minikube本地集群">
+<meta property="og:url" content="http://yoursite.com/2017/11/08/mac-minikube本地集群/index.html">
 <meta property="og:site_name" content="zhulg笔记">
+<meta property="og:description" content="Minikube 本地集群 Minikube可以在任意主机上运行单节点的小型集群，这个工具默认安装和配置了一个Linux  VM，Docker和Kubernetes的相关组件，并且提供Dashboard。目前支持在Linux, OS X及Windows上安装 Minikube是一个本地的kubernetes Minitube项目地址：https://github.com/kubernetes/mi">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://raw.githubusercontent.com/zhulg/allpic/master/k8s.png">
+<meta property="og:updated_time" content="2017-11-08T12:21:56.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="zhulg笔记">
+<meta name="twitter:title" content="mac minikube本地集群">
+<meta name="twitter:description" content="Minikube 本地集群 Minikube可以在任意主机上运行单节点的小型集群，这个工具默认安装和配置了一个Linux  VM，Docker和Kubernetes的相关组件，并且提供Dashboard。目前支持在Linux, OS X及Windows上安装 Minikube是一个本地的kubernetes Minitube项目地址：https://github.com/kubernetes/mi">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/zhulg/allpic/master/k8s.png">
   
     <link rel="alternative" href="/atom.xml" title="zhulg笔记" type="application/atom+xml">
   
@@ -148,405 +155,213 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-mac-minikube本地集群" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      mac minikube本地集群
+    </h1>
+  
+
+        
+        <a href="/2017/11/08/mac-minikube本地集群/" class="archive-article-date">
+  	<time datetime="2017-11-08T11:40:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-08</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="Minikube-本地集群"><a href="#Minikube-本地集群" class="headerlink" title="Minikube 本地集群"></a>Minikube 本地集群</h3><ul>
+<li>Minikube可以在任意主机上运行单节点的小型集群，这个工具默认安装和配置了一个Linux  VM，Docker和Kubernetes的相关组件，并且提供Dashboard。目前支持在Linux, OS X及Windows上安装</li>
+<li>Minikube是一个本地的kubernetes</li>
+<li>Minitube项目地址：<a href="https://github.com/kubernetes/minikube" target="_blank" rel="external">https://github.com/kubernetes/minikube</a></li>
+</ul>
+<h4 id="1-本机环境监测"><a href="#1-本机环境监测" class="headerlink" title="1,本机环境监测"></a>1,本机环境监测</h4><p>Minikube要求在BIOS中对VT-x/AMD-v进行了虚拟化，如果已经设置了，则命令执行后会有以下内容输出：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ sysctl -a | grep machdep.cpu.features | grep VMX</div><div class="line"></div><div class="line">machdep.cpu.features: FPU VME DE PSE TSC MSR PAE MCE CX8 APIC SEP MTRR PGE MCA CMOV PAT PSE36 CLFSH DS ACPI MMX FXSR SSE SSE2 SS HTT TM PBE SSE3 PCLMULQDQ DTES64 MON DSCPL VMX EST TM2 SSSE3 FMA CX16 TPR PDCM SSE4.1 SSE4.2 x2APIC MOVBE POPCNT AES PCID XSAVE OSXSAVE SEGLIM64 TSCTMR AVX1.0 RDRAND F16C</div></pre></td></tr></table></figure>
+<h4 id="2-安装虚拟机驱动"><a href="#2-安装虚拟机驱动" class="headerlink" title="2,安装虚拟机驱动"></a>2,安装虚拟机驱动</h4><ul>
+<li>在OS X上支持xhyve driver、VirtualBox、VMware Fusion多种虚拟驱动 </li>
+</ul>
+<h4 id="3-安装Minikube"><a href="#3-安装Minikube" class="headerlink" title="3,安装Minikube"></a>3,安装Minikube</h4><ul>
+<li>brew cask install minikube</li>
+<li>minikube version （监测成功）</li>
+</ul>
+<h4 id="4-打开虚拟机"><a href="#4-打开虚拟机" class="headerlink" title="4,打开虚拟机"></a>4,打开虚拟机</h4><h4 id="5，minikube-启动"><a href="#5，minikube-启动" class="headerlink" title="5，minikube 启动"></a>5，minikube 启动</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">$minikube start</div><div class="line">Starting local Kubernetes v1.8.0 cluster...</div><div class="line">Starting VM...</div><div class="line">Downloading Minikube ISO</div><div class="line"> 140.01 MB / 140.01 MB [============================================] 100.00% 0s</div><div class="line">Getting VM IP address...</div><div class="line">Moving files into cluster...</div><div class="line">Downloading localkube binary</div><div class="line"> 148.56 MB / 148.56 MB [============================================] 100.00% 0s</div><div class="line">Setting up certs...</div><div class="line">Connecting to cluster...</div><div class="line">Setting up kubeconfig...</div><div class="line">Starting cluster components...</div><div class="line">Kubectl is now configured to use the cluster.</div></pre></td></tr></table></figure>
+<h4 id="6，kubectl-get-nodes-查看nodes"><a href="#6，kubectl-get-nodes-查看nodes" class="headerlink" title="6，kubectl get nodes 查看nodes"></a>6，kubectl get nodes 查看nodes</h4><p>####7， 部署应用前</p>
+<ul>
+<li>由于墙的原因，Minitube运行需要了的一些镜像是不能被下载的。故需要先解决下gcr.io的访问</li>
+<li>minikube ssh （登录到虚拟机，下载需要的K8S镜像）</li>
+<li>一个比较恶心的过程，使用阿里云进行下载需要的镜像</li>
+<li>查看缺失的镜像，可以exit退出ssh.回到本机 minikube logs 从日志里查看。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">docker pull registry.cn-hangzhou.aliyuncs.com/google_containers/kubernetes-dashboard-amd64:v1.7.0</div><div class="line">docker tag registry.cn-hangzhou.aliyuncs.com/google_containers/kubernetes-dashboard-amd64:v1.7.0 gcr.io/google_containers/kubernetes-dashboard-amd64:v1.7.0</div><div class="line"></div><div class="line">docker pull registry.cn-hangzhou.aliyuncs.com/google_containers/k8s-dns-sidecar-amd64:1.14.5</div><div class="line">docker tag  registry.cn-hangzhou.aliyuncs.com/google_containers/k8s-dns-sidecar-amd64:1.14.5 gcr.io/google_containers/k8s-dns-sidecar-amd64:1.14.5</div><div class="line"></div><div class="line">docker pull registry.cn-hangzhou.aliyuncs.com/outman_google_containers/k8s-dns-dnsmasq-nanny-amd64:1.14.5</div><div class="line">docker tag  registry.cn-hangzhou.aliyuncs.com/outman_google_containers/k8s-dns-dnsmasq-nanny-amd64:1.14.5  gcr.io/google_containers/k8s-dns-dnsmasq-nanny-amd64:1.14.5</div><div class="line"></div><div class="line">docker pull registry.cn-hangzhou.aliyuncs.com/outman_google_containers/k8s-dns-kube-dns-amd64:1.14.5</div><div class="line">docker tag registry.cn-hangzhou.aliyuncs.com/outman_google_containers/k8s-dns-kube-dns-amd64:1.14.5 gcr.io/google_containers/k8s-dns-kube-dns-amd64:1.14.5</div></pre></td></tr></table></figure>
+<ul>
+<li>以上缺失就继续从log查看pull失败原因，再从阿里云拉起镜像，用tag映射下。</li>
+<li>docker images 可以查看下载的镜像</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">docker images</div><div class="line">REPOSITORY                                                                               TAG                 IMAGE ID            CREATED             SIZE</div><div class="line">gcr.io/google_containers/k8s-dns-sidecar-amd64                                           1.14.5              fed89e8b4248        6 weeks ago         41.8MB</div><div class="line">registry.cn-hangzhou.aliyuncs.com/google_containers/k8s-dns-sidecar-amd64                1.14.5              fed89e8b4248        6 weeks ago         41.8MB</div><div class="line">registry.cn-hangzhou.aliyuncs.com/outman_google_containers/k8s-dns-kube-dns-amd64        1.14.5              512cd7425a73        6 weeks ago         49.4MB</div><div class="line">gcr.io/google_containers/k8s-dns-kube-dns-amd64                                          1.14.5              512cd7425a73        6 weeks ago         49.4MB</div><div class="line">gcr.io/google_containers/k8s-dns-dnsmasq-nanny-amd64                                     1.14.5              459944ce8cc4        6 weeks ago         41.4MB</div><div class="line">registry.cn-hangzhou.aliyuncs.com/outman_google_containers/k8s-dns-dnsmasq-nanny-amd64   1.14.5              459944ce8cc4        6 weeks ago         41.4MB</div><div class="line">gcr.io/google-containers/kubernetes-dashboard-amd64                                      v1.7.0              284ec2f8ed6c        6 weeks ago         128MB</div><div class="line">gcr.io/google_containers/kubernetes-dashboard-amd64                                      v1.7.0              284ec2f8ed6c        6 weeks ago         128MB</div><div class="line">registry.cn-hangzhou.aliyuncs.com/google_containers/kubernetes-dashboard-amd64           v1.7.0              284ec2f8ed6c        6 weeks ago         128MB</div><div class="line">gcr.io/google-containers/kube-addon-manager                                              v6.4-beta.2         0a951668696f        4 months ago        79.2MB</div><div class="line">registry.cn-hangzhou.aliyuncs.com/google_containers/kube-addon-manager                   v6.4-beta.2         0a951668696f        4 months ago        79.2MB</div><div class="line">gcr.io/google_containers/echoserver                                                      1.4                 a90209bb39e3        17 months ago       140MB</div><div class="line">registry.cn-hangzhou.aliyuncs.com/acs/echoserver                                         1.4                 a90209bb39e3        17 months ago       140MB</div><div class="line">gcr.io/google_containers/pause-amd64                                                     3.0                 99e59f495ffa        18 months ago       747kB</div><div class="line">registry.cn-hangzhou.aliyuncs.com/google-containers/pause-amd64                          3.0                 99e59f495ffa        18 months ago       747kB</div></pre></td></tr></table></figure>
+<h3 id="8-启动一个echoserver-pod"><a href="#8-启动一个echoserver-pod" class="headerlink" title="8,启动一个echoserver pod"></a>8,启动一个echoserver pod</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ kubectl run hello-minikube --image=gcr.io/google_containers/echoserver:1.4 --port=8080</div><div class="line">deployment &quot;hello-minikube&quot; created</div></pre></td></tr></table></figure>
+<ul>
+<li>通过NodePort暴露的服务<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ kubectl expose deployment hello-minikube --type=NodePort</div><div class="line">service &quot;hello-minikube&quot; exposed</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="9-查看pods状态"><a href="#9-查看pods状态" class="headerlink" title="9,查看pods状态"></a>9,查看pods状态</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">kubectl get pods</div><div class="line">NAME                              READY     STATUS    RESTARTS   AGE</div><div class="line">hello-8649f955b6-c54tx            1/1       Running   0          22h</div><div class="line">hello-minikube-5bc754d4cd-zbrh6   1/1       Running   0          9h</div></pre></td></tr></table></figure>
+<ul>
+<li>mikubectl get pod -o wide –all-namespaces(查看所有命名空间)</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">NAMESPACE     NAME                              READY     STATUS    RESTARTS   AGE       IP               NODE</div><div class="line">default       hello-8649f955b6-c54tx            1/1       Running   0          22h       172.17.0.2       minikube</div><div class="line">default       hello-minikube-5bc754d4cd-zbrh6   1/1       Running   0          9h        172.17.0.3       minikube</div><div class="line">kube-system   kube-addon-manager-minikube       1/1       Running   0          23h       192.168.99.100   minikube</div><div class="line">kube-system   kube-dns-6fc954457d-htd94         3/3       Running   5          9h        172.17.0.5       minikube</div><div class="line">kube-system   kubernetes-dashboard-tkhjw        1/1       Running   0          9h        172.17.0.4       minikube</div></pre></td></tr></table></figure>
+<h3 id="10-curl-minikube-service-hello-minikube-–url-测试服务"><a href="#10-curl-minikube-service-hello-minikube-–url-测试服务" class="headerlink" title="10, curl $(minikube service hello-minikube –url) 测试服务"></a>10, curl $(minikube service hello-minikube –url) 测试服务</h3><p>###11，minikube dashboard(启动观察页)</p>
+<ul>
+<li>Minikube自带了Kubernetes Dashboard。要浏览这个界面，可以使用内置的minikube dashboard命令。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ minikube dashboard</div><div class="line">Opening kubernetes dashboard in default browser...</div></pre></td></tr></table></figure>
+<p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/k8s.png" alt=""></p>
+<h3 id="12-过程中注意问题记录"><a href="#12-过程中注意问题记录" class="headerlink" title="12,过程中注意问题记录"></a>12,过程中注意问题记录</h3><ul>
+<li>镜像下载，代理过程翻墙不能解决，最后在虚拟机上通过阿里下载所需要的镜像，通过tag隐射。</li>
+<li>不正常需要查看kubectl get pods –all-namespaces pods情况</li>
+<li>minikube logs 查看过程中的日志，定位问题</li>
+<li>最后启动dashboard过程，注意自己是否有代理，否则起不起来</li>
+</ul>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/09/19/redis常用场景/" class="archive-article-date">
-  	<time datetime="2017-09-19T06:46:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/09/19/redis常用场景/">redis常用场景</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">redis</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">K8S</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/11/08/mac-minikube本地集群/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/09/13/mac-Elasticsearch/" class="archive-article-date">
-  	<time datetime="2017-09-13T02:53:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-13</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2017/11/03/k8s核心概念/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">k8s核心概念</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/09/13/mac-Elasticsearch/">mac Elasticsearch</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">springcloud</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/09/07/springcloud-网关服务记录/" class="archive-article-date">
-  	<time datetime="2017-09-07T09:27:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-07</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/09/07/springcloud-网关服务记录/">springcloud 网关服务记录</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">springcloud</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/09/06/nginx安装记录/" class="archive-article-date">
-  	<time datetime="2017-09-06T03:24:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-06</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/09/06/nginx安装记录/">nginx安装记录</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">springcloud</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/08/23/springcloud-consul-mac安装/" class="archive-article-date">
-  	<time datetime="2017-08-23T08:50:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/08/23/springcloud-consul-mac安装/">springcloud consul mac安装</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">springcloud</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/08/16/Apache Camel/" class="archive-article-date">
-  	<time datetime="2017-08-16T10:13:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/08/16/Apache Camel/">Apache Camel</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">springboot</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/08/15/springboot部署/" class="archive-article-date">
-  	<time datetime="2017-08-15T10:13:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/08/15/springboot部署/">springboot部署</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">springboot</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/08/10/springcloud-eureka注册中心集群/" class="archive-article-date">
-  	<time datetime="2017-08-10T08:29:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/08/10/springcloud-eureka注册中心集群/">springcloud eureka注册中心集群</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">springcloud</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/08/08/springcloud/" class="archive-article-date">
-  	<time datetime="2017-08-08T10:31:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-08</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/08/08/springcloud/">springcloud</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">springcloud</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/08/08/springcloud-Eureka/" class="archive-article-date">
-  	<time datetime="2017-08-08T03:08:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-08</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/08/08/springcloud-Eureka/">springcloud Eureka</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">springcloud</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/2017/">&laquo; Prev</a><a class="page-number" href="/archives/2017/">1</a><span class="page-number current">2</span><a class="page-number" href="/archives/2017/page/3/">3</a><a class="page-number" href="/archives/2017/page/4/">4</a><a class="extend next" rel="next" href="/archives/2017/page/3/">Next &raquo;</a>
-    </nav>
   
 
 
@@ -570,8 +385,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

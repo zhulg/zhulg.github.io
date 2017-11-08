@@ -12,6 +12,7 @@
 <meta property="og:title" content="zhulg笔记">
 <meta property="og:url" content="http://yoursite.com/index.html">
 <meta property="og:site_name" content="zhulg笔记">
+<meta property="og:locale" content="zh-Hans">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="zhulg笔记">
   
@@ -148,6 +149,218 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-mac-minikube本地集群" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/08/mac-minikube本地集群/">mac minikube本地集群</a>
+    </h1>
+  
+
+        
+        <a href="/2017/11/08/mac-minikube本地集群/" class="archive-article-date">
+  	<time datetime="2017-11-08T11:40:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-08</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="Minikube-本地集群"><a href="#Minikube-本地集群" class="headerlink" title="Minikube 本地集群"></a>Minikube 本地集群</h3><ul>
+<li>Minikube可以在任意主机上运行单节点的小型集群，这个工具默认安装和配置了一个Linux  VM，Docker和Kubernetes的相关组件，并且提供Dashboard。目前支持在Linux, OS X及Windows上安装</li>
+<li>Minikube是一个本地的kubernetes</li>
+<li>Minitube项目地址：<a href="https://github.com/kubernetes/minikube" target="_blank" rel="external">https://github.com/kubernetes/minikube</a></li>
+</ul>
+<h4 id="1-本机环境监测"><a href="#1-本机环境监测" class="headerlink" title="1,本机环境监测"></a>1,本机环境监测</h4><p>Minikube要求在BIOS中对VT-x/AMD-v进行了虚拟化，如果已经设置了，则命令执行后会有以下内容输出：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ sysctl -a | grep machdep.cpu.features | grep VMX</div><div class="line"></div><div class="line">machdep.cpu.features: FPU VME DE PSE TSC MSR PAE MCE CX8 APIC SEP MTRR PGE MCA CMOV PAT PSE36 CLFSH DS ACPI MMX FXSR SSE SSE2 SS HTT TM PBE SSE3 PCLMULQDQ DTES64 MON DSCPL VMX EST TM2 SSSE3 FMA CX16 TPR PDCM SSE4.1 SSE4.2 x2APIC MOVBE POPCNT AES PCID XSAVE OSXSAVE SEGLIM64 TSCTMR AVX1.0 RDRAND F16C</div></pre></td></tr></table></figure>
+<h4 id="2-安装虚拟机驱动"><a href="#2-安装虚拟机驱动" class="headerlink" title="2,安装虚拟机驱动"></a>2,安装虚拟机驱动</h4><ul>
+<li>在OS X上支持xhyve driver、VirtualBox、VMware Fusion多种虚拟驱动 </li>
+</ul>
+<h4 id="3-安装Minikube"><a href="#3-安装Minikube" class="headerlink" title="3,安装Minikube"></a>3,安装Minikube</h4><ul>
+<li>brew cask install minikube</li>
+<li>minikube version （监测成功）</li>
+</ul>
+<h4 id="4-打开虚拟机"><a href="#4-打开虚拟机" class="headerlink" title="4,打开虚拟机"></a>4,打开虚拟机</h4><h4 id="5，minikube-启动"><a href="#5，minikube-启动" class="headerlink" title="5，minikube 启动"></a>5，minikube 启动</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">$minikube start</div><div class="line">Starting local Kubernetes v1.8.0 cluster...</div><div class="line">Starting VM...</div><div class="line">Downloading Minikube ISO</div><div class="line"> 140.01 MB / 140.01 MB [============================================] 100.00% 0s</div><div class="line">Getting VM IP address...</div><div class="line">Moving files into cluster...</div><div class="line">Downloading localkube binary</div><div class="line"> 148.56 MB / 148.56 MB [============================================] 100.00% 0s</div><div class="line">Setting up certs...</div><div class="line">Connecting to cluster...</div><div class="line">Setting up kubeconfig...</div><div class="line">Starting cluster components...</div><div class="line">Kubectl is now configured to use the cluster.</div></pre></td></tr></table></figure>
+<h4 id="6，kubectl-get-nodes-查看nodes"><a href="#6，kubectl-get-nodes-查看nodes" class="headerlink" title="6，kubectl get nodes 查看nodes"></a>6，kubectl get nodes 查看nodes</h4><p>####7， 部署应用前</p>
+<ul>
+<li>由于墙的原因，Minitube运行需要了的一些镜像是不能被下载的。故需要先解决下gcr.io的访问</li>
+<li>minikube ssh （登录到虚拟机，下载需要的K8S镜像）</li>
+<li>一个比较恶心的过程，使用阿里云进行下载需要的镜像</li>
+<li>查看缺失的镜像，可以exit退出ssh.回到本机 minikube logs 从日志里查看。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">docker pull registry.cn-hangzhou.aliyuncs.com/google_containers/kubernetes-dashboard-amd64:v1.7.0</div><div class="line">docker tag registry.cn-hangzhou.aliyuncs.com/google_containers/kubernetes-dashboard-amd64:v1.7.0 gcr.io/google_containers/kubernetes-dashboard-amd64:v1.7.0</div><div class="line"></div><div class="line">docker pull registry.cn-hangzhou.aliyuncs.com/google_containers/k8s-dns-sidecar-amd64:1.14.5</div><div class="line">docker tag  registry.cn-hangzhou.aliyuncs.com/google_containers/k8s-dns-sidecar-amd64:1.14.5 gcr.io/google_containers/k8s-dns-sidecar-amd64:1.14.5</div><div class="line"></div><div class="line">docker pull registry.cn-hangzhou.aliyuncs.com/outman_google_containers/k8s-dns-dnsmasq-nanny-amd64:1.14.5</div><div class="line">docker tag  registry.cn-hangzhou.aliyuncs.com/outman_google_containers/k8s-dns-dnsmasq-nanny-amd64:1.14.5  gcr.io/google_containers/k8s-dns-dnsmasq-nanny-amd64:1.14.5</div><div class="line"></div><div class="line">docker pull registry.cn-hangzhou.aliyuncs.com/outman_google_containers/k8s-dns-kube-dns-amd64:1.14.5</div><div class="line">docker tag registry.cn-hangzhou.aliyuncs.com/outman_google_containers/k8s-dns-kube-dns-amd64:1.14.5 gcr.io/google_containers/k8s-dns-kube-dns-amd64:1.14.5</div></pre></td></tr></table></figure>
+<ul>
+<li>以上缺失就继续从log查看pull失败原因，再从阿里云拉起镜像，用tag映射下。</li>
+<li>docker images 可以查看下载的镜像</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">docker images</div><div class="line">REPOSITORY                                                                               TAG                 IMAGE ID            CREATED             SIZE</div><div class="line">gcr.io/google_containers/k8s-dns-sidecar-amd64                                           1.14.5              fed89e8b4248        6 weeks ago         41.8MB</div><div class="line">registry.cn-hangzhou.aliyuncs.com/google_containers/k8s-dns-sidecar-amd64                1.14.5              fed89e8b4248        6 weeks ago         41.8MB</div><div class="line">registry.cn-hangzhou.aliyuncs.com/outman_google_containers/k8s-dns-kube-dns-amd64        1.14.5              512cd7425a73        6 weeks ago         49.4MB</div><div class="line">gcr.io/google_containers/k8s-dns-kube-dns-amd64                                          1.14.5              512cd7425a73        6 weeks ago         49.4MB</div><div class="line">gcr.io/google_containers/k8s-dns-dnsmasq-nanny-amd64                                     1.14.5              459944ce8cc4        6 weeks ago         41.4MB</div><div class="line">registry.cn-hangzhou.aliyuncs.com/outman_google_containers/k8s-dns-dnsmasq-nanny-amd64   1.14.5              459944ce8cc4        6 weeks ago         41.4MB</div><div class="line">gcr.io/google-containers/kubernetes-dashboard-amd64                                      v1.7.0              284ec2f8ed6c        6 weeks ago         128MB</div><div class="line">gcr.io/google_containers/kubernetes-dashboard-amd64                                      v1.7.0              284ec2f8ed6c        6 weeks ago         128MB</div><div class="line">registry.cn-hangzhou.aliyuncs.com/google_containers/kubernetes-dashboard-amd64           v1.7.0              284ec2f8ed6c        6 weeks ago         128MB</div><div class="line">gcr.io/google-containers/kube-addon-manager                                              v6.4-beta.2         0a951668696f        4 months ago        79.2MB</div><div class="line">registry.cn-hangzhou.aliyuncs.com/google_containers/kube-addon-manager                   v6.4-beta.2         0a951668696f        4 months ago        79.2MB</div><div class="line">gcr.io/google_containers/echoserver                                                      1.4                 a90209bb39e3        17 months ago       140MB</div><div class="line">registry.cn-hangzhou.aliyuncs.com/acs/echoserver                                         1.4                 a90209bb39e3        17 months ago       140MB</div><div class="line">gcr.io/google_containers/pause-amd64                                                     3.0                 99e59f495ffa        18 months ago       747kB</div><div class="line">registry.cn-hangzhou.aliyuncs.com/google-containers/pause-amd64                          3.0                 99e59f495ffa        18 months ago       747kB</div></pre></td></tr></table></figure>
+<h3 id="8-启动一个echoserver-pod"><a href="#8-启动一个echoserver-pod" class="headerlink" title="8,启动一个echoserver pod"></a>8,启动一个echoserver pod</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ kubectl run hello-minikube --image=gcr.io/google_containers/echoserver:1.4 --port=8080</div><div class="line">deployment &quot;hello-minikube&quot; created</div></pre></td></tr></table></figure>
+<ul>
+<li>通过NodePort暴露的服务<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ kubectl expose deployment hello-minikube --type=NodePort</div><div class="line">service &quot;hello-minikube&quot; exposed</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="9-查看pods状态"><a href="#9-查看pods状态" class="headerlink" title="9,查看pods状态"></a>9,查看pods状态</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">kubectl get pods</div><div class="line">NAME                              READY     STATUS    RESTARTS   AGE</div><div class="line">hello-8649f955b6-c54tx            1/1       Running   0          22h</div><div class="line">hello-minikube-5bc754d4cd-zbrh6   1/1       Running   0          9h</div></pre></td></tr></table></figure>
+<ul>
+<li>mikubectl get pod -o wide –all-namespaces(查看所有命名空间)</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">NAMESPACE     NAME                              READY     STATUS    RESTARTS   AGE       IP               NODE</div><div class="line">default       hello-8649f955b6-c54tx            1/1       Running   0          22h       172.17.0.2       minikube</div><div class="line">default       hello-minikube-5bc754d4cd-zbrh6   1/1       Running   0          9h        172.17.0.3       minikube</div><div class="line">kube-system   kube-addon-manager-minikube       1/1       Running   0          23h       192.168.99.100   minikube</div><div class="line">kube-system   kube-dns-6fc954457d-htd94         3/3       Running   5          9h        172.17.0.5       minikube</div><div class="line">kube-system   kubernetes-dashboard-tkhjw        1/1       Running   0          9h        172.17.0.4       minikube</div></pre></td></tr></table></figure>
+<h3 id="10-curl-minikube-service-hello-minikube-–url-测试服务"><a href="#10-curl-minikube-service-hello-minikube-–url-测试服务" class="headerlink" title="10, curl $(minikube service hello-minikube –url) 测试服务"></a>10, curl $(minikube service hello-minikube –url) 测试服务</h3><p>###11，minikube dashboard(启动观察页)</p>
+<ul>
+<li>Minikube自带了Kubernetes Dashboard。要浏览这个界面，可以使用内置的minikube dashboard命令。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ minikube dashboard</div><div class="line">Opening kubernetes dashboard in default browser...</div></pre></td></tr></table></figure>
+<p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/k8s.png" alt=""></p>
+<h3 id="12-过程中注意问题记录"><a href="#12-过程中注意问题记录" class="headerlink" title="12,过程中注意问题记录"></a>12,过程中注意问题记录</h3><ul>
+<li>镜像下载，代理过程翻墙不能解决，最后在虚拟机上通过阿里下载所需要的镜像，通过tag隐射。</li>
+<li>不正常需要查看kubectl get pods –all-namespaces pods情况</li>
+<li>minikube logs 查看过程中的日志，定位问题</li>
+<li>最后启动dashboard过程，注意自己是否有代理，否则起不起来</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">K8S</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/11/08/mac-minikube本地集群/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-k8s核心概念" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/03/k8s核心概念/">k8s核心概念</a>
+    </h1>
+  
+
+        
+        <a href="/2017/11/03/k8s核心概念/" class="archive-article-date">
+  	<time datetime="2017-11-03T06:25:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-03</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="kubernetes核心概念"><a href="#kubernetes核心概念" class="headerlink" title="kubernetes核心概念"></a>kubernetes核心概念</h3><ul>
+<li>Kubernetes（k8s）是自动化容器操作的开源平台，这些操作包括部署，调度和节点集群间扩展。如果你曾经用过Docker容器技术部署容器，那么可以将Docker看成Kubernetes内部使用的低级别组件。</li>
+<li>Kubernetes可以：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">自动化容器的部署和复制</div><div class="line">随时扩展或收缩容器规模</div><div class="line">将容器组织成组，并且提供容器间的负载均衡</div><div class="line">很容易地升级应用程序容器的新版本</div><div class="line">提供容器弹性，如果容器失效就替换它，等等...</div></pre></td></tr></table></figure>
+<h3 id="K8s架构图"><a href="#K8s架构图" class="headerlink" title="K8s架构图"></a>K8s架构图</h3><p><img src="https://raw.githubusercontent.com/jasonGeng88/blog/master/201707/assets/k8s-frame-07.png" alt=""></p>
+<h4 id="Master"><a href="#Master" class="headerlink" title="Master"></a>Master</h4><ul>
+<li><p>master是集群的控制节点，负责整个集群的管理和控制。master节点可以运行在物理机或虚拟机中，因为它是整个集群的“大脑”，非常重要，所以要保证它的可用性与可靠性。可以把它独占一个物理机，或者放到虚拟机中，用master集群来保证其可靠性。</p>
+</li>
+<li><p>k8s master由三个组件(进程)组成：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">kube-apiserver: 提供http rest接口的服务进程，对k8s里面的所有资源进行增、删、改、查等操作。也是集群控制的入口；</div><div class="line">kube-controler-manager: k8s里所有资源对象的自动控制中心，比如各个node节点的状态、pod的状态等；</div><div class="line">kube-scheduler: 负责资源调度；</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="node"><a href="#node" class="headerlink" title="node"></a>node</h4><ul>
+<li>除了master，k8s集群中的其他节点是node节点,也是实际的工作点。node节点可以是一台物理机或者虚拟机。node节点是k8s集群中的工作负载节点，master会把一些任务调度到node节点上进行。当某个node出现故障时，master会把这个节点上的任务转移到其他节点上。</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">K8S</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/11/03/k8s核心概念/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
   
     <article id="post-springboot整合Apache-Shiro" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -1063,200 +1276,6 @@
 
 
   
-    <article id="post-redis常用场景" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/19/redis常用场景/">redis常用场景</a>
-    </h1>
-  
-
-        
-        <a href="/2017/09/19/redis常用场景/" class="archive-article-date">
-  	<time datetime="2017-09-19T06:46:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-19</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="Redis的特点"><a href="#Redis的特点" class="headerlink" title="Redis的特点"></a>Redis的特点</h3><p>Redis  与其他  key - value  缓存产品有以下三个特点：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">　　· Redis 支持数据的持久化，可以将内存中的数据保存在磁盘中，重启的时候可以再次加载进行使用。</div><div class="line">　　· Redis 不仅仅支持简单的 key-value 类型的数据，同时还提供 list ， set ， zset ， hash 等数据结构的存储。</div><div class="line">　　· Redis 支持数据的备份，即 master-slave 模式的数据备份。</div></pre></td></tr></table></figure>
-<h4 id="Redis的优势："><a href="#Redis的优势：" class="headerlink" title="Redis的优势："></a>Redis的优势：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">　　·  性能极高  – Redis 能读的速度是 110000 次 /s, 写的速度是 81000 次 /s </div><div class="line">　　·  丰富的数据类型  – Redis 支持二进制案例的  Strings, Lists, Hashes, Sets  及  Ordered Sets  数据类型操作。</div><div class="line">　　·  原子  – Redis 的所有操作都是原子性的，同时 Redis 还支持对几个操作全并后的原子性执行。</div><div class="line">　　·  丰富的特性  – Redis 还支持  publish/subscribe,  通知 , key  过期等等特性。</div></pre></td></tr></table></figure>
-<h3 id="常见使用场景"><a href="#常见使用场景" class="headerlink" title="常见使用场景:"></a>常见使用场景:</h3><ul>
-<li>会话缓存（Session Cache)<br><br>最常用的一种使用Redis的情景是会话缓存（session cache）。用Redis缓存会话比其他存储（如Memcached）的优势在于：Redis提供持久化。</li>
-<li>全页缓存（FPC）<br><br>除基本的会话token之外，Redis还提供很简便的FPC平台。回到一致性问题，即使重启了Redis实例，因为有磁盘的持久化，用户也不会看到页面加载速度的下降，这是一个极大改进，类似PHP本地FPC</li>
-<li>队列<br><br>Reids在内存存储引擎领域的一大优点是提供 list 和 set 操作，这使得Redis能作为一个很好的消息队列平台来使用。Redis作为队列使用的操作，就类似于本地程序语言（如Python）对 list 的 push/pop 操作</li>
-<li>排行榜/计数器&lt;br<br>Redis在内存中对数字进行递增或递减的操作实现的非常好。集合（Set）和有序集合（Sorted Set）也使得我们在执行这些操作的时候变的非常简单，Redis只是正好提供了这两种数据结构</li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">redis</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/09/19/redis常用场景/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-mac-Elasticsearch" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/13/mac-Elasticsearch/">mac Elasticsearch</a>
-    </h1>
-  
-
-        
-        <a href="/2017/09/13/mac-Elasticsearch/" class="archive-article-date">
-  	<time datetime="2017-09-13T02:53:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-13</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="1-Mac安装Elasticsearch"><a href="#1-Mac安装Elasticsearch" class="headerlink" title="1,Mac安装Elasticsearch"></a>1,Mac安装Elasticsearch</h3><ul>
-<li>Elasticsearch 是一个基于 Apache Lucene(TM) 的开源搜索引擎。被认为是迄今为止最先进、性能最好的、功能最全的搜索引擎库。并通过简单的 RESTful API 来隐藏 Lucene 的复杂性，从而让全文搜索变得简单。</li>
-<li>mac 安装</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew install elasticsearch</div></pre></td></tr></table></figure>
-<ul>
-<li>安装结果</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">==&gt; Downloading https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.6.0.tar.gz</div><div class="line">######################################################################## 100.0%</div><div class="line">==&gt; Caveats</div><div class="line">Data:    /usr/local/var/elasticsearch/elasticsearch_zhulianggang/</div><div class="line">Logs:    /usr/local/var/log/elasticsearch/elasticsearch_zhulianggang.log</div><div class="line">Plugins: /usr/local/opt/elasticsearch/libexec/plugins/</div><div class="line">Config:  /usr/local/etc/elasticsearch/</div><div class="line">plugin script: /usr/local/opt/elasticsearch/libexec/bin/elasticsearch-plugin</div><div class="line"></div><div class="line">To have launchd start elasticsearch now and restart at login:</div><div class="line">  brew services start elasticsearch</div><div class="line">Or, if you don&apos;t want/need a background service you can just run:</div><div class="line">  elasticsearch</div><div class="line">==&gt; Summary</div><div class="line">🍺  /usr/local/Cellar/elasticsearch/5.6.0: 104 files, 35.9MB, built in 15 minutes 21 seconds</div></pre></td></tr></table></figure>
-<ul>
-<li><p>安装信息查询</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew info elasticsearch</div></pre></td></tr></table></figure>
-</li>
-<li><p>启动（不想后台运行的话）</p>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">elasticsearch</div></pre></td></tr></table></figure>
-<ul>
-<li>查看 <a href="http://127.0.0.1:9200/" target="_blank" rel="external">http://127.0.0.1:9200/</a></li>
-</ul>
-<h3 id="2-安装可视化插件-elasticsearch-head"><a href="#2-安装可视化插件-elasticsearch-head" class="headerlink" title="2,安装可视化插件 elasticsearch-head"></a>2,安装可视化插件 elasticsearch-head</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">git clone git://github.com/mobz/elasticsearch-head.git</div><div class="line">cd elasticsearch-head</div><div class="line">npm install</div><div class="line">npm run start</div></pre></td></tr></table></figure>
-<ul>
-<li>其中 npm install 可能失败。失败执行 npm install grunt –save-dev</li>
-<li>访问 <a href="http://localhost:9100/" target="_blank" rel="external">http://localhost:9100/</a>  查看可视化 Elasticsearch。</li>
-<li><strong>下次启动可以直接npm run start</strong></li>
-</ul>
-<h3 id="3-修改配置文件（为了允许-elasticsearch-head-运行时的跨域）"><a href="#3-修改配置文件（为了允许-elasticsearch-head-运行时的跨域）" class="headerlink" title="3,修改配置文件（为了允许 elasticsearch-head 运行时的跨域）"></a>3,修改配置文件（为了允许 elasticsearch-head 运行时的跨域）</h3><ul>
-<li><p>Elasticsearch 配置文件，即 config/elasticsearch.yml。这里我们需要在配置中增加以下配置，为了允许 elasticsearch-head 运行时的跨域：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"> # allow origin</div><div class="line">http.cors.enabled: true</div><div class="line">http.cors.allow-origin: &quot;*&quot;</div></pre></td></tr></table></figure>
-</li>
-<li><p>运行一般在后台起守护线程启动 Elasticsearch，在命令行加入 -d 指定。自然，也可以加入 -p ，可将进程 ID 记录到文件中。<strong>cd 到/usr/local目录</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./bin/elasticsearch -d</div></pre></td></tr></table></figure>
-</li>
-<li><p>访问 <a href="http://localhost:9200/" target="_blank" rel="external">http://localhost:9200/</a></p>
-</li>
-<li><p>要关闭 Elasticsearch 进程，需要通过 ps 找到对应的 pid，在 kill pid 即可。</p>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ps aux |grep elasticsearch</div><div class="line">kill -7 pid</div></pre></td></tr></table></figure>
-<h3 id="4-Java代码方式创建索引"><a href="#4-Java代码方式创建索引" class="headerlink" title="4,Java代码方式创建索引"></a>4,Java代码方式创建索引</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">//1,索引创建</div><div class="line">elasticSearch.getClient().admin().indices().prepareCreate(indices).execute().actionGet();</div><div class="line">//2,Mapping 构建</div><div class="line">XContentBuilder builder = XContentFactory.jsonBuilder().startObject().startObject(mappingType).startObject(&quot;properties&quot;)......endObject().endObject().endObject();</div><div class="line">//3,创建使用mapping(mapping  在 Elasticsearch  中的作用就是约束。)</div><div class="line">//mapping用于数据类型声明, Mapping它定义了 Type 的属性，指定分词器。如：</div><div class="line">//&quot;id&quot;: &#123;</div><div class="line">    &quot;index&quot;: &quot;not_analyzed&quot;,</div><div class="line">    &quot;type&quot;: &quot;string&quot;</div><div class="line">&#125;</div><div class="line"></div><div class="line">PutMappingRequest mapping = Requests.putMappingRequest(indices)</div><div class="line">					.type(mappingType).source(builder);</div><div class="line">elasticSearch.getClient().admin().indices().putMapping(mapping).actionGet(); </div><div class="line">//4,批量放入索引数据（一般循环里使用bulkRequest.add）</div><div class="line">BulkRequestBuilder bulkRequest = client.prepareBulk();  </div><div class="line">            Map&lt;String, Object&gt; map = new HashMap&lt;&gt;();  </div><div class="line">            map.put(&quot;name&quot;, &quot;Jack&quot;);  </div><div class="line">  IndexRequest request = client.prepareIndex(&quot;dept&quot;, &quot;employee&quot;,&quot;3433&quot;).setSource(map).request();  </div><div class="line">            bulkRequest.add(request);</div></pre></td></tr></table></figure>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">springcloud</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/09/13/mac-Elasticsearch/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1354,7 +1373,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">docker</a>
+                <a href="javascript:void(0)" class="js-tag color1">springboot</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1362,7 +1381,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redis</a>
+                <a href="javascript:void(0)" class="js-tag color4">K8S</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1370,11 +1393,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">springboot</a>
+                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
              
               <li class="article-tag-list-item">
