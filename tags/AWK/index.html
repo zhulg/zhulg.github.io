@@ -6,22 +6,15 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>springcloud-sleuth记录 | zhulg笔记</title>
+  <title>Tag: AWK | zhulg笔记</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="SpringCloud Sleuth记录 Spring Cloud Sleuth为Spring Cloud提供了分布式追踪方案背景 对系统进行全链路的监控是非常有必要的。在单体应用中，传统的方式是软件开发者，通过自定义日志的level，日志文件的方式记录单体应用的运行日志。从而排查线上系统出现运行过慢，出现故障，异常等问题，但是在微服务架构或分布式系统中，一个系统被拆分成了A、B、C、D、E等多个">
-<meta name="keywords" content="springcloud">
-<meta property="og:type" content="article">
-<meta property="og:title" content="springcloud-sleuth记录">
-<meta property="og:url" content="http://yoursite.com/2017/10/18/springcloud-sleuth记录/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="zhulg笔记">
+<meta property="og:url" content="http://yoursite.com/tags/AWK/index.html">
 <meta property="og:site_name" content="zhulg笔记">
-<meta property="og:description" content="SpringCloud Sleuth记录 Spring Cloud Sleuth为Spring Cloud提供了分布式追踪方案背景 对系统进行全链路的监控是非常有必要的。在单体应用中，传统的方式是软件开发者，通过自定义日志的level，日志文件的方式记录单体应用的运行日志。从而排查线上系统出现运行过慢，出现故障，异常等问题，但是在微服务架构或分布式系统中，一个系统被拆分成了A、B、C、D、E等多个">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://zipkin.io/public/img/architecture-1.png">
-<meta property="og:updated_time" content="2017-10-18T10:58:06.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="springcloud-sleuth记录">
-<meta name="twitter:description" content="SpringCloud Sleuth记录 Spring Cloud Sleuth为Spring Cloud提供了分布式追踪方案背景 对系统进行全链路的监控是非常有必要的。在单体应用中，传统的方式是软件开发者，通过自定义日志的level，日志文件的方式记录单体应用的运行日志。从而排查线上系统出现运行过慢，出现故障，异常等问题，但是在微服务架构或分布式系统中，一个系统被拆分成了A、B、C、D、E等多个">
-<meta name="twitter:image" content="http://zipkin.io/public/img/architecture-1.png">
+<meta name="twitter:title" content="zhulg笔记">
   
     <link rel="alternative" href="/atom.xml" title="zhulg笔记" type="application/atom+xml">
   
@@ -155,212 +148,60 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-springcloud-sleuth记录" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      springcloud-sleuth记录
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2017" class="archive-year">2017</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2017/11/20/awk常用记录/" class="archive-article-date">
+  	<time datetime="2017-11-20T03:22:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-20</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2017/11/20/awk常用记录/">awk常用记录</a>
     </h1>
   
 
-        
-        <a href="/2017/10/18/springcloud-sleuth记录/" class="archive-article-date">
-  	<time datetime="2017-10-18T09:09:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-18</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="SpringCloud-Sleuth记录"><a href="#SpringCloud-Sleuth记录" class="headerlink" title="SpringCloud Sleuth记录"></a>SpringCloud Sleuth记录</h3><ul>
-<li>Spring Cloud Sleuth为Spring Cloud提供了分布式追踪方案<h4 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h4></li>
-<li>对系统进行全链路的监控是非常有必要的。在单体应用中，传统的方式是软件开发者，通过自定义日志的level，日志文件的方式记录单体应用的运行日志。从而排查线上系统出现运行过慢，出现故障，异常等问题，但是在微服务架构或分布式系统中，一个系统被拆分成了A、B、C、D、E等多个服务，而每个服务可能又有多个实例组成集群，采用上诉定位问题的方式就行不通了，你充其量就知道某个服务是应用的瓶颈，但中间发生了什么你完全不知道。而且问题的查询，因为有海量各种各样的日志等文件，导致追溯定位问题等极其不方便。因此需要全链路监控系统的收集，上报，对海量日志实时计算生成，监控告警，视图报表，帮助开发人员快速定位问题。</li>
-</ul>
-<h4 id="服务追踪分析"><a href="#服务追踪分析" class="headerlink" title="服务追踪分析"></a>服务追踪分析</h4><ul>
-<li>一个由微服务构成的应用系统由N个服务实例组成，通过REST请求或者RPC协议等来通讯完成一个业务流程的调用。对于入口的一个调用可能需要有多个后台服务协同完成，链路上任何一个调用超时或出错都可能造成前端请求的失败。服务的调用链也会越来越长，并形成一个树形的调用链。</li>
-<li>针对服务化应用全链路追踪的问题，Google发表了Dapper论文，介绍了他们如何进行服务追踪分析。其基本思路是在服务调用的请求和响应中加入ID，标明上下游请求的关系。利用这些信息，可以可视化地分析服务调用链路和服务间的依赖关系。</li>
-</ul>
-<h4 id="Spring-Cloud-Sleuth"><a href="#Spring-Cloud-Sleuth" class="headerlink" title="Spring Cloud Sleuth"></a>Spring Cloud Sleuth</h4><ul>
-<li>Spring Cloud Sleuth就是APM(Application Performance Monitor),全链路监控的APM的一部分，如果要完整的使用该组件需要自己定制化或者和开源的系统集成，例如:ZipKin。</li>
-<li>APM（Application Performance Monitor）这个领域最近异常火热,例如淘宝鹰眼Eagle Eyes，点评的CAT，微博的Watchman，twitter的Zipkin</li>
-<li>zipkin是基于goole的<a href="https://research.google.com/pubs/pub36356.html" target="_blank" rel="external">google-Dapper</a>实现。</li>
-</ul>
-<p>###ZipKin的架构<br><img src="http://zipkin.io/public/img/architecture-1.png" alt=""></p>
-<ul>
-<li>collector 收集器</li>
-<li>storage 存储</li>
-<li>api 查询api</li>
-<li>ui 界面</li>
-</ul>
-<p>####zipkin存储</p>
-<ul>
-<li>zipkin存储默认使用inMemory</li>
-<li>支持存储模式</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">inMemory</div><div class="line">mysql</div><div class="line">Cassandra</div><div class="line">Elasticsearch</div></pre></td></tr></table></figure>
-<p>####ZipKin数据模型</p>
-<ul>
-<li>Trace：一组代表一次用户请求所包含的spans，其中根span只有一个。</li>
-<li>Span： 一组代表一次HTTP/RPC请求所包含的annotations。</li>
-<li>annotation：包括一个值，时间戳，主机名(留痕迹)。</li>
-</ul>
-<p>几个时间</p>
-<ul>
-<li>cs：客户端发起请求，标志Span的开始</li>
-<li>sr：服务端接收到请求，并开始处理内部事务，其中sr - cs则为网络延迟和时钟抖动</li>
-<li>ss：服务端处理完请求，返回响应内容，其中ss - sr则为服务端处理请求耗时</li>
-<li>cr：客户端接收到服务端响应内容，标志着Span的结束，其中cr - ss则为网络延迟和时钟抖动</li>
-</ul>
-
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">springcloud</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">AWK</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/10/18/springcloud-sleuth记录/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2017/10/21/docker知识点记录/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          docker知识点记录
-        
-      </div>
-    </a>
   
   
-    <a href="/2017/10/17/springcloud-Gateway记录/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">springcloud-Gateway记录</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
-
-  
+    
 
 
           </div>
@@ -383,9 +224,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,

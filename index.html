@@ -150,6 +150,154 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-awk常用记录" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/20/awk常用记录/">awk常用记录</a>
+    </h1>
+  
+
+        
+        <a href="/2017/11/20/awk常用记录/" class="archive-article-date">
+  	<time datetime="2017-11-20T03:22:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-20</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="AWK记录"><a href="#AWK记录" class="headerlink" title="AWK记录"></a>AWK记录</h3><ul>
+<li>AWK是一种处理文本文件的语言，是一个强大的文本分析工具</li>
+</ul>
+<h3 id="AWK工作原理"><a href="#AWK工作原理" class="headerlink" title="AWK工作原理"></a>AWK工作原理</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">awk &apos;BEGIN&#123; commands &#125; pattern&#123; commands &#125; END&#123; commands &#125;&apos;</div></pre></td></tr></table></figure>
+<ul>
+<li>例如：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$ echo -e &quot;A line 1\nA line 2&quot; | awk &apos;BEGIN&#123; print &quot;Start&quot; &#125; &#123; print &#125; END&#123; print &quot;End&quot; &#125;&apos;</div><div class="line"></div><div class="line">Start</div><div class="line">A line 1</div><div class="line">A line 2</div><div class="line">End</div></pre></td></tr></table></figure>
+<ul>
+<li>例如：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">统计文件中的行数：</div><div class="line"> awk &apos;END&#123; print NR &#125;&apos; filename </div><div class="line"> </div><div class="line">以上命令只使用了END语句块，在读入每一行的时，awk会将NR更新为对应的行号，当到达最后一行NR的值就是最后一行的行号，所以END语句块中的NR就是文件的行数。</div></pre></td></tr></table></figure>
+<h3 id="创建log-txt文本内容如下："><a href="#创建log-txt文本内容如下：" class="headerlink" title="创建log.txt文本内容如下："></a>创建log.txt文本内容如下：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">1 hello, world</div><div class="line">2 this is a test</div><div class="line">3 Are you like awk</div><div class="line">This&apos;s a test</div><div class="line">10 There are orange,apple,mongo</div></pre></td></tr></table></figure>
+<ul>
+<li><strong>每行按空格或TAB分割，输出文本中的1项</strong></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$awk &apos;&#123;print $1&#125;&apos; log.txt</div><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">this&apos;s</div><div class="line">10</div></pre></td></tr></table></figure>
+<ul>
+<li><strong>awk -F  #-F相当于内置变量FS, 指定分割字符</strong></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">awk -F, &apos;&#123;print $1&#125;&apos; log.txt</div><div class="line">1 hello</div><div class="line">2 this is a test</div><div class="line">3 Are you like awk</div><div class="line">this&apos;s  a test</div><div class="line">10 There are orange</div><div class="line"></div><div class="line">============或者使用内建变量=================</div><div class="line"></div><div class="line">$ awk &apos;BEGIN&#123;FS=&quot;,&quot;&#125; &#123;print $1,$2&#125;&apos;     log.txt</div><div class="line">1 hello  world</div><div class="line">2 this is a test</div><div class="line">3 Are you like awk</div><div class="line">this&apos;s  a test</div><div class="line">10 There are orange apple</div></pre></td></tr></table></figure>
+<ul>
+<li><strong>awk -v   设置变量</strong></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$ awk -v a=1 &apos;&#123;print $1,$1+a&#125;&apos; log.txt</div><div class="line">1 2</div><div class="line">2 3</div><div class="line">3 4</div><div class="line">this&apos;s 1</div><div class="line">10 11</div></pre></td></tr></table></figure>
+<ul>
+<li><strong>awk -f {awk脚本} {文件名}</strong></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ awk -f cal.awk log.txt</div></pre></td></tr></table></figure>
+<ul>
+<li><p><strong>运算符的支持</strong><br><img src="https://raw.githubusercontent.com/zhulg/allpic/master/awk1.png" alt=""></p>
+</li>
+<li><p><strong>条件判断</strong></p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">awk &apos;$1&gt;2&apos; log.txt</div><div class="line">3 Are you like awk</div><div class="line">this&apos;s  a test</div><div class="line">10 There are orange,apple,mongo</div></pre></td></tr></table></figure>
+<ul>
+<li><strong>多条件判断</strong></li>
+<li><p>过滤第一列大于2并且第二列等于’Are’的行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">awk &apos;$1&gt;2 &amp;&amp; $2==&quot;Are&quot; &#123;print $1,$2,$3&#125;&apos; log.txt</div><div class="line">3 Are you</div></pre></td></tr></table></figure>
+</li>
+<li><p><strong>内建变量(预定义变量)</strong><br><img src="https://raw.githubusercontent.com/zhulg/allpic/master/awk2.png" alt=""></p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">$ awk &apos;&#123;print NR,FNR,$1,$2,$3&#125;&apos; log.txt</div><div class="line">1 1 2 this is</div><div class="line">2 2 3 Are you</div><div class="line">3 3 This&apos;s a test</div><div class="line">4 4 10 There are</div><div class="line"></div><div class="line"># 指定输出分割符</div><div class="line">$  awk &apos;&#123;print $1,$2,$5&#125;&apos; OFS=&quot; $ &quot;  log.txt</div><div class="line">2 $ this $ test</div><div class="line">3 $ Are $ awk</div><div class="line">This&apos;s $ a $</div><div class="line">10 $ There $</div></pre></td></tr></table></figure>
+<ul>
+<li><strong>使用正则，字符串匹配</strong></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"># 输出第二列包含 &quot;th&quot;，并打印第二列与第四列</div><div class="line">$ awk &apos;$2 ~ /th/ &#123;print $2,$4&#125;&apos; log.txt</div><div class="line">this a</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">~ 表示模式开始。// 中是模式。</div><div class="line"># 输出包含&quot;re&quot; 的行</div><div class="line">$ awk &apos;/re/ &apos; log.txt</div><div class="line">---------------------------------------------</div><div class="line">3 Are you like awk</div><div class="line">10 There are orange,apple,mongo</div></pre></td></tr></table></figure>
+<ul>
+<li>忽略大小写</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ awk &apos;BEGIN&#123;IGNORECASE=1&#125; /this/&apos; log.txt</div><div class="line">---------------------------------------------</div><div class="line">2 this is a test</div><div class="line">This&apos;s a test</div></pre></td></tr></table></figure>
+<ul>
+<li>模式取反</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">$ awk &apos;$2 !~ /th/ &#123;print $2,$4&#125;&apos; log.txt</div><div class="line">---------------------------------------------</div><div class="line">Are like</div><div class="line">a</div><div class="line">There orange,apple,mongo</div><div class="line">$ awk &apos;!/th/ &#123;print $2,$4&#125;&apos; log.txt</div><div class="line">---------------------------------------------</div><div class="line">Are like</div><div class="line">a</div><div class="line">There orange,apple,mongo</div></pre></td></tr></table></figure>
+<h3 id="awk脚本"><a href="#awk脚本" class="headerlink" title="awk脚本"></a>awk脚本</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">关于awk脚本，我们需要注意两个关键词BEGIN和END。</div><div class="line">BEGIN&#123; 这里面放的是执行前的语句 &#125;</div><div class="line">END &#123;这里面放的是处理完所有的行后要执行的语句 &#125;</div><div class="line">&#123;这里面放的是处理每一行时要执行的语句&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>假设有这么一个文件（学生成绩表）：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$ cat score.txt</div><div class="line">Marry   2143 78 84 77</div><div class="line">Jack    2321 66 78 45</div><div class="line">Tom     2122 48 77 71</div><div class="line">Mike    2537 87 97 95</div><div class="line">Bob     2415 40 57 62</div></pre></td></tr></table></figure>
+<ul>
+<li>我们的awk脚本如下：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">$ cat cal.awk</div><div class="line">#!/bin/awk -f</div><div class="line">#运行前</div><div class="line">BEGIN &#123;</div><div class="line">    math = 0</div><div class="line">    english = 0</div><div class="line">    computer = 0</div><div class="line"> </div><div class="line">    printf &quot;NAME    NO.   MATH  ENGLISH  COMPUTER   TOTAL\n&quot;</div><div class="line">    printf &quot;---------------------------------------------\n&quot;</div><div class="line">&#125;</div><div class="line">#运行中</div><div class="line">&#123;</div><div class="line">    math+=$3</div><div class="line">    english+=$4</div><div class="line">    computer+=$5</div><div class="line">    printf &quot;%-6s %-6s %4d %8d %8d %8d\n&quot;, $1, $2, $3,$4,$5, $3+$4+$5</div><div class="line">&#125;</div><div class="line">#运行后</div><div class="line">END &#123;</div><div class="line">    printf &quot;---------------------------------------------\n&quot;</div><div class="line">    printf &quot;  TOTAL:%10d %8d %8d \n&quot;, math, english, computer</div><div class="line">    printf &quot;AVERAGE:%10.2f %8.2f %8.2f\n&quot;, math/NR, english/NR, computer/NR</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>我们来看一下执行结果：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">$ awk -f cal.awk score.txt</div><div class="line">NAME    NO.   MATH  ENGLISH  COMPUTER   TOTAL</div><div class="line">---------------------------------------------</div><div class="line">Marry  2143     78       84       77      239</div><div class="line">Jack   2321     66       78       45      189</div><div class="line">Tom    2122     48       77       71      196</div><div class="line">Mike   2537     87       97       95      279</div><div class="line">Bob    2415     40       57       62      159</div><div class="line">---------------------------------------------</div><div class="line">  TOTAL:       319      393      350</div><div class="line">AVERAGE:     63.80    78.60    70.00</div></pre></td></tr></table></figure>
+<ul>
+<li>参考链接：</li>
+<li><a href="http://man.linuxde.net/awk" target="_blank" rel="external">http://man.linuxde.net/awk</a> </li>
+<li><a href="https://coolshell.cn/articles/9070.html" target="_blank" rel="external">https://coolshell.cn/articles/9070.html</a></li>
+<li><a href="http://www.runoob.com/linux/linux-comm-awk.html" target="_blank" rel="external">http://www.runoob.com/linux/linux-comm-awk.html</a></li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">AWK</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/11/20/awk常用记录/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-shell常用点记录" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1222,79 +1370,6 @@
 
 
   
-    <article id="post-nginx配置文件" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/30/nginx配置文件/">nginx配置文件</a>
-    </h1>
-  
-
-        
-        <a href="/2017/09/30/nginx配置文件/" class="archive-article-date">
-  	<time datetime="2017-09-30T09:19:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-30</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="nginx配置文件说明"><a href="#nginx配置文件说明" class="headerlink" title="nginx配置文件说明"></a>nginx配置文件说明</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div></pre></td><td class="code"><pre><div class="line">#定义Nginx运行的用户和用户组</div><div class="line">#user  nobody; </div><div class="line"></div><div class="line">#nginx进程数，建议设置为等于CPU总核心数。</div><div class="line">worker_processes  1; </div><div class="line"></div><div class="line">#全局错误日志定义类型，[ debug | info | notice | warn | error | crit ]</div><div class="line">#error_log  logs/error.log;</div><div class="line">#error_log  logs/error.log  notice;</div><div class="line">#error_log  logs/error.log  info;</div><div class="line"></div><div class="line">#进程文件</div><div class="line">#pid        logs/nginx.pid;</div><div class="line"></div><div class="line">#工作模式与连接数上限</div><div class="line">events &#123;</div><div class="line">    #单个进程最大连接数（最大连接数=连接数*进程数）</div><div class="line">    worker_connections  1024;</div><div class="line">&#125;</div><div class="line"></div><div class="line">#设定http服务器</div><div class="line">http &#123;</div><div class="line">    #文件扩展名与文件类型映射表</div><div class="line">    include       mime.types;</div><div class="line">    #默认文件类型</div><div class="line">    default_type  application/octet-stream;</div><div class="line"></div><div class="line">    #log_format  main  &apos;$remote_addr - $remote_user [$time_local] &quot;$request&quot; &apos;</div><div class="line">    #                  &apos;$status $body_bytes_sent &quot;$http_referer&quot; &apos;</div><div class="line">    #                  &apos;&quot;$http_user_agent&quot; &quot;$http_x_forwarded_for&quot;&apos;;</div><div class="line"></div><div class="line">    #access_log  logs/access.log  main;</div><div class="line"></div><div class="line">    #开启高效文件传输模式，sendfile指令指定nginx是否调用sendfile函数来输出文件，对于普通应用设为 on，如果用来进行下载等应用磁盘IO重负载应用，可设置为off，以平衡磁盘与网络I/O处理速度，降低系统的负载。注意：如果图片显示不正常把这个改 成off。</div><div class="line">    sendfile        on;</div><div class="line"></div><div class="line">    #防止网络阻塞</div><div class="line">    #tcp_nopush     on;</div><div class="line"></div><div class="line"></div><div class="line">    #长连接超时时间，单位是秒</div><div class="line">    #keepalive_timeout  0;</div><div class="line">    keepalive_timeout  65;</div><div class="line"></div><div class="line">    #开启gzip压缩输出</div><div class="line">    #gzip  on;</div><div class="line"></div><div class="line">    #虚拟主机的配置</div><div class="line">    server &#123;</div><div class="line">        #监听端口</div><div class="line">        listen       80;</div><div class="line"></div><div class="line">        #域名可以有多个，用空格隔开</div><div class="line">        server_name  localhost;</div><div class="line"></div><div class="line">        #默认编码</div><div class="line">        #charset utf-8;</div><div class="line"></div><div class="line">        #定义本虚拟主机的访问日志</div><div class="line">        #access_log  logs/host.access.log  main;</div><div class="line"></div><div class="line">        location / &#123;</div><div class="line">            root   html;</div><div class="line">            index  index.html index.htm;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        #error_page  404              /404.html;</div><div class="line"></div><div class="line">        # redirect server error pages to the static page /50x.html</div><div class="line">        #</div><div class="line">        error_page   500 502 503 504  /50x.html;</div><div class="line">        location = /50x.html &#123;</div><div class="line">            root   html;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        # proxy the PHP scripts to Apache listening on 127.0.0.1:80</div><div class="line">        #</div><div class="line">        #location ~ \.php$ &#123;</div><div class="line">        #    proxy_pass   http://127.0.0.1;</div><div class="line">        #&#125;</div><div class="line"></div><div class="line">        # pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000</div><div class="line">        #</div><div class="line">        #location ~ \.php$ &#123;</div><div class="line">        #    root           html;</div><div class="line">        #    fastcgi_pass   127.0.0.1:9000;</div><div class="line">        #    fastcgi_index  index.php;</div><div class="line">        #    fastcgi_param  SCRIPT_FILENAME  /scripts$fastcgi_script_name;</div><div class="line">        #    include        fastcgi_params;</div><div class="line">        #&#125;</div><div class="line"></div><div class="line">        # deny access to .htaccess files, if Apache&apos;s document root</div><div class="line">        # concurs with nginx&apos;s one</div><div class="line">        #</div><div class="line">        #location ~ /\.ht &#123;</div><div class="line">        #    deny  all;</div><div class="line">        #&#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">    # another virtual host using mix of IP-, name-, and port-based configuration</div><div class="line">    #</div><div class="line">    #server &#123;</div><div class="line">    #    listen       8000;</div><div class="line">    #    listen       somename:8080;</div><div class="line">    #    server_name  somename  alias  another.alias;</div><div class="line"></div><div class="line">    #    location / &#123;</div><div class="line">    #        root   html;</div><div class="line">    #        index  index.html index.htm;</div><div class="line">    #    &#125;</div><div class="line">    #&#125;</div><div class="line"></div><div class="line"></div><div class="line">    # HTTPS server</div><div class="line">    #</div><div class="line">    #server &#123;</div><div class="line">    #    listen       443 ssl;</div><div class="line">    #    server_name  localhost;</div><div class="line"></div><div class="line">    #    ssl_certificate      cert.pem;</div><div class="line">    #    ssl_certificate_key  cert.key;</div><div class="line"></div><div class="line">    #    ssl_session_cache    shared:SSL:1m;</div><div class="line">    #    ssl_session_timeout  5m;</div><div class="line"></div><div class="line">    #    ssl_ciphers  HIGH:!aNULL:!MD5;</div><div class="line">    #    ssl_prefer_server_ciphers  on;</div><div class="line"></div><div class="line">    #    location / &#123;</div><div class="line">    #        root   html;</div><div class="line">    #        index  index.html index.htm;</div><div class="line">    #    &#125;</div><div class="line">    #&#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">nginx springboot</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/09/30/nginx配置文件/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1392,6 +1467,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">AWK</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">springboot</a>
               </li>
              
@@ -1400,15 +1483,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">docker</a>
+                <a href="javascript:void(0)" class="js-tag color4">K8S</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">springcloud</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">K8S</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1424,11 +1503,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">nginx springboot</a>
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+                <a href="javascript:void(0)" class="js-tag color2">nginx springboot</a>
               </li>
              
               <li class="article-tag-list-item">
