@@ -150,6 +150,118 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-springcloud-sleuth记录" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/10/18/springcloud-sleuth记录/">springcloud-sleuth记录</a>
+    </h1>
+  
+
+        
+        <a href="/2017/10/18/springcloud-sleuth记录/" class="archive-article-date">
+  	<time datetime="2017-10-18T09:09:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-18</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="SpringCloud-Sleuth记录"><a href="#SpringCloud-Sleuth记录" class="headerlink" title="SpringCloud Sleuth记录"></a>SpringCloud Sleuth记录</h3><ul>
+<li>Spring Cloud Sleuth为Spring Cloud提供了分布式追踪方案<h4 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h4></li>
+<li>对系统进行全链路的监控是非常有必要的。在单体应用中，传统的方式是软件开发者，通过自定义日志的level，日志文件的方式记录单体应用的运行日志。从而排查线上系统出现运行过慢，出现故障，异常等问题，但是在微服务架构或分布式系统中，一个系统被拆分成了A、B、C、D、E等多个服务，而每个服务可能又有多个实例组成集群，采用上诉定位问题的方式就行不通了，你充其量就知道某个服务是应用的瓶颈，但中间发生了什么你完全不知道。而且问题的查询，因为有海量各种各样的日志等文件，导致追溯定位问题等极其不方便。因此需要全链路监控系统的收集，上报，对海量日志实时计算生成，监控告警，视图报表，帮助开发人员快速定位问题。</li>
+</ul>
+<h4 id="服务追踪分析"><a href="#服务追踪分析" class="headerlink" title="服务追踪分析"></a>服务追踪分析</h4><ul>
+<li>一个由微服务构成的应用系统由N个服务实例组成，通过REST请求或者RPC协议等来通讯完成一个业务流程的调用。对于入口的一个调用可能需要有多个后台服务协同完成，链路上任何一个调用超时或出错都可能造成前端请求的失败。服务的调用链也会越来越长，并形成一个树形的调用链。</li>
+<li>针对服务化应用全链路追踪的问题，Google发表了Dapper论文，介绍了他们如何进行服务追踪分析。其基本思路是在服务调用的请求和响应中加入ID，标明上下游请求的关系。利用这些信息，可以可视化地分析服务调用链路和服务间的依赖关系。</li>
+</ul>
+<h4 id="Spring-Cloud-Sleuth"><a href="#Spring-Cloud-Sleuth" class="headerlink" title="Spring Cloud Sleuth"></a>Spring Cloud Sleuth</h4><ul>
+<li>Spring Cloud Sleuth就是APM(Application Performance Monitor),全链路监控的APM的一部分，如果要完整的使用该组件需要自己定制化或者和开源的系统集成，例如:ZipKin。</li>
+<li>APM（Application Performance Monitor）这个领域最近异常火热,例如淘宝鹰眼Eagle Eyes，点评的CAT，微博的Watchman，twitter的Zipkin</li>
+<li>zipkin是基于goole的<a href="https://research.google.com/pubs/pub36356.html" target="_blank" rel="external">google-Dapper</a>实现。</li>
+</ul>
+<p>###ZipKin的架构<br><img src="http://zipkin.io/public/img/architecture-1.png" alt=""></p>
+<ul>
+<li>collector 收集器</li>
+<li>storage 存储</li>
+<li>api 查询api</li>
+<li>ui 界面</li>
+</ul>
+<p>####zipkin存储</p>
+<ul>
+<li>zipkin存储默认使用inMemory</li>
+<li>支持存储模式</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">inMemory</div><div class="line">mysql</div><div class="line">Cassandra</div><div class="line">Elasticsearch</div></pre></td></tr></table></figure>
+<p>####ZipKin数据模型</p>
+<ul>
+<li>Trace：一组代表一次用户请求所包含的spans，其中根span只有一个。</li>
+<li>Span： 一组代表一次HTTP/RPC请求所包含的annotations。</li>
+<li>annotation：包括一个值，时间戳，主机名(留痕迹)。</li>
+</ul>
+<p>几个时间</p>
+<ul>
+<li>cs：客户端发起请求，标志Span的开始</li>
+<li>sr：服务端接收到请求，并开始处理内部事务，其中sr - cs则为网络延迟和时钟抖动</li>
+<li>ss：服务端处理完请求，返回响应内容，其中ss - sr则为服务端处理请求耗时</li>
+<li>cr：客户端接收到服务端响应内容，标志着Span的结束，其中cr - ss则为网络延迟和时钟抖动</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">springcloud</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/10/18/springcloud-sleuth记录/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-springcloud-Gateway记录" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1048,109 +1160,6 @@
 
 
   
-    <article id="post-Apache Camel" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/16/Apache Camel/">Apache Camel</a>
-    </h1>
-  
-
-        
-        <a href="/2017/08/16/Apache Camel/" class="archive-article-date">
-  	<time datetime="2017-08-16T10:13:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="Apache-Camel"><a href="#Apache-Camel" class="headerlink" title="Apache Camel"></a>Apache Camel</h3><ul>
-<li>Camel 是一个开源的企业应用集成框架。</li>
-<li>它采用URI来描述各种组件，这样你可以很方便地与各种传输或者消息模块进行交互，比如HTTP、 ActiveMQ、JMS、JBI、SCA、MINA或CXF Bus API。这些模块是采用可插拔的方式进行工作的。Apache Camel拥有小巧、依赖少等特点，能够很容易将其集成在各种Java应用中。</li>
-<li><strong>其核心的思想就是从一个from源头得到数据,通过processor处理,再发到一个to目的的</strong></li>
-<li>在企业系统集成中做路由,流程控制一个非常好的框架</li>
-</ul>
-<h3 id="Apache-Camel的常用组件"><a href="#Apache-Camel的常用组件" class="headerlink" title="Apache Camel的常用组件"></a>Apache Camel的常用组件</h3><ul>
-<li><p><strong>Message</strong>: 是Camel中一个基本的包含数据和路由的实体，Camel中消息以及数据都是以message类型进行传递</p>
-<p>1,header：message中包含头信息，存放在header中</p>
-<p>2,body：路由中消息和数据传输的实际内容存放在body中</p>
-<p>3,fault flag：错误标记，使用来标记正常或者错误的标记</p>
-</li>
-<li><p><strong>Exchange</strong>：是路由之间传递消息，通信，交换数据的抽象，用来传递，交换数据</p>
-<p>1, Exchange ID：每次交换数据的时候都会产生一个Exchange ID</p>
-<p>2, MEP ：一个类似InOnly或者InOut的消息交换模式。当模式是InOnly的时候，消息交换中  只包含IN-Message</p>
-<p>3, Exception：在路由过程中出现的异常</p>
-<p>4, Properties：类似与message 的headers ，但是他们将持续到整个exchange结束，Camel还可能利用他们进行一些特殊的通信。</p>
-<p>5, IN-Message：输入消息，在对消息处理之前，首先需要获取上个endpoint节点的消息</p>
-<p>6, OUT-Message：输出消息，向下一个endpoint传输的消息</p>
-</li>
-<li><p><strong>Endpoint</strong> 是Camel路由中的通道端点，可以发送和接受消息，在Camel中Endpoint使用URI来配置。在运行时Camel通过获取URL来查找到对应的组件。端点的功能强大、全面而且又可维护</p>
-</li>
-<li><p><strong>Component</strong> 是一些Endpoints URI的集合。他们通过连接码来链接（例如file:,jms:），而且作为一个endpoint的工厂。现在Camel中有超过80个Component。也可以通过扩展类来实现自己的Component</p>
-</li>
-<li><p><strong>Route</strong> 路由，它定义了Message如何在一个系统中传输的真实路径或者通道。路由引擎自身并不暴露给开发者，但是开发者可以自己定义路由，并且需要信任引擎可以完成复杂的传输工作。每个路由都有一个唯一的标识符，用来记录日志、调试、监控，以及启动或者停止路由。<br>路由也有一个输入的Message，因此他们也有效的链接到一个输入端点。路由定义了一种领域特有的语言（DSL）。Camel提供了java、scala和基于xml的Route-DSL。</p>
-</li>
-<li><p><strong>Processor</strong> 是一个消息接受者和消息通信的处理器。当然，Processor是Route的一个元素，可用来消息格式转换或者其他的一些变换。在路由传输消息的过程中，有时候需要对消息和数据进行处理在传输到下一个Endpoint中，Processor中就定义了一系列消息处理的过程</p>
-</li>
-</ul>
-<h3 id="架构原理图"><a href="#架构原理图" class="headerlink" title="架构原理图"></a>架构原理图</h3><p><img src="http://camel.apache.org/architecture.data/camel-components.png" alt="原理"></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">springboot</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/16/Apache Camel/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
@@ -1252,15 +1261,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">分布式/集群</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">AWK</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">docker</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">分布式/集群</a>
               </li>
              
               <li class="article-tag-list-item">
