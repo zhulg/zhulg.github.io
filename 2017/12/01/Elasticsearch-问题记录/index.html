@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>Elasticsearch 问题记录 | zhulg笔记</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="错误日志：field “name” was indexed without position data; cannot run PhraseQuery   1234567891011121314151617181920212017-12-01 15:50:42.086 ERROR [bi-service-search,,] 1466 --- [nio-9009-exec-1] o.a.c.c.C">
+  <meta name="description" content="错误日志：field “name” was indexed without position data; cannot run PhraseQuery   123456789101112131415161718java.lang.IllegalStateException: field &amp;quot;name&amp;quot; was indexed without position data; can">
 <meta name="keywords" content="Elasticsearch">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Elasticsearch 问题记录">
 <meta property="og:url" content="http://yoursite.com/2017/12/01/Elasticsearch-问题记录/index.html">
 <meta property="og:site_name" content="zhulg笔记">
-<meta property="og:description" content="错误日志：field “name” was indexed without position data; cannot run PhraseQuery   1234567891011121314151617181920212017-12-01 15:50:42.086 ERROR [bi-service-search,,] 1466 --- [nio-9009-exec-1] o.a.c.c.C">
+<meta property="og:description" content="错误日志：field “name” was indexed without position data; cannot run PhraseQuery   123456789101112131415161718java.lang.IllegalStateException: field &amp;quot;name&amp;quot; was indexed without position data; can">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-01T08:13:59.000Z">
+<meta property="og:updated_time" content="2017-12-01T08:15:31.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Elasticsearch 问题记录">
-<meta name="twitter:description" content="错误日志：field “name” was indexed without position data; cannot run PhraseQuery   1234567891011121314151617181920212017-12-01 15:50:42.086 ERROR [bi-service-search,,] 1466 --- [nio-9009-exec-1] o.a.c.c.C">
+<meta name="twitter:description" content="错误日志：field “name” was indexed without position data; cannot run PhraseQuery   123456789101112131415161718java.lang.IllegalStateException: field &amp;quot;name&amp;quot; was indexed without position data; can">
   
     <link rel="alternative" href="/atom.xml" title="zhulg笔记" type="application/atom+xml">
   
@@ -176,7 +176,7 @@
         <ul>
 <li>错误日志：field “name” was indexed without position data; cannot run PhraseQuery </li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">2017-12-01 15:50:42.086 ERROR [bi-service-search,,] 1466 --- [nio-9009-exec-1] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is Failed to execute phase [query], all shards failed; shardFailures &#123;[dIhbzEK1QsCRMF2yH0IHOA][oversea_items_index_v2][0]: RemoteTransportException[[ip-10-112-170-188-node1][10.112.170.188:9300][indices:data/read/search[phase/query]]]; nested: QueryPhaseExecutionException[Query Failed [Failed to execute main query]]; nested: IllegalStateException[field &quot;name&quot; was indexed without position data; cannot run PhraseQuery (phrase=name:&quot;bbc ddr&quot;)]; &#125;&#123;[dIhbzEK1QsCRMF2yH0IHOA][oversea_items_index_v2][1]: RemoteTransportException[[ip-10-112-170-188-node1][10.112.170.188:9300][indices:data/read/search[phase/query]]]; nested: QueryPhaseExecutionException[Query Failed [Failed to execute main query]]; nested: IllegalStateException[field &quot;name&quot; was indexed without position data; cannot run PhraseQuery (phrase=name:&quot;bbc ddr&quot;)]; &#125;&#123;[2eCtNprWSD6WJsNBjSuOGg][oversea_items_index_v2][2]: RemoteTransportException[[ip-10-112-170-189-node2][10.112.170.189:9300][indices:data/read/search[phase/query]]]; nested: QueryPhaseExecutionException[Query Failed [Failed to execute main query]]; nested: IllegalStateException[field &quot;name&quot; was indexed without position data; cannot run PhraseQuery (phrase=name:&quot;bbc ddr&quot;)]; &#125;&#123;[dIhbzEK1QsCRMF2yH0IHOA][oversea_items_index_v2][3]: RemoteTransportException[[ip-10-112-170-188-node1][10.112.170.188:9300][indices:data/read/search[phase/query]]]; nested: QueryPhaseExecutionException[Query Failed [Failed to execute main query]]; nested: IllegalStateException[field &quot;name&quot; was indexed without position data; cannot run PhraseQuery (phrase=name:&quot;bbc ddr&quot;)]; &#125;&#123;[dIhbzEK1QsCRMF2yH0IHOA][oversea_items_index_v2][4]: RemoteTransportException[[ip-10-112-170-188-node1][10.112.170.188:9300][indices:data/read/search[phase/query]]]; nested: QueryPhaseExecutionException[Query Failed [Failed to execute main query]]; nested: IllegalStateException[field &quot;name&quot; was indexed without position data; cannot run PhraseQuery (phrase=name:&quot;bbc ddr&quot;)]; &#125;] with root cause</div><div class="line"></div><div class="line">java.lang.IllegalStateException: field &quot;name&quot; was indexed without position data; cannot run PhraseQuery (phrase=name:&quot;bbc ddr&quot;)</div><div class="line">	at org.apache.lucene.search.PhraseQuery$PhraseWeight.scorer(PhraseQuery.java:411)</div><div class="line">	at org.apache.lucene.search.Weight.bulkScorer(Weight.java:160)</div><div class="line">	at org.apache.lucene.search.IndexSearcher.search(IndexSearcher.java:666)</div><div class="line">	at org.apache.lucene.search.IndexSearcher.search(IndexSearcher.java:473)</div><div class="line">	at org.elasticsearch.search.query.QueryPhase.execute(QueryPhase.java:388)</div><div class="line">	at org.elasticsearch.search.query.QueryPhase.execute(QueryPhase.java:108)</div><div class="line">	at org.elasticsearch.search.SearchService.loadOrExecuteQueryPhase(SearchService.java:247)</div><div class="line">	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:261)</div><div class="line">	at org.elasticsearch.action.search.SearchTransportService$6.messageReceived(SearchTransportService.java:331)</div><div class="line">	at org.elasticsearch.action.search.SearchTransportService$6.messageReceived(SearchTransportService.java:328)</div><div class="line">	at org.elasticsearch.transport.RequestHandlerRegistry.processMessageReceived(RequestHandlerRegistry.java:69)</div><div class="line">	at org.elasticsearch.transport.TransportService$7.doRun(TransportService.java:627)</div><div class="line">	at org.elasticsearch.common.util.concurrent.ThreadContext$ContextPreservingAbstractRunnable.doRun(ThreadContext.java:638)</div><div class="line">	at org.elasticsearch.common.util.concurrent.AbstractRunnable.run(AbstractRunnable.java:37)</div><div class="line">	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)</div><div class="line">	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)</div><div class="line">	at java.lang.Thread.run(Thread.java:748)</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">java.lang.IllegalStateException: field &quot;name&quot; was indexed without position data; cannot run PhraseQuery (phrase=name:&quot;bbc ddr&quot;)</div><div class="line">	at org.apache.lucene.search.PhraseQuery$PhraseWeight.scorer(PhraseQuery.java:411)</div><div class="line">	at org.apache.lucene.search.Weight.bulkScorer(Weight.java:160)</div><div class="line">	at org.apache.lucene.search.IndexSearcher.search(IndexSearcher.java:666)</div><div class="line">	at org.apache.lucene.search.IndexSearcher.search(IndexSearcher.java:473)</div><div class="line">	at org.elasticsearch.search.query.QueryPhase.execute(QueryPhase.java:388)</div><div class="line">	at org.elasticsearch.search.query.QueryPhase.execute(QueryPhase.java:108)</div><div class="line">	at org.elasticsearch.search.SearchService.loadOrExecuteQueryPhase(SearchService.java:247)</div><div class="line">	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:261)</div><div class="line">	at org.elasticsearch.action.search.SearchTransportService$6.messageReceived(SearchTransportService.java:331)</div><div class="line">	at org.elasticsearch.action.search.SearchTransportService$6.messageReceived(SearchTransportService.java:328)</div><div class="line">	at org.elasticsearch.transport.RequestHandlerRegistry.processMessageReceived(RequestHandlerRegistry.java:69)</div><div class="line">	at org.elasticsearch.transport.TransportService$7.doRun(TransportService.java:627)</div><div class="line">	at org.elasticsearch.common.util.concurrent.ThreadContext$ContextPreservingAbstractRunnable.doRun(ThreadContext.java:638)</div><div class="line">	at org.elasticsearch.common.util.concurrent.AbstractRunnable.run(AbstractRunnable.java:37)</div><div class="line">	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)</div><div class="line">	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)</div><div class="line">	at java.lang.Thread.run(Thread.java:748)</div></pre></td></tr></table></figure>
 <ul>
 <li>问题与描述解决方法一致：<a href="https://github.com/elastic/elasticsearch/issues/4475" target="_blank" rel="external">https://github.com/elastic/elasticsearch/issues/4475</a></li>
 </ul>
@@ -410,6 +410,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">分布式/集群</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">springboot</a>
               </li>
              
@@ -418,15 +422,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">docker</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">AWK</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">分布式/集群</a>
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -442,11 +442,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redis</a>
+                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
               </li>
              
               <li class="article-tag-list-item">
