@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="zhulg笔记">
 <meta property="og:description" content="Docker概念点 镜像（Image）可以认为：镜像 = 操作系统 + 运行环境 + 应用程序。譬如，我们可以将 Centos7 操作系统、JVM 和 Java 应用程序做成一个镜像。我们交付的软件不再是 zip 包或者 war 包，而是镜像。Docker 镜像技术实现了应用程序运行环境与主机环境的无关性。 容器（Container）容器是镜像的运行态。通过 docker run 命令即可快速的基">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-02T06:12:49.000Z">
+<meta property="og:updated_time" content="2017-12-01T08:43:54.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="docker知识点记录">
 <meta name="twitter:description" content="Docker概念点 镜像（Image）可以认为：镜像 = 操作系统 + 运行环境 + 应用程序。譬如，我们可以将 Centos7 操作系统、JVM 和 Java 应用程序做成一个镜像。我们交付的软件不再是 zip 包或者 war 包，而是镜像。Docker 镜像技术实现了应用程序运行环境与主机环境的无关性。 容器（Container）容器是镜像的运行态。通过 docker run 命令即可快速的基">
@@ -187,6 +187,7 @@
 <li><strong>拿一个包含 ABC 组件的微服务系统为例，我们会利用持续集成工具（例如 Jenkins）创建镜像，并将镜像推送到镜像仓库中（例如 Docker Registry，Harbor），再利用编排工具（例如 Docker Compose）创建并启动容器</strong>.</li>
 <li>容器启动后，ABC 组件就会随着容器一起启动，这时就需要考虑 ABC 组件的数据文件如何持久化存储，分布在不同主机上的组件如何网络通信（Docker 容器默认不能跨主机通信），容器资源使用情况如何监控，容器日志如何查看</li>
 </ul>
+<a id="more"></a>
 <h3 id="Docker安装"><a href="#Docker安装" class="headerlink" title="Docker安装"></a>Docker安装</h3><ul>
 <li>使用 Homebrew 安装，Homebrew 的 Cask 已经支持 Docker for Mac，因此可以很方便的使用 Homebrew Cask 来进行安装：<br>brew cask install docker</li>
 </ul>
@@ -573,11 +574,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">springcloud</a>
+                <a href="javascript:void(0)" class="js-tag color4">K8S</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">K8S</a>
+                <a href="javascript:void(0)" class="js-tag color2">springcloud</a>
               </li>
              
               <li class="article-tag-list-item">

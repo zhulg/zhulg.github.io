@@ -184,130 +184,9 @@
 <li><strong>拿一个包含 ABC 组件的微服务系统为例，我们会利用持续集成工具（例如 Jenkins）创建镜像，并将镜像推送到镜像仓库中（例如 Docker Registry，Harbor），再利用编排工具（例如 Docker Compose）创建并启动容器</strong>.</li>
 <li>容器启动后，ABC 组件就会随着容器一起启动，这时就需要考虑 ABC 组件的数据文件如何持久化存储，分布在不同主机上的组件如何网络通信（Docker 容器默认不能跨主机通信），容器资源使用情况如何监控，容器日志如何查看</li>
 </ul>
-<h3 id="Docker安装"><a href="#Docker安装" class="headerlink" title="Docker安装"></a>Docker安装</h3><ul>
-<li>使用 Homebrew 安装，Homebrew 的 Cask 已经支持 Docker for Mac，因此可以很方便的使用 Homebrew Cask 来进行安装：<br>brew cask install docker</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">安装后查看：</div><div class="line">docker --version</div><div class="line">Docker version 1.13.0, build 49bf474</div><div class="line">docker-compose --version</div><div class="line">docker-compose version 1.10.0, build 4bd6f1a</div><div class="line">docker-machine --version</div><div class="line">docker-machine version 0.9.0, build 15fd4c7</div></pre></td></tr></table></figure>
-<h3 id="使用Docker优势"><a href="#使用Docker优势" class="headerlink" title="使用Docker优势"></a>使用Docker优势</h3><ul>
-<li>环境依赖隔离</li>
-<li>计算机资源隔离<br><br>Docker 利用 Linux 的名称空间 (Namesaces)、控制组 (Contorl groups)、Union 文件系统和容器格式 (Container format) 实现了资源（例如 CPU、内存、IO 等）的隔离，保证同一台主机上的多个应用不会互相抢占资源。</li>
-<li>迁移方便</li>
-<li>版本管理更便捷<br><br>之前，对于版本的管理，更多考虑的源代码级的，比如开个 Branch 或打个 Tag。现在，版本是一个包含了运行环境和程序包的镜像。在上线失败的时候，可以很快回滚到之前的版本。</li>
-<li>编排的支持<br><br><strong>微服务架构下，一个系统包含多个程序包，而多个程序包之间是有依赖关系的。Docker 编排工具可以帮助管理这些依赖关系，从而达到一键创建整个系统的目的</strong></li>
-</ul>
-<h3 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h3><table>
-<thead>
-<tr>
-<th>命令</th>
-<th>解释</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>docker images</td>
-<td>列表本地所有镜像</td>
-</tr>
-<tr>
-<td>docker search</td>
-<td>关键词    在Docker Hub中搜索镜像</td>
-</tr>
-<tr>
-<td>docker pull</td>
-<td>镜像名称    下载Docker镜像</td>
-</tr>
-<tr>
-<td>docker rmi</td>
-<td>镜像id    删除Docker镜像。加参数-f表示强制删除。</td>
-</tr>
-<tr>
-<td>docker run</td>
-<td>镜像名称    启动Docker镜像</td>
-</tr>
-<tr>
-<td>docker ps</td>
-<td>列表所有运行中的Docker容器。该命令参数比较多，-a：列表所有容器；-f：过滤；-q 只列表容器的id。</td>
-</tr>
-<tr>
-<td>docker version</td>
-<td>查看Docker版本信息</td>
-</tr>
-<tr>
-<td>docker info</td>
-<td>查看Docker系统信息，例如：CPU、内存、容器个数等等</td>
-</tr>
-<tr>
-<td>docker kill</td>
-<td>容器id    杀死id对应容器</td>
-</tr>
-<tr>
-<td>docker start / stop / restart</td>
-<td>容器id    启动、停止、重启指定容器</td>
-</tr>
-<tr>
-<td>docker build -t</td>
-<td>标签名称 目录    构建Docker镜像，-t 表示指定一个标签</td>
-</tr>
-<tr>
-<td>docker tag</td>
-<td>为镜像打标签</td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li>docker run 应该是我们最常用的命令了(docker run -d -p 8080:8080 xxxx)</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>参数</th>
-<th>解释</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>-d</td>
-<td>后台运行</td>
-</tr>
-<tr>
-<td>-P</td>
-<td>随机端口映射</td>
-</tr>
-<tr>
-<td>-p</td>
-<td>指定端口映射 格式：<br>ip:hostPort:containerPort<br> ip::containerPort <br>hostPort:containerPort<br> containerPort</td>
-</tr>
-</tbody>
-</table>
-<h3 id="Docker部署springcloud项目"><a href="#Docker部署springcloud项目" class="headerlink" title="Docker部署springcloud项目"></a>Docker部署springcloud项目</h3><ul>
-<li><strong>dockerfile文件的构成,如下dockerfile</strong></li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">FROM frolvlad/alpine-oraclejdk8:slim</div><div class="line">VOLUME /tmp</div><div class="line">ADD eureka-server-0.0.1-SNAPSHOT.jar app.jar</div><div class="line">#RUN bash -c &apos;touch /app.jar&apos;</div><div class="line">ENTRYPOINT [&quot;java&quot;,&quot;-Djava.security.egd=file:/dev/./urandom&quot;,&quot;-jar&quot;,&quot;/app.jar&quot;]</div><div class="line">EXPOSE 8761</div></pre></td></tr></table></figure>
-<ul>
-<li>docker file编写指令：</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">FROM</div><div class="line">    FROM &lt;image&gt;</div><div class="line">    FROM &lt;image&gt;:&lt;tag&gt;</div><div class="line">    FROM &lt;image&gt; &lt;digest&gt;</div></pre></td></tr></table></figure>
-<p>FROM指令必须指定且需要在Dockerfile其他指令的前面，指定的基础image可以是官方远程仓库中的，也可以位于本地仓库。后续的指令都依赖于该指令指定的image。当在同一个Dockerfile中建立多个镜像时，可以使用多个FROM指令。</p>
-<ul>
-<li><p><strong>VOLUME 格式为：VOLUME [“/data”]</strong><br><br>使容器中的一个目录具有持久化存储数据的功能，该目录可以被容器本身使用，也可以共享给其他容器。当容器中的应用有持久化数据的需求时可以在Dockerfile中使用该指令。</p>
-</li>
-<li><p><strong>ADD</strong><br><br>从src目录复制文件到容器的dest。其中src可以是Dockerfile所在目录的相对路径，也可以是一个URL，还可以是一个压缩包</p>
-</li>
-<li><p><strong>ENTRYPOINT</strong><br><br>指定Docker容器启动时执行的命令，可以多次设置，但是只有最后一个有效。<br><code>ENTRYPOINT</code>: 执行项目 <code>app.jar</code> 。为了缩短 Tomcat 启动时间，添加一个系统属性指向 <code>/dev/urandom</code> 作为 <code>Entropy Source</code>。</p>
-</li>
-</ul>
-<ul>
-<li><strong>EXPOSE</strong><br><br>为Docker容器设置对外的端口号。在启动时，可以使用-p选项或者-P选项做映射。</li>
-</ul>
-<h3 id="docker-amp-springboot-构建命令"><a href="#docker-amp-springboot-构建命令" class="headerlink" title="docker&amp;springboot 构建命令"></a>docker&amp;springboot 构建命令</h3><ul>
-<li>mvn package docker:build 构建镜像</li>
-<li>docker run -p 8761: 8761 -t forezp/eureka-server 运行镜像</li>
-<li>参考例子 <a href="http://blog.csdn.net/forezp/article/details/70198649" target="_blank" rel="external">http://blog.csdn.net/forezp/article/details/70198649</a></li>
-</ul>
-<h3 id="docker-Compose"><a href="#docker-Compose" class="headerlink" title="docker Compose"></a>docker Compose</h3><ul>
-<li>Dockerfile 可以让用户管理一个单独的容器，那么如果我要管理多个容器呢，例如：我需要管理一个Web应用的同时还要加上其后端的数据库服务容器呢？Compose就是这样的一个工具。让我们看下官网对Compose的定义：</li>
-<li>Compose 是一个用于定义和运行多容器的Docker应用的工具。使用Compose，你可以在一个配置文件（yaml格式）中配置你应用的服务，然后使用一个命令，即可创建并启动配置中引用的所有服务</li>
-</ul>
-
+        
+          <a class="article-more-a" href="/2017/10/21/docker知识点记录/#more">查看全文 >></a>
+        
       
 
       
@@ -971,37 +850,9 @@
 <li>安装结果</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">==&gt; Downloading https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.6.0.tar.gz</div><div class="line">######################################################################## 100.0%</div><div class="line">==&gt; Caveats</div><div class="line">Data:    /usr/local/var/elasticsearch/elasticsearch_zhulianggang/</div><div class="line">Logs:    /usr/local/var/log/elasticsearch/elasticsearch_zhulianggang.log</div><div class="line">Plugins: /usr/local/opt/elasticsearch/libexec/plugins/</div><div class="line">Config:  /usr/local/etc/elasticsearch/</div><div class="line">plugin script: /usr/local/opt/elasticsearch/libexec/bin/elasticsearch-plugin</div><div class="line"></div><div class="line">To have launchd start elasticsearch now and restart at login:</div><div class="line">  brew services start elasticsearch</div><div class="line">Or, if you don&apos;t want/need a background service you can just run:</div><div class="line">  elasticsearch</div><div class="line">==&gt; Summary</div><div class="line">🍺  /usr/local/Cellar/elasticsearch/5.6.0: 104 files, 35.9MB, built in 15 minutes 21 seconds</div></pre></td></tr></table></figure>
-<ul>
-<li><p>安装信息查询</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew info elasticsearch</div></pre></td></tr></table></figure>
-</li>
-<li><p>启动（不想后台运行的话）</p>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">elasticsearch</div></pre></td></tr></table></figure>
-<ul>
-<li>查看 <a href="http://127.0.0.1:9200/" target="_blank" rel="external">http://127.0.0.1:9200/</a></li>
-</ul>
-<h3 id="2-安装可视化插件-elasticsearch-head"><a href="#2-安装可视化插件-elasticsearch-head" class="headerlink" title="2,安装可视化插件 elasticsearch-head"></a>2,安装可视化插件 elasticsearch-head</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">git clone git://github.com/mobz/elasticsearch-head.git</div><div class="line">cd elasticsearch-head</div><div class="line">npm install</div><div class="line">npm run start</div></pre></td></tr></table></figure>
-<ul>
-<li>其中 npm install 可能失败。失败执行 npm install grunt –save-dev</li>
-<li>访问 <a href="http://localhost:9100/" target="_blank" rel="external">http://localhost:9100/</a>  查看可视化 Elasticsearch。</li>
-<li><strong>下次启动可以直接npm run start</strong></li>
-</ul>
-<h3 id="3-修改配置文件（为了允许-elasticsearch-head-运行时的跨域）"><a href="#3-修改配置文件（为了允许-elasticsearch-head-运行时的跨域）" class="headerlink" title="3,修改配置文件（为了允许 elasticsearch-head 运行时的跨域）"></a>3,修改配置文件（为了允许 elasticsearch-head 运行时的跨域）</h3><ul>
-<li><p>Elasticsearch 配置文件，即 config/elasticsearch.yml。这里我们需要在配置中增加以下配置，为了允许 elasticsearch-head 运行时的跨域：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"> # allow origin</div><div class="line">http.cors.enabled: true</div><div class="line">http.cors.allow-origin: &quot;*&quot;</div></pre></td></tr></table></figure>
-</li>
-<li><p>运行一般在后台起守护线程启动 Elasticsearch，在命令行加入 -d 指定。自然，也可以加入 -p ，可将进程 ID 记录到文件中。<strong>cd 到/usr/local目录</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./bin/elasticsearch -d</div></pre></td></tr></table></figure>
-</li>
-<li><p>访问 <a href="http://localhost:9200/" target="_blank" rel="external">http://localhost:9200/</a></p>
-</li>
-<li><p>要关闭 Elasticsearch 进程，需要通过 ps 找到对应的 pid，在 kill pid 即可。</p>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ps aux |grep elasticsearch</div><div class="line">kill -7 pid</div></pre></td></tr></table></figure>
-<h3 id="4-Java代码方式创建索引"><a href="#4-Java代码方式创建索引" class="headerlink" title="4,Java代码方式创建索引"></a>4,Java代码方式创建索引</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">//1,索引创建</div><div class="line">elasticSearch.getClient().admin().indices().prepareCreate(indices).execute().actionGet();</div><div class="line">//2,Mapping 构建</div><div class="line">XContentBuilder builder = XContentFactory.jsonBuilder().startObject().startObject(mappingType).startObject(&quot;properties&quot;)......endObject().endObject().endObject();</div><div class="line">//3,创建使用mapping(mapping  在 Elasticsearch  中的作用就是约束。)</div><div class="line">//mapping用于数据类型声明, Mapping它定义了 Type 的属性，指定分词器。如：</div><div class="line">//&quot;id&quot;: &#123;</div><div class="line">    &quot;index&quot;: &quot;not_analyzed&quot;,</div><div class="line">    &quot;type&quot;: &quot;string&quot;</div><div class="line">&#125;</div><div class="line"></div><div class="line">PutMappingRequest mapping = Requests.putMappingRequest(indices)</div><div class="line">					.type(mappingType).source(builder);</div><div class="line">elasticSearch.getClient().admin().indices().putMapping(mapping).actionGet(); </div><div class="line">//4,批量放入索引数据（一般循环里使用bulkRequest.add）</div><div class="line">BulkRequestBuilder bulkRequest = client.prepareBulk();  </div><div class="line">            Map&lt;String, Object&gt; map = new HashMap&lt;&gt;();  </div><div class="line">            map.put(&quot;name&quot;, &quot;Jack&quot;);  </div><div class="line">  IndexRequest request = client.prepareIndex(&quot;dept&quot;, &quot;employee&quot;,&quot;3433&quot;).setSource(map).request();  </div><div class="line">            bulkRequest.add(request);</div></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/2017/09/13/mac-Elasticsearch/#more">查看全文 >></a>
+        
       
 
       
@@ -1355,11 +1206,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">springcloud</a>
+                <a href="javascript:void(0)" class="js-tag color4">K8S</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">K8S</a>
+                <a href="javascript:void(0)" class="js-tag color2">springcloud</a>
               </li>
              
               <li class="article-tag-list-item">

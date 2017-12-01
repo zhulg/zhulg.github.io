@@ -19,7 +19,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/zhulg/allpic/master/hadoop1.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/zhulg/allpic/master/hadoop2.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/zhulg/allpic/master/hadoop3.png">
-<meta property="og:updated_time" content="2017-11-27T08:52:42.000Z">
+<meta property="og:updated_time" content="2017-12-01T08:42:55.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hadoop mac 安装">
 <meta name="twitter:description" content="hadoop mac上安装记录hadoop 概述设想一下这样的应用场景。我有一个100M的数据库备份的sql文件。我现在想在不导入到数据库的情况下直接用grep操作通过正则过滤出我想要的内容。例如：某个表中含有相同关键字的记录那么有几种方式,一种是直接用linux的命令grep还有一种就是通过编程来读取文件,然后对每行数据进行正则匹配得到结果好了现在是100M的数据库备份。上述两种方法都可以轻松应">
@@ -195,6 +195,7 @@
 <li>在 /usr/local/Cellar/hadoop/2.8.2/libexec/etc/hadoop</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"># export HADOOP_OPTS=&quot;$HADOOP_OPTS -Djava.net.preferIPv4Stack=true&quot; </div><div class="line">替换成</div><div class="line">export HADOOP_OPTS=&quot;$HADOOP_OPTS -Djava.net.preferIPv4Stack=true -Djava.security.krb5.realm= -Djava.security.krb5.kdc=&quot;</div></pre></td></tr></table></figure>
+<a id="more"></a>
 <ul>
 <li><strong>编辑Core-site.xml (也在上个地址) ,贴入下方配置</strong></li>
 </ul>
@@ -512,11 +513,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">springcloud</a>
+                <a href="javascript:void(0)" class="js-tag color4">K8S</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">K8S</a>
+                <a href="javascript:void(0)" class="js-tag color2">springcloud</a>
               </li>
              
               <li class="article-tag-list-item">
