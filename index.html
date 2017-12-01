@@ -488,74 +488,9 @@
 <li>例如：</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$ echo -e &quot;A line 1\nA line 2&quot; | awk &apos;BEGIN&#123; print &quot;Start&quot; &#125; &#123; print &#125; END&#123; print &quot;End&quot; &#125;&apos;</div><div class="line"></div><div class="line">Start</div><div class="line">A line 1</div><div class="line">A line 2</div><div class="line">End</div></pre></td></tr></table></figure>
-<ul>
-<li>例如：</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">统计文件中的行数：</div><div class="line"> awk &apos;END&#123; print NR &#125;&apos; filename </div><div class="line"> </div><div class="line">以上命令只使用了END语句块，在读入每一行的时，awk会将NR更新为对应的行号，当到达最后一行NR的值就是最后一行的行号，所以END语句块中的NR就是文件的行数。</div></pre></td></tr></table></figure>
-<h3 id="创建log-txt文本内容如下："><a href="#创建log-txt文本内容如下：" class="headerlink" title="创建log.txt文本内容如下："></a>创建log.txt文本内容如下：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">1 hello, world</div><div class="line">2 this is a test</div><div class="line">3 Are you like awk</div><div class="line">This&apos;s a test</div><div class="line">10 There are orange,apple,mongo</div></pre></td></tr></table></figure>
-<ul>
-<li><strong>每行按空格或TAB分割，输出文本中的1项</strong></li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$awk &apos;&#123;print $1&#125;&apos; log.txt</div><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">this&apos;s</div><div class="line">10</div></pre></td></tr></table></figure>
-<ul>
-<li><strong>awk -F  #-F相当于内置变量FS, 指定分割字符</strong></li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">awk -F, &apos;&#123;print $1&#125;&apos; log.txt</div><div class="line">1 hello</div><div class="line">2 this is a test</div><div class="line">3 Are you like awk</div><div class="line">this&apos;s  a test</div><div class="line">10 There are orange</div><div class="line"></div><div class="line">============或者使用内建变量=================</div><div class="line"></div><div class="line">$ awk &apos;BEGIN&#123;FS=&quot;,&quot;&#125; &#123;print $1,$2&#125;&apos;     log.txt</div><div class="line">1 hello  world</div><div class="line">2 this is a test</div><div class="line">3 Are you like awk</div><div class="line">this&apos;s  a test</div><div class="line">10 There are orange apple</div></pre></td></tr></table></figure>
-<ul>
-<li><strong>awk -v   设置变量</strong></li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$ awk -v a=1 &apos;&#123;print $1,$1+a&#125;&apos; log.txt</div><div class="line">1 2</div><div class="line">2 3</div><div class="line">3 4</div><div class="line">this&apos;s 1</div><div class="line">10 11</div></pre></td></tr></table></figure>
-<ul>
-<li><strong>awk -f {awk脚本} {文件名}</strong></li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ awk -f cal.awk log.txt</div></pre></td></tr></table></figure>
-<ul>
-<li><p><strong>运算符的支持</strong><br><img src="https://raw.githubusercontent.com/zhulg/allpic/master/awk1.png" alt=""></p>
-</li>
-<li><p><strong>条件判断</strong></p>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">awk &apos;$1&gt;2&apos; log.txt</div><div class="line">3 Are you like awk</div><div class="line">this&apos;s  a test</div><div class="line">10 There are orange,apple,mongo</div></pre></td></tr></table></figure>
-<ul>
-<li><strong>多条件判断</strong></li>
-<li><p>过滤第一列大于2并且第二列等于’Are’的行</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">awk &apos;$1&gt;2 &amp;&amp; $2==&quot;Are&quot; &#123;print $1,$2,$3&#125;&apos; log.txt</div><div class="line">3 Are you</div></pre></td></tr></table></figure>
-</li>
-<li><p><strong>内建变量(预定义变量)</strong><br><img src="https://raw.githubusercontent.com/zhulg/allpic/master/awk2.png" alt=""></p>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">$ awk &apos;&#123;print NR,FNR,$1,$2,$3&#125;&apos; log.txt</div><div class="line">1 1 2 this is</div><div class="line">2 2 3 Are you</div><div class="line">3 3 This&apos;s a test</div><div class="line">4 4 10 There are</div><div class="line"></div><div class="line"># 指定输出分割符</div><div class="line">$  awk &apos;&#123;print $1,$2,$5&#125;&apos; OFS=&quot; $ &quot;  log.txt</div><div class="line">2 $ this $ test</div><div class="line">3 $ Are $ awk</div><div class="line">This&apos;s $ a $</div><div class="line">10 $ There $</div></pre></td></tr></table></figure>
-<ul>
-<li><strong>使用正则，字符串匹配</strong></li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"># 输出第二列包含 &quot;th&quot;，并打印第二列与第四列</div><div class="line">$ awk &apos;$2 ~ /th/ &#123;print $2,$4&#125;&apos; log.txt</div><div class="line">this a</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">~ 表示模式开始。// 中是模式。</div><div class="line"># 输出包含&quot;re&quot; 的行</div><div class="line">$ awk &apos;/re/ &apos; log.txt</div><div class="line">---------------------------------------------</div><div class="line">3 Are you like awk</div><div class="line">10 There are orange,apple,mongo</div></pre></td></tr></table></figure>
-<ul>
-<li>忽略大小写</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ awk &apos;BEGIN&#123;IGNORECASE=1&#125; /this/&apos; log.txt</div><div class="line">---------------------------------------------</div><div class="line">2 this is a test</div><div class="line">This&apos;s a test</div></pre></td></tr></table></figure>
-<ul>
-<li>模式取反</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">$ awk &apos;$2 !~ /th/ &#123;print $2,$4&#125;&apos; log.txt</div><div class="line">---------------------------------------------</div><div class="line">Are like</div><div class="line">a</div><div class="line">There orange,apple,mongo</div><div class="line">$ awk &apos;!/th/ &#123;print $2,$4&#125;&apos; log.txt</div><div class="line">---------------------------------------------</div><div class="line">Are like</div><div class="line">a</div><div class="line">There orange,apple,mongo</div></pre></td></tr></table></figure>
-<h3 id="awk脚本"><a href="#awk脚本" class="headerlink" title="awk脚本"></a>awk脚本</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">关于awk脚本，我们需要注意两个关键词BEGIN和END。</div><div class="line">BEGIN&#123; 这里面放的是执行前的语句 &#125;</div><div class="line">END &#123;这里面放的是处理完所有的行后要执行的语句 &#125;</div><div class="line">&#123;这里面放的是处理每一行时要执行的语句&#125;</div></pre></td></tr></table></figure>
-<ul>
-<li>假设有这么一个文件（学生成绩表）：</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$ cat score.txt</div><div class="line">Marry   2143 78 84 77</div><div class="line">Jack    2321 66 78 45</div><div class="line">Tom     2122 48 77 71</div><div class="line">Mike    2537 87 97 95</div><div class="line">Bob     2415 40 57 62</div></pre></td></tr></table></figure>
-<ul>
-<li>我们的awk脚本如下：</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">$ cat cal.awk</div><div class="line">#!/bin/awk -f</div><div class="line">#运行前</div><div class="line">BEGIN &#123;</div><div class="line">    math = 0</div><div class="line">    english = 0</div><div class="line">    computer = 0</div><div class="line"> </div><div class="line">    printf &quot;NAME    NO.   MATH  ENGLISH  COMPUTER   TOTAL\n&quot;</div><div class="line">    printf &quot;---------------------------------------------\n&quot;</div><div class="line">&#125;</div><div class="line">#运行中</div><div class="line">&#123;</div><div class="line">    math+=$3</div><div class="line">    english+=$4</div><div class="line">    computer+=$5</div><div class="line">    printf &quot;%-6s %-6s %4d %8d %8d %8d\n&quot;, $1, $2, $3,$4,$5, $3+$4+$5</div><div class="line">&#125;</div><div class="line">#运行后</div><div class="line">END &#123;</div><div class="line">    printf &quot;---------------------------------------------\n&quot;</div><div class="line">    printf &quot;  TOTAL:%10d %8d %8d \n&quot;, math, english, computer</div><div class="line">    printf &quot;AVERAGE:%10.2f %8.2f %8.2f\n&quot;, math/NR, english/NR, computer/NR</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>我们来看一下执行结果：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">$ awk -f cal.awk score.txt</div><div class="line">NAME    NO.   MATH  ENGLISH  COMPUTER   TOTAL</div><div class="line">---------------------------------------------</div><div class="line">Marry  2143     78       84       77      239</div><div class="line">Jack   2321     66       78       45      189</div><div class="line">Tom    2122     48       77       71      196</div><div class="line">Mike   2537     87       97       95      279</div><div class="line">Bob    2415     40       57       62      159</div><div class="line">---------------------------------------------</div><div class="line">  TOTAL:       319      393      350</div><div class="line">AVERAGE:     63.80    78.60    70.00</div></pre></td></tr></table></figure>
-<ul>
-<li>参考链接：</li>
-<li><a href="http://man.linuxde.net/awk" target="_blank" rel="external">http://man.linuxde.net/awk</a> </li>
-<li><a href="https://coolshell.cn/articles/9070.html" target="_blank" rel="external">https://coolshell.cn/articles/9070.html</a></li>
-<li><a href="http://www.runoob.com/linux/linux-comm-awk.html" target="_blank" rel="external">http://www.runoob.com/linux/linux-comm-awk.html</a></li>
-</ul>
-
+        
+          <a class="article-more-a" href="/2017/11/20/awk常用记录/#more">查看全文 >></a>
+        
       
 
       
@@ -1106,11 +1041,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">分布式/集群</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">springboot</a>
+                <a href="javascript:void(0)" class="js-tag color4">AWK</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1118,11 +1049,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">springboot</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">hadoop</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">AWK</a>
+                <a href="javascript:void(0)" class="js-tag color2">分布式/集群</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1130,11 +1065,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">K8S</a>
+                <a href="javascript:void(0)" class="js-tag color2">springcloud</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">springcloud</a>
+                <a href="javascript:void(0)" class="js-tag color4">K8S</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1146,15 +1081,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">springboot相关</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">nginx springboot</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">springboot相关</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">git/github/gitlab</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1163,10 +1102,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">大数据&机器学习</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">git/github/gitlab</a>
               </li>
             
             <div class="clearfix"></div>
