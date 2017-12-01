@@ -8,19 +8,19 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>hadoop笔记（一） | zhulg笔记</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Hadoop是使用Java编写，允许分布在集群，使用简单的编程模型的计算机大型数据集处理的Apache的开源框架。 Hadoop框架应用工程提供跨计算机集群的分布式存储和计算的环境。 Hadoop是专为从单一服务器到上千台机器扩展，每个机器都可以提供本地计算和存储。 Hadoop可运行于一般的商用服务器上，具有高容错、高可靠性、高扩展性等特点.特别适合写一次，读多次的场景  hadoop架构组成">
+  <meta name="description" content="Hadoop是使用Java编写，允许分布在集群，使用简单的编程模型的计算机大型数据集处理的Apache的开源框架。 Hadoop框架应用工程提供跨计算机集群的分布式存储和计算的环境。 Hadoop是专为从单一服务器到上千台机器扩展，每个机器都可以提供本地计算和存储。 Hadoop可运行于一般的商用服务器上，具有高容错、高可靠性、高扩展性等特点.特别适合写一次，读多次的场景">
 <meta name="keywords" content="hadoop">
 <meta property="og:type" content="article">
 <meta property="og:title" content="hadoop笔记（一）">
 <meta property="og:url" content="http://yoursite.com/2017/11/30/hadoop笔记（一）/index.html">
 <meta property="og:site_name" content="zhulg笔记">
-<meta property="og:description" content="Hadoop是使用Java编写，允许分布在集群，使用简单的编程模型的计算机大型数据集处理的Apache的开源框架。 Hadoop框架应用工程提供跨计算机集群的分布式存储和计算的环境。 Hadoop是专为从单一服务器到上千台机器扩展，每个机器都可以提供本地计算和存储。 Hadoop可运行于一般的商用服务器上，具有高容错、高可靠性、高扩展性等特点.特别适合写一次，读多次的场景  hadoop架构组成">
+<meta property="og:description" content="Hadoop是使用Java编写，允许分布在集群，使用简单的编程模型的计算机大型数据集处理的Apache的开源框架。 Hadoop框架应用工程提供跨计算机集群的分布式存储和计算的环境。 Hadoop是专为从单一服务器到上千台机器扩展，每个机器都可以提供本地计算和存储。 Hadoop可运行于一般的商用服务器上，具有高容错、高可靠性、高扩展性等特点.特别适合写一次，读多次的场景">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/images/hdfsarchitecture.png">
-<meta property="og:updated_time" content="2017-12-01T08:57:19.000Z">
+<meta property="og:updated_time" content="2017-12-01T08:59:19.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hadoop笔记（一）">
-<meta name="twitter:description" content="Hadoop是使用Java编写，允许分布在集群，使用简单的编程模型的计算机大型数据集处理的Apache的开源框架。 Hadoop框架应用工程提供跨计算机集群的分布式存储和计算的环境。 Hadoop是专为从单一服务器到上千台机器扩展，每个机器都可以提供本地计算和存储。 Hadoop可运行于一般的商用服务器上，具有高容错、高可靠性、高扩展性等特点.特别适合写一次，读多次的场景  hadoop架构组成">
+<meta name="twitter:description" content="Hadoop是使用Java编写，允许分布在集群，使用简单的编程模型的计算机大型数据集处理的Apache的开源框架。 Hadoop框架应用工程提供跨计算机集群的分布式存储和计算的环境。 Hadoop是专为从单一服务器到上千台机器扩展，每个机器都可以提供本地计算和存储。 Hadoop可运行于一般的商用服务器上，具有高容错、高可靠性、高扩展性等特点.特别适合写一次，读多次的场景">
 <meta name="twitter:image" content="http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/images/hdfsarchitecture.png">
   
     <link rel="alternative" href="/atom.xml" title="zhulg笔记" type="application/atom+xml">
@@ -181,12 +181,12 @@
 <li>Hadoop是专为从单一服务器到上千台机器扩展，每个机器都可以提供本地计算和存储。</li>
 <li>Hadoop可运行于一般的商用服务器上，具有高容错、高可靠性、高扩展性等特点.特别适合写一次，读多次的场景</li>
 </ul>
+<a id="more"></a>
 <h4 id="hadoop架构组成（粗略版本）"><a href="#hadoop架构组成（粗略版本）" class="headerlink" title="hadoop架构组成（粗略版本）"></a>hadoop架构组成（粗略版本）</h4><p>Hadoop的架构，Hadoop主要有两个层次：加工/计算层(MapReduce)，存储层(Hadoop分布式文件系统)。</p>
 <ul>
 <li>The project includes these modules：</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Hadoop Common: The common utilities that support the other Hadoop modules.</div><div class="line">Hadoop Distributed File System (HDFS™): A distributed file system that provides high-throughput access to application data.</div><div class="line">Hadoop YARN: A framework for job scheduling and cluster resource management.（分布式资源管理）</div><div class="line">Hadoop MapReduce: A YARN-based system for parallel processing of large data sets.</div></pre></td></tr></table></figure>
-<a id="more"></a>
 <h4 id="hadoop如何工作（入门理解版本）"><a href="#hadoop如何工作（入门理解版本）" class="headerlink" title="hadoop如何工作（入门理解版本）"></a>hadoop如何工作（入门理解版本）</h4><ul>
 <li>建立重配置，处理大规模处理服务器这是相当昂贵的，但是作为替代，可以联系许多普通电脑采用单CPU在一起，作为一个单一功能的分布式系统，实际上，集群机可以平行读取数据集，并提供一个高得多的吞吐量。此外，这样便宜不到一个高端服务器价格。因此使用Hadoop跨越集群和低成本的机器上运行是一个不错不选择。</li>
 <li>Hadoop运行整个计算机集群代码。这个过程包括以下核心任务由 Hadoop 执行：</li>
@@ -485,15 +485,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">springcloud</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">docker</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">K8S</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">springcloud</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -521,11 +521,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">git/github/gitlab</a>
+                <a href="javascript:void(0)" class="js-tag color4">大数据&机器学习</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">大数据&机器学习</a>
+                <a href="javascript:void(0)" class="js-tag color3">git/github/gitlab</a>
               </li>
             
             <div class="clearfix"></div>
