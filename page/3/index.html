@@ -371,41 +371,9 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">scp jdk-8u144-linux-x64.tar.gz  root@120.76.xxx.xxx:/root/zhulg/jdk/jdk-8u144-linux-x64.tar.gz</div></pre></td></tr></table></figure>
 </li>
 </ul>
-<p>后续输入密码</p>
-<ul>
-<li>解压</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tar -zxvf jdk-xxxxx</div></pre></td></tr></table></figure>
-<ul>
-<li>环境变量配置:系统环境变量 vi /etc/environment 添加以下内容</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">PATH=&quot;/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:$JAVA_HOME/bin&quot;</div><div class="line">export CLASSPATH=.:$JAVA_HOME/lib:$JAVA_HOME/jre/lib</div><div class="line">export JAVA_HOME=/root/jdk/jdk1.8.0_144</div></pre></td></tr></table></figure>
-<ul>
-<li>用户环境变量: vi /etc/profile 添加以下内容</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">export JAVA_HOME=/root/sdk/jdk1.8.0_141</div><div class="line">export JRE_HOME=$JAVA_HOME/jre</div><div class="line">export CLASSPATH=.:$JAVA_HOME/lib:$JRE_HOME/lib:$CLASSPATH</div><div class="line">export PATH=$JAVA_HOME/bin:$JRE_HOME/bin:$PATH</div></pre></td></tr></table></figure>
-<ul>
-<li>生效以上配置：source /etc/profile  source /etc/environment</li>
-<li>查看Java是否安装好：java -version  or java </li>
-<li>可以安装其他需要的环境</li>
-</ul>
-<h3 id="springboot-demo部署"><a href="#springboot-demo部署" class="headerlink" title="springboot demo部署"></a>springboot demo部署</h3><ul>
-<li>使用sftp放到服务器</li>
-</ul>
-<p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/springboot_d.png" alt=""></p>
-<ul>
-<li><p>java -jar xxx.jar 启动springboot </p>
-</li>
-<li><p>要保证关闭shell应用在后台一直能运行</p>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">1,vim start.sh 添加 java -jar xxx,jar</div><div class="line">2,chmod 777 start.sh</div><div class="line">3,nohup ./start.sh</div></pre></td></tr></table></figure>
-<ul>
-<li>查看和关闭应用</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">查看其对应的进程号 </div><div class="line">netstat -anp | grep 80</div><div class="line"></div><div class="line">关闭sid的端口，即关闭应用</div><div class="line">kill sid</div></pre></td></tr></table></figure>
-<p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/springboot_close.png" alt=""></p>
-
+        
+          <a class="article-more-a" href="/2017/08/15/springboot部署/#more">查看全文 >></a>
+        
       
 
       
@@ -480,16 +448,9 @@
 </ul>
 <p>1、创建application-peer1.properties，作为peer1服务中心的配置，并将serviceUrl指向peer2</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">spring.application.name=eureka-server</div><div class="line">server.port=8000</div><div class="line">#在集群注册时会有,否则服务显示unavailable-replicas</div><div class="line">eureka.client.register-with-eureka=true</div><div class="line">eureka.client.fetch-registry=true</div><div class="line">eureka.instance.hostname=peer1</div><div class="line">eureka.client.serviceUrl.defaultZone=http://peer2:8001/eureka/</div></pre></td></tr></table></figure>
-<p>2、创建application-peer2.properties，作为peer2服务中心的配置，并将serviceUrl指向peer1</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">spring.application.name=eureka-server</div><div class="line">server.port=8001</div><div class="line">eureka.client.register-with-eureka=true</div><div class="line">eureka.client.fetch-registry=true</div><div class="line">eureka.instance.hostname=peer2</div><div class="line">eureka.client.serviceUrl.defaultZone=http://peer1:8000/eureka/</div></pre></td></tr></table></figure>
-<p>3、host转换在hosts文件中加入如下配置</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">127.0.0.1 peer1  </div><div class="line">127.0.0.1 peer2</div></pre></td></tr></table></figure>
-<p>4、打包启动,依次执行下面命令</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">mvn clean package</div><div class="line">分别以peer1和peeer2 配置信息启动eureka</div><div class="line">java -jar eureka-server-1.0.0.jar --spring.profiles.active=peer1</div><div class="line">java -jar eureka-server-1.0.0.jar --spring.profiles.active=peer2</div></pre></td></tr></table></figure>
-<p>5,启动 <a href="http://localhost:8001/" target="_blank" rel="external">http://localhost:8001/</a></p>
-<p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/eureka.png" alt="eureka"></p>
-<p>6,异常备注，开始折腾了很久，遇到什么权限没有，端口不能访问时。需要把服务彻底关掉，开启服务peer1时可能会有错误，原因服务没起来忽略即可。出去下上图说明已经建立成功。多个集群同理配置。<br>7，在MAC 环境下网上很多demo端口为1001之类的，在mac上端口会占用失败，继采用8001端口。</p>
-
+        
+          <a class="article-more-a" href="/2017/08/10/springcloud-eureka注册中心集群/#more">查看全文 >></a>
+        
       
 
       
@@ -562,24 +523,9 @@
 <li>SpringCloud: 微服务工具包，为开发者提供了在分布式系统的配置管理、服务发现、断路器、智能路由、微代理、控制总线等开发工具包。</li>
 <li>Spring Boot: 旨在简化创建产品级的 Spring 应用和服务，简化了配置文件，使用嵌入式web服务器，含有诸多开箱即用微服务功能</li>
 </ul>
-<h3 id="关于SpringCloud子项目"><a href="#关于SpringCloud子项目" class="headerlink" title="关于SpringCloud子项目"></a>关于SpringCloud子项目</h3><ul>
-<li><strong>Spring Cloud Config</strong>：配置管理开发工具包，可以让你把配置放到远程服务器，目前支持本地存储、Git以及Subversion。</li>
-<li><strong>Spring Cloud Bus</strong>：事件、消息总线，用于在集群（例如，配置变化事件）中传播状态变化，可与Spring Cloud Config联合实现热部署。</li>
-<li><strong>Spring Cloud Netflix</strong>：针对多种Netflix组件提供的开发工具包，其中包括Eureka、Hystrix、Zuul、Archaius等。</li>
-<li><strong>Netflix Eureka</strong>：云端负载均衡，一个基于 REST 的服务，用于定位服务，以实现云端的负载均衡和中间层服务器的故障转移。</li>
-<li><strong>Netflix Hystrix</strong>：容错管理工具，旨在通过控制服务和第三方库的节点,从而对延迟和故障提供更强大的容错能力。</li>
-<li><strong>Netflix Zuul</strong>：边缘服务工具，是提供动态路由，监控，弹性，安全等的边缘服务。</li>
-<li><strong>Netflix Archaius</strong>：配置管理API，包含一系列配置管理API，提供动态类型化属性、线程安全配置操作、轮询框架、回调机制等功能。</li>
-<li><strong>Spring Cloud for Cloud Foundry</strong>：通过Oauth2协议绑定服务到CloudFoundry，CloudFoundry是VMware推出的开源PaaS云平台。</li>
-<li><strong>Spring Cloud Sleuth</strong>：日志收集工具包，封装了Dapper,Zipkin和HTrace操作。</li>
-<li><strong>Spring Cloud Data Flow</strong>：大数据操作工具，通过命令行方式操作数据流。</li>
-<li><strong>Spring Cloud Security</strong>：安全工具包，为你的应用程序添加安全控制，主要是指OAuth2。</li>
-<li><strong>Spring Cloud Consul</strong>：封装了Consul操作，consul是一个服务发现与配置工具，与Docker容器可以无缝集成。</li>
-<li><strong>Spring Cloud Zookeeper</strong>：操作Zookeeper的工具包，用于使用zookeeper方式的服务注册和发现。</li>
-<li><strong>Spring Cloud Stream</strong>：数据流操作开发包，封装了与Redis,Rabbit、Kafka等发送接收消息。</li>
-<li><strong>Spring Cloud CLI</strong>：基于 Spring Boot CLI，可以让你以命令行方式快速建立云组件。</li>
-</ul>
-
+        
+          <a class="article-more-a" href="/2017/08/08/springcloud/#more">查看全文 >></a>
+        
       
 
       
@@ -847,16 +793,11 @@
 <ul>
 <li>@RestController和Controller都在类上注解</li>
 <li>@Controller 用于页面的跳转（return “index”）跳转到index页面去，否则返回的内容就是字符串 “index”</li>
-<li><p>当类使用@Controller注解，而对应的接口方法需要返回JSON，XML或自定义mediaType内容到页面，则需要在对应的方法上加上@ResponseBody注解。</p>
-</li>
-<li><p>以下代码不跳转</p>
-</li>
+<li>当类使用@Controller注解，而对应的接口方法需要返回JSON，XML或自定义mediaType内容到页面，则需要在对应的方法上加上@ResponseBody注解。</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">@RestController</div><div class="line">public class HelloController &#123;</div><div class="line">    </div><div class="line">    @RequestMapping(&quot;/hello&quot;)</div><div class="line">    public String hello() &#123;</div><div class="line">        return &quot;Hello World&quot;;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<ul>
-<li>以下代码进行跳转</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">@Controller</div><div class="line">public class HelloController &#123;</div><div class="line">    </div><div class="line">    //当使用@Controller，想要返回内容。则添加@ResponseBody</div><div class="line">    @ResponseBody</div><div class="line">    @RequestMapping(&quot;/hello&quot;)</div><div class="line">    public String hello() &#123;</div><div class="line">        return &quot;Hello World&quot;;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @RequestMapping(&quot;/&quot;)</div><div class="line">    public String index(ModelMap map) &#123;</div><div class="line">        map.addAttribute(&quot;host&quot;, &quot;hello jason&quot;);</div><div class="line">        return &quot;index&quot;;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/2017/08/04/springboot里几个常用注解/#more">查看全文 >></a>
+        
       
 
       
@@ -1000,25 +941,9 @@
 <li>一般将NoSQL数据库分为四大类：键值(Key-Value)存储数据库、列存储数据库、文档型数据库和图形(Graph)数据库</li>
 <li>今天我们可以通过第三方平台（如：Google,Facebook等）可以很容易的访问和抓取数据。用户的个人信息，社交网络，地理位置，用户生成的数据和用户操作日志已经成倍的增加。我们如果要对这些用户数据进行挖掘，那SQL数据库已经不适合这些应用了, NoSQL数据库的发展也却能很好的处理这些大的数据</li>
 </ul>
-<h4 id="关系型与非关系型数据库"><a href="#关系型与非关系型数据库" class="headerlink" title="关系型与非关系型数据库"></a>关系型与非关系型数据库</h4><ul>
-<li><p>非关系型数据库的优势：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">性能NOSQL是基于键值对的，可以想象成表中的主键和值的对应关系，而且不需要经过SQL       层的解析，所以性能非常高。</div><div class="line">可扩展性同样也是因为基于键值对，数据之间没有耦合性，所以非常容易水平扩展。</div></pre></td></tr></table></figure>
-</li>
-<li><p>关系型数据库的优势：</p>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">复杂查询可以用SQL语句方便的在一个表以及多个表之间做非常复杂的数据查询。</div><div class="line">事务支持使得对于安全性能很高的数据访问要求得以实现.</div></pre></td></tr></table></figure>
-<h4 id="MongoDB是什么"><a href="#MongoDB是什么" class="headerlink" title="MongoDB是什么"></a>MongoDB是什么</h4><ul>
-<li>MongoDB 是由C++语言编写的，是一个基于分布式文件存储的开源数据库系统。<br>在高负载的情况下，添加更多的节点，可以保证服务器性能。<br>MongoDB 旨在为WEB应用提供可扩展的高性能数据存储解决方案。<br>MongoDB 将数据存储为一个文档，数据结构由键值(key=&gt;value)对组成。MongoDB 文档类似于 JSON 对象。字段值可以包含其他文档，数组及文档数组。</li>
-<li>MongoDB是一个介于关系数据库和非关系数据库之间的产品，是非关系数据库当中功能最丰富，最像关系数据库的。他支持的数据结构非常松散，是类似json的bson格式，因此可以存储比较复杂的数据类型。</li>
-</ul>
-<h4 id="Mac安装mongodb"><a href="#Mac安装mongodb" class="headerlink" title="Mac安装mongodb"></a>Mac安装mongodb</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew install mongodb</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">==&gt; Downloading https://homebrew.bintray.com/bottles/mongodb-3.4.6.sierra.bottle.tar.gz</div><div class="line">######################################################################## 100.0%</div><div class="line">==&gt; Pouring mongodb-3.4.6.sierra.bottle.tar.gz</div><div class="line">==&gt; Using the sandbox</div><div class="line">==&gt; Caveats</div><div class="line">To have launchd start mongodb now and restart at login:</div><div class="line">  brew services start mongodb</div><div class="line">Or, if you don&apos;t want/need a background service you can just run:</div><div class="line">  mongod --config /usr/local/etc/mongod.conf</div><div class="line">==&gt; Summary</div><div class="line">🍺  /usr/local/Cellar/mongodb/3.4.6: 18 files, 266.9MB \</div></pre></td></tr></table></figure>
-<ul>
-<li>按照以上安装成功提示启动</li>
-<li>连接到mongodb</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mongo</div></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/2017/08/02/mongodb介绍/#more">查看全文 >></a>
+        
       
 
       
@@ -1164,11 +1089,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Elasticsearch</a>
+                <a href="javascript:void(0)" class="js-tag color1">springboot</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">springboot</a>
+                <a href="javascript:void(0)" class="js-tag color4">Elasticsearch</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1180,19 +1105,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">docker</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">hadoop</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">K8S</a>
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">springcloud</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">K8S</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1220,11 +1145,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">git/github/gitlab</a>
+                <a href="javascript:void(0)" class="js-tag color4">大数据&机器学习</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">大数据&机器学习</a>
+                <a href="javascript:void(0)" class="js-tag color3">git/github/gitlab</a>
               </li>
             
             <div class="clearfix"></div>

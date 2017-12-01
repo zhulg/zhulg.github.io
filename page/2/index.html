@@ -259,42 +259,9 @@
 <li>Spring Cloud Sleuth为Spring Cloud提供了分布式追踪方案<h4 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h4></li>
 <li>对系统进行全链路的监控是非常有必要的。在单体应用中，传统的方式是软件开发者，通过自定义日志的level，日志文件的方式记录单体应用的运行日志。从而排查线上系统出现运行过慢，出现故障，异常等问题，但是在微服务架构或分布式系统中，一个系统被拆分成了A、B、C、D、E等多个服务，而每个服务可能又有多个实例组成集群，采用上诉定位问题的方式就行不通了，你充其量就知道某个服务是应用的瓶颈，但中间发生了什么你完全不知道。而且问题的查询，因为有海量各种各样的日志等文件，导致追溯定位问题等极其不方便。因此需要全链路监控系统的收集，上报，对海量日志实时计算生成，监控告警，视图报表，帮助开发人员快速定位问题。</li>
 </ul>
-<h4 id="服务追踪分析"><a href="#服务追踪分析" class="headerlink" title="服务追踪分析"></a>服务追踪分析</h4><ul>
-<li>一个由微服务构成的应用系统由N个服务实例组成，通过REST请求或者RPC协议等来通讯完成一个业务流程的调用。对于入口的一个调用可能需要有多个后台服务协同完成，链路上任何一个调用超时或出错都可能造成前端请求的失败。服务的调用链也会越来越长，并形成一个树形的调用链。</li>
-<li>针对服务化应用全链路追踪的问题，Google发表了Dapper论文，介绍了他们如何进行服务追踪分析。其基本思路是在服务调用的请求和响应中加入ID，标明上下游请求的关系。利用这些信息，可以可视化地分析服务调用链路和服务间的依赖关系。</li>
-</ul>
-<h4 id="Spring-Cloud-Sleuth"><a href="#Spring-Cloud-Sleuth" class="headerlink" title="Spring Cloud Sleuth"></a>Spring Cloud Sleuth</h4><ul>
-<li>Spring Cloud Sleuth就是APM(Application Performance Monitor),全链路监控的APM的一部分，如果要完整的使用该组件需要自己定制化或者和开源的系统集成，例如:ZipKin。</li>
-<li>APM（Application Performance Monitor）这个领域最近异常火热,例如淘宝鹰眼Eagle Eyes，点评的CAT，微博的Watchman，twitter的Zipkin</li>
-<li>zipkin是基于goole的<a href="https://research.google.com/pubs/pub36356.html" target="_blank" rel="external">google-Dapper</a>实现。</li>
-</ul>
-<p>###ZipKin的架构<br><img src="http://zipkin.io/public/img/architecture-1.png" alt=""></p>
-<ul>
-<li>collector 收集器</li>
-<li>storage 存储</li>
-<li>api 查询api</li>
-<li>ui 界面</li>
-</ul>
-<p>####zipkin存储</p>
-<ul>
-<li>zipkin存储默认使用inMemory</li>
-<li>支持存储模式</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">inMemory</div><div class="line">mysql</div><div class="line">Cassandra</div><div class="line">Elasticsearch</div></pre></td></tr></table></figure>
-<p>####ZipKin数据模型</p>
-<ul>
-<li>Trace：一组代表一次用户请求所包含的spans，其中根span只有一个。</li>
-<li>Span： 一组代表一次HTTP/RPC请求所包含的annotations。</li>
-<li>annotation：包括一个值，时间戳，主机名(留痕迹)。</li>
-</ul>
-<p>几个时间</p>
-<ul>
-<li>cs：客户端发起请求，标志Span的开始</li>
-<li>sr：服务端接收到请求，并开始处理内部事务，其中sr - cs则为网络延迟和时钟抖动</li>
-<li>ss：服务端处理完请求，返回响应内容，其中ss - sr则为服务端处理请求耗时</li>
-<li>cr：客户端接收到服务端响应内容，标志着Span的结束，其中cr - ss则为网络延迟和时钟抖动</li>
-</ul>
-
+        
+          <a class="article-more-a" href="/2017/10/18/springcloud-sleuth记录/#more">查看全文 >></a>
+        
       
 
       
@@ -375,37 +342,9 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">#这里的配置表示，访问/user/** 直接重定向到http://xxxx/**</div><div class="line">zuul.routes.user-service.path=/user-service/**</div><div class="line">zuul.routes.user-service.url=http://localhost:8080/</div></pre></td></tr></table></figure>
 </li>
 </ul>
-<p>####2，服务化方式，通过对于的服务名称</p>
-<ul>
-<li>通过一组zuul.routes.\<route>.path与zuul.routes.\<route>.serviceId参数对的方式配置</route></route></li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">zuul.routes.user-service.path=/user-service/**</div><div class="line">zuul.routes.user-service.serviceId=user-service</div></pre></td></tr></table></figure>
-<p>####3，简洁的配置方式</p>
-<p><strong>zuul.routes.\<serviceid>=\<path></path>，其中<serviceid>用来指定路由的具体服务名，<path></path>用来配置匹配的请求表达式。比如下面的例子，它的路由规则等价于上面通过path与serviceId组合使用的配置方式</serviceid></serviceid></strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">zuul.routes.user-service=/user-service/**</div></pre></td></tr></table></figure>
-<h4 id="4-默认的配置，网关的默认路由规则"><a href="#4-默认的配置，网关的默认路由规则" class="headerlink" title="4,默认的配置，网关的默认路由规则"></a>4,默认的配置，网关的默认路由规则</h4><ul>
-<li><p>如果后端服务多达十几个的时候，每一个都这样配置也挺麻烦的，spring cloud zuul已经帮我们做了默认配置。默认情况下，Zuul会代理所有注册到Eureka Server的微服务，并且Zuul的路由规则如下：<a href="http://ZUUL_HOST:ZUUL_PORT/微服务在Eureka上的serviceId/**会被转发到serviceId对应的微服务。" target="_blank" rel="external">http://ZUUL_HOST:ZUUL_PORT/微服务在Eureka上的serviceId/**会被转发到serviceId对应的微服务。</a></p>
-</li>
-<li><p>在Spring Cloud Netflix中，Zuul巧妙的整合了Eureka来实现面向服务的路由。实际上，我们可以直接将API网关也看做是Eureka服务治理下的一个普通微服务应用。它除了会将自己注册到Eureka服务注册中心上之外，也会从注册中心获取所有服务以及它们的实例清单。所以，在Eureka的帮助下，API网关服务本身就已经维护了系统中所有serviceId与实例地址的映射关系。当有外部请求到达API网关的时候，根据请求的URL路径找到最佳匹配的path规则，API网关就可以知道要将该请求路由到哪个具体的serviceId上去。由于在API网关中已经知道serviceId对应服务实例的地址清单，那么只需要通过Ribbon的负载均衡策略，直接在这些清单中选择一个具体的实例进行转发就能完成路由工作了。</p>
-</li>
-</ul>
-<h3 id="Zuul的更常用方式："><a href="#Zuul的更常用方式：" class="headerlink" title="Zuul的更常用方式："></a>Zuul的更常用方式：</h3><p>我们对于Zuul的第一印象通常是这样的：它包含了对请求的路由和过滤两个功能，其中路由功能负责将外部请求转发到具体的微服务实例上，是实现外部访问统一入口的基础；而过滤器功能则负责对请求的处理过程进行干预，是实现请求校验、服务聚合等功能的基础。然而实际上，路由功能在真正运行时，它的路由映射和请求转发都是由几个不同的过滤器完成的。其中，路由映射主要通过pre类型的过滤器完成，它将请求路径与配置的路由规则进行匹配，以找到需要转发的目标地址；而请求转发的部分则是由route类型的过滤器来完成，对pre类型过滤器获得的路由地址进行转发。所以，过滤器可以说是Zuul实现API网关功能最为核心的部件，每一个进入Zuul的HTTP请求都会经过一系列的过滤器处理链得到请求响应并返回给客户端。</p>
-<h4 id="过滤器的使用"><a href="#过滤器的使用" class="headerlink" title="过滤器的使用"></a>过滤器的使用</h4><ul>
-<li>在Spring Cloud Zuul中实现的过滤器必须包含4个基本特征：过滤类型、执行顺序、执行条件、具体操作。这些元素看着似乎非常的熟悉，实际上它就是ZuulFilter接口中定义的四个抽象方法</li>
-<li>实现方式：</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">1,过滤类实现ZuulFilter接口</div><div class="line">2，实现主要的4个方法</div><div class="line"> @Override</div><div class="line">    public String filterType() &#123;</div><div class="line">    &#125;</div><div class="line">    @Override</div><div class="line">    public int filterOrder() &#123;</div><div class="line">    &#125;</div><div class="line">    @Override</div><div class="line">    public boolean shouldFilter() &#123;</div><div class="line">    &#125;</div><div class="line">    @Override</div><div class="line">    public Object run() &#123;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
-<ul>
-<li>filterType：该函数需要返回一个字符串来代表过滤器的类型，而这个类型就是在HTTP请求过程中定义的各个阶段。在Zuul中默认定义了四种不同生命周期的过滤器类型，具体如下：</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">pre：可以在请求被路由之前调用。</div><div class="line">routing：在路由请求时候被调用。</div><div class="line">post：在routing和error过滤器之后被调用。</div><div class="line">error：处理请求时发生错误时被调用。</div></pre></td></tr></table></figure>
-<ul>
-<li>filterOrder：通过int值来定义过滤器的执行顺序，数值越小优先级越高。</li>
-<li>shouldFilter：返回一个boolean类型来判断该过滤器是否要执行。我们可以通过此方法来指定过滤器的有效范围。</li>
-<li>run：过滤器的具体逻辑。在该函数中，我们可以实现自定义的过滤逻辑，来确定是否要拦截当前的请求，不对其进行后续的路由，或是在请求路由返回结果之后，对处理结果做一些加工等。</li>
-<li><strong>项目中的多个filter类时，根据order的顺序进行执行，数值越小优先级越高。数值可以相同。这些顺序都依赖于filterType的类型。 先类型后顺序</strong>。<br><img src="https://camo.githubusercontent.com/4eb7754152028cdebd5c09d1c6f5acc7683f0094/687474703a2f2f6e6574666c69782e6769746875622e696f2f7a75756c2f696d616765732f7a75756c2d726571756573742d6c6966656379636c652e706e67" alt=""></li>
-</ul>
-
+        
+          <a class="article-more-a" href="/2017/10/17/springcloud-Gateway记录/#more">查看全文 >></a>
+        
       
 
       
@@ -484,69 +423,9 @@
 <p>Fallback相当于是降级操作. 对于查询操作, 我们可以实现一个fallback方法, 当请求后端服务出现异常的时候, 可以使用fallback方法返回的值. fallback方法的返回值一般是设置的默认值或者来自缓存.</p>
 <p><strong>3.资源隔离</strong></p>
 <p>在Hystrix中, 主要通过线程池来实现资源隔离. 通常在使用的时候我们会根据调用的远程服务划分出多个线程池. 例如调用产品服务的Command放入A线程池, 调用账户服务的Command放入B线程池. 这样做的主要优点是运行环境被隔离开了. 这样就算调用服务的代码存在bug或者由于其他原因导致自己所在线程池被耗尽时, 不会对系统的其他服务造成影响. 但是带来的代价就是维护多个线程池会对系统带来额外的性能开销. 如果是对性能有严格要求而且确信自己调用服务的客户端代码不会出问题的话, 可以使用Hystrix的信号模式(Semaphores)来隔离资源.</p>
-<h3 id="Ribbon-客户端负载均衡的工具包"><a href="#Ribbon-客户端负载均衡的工具包" class="headerlink" title="Ribbon 客户端负载均衡的工具包"></a>Ribbon 客户端负载均衡的工具包</h3><ul>
-<li>使用Ribbon方式的熔断</li>
-</ul>
-<p>在pox.xml文件中加入：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;dependency&gt;</div><div class="line">    &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;</div><div class="line">    &lt;artifactId&gt;spring-cloud-starter-hystrix&lt;/artifactId&gt;</div><div class="line">&lt;/dependency&gt;</div></pre></td></tr></table></figure>
-<p>在程序的入口类加@EnableHystrix：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">@SpringBootApplication</div><div class="line">@EnableDiscoveryClient</div><div class="line">@EnableHystrix</div><div class="line">public class ServiceRibbonApplication &#123;</div><div class="line"></div><div class="line">    public static void main(String[] args) &#123;</div><div class="line">        SpringApplication.run(ServiceRibbonApplication.class, args);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Bean</div><div class="line">    @LoadBalanced</div><div class="line">    RestTemplate restTemplate() &#123;</div><div class="line">        return new RestTemplate();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="Feign中使用断路器"><a href="#Feign中使用断路器" class="headerlink" title="Feign中使用断路器"></a>Feign中使用断路器</h3><ul>
-<li><strong>Spring Cloud Feign还扩展了对Spring MVC注解的支持，同时还整合了Ribbon和Eureka来提供均衡负载的HTTP客户端实现</strong></li>
-<li>feign是自带断路器的，并且是已经打开了。如果使用feign不想用断路器的话，可以在配置文件中关闭它，配置如下：</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">feign.hystrix.enabled=false</div></pre></td></tr></table></figure>
-<ul>
-<li>只需要在SchedualServiceHi接口的注解中加上fallback的指定类就行了如：示例</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">@FeignClient(value = &quot;service-hi&quot;,fallback = SchedualServiceHiHystric.class)</div><div class="line">public interface SchedualServiceHi &#123;</div><div class="line">    @RequestMapping(value = &quot;/hi&quot;,method = RequestMethod.GET)</div><div class="line">    String sayHiFromClientOne(@RequestParam(value = &quot;name&quot;) String name);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="Hystrix-dashboard和Turbine"><a href="#Hystrix-dashboard和Turbine" class="headerlink" title="Hystrix-dashboard和Turbine"></a>Hystrix-dashboard和Turbine</h3><ul>
-<li><p>Hystrix-dashboard是一款针对Hystrix进行实时监控的工具，通过Hystrix Dashboard我们可以在直观地看到各Hystrix Command的请求响应时间, 请求成功率等数据。但是只使用Hystrix Dashboard的话, 你只能看到单个应用内的服务信息, 这明显不够. 我们需要一个工具能让我们汇总系统内多个服务的数据并显示到Hystrix Dashboard上, 这个工具就是Turbine.</p>
-</li>
-<li><p>使用hystrix-dashboard</p>
-</li>
-</ul>
-<p>1, <strong>添加依赖</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&lt;dependency&gt;</div><div class="line">	&lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;</div><div class="line">	&lt;artifactId&gt;spring-cloud-starter-hystrix&lt;/artifactId&gt;</div><div class="line">&lt;/dependency&gt;</div><div class="line">&lt;dependency&gt;</div><div class="line">	&lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;</div><div class="line">	&lt;artifactId&gt;spring-cloud-starter-hystrix-dashboard&lt;/artifactId&gt;</div><div class="line">&lt;/dependency&gt;</div><div class="line">&lt;dependency&gt;</div><div class="line">	&lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</div><div class="line">	&lt;artifactId&gt;spring-boot-starter-actuator&lt;/artifactId&gt;</div><div class="line">&lt;/dependency&gt;</div><div class="line">这三个包必须添加</div></pre></td></tr></table></figure>
-<p>2、<strong>启动类</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">启动类添加启用Hystrix Dashboard和熔断器</div><div class="line"></div><div class="line">@SpringBootApplication</div><div class="line">@EnableDiscoveryClient</div><div class="line">@EnableFeignClients</div><div class="line">@EnableHystrixDashboard</div><div class="line">@EnableCircuitBreaker</div><div class="line">public class ConsumerApplication &#123;</div><div class="line"></div><div class="line">	public static void main(String[] args) &#123;</div><div class="line">		SpringApplication.run(ConsumerApplication.class, args);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>3、<strong>启动工程后访问 <a href="http://localhost:9001/hystrix" target="_blank" rel="external">http://localhost:9001/hystrix</a> 看到面板</strong></p>
-<p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/hystrix_dashboard.png" alt=""></p>
-<ul>
-<li>默认的集群监控：通过URL<a href="http://turbine-hostname:port/turbine.stream开启，实现对默认集群的监控。" target="_blank" rel="external">http://turbine-hostname:port/turbine.stream开启，实现对默认集群的监控。</a></li>
-<li><p>指定的集群监控：通过URL<a href="http://turbine-hostname:port/turbine.stream?cluster=[clusterName]开启，实现对clusterName集群的监控。" target="_blank" rel="external">http://turbine-hostname:port/turbine.stream?cluster=[clusterName]开启，实现对clusterName集群的监控。</a><br>单体应用的监控：通过URL<a href="http://hystrix-app:port/hystrix.stream开启，实现对具体某个服务实例的监控。" target="_blank" rel="external">http://hystrix-app:port/hystrix.stream开启，实现对具体某个服务实例的监控。</a></p>
-</li>
-<li><p>Delay：该参数用来控制服务器上轮询监控信息的延迟时间，默认为2000毫秒，我们可以通过配置该属性来降低客户端的网络和CPU消耗。</p>
-</li>
-<li>Title：该参数对应了上图头部标题Hystrix Stream之后的内容，默认会使用具体监控实例的URL，我们可以通过配置该信息来展示更合适的标题。</li>
-</ul>
-<p>4,<strong>输入<a href="http://localhost:9001/hystrix.stream" target="_blank" rel="external">http://localhost:9001/hystrix.stream</a></strong>看到图形介绍</p>
-<ul>
-<li>实心圆：共有两种含义。它通过颜色的变化代表了实例的健康程度，如下图所示，它的健康度从绿色、黄色、橙色、红色递减。该实心圆除了颜色的变化之外，它的大小也会根据实例的请求流量发生变化，流量越大该实心圆就越大。所以通过该实心圆的展示，我们就可以在大量的实例中快速的发现故障实例和高压力实例。</li>
-</ul>
-<p><img src="http://blog.didispace.com/content/images/posts/spring-cloud-starter-dalston-5-1-3.png" alt=""></p>
-<ul>
-<li>曲线：用来记录2分钟内流量的相对变化，我们可以通过它来观察到流量的上升和下降趋势。</li>
-</ul>
-<p><img src="http://blog.didispace.com/content/images/posts/spring-cloud-starter-dalston-5-1-4.png" alt=""></p>
-<p>###Turbine</p>
-<ul>
-<li>在复杂的分布式系统中，相同服务的节点经常需要部署上百甚至上千个，很多时候，运维人员希望能够把相同服务的节点状态以一个整体集群的形式展现出来，这样可以更好的把握整个系统的状态。 为此，Netflix提供了一个开源项目（Turbine）来提供把多个hystrix.stream的内容聚合为一个数据源供Dashboard展示。</li>
-</ul>
-<ul>
-<li>配置文件</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">spring.application.name=hystrix-dashboard-turbine</div><div class="line">server.port=8001</div><div class="line">turbine.appConfig=node01,node02</div><div class="line">turbine.aggregator.clusterConfig= default</div><div class="line">turbine.clusterNameExpression= new String(&quot;default&quot;)</div></pre></td></tr></table></figure>
-<ul>
-<li>eureka.client.serviceUrl.defaultZone=<a href="http://localhost:8000/eureka/" target="_blank" rel="external">http://localhost:8000/eureka/</a></li>
-<li>turbine.appConfig ：配置Eureka中的serviceId列表，表明监控哪些服务<br>turbine.aggregator.clusterConfig ：指定聚合哪些集群，多个使用”,”分割，默认为default。可使用<a href="http://.../turbine.stream?cluster={clusterConfig之一}访问" target="_blank" rel="external">http://.../turbine.stream?cluster={clusterConfig之一}访问</a><br>turbine.clusterNameExpression ：<ol>
-<li>clusterNameExpression指定集群名称，默认表达式appName；此时：turbine.aggregator.clusterConfig需要配置想要监控的应用名称；</li>
-<li>当clusterNameExpression: default时，turbine.aggregator.clusterConfig可以不写，因为默认就是default；</li>
-<li>当clusterNameExpression: metadata[‘cluster’]时，假设想要监控的应用配置了eureka.instance.metadata-map.cluster: ABC，则需要配置，同时turbine.aggregator.clusterConfig: ABC</li>
-</ol>
-</li>
-</ul>
-
+        
+          <a class="article-more-a" href="/2017/10/16/springcloud-Hystrix记录/#more">查看全文 >></a>
+        
       
 
       
@@ -765,14 +644,9 @@
       
         <h3 id="Redis的特点"><a href="#Redis的特点" class="headerlink" title="Redis的特点"></a>Redis的特点</h3><p>Redis  与其他  key - value  缓存产品有以下三个特点：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">　　· Redis 支持数据的持久化，可以将内存中的数据保存在磁盘中，重启的时候可以再次加载进行使用。</div><div class="line">　　· Redis 不仅仅支持简单的 key-value 类型的数据，同时还提供 list ， set ， zset ， hash 等数据结构的存储。</div><div class="line">　　· Redis 支持数据的备份，即 master-slave 模式的数据备份。</div></pre></td></tr></table></figure>
-<h4 id="Redis的优势："><a href="#Redis的优势：" class="headerlink" title="Redis的优势："></a>Redis的优势：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">　　·  性能极高  – Redis 能读的速度是 110000 次 /s, 写的速度是 81000 次 /s </div><div class="line">　　·  丰富的数据类型  – Redis 支持二进制案例的  Strings, Lists, Hashes, Sets  及  Ordered Sets  数据类型操作。</div><div class="line">　　·  原子  – Redis 的所有操作都是原子性的，同时 Redis 还支持对几个操作全并后的原子性执行。</div><div class="line">　　·  丰富的特性  – Redis 还支持  publish/subscribe,  通知 , key  过期等等特性。</div></pre></td></tr></table></figure>
-<h3 id="常见使用场景"><a href="#常见使用场景" class="headerlink" title="常见使用场景:"></a>常见使用场景:</h3><ul>
-<li>会话缓存（Session Cache)<br><br>最常用的一种使用Redis的情景是会话缓存（session cache）。用Redis缓存会话比其他存储（如Memcached）的优势在于：Redis提供持久化。</li>
-<li>全页缓存（FPC）<br><br>除基本的会话token之外，Redis还提供很简便的FPC平台。回到一致性问题，即使重启了Redis实例，因为有磁盘的持久化，用户也不会看到页面加载速度的下降，这是一个极大改进，类似PHP本地FPC</li>
-<li>队列<br><br>Reids在内存存储引擎领域的一大优点是提供 list 和 set 操作，这使得Redis能作为一个很好的消息队列平台来使用。Redis作为队列使用的操作，就类似于本地程序语言（如Python）对 list 的 push/pop 操作</li>
-<li>排行榜/计数器&lt;br<br>Redis在内存中对数字进行递增或递减的操作实现的非常好。集合（Set）和有序集合（Sorted Set）也使得我们在执行这些操作的时候变的非常简单，Redis只是正好提供了这两种数据结构</li>
-</ul>
-
+        
+          <a class="article-more-a" href="/2017/09/19/redis常用场景/#more">查看全文 >></a>
+        
       
 
       
@@ -846,10 +720,6 @@
 <li>mac 安装</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew install elasticsearch</div></pre></td></tr></table></figure>
-<ul>
-<li>安装结果</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">==&gt; Downloading https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.6.0.tar.gz</div><div class="line">######################################################################## 100.0%</div><div class="line">==&gt; Caveats</div><div class="line">Data:    /usr/local/var/elasticsearch/elasticsearch_zhulianggang/</div><div class="line">Logs:    /usr/local/var/log/elasticsearch/elasticsearch_zhulianggang.log</div><div class="line">Plugins: /usr/local/opt/elasticsearch/libexec/plugins/</div><div class="line">Config:  /usr/local/etc/elasticsearch/</div><div class="line">plugin script: /usr/local/opt/elasticsearch/libexec/bin/elasticsearch-plugin</div><div class="line"></div><div class="line">To have launchd start elasticsearch now and restart at login:</div><div class="line">  brew services start elasticsearch</div><div class="line">Or, if you don&apos;t want/need a background service you can just run:</div><div class="line">  elasticsearch</div><div class="line">==&gt; Summary</div><div class="line">🍺  /usr/local/Cellar/elasticsearch/5.6.0: 104 files, 35.9MB, built in 15 minutes 21 seconds</div></pre></td></tr></table></figure>
         
           <a class="article-more-a" href="/2017/09/13/mac-Elasticsearch/#more">查看全文 >></a>
         
@@ -924,11 +794,9 @@
         <p>###SpringCloud 网关记录</p>
 <p><strong>1, 注册相关服务到eureka</strong><br><img src="https://raw.githubusercontent.com/zhulg/allpic/master/api-gateway1.png" alt=""></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">当我们这里构建的api-gateway应用启动并注册到eureka之后，服务网关会发现上面我们启动的两个服务eureka-client和eureka-consumer，这时候Zuul就会创建两个路由规则。每个路由规则都包含两部分，一部分是外部请求的匹配规则，另一部分是路由的服务ID。针对当前示例的情况，Zuul会创建下面的两个路由规则：</div><div class="line"></div><div class="line">转发到eureka-client服务的请求规则为：/eureka-client/**</div><div class="line">转发到eureka-consumer服务的请求规则为：/eureka-consumer/**</div></pre></td></tr></table></figure>
-<p><strong>2,通过api-gateway 地址访问，默认已经进行路由</strong><br><img src="https://github.com/zhulg/allpic/blob/master/api-gateway2.png?raw=true" alt=""></p>
-<p><strong>3,在api-gateway里有配置zuul对应的映射路径：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">spring:</div><div class="line">  application:</div><div class="line">    name: api-gateway</div><div class="line"></div><div class="line">server:</div><div class="line">  port: 1101</div><div class="line"></div><div class="line">zuul:</div><div class="line">  routes:</div><div class="line">    api-a:</div><div class="line">      path: /api-a/**</div><div class="line">      serviceId: eureka-client</div><div class="line"></div><div class="line">eureka:</div><div class="line">  client:</div><div class="line">    serviceUrl:</div><div class="line">      defaultZone: http://localhost:8001/eureka/</div></pre></td></tr></table></figure>
-<p><strong>4,所以有上边里的zuul里的routers配置，可以通过api-gateway里配置的映射路径进行访问</strong><br><img src="https://raw.githubusercontent.com/zhulg/allpic/master/api-gateway3.png" alt=""></p>
-
+        
+          <a class="article-more-a" href="/2017/09/07/springcloud-网关服务记录/#more">查看全文 >></a>
+        
       
 
       
@@ -1017,26 +885,9 @@
 <li>重新加载,（修改配置后进行重新加载即可）</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nginx -s reload</div></pre></td></tr></table></figure>
-<ul>
-<li>相关安装文件路径(可进行更改)</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">/usr/local/etc/nginx/nginx.conf （配置文件路径）</div><div class="line">/usr/local/var/www （服务器默认路径）</div><div class="line">/usr/local/Cellar/nginx/1.12.1 （安装路径）</div></pre></td></tr></table></figure>
-<h3 id="Nginx-常用场景："><a href="#Nginx-常用场景：" class="headerlink" title="Nginx 常用场景："></a>Nginx 常用场景：</h3><ul>
-<li>反向代理：</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">反向代理（Reverse Proxy）方式是指以代理服务器来接受internet上的连接请求，然后将请求转发给内部网络上的服务器，并将从服务器上得到的结果返回给internet上请求连接的客户端，此时代理服务器对外就表现为一个反向代理服务器。简单来说就是真实的服务器不能直接被外部网络访问，所以需要一台代理服务器，而代理服务器能被外部网络访问的同时又跟真实服务器在同一个网络环境，当然也可能是同一台服务器，端口不同而已</div></pre></td></tr></table></figure>
-<ul>
-<li>负载均衡</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">负载均衡也是Nginx常用的一个功能，负载均衡其意思就是分摊到多个操作单元上进行执行，例如Web服务器、FTP服务器、企业关键应用服务器和其它关键任务服务器等，从而共同完成工作任务。简单而言就是当有2台或以上服务器时，根据规则随机的将请求分发到指定的服务器上处理，负载均衡配置一般都需要同时配置反向代理，通过反向代理跳转到负载均衡。而Nginx目前支持自带3种负载均衡策略，还有2种常用的第三方策略</div></pre></td></tr></table></figure>
-<ul>
-<li>http服务器</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Nginx本身也是一个静态资源的服务器，当只有静态资源的时候，就可以使用Nginx来做服务器，同时现在也很流行动静分离，就可以通过Nginx来实现</div></pre></td></tr></table></figure>
-<ul>
-<li>正向代理</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">正向代理，意思是一个位于客户端和原始服务器(origin server)之间的服务器，为了从原始服务器取得内容，客户端向代理发送一个请求并指定目标(原始服务器)，然后代理向原始服务器转交请求并将获得的内容返回给客户端。客户端才能使用正向代理。当你需要把你的服务器作为代理服务器的时候，可以用Nginx来实现正向代理，但是目前Nginx有一个问题，那么就是不支持HTTPS ....</div></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/2017/09/06/nginx安装记录/#more">查看全文 >></a>
+        
       
 
       
@@ -1182,11 +1033,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Elasticsearch</a>
+                <a href="javascript:void(0)" class="js-tag color1">springboot</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">springboot</a>
+                <a href="javascript:void(0)" class="js-tag color4">Elasticsearch</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1198,19 +1049,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">docker</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">hadoop</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">K8S</a>
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">springcloud</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">K8S</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1238,11 +1089,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">git/github/gitlab</a>
+                <a href="javascript:void(0)" class="js-tag color4">大数据&机器学习</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">大数据&机器学习</a>
+                <a href="javascript:void(0)" class="js-tag color3">git/github/gitlab</a>
               </li>
             
             <div class="clearfix"></div>

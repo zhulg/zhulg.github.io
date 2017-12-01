@@ -654,13 +654,9 @@
 <li>假设有变量 var=<a href="http://www.aaa.com/123.htm" target="_blank" rel="external">http://www.aaa.com/123.htm</a></li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">1. # 号截取，删除左边字符，保留右边字符。</div><div class="line">echo $&#123;var#*//&#125;</div><div class="line">其中 var 是变量名，# 号是运算符，*// 表示从左边开始删除第一个 // 号及左边的所有字符</div><div class="line">即删除 http://</div><div class="line">结果是 ：www.aaa.com/123.htm</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">2. ## 号截取，删除左边字符，保留右边字符。</div><div class="line">echo $&#123;var##*/&#125;</div><div class="line">##*/ 表示从左边开始删除最后（最右边）一个 / 号及左边的所有字符</div><div class="line">即删除 http://www.aaa.com/</div><div class="line">结果是 123.htm</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">3. %号截取，删除右边字符，保留左边字符</div><div class="line">echo $&#123;var%/*&#125;</div><div class="line">%/* 表示从右边开始，删除第一个 / 号及右边的字符</div><div class="line">结果是：http://www.aaa.com</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">4. %% 号截取，删除右边字符，保留左边字符</div><div class="line">echo $&#123;var%%/*&#125;</div><div class="line">%%/* 表示从右边开始，删除最后（最左边）一个 / 号及右边的字符</div><div class="line">结果是：http:</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">5. 从左边第几个字符开始，及字符的个数</div><div class="line">echo $&#123;var:0:5&#125;</div><div class="line">其中的 0 表示左边第一个字符开始，5 表示字符的总个数。</div><div class="line">结果是：http:</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">6. 从左边第几个字符开始，一直到结束。</div><div class="line">echo $&#123;var:7&#125;</div><div class="line">其中的 7 表示左边第8个字符开始，一直到结束。</div><div class="line">结果是 ：www.aaa.com/123.htm</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">7. 从右边第几个字符开始，及字符的个数</div><div class="line">echo $&#123;var:0-7:3&#125;</div><div class="line">其中的 0-7 表示右边算起第七个字符开始，3 表示字符的个数。</div><div class="line">结果是：123</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">8. 从右边第几个字符开始，一直到结束。</div><div class="line">echo $&#123;var:0-7&#125;</div><div class="line">表示从右边第七个字符开始，一直到结束。</div><div class="line">结果是：123.htm</div><div class="line">注：（左边的第一个字符是用 0 表示，右边的第一个字符用 0-1 表示）</div></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/2017/11/15/shell常用点记录/#more">查看全文 >></a>
+        
       
 
       
@@ -736,68 +732,9 @@
 </ul>
 <h4 id="1-本机环境监测"><a href="#1-本机环境监测" class="headerlink" title="1,本机环境监测"></a>1,本机环境监测</h4><p>Minikube要求在BIOS中对VT-x/AMD-v进行了虚拟化，如果已经设置了，则命令执行后会有以下内容输出：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ sysctl -a | grep machdep.cpu.features | grep VMX</div><div class="line"></div><div class="line">machdep.cpu.features: FPU VME DE PSE TSC MSR PAE MCE CX8 APIC SEP MTRR PGE MCA CMOV PAT PSE36 CLFSH DS ACPI MMX FXSR SSE SSE2 SS HTT TM PBE SSE3 PCLMULQDQ DTES64 MON DSCPL VMX EST TM2 SSSE3 FMA CX16 TPR PDCM SSE4.1 SSE4.2 x2APIC MOVBE POPCNT AES PCID XSAVE OSXSAVE SEGLIM64 TSCTMR AVX1.0 RDRAND F16C</div></pre></td></tr></table></figure>
-<h4 id="2-安装虚拟机驱动"><a href="#2-安装虚拟机驱动" class="headerlink" title="2,安装虚拟机驱动"></a>2,安装虚拟机驱动</h4><ul>
-<li>在OS X上支持xhyve driver、VirtualBox、VMware Fusion多种虚拟驱动 </li>
-</ul>
-<h4 id="3-安装Minikube"><a href="#3-安装Minikube" class="headerlink" title="3,安装Minikube"></a>3,安装Minikube</h4><ul>
-<li>brew cask install minikube</li>
-<li>minikube version （监测成功）</li>
-</ul>
-<h4 id="4-打开虚拟机"><a href="#4-打开虚拟机" class="headerlink" title="4,打开虚拟机"></a>4,打开虚拟机</h4><h4 id="5，minikube-启动"><a href="#5，minikube-启动" class="headerlink" title="5，minikube 启动"></a>5，minikube 启动</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">$minikube start</div><div class="line">Starting local Kubernetes v1.8.0 cluster...</div><div class="line">Starting VM...</div><div class="line">Downloading Minikube ISO</div><div class="line"> 140.01 MB / 140.01 MB [============================================] 100.00% 0s</div><div class="line">Getting VM IP address...</div><div class="line">Moving files into cluster...</div><div class="line">Downloading localkube binary</div><div class="line"> 148.56 MB / 148.56 MB [============================================] 100.00% 0s</div><div class="line">Setting up certs...</div><div class="line">Connecting to cluster...</div><div class="line">Setting up kubeconfig...</div><div class="line">Starting cluster components...</div><div class="line">Kubectl is now configured to use the cluster.</div></pre></td></tr></table></figure>
-<h4 id="6，kubectl-get-nodes-查看nodes"><a href="#6，kubectl-get-nodes-查看nodes" class="headerlink" title="6，kubectl get nodes 查看nodes"></a>6，kubectl get nodes 查看nodes</h4><p>####7， 部署应用前</p>
-<ul>
-<li>由于墙的原因，Minitube运行需要了的一些镜像是不能被下载的。故需要先解决下gcr.io的访问</li>
-<li>minikube ssh （登录到虚拟机，下载需要的K8S镜像）</li>
-<li>一个比较恶心的过程，使用阿里云进行下载需要的镜像</li>
-<li>查看缺失的镜像，可以exit退出ssh.回到本机 minikube logs 从日志里查看。</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">docker pull registry.cn-hangzhou.aliyuncs.com/google_containers/kubernetes-dashboard-amd64:v1.7.0</div><div class="line">docker tag registry.cn-hangzhou.aliyuncs.com/google_containers/kubernetes-dashboard-amd64:v1.7.0 gcr.io/google_containers/kubernetes-dashboard-amd64:v1.7.0</div><div class="line"></div><div class="line">docker pull registry.cn-hangzhou.aliyuncs.com/google_containers/k8s-dns-sidecar-amd64:1.14.5</div><div class="line">docker tag  registry.cn-hangzhou.aliyuncs.com/google_containers/k8s-dns-sidecar-amd64:1.14.5 gcr.io/google_containers/k8s-dns-sidecar-amd64:1.14.5</div><div class="line"></div><div class="line">docker pull registry.cn-hangzhou.aliyuncs.com/outman_google_containers/k8s-dns-dnsmasq-nanny-amd64:1.14.5</div><div class="line">docker tag  registry.cn-hangzhou.aliyuncs.com/outman_google_containers/k8s-dns-dnsmasq-nanny-amd64:1.14.5  gcr.io/google_containers/k8s-dns-dnsmasq-nanny-amd64:1.14.5</div><div class="line"></div><div class="line">docker pull registry.cn-hangzhou.aliyuncs.com/outman_google_containers/k8s-dns-kube-dns-amd64:1.14.5</div><div class="line">docker tag registry.cn-hangzhou.aliyuncs.com/outman_google_containers/k8s-dns-kube-dns-amd64:1.14.5 gcr.io/google_containers/k8s-dns-kube-dns-amd64:1.14.5</div></pre></td></tr></table></figure>
-<ul>
-<li>以上缺失就继续从log查看pull失败原因，再从阿里云拉起镜像，用tag映射下。</li>
-<li>docker images 可以查看下载的镜像</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">docker images</div><div class="line">REPOSITORY                                                                               TAG                 IMAGE ID            CREATED             SIZE</div><div class="line">gcr.io/google_containers/k8s-dns-sidecar-amd64                                           1.14.5              fed89e8b4248        6 weeks ago         41.8MB</div><div class="line">registry.cn-hangzhou.aliyuncs.com/google_containers/k8s-dns-sidecar-amd64                1.14.5              fed89e8b4248        6 weeks ago         41.8MB</div><div class="line">registry.cn-hangzhou.aliyuncs.com/outman_google_containers/k8s-dns-kube-dns-amd64        1.14.5              512cd7425a73        6 weeks ago         49.4MB</div><div class="line">gcr.io/google_containers/k8s-dns-kube-dns-amd64                                          1.14.5              512cd7425a73        6 weeks ago         49.4MB</div><div class="line">gcr.io/google_containers/k8s-dns-dnsmasq-nanny-amd64                                     1.14.5              459944ce8cc4        6 weeks ago         41.4MB</div><div class="line">registry.cn-hangzhou.aliyuncs.com/outman_google_containers/k8s-dns-dnsmasq-nanny-amd64   1.14.5              459944ce8cc4        6 weeks ago         41.4MB</div><div class="line">gcr.io/google-containers/kubernetes-dashboard-amd64                                      v1.7.0              284ec2f8ed6c        6 weeks ago         128MB</div><div class="line">gcr.io/google_containers/kubernetes-dashboard-amd64                                      v1.7.0              284ec2f8ed6c        6 weeks ago         128MB</div><div class="line">registry.cn-hangzhou.aliyuncs.com/google_containers/kubernetes-dashboard-amd64           v1.7.0              284ec2f8ed6c        6 weeks ago         128MB</div><div class="line">gcr.io/google-containers/kube-addon-manager                                              v6.4-beta.2         0a951668696f        4 months ago        79.2MB</div><div class="line">registry.cn-hangzhou.aliyuncs.com/google_containers/kube-addon-manager                   v6.4-beta.2         0a951668696f        4 months ago        79.2MB</div><div class="line">gcr.io/google_containers/echoserver                                                      1.4                 a90209bb39e3        17 months ago       140MB</div><div class="line">registry.cn-hangzhou.aliyuncs.com/acs/echoserver                                         1.4                 a90209bb39e3        17 months ago       140MB</div><div class="line">gcr.io/google_containers/pause-amd64                                                     3.0                 99e59f495ffa        18 months ago       747kB</div><div class="line">registry.cn-hangzhou.aliyuncs.com/google-containers/pause-amd64                          3.0                 99e59f495ffa        18 months ago       747kB</div></pre></td></tr></table></figure>
-<h3 id="8-启动一个echoserver-pod"><a href="#8-启动一个echoserver-pod" class="headerlink" title="8,启动一个echoserver pod"></a>8,启动一个echoserver pod</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ kubectl run hello-minikube --image=gcr.io/google_containers/echoserver:1.4 --port=8080</div><div class="line">deployment &quot;hello-minikube&quot; created</div></pre></td></tr></table></figure>
-<ul>
-<li>通过NodePort暴露的服务<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ kubectl expose deployment hello-minikube --type=NodePort</div><div class="line">service &quot;hello-minikube&quot; exposed</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="9-查看pods状态"><a href="#9-查看pods状态" class="headerlink" title="9,查看pods状态"></a>9,查看pods状态</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">kubectl get pods</div><div class="line">NAME                              READY     STATUS    RESTARTS   AGE</div><div class="line">hello-8649f955b6-c54tx            1/1       Running   0          22h</div><div class="line">hello-minikube-5bc754d4cd-zbrh6   1/1       Running   0          9h</div></pre></td></tr></table></figure>
-<ul>
-<li>mikubectl get pod -o wide –all-namespaces(查看所有命名空间)</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">NAMESPACE     NAME                              READY     STATUS    RESTARTS   AGE       IP               NODE</div><div class="line">default       hello-8649f955b6-c54tx            1/1       Running   0          22h       172.17.0.2       minikube</div><div class="line">default       hello-minikube-5bc754d4cd-zbrh6   1/1       Running   0          9h        172.17.0.3       minikube</div><div class="line">kube-system   kube-addon-manager-minikube       1/1       Running   0          23h       192.168.99.100   minikube</div><div class="line">kube-system   kube-dns-6fc954457d-htd94         3/3       Running   5          9h        172.17.0.5       minikube</div><div class="line">kube-system   kubernetes-dashboard-tkhjw        1/1       Running   0          9h        172.17.0.4       minikube</div></pre></td></tr></table></figure>
-<h3 id="10-curl-minikube-service-hello-minikube-–url-测试服务"><a href="#10-curl-minikube-service-hello-minikube-–url-测试服务" class="headerlink" title="10, curl $(minikube service hello-minikube –url) 测试服务"></a>10, curl $(minikube service hello-minikube –url) 测试服务</h3><p>###11，minikube dashboard(启动观察页)</p>
-<ul>
-<li>Minikube自带了Kubernetes Dashboard。要浏览这个界面，可以使用内置的minikube dashboard命令。</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ minikube dashboard</div><div class="line">Opening kubernetes dashboard in default browser...</div></pre></td></tr></table></figure>
-<p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/k8s.png" alt=""></p>
-<h3 id="12-过程中注意问题记录"><a href="#12-过程中注意问题记录" class="headerlink" title="12,过程中注意问题记录"></a>12,过程中注意问题记录</h3><ul>
-<li>镜像下载，代理过程翻墙不能解决，最后在虚拟机上通过阿里下载所需要的镜像，通过tag隐射。</li>
-<li>不正常需要查看kubectl get pods –all-namespaces pods情况</li>
-<li>minikube logs 查看过程中的日志，定位问题</li>
-<li>最后启动dashboard过程，注意自己是否有代理，否则起不起来</li>
-<li>常用命令 kubectl get nodes 查看工作节点</li>
-</ul>
-<h3 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h3><ul>
-<li><a href="http://blog.csdn.net/yjk13703623757/article/details/71381361" target="_blank" rel="external">http://blog.csdn.net/yjk13703623757/article/details/71381361</a> 参考文章</li>
-<li><a href="http://blog.csdn.net/aixiaoyang168/article/details/78331847?locationNum=10&amp;fps=1" target="_blank" rel="external">http://blog.csdn.net/aixiaoyang168/article/details/78331847?locationNum=10&amp;fps=1</a> (参考文章)</li>
-</ul>
-<h3 id="13，基本概念和指令"><a href="#13，基本概念和指令" class="headerlink" title="13，基本概念和指令"></a>13，基本概念和指令</h3><ul>
-<li>Kubernetes 集群由两种类型的资源组成：master 和 Nodes。 master是集群的调度节点，nodes则是应用程序实际运行的工作节点。</li>
-<li>类似于nginx的 master 和 worker。</li>
-<li>部署应用时需要创建deployment。每个deployment 会根据指定的副本数，创建相应的pod来托管我们的应用实例。</li>
-<li>Pod可以理解为应用实例特定的逻辑主机，表示一个或多个容器组和这些容器的共享资源，包共用卷、唯一的集群IP和容器运行的信息，如端口等。</li>
-<li>Node是kubernetes的工作机器（物理机或虚拟机）。Node由master管理，可以在一个node上部署多个pod。</li>
-<li>每个node至少需要两种组件，kubelet 和 容器运行时（docker）。</li>
-<li><p>kubelet是负责master和所有节点间的通信进程，管理机器上运行的pod和容器。容器运行时负责从registry拉取镜像，解包镜像并运行应用实例。</p>
-</li>
-<li><p>kubectl 有一系列指令管理实例的运行情况。</p>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">// 查看deployment</div><div class="line">kubectl get deployments</div><div class="line">// 删除deployment，会自动删除相应pods</div><div class="line">kubectl delete deployment &lt;部署名&gt;</div><div class="line">// 查看pods</div><div class="line">// 查看当前namespace下的pods</div><div class="line">kubectl get pods</div><div class="line">// 查看所有pods</div><div class="line">kubectl get pods --all-namespaces</div><div class="line">// 查看pods的具体信息</div><div class="line">kubectl describe pod &lt;pod name&gt;</div><div class="line">//特定namespace下的，需要指定namespace</div><div class="line">kubectl describe pod &lt;pod name&gt; --namespace=kube-system</div><div class="line">// 查看pod日志</div><div class="line">kubectl logs pod &lt;pod name&gt;</div><div class="line">// 进入pod</div><div class="line">kubectl exec -it &lt;pod name&gt; bash</div></pre></td></tr></table></figure>
-
+        
+          <a class="article-more-a" href="/2017/11/08/mac-minikube本地集群/#more">查看全文 >></a>
+        
       
 
       
@@ -880,9 +817,10 @@
 </li>
 </ul>
 <h4 id="node"><a href="#node" class="headerlink" title="node"></a>node</h4><ul>
-<li>除了master，k8s集群中的其他节点是node节点,也是实际的工作点。node节点可以是一台物理机或者虚拟机。node节点是k8s集群中的工作负载节点，master会把一些任务调度到node节点上进行。当某个node出现故障时，master会把这个节点上的任务转移到其他节点上。</li>
-</ul>
-
+<li>除了master，k8s集群中的其他节点是node节点,也是实际的工作点。node节点可以是一台物理机或者虚拟机。node节点是k8s集群中的工作负载节点，master会把一些任务调度到node节点上进行。当某个node出现故障时，master会把这个节点上的任务转移到其他节点上。
+        
+          <a class="article-more-a" href="/2017/11/03/k8s核心概念/#more">查看全文 >></a>
+        
       
 
       
@@ -956,12 +894,9 @@
 <li>Apache Shiro是一个功能强大、灵活的，开源的安全框架。它可以干净利落地处理身份验证、授权、企业会话管理和加密。</li>
 <li>Apache Shiro是一个全面的、蕴含丰富功能的安全框架。<br>Authentication（认证）, Authorization（授权）, Session Management（会话管理）, Cryptography（加密）被 Shiro 框架的开发团队称之为应用安全的四大基石。那么就让我们来看看它们吧：</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Authentication（认证）：用户身份识别，通常被称为用户“登录”</div><div class="line">Authorization（授权）：访问控制。比如某个用户是否具有某个操作的使用权限。</div><div class="line">Session Management（会话管理）：特定于用户的会话管理,甚至在非web 或 EJB 应用程序。</div><div class="line">Cryptography（加密）：在对数据源使用加密算法加密的同时</div></pre></td></tr></table></figure>
-<ul>
-<li>Shiro 配置要配置的是ShiroConfig类，Apache Shiro 核心通过 Filter 来实现，就好像SpringMvc 通过DispachServlet 来主控制一样。<br>既然是使用 Filter 一般也就能猜到，是通过URL规则来进行过滤和权限校验，所以我们需要定义一系列关于URL的规则和访问权限。</li>
-<li><a href="http://www.cnblogs.com/ityouknow/p/7089177.html参考记录" target="_blank" rel="external">http://www.cnblogs.com/ityouknow/p/7089177.html参考记录</a></li>
-</ul>
-
+        
+          <a class="article-more-a" href="/2017/10/24/springboot整合Apache-Shiro/#more">查看全文 >></a>
+        
       
 
       
@@ -1196,11 +1131,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Elasticsearch</a>
+                <a href="javascript:void(0)" class="js-tag color1">springboot</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">springboot</a>
+                <a href="javascript:void(0)" class="js-tag color4">Elasticsearch</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1212,19 +1147,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">docker</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">hadoop</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">K8S</a>
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">springcloud</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">K8S</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1252,11 +1187,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">git/github/gitlab</a>
+                <a href="javascript:void(0)" class="js-tag color4">大数据&机器学习</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">大数据&机器学习</a>
+                <a href="javascript:void(0)" class="js-tag color3">git/github/gitlab</a>
               </li>
             
             <div class="clearfix"></div>
