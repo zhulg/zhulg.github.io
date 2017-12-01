@@ -266,41 +266,9 @@
 <li>Hadoop运行整个计算机集群代码。这个过程包括以下核心任务由 Hadoop 执行：</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">数据最初分为目录和文件。文件分为128M和64M（128M最好）统一大小块。</div><div class="line">然后这些文件被分布在不同的群集节点，以便进一步处理。</div><div class="line">HDFS，本地文件系统的顶端﹑监管处理。</div><div class="line">块复制处理硬件故障。</div><div class="line">检查代码已成功执行。</div><div class="line">执行发生映射之间，减少阶段的排序。</div><div class="line">发送排序的数据到某一计算机。</div><div class="line">为每个作业编写的调试日志。</div></pre></td></tr></table></figure>
-<h4 id="hadoop-安装和配置入门"><a href="#hadoop-安装和配置入门" class="headerlink" title="hadoop 安装和配置入门"></a>hadoop 安装和配置入门</h4><ul>
-<li>参见hadoop<a href="https://zhulg.github.io/2017/11/27/hadoop%E5%AE%89%E8%A3%85/" target="_blank" rel="external">安装笔记另一篇</a></li>
-<li>hadoop fs 查看相关用法</li>
-<li>hadoop 操作模式，本地一般是模拟分布式模式</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">本地/独立模式：下载Hadoop在系统中，默认情况下之后，它会被配置在一个独立的模式，用于运行Java程序。</div><div class="line">模拟分布式模式：这是在单台机器的分布式模拟。Hadoop守护每个进程，如 hdfs, yarn, MapReduce 等，都将作为一个独立的java程序运行。这种模式对开发非常有用。</div><div class="line">完全分布式模式：这种模式是完全分布式的最小两台或多台计算机的集群。我们使用这种模式在未来的章节中。</div></pre></td></tr></table></figure>
-<h4 id="HDFS架构"><a href="#HDFS架构" class="headerlink" title="HDFS架构"></a>HDFS架构</h4><p><img src="http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/images/hdfsarchitecture.png" alt=""></p>
-<ul>
-<li>HDFS遵循主从架构，从上图可以看出有nameNode和dataNode，block等组成</li>
-<li>名称节点 - Namenode</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">名称节点是包含GNU/Linux操作系统和软件名称节点的普通硬件。它是一个可以在商品硬件上运行的软件。具有名称节点系统作为主服务器，它执行以下任务：</div><div class="line">管理文件系统命名空间。</div><div class="line">任何有关文件系统的改变都会被NameNode记录下来.</div><div class="line">规范客户端对文件的访问。</div><div class="line">它也执行文件系统操作，如重命名，关闭和打开的文件和目录。</div></pre></td></tr></table></figure>
-<ul>
-<li>数据节点 - Datanode</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Datanode具有GNU/Linux操作系统和软件Datanode的普通硬件。对于集群中的每个节点(普通硬件/系统)，有一个数据节点。这些节点管理数据存储在它们的系统。</div><div class="line">数据节点上的文件系统执行的读写操作，根据客户的请求。</div><div class="line">还根据名称节点的指令执行操作，如块的创建，删除和复制。</div></pre></td></tr></table></figure>
-<ul>
-<li>块</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">一般用户数据存储在HDFS文件。在一个文件系统中的文件将被划分为一个或多个段和/或存储在个人数据的节点。这些文件段被称为块。换句话说，数据的HDFS可以读取或写入的最小量被称为一个块。缺省的块大小为64MB，但它可以增加按需要在HDFS配置来改变。</div></pre></td></tr></table></figure>
-<ul>
-<li>文件系统元数据的持久存储(Metadata)</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">HDFS文件系统的元数据信息被存储在NameNode节点上.NameNode节点使用事物日志(叫做EditLog)来持久记录发生在文件系统上面每个变化,:创建文件会在EditLog中插入一条记录,改变副本因子也会新增一条新的记录.NameNode会使用本地文件系统来保存这个EditLog内容.整个HDFS文件系统的命名空间,数据块与文件的映射关系,文件系统的各个属性都被存放在一个叫做FsImage的文件中,这个FsImage文件也放在NameNode节点的本地文件系统中.</div><div class="line">NameNode会维护整个文件系统的命名空间和文件块的映射关系在内存中</div></pre></td></tr></table></figure>
-<h4 id="HDFS的目标"><a href="#HDFS的目标" class="headerlink" title="HDFS的目标"></a>HDFS的目标</h4><ul>
-<li>故障检测和恢复：由于HDFS包括大量的普通硬件，部件故障频繁。因此HDFS应该具有快速和自动故障检测和恢复机制。</li>
-<li>巨大的数据集：HDFS有数百个集群节点来管理其庞大的数据集的应用程序。</li>
-<li>数据硬件：请求的任务，当计算发生不久的数据可以高效地完成。涉及巨大的数据集特别是它减少了网络通信量，并增加了吞吐量。</li>
-<li>Moving Computation is Cheaper than Moving Data</li>
-</ul>
-<h3 id="HDFS常用命令"><a href="#HDFS常用命令" class="headerlink" title="HDFS常用命令"></a>HDFS常用命令</h3><ul>
-<li>格式化配置HDFS文件系统，打开NameNode(HDFS服务器)，然后执行以下命令。$ hadoop namenode -format</li>
-<li>hadoop fs 或者hadoop fs -help</li>
-</ul>
-
+        
+          <a class="article-more-a" href="/2017/11/30/hadoop笔记（一）/#more">more >></a>
+        
       
 
       
@@ -1345,19 +1313,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">分布式/集群</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">springboot</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Elasticsearch</a>
+                <a href="javascript:void(0)" class="js-tag color2">分布式/集群</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">AWK</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Elasticsearch</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1369,15 +1337,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">springcloud</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">K8S</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redis</a>
+                <a href="javascript:void(0)" class="js-tag color2">springcloud</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1385,7 +1349,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">springboot相关</a>
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1394,6 +1358,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">springboot相关</a>
               </li>
              
               <li class="article-tag-list-item">
