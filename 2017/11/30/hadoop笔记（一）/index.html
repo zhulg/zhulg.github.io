@@ -17,7 +17,7 @@
 <meta property="og:description" content="Hadoop是使用Java编写，允许分布在集群，使用简单的编程模型的计算机大型数据集处理的Apache的开源框架。 Hadoop框架应用工程提供跨计算机集群的分布式存储和计算的环境。 Hadoop是专为从单一服务器到上千台机器扩展，每个机器都可以提供本地计算和存储。 Hadoop可运行于一般的商用服务器上，具有高容错、高可靠性、高扩展性等特点.特别适合写一次，读多次的场景  hadoop架构组成">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/images/hdfsarchitecture.png">
-<meta property="og:updated_time" content="2017-12-01T08:33:53.000Z">
+<meta property="og:updated_time" content="2017-12-01T08:57:19.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hadoop笔记（一）">
 <meta name="twitter:description" content="Hadoop是使用Java编写，允许分布在集群，使用简单的编程模型的计算机大型数据集处理的Apache的开源框架。 Hadoop框架应用工程提供跨计算机集群的分布式存储和计算的环境。 Hadoop是专为从单一服务器到上千台机器扩展，每个机器都可以提供本地计算和存储。 Hadoop可运行于一般的商用服务器上，具有高容错、高可靠性、高扩展性等特点.特别适合写一次，读多次的场景  hadoop架构组成">
@@ -186,12 +186,12 @@
 <li>The project includes these modules：</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Hadoop Common: The common utilities that support the other Hadoop modules.</div><div class="line">Hadoop Distributed File System (HDFS™): A distributed file system that provides high-throughput access to application data.</div><div class="line">Hadoop YARN: A framework for job scheduling and cluster resource management.（分布式资源管理）</div><div class="line">Hadoop MapReduce: A YARN-based system for parallel processing of large data sets.</div></pre></td></tr></table></figure>
+<a id="more"></a>
 <h4 id="hadoop如何工作（入门理解版本）"><a href="#hadoop如何工作（入门理解版本）" class="headerlink" title="hadoop如何工作（入门理解版本）"></a>hadoop如何工作（入门理解版本）</h4><ul>
 <li>建立重配置，处理大规模处理服务器这是相当昂贵的，但是作为替代，可以联系许多普通电脑采用单CPU在一起，作为一个单一功能的分布式系统，实际上，集群机可以平行读取数据集，并提供一个高得多的吞吐量。此外，这样便宜不到一个高端服务器价格。因此使用Hadoop跨越集群和低成本的机器上运行是一个不错不选择。</li>
 <li>Hadoop运行整个计算机集群代码。这个过程包括以下核心任务由 Hadoop 执行：</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">数据最初分为目录和文件。文件分为128M和64M（128M最好）统一大小块。</div><div class="line">然后这些文件被分布在不同的群集节点，以便进一步处理。</div><div class="line">HDFS，本地文件系统的顶端﹑监管处理。</div><div class="line">块复制处理硬件故障。</div><div class="line">检查代码已成功执行。</div><div class="line">执行发生映射之间，减少阶段的排序。</div><div class="line">发送排序的数据到某一计算机。</div><div class="line">为每个作业编写的调试日志。</div></pre></td></tr></table></figure>
-<a id="more"></a>
 <h4 id="hadoop-安装和配置入门"><a href="#hadoop-安装和配置入门" class="headerlink" title="hadoop 安装和配置入门"></a>hadoop 安装和配置入门</h4><ul>
 <li>参见hadoop<a href="https://zhulg.github.io/2017/11/27/hadoop%E5%AE%89%E8%A3%85/" target="_blank" rel="external">安装笔记另一篇</a></li>
 <li>hadoop fs 查看相关用法</li>
@@ -465,6 +465,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">分布式/集群</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">springboot</a>
               </li>
              
@@ -473,7 +477,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">分布式/集群</a>
+                <a href="javascript:void(0)" class="js-tag color2">hadoop</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -481,15 +485,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">hadoop</a>
+                <a href="javascript:void(0)" class="js-tag color2">springcloud</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">docker</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">springcloud</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -521,11 +521,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">大数据&机器学习</a>
+                <a href="javascript:void(0)" class="js-tag color3">git/github/gitlab</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">git/github/gitlab</a>
+                <a href="javascript:void(0)" class="js-tag color4">大数据&机器学习</a>
               </li>
             
             <div class="clearfix"></div>
