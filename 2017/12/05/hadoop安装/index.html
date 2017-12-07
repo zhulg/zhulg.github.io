@@ -8,21 +8,21 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>hadoop笔记（二） | zhulg笔记</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="hadoop mac上安装记录hadoop 概述设想一下这样的应用场景。我有一个100M的数据库备份的sql文件。我现在想在不导入到数据库的情况下直接用grep操作通过正则过滤出我想要的内容。例如：某个表中含有相同关键字的记录那么有几种方式,一种是直接用linux的命令grep还有一种就是通过编程来读取文件,然后对每行数据进行正则匹配得到结果好了现在是100M的数据库备份。上述两种方法都可以轻松应">
+  <meta name="description" content="hadoop mac上安装记录hadoop 概述 Apache Hadoop 的框架最核心的设计就是：HDFS 和 MapReduce。HDFS 为海量的数据提供了存储，而 MapReduce 则为海量的数据提供了计算。  引入设想一下这样的应用场景。我有一个100M的数据库备份的sql文件。我现在想在不导入到数据库的情况下直接用grep操作通过正则过滤出我想要的内容。例如：某个表中含有相同关键字">
 <meta name="keywords" content="hadoop">
 <meta property="og:type" content="article">
 <meta property="og:title" content="hadoop笔记（二）">
 <meta property="og:url" content="http://yoursite.com/2017/12/05/hadoop安装/index.html">
 <meta property="og:site_name" content="zhulg笔记">
-<meta property="og:description" content="hadoop mac上安装记录hadoop 概述设想一下这样的应用场景。我有一个100M的数据库备份的sql文件。我现在想在不导入到数据库的情况下直接用grep操作通过正则过滤出我想要的内容。例如：某个表中含有相同关键字的记录那么有几种方式,一种是直接用linux的命令grep还有一种就是通过编程来读取文件,然后对每行数据进行正则匹配得到结果好了现在是100M的数据库备份。上述两种方法都可以轻松应">
+<meta property="og:description" content="hadoop mac上安装记录hadoop 概述 Apache Hadoop 的框架最核心的设计就是：HDFS 和 MapReduce。HDFS 为海量的数据提供了存储，而 MapReduce 则为海量的数据提供了计算。  引入设想一下这样的应用场景。我有一个100M的数据库备份的sql文件。我现在想在不导入到数据库的情况下直接用grep操作通过正则过滤出我想要的内容。例如：某个表中含有相同关键字">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://raw.githubusercontent.com/zhulg/allpic/master/hadoop1.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/zhulg/allpic/master/hadoop2.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/zhulg/allpic/master/hadoop3.png">
-<meta property="og:updated_time" content="2017-12-07T01:53:25.000Z">
+<meta property="og:updated_time" content="2017-12-07T02:57:09.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hadoop笔记（二）">
-<meta name="twitter:description" content="hadoop mac上安装记录hadoop 概述设想一下这样的应用场景。我有一个100M的数据库备份的sql文件。我现在想在不导入到数据库的情况下直接用grep操作通过正则过滤出我想要的内容。例如：某个表中含有相同关键字的记录那么有几种方式,一种是直接用linux的命令grep还有一种就是通过编程来读取文件,然后对每行数据进行正则匹配得到结果好了现在是100M的数据库备份。上述两种方法都可以轻松应">
+<meta name="twitter:description" content="hadoop mac上安装记录hadoop 概述 Apache Hadoop 的框架最核心的设计就是：HDFS 和 MapReduce。HDFS 为海量的数据提供了存储，而 MapReduce 则为海量的数据提供了计算。  引入设想一下这样的应用场景。我有一个100M的数据库备份的sql文件。我现在想在不导入到数据库的情况下直接用grep操作通过正则过滤出我想要的内容。例如：某个表中含有相同关键字">
 <meta name="twitter:image" content="https://raw.githubusercontent.com/zhulg/allpic/master/hadoop1.png">
   
     <link rel="alternative" href="/atom.xml" title="zhulg笔记" type="application/atom+xml">
@@ -177,7 +177,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="hadoop-mac上安装记录"><a href="#hadoop-mac上安装记录" class="headerlink" title="hadoop mac上安装记录"></a>hadoop mac上安装记录</h3><h4 id="hadoop-概述"><a href="#hadoop-概述" class="headerlink" title="hadoop 概述"></a>hadoop 概述</h4><p>设想一下这样的应用场景。我有一个100M的数据库备份的sql文件。我现在想在不导入到数据库的情况下直接用grep操作通过正则过滤出我想要的内容。例如：某个表中含有相同关键字的记录那么有几种方式,一种是直接用linux的命令grep还有一种就是通过编程来读取文件,然后对每行数据进行正则匹配得到结果好了现在是100M的数据库备份。上述两种方法都可以轻松应对。</p>
+        <h3 id="hadoop-mac上安装记录"><a href="#hadoop-mac上安装记录" class="headerlink" title="hadoop mac上安装记录"></a>hadoop mac上安装记录</h3><h4 id="hadoop-概述"><a href="#hadoop-概述" class="headerlink" title="hadoop 概述"></a>hadoop 概述</h4><ul>
+<li>Apache Hadoop 的框架最核心的设计就是：HDFS 和 MapReduce。HDFS 为海量的数据提供了存储，而 MapReduce 则为海量的数据提供了计算。</li>
+</ul>
+<h4 id="引入"><a href="#引入" class="headerlink" title="引入"></a>引入</h4><p>设想一下这样的应用场景。我有一个100M的数据库备份的sql文件。我现在想在不导入到数据库的情况下直接用grep操作通过正则过滤出我想要的内容。例如：某个表中含有相同关键字的记录那么有几种方式,一种是直接用linux的命令grep还有一种就是通过编程来读取文件,然后对每行数据进行正则匹配得到结果好了现在是100M的数据库备份。上述两种方法都可以轻松应对。</p>
 <p>那么如果是1G,1T甚至1PB的数据呢,上面2种方法还能行得通吗？答案是不能。毕竟单台服务器的性能总有其上限。那么对于这种超大数据文件怎么得到我们想要的结果呢？</p>
 <p>有种方法就是分布式计算,分布式计算的核心就在于利用分布式算法把运行在单台机器上的程序扩展到多台机器上并行运行。从而使数据处理能力成倍增加。但是这种分布式计算一般对编程人员要求很高,而且对服务器也有要求。导致了成本变得非常高。</p>
 <a id="more"></a>
@@ -488,7 +491,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">分布式/集群</a>
+                <a href="javascript:void(0)" class="js-tag color2">hadoop</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -496,19 +499,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">分布式/集群</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">docker</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">hadoop</a>
+                <a href="javascript:void(0)" class="js-tag color4">K8S</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">springcloud</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">K8S</a>
               </li>
              
               <li class="article-tag-list-item">
