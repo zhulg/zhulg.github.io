@@ -6,15 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: git/github/gitlab | zhulg笔记</title>
+  <title>flume概述 | zhulg笔记</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="zhulg笔记">
-<meta property="og:url" content="http://yoursite.com/tags/git-github-gitlab/index.html">
+  <meta name="description" content="概述 Flume是Cloudera提供的一个高可用的，高可靠的，分布式的海量日志采集、聚合和传输的系统，Flume支持在日志系统中定制各类数据发送方，用于收集数据；同时，Flume提供对数据进行简单处理，并写到各种数据接受方（可定制）的能力。主要功能 1.日志收集Flume最早是Cloudera提供的日志收集系统，目前是Apache下的一个孵化项目，Flume支持在日志系统中定制各类数据发送方，用">
+<meta name="keywords" content="flume">
+<meta property="og:type" content="article">
+<meta property="og:title" content="flume概述">
+<meta property="og:url" content="http://yoursite.com/2017/12/12/flume概述/index.html">
 <meta property="og:site_name" content="zhulg笔记">
+<meta property="og:description" content="概述 Flume是Cloudera提供的一个高可用的，高可靠的，分布式的海量日志采集、聚合和传输的系统，Flume支持在日志系统中定制各类数据发送方，用于收集数据；同时，Flume提供对数据进行简单处理，并写到各种数据接受方（可定制）的能力。主要功能 1.日志收集Flume最早是Cloudera提供的日志收集系统，目前是Apache下的一个孵化项目，Flume支持在日志系统中定制各类数据发送方，用">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://flume.apache.org/_images/UserGuide_image00.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/zhulg/allpic/master/flume1.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/zhulg/allpic/master/flume2.png">
+<meta property="og:updated_time" content="2017-12-13T01:43:08.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="zhulg笔记">
+<meta name="twitter:title" content="flume概述">
+<meta name="twitter:description" content="概述 Flume是Cloudera提供的一个高可用的，高可靠的，分布式的海量日志采集、聚合和传输的系统，Flume支持在日志系统中定制各类数据发送方，用于收集数据；同时，Flume提供对数据进行简单处理，并写到各种数据接受方（可定制）的能力。主要功能 1.日志收集Flume最早是Cloudera提供的日志收集系统，目前是Apache下的一个孵化项目，Flume支持在日志系统中定制各类数据发送方，用">
+<meta name="twitter:image" content="https://flume.apache.org/_images/UserGuide_image00.png">
   
     <link rel="alternative" href="/atom.xml" title="zhulg笔记" type="application/atom+xml">
   
@@ -148,60 +157,204 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-flume概述" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/07/19/twoGithubAccount/" class="archive-article-date">
-  	<time datetime="2017-07-19T05:44:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-19</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/07/19/twoGithubAccount/">如何绑定两个github帐号</a>
+    <h1 class="article-title" itemprop="name">
+      flume概述
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2017/12/12/flume概述/" class="archive-article-date">
+  	<time datetime="2017-12-12T03:16:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-12</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><ul>
+<li>Flume是Cloudera提供的一个高可用的，高可靠的，分布式的海量日志采集、聚合和传输的系统，Flume支持在日志系统中定制各类数据发送方，用于收集数据；同时，Flume提供对数据进行简单处理，并写到各种数据接受方（可定制）的能力。<h4 id="主要功能"><a href="#主要功能" class="headerlink" title="主要功能"></a>主要功能</h4></li>
+<li><p>1.日志收集<br>Flume最早是Cloudera提供的日志收集系统，目前是Apache下的一个孵化项目，Flume支持在日志系统中定制各类数据发送方，用于收集数据。</p>
+</li>
+<li><p>2.数据处理<br>Flume提供对数据进行简单处理，并写到各种数据接受方（可定制）的能力 Flume提供了从console（控制台）、RPC（Thrift-RPC）、text（文件）、tail（UNIX tail）、syslog（syslog日志系统，支持TCP和UDP等2种模式），exec（命令执行）等数据源上收集数据的能力。</p>
+</li>
+</ul>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><ul>
+<li>brew install flume</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">$brew install flume</div><div class="line">Updating Homebrew...</div><div class="line">==&gt; Auto-updated Homebrew!</div><div class="line">Updated 2 taps (caskroom/cask, homebrew/core).</div><div class="line">==&gt; New Formulae</div><div class="line">libidn2                                                                                    mongodb@3.4</div><div class="line">==&gt; Updated Formulae</div><div class="line">mongodb ✔             advancemame           gsoap                 libcdio               oniguruma             pygobject             tinyxml2              youtube-dl</div><div class="line">ack                   ffmpeg                lgogdownloader        mono                  optipng               shpotify              wireguard-tools</div><div class="line"></div><div class="line">==&gt; Downloading https://www.apache.org/dyn/closer.cgi?path=flume/1.6.0/apache-flume-1.6.0-bin.tar.gz</div><div class="line">==&gt; Best Mirror http://mirrors.hust.edu.cn/apache/flume/1.6.0/apache-flume-1.6.0-bin.tar.gz</div><div class="line">######################################################################## 100.0%</div><div class="line">🍺  /usr/local/Cellar/flume/1.6.0: 1,497 files, 77.8MB, built in 1 minute 55 seconds</div></pre></td></tr></table></figure>
+<h3 id="核心原理和概念"><a href="#核心原理和概念" class="headerlink" title="核心原理和概念"></a>核心原理和概念</h3><p><img src="https://flume.apache.org/_images/UserGuide_image00.png" alt=""></p>
+<ul>
+<li>Flume使用agent来收集日志，agent包括三个组成部分：</li>
+<li><strong><em>source：收集数据</em></strong></li>
+<li><strong><em>channel：存储数据</em></strong></li>
+<li><strong><em>sink ：输出数据</em></strong></li>
+<li>Flume使用source接收日志，然后缓存到channel中，最后通过sink将数据输出到目的地。只有在sink将channel中的数据成功发送出去之后，channel才会将临时数据进行删除，这种机制保证了数据传输的可靠性与安全性。</li>
+<li>Flume支持agent串联操作，也就是说可以将上一个agent的sink输出到作为下一个agent的source的输入。</li>
+<li>source还支持接受多个输入，sink也可以将数据输出到多个目的地中</li>
+</ul>
+<h4 id="配置和例子使用"><a href="#配置和例子使用" class="headerlink" title="配置和例子使用"></a>配置和例子使用</h4><ul>
+<li>配置文件在 /usr/local/Cellar/flume/1.6.0/libexec/conf, flume可以接收很多不同的输入源, 也可以输出到不同地方, 首先如果配置文件下没有flume-env.sh, 那么需要 cp flume-env.sh.template flume-env.sh, 然后需要cp flume-conf.properties.template flume-conf.properties, 这个是创建一个flume启动的配置文件。（使用时需要在这个里面进行配置）</li>
+<li><strong>运行官方的例子：编辑example.conf 放在/usr/local/Cellar/flume/1.6.0目录下</strong></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"># example.conf: A single-node Flume configuration</div><div class="line"></div><div class="line"># Name the components on this agent</div><div class="line">a1.sources = r1</div><div class="line">a1.sinks = k1</div><div class="line">a1.channels = c1</div><div class="line"></div><div class="line"># Describe/configure the source</div><div class="line">a1.sources.r1.type = netcat</div><div class="line">a1.sources.r1.bind = localhost</div><div class="line">a1.sources.r1.port = 44444</div><div class="line"></div><div class="line"># Describe the sink</div><div class="line">a1.sinks.k1.type = logger</div><div class="line"></div><div class="line"># Use a channel which buffers events in memory</div><div class="line">a1.channels.c1.type = memory</div><div class="line">a1.channels.c1.capacity = 1000</div><div class="line">a1.channels.c1.transactionCapacity = 100</div><div class="line"></div><div class="line"># Bind the source and sink to the channel</div><div class="line">a1.sources.r1.channels = c1</div><div class="line">a1.sinks.k1.channel = c1</div></pre></td></tr></table></figure>
+<ul>
+<li>在这个配置文件里面仅定义了一个agent，它的名字叫a1，a1有一个source监听的是端口44444的数据，有一个channel是在内存中缓存event数据，还有一个sink将event数据打印到console控制台。在这个配置文件中配置了多个组件，然后描述了它们的type和配置参数。一个给定的配置文件可以指定多个不同名字的agent，当一个flume进程启动的时候，一个标志会被传进去告诉它启动哪一个agent</li>
+</ul>
+<ul>
+<li>/usr/local/Cellar/flume/1.6.0下启动：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$bin/flume-ng agent --conf conf --conf-file example.conf --name a1 -Dflume.root.logger=INFO,console</div></pre></td></tr></table></figure>
+<ul>
+<li>另起客户端 telnet localhost 44444 </li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/flume1.png" alt=""></p>
+<ul>
+<li>查看输出<br><img src="https://raw.githubusercontent.com/zhulg/allpic/master/flume2.png" alt=""></li>
+</ul>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢点开，不收钱ing<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">git/github/gitlab</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">flume</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/12/12/flume概述/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2017/12/12/openresty安装Mac环境/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">openresty安装Mac环境</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
 
 
           </div>
@@ -224,9 +377,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
