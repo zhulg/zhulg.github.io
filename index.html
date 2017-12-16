@@ -150,6 +150,122 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-kafka安装使用入门" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/12/16/kafka安装使用入门/">kafka安装使用入门</a>
+    </h1>
+  
+
+        
+        <a href="/2017/12/16/kafka安装使用入门/" class="archive-article-date">
+  	<time datetime="2017-12-16T04:03:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="kafka概述"><a href="#kafka概述" class="headerlink" title="kafka概述"></a>kafka概述</h2><image src="https://kafka.apache.org/images/logo.png" width="300">
+
+<h4 id="关于快速学习方法领悟"><a href="#关于快速学习方法领悟" class="headerlink" title="关于快速学习方法领悟"></a>关于快速学习方法领悟</h4><ul>
+<li>学习不熟悉的领域和知识，要快速找出技术的原理，核心功能点，能做什么能，用于解决什么问题。</li>
+<li>暂时忽略技术细节，找出技术主干，根据项目和日后学习循序渐进到细节部分。</li>
+</ul>
+<h4 id="一，kafka是什么"><a href="#一，kafka是什么" class="headerlink" title="一，kafka是什么"></a>一，kafka是什么</h4><ul>
+<li>Apache kafka是消息中间件的一种，关于消息中间件摘录一段网上比较好的通俗理解。</li>
+<li>举个例子，生产者消费者，生产者生产鸡蛋，消费者消费鸡蛋，生产者生产一个鸡蛋，消费者就消费一个鸡蛋，假设消费者消费鸡蛋的时候噎住了（系统宕机了），生产者还在生产鸡蛋，那新生产的鸡蛋就丢失了。再比如生产者很强劲（大交易量的情况），生产者1秒钟生产100个鸡蛋，消费者1秒钟只能吃50个鸡蛋，那要不了一会，消费者就吃不消了（消息堵塞，最终导致系统超时），消费者拒绝再吃了，”鸡蛋“又丢失了，这个时候我们放个篮子在它们中间，生产出来的鸡蛋都放到篮子里，消费者去篮子里拿鸡蛋，这样鸡蛋就不会丢失了，都在篮子里，而这个篮子就是”kafka“。<br>鸡蛋其实就是“数据流”，系统之间的交互都是通过“数据流”来传输的（就是tcp、http什么的），也称为报文，也叫“消息”。<br>消息队列满了，其实就是篮子满了，”鸡蛋“ 放不下了，那赶紧多放几个篮子，其实就是kafka的扩容。<br>各位现在知道kafka是干什么的了吧，它就是那个”篮子”（摘录：<a href="http://orchome.com/kafka/index）" target="_blank" rel="external">http://orchome.com/kafka/index）</a></li>
+</ul>
+<h4 id="二，kafka和核心功能"><a href="#二，kafka和核心功能" class="headerlink" title="二，kafka和核心功能"></a>二，kafka和核心功能</h4><ul>
+<li><strong>发布订阅</strong>:消息传递系统，发布和订阅记录流，类似消息队列和企业级的消息系统</li>
+<li><strong>处理:</strong> 高效实时处理，以流的形式处理记录</li>
+<li><strong>存储:</strong>数据流安全地在分布式集群中复制存储，以容错的方式存储记录流。</li>
+</ul>
+<h4 id="三，kafka相关术语"><a href="#三，kafka相关术语" class="headerlink" title="三，kafka相关术语"></a>三，kafka相关术语</h4><ul>
+<li><strong>Topic：</strong>Kafka将消息种子(Feed)分门别类， 每一类的消息称之为话题(Topic).</li>
+<li><strong>Producer：</strong>发布消息的对象称之为话题生产者(Kafka topic producer)</li>
+<li><strong>Consumer：</strong>订阅消息并处理发布的消息的种子的对象称之为话题消费者(consumers)</li>
+<li><strong>Broker：</strong>已发布的消息保存在一组服务器中，称之为Kafka集群。集群中的每一个服务器都是一个代理(Broker). 消费者可以订阅一个或多个话题，并从Broker拉数据，从而消费这些已发布的消息（有点上边篮子的意思）</li>
+</ul>
+<h4 id="四，Mac安装kafka"><a href="#四，Mac安装kafka" class="headerlink" title="四，Mac安装kafka"></a>四，Mac安装kafka</h4><ul>
+<li>brew install kafka</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">Updating Homebrew...</div><div class="line">==&gt; Auto-updated Homebrew!</div><div class="line">Updated 1 tap (caskroom/cask).</div><div class="line">No changes to formulae.</div><div class="line"></div><div class="line">==&gt; Downloading https://homebrew.bintray.com/bottles/kafka-0.11.0.1.sierra.bottle.1.tar.gz</div><div class="line">######################################################################## 100.0%</div><div class="line">==&gt; Pouring kafka-0.11.0.1.sierra.bottle.1.tar.gz</div><div class="line">==&gt; Caveats</div><div class="line">To have launchd start kafka now and restart at login:</div><div class="line">  brew services start kafka</div><div class="line">Or, if you don&apos;t want/need a background service you can just run:</div><div class="line">  zookeeper-server-start /usr/local/etc/kafka/zookeeper.properties &amp; kafka-server-start /usr/local/etc/kafka/server.properties</div><div class="line">==&gt; Summary</div><div class="line">🍺  /usr/local/Cellar/kafka/0.11.0.1: 149 files, 35.5MB</div></pre></td></tr></table></figure>
+<ul>
+<li>kafka启动依赖zookeeper，需要先启动zookepper</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">/usr/local/Cellar/zookeeper/3.4.10/bin$./zkServer start</div><div class="line">ZooKeeper JMX enabled by default</div><div class="line">Using config: /usr/local/etc/zookeeper/zoo.cfg</div><div class="line">Starting zookeeper ... STARTE</div></pre></td></tr></table></figure>
+<h4 id="五，使用官方例子"><a href="#五，使用官方例子" class="headerlink" title="五，使用官方例子"></a>五，使用官方例子</h4><ul>
+<li>到这个 /usr/local/Cellar/kafka/0.11.0.1$下</li>
+<li>sudo ./bin/kafka-server-start  ./libexec/config/server.properties</li>
+<li>创建一个名为“test”的Topic，只有一个分区和一个备份：到/usr/local/Cellar/kafka/0.11.0.1$</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">bin/kafka-topics  --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic test</div></pre></td></tr></table></figure>
+<ul>
+<li>启动生成者</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">bin/kafka-console-producer --broker-list localhost:9092 --topic test</div></pre></td></tr></table></figure>
+<ul>
+<li>输入：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">This is a message</div><div class="line">This is another message</div><div class="line">hello world</div></pre></td></tr></table></figure>
+<ul>
+<li>查看消费</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">bin/kafka-console-consumer --bootstrap-server localhost:9092 --topic test --from-beginning</div></pre></td></tr></table></figure>
+<h4 id="设置多个broker集群方式，参见官网-https-kafka-apache-org-quickstart"><a href="#设置多个broker集群方式，参见官网-https-kafka-apache-org-quickstart" class="headerlink" title="设置多个broker集群方式，参见官网 https://kafka.apache.org/quickstart"></a>设置多个broker集群方式，参见官网 <a href="https://kafka.apache.org/quickstart" target="_blank" rel="external">https://kafka.apache.org/quickstart</a></h4></image>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">kafka</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-flume概述" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -855,82 +971,6 @@
 
 
   
-    <article id="post-shell常用点记录" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/15/shell常用点记录/">shell常用点记录</a>
-    </h1>
-  
-
-        
-        <a href="/2017/11/15/shell常用点记录/" class="archive-article-date">
-  	<time datetime="2017-11-15T04:02:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>###Shell中的常用字符串截取。</p>
-<ul>
-<li>假设有变量 var=<a href="http://www.aaa.com/123.htm" target="_blank" rel="external">http://www.aaa.com/123.htm</a></li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">1. # 号截取，删除左边字符，保留右边字符。</div><div class="line">echo $&#123;var#*//&#125;</div><div class="line">其中 var 是变量名，# 号是运算符，*// 表示从左边开始删除第一个 // 号及左边的所有字符</div><div class="line">即删除 http://</div><div class="line">结果是 ：www.aaa.com/123.htm</div></pre></td></tr></table></figure>
-        
-          <a class="article-more-a" href="/2017/11/15/shell常用点记录/#more">查看全文 >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1028,23 +1068,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">分布式/集群</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">springboot</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Elasticsearch</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">分布式/集群</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">AWK</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">flume</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1056,7 +1088,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">AWK</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">flume</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">springcloud</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">kafka</a>
               </li>
              
               <li class="article-tag-list-item">
