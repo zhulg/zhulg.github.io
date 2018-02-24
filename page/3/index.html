@@ -151,6 +151,81 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-springcloud-sleuth记录" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/10/18/springcloud-sleuth记录/">springcloud-sleuth记录</a>
+    </h1>
+  
+
+        
+        <a href="/2017/10/18/springcloud-sleuth记录/" class="archive-article-date">
+  	<time datetime="2017-10-18T09:09:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-18</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="SpringCloud-Sleuth记录"><a href="#SpringCloud-Sleuth记录" class="headerlink" title="SpringCloud Sleuth记录"></a>SpringCloud Sleuth记录</h3><ul>
+<li>Spring Cloud Sleuth为Spring Cloud提供了分布式追踪方案<h4 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h4></li>
+<li>对系统进行全链路的监控是非常有必要的。在单体应用中，传统的方式是软件开发者，通过自定义日志的level，日志文件的方式记录单体应用的运行日志。从而排查线上系统出现运行过慢，出现故障，异常等问题，但是在微服务架构或分布式系统中，一个系统被拆分成了A、B、C、D、E等多个服务，而每个服务可能又有多个实例组成集群，采用上诉定位问题的方式就行不通了，你充其量就知道某个服务是应用的瓶颈，但中间发生了什么你完全不知道。而且问题的查询，因为有海量各种各样的日志等文件，导致追溯定位问题等极其不方便。因此需要全链路监控系统的收集，上报，对海量日志实时计算生成，监控告警，视图报表，帮助开发人员快速定位问题。</li>
+</ul>
+        
+          <a class="article-more-a" href="/2017/10/18/springcloud-sleuth记录/#more">查看全文 >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">springcloud</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-springcloud-Gateway记录" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -869,105 +944,6 @@
 
 
   
-    <article id="post-Apache Camel" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/16/Apache Camel/">Apache Camel</a>
-    </h1>
-  
-
-        
-        <a href="/2017/08/16/Apache Camel/" class="archive-article-date">
-  	<time datetime="2017-08-16T10:13:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="Apache-Camel"><a href="#Apache-Camel" class="headerlink" title="Apache Camel"></a>Apache Camel</h3><ul>
-<li>Camel 是一个开源的企业应用集成框架。</li>
-<li>它采用URI来描述各种组件，这样你可以很方便地与各种传输或者消息模块进行交互，比如HTTP、 ActiveMQ、JMS、JBI、SCA、MINA或CXF Bus API。这些模块是采用可插拔的方式进行工作的。Apache Camel拥有小巧、依赖少等特点，能够很容易将其集成在各种Java应用中。</li>
-<li><strong>其核心的思想就是从一个from源头得到数据,通过processor处理,再发到一个to目的的</strong></li>
-<li>在企业系统集成中做路由,流程控制一个非常好的框架</li>
-</ul>
-<h3 id="Apache-Camel的常用组件"><a href="#Apache-Camel的常用组件" class="headerlink" title="Apache Camel的常用组件"></a>Apache Camel的常用组件</h3><ul>
-<li><p><strong>Message</strong>: 是Camel中一个基本的包含数据和路由的实体，Camel中消息以及数据都是以message类型进行传递</p>
-<p>1,header：message中包含头信息，存放在header中</p>
-<p>2,body：路由中消息和数据传输的实际内容存放在body中</p>
-<p>3,fault flag：错误标记，使用来标记正常或者错误的标记</p>
-</li>
-<li><p><strong>Exchange</strong>：是路由之间传递消息，通信，交换数据的抽象，用来传递，交换数据</p>
-<p>1, Exchange ID：每次交换数据的时候都会产生一个Exchange ID</p>
-<p>2, MEP ：一个类似InOnly或者InOut的消息交换模式。当模式是InOnly的时候，消息交换中  只包含IN-Message</p>
-<p>3, Exception：在路由过程中出现的异常</p>
-<p>4, Properties：类似与message 的headers ，但是他们将持续到整个exchange结束，Camel还可能利用他们进行一些特殊的通信。</p>
-<p>5, IN-Message：输入消息，在对消息处理之前，首先需要获取上个endpoint节点的消息</p>
-<p>6, OUT-Message：输出消息，向下一个endpoint传输的消息</p>
-</li>
-<li><p><strong>Endpoint</strong> 是Camel路由中的通道端点，可以发送和接受消息，在Camel中Endpoint使用URI来配置。在运行时Camel通过获取URL来查找到对应的组件。端点的功能强大、全面而且又可维护</p>
-</li>
-<li><p><strong>Component</strong> 是一些Endpoints URI的集合。他们通过连接码来链接（例如file:,jms:），而且作为一个endpoint的工厂。现在Camel中有超过80个Component。也可以通过扩展类来实现自己的Component</p>
-</li>
-<li><p><strong>Route</strong> 路由，它定义了Message如何在一个系统中传输的真实路径或者通道。路由引擎自身并不暴露给开发者，但是开发者可以自己定义路由，并且需要信任引擎可以完成复杂的传输工作。每个路由都有一个唯一的标识符，用来记录日志、调试、监控，以及启动或者停止路由。<br>路由也有一个输入的Message，因此他们也有效的链接到一个输入端点。路由定义了一种领域特有的语言（DSL）。Camel提供了java、scala和基于xml的Route-DSL。</p>
-</li>
-<li><p><strong>Processor</strong> 是一个消息接受者和消息通信的处理器。当然，Processor是Route的一个元素，可用来消息格式转换或者其他的一些变换。在路由传输消息的过程中，有时候需要对消息和数据进行处理在传输到下一个Endpoint中，Processor中就定义了一系列消息处理的过程</p>
-</li>
-</ul>
-<h3 id="架构原理图"><a href="#架构原理图" class="headerlink" title="架构原理图"></a>架构原理图</h3><p><img src="http://camel.apache.org/architecture.data/camel-components.png" alt="原理"></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">springboot</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
@@ -1077,19 +1053,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">docker</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">AWK</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">hadoop</a>
+                <a href="javascript:void(0)" class="js-tag color4">区块链</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">flume</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">hadoop</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1101,15 +1081,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">kafka</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">K8S</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redis</a>
+                <a href="javascript:void(0)" class="js-tag color1">kafka</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1117,11 +1093,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">springboot相关</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1138,10 +1118,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">git/github/gitlab</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">区块链</a>
               </li>
              
               <li class="article-tag-list-item">
