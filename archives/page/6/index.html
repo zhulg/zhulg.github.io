@@ -7,20 +7,15 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>python3 K-近邻算法实现 | zhulg笔记</title>
+  <title>Archives | zhulg笔记</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Python3实现K-近邻算法123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990import numpy a">
-<meta name="keywords" content="机器学习">
-<meta property="og:type" content="article">
-<meta property="og:title" content="python3 K-近邻算法实现">
-<meta property="og:url" content="http://yoursite.com/2017/08/03/python3-K-近邻算法实现/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="zhulg笔记">
+<meta property="og:url" content="http://yoursite.com/archives/page/6/index.html">
 <meta property="og:site_name" content="zhulg笔记">
-<meta property="og:description" content="Python3实现K-近邻算法123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990import numpy a">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-08-03T07:01:38.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="python3 K-近邻算法实现">
-<meta name="twitter:description" content="Python3实现K-近邻算法123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990import numpy a">
+<meta name="twitter:title" content="zhulg笔记">
   
     <link rel="alternative" href="/atom.xml" title="zhulg笔记" type="application/atom+xml">
   
@@ -154,172 +149,52 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-python3-K-近邻算法实现" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      python3 K-近邻算法实现
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2017" class="archive-year">2017</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2017/07/06/hello-world/" class="archive-article-date">
+  	<time datetime="2017-07-06T09:47:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-06</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2017/07/06/hello-world/">Hello World</a>
     </h1>
   
 
-        
-        <a href="/2017/08/03/python3-K-近邻算法实现/" class="archive-article-date">
-  	<time datetime="2017-08-03T05:47:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-03</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="Python3实现K-近邻算法"><a href="#Python3实现K-近邻算法" class="headerlink" title="Python3实现K-近邻算法"></a>Python3实现K-近邻算法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div></pre></td><td class="code"><pre><div class="line">import numpy as np</div><div class="line">import operator</div><div class="line"></div><div class="line"></div><div class="line"># 函数说明:创建数据集</div><div class="line"># Parameters:</div><div class="line">#     无</div><div class="line"># Returns:</div><div class="line">#     group - 数据集</div><div class="line">#     labels - 分类标签</div><div class="line">def createDataSet():</div><div class="line">    #四组二维特征</div><div class="line">    group = np.array([[1,101],[5,89],[108,5],[115,8]])</div><div class="line">    #四组特征的标签</div><div class="line">    labels = [&apos;爱情片&apos;,&apos;爱情片&apos;,&apos;动作片&apos;,&apos;动作片&apos;]</div><div class="line">    return group, labels</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"># 函数说明:kNN算法,分类器</div><div class="line"># </div><div class="line"># Parameters:</div><div class="line">#     inX - 用于分类的数据(测试集)</div><div class="line">#     dataSet - 用于训练的数据(训练集)</div><div class="line">#     labes - 分类标签</div><div class="line">#     k - kNN算法参数,选择距离最小的k个点</div><div class="line"># Returns:</div><div class="line">#     sortedClassCount[0][0] - 分类结果</div><div class="line"> </div><div class="line">def classify0(inX, dataSet, labels, k):</div><div class="line">    print(&quot;开始查看下dataSet&quot;)</div><div class="line">    print(dataSet)</div><div class="line">    #numpy函数shape[0]返回dataSet的行数</div><div class="line">    dataSetSize = dataSet.shape[0]</div><div class="line">    print(&quot;查看下得到的行数：&quot;)</div><div class="line">    print(dataSetSize)</div><div class="line">    #在列向量方向上重复inX共1次(横向)，行向量方向上重复inX共dataSetSize次(纵向)</div><div class="line">    dataSettemp = np.tile(inX, (dataSetSize, 1))</div><div class="line">    print(&quot;查看下dataSettemp：&quot;)</div><div class="line">    print(dataSettemp)</div><div class="line">    diffMat = dataSettemp - dataSet</div><div class="line">    print(&quot;查看下diffMat：&quot;)</div><div class="line">    print(diffMat)</div><div class="line">    #二维特征相减后平方</div><div class="line">    sqDiffMat = diffMat**2</div><div class="line">    print(&quot;二维特征相减后平方:&quot;)</div><div class="line">    print(sqDiffMat)</div><div class="line">    #sum()所有元素相加，sum(0)列相加，sum(1)行相加</div><div class="line">    sqDistances = sqDiffMat.sum(axis=1)</div><div class="line">    print(&quot;um()所有元素相加，sum(0)列相加，sum(1)行相加:&quot;)</div><div class="line">    print(sqDistances)</div><div class="line"></div><div class="line">    #开方，计算出距离</div><div class="line">    distances = sqDistances**0.5</div><div class="line">    print(&quot;开方，计算出距离:&quot;)</div><div class="line">    print(distances)</div><div class="line">    #返回distances中元素从小到大排序后的索引值</div><div class="line">    sortedDistIndices = distances.argsort()</div><div class="line">    print(&quot;sortedDistIndices:&quot;)</div><div class="line">    print(sortedDistIndices)</div><div class="line"></div><div class="line">    #定一个记录类别次数的字典</div><div class="line">    classCount = &#123;&#125;</div><div class="line">    for i in range(k):</div><div class="line">        #取出前k个元素的类别</div><div class="line">        voteIlabel = labels[sortedDistIndices[i]]</div><div class="line">        print(voteIlabel)</div><div class="line">        #dict.get(key,default=None),字典的get()方法,返回指定键的值,如果值不在字典中返回默认值。</div><div class="line">        #计算类别次数</div><div class="line">        classCount[voteIlabel] = classCount.get(voteIlabel,0) + 1</div><div class="line">    #python3中用items()替换python2中的iteritems()</div><div class="line">    #key=operator.itemgetter(1)根据字典的值进行排序</div><div class="line">    #key=operator.itemgetter(0)根据字典的键进行排序</div><div class="line">    #reverse降序排序字典</div><div class="line">    sortedClassCount = sorted(classCount.items(),key=operator.itemgetter(1),reverse=True)</div><div class="line">    #返回次数最多的类别,即所要分类的类别</div><div class="line">    #排序后是个二维的list类型</div><div class="line">    print(&quot;排序后结果：&quot;)</div><div class="line">    print(sortedClassCount)</div><div class="line">    return sortedClassCount[0][0]</div><div class="line"></div><div class="line">if __name__ == &apos;__main__&apos;:</div><div class="line">    #创建数据集</div><div class="line">    group, labels = createDataSet()</div><div class="line">    #测试集</div><div class="line">    test = [101,20]</div><div class="line">    #kNN分类</div><div class="line">    test_class = classify0(test, group, labels, 3)</div><div class="line">    #打印分类结果</div><div class="line">    print(test_class)</div></pre></td></tr></table></figure>
-      
+        <div class="article-info info-on-right">
+          
+          
 
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢点开，不收钱ing<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
         </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
-        </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/08/03/python3-K-近邻算法实现/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2017/08/04/springboot里几个常用注解/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          springboot里几个常用注解
-        
-      </div>
-    </a>
   
   
-    <a href="/2017/08/02/mongodb介绍/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">mongodb介绍</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
-
+    
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/archives/page/5/">&laquo; Prev</a><a class="page-number" href="/archives/">1</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/4/">4</a><a class="page-number" href="/archives/page/5/">5</a><span class="page-number current">6</span>
+    </nav>
   
 
 
@@ -343,8 +218,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
-		isArchive: false,
+		isPost: false,
+		isArchive: true,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
