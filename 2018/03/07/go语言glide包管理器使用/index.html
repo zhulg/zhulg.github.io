@@ -7,15 +7,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: 推荐系统 | zhulg笔记</title>
+  <title>Go语言glide包管理器使用 | zhulg笔记</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="zhulg笔记">
-<meta property="og:url" content="http://yoursite.com/tags/推荐系统/index.html">
+  <meta name="description" content="glide 安装  1brew install glide  glide包使用日志记录">
+<meta name="keywords" content="go">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Go语言glide包管理器使用">
+<meta property="og:url" content="http://yoursite.com/2018/03/07/go语言glide包管理器使用/index.html">
 <meta property="og:site_name" content="zhulg笔记">
+<meta property="og:description" content="glide 安装  1brew install glide  glide包使用日志记录">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-03-07T11:44:12.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="zhulg笔记">
+<meta name="twitter:title" content="Go语言glide包管理器使用">
+<meta name="twitter:description" content="glide 安装  1brew install glide  glide包使用日志记录">
   
     <link rel="alternative" href="/atom.xml" title="zhulg笔记" type="application/atom+xml">
   
@@ -149,98 +154,183 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-go语言glide包管理器使用" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/01/26/协调过滤对比/" class="archive-article-date">
-  	<time datetime="2018-01-26T08:16:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-26</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/01/26/协调过滤对比/">协同过滤对比</a>
+    <h1 class="article-title" itemprop="name">
+      Go语言glide包管理器使用
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2018/03/07/go语言glide包管理器使用/" class="archive-article-date">
+  	<time datetime="2018-03-07T11:09:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-07</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li><p>glide 安装 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew install glide</div></pre></td></tr></table></figure>
+</li>
+<li><p>glide包使用日志记录</p>
+<a id="more"></a>
+</li>
+<li><p>日志记录错误地方可以重新执行查看</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div></pre></td><td class="code"><pre><div class="line">/Users/Meixin/Blockchain/LearnGo/src/github.com$glide init</div><div class="line">[INFO]	Generating a YAML configuration file and guessing the dependencies</div><div class="line">[INFO]	Attempting to import from other package managers (use --skip-import to skip)</div><div class="line">[INFO]	Scanning code to look for dependencies</div><div class="line">[INFO]	--&gt; Found reference to bogus/package</div><div class="line">[INFO]	--&gt; Found reference to github.com/DATA-DOG/godog</div><div class="line">[INFO]	--&gt; Adding sub-package gherkin to github.com/DATA-DOG/godog</div><div class="line">[INFO]	--&gt; Found reference to github.com/Shopify/sarama</div><div class="line">[INFO]	--&gt; Found reference to github.com/cloudflare/cfssl/api</div><div class="line">[INFO]	--&gt; Adding sub-package csr to github.com/cloudflare/cfssl</div><div class="line">[INFO]	--&gt; Adding sub-package log to github.com/cloudflare/cfssl</div><div class="line">[INFO]	--&gt; Adding sub-package signer to github.com/cloudflare/cfssl</div><div class="line">[INFO]	--&gt; Found reference to github.com/davecgh/go-spew/spew</div><div class="line">[INFO]	--&gt; Found reference to github.com/fsouza/go-dockerclient</div><div class="line">[INFO]	--&gt; Found reference to github.com/golang/groupcache/lru</div><div class="line">[INFO]	--&gt; Found reference to github.com/golang/mock/gomock</div><div class="line">[INFO]	--&gt; Found reference to github.com/golang/protobuf/jsonpb</div><div class="line">[INFO]	--&gt; Adding sub-package proto to github.com/golang/protobuf</div><div class="line">[INFO]	--&gt; Adding sub-package ptypes to github.com/golang/protobuf</div><div class="line">[INFO]	--&gt; Adding sub-package ptypes/empty to github.com/golang/protobuf</div><div class="line">[INFO]	--&gt; Adding sub-package ptypes/timestamp to github.com/golang/protobuf</div><div class="line">[INFO]	--&gt; Found reference to github.com/gorilla/mux</div><div class="line">[INFO]	--&gt; Found reference to github.com/hashicorp/go-version</div><div class="line">[INFO]	--&gt; Found reference to github.com/looplab/fsm</div><div class="line">[INFO]	--&gt; Found reference to github.com/miekg/pkcs11</div><div class="line">[INFO]	--&gt; Found reference to github.com/mitchellh/mapstructure</div><div class="line">[INFO]	--&gt; Found reference to github.com/op/go-logging</div><div class="line">[INFO]	--&gt; Found reference to github.com/pkg/errors</div><div class="line">[INFO]	--&gt; Found reference to github.com/spf13/cast</div><div class="line">[INFO]	--&gt; Found reference to github.com/spf13/cobra</div><div class="line">[INFO]	--&gt; Found reference to github.com/spf13/pflag</div><div class="line">[INFO]	--&gt; Found reference to github.com/spf13/viper</div><div class="line">[INFO]	--&gt; Found reference to github.com/stretchr/testify/assert</div><div class="line">[INFO]	--&gt; Adding sub-package mock to github.com/stretchr/testify</div><div class="line">[INFO]	--&gt; Found reference to github.com/syndtr/goleveldb/leveldb</div><div class="line">[INFO]	--&gt; Adding sub-package leveldb/iterator to github.com/syndtr/goleveldb</div><div class="line">[INFO]	--&gt; Adding sub-package leveldb/opt to github.com/syndtr/goleveldb</div><div class="line">[INFO]	--&gt; Adding sub-package leveldb/util to github.com/syndtr/goleveldb</div><div class="line">[INFO]	--&gt; Found reference to golang.org/x/crypto/ocsp</div><div class="line">[INFO]	--&gt; Found reference to golang.org/x/crypto/sha3</div><div class="line">[INFO]	--&gt; Found reference to golang.org/x/net/context</div><div class="line">[INFO]	--&gt; Found reference to google.golang.org/grpc</div><div class="line">[INFO]	--&gt; Adding sub-package codes to google.golang.org/grpc</div><div class="line">[INFO]	--&gt; Adding sub-package connectivity to google.golang.org/grpc</div><div class="line">[INFO]	--&gt; Adding sub-package credentials to google.golang.org/grpc</div><div class="line">[INFO]	--&gt; Adding sub-package grpclog to google.golang.org/grpc</div><div class="line">[INFO]	--&gt; Adding sub-package keepalive to google.golang.org/grpc</div><div class="line">[INFO]	--&gt; Adding sub-package peer to google.golang.org/grpc</div><div class="line">[INFO]	--&gt; Adding sub-package status to google.golang.org/grpc</div><div class="line">[INFO]	--&gt; Found reference to gopkg.in/alecthomas/kingpin.v2</div><div class="line">[INFO]	--&gt; Found reference to gopkg.in/yaml.v2</div><div class="line">[INFO]	--&gt; Found reference to hyperledger/cci/appinit</div><div class="line">[INFO]	--&gt; Found reference to hyperledger/cci/org/hyperledger/chaincode/example02</div><div class="line">[INFO]	--&gt; Found reference to hyperledger/ccs</div><div class="line">[INFO]	Writing configuration file (glide.yaml)</div><div class="line">[INFO]	Would you like Glide to help you find ways to improve your glide.yaml configuration?</div><div class="line">[INFO]	If you want to revisit this step you can use the config-wizard command at any time.</div><div class="line">[INFO]	Yes (Y) or No (N)?</div><div class="line">y</div><div class="line">[INFO]	Looking for dependencies to make suggestions on</div><div class="line">[INFO]	--&gt; Scanning for dependencies not using version ranges</div><div class="line">[INFO]	--&gt; Scanning for dependencies using commit ids</div><div class="line">[INFO]	Gathering information on each dependency</div><div class="line">[INFO]	--&gt; This may take a moment. Especially on a codebase with many dependencies</div><div class="line">[INFO]	--&gt; Gathering release information for dependencies</div><div class="line">[INFO]	--&gt; Looking for dependency imports where versions are commit ids</div><div class="line">[INFO]	Here are some suggestions...</div><div class="line">[INFO]	The package github.com/DATA-DOG/godog appears to have Semantic Version releases (http://semver.org).</div><div class="line">[INFO]	The latest release is v0.7.5. You are currently not using a release. Would you like</div><div class="line">[INFO]	to use this release? Yes (Y) or No (N)</div><div class="line">n</div><div class="line">[INFO]	Would you like to remember the previous decision and apply it to future</div><div class="line">[INFO]	dependencies? Yes (Y) or No (N)</div><div class="line">y</div><div class="line">[INFO]	No proposed changes found. Have a nice day.</div><div class="line">[zhulianggang@bogon:/Users/Meixin/Blockchain/LearnGo/src/github.com$ls</div><div class="line">Knetic		glide.yaml	hyperledger	nsf</div><div class="line">[zhulianggang@bogon:/Users/Meixin/Blockchain/LearnGo/src/github.com$glide install</div><div class="line">[INFO]	Lock file (glide.lock) does not exist. Performing update.</div><div class="line">[INFO]	Downloading dependencies. Please wait...</div><div class="line">[INFO]	--&gt; Fetching github.com/davecgh/go-spew</div><div class="line">[INFO]	--&gt; Fetching github.com/golang/protobuf</div><div class="line">[INFO]	--&gt; Fetching github.com/miekg/pkcs11</div><div class="line">[INFO]	--&gt; Fetching github.com/op/go-logging</div><div class="line">[INFO]	--&gt; Fetching github.com/fsouza/go-dockerclient</div><div class="line">[INFO]	--&gt; Fetching github.com/looplab/fsm</div><div class="line">[INFO]	--&gt; Fetching github.com/cloudflare/cfssl</div><div class="line">[INFO]	--&gt; Fetching github.com/spf13/cobra</div><div class="line">[INFO]	--&gt; Fetching bogus/package</div><div class="line">[INFO]	--&gt; Fetching github.com/spf13/viper</div><div class="line">[INFO]	--&gt; Fetching github.com/hashicorp/go-version</div><div class="line">[INFO]	--&gt; Fetching github.com/pkg/errors</div><div class="line">[INFO]	--&gt; Fetching github.com/Shopify/sarama</div><div class="line">[INFO]	--&gt; Fetching github.com/gorilla/mux</div><div class="line">[INFO]	--&gt; Fetching github.com/spf13/cast</div><div class="line">[INFO]	--&gt; Fetching github.com/golang/groupcache</div><div class="line">[INFO]	--&gt; Fetching github.com/golang/mock</div><div class="line">[INFO]	--&gt; Fetching github.com/mitchellh/mapstructure</div><div class="line">[INFO]	--&gt; Fetching github.com/spf13/pflag</div><div class="line">[INFO]	--&gt; Fetching github.com/DATA-DOG/godog</div><div class="line">[WARN]	Unable to checkout bogus/package</div><div class="line">[ERROR]	Update failed for bogus/package: Cannot detect VCS</div><div class="line">[INFO]	--&gt; Fetching github.com/stretchr/testify</div><div class="line">[INFO]	--&gt; Fetching github.com/syndtr/goleveldb</div><div class="line">[INFO]	--&gt; Fetching golang.org/x/crypto/ocsp</div><div class="line">[INFO]	--&gt; Fetching golang.org/x/crypto/sha3</div><div class="line">[INFO]	--&gt; Fetching golang.org/x/net/context</div><div class="line">[INFO]	--&gt; Fetching google.golang.org/grpc</div><div class="line">[INFO]	--&gt; Fetching gopkg.in/alecthomas/kingpin.v2</div><div class="line">[INFO]	--&gt; Fetching gopkg.in/yaml.v2</div><div class="line">[INFO]	--&gt; Fetching hyperledger/cci/appinit</div><div class="line">[WARN]	Unable to checkout hyperledger/cci/appinit</div><div class="line">[ERROR]	Update failed for hyperledger/cci/appinit: Cannot detect VCS</div><div class="line">[INFO]	--&gt; Fetching hyperledger/cci/org/hyperledger/chaincode/example02</div><div class="line">[WARN]	Unable to checkout hyperledger/cci/org/hyperledger/chaincode/example02</div><div class="line">[ERROR]	Update failed for hyperledger/cci/org/hyperledger/chaincode/example02: Cannot detect VCS</div><div class="line">[INFO]	--&gt; Fetching hyperledger/ccs</div><div class="line">[WARN]	Unable to checkout hyperledger/ccs</div><div class="line">[ERROR]	Update failed for hyperledger/ccs: Cannot detect VCS</div><div class="line">[WARN]	Unable to checkout golang.org/x/crypto/ocsp</div><div class="line">[ERROR]	Update failed for golang.org/x/crypto/ocsp: Cannot detect VCS</div><div class="line">[WARN]	Unable to checkout golang.org/x/crypto/sha3</div><div class="line">[ERROR]	Update failed for golang.org/x/crypto/sha3: Cannot detect VCS</div><div class="line">[WARN]	Unable to checkout golang.org/x/net/context</div><div class="line">[ERROR]	Update failed for golang.org/x/net/context: Cannot detect VCS</div><div class="line">[WARN]	Unable to checkout google.golang.org/grpc</div><div class="line">[ERROR]	Update failed for google.golang.org/grpc: Cannot detect VCS</div><div class="line">[WARN]	Unable to checkout github.com/fsouza/go-dockerclient</div><div class="line">[ERROR]	Update failed for github.com/fsouza/go-dockerclient: Unable to get repository: Cloning into &apos;/Users/zhulianggang/.glide/cache/src/https-github.com-fsouza-go-dockerclient&apos;...</div><div class="line">error: RPC failed; curl 56 SSLRead() return error -9806</div><div class="line">fatal: The remote end hung up unexpectedly</div><div class="line">fatal: early EOF</div><div class="line">fatal: index-pack failed</div><div class="line">: exit status 128</div><div class="line">[ERROR]	Failed to do initial checkout of config: Cannot detect VCS</div><div class="line">Cannot detect VCS</div><div class="line">Cannot detect VCS</div><div class="line">Cannot detect VCS</div><div class="line">Cannot detect VCS</div><div class="line">Cannot detect VCS</div><div class="line">Cannot detect VCS</div><div class="line">Cannot detect VCS</div><div class="line">Unable to get repository: Cloning into &apos;/Users/zhulianggang/.glide/cache/src/https-github.com-fsouza-go-dockerclient&apos;...</div><div class="line">error: RPC failed; curl 56 SSLRead() return error -9806</div><div class="line">fatal: The remote end hung up unexpectedly</div><div class="line">fatal: early EOF</div><div class="line">fatal: index-pack failed</div><div class="line">: exit status 128</div></pre></td></tr></table></figure>
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢点开，不收钱ing<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">推荐系统</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">go</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2018/03/07/go语言glide包管理器使用/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/01/19/推荐系统学习建议/" class="archive-article-date">
-  	<time datetime="2018-01-19T10:18:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-19</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2018/03/09/go代码结构及开发注意/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Go代码结构及开发注意
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/03/05/fabric中的术语/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Fabric中的术语</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/01/19/推荐系统学习建议/">推荐系统学习建议</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">推荐系统</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
 
 
           </div>
@@ -263,9 +353,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,

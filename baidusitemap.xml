@@ -4,6 +4,40 @@
 
     
   <url>
+    <loc>http://yoursite.com/2018/03/09/go%E4%BB%A3%E7%A0%81%E7%BB%93%E6%9E%84%E5%8F%8A%E5%BC%80%E5%8F%91%E6%B3%A8%E6%84%8F/</loc>
+    <lastmod>2018-03-09T07:41:46.000Z</lastmod>
+    <data>
+        <display>
+        <title>Go代码结构及开发注意</title>
+        <pubTime>2018-03-09T07:10:25.000Z</pubTime>
+        
+        <tag>go</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2018/03/07/go%E8%AF%AD%E8%A8%80glide%E5%8C%85%E7%AE%A1%E7%90%86%E5%99%A8%E4%BD%BF%E7%94%A8/</loc>
+    <lastmod>2018-03-07T11:44:12.000Z</lastmod>
+    <data>
+        <display>
+        <title>Go语言glide包管理器使用</title>
+        <pubTime>2018-03-07T11:09:02.000Z</pubTime>
+        
+        <tag>go</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/2018/03/05/fabric%E4%B8%AD%E7%9A%84%E6%9C%AF%E8%AF%AD/</loc>
     <lastmod>2018-03-05T09:01:13.000Z</lastmod>
     <data>
