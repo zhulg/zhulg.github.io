@@ -17,7 +17,7 @@
 <meta property="og:site_name" content="zhulg笔记">
 <meta property="og:description" content="chaincode是什么 是一个类，这个类要实现fabric预先定义的一个接口。 它部署在fabric系统的结点上，Chaincode程序是依赖于fabric系统结点的。 Chaincode可通过应用提交的交易对账本状态初始化并进行管理，是生成Transaction的唯一来源，是外界与Fabric区块链交互的唯一渠道。 Fabric中，Chaincode就是开发者实现智能合约的方式。（智能合约就是">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-14T07:20:31.000Z">
+<meta property="og:updated_time" content="2018-03-14T07:47:53.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hyperledger Fabric Chaincode理解">
 <meta name="twitter:description" content="chaincode是什么 是一个类，这个类要实现fabric预先定义的一个接口。 它部署在fabric系统的结点上，Chaincode程序是依赖于fabric系统结点的。 Chaincode可通过应用提交的交易对账本状态初始化并进行管理，是生成Transaction的唯一来源，是外界与Fabric区块链交互的唯一渠道。 Fabric中，Chaincode就是开发者实现智能合约的方式。（智能合约就是">
@@ -225,8 +225,8 @@
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">docker exec -it cli bash</div><div class="line">peer chaincode install -p chaincodedev/chaincode/sacc -n mycc -v 0</div><div class="line">peer chaincode instantiate -n mycc -v 0 -c &apos;&#123;&quot;Args&quot;:[&quot;a&quot;,&quot;10&quot;]&#125;&apos; -C myc</div></pre></td></tr></table></figure>
 <ul>
-<li><p>以上步骤，会把chaincode初始化到peer节点的文件系统中，位置在peer容器里的var/hyperledger/production/chaincodes下面，instantiate时从这个地方实例化</p>
-</li>
+<li>以上步骤，会把chaincode初始化到peer节点的文件系统中，位置在peer容器里的var/hyperledger/production/chaincodes下面，instantiate时从这个地方实例化</li>
+<li>‘-c‘参数指定的函数名和参数，-v 版本，-C 通道名称 -n 链码名称</li>
 <li><p>现在我们执行一次将a的值设为20的调用：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">peer chaincode invoke -n mycc -c &apos;&#123;&quot;Args&quot;:[&quot;set&quot;, &quot;a&quot;, &quot;20&quot;]&#125;&apos; -C myc</div></pre></td></tr></table></figure>
 </li>
@@ -485,15 +485,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">分布式/集群</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">springboot</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Elasticsearch</a>
+                <a href="javascript:void(0)" class="js-tag color2">分布式/集群</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -501,15 +497,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Elasticsearch</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">docker</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">go</a>
+                <a href="javascript:void(0)" class="js-tag color1">flume</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">flume</a>
+                <a href="javascript:void(0)" class="js-tag color3">go</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -521,15 +521,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">K8S</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">jenkins</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redis</a>
+                <a href="javascript:void(0)" class="js-tag color1">kafka</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -537,7 +533,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">kafka</a>
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">K8S</a>
               </li>
              
               <li class="article-tag-list-item">
