@@ -17,7 +17,7 @@
 <meta property="og:site_name" content="zhulg笔记">
 <meta property="og:description" content="farbic 网络启动过程 基于fabric-samples/first-network下手动网络启动相关文件生成和配置。 生成组织关系和身份证书 使用Cryptogen，消费一个包含网络拓扑的crypto-config.yaml，并允许我们为组织和属于这些组织的组件生成一组证书和密钥。  crypto-config.yaml文件内容如下，">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-13T11:21:14.000Z">
+<meta property="og:updated_time" content="2018-03-15T03:38:26.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Fabric网络启动流程记录">
 <meta name="twitter:description" content="farbic 网络启动过程 基于fabric-samples/first-network下手动网络启动相关文件生成和配置。 生成组织关系和身份证书 使用Cryptogen，消费一个包含网络拓扑的crypto-config.yaml，并允许我们为组织和属于这些组织的组件生成一组证书和密钥。  crypto-config.yaml文件内容如下，">
@@ -188,6 +188,10 @@
 <li>我们运行cryptogen工具，生成的证书和密钥将被保存到名为crypto-config的文件夹中。(cryptogen需要配置在环境变量才能这么用)</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">cryptogen generate  --config=./crypto-config.yaml</div><div class="line">org1.example.com</div><div class="line">org2.example.com</div></pre></td></tr></table></figure>
+<ul>
+<li>其中里面生成额对应的秘钥和证书文件</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div></pre></td><td class="code"><pre><div class="line">├── ordererOrganizations</div><div class="line">│   └── example.com</div><div class="line">│       ├── ca</div><div class="line">│       │   ├── ca.example.com-cert.pem</div><div class="line">│       │   └── feb74b240fa3568a7d6966b7021cd5a7f186a1d91bece747844e27a8540dc465_sk</div><div class="line">│       ├── msp</div><div class="line">│       │   ├── admincerts</div><div class="line">│       │   ├── cacerts</div><div class="line">│       │   └── tlscacerts</div><div class="line">│       ├── orderers</div><div class="line">│       │   └── orderer.example.com</div><div class="line">│       ├── tlsca</div><div class="line">│       │   ├── e5622d48e5fd8e3b982d6e7f6ebed20321f1de0d1478f9d0c1b4f63dc894ccbf_sk</div><div class="line">│       │   └── tlsca.example.com-cert.pem</div><div class="line">│       └── users</div><div class="line">│           └── Admin@example.com</div><div class="line">└── peerOrganizations</div><div class="line">    ├── org1.example.com</div><div class="line">    │   ├── ca</div><div class="line">    │   │   ├── ca.org1.example.com-cert.pem</div><div class="line">    │   │   └── f5c0954e487ff4e71f77478db2ad2e14c92ffd0b5d093a1c73b64ae233a2813f_sk</div><div class="line">    │   ├── msp</div><div class="line">    │   │   ├── admincerts</div><div class="line">    │   │   ├── cacerts</div><div class="line">    │   │   └── tlscacerts</div><div class="line">    │   ├── peers</div><div class="line">    │   │   ├── peer0.org1.example.com</div><div class="line">    │   │   └── peer1.org1.example.com</div><div class="line">    │   ├── tlsca</div><div class="line">    │   │   ├── 8d07c6968bea26c1277c5cf3bba114bf7c683e97bafc8eadf412fd97d5034cad_sk</div><div class="line">    │   │   └── tlsca.org1.example.com-cert.pem</div><div class="line">    │   └── users</div><div class="line">    │       ├── Admin@org1.example.com</div><div class="line">    │       └── User1@org1.example.com</div><div class="line">    └── org2.example.com</div><div class="line">        ├── ca</div><div class="line">        │   ├── ca.org2.example.com-cert.pem</div><div class="line">        │   └── cffd49870ddd4088820ee7787c60f77ee07c42f2e05ac0e9fe94fac77c972fc1_sk</div><div class="line">        ├── msp</div><div class="line">        │   ├── admincerts</div><div class="line">        │   ├── cacerts</div><div class="line">        │   └── tlscacerts</div><div class="line">        ├── peers</div><div class="line">        │   ├── peer0.org2.example.com</div><div class="line">        │   └── peer1.org2.example.com</div><div class="line">        ├── tlsca</div><div class="line">        │   ├── 5f3f535f85bd861c1f7770f058f05e4a899506b5396ebd357db223b4590b49ba_sk</div><div class="line">        │   └── tlsca.org2.example.com-cert.pem</div><div class="line">        └── users</div><div class="line">            ├── Admin@org2.example.com</div><div class="line">            └── User1@org2.example.com</div></pre></td></tr></table></figure>
 <ul>
 <li><p>crypto-config目录下产生一个order组织目录，和peer组织目录</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"> cd crypto-config$ls</div><div class="line">ordererOrganizations	peerOrganizations</div></pre></td></tr></table></figure>
@@ -472,19 +476,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">区块链</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">springboot</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">分布式/集群</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">AWK</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -492,11 +484,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">docker</a>
+                <a href="javascript:void(0)" class="js-tag color4">区块链</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">AWK</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">分布式/集群</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">flume</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -516,6 +520,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">K8S</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">kafka</a>
               </li>
              
@@ -525,10 +533,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">redis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">K8S</a>
               </li>
              
               <li class="article-tag-list-item">
