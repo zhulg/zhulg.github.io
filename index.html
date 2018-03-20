@@ -175,44 +175,9 @@
 <li>在fabric中，共识过程意味着多个节点对于某一批交易的发生顺序、合法性以及它们对账本状态的更新结构达成一致的观点。满足共识则意味着多个节点可以始终保证相同的状态，对于以同样顺序到达的交易可以进行一致的处理。</li>
 <li>fabric中的共识包括背书、排序和验证三个环节的保障。</li>
 </ul>
-<h4 id="什么是背书策略"><a href="#什么是背书策略" class="headerlink" title="什么是背书策略"></a>什么是背书策略</h4><ul>
-<li>chaincode在实例化的时候，需要指定背书策略。这里的背书策略就是需要什么节点背书交易才能生效。</li>
-<li>发起交易的时候，发起端（一般是SDK），需要指定交易发给哪些节点进行背书验证（fabric不会自动发送），而是由sdk发送。发送后等待背书节点的返回，收集到足够的背书后将交易发送给orderer（排序节点或称共识节点）进行排序打包分发。最后，当每个Peer接受到block数据后，会对其中的交易进行验证，如果交易不符合背书策略，就不会在本地生效，所以真正验证背书是在这一步。</li>
-<li>背书策略用于指示区块链节点交易验证的规则。作为交易验证流程的一部分，当背书节点收到一个交易请求的时候, 该节点会调用 VSCC (验证用途的系统合约程序) 并与执行交易的合约相关联。为了确定交易的有效性，一个交易应该包含来自尽可能多的背书节点的一个或多个背书。VSCC用于判定下面的内容：</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">所有背书是有效的 (即它们是来自预期消息上的有效证书的有效签名)</div><div class="line">得到一定数量的背书</div><div class="line">背书来自预期的来源（指定背书节点</div></pre></td></tr></table></figure>
-<ul>
-<li>背书策略就是用来定义上边的第二和第三点。</li>
-</ul>
-<h4 id="背书策略设计"><a href="#背书策略设计" class="headerlink" title="背书策略设计"></a>背书策略设计</h4><ul>
-<li>背书策略有两个主要组成部分：</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">主体principal</div><div class="line">阀门threshold gate</div></pre></td></tr></table></figure>
-<ul>
-<li><p>P 标识期望背书的区块链节点</p>
-</li>
-<li><p>T 有两个输入参数：整数t（背书数量）和n （背书节点列表），即满足t的条件，并得到n的背书。</p>
-</li>
-</ul>
-<p>例如:</p>
-<p>T(2, ‘A’, ‘B’, ‘C’) 请求来自’A’、’B’、’C’的任意2个背书节点的签名<br>T(1, ‘A’, T(2, ‘B’, ‘C’)) 请求来自A或来自B和C中的一个签名</p>
-<h4 id="命令行下的背书策略语法"><a href="#命令行下的背书策略语法" class="headerlink" title="命令行下的背书策略语法"></a>命令行下的背书策略语法</h4><ul>
-<li>在Fabric CLI中，使用了一种简单的boolean表达式来解释Endorse节点的背书策略。</li>
-<li>Fabric 1.0使用MSP（成员管理服务）来描述主体principal，该MSP用于验证签名者的身份以及签名者在该MSP内所具有的权限。目前，支持两种角色：成员和管理员。 主体Principals的通用表现形式是MSP.ROLE，其中MSP是指MSP 的ID，ROLE是 member 或admin。 一个有效主体的示例是“Org0.admin”（Org0 MSP的任意管理员）或“Org1.member”（Org1 MSP的任意成员）。命令行语法是这样的：</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">EXPR(E[, E...])</div><div class="line"></div><div class="line">其中EXPR可以是AND或OR，代表两个boolean表达式，E是主体或对EXPR的另一个嵌套调用。</div></pre></td></tr></table></figure>
-<ul>
-<li>例如：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">AND(&apos;Org1.member&apos;, &apos;Org2.member&apos;, &apos;Org3.member&apos;) 请求三个背书节点的签名</div><div class="line">OR(&apos;Org1.member&apos;, &apos;Org2.member&apos;) 请求两个背书节点中的任意一个的签名</div><div class="line">OR(&apos;Org1.member&apos;, AND(&apos;Org2.member&apos;, &apos;Org3.member&apos;)) 请求来自Org1 MSP成员或来自Org2 MSP成员和来自Org3 MSP成员的任意一个签名</div><div class="line">指定智能合约的背书策略</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h4 id="部署合约的开发人员可以指定背书策略来验证执行的合约。"><a href="#部署合约的开发人员可以指定背书策略来验证执行的合约。" class="headerlink" title="部署合约的开发人员可以指定背书策略来验证执行的合约。"></a>部署合约的开发人员可以指定背书策略来验证执行的合约。</h4><ul>
-<li>默认策略需要来自DEFAULT MSP成员的一个签名。如果未在CLI中指定策略，则默认使用此选项。</li>
-<li>背书策略可以在部署合约时使用-P选项指定，后面跟策略内容。</li>
-<li>例如：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">peer chaincode deploy -C testchainid -n mycc -p http://github.com/hyperledger/fabric/examples/chaincode/go/chaincode_example02 -c &apos;&#123;&quot;Args&quot;:[&quot;init&quot;,&quot;a&quot;,&quot;100&quot;,&quot;b&quot;,&quot;200&quot;]&#125;&apos; -P &quot;AND(&apos;Org1.member&apos;, &apos;Org2.member&apos;)&quot;</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>执行这条命令将在testchainid这条链上使用背书策略AND(‘Org1.member’, ‘Org2.member’).部署智能合约mycc</p>
-
+        
+          <a class="article-more-a" href="/2018/03/20/fabric的背书策略记录/#more">查看全文 >></a>
+        
       
 
       
@@ -1076,15 +1041,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">分布式/集群</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Elasticsearch</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">区块链</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">分布式/集群</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1108,15 +1073,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">K8S</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">springcloud</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">jenkins</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">K8S</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1136,11 +1101,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">openresty</a>
+                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
+                <a href="javascript:void(0)" class="js-tag color5">openresty</a>
               </li>
              
               <li class="article-tag-list-item">

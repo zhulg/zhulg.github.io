@@ -9,18 +9,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>Fabric的背书策略记录 | zhulg笔记</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="在fabric中，共识过程意味着多个节点对于某一批交易的发生顺序、合法性以及它们对账本状态的更新结构达成一致的观点。满足共识则意味着多个节点可以始终保证相同的状态，对于以同样顺序到达的交易可以进行一致的处理。 fabric中的共识包括背书、排序和验证三个环节的保障。  什么是背书策略 chaincode在实例化的时候，需要指定背书策略。这里的背书策略就是需要什么节点背书交易才能生效。 发起交易的">
+  <meta name="description" content="在fabric中，共识过程意味着多个节点对于某一批交易的发生顺序、合法性以及它们对账本状态的更新结构达成一致的观点。满足共识则意味着多个节点可以始终保证相同的状态，对于以同样顺序到达的交易可以进行一致的处理。 fabric中的共识包括背书、排序和验证三个环节的保障。">
 <meta name="keywords" content="区块链">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Fabric的背书策略记录">
 <meta property="og:url" content="http://yoursite.com/2018/03/20/fabric的背书策略记录/index.html">
 <meta property="og:site_name" content="zhulg笔记">
-<meta property="og:description" content="在fabric中，共识过程意味着多个节点对于某一批交易的发生顺序、合法性以及它们对账本状态的更新结构达成一致的观点。满足共识则意味着多个节点可以始终保证相同的状态，对于以同样顺序到达的交易可以进行一致的处理。 fabric中的共识包括背书、排序和验证三个环节的保障。  什么是背书策略 chaincode在实例化的时候，需要指定背书策略。这里的背书策略就是需要什么节点背书交易才能生效。 发起交易的">
+<meta property="og:description" content="在fabric中，共识过程意味着多个节点对于某一批交易的发生顺序、合法性以及它们对账本状态的更新结构达成一致的观点。满足共识则意味着多个节点可以始终保证相同的状态，对于以同样顺序到达的交易可以进行一致的处理。 fabric中的共识包括背书、排序和验证三个环节的保障。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-20T03:31:44.000Z">
+<meta property="og:updated_time" content="2018-03-20T05:59:08.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Fabric的背书策略记录">
-<meta name="twitter:description" content="在fabric中，共识过程意味着多个节点对于某一批交易的发生顺序、合法性以及它们对账本状态的更新结构达成一致的观点。满足共识则意味着多个节点可以始终保证相同的状态，对于以同样顺序到达的交易可以进行一致的处理。 fabric中的共识包括背书、排序和验证三个环节的保障。  什么是背书策略 chaincode在实例化的时候，需要指定背书策略。这里的背书策略就是需要什么节点背书交易才能生效。 发起交易的">
+<meta name="twitter:description" content="在fabric中，共识过程意味着多个节点对于某一批交易的发生顺序、合法性以及它们对账本状态的更新结构达成一致的观点。满足共识则意味着多个节点可以始终保证相同的状态，对于以同样顺序到达的交易可以进行一致的处理。 fabric中的共识包括背书、排序和验证三个环节的保障。">
   
     <link rel="alternative" href="/atom.xml" title="zhulg笔记" type="application/atom+xml">
   
@@ -178,6 +178,7 @@
 <li>在fabric中，共识过程意味着多个节点对于某一批交易的发生顺序、合法性以及它们对账本状态的更新结构达成一致的观点。满足共识则意味着多个节点可以始终保证相同的状态，对于以同样顺序到达的交易可以进行一致的处理。</li>
 <li>fabric中的共识包括背书、排序和验证三个环节的保障。</li>
 </ul>
+<a id="more"></a>
 <h4 id="什么是背书策略"><a href="#什么是背书策略" class="headerlink" title="什么是背书策略"></a>什么是背书策略</h4><ul>
 <li>chaincode在实例化的时候，需要指定背书策略。这里的背书策略就是需要什么节点背书交易才能生效。</li>
 <li>发起交易的时候，发起端（一般是SDK），需要指定交易发给哪些节点进行背书验证（fabric不会自动发送），而是由sdk发送。发送后等待背书节点的返回，收集到足够的背书后将交易发送给orderer（排序节点或称共识节点）进行排序打包分发。最后，当每个Peer接受到block数据后，会对其中的交易进行验证，如果交易不符合背书策略，就不会在本地生效，所以真正验证背书是在这一步。</li>
@@ -449,15 +450,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">分布式/集群</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Elasticsearch</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">区块链</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">分布式/集群</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -481,15 +482,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">K8S</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">springcloud</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">jenkins</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">K8S</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -509,11 +510,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">openresty</a>
+                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
+                <a href="javascript:void(0)" class="js-tag color5">openresty</a>
               </li>
              
               <li class="article-tag-list-item">
