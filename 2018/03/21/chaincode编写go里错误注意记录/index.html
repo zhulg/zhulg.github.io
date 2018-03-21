@@ -7,20 +7,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>rabbitMQ安装记录 | zhulg笔记</title>
+  <title>Chaincode编写go里错误注意记录 | zhulg笔记</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="安装  1brew install rabbitmq  启动  1rabbitmq-server  查看  1浏览器输入localhost：15672,账号密码全输入guest">
-<meta name="keywords" content="springboot相关">
+  <meta name="description" content="go里的方法在使用json.Marshal()时需要，结构的定义需要按照大写的方式来定义。">
+<meta name="keywords" content="区块链 go">
 <meta property="og:type" content="article">
-<meta property="og:title" content="rabbitMQ安装记录">
-<meta property="og:url" content="http://yoursite.com/2017/08/07/rabbitMQ安装记录/index.html">
+<meta property="og:title" content="Chaincode编写go里错误注意记录">
+<meta property="og:url" content="http://yoursite.com/2018/03/21/chaincode编写go里错误注意记录/index.html">
 <meta property="og:site_name" content="zhulg笔记">
-<meta property="og:description" content="安装  1brew install rabbitmq  启动  1rabbitmq-server  查看  1浏览器输入localhost：15672,账号密码全输入guest">
+<meta property="og:description" content="go里的方法在使用json.Marshal()时需要，结构的定义需要按照大写的方式来定义。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-08-07T04:25:10.000Z">
+<meta property="og:updated_time" content="2018-03-21T11:26:53.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="rabbitMQ安装记录">
-<meta name="twitter:description" content="安装  1brew install rabbitmq  启动  1rabbitmq-server  查看  1浏览器输入localhost：15672,账号密码全输入guest">
+<meta name="twitter:title" content="Chaincode编写go里错误注意记录">
+<meta name="twitter:description" content="go里的方法在使用json.Marshal()时需要，结构的定义需要按照大写的方式来定义。">
   
     <link rel="alternative" href="/atom.xml" title="zhulg笔记" type="application/atom+xml">
   
@@ -154,20 +154,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-rabbitMQ安装记录" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-chaincode编写go里错误注意记录" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      rabbitMQ安装记录
+      Chaincode编写go里错误注意记录
     </h1>
   
 
         
-        <a href="/2017/08/07/rabbitMQ安装记录/" class="archive-article-date">
-  	<time datetime="2017-08-07T03:07:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-07</time>
+        <a href="/2018/03/21/chaincode编写go里错误注意记录/" class="archive-article-date">
+  	<time datetime="2018-03-21T11:19:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-21</time>
 </a>
         
       </header>
@@ -175,18 +175,14 @@
     <div class="article-entry" itemprop="articleBody">
       
         <ul>
-<li>安装</li>
+<li>go里的方法在使用json.Marshal()时需要，结构的定义需要按照大写的方式来定义。</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew install rabbitmq</div></pre></td></tr></table></figure>
+<a id="more"></a>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var people = People&#123;NAME: params[1], AGE: params[2]&#125;</div><div class="line">peoplebytes, err := json.Marshal(people)</div></pre></td></tr></table></figure>
 <ul>
-<li>启动</li>
+<li>使用时结构的定义需要大写如下边方式,否则导致json.Marshal()结构为空。</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rabbitmq-server</div></pre></td></tr></table></figure>
-<ul>
-<li>查看</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">浏览器输入localhost：15672,账号密码全输入guest</div></pre></td></tr></table></figure>
-
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">type People struct &#123;</div><div class="line">	NAME string `json:&quot;name&quot;`</div><div class="line">	AGE  string `json:&quot;age&quot;`</div><div class="line">&#125;</div></pre></td></tr></table></figure>
       
 
       
@@ -220,7 +216,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">springboot相关</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">区块链 go</a>
         		</li>
       		
 		</ul>
@@ -276,7 +272,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/08/07/rabbitMQ安装记录/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2018/03/21/chaincode编写go里错误注意记录/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -290,18 +286,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/08/08/springcloud-Eureka/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Springcloud Eureka
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/08/04/springboot里几个常用注解/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Springboot里几个常用注解</div>
+    <a href="/2018/03/20/fabric的背书策略记录/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Fabric的背书策略记录</div>
       <i class="icon-circle-right"></i>
     </a>
   
