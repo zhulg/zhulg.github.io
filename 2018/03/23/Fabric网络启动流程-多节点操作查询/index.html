@@ -9,18 +9,20 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>Fabric网络启动流程-多节点操作查询 | zhulg笔记</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="基于fabric-samples/first-network下手动网络启动相关文件生成和配置。 待上篇分析继续">
+  <meta name="description" content="基于fabric-samples/first-network下手动网络启动相关文件生成和配置。 待上篇分析继续  在其他节点上进行操作 上篇分析中使用的是单个几点peer0.org1.example.com:7051上进行的操作。 在这个网络中有2个组织，4个节点，在cli的配置里可以看到如下默认的配置，对应peer0.org1.example.com:7051">
 <meta name="keywords" content="fabric,区块链">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Fabric网络启动流程-多节点操作查询">
 <meta property="og:url" content="http://yoursite.com/2018/03/23/Fabric网络启动流程-多节点操作查询/index.html">
 <meta property="og:site_name" content="zhulg笔记">
-<meta property="og:description" content="基于fabric-samples/first-network下手动网络启动相关文件生成和配置。 待上篇分析继续">
+<meta property="og:description" content="基于fabric-samples/first-network下手动网络启动相关文件生成和配置。 待上篇分析继续  在其他节点上进行操作 上篇分析中使用的是单个几点peer0.org1.example.com:7051上进行的操作。 在这个网络中有2个组织，4个节点，在cli的配置里可以看到如下默认的配置，对应peer0.org1.example.com:7051">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-23T10:34:35.000Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/zhulg/allpic/master/fabric_network2.png">
+<meta property="og:updated_time" content="2018-03-23T11:05:34.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Fabric网络启动流程-多节点操作查询">
-<meta name="twitter:description" content="基于fabric-samples/first-network下手动网络启动相关文件生成和配置。 待上篇分析继续">
+<meta name="twitter:description" content="基于fabric-samples/first-network下手动网络启动相关文件生成和配置。 待上篇分析继续  在其他节点上进行操作 上篇分析中使用的是单个几点peer0.org1.example.com:7051上进行的操作。 在这个网络中有2个组织，4个节点，在cli的配置里可以看到如下默认的配置，对应peer0.org1.example.com:7051">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/zhulg/allpic/master/fabric_network2.png">
   
     <link rel="alternative" href="/atom.xml" title="zhulg笔记" type="application/atom+xml">
   
@@ -176,7 +178,31 @@
       
         <ul>
 <li>基于fabric-samples/first-network下手动网络启动相关文件生成和配置。</li>
-<li>待上篇分析继续</li>
+<li><a href="https://zhulg.github.io/2018/03/13/fabric%E7%BD%91%E7%BB%9C%E5%90%AF%E5%8A%A8%E6%B5%81%E7%A8%8B-%E5%88%86%E6%AD%A5%E5%88%86%E6%9E%90/#more" target="_blank" rel="external">待上篇分析继续</a></li>
+</ul>
+<h4 id="在其他节点上进行操作"><a href="#在其他节点上进行操作" class="headerlink" title="在其他节点上进行操作"></a>在其他节点上进行操作</h4><ul>
+<li>上篇分析中使用的是单个几点peer0.org1.example.com:7051上进行的操作。</li>
+<li>在这个网络中有2个组织，4个节点，在cli的配置里可以看到如下默认的配置，对应peer0.org1.example.com:7051</li>
+</ul>
+<a id="more"></a>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">peer.org1.example.com:7051</div><div class="line">CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp</div><div class="line">CORE_PEER_ADDRESS=peer0.org1.example.com:7051</div><div class="line">CORE_PEER_LOCALMSPID=Org1MSP</div><div class="line">CORE_PEER_TLS_ROOTCERT_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt</div></pre></td></tr></table></figure>
+<ul>
+<li>在创建完通道后，需要在其他几点上部署链码前，需要设置cli的环境，对应成新的节点。并把该peer添加到channel里</li>
+<li>例如：添加 peer1.org1.example.com:7051 节点</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp</div><div class="line">CORE_PEER_ADDRESS=peer1.org1.example.com:7051</div><div class="line">CORE_PEER_LOCALMSPID=&quot;Org1MSP&quot;</div><div class="line">CORE_PEER_TLS_ROOTCERT_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.example.com/peers/peer1.org1.example.com/tls/ca.crt</div></pre></td></tr></table></figure>
+<ul>
+<li>需要设置上述环境在cli bash里，并添加peer到channel( peer channel join -b xxx.block)</li>
+</ul>
+<h4 id="在新节点初始化chaincode"><a href="#在新节点初始化chaincode" class="headerlink" title="在新节点初始化chaincode"></a>在新节点初始化chaincode</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">peer chaincode install -n mycc -v 1.0 -p github.com/hyperledger/fabric/examples/chaincode/go/chaincode_example02</div></pre></td></tr></table></figure>
+<h4 id="在节点上实例化chaincode"><a href="#在节点上实例化chaincode" class="headerlink" title="在节点上实例化chaincode"></a>在节点上实例化chaincode</h4><ul>
+<li>链码实例化一次</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">peer chaincode instantiate -o orderer.example.com:7050 --tls $CORE_PEER_TLS_ENABLED --cafile /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem -C $CHANNEL_NAME -n mycc -v 1.0 -c &apos;&#123;&quot;Args&quot;:[&quot;init&quot;,&quot;a&quot;, &quot;100&quot;, &quot;b&quot;,&quot;200&quot;]&#125;&apos; -P &quot;OR (&apos;Org1MSP.member&apos;,&apos;Org2MSP.member&apos;)&quot;</div></pre></td></tr></table></figure>
+<h4 id="切换节点进行查询和执行"><a href="#切换节点进行查询和执行" class="headerlink" title="切换节点进行查询和执行"></a>切换节点进行查询和执行</h4><ul>
+<li><p>在cli bash里操作调用和查询，发现数据在不同节点是一致的。</p>
+<p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/fabric_network2.png" alt=""></p>
+</li>
 </ul>
 
       
@@ -412,6 +438,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">springboot</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Elasticsearch</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">fabric</a>
               </li>
              
@@ -420,11 +454,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">springboot</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Elasticsearch</a>
+                <a href="javascript:void(0)" class="js-tag color2">分布式/集群</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -437,10 +467,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">go</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">分布式/集群</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -460,19 +486,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">kafka</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">K8S</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
+                <a href="javascript:void(0)" class="js-tag color1">kafka</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">redis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
               </li>
              
               <li class="article-tag-list-item">
