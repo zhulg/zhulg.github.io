@@ -7,20 +7,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Fabric网络启动流程记录 | zhulg笔记</title>
+  <title>Fabric网络启动流程-分步分析 | zhulg笔记</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="farbic 网络启动过程 基于fabric-samples/first-network下手动网络启动相关文件生成和配置。   生成组织关系和身份证书 使用Cryptogen，消费一个包含网络拓扑的crypto-config.yaml，并允许我们为组织和属于这些组织的组件生成一组证书和密钥。 crypto-config.yaml文件内容如下，">
 <meta name="keywords" content="区块链">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Fabric网络启动流程记录">
+<meta property="og:title" content="Fabric网络启动流程-分步分析">
 <meta property="og:url" content="http://yoursite.com/2018/03/13/fabric网络启动流程-分步分析/index.html">
 <meta property="og:site_name" content="zhulg笔记">
 <meta property="og:description" content="farbic 网络启动过程 基于fabric-samples/first-network下手动网络启动相关文件生成和配置。   生成组织关系和身份证书 使用Cryptogen，消费一个包含网络拓扑的crypto-config.yaml，并允许我们为组织和属于这些组织的组件生成一组证书和密钥。 crypto-config.yaml文件内容如下，">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://raw.githubusercontent.com/zhulg/allpic/master/fabric-networkup.png">
-<meta property="og:updated_time" content="2018-03-20T07:35:26.000Z">
+<meta property="og:updated_time" content="2018-03-23T10:36:42.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Fabric网络启动流程记录">
+<meta name="twitter:title" content="Fabric网络启动流程-分步分析">
 <meta name="twitter:description" content="farbic 网络启动过程 基于fabric-samples/first-network下手动网络启动相关文件生成和配置。   生成组织关系和身份证书 使用Cryptogen，消费一个包含网络拓扑的crypto-config.yaml，并允许我们为组织和属于这些组织的组件生成一组证书和密钥。 crypto-config.yaml文件内容如下，">
 <meta name="twitter:image" content="https://raw.githubusercontent.com/zhulg/allpic/master/fabric-networkup.png">
   
@@ -163,7 +163,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Fabric网络启动流程记录
+      Fabric网络启动流程-分步分析
     </h1>
   
 
@@ -508,7 +508,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">分布式/集群</a>
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -516,7 +516,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">docker</a>
+                <a href="javascript:void(0)" class="js-tag color2">分布式/集群</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -532,15 +532,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">K8S</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">springcloud</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -548,11 +540,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">springboot相关</a>
+                <a href="javascript:void(0)" class="js-tag color4">K8S</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">redis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">springboot相关</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -572,11 +572,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">推荐系统</a>
+                <a href="javascript:void(0)" class="js-tag color3">git/github/gitlab</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">git/github/gitlab</a>
+                <a href="javascript:void(0)" class="js-tag color5">推荐系统</a>
               </li>
              
               <li class="article-tag-list-item">
