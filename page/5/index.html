@@ -151,6 +151,80 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-springcloud-网关服务记录" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/09/07/springcloud-网关服务记录/">Springcloud 网关服务记录</a>
+    </h1>
+  
+
+        
+        <a href="/2017/09/07/springcloud-网关服务记录/" class="archive-article-date">
+  	<time datetime="2017-09-07T09:27:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-07</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>###SpringCloud 网关记录</p>
+<p><strong>1, 注册相关服务到eureka</strong><br><img src="https://raw.githubusercontent.com/zhulg/allpic/master/api-gateway1.png" alt=""></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">当我们这里构建的api-gateway应用启动并注册到eureka之后，服务网关会发现上面我们启动的两个服务eureka-client和eureka-consumer，这时候Zuul就会创建两个路由规则。每个路由规则都包含两部分，一部分是外部请求的匹配规则，另一部分是路由的服务ID。针对当前示例的情况，Zuul会创建下面的两个路由规则：</div><div class="line"></div><div class="line">转发到eureka-client服务的请求规则为：/eureka-client/**</div><div class="line">转发到eureka-consumer服务的请求规则为：/eureka-consumer/**</div></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/2017/09/07/springcloud-网关服务记录/#more">查看全文 >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">springcloud</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-nginx安装记录" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -938,75 +1012,6 @@
 
 
   
-    <article id="post-python3-K-近邻算法实现" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/03/python3-K-近邻算法实现/">Python3 K-近邻算法实现</a>
-    </h1>
-  
-
-        
-        <a href="/2017/08/03/python3-K-近邻算法实现/" class="archive-article-date">
-  	<time datetime="2017-08-03T05:47:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-03</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="Python3实现K-近邻算法"><a href="#Python3实现K-近邻算法" class="headerlink" title="Python3实现K-近邻算法"></a>Python3实现K-近邻算法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div></pre></td><td class="code"><pre><div class="line">import numpy as np</div><div class="line">import operator</div><div class="line"></div><div class="line"></div><div class="line"># 函数说明:创建数据集</div><div class="line"># Parameters:</div><div class="line">#     无</div><div class="line"># Returns:</div><div class="line">#     group - 数据集</div><div class="line">#     labels - 分类标签</div><div class="line">def createDataSet():</div><div class="line">    #四组二维特征</div><div class="line">    group = np.array([[1,101],[5,89],[108,5],[115,8]])</div><div class="line">    #四组特征的标签</div><div class="line">    labels = [&apos;爱情片&apos;,&apos;爱情片&apos;,&apos;动作片&apos;,&apos;动作片&apos;]</div><div class="line">    return group, labels</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"># 函数说明:kNN算法,分类器</div><div class="line"># </div><div class="line"># Parameters:</div><div class="line">#     inX - 用于分类的数据(测试集)</div><div class="line">#     dataSet - 用于训练的数据(训练集)</div><div class="line">#     labes - 分类标签</div><div class="line">#     k - kNN算法参数,选择距离最小的k个点</div><div class="line"># Returns:</div><div class="line">#     sortedClassCount[0][0] - 分类结果</div><div class="line"> </div><div class="line">def classify0(inX, dataSet, labels, k):</div><div class="line">    print(&quot;开始查看下dataSet&quot;)</div><div class="line">    print(dataSet)</div><div class="line">    #numpy函数shape[0]返回dataSet的行数</div><div class="line">    dataSetSize = dataSet.shape[0]</div><div class="line">    print(&quot;查看下得到的行数：&quot;)</div><div class="line">    print(dataSetSize)</div><div class="line">    #在列向量方向上重复inX共1次(横向)，行向量方向上重复inX共dataSetSize次(纵向)</div><div class="line">    dataSettemp = np.tile(inX, (dataSetSize, 1))</div><div class="line">    print(&quot;查看下dataSettemp：&quot;)</div><div class="line">    print(dataSettemp)</div><div class="line">    diffMat = dataSettemp - dataSet</div><div class="line">    print(&quot;查看下diffMat：&quot;)</div><div class="line">    print(diffMat)</div><div class="line">    #二维特征相减后平方</div><div class="line">    sqDiffMat = diffMat**2</div><div class="line">    print(&quot;二维特征相减后平方:&quot;)</div><div class="line">    print(sqDiffMat)</div><div class="line">    #sum()所有元素相加，sum(0)列相加，sum(1)行相加</div><div class="line">    sqDistances = sqDiffMat.sum(axis=1)</div><div class="line">    print(&quot;um()所有元素相加，sum(0)列相加，sum(1)行相加:&quot;)</div><div class="line">    print(sqDistances)</div><div class="line"></div><div class="line">    #开方，计算出距离</div><div class="line">    distances = sqDistances**0.5</div><div class="line">    print(&quot;开方，计算出距离:&quot;)</div><div class="line">    print(distances)</div><div class="line">    #返回distances中元素从小到大排序后的索引值</div><div class="line">    sortedDistIndices = distances.argsort()</div><div class="line">    print(&quot;sortedDistIndices:&quot;)</div><div class="line">    print(sortedDistIndices)</div><div class="line"></div><div class="line">    #定一个记录类别次数的字典</div><div class="line">    classCount = &#123;&#125;</div><div class="line">    for i in range(k):</div><div class="line">        #取出前k个元素的类别</div><div class="line">        voteIlabel = labels[sortedDistIndices[i]]</div><div class="line">        print(voteIlabel)</div><div class="line">        #dict.get(key,default=None),字典的get()方法,返回指定键的值,如果值不在字典中返回默认值。</div><div class="line">        #计算类别次数</div><div class="line">        classCount[voteIlabel] = classCount.get(voteIlabel,0) + 1</div><div class="line">    #python3中用items()替换python2中的iteritems()</div><div class="line">    #key=operator.itemgetter(1)根据字典的值进行排序</div><div class="line">    #key=operator.itemgetter(0)根据字典的键进行排序</div><div class="line">    #reverse降序排序字典</div><div class="line">    sortedClassCount = sorted(classCount.items(),key=operator.itemgetter(1),reverse=True)</div><div class="line">    #返回次数最多的类别,即所要分类的类别</div><div class="line">    #排序后是个二维的list类型</div><div class="line">    print(&quot;排序后结果：&quot;)</div><div class="line">    print(sortedClassCount)</div><div class="line">    return sortedClassCount[0][0]</div><div class="line"></div><div class="line">if __name__ == &apos;__main__&apos;:</div><div class="line">    #创建数据集</div><div class="line">    group, labels = createDataSet()</div><div class="line">    #测试集</div><div class="line">    test = [101,20]</div><div class="line">    #kNN分类</div><div class="line">    test_class = classify0(test, group, labels, 3)</div><div class="line">    #打印分类结果</div><div class="line">    print(test_class)</div></pre></td></tr></table></figure>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/4/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/6/">Next &raquo;</a>
@@ -1104,7 +1109,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">fabric</a>
+                <a href="javascript:void(0)" class="js-tag color1">springboot</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1112,11 +1117,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">超级账本</a>
+                <a href="javascript:void(0)" class="js-tag color2">fabric</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">分布式/集群</a>
+                <a href="javascript:void(0)" class="js-tag color5">超级账本</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1124,11 +1129,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">AWK</a>
+                <a href="javascript:void(0)" class="js-tag color2">分布式/集群</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">springboot</a>
+                <a href="javascript:void(0)" class="js-tag color3">go</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">AWK</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1136,7 +1145,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">go</a>
+                <a href="javascript:void(0)" class="js-tag color4">区块链，chaincode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1148,15 +1157,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">K8S</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">springcloud</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">jenkins</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1164,7 +1165,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redis</a>
+                <a href="javascript:void(0)" class="js-tag color4">K8S</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">jenkins</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1172,11 +1177,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">springboot相关</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1185,10 +1194,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">git/github/gitlab</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1204,11 +1209,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">大数据&机器学习</a>
+                <a href="javascript:void(0)" class="js-tag color3">git/github/gitlab</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">推荐系统</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">大数据&机器学习</a>
               </li>
             
             <div class="clearfix"></div>

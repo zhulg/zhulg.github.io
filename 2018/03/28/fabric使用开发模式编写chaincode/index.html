@@ -7,22 +7,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Springcloud Eureka注册中心集群 | zhulg笔记</title>
+  <title>Fabric使用开发模式编写chaincode | zhulg笔记</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Eureka集群注册 Eureka注册中心提供关键的服务，如果是单点话，遇到故障就是毁灭性的。在一个分布式系统中，服务注册中心是最重要的基础部分，理应随时处于可以提供服务的状态。为了维持其可用性，使用集群是很好的解决方案。 Eureka通过互相注册的方式来实现高可用的部署。集群注册步骤  1、创建application-peer1.properties，作为peer1服务中心的配置，并将servi">
-<meta name="keywords" content="springcloud">
+  <meta name="description" content="在开发者模式下编写调试chaincode 在fabric-examples下提供有开发者模式，编译快速对chaincode的编写。 进入chaincode-docker-devmode，基于docker方式快速构建一个开发模式的网络。  1docker-compose -f docker-compose-simple.yaml up">
+<meta name="keywords" content="fabric,区块链，chaincode">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Springcloud Eureka注册中心集群">
-<meta property="og:url" content="http://yoursite.com/2017/08/10/springcloud-eureka注册中心集群/index.html">
+<meta property="og:title" content="Fabric使用开发模式编写chaincode">
+<meta property="og:url" content="http://yoursite.com/2018/03/28/fabric使用开发模式编写chaincode/index.html">
 <meta property="og:site_name" content="zhulg笔记">
-<meta property="og:description" content="Eureka集群注册 Eureka注册中心提供关键的服务，如果是单点话，遇到故障就是毁灭性的。在一个分布式系统中，服务注册中心是最重要的基础部分，理应随时处于可以提供服务的状态。为了维持其可用性，使用集群是很好的解决方案。 Eureka通过互相注册的方式来实现高可用的部署。集群注册步骤  1、创建application-peer1.properties，作为peer1服务中心的配置，并将servi">
+<meta property="og:description" content="在开发者模式下编写调试chaincode 在fabric-examples下提供有开发者模式，编译快速对chaincode的编写。 进入chaincode-docker-devmode，基于docker方式快速构建一个开发模式的网络。  1docker-compose -f docker-compose-simple.yaml up">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://raw.githubusercontent.com/zhulg/allpic/master/eureka.png">
-<meta property="og:updated_time" content="2017-12-01T08:47:24.000Z">
+<meta property="og:updated_time" content="2018-03-28T09:55:57.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Springcloud Eureka注册中心集群">
-<meta name="twitter:description" content="Eureka集群注册 Eureka注册中心提供关键的服务，如果是单点话，遇到故障就是毁灭性的。在一个分布式系统中，服务注册中心是最重要的基础部分，理应随时处于可以提供服务的状态。为了维持其可用性，使用集群是很好的解决方案。 Eureka通过互相注册的方式来实现高可用的部署。集群注册步骤  1、创建application-peer1.properties，作为peer1服务中心的配置，并将servi">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/zhulg/allpic/master/eureka.png">
+<meta name="twitter:title" content="Fabric使用开发模式编写chaincode">
+<meta name="twitter:description" content="在开发者模式下编写调试chaincode 在fabric-examples下提供有开发者模式，编译快速对chaincode的编写。 进入chaincode-docker-devmode，基于docker方式快速构建一个开发模式的网络。  1docker-compose -f docker-compose-simple.yaml up">
   
     <link rel="alternative" href="/atom.xml" title="zhulg笔记" type="application/atom+xml">
   
@@ -156,43 +154,46 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-springcloud-eureka注册中心集群" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-fabric使用开发模式编写chaincode" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Springcloud Eureka注册中心集群
+      Fabric使用开发模式编写chaincode
     </h1>
   
 
         
-        <a href="/2017/08/10/springcloud-eureka注册中心集群/" class="archive-article-date">
-  	<time datetime="2017-08-10T08:29:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-10</time>
+        <a href="/2018/03/28/fabric使用开发模式编写chaincode/" class="archive-article-date">
+  	<time datetime="2018-03-28T09:40:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-28</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="Eureka集群注册"><a href="#Eureka集群注册" class="headerlink" title="Eureka集群注册"></a>Eureka集群注册</h3><ul>
-<li>Eureka注册中心提供关键的服务，如果是单点话，遇到故障就是毁灭性的。在一个分布式系统中，服务注册中心是最重要的基础部分，理应随时处于可以提供服务的状态。为了维持其可用性，使用集群是很好的解决方案。</li>
-<li>Eureka通过互相注册的方式来实现高可用的部署。<h3 id="集群注册步骤"><a href="#集群注册步骤" class="headerlink" title="集群注册步骤"></a>集群注册步骤</h3></li>
+        <h4 id="在开发者模式下编写调试chaincode"><a href="#在开发者模式下编写调试chaincode" class="headerlink" title="在开发者模式下编写调试chaincode"></a>在开发者模式下编写调试chaincode</h4><ul>
+<li>在fabric-examples下提供有开发者模式，编译快速对chaincode的编写。</li>
+<li>进入chaincode-docker-devmode，基于docker方式快速构建一个开发模式的网络。</li>
 </ul>
-<p>1、创建application-peer1.properties，作为peer1服务中心的配置，并将serviceUrl指向peer2</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">spring.application.name=eureka-server</div><div class="line">server.port=8000</div><div class="line">#在集群注册时会有,否则服务显示unavailable-replicas</div><div class="line">eureka.client.register-with-eureka=true</div><div class="line">eureka.client.fetch-registry=true</div><div class="line">eureka.instance.hostname=peer1</div><div class="line">eureka.client.serviceUrl.defaultZone=http://peer2:8001/eureka/</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker-compose -f docker-compose-simple.yaml up</div></pre></td></tr></table></figure>
 <a id="more"></a>
-<p>2、创建application-peer2.properties，作为peer2服务中心的配置，并将serviceUrl指向peer1</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">spring.application.name=eureka-server</div><div class="line">server.port=8001</div><div class="line">eureka.client.register-with-eureka=true</div><div class="line">eureka.client.fetch-registry=true</div><div class="line">eureka.instance.hostname=peer2</div><div class="line">eureka.client.serviceUrl.defaultZone=http://peer1:8000/eureka/</div></pre></td></tr></table></figure>
-<p>3、host转换在hosts文件中加入如下配置</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">127.0.0.1 peer1  </div><div class="line">127.0.0.1 peer2</div></pre></td></tr></table></figure>
-<p>4、打包启动,依次执行下面命令</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">mvn clean package</div><div class="line">分别以peer1和peeer2 配置信息启动eureka</div><div class="line">java -jar eureka-server-1.0.0.jar --spring.profiles.active=peer1</div><div class="line">java -jar eureka-server-1.0.0.jar --spring.profiles.active=peer2</div></pre></td></tr></table></figure>
-<p>5,启动 <a href="http://localhost:8001/" target="_blank" rel="external">http://localhost:8001/</a></p>
-<p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/eureka.png" alt="eureka"></p>
-<p>6,异常备注，开始折腾了很久，遇到什么权限没有，端口不能访问时。需要把服务彻底关掉，开启服务peer1时可能会有错误，原因服务没起来忽略即可。出去下上图说明已经建立成功。多个集群同理配置。<br>7，在MAC 环境下网上很多demo端口为1001之类的，在mac上端口会占用失败，继采用8001端口。</p>
-
+<ul>
+<li><p>在这个yaml里可以看到关键信息，在peer容器里命令标志用于设置开发者模式 command: peer node start –peer-chaincodedev=true -o orderer:7050</p>
+</li>
+<li><p>网络启动后可以看到</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">CONTAINER ID        IMAGE                        COMMAND                  CREATED             STATUS              PORTS                                            NAMES</div><div class="line">3d089e92ccc5        hyperledger/fabric-ccenv     &quot;/bin/bash -c &apos;sleep…&quot;   44 minutes ago      Up 44 minutes                                                        chaincode</div><div class="line">c6e93a9603f9        hyperledger/fabric-tools     &quot;/bin/bash -c ./scri…&quot;   44 minutes ago      Up 44 minutes                                                        cli</div><div class="line">84a87f2f2ab2        hyperledger/fabric-peer      &quot;peer node start --p…&quot;   44 minutes ago      Up 44 minutes       0.0.0.0:7051-&gt;7051/tcp, 0.0.0.0:7053-&gt;7053/tcp   peer</div><div class="line">2d4e748b5041        hyperledger/fabric-orderer   &quot;orderer&quot;                44 minutes ago      Up 44 minutes       0.0.0.0:7050-&gt;7050/tcp                           orderer</div></pre></td></tr></table></figure>
+<h4 id="初始化和实例化链码"><a href="#初始化和实例化链码" class="headerlink" title="初始化和实例化链码"></a>初始化和实例化链码</h4><ul>
+<li>具体信息可以看ymal里的配置，可以看到创建了myc通道，和一个peer,order节点</li>
+<li>进入chaincode容器 docker exec -it chaincode bash</li>
+<li>编译（go build）并启动chaincode<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">CORE_PEER_ADDRESS=peer:7051 CORE_CHAINCODE_ID_NAME=mycc:0 ./chaincode_example02</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="实例化链码和查询"><a href="#实例化链码和查询" class="headerlink" title="实例化链码和查询"></a>实例化链码和查询</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">peer chaincode instantiate -n mycc -v 0 -c &apos;&#123;&quot;Args&quot;:[&quot;init&quot;,&quot;a&quot;,&quot;100&quot;,&quot;b&quot;,&quot;200&quot;]&#125;&apos; -o orderer:7050 -C myc</div><div class="line">peer chaincode invoke -n mycc -c &apos;&#123;&quot;Args&quot;:[&quot;invoke&quot;,&quot;a&quot;,&quot;b&quot;,&quot;10&quot;]&#125;&apos; -o orderer:7050 -C myc</div><div class="line">peer chaincode query -n mycc -c &apos;&#123;&quot;Args&quot;:[&quot;query&quot;,&quot;a&quot;]&#125;&apos; -o orderer -C myc</div></pre></td></tr></table></figure>
       
 
       
@@ -226,7 +227,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">springcloud</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">fabric</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">区块链，chaincode</a>
         		</li>
       		
 		</ul>
@@ -282,7 +287,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/08/10/springcloud-eureka注册中心集群/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2018/03/28/fabric使用开发模式编写chaincode/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -296,18 +301,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/08/15/springboot部署/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Springboot部署
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/08/08/springcloud/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Springcloud</div>
+    <a href="/2018/03/26/webstom编译Fabric-node-sdk记录/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">webstom编译Fabric Node-Sdk记录</div>
       <i class="icon-circle-right"></i>
     </a>
   

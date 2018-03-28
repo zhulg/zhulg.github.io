@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2018/03/28/fabric%E4%BD%BF%E7%94%A8%E5%BC%80%E5%8F%91%E6%A8%A1%E5%BC%8F%E7%BC%96%E5%86%99chaincode/</loc>
+    
+    <lastmod>2018-03-28T09:55:57.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2018/03/26/webstom%E7%BC%96%E8%AF%91Fabric-node-sdk%E8%AE%B0%E5%BD%95/</loc>
     
     <lastmod>2018-03-27T15:30:40.000Z</lastmod>
