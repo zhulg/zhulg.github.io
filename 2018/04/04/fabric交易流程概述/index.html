@@ -10,7 +10,7 @@
   <title>Fabric交易流程概述 | zhulg笔记</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="目前基于fabric1.0.6版本学习Fabric的交易流程中，主要关键节点参与，Peer节点、Orderer节点、CA节点及client端。 Peer节点 :该节点是参与交易的主体，可以说是代表每个参与到链上的成员，他负责储存完整的账本数据即区块链数据，负责共识环节中的执行智能合约，其中所有的Peer节点都维护完整的账本数据称之为Committer，而根据具体的业务划分背书策略时决定哪些Pee">
-<meta name="keywords" content="fabric,区块链">
+<meta name="keywords" content="区块链,fabric">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Fabric交易流程概述">
 <meta property="og:url" content="http://yoursite.com/2018/04/04/fabric交易流程概述/index.html">
@@ -18,7 +18,7 @@
 <meta property="og:description" content="目前基于fabric1.0.6版本学习Fabric的交易流程中，主要关键节点参与，Peer节点、Orderer节点、CA节点及client端。 Peer节点 :该节点是参与交易的主体，可以说是代表每个参与到链上的成员，他负责储存完整的账本数据即区块链数据，负责共识环节中的执行智能合约，其中所有的Peer节点都维护完整的账本数据称之为Committer，而根据具体的业务划分背书策略时决定哪些Pee">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://hyperledger-fabric.readthedocs.io/en/latest/_images/flow-4.png">
-<meta property="og:updated_time" content="2018-04-04T07:31:05.000Z">
+<meta property="og:updated_time" content="2018-04-04T07:52:23.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Fabric交易流程概述">
 <meta name="twitter:description" content="目前基于fabric1.0.6版本学习Fabric的交易流程中，主要关键节点参与，Peer节点、Orderer节点、CA节点及client端。 Peer节点 :该节点是参与交易的主体，可以说是代表每个参与到链上的成员，他负责储存完整的账本数据即区块链数据，负责共识环节中的执行智能合约，其中所有的Peer节点都维护完整的账本数据称之为Committer，而根据具体的业务划分背书策略时决定哪些Pee">
@@ -204,6 +204,9 @@
 <li><strong>步骤3</strong>：client收到所有执行结果后打包一并发送到Orderer</li>
 <li><strong>步骤4</strong>：Orderer将接收到的该次交易在交易池里进行排序并组合打包生成一个新的区块，Orderer将新的区块发送给所有的Peer节点，每个Peer节点接收到新区块后，对其中的每一笔交易结果的签名进行验证是否符合背书策略，以及比对读写集合与本地的版本是否相同，如满足所有条件则将新的区块写入本地账本内完成交易。</li>
 </ul>
+<h4 id="应用程序如何掉到fabric"><a href="#应用程序如何掉到fabric" class="headerlink" title="应用程序如何掉到fabric"></a>应用程序如何掉到fabric</h4><ul>
+<li>应用程序需要通过通道连接到某一个Peer节点上使用chaincode与Fabric的网路进行通信，向背书节点提交交易提案（fabric java/node/go sdk-&gt;chaincode）</li>
+</ul>
 
       
 
@@ -238,11 +241,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">fabric</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">区块链</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">区块链</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">fabric</a>
         		</li>
       		
 		</ul>
@@ -442,7 +445,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">fabric</a>
+                <a href="javascript:void(0)" class="js-tag color4">Elasticsearch</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -450,7 +453,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Elasticsearch</a>
+                <a href="javascript:void(0)" class="js-tag color2">fabric</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -466,11 +469,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">docker</a>
+                <a href="javascript:void(0)" class="js-tag color3">go</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">go</a>
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -490,11 +493,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">K8S</a>
+                <a href="javascript:void(0)" class="js-tag color3">jenkins</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">jenkins</a>
+                <a href="javascript:void(0)" class="js-tag color4">K8S</a>
               </li>
              
               <li class="article-tag-list-item">
