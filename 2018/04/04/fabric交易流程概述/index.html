@@ -7,22 +7,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Fabric网络启动流程记录 | zhulg笔记</title>
+  <title>Fabric交易流程概述 | zhulg笔记</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="farbic 网络启动过程 基于fabric-samples/first-network下手动网络启动相关文件生成和配置。   生成组织关系和身份证书 使用Cryptogen，消费一个包含网络拓扑的crypto-config.yaml，并允许我们为组织和属于这些组织的组件生成一组证书和密钥。 crypto-config.yaml文件内容如下，">
-<meta name="keywords" content="区块链">
+  <meta name="description" content="目前基于fabric1.0.6版本学习Fabric的交易流程中，主要关键节点参与，Peer节点、Orderer节点、CA节点及client端。 Peer节点 :该节点是参与交易的主体，可以说是代表每个参与到链上的成员，他负责储存完整的账本数据即区块链数据，负责共识环节中的执行智能合约，其中所有的Peer节点都维护完整的账本数据称之为Committer，而根据具体的业务划分背书策略时决定哪些Pee">
+<meta name="keywords" content="fabric,区块链">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Fabric网络启动流程记录">
-<meta property="og:url" content="http://yoursite.com/2018/03/13/fabric网络启动流程记录/index.html">
+<meta property="og:title" content="Fabric交易流程概述">
+<meta property="og:url" content="http://yoursite.com/2018/04/04/fabric交易流程概述/index.html">
 <meta property="og:site_name" content="zhulg笔记">
-<meta property="og:description" content="farbic 网络启动过程 基于fabric-samples/first-network下手动网络启动相关文件生成和配置。   生成组织关系和身份证书 使用Cryptogen，消费一个包含网络拓扑的crypto-config.yaml，并允许我们为组织和属于这些组织的组件生成一组证书和密钥。 crypto-config.yaml文件内容如下，">
+<meta property="og:description" content="目前基于fabric1.0.6版本学习Fabric的交易流程中，主要关键节点参与，Peer节点、Orderer节点、CA节点及client端。 Peer节点 :该节点是参与交易的主体，可以说是代表每个参与到链上的成员，他负责储存完整的账本数据即区块链数据，负责共识环节中的执行智能合约，其中所有的Peer节点都维护完整的账本数据称之为Committer，而根据具体的业务划分背书策略时决定哪些Pee">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://raw.githubusercontent.com/zhulg/allpic/master/fabric-networkup.png">
-<meta property="og:updated_time" content="2018-03-20T07:35:26.000Z">
+<meta property="og:image" content="http://hyperledger-fabric.readthedocs.io/en/latest/_images/flow-4.png">
+<meta property="og:updated_time" content="2018-04-04T07:25:57.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Fabric网络启动流程记录">
-<meta name="twitter:description" content="farbic 网络启动过程 基于fabric-samples/first-network下手动网络启动相关文件生成和配置。   生成组织关系和身份证书 使用Cryptogen，消费一个包含网络拓扑的crypto-config.yaml，并允许我们为组织和属于这些组织的组件生成一组证书和密钥。 crypto-config.yaml文件内容如下，">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/zhulg/allpic/master/fabric-networkup.png">
+<meta name="twitter:title" content="Fabric交易流程概述">
+<meta name="twitter:description" content="目前基于fabric1.0.6版本学习Fabric的交易流程中，主要关键节点参与，Peer节点、Orderer节点、CA节点及client端。 Peer节点 :该节点是参与交易的主体，可以说是代表每个参与到链上的成员，他负责储存完整的账本数据即区块链数据，负责共识环节中的执行智能合约，其中所有的Peer节点都维护完整的账本数据称之为Committer，而根据具体的业务划分背书策略时决定哪些Pee">
+<meta name="twitter:image" content="http://hyperledger-fabric.readthedocs.io/en/latest/_images/flow-4.png">
   
     <link rel="alternative" href="/atom.xml" title="zhulg笔记" type="application/atom+xml">
   
@@ -156,98 +156,53 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-fabric网络启动流程记录" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-fabric交易流程概述" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Fabric网络启动流程记录
+      Fabric交易流程概述
     </h1>
   
 
         
-        <a href="/2018/03/13/fabric网络启动流程记录/" class="archive-article-date">
-  	<time datetime="2018-03-13T07:33:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-13</time>
+        <a href="/2018/04/04/fabric交易流程概述/" class="archive-article-date">
+  	<time datetime="2018-04-04T06:21:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-04</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="farbic-网络启动过程"><a href="#farbic-网络启动过程" class="headerlink" title="farbic 网络启动过程"></a>farbic 网络启动过程</h3><ul>
-<li>基于fabric-samples/first-network下手动网络启动相关文件生成和配置。</li>
+        <ul>
+<li>目前基于fabric1.0.6版本学习<h4 id="Fabric的交易流程中，主要关键节点参与，Peer节点、Orderer节点、CA节点及client端。"><a href="#Fabric的交易流程中，主要关键节点参与，Peer节点、Orderer节点、CA节点及client端。" class="headerlink" title="Fabric的交易流程中，主要关键节点参与，Peer节点、Orderer节点、CA节点及client端。"></a>Fabric的交易流程中，主要关键节点参与，Peer节点、Orderer节点、CA节点及client端。</h4></li>
+<li><strong>Peer节点</strong> :该节点是参与交易的主体，可以说是代表每个参与到链上的成员，他负责储存完整的账本数据即区块链数据，负责共识环节中的执行智能合约，其中所有的Peer节点都维护完整的账本数据称之为Committer，而根据具体的业务划分背书策略时决定哪些Peer.peer有以下角色</li>
 </ul>
-<p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/fabric-networkup.png" alt=""></p>
-<h4 id="生成组织关系和身份证书"><a href="#生成组织关系和身份证书" class="headerlink" title="生成组织关系和身份证书"></a>生成组织关系和身份证书</h4><ul>
-<li>使用Cryptogen，消费一个包含网络拓扑的crypto-config.yaml，并允许我们为组织和属于这些组织的组件生成一组证书和密钥。</li>
-<li>crypto-config.yaml文件内容如下，<a id="more"></a>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div></pre></td><td class="code"><pre><div class="line">OrdererOrgs:</div><div class="line">  # ---------------------------------------------------------------------------</div><div class="line">  # Orderer</div><div class="line">  # ---------------------------------------------------------------------------</div><div class="line">  - Name: Orderer</div><div class="line">    Domain: example.com</div><div class="line">    # ---------------------------------------------------------------------------</div><div class="line">    # &quot;Specs&quot; - See PeerOrgs below for complete description</div><div class="line">    # ---------------------------------------------------------------------------</div><div class="line">    Specs:</div><div class="line">      - Hostname: orderer</div><div class="line"># ---------------------------------------------------------------------------</div><div class="line"># &quot;PeerOrgs&quot; - Definition of organizations managing peer nodes</div><div class="line"># ---------------------------------------------------------------------------</div><div class="line">PeerOrgs:</div><div class="line">  # ---------------------------------------------------------------------------</div><div class="line">  # Org1</div><div class="line">  # ---------------------------------------------------------------------------</div><div class="line">  - Name: Org1</div><div class="line">    Domain: org1.example.com</div><div class="line">    # ---------------------------------------------------------------------------</div><div class="line">    # &quot;Specs&quot;</div><div class="line">    # ---------------------------------------------------------------------------</div><div class="line">    # Uncomment this section to enable the explicit definition of hosts in your</div><div class="line">    # configuration.  Most users will want to use Template, below</div><div class="line">    #</div><div class="line">    # Specs is an array of Spec entries.  Each Spec entry consists of two fields:</div><div class="line">    #   - Hostname:   (Required) The desired hostname, sans the domain.</div><div class="line">    #   - CommonName: (Optional) Specifies the template or explicit override for</div><div class="line">    #                 the CN.  By default, this is the template:</div><div class="line">    #</div><div class="line">    #                              &quot;&#123;&#123;.Hostname&#125;&#125;.&#123;&#123;.Domain&#125;&#125;&quot;</div><div class="line">    #</div><div class="line">    #                 which obtains its values from the Spec.Hostname and</div><div class="line">    #                 Org.Domain, respectively.</div><div class="line">    # ---------------------------------------------------------------------------</div><div class="line">    # Specs:</div><div class="line">    #   - Hostname: foo # implicitly &quot;foo.org1.example.com&quot;</div><div class="line">    #     CommonName: foo27.org5.example.com # overrides Hostname-based FQDN set above</div><div class="line">    #   - Hostname: bar</div><div class="line">    #   - Hostname: baz</div><div class="line">    # ---------------------------------------------------------------------------</div><div class="line">    # &quot;Template&quot;</div><div class="line">    # ---------------------------------------------------------------------------</div><div class="line">    # Allows for the definition of 1 or more hosts that are created sequentially</div><div class="line">    # from a template. By default, this looks like &quot;peer%d&quot; from 0 to Count-1.</div><div class="line">    # You may override the number of nodes (Count), the starting index (Start)</div><div class="line">    # or the template used to construct the name (Hostname).</div><div class="line">    #</div><div class="line">    # Note: Template and Specs are not mutually exclusive.  You may define both</div><div class="line">    # sections and the aggregate nodes will be created for you.  Take care with</div><div class="line">    # name collisions</div><div class="line">    # ---------------------------------------------------------------------------</div><div class="line">    Template:</div><div class="line">      Count: 2</div><div class="line">      # Start: 5</div><div class="line">      # Hostname: &#123;&#123;.Prefix&#125;&#125;&#123;&#123;.Index&#125;&#125; # default</div><div class="line">    # ---------------------------------------------------------------------------</div><div class="line">    # &quot;Users&quot;</div><div class="line">    # ---------------------------------------------------------------------------</div><div class="line">    # Count: The number of user accounts _in addition_ to Admin</div><div class="line">    # ---------------------------------------------------------------------------</div><div class="line">    Users:</div><div class="line">      Count: 1</div><div class="line">  # ---------------------------------------------------------------------------</div><div class="line">  # Org2: See &quot;Org1&quot; for full specification</div><div class="line">  # ---------------------------------------------------------------------------</div><div class="line">  - Name: Org2</div><div class="line">    Domain: org2.example.com</div><div class="line">    Template:</div><div class="line">      Count: 2</div><div class="line">    Users:</div><div class="line">      Count: 1</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">背书节点(Endorse Peer): 背书节点和具体的chaincode绑定，每个chaincode在实例化时会设置背书策略，在chaincode调用时需满足背书策略从背书节点收集足够的签名背书时交易才有效</div><div class="line">主节点(Leader Peer)：Leader Peer负责和排序节点Orderer进行通信，Leader Peer可通过选举产生</div><div class="line">记账节点(普通的Peer)：只负责验证交易和记账</div></pre></td></tr></table></figure>
+<a id="more"></a>
 <ul>
-<li>在这个文件里有一个count变量。我们将使用它来指定每个组织中peer的数量;例子中，每个组织有两个peer</li>
-<li>我们运行cryptogen工具，生成的证书和密钥将被保存到名为crypto-config的文件夹中。(cryptogen需要配置在环境变量才能这么用)</li>
+<li><strong>Orderer节点</strong>:该节点接受包含背书签名的交易请求进行排序并打包生产新的区块，主体功能便是对交易排序从而保证各Peer节点上的数据一致性，也包含了ACL进行访问控制。目前Hyperledger Fabric的多个Orderer节点连接到Kafka集群利用Kafka的共识功能完成交易的排序和打包。</li>
+<li><strong>CA节点</strong>:该节点负责对加入链内的所有节点进行授权认证，包括上层的client端，每一个节点都有其颁发的证书用于交易流程中的身份识别。</li>
+<li><strong>client</strong>: Fabric对于client端提供了SDK让开发人员可以更容易的对接到区块链内的交易环节，交易的发起便是通过SDK进行。</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">cryptogen generate  --config=./crypto-config.yaml</div><div class="line">org1.example.com</div><div class="line">org2.example.com</div></pre></td></tr></table></figure>
+<h4 id="交易流程图"><a href="#交易流程图" class="headerlink" title="交易流程图"></a>交易流程图</h4><ul>
+<li><strong>整个执行流程</strong>：</li>
+<li>1,应用程序创建交易提案并提交给背书节点</li>
+<li>2,背书节点模拟执行交易并完成背书签名，</li>
+<li>3,背书节点将背书签名和模拟交易结果返回给应用程序</li>
+<li>4,应用程序需收集足够的交易背书，构建交易请求后发送给排序节点</li>
+<li>5,排序节点对交易进行排序并生成区块</li>
+<li>6,排序节点生成区块后会广播给通道上不同组织的主节点</li>
+<li>7,记账节点从主节点同步区块，验证区块内容并写入区块(所有的Peer节点都是记账节点)</li>
+</ul>
+<h4 id="官方图解主要包含4大步骤"><a href="#官方图解主要包含4大步骤" class="headerlink" title="官方图解主要包含4大步骤"></a>官方图解主要包含4大步骤</h4><p><img src="http://hyperledger-fabric.readthedocs.io/en/latest/_images/flow-4.png" alt=""></p>
 <ul>
-<li>其中里面生成额对应的秘钥和证书文件</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div></pre></td><td class="code"><pre><div class="line">├── ordererOrganizations</div><div class="line">│   └── example.com</div><div class="line">│       ├── ca</div><div class="line">│       │   ├── ca.example.com-cert.pem</div><div class="line">│       │   └── feb74b240fa3568a7d6966b7021cd5a7f186a1d91bece747844e27a8540dc465_sk</div><div class="line">│       ├── msp</div><div class="line">│       │   ├── admincerts</div><div class="line">│       │   ├── cacerts</div><div class="line">│       │   └── tlscacerts</div><div class="line">│       ├── orderers</div><div class="line">│       │   └── orderer.example.com</div><div class="line">│       ├── tlsca</div><div class="line">│       │   ├── e5622d48e5fd8e3b982d6e7f6ebed20321f1de0d1478f9d0c1b4f63dc894ccbf_sk</div><div class="line">│       │   └── tlsca.example.com-cert.pem</div><div class="line">│       └── users</div><div class="line">│           └── Admin@example.com</div><div class="line">└── peerOrganizations</div><div class="line">    ├── org1.example.com</div><div class="line">    │   ├── ca</div><div class="line">    │   │   ├── ca.org1.example.com-cert.pem</div><div class="line">    │   │   └── f5c0954e487ff4e71f77478db2ad2e14c92ffd0b5d093a1c73b64ae233a2813f_sk</div><div class="line">    │   ├── msp</div><div class="line">    │   │   ├── admincerts</div><div class="line">    │   │   ├── cacerts</div><div class="line">    │   │   └── tlscacerts</div><div class="line">    │   ├── peers</div><div class="line">    │   │   ├── peer0.org1.example.com</div><div class="line">    │   │   └── peer1.org1.example.com</div><div class="line">    │   ├── tlsca</div><div class="line">    │   │   ├── 8d07c6968bea26c1277c5cf3bba114bf7c683e97bafc8eadf412fd97d5034cad_sk</div><div class="line">    │   │   └── tlsca.org1.example.com-cert.pem</div><div class="line">    │   └── users</div><div class="line">    │       ├── Admin@org1.example.com</div><div class="line">    │       └── User1@org1.example.com</div><div class="line">    └── org2.example.com</div><div class="line">        ├── ca</div><div class="line">        │   ├── ca.org2.example.com-cert.pem</div><div class="line">        │   └── cffd49870ddd4088820ee7787c60f77ee07c42f2e05ac0e9fe94fac77c972fc1_sk</div><div class="line">        ├── msp</div><div class="line">        │   ├── admincerts</div><div class="line">        │   ├── cacerts</div><div class="line">        │   └── tlscacerts</div><div class="line">        ├── peers</div><div class="line">        │   ├── peer0.org2.example.com</div><div class="line">        │   └── peer1.org2.example.com</div><div class="line">        ├── tlsca</div><div class="line">        │   ├── 5f3f535f85bd861c1f7770f058f05e4a899506b5396ebd357db223b4590b49ba_sk</div><div class="line">        │   └── tlsca.org2.example.com-cert.pem</div><div class="line">        └── users</div><div class="line">            ├── Admin@org2.example.com</div><div class="line">            └── User1@org2.example.com</div></pre></td></tr></table></figure>
-<ul>
-<li><p>crypto-config目录下产生一个order组织目录，和peer组织目录</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"> cd crypto-config$ls</div><div class="line">ordererOrganizations	peerOrganizations</div></pre></td></tr></table></figure>
-</li>
-<li><p>进入后发现peerOrganizations下会有2个组织(org1.example.com ，org2.example.com)，4个节点(peer0.org1.example.com，peer1.org1.example.com, peer0.org2.example.com ，peer1.org2.example.com)</p>
-</li>
-</ul>
-<h3 id="ordering服务启动初始区块"><a href="#ordering服务启动初始区块" class="headerlink" title="ordering服务启动初始区块"></a>ordering服务启动初始区块</h3><ul>
-<li>orderer节点在启动时候，可以指定使用提前生成的初始化区块文件作为系统通道的初始配置，初始区块中包含了ordering服务配置信息和联盟信息。</li>
-<li>初始区块使用configtxgen工具生成，依赖configtx.yaml文件，这个文件定义了整个网络中相关配置和拓扑结构信息。（first-network下的这个文件）</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div></pre></td><td class="code"><pre><div class="line"># Copyright IBM Corp. All Rights Reserved.</div><div class="line">#</div><div class="line"># SPDX-License-Identifier: Apache-2.0</div><div class="line">#</div><div class="line"></div><div class="line">---</div><div class="line">################################################################################</div><div class="line">#</div><div class="line">#   Profile</div><div class="line">#</div><div class="line">#   - Different configuration profiles may be encoded here to be specified</div><div class="line">#   as parameters to the configtxgen tool</div><div class="line">#</div><div class="line">################################################################################</div><div class="line">Profiles:</div><div class="line"></div><div class="line">    TwoOrgsOrdererGenesis:</div><div class="line">        Orderer:</div><div class="line">            &lt;&lt;: *OrdererDefaults</div><div class="line">            Organizations:</div><div class="line">                - *OrdererOrg</div><div class="line">        Consortiums:</div><div class="line">            SampleConsortium:</div><div class="line">                Organizations:</div><div class="line">                    - *Org1</div><div class="line">                    - *Org2</div><div class="line">    TwoOrgsChannel:</div><div class="line">        Consortium: SampleConsortium</div><div class="line">        Application:</div><div class="line">            &lt;&lt;: *ApplicationDefaults</div><div class="line">            Organizations:</div><div class="line">                - *Org1</div><div class="line">                - *Org2</div><div class="line"></div><div class="line">################################################################################</div><div class="line">#</div><div class="line">#   Section: Organizations</div><div class="line">#</div><div class="line">#   - This section defines the different organizational identities which will</div><div class="line">#   be referenced later in the configuration.</div><div class="line">#</div><div class="line">################################################################################</div><div class="line">Organizations:</div><div class="line"></div><div class="line">    # SampleOrg defines an MSP using the sampleconfig.  It should never be used</div><div class="line">    # in production but may be used as a template for other definitions</div><div class="line">    - &amp;OrdererOrg</div><div class="line">        # DefaultOrg defines the organization which is used in the sampleconfig</div><div class="line">        # of the fabric.git development environment</div><div class="line">        Name: OrdererOrg</div><div class="line"></div><div class="line">        # ID to load the MSP definition as</div><div class="line">        ID: OrdererMSP</div><div class="line"></div><div class="line">        # MSPDir is the filesystem path which contains the MSP configuration</div><div class="line">        MSPDir: crypto-config/ordererOrganizations/example.com/msp</div><div class="line"></div><div class="line">    - &amp;Org1</div><div class="line">        # DefaultOrg defines the organization which is used in the sampleconfig</div><div class="line">        # of the fabric.git development environment</div><div class="line">        Name: Org1MSP</div><div class="line"></div><div class="line">        # ID to load the MSP definition as</div><div class="line">        ID: Org1MSP</div><div class="line"></div><div class="line">        MSPDir: crypto-config/peerOrganizations/org1.example.com/msp</div><div class="line"></div><div class="line">        AnchorPeers:</div><div class="line">            # AnchorPeers defines the location of peers which can be used</div><div class="line">            # for cross org gossip communication.  Note, this value is only</div><div class="line">            # encoded in the genesis block in the Application section context</div><div class="line">            - Host: peer0.org1.example.com</div><div class="line">              Port: 7051</div><div class="line"></div><div class="line">    - &amp;Org2</div><div class="line">        # DefaultOrg defines the organization which is used in the sampleconfig</div><div class="line">        # of the fabric.git development environment</div><div class="line">        Name: Org2MSP</div><div class="line"></div><div class="line">        # ID to load the MSP definition as</div><div class="line">        ID: Org2MSP</div><div class="line"></div><div class="line">        MSPDir: crypto-config/peerOrganizations/org2.example.com/msp</div><div class="line"></div><div class="line">        AnchorPeers:</div><div class="line">            # AnchorPeers defines the location of peers which can be used</div><div class="line">            # for cross org gossip communication.  Note, this value is only</div><div class="line">            # encoded in the genesis block in the Application section context</div><div class="line">            - Host: peer0.org2.example.com</div><div class="line">              Port: 7051</div><div class="line"></div><div class="line">################################################################################</div><div class="line">#</div><div class="line">#   SECTION: Orderer</div><div class="line">#</div><div class="line">#   - This section defines the values to encode into a config transaction or</div><div class="line">#   genesis block for orderer related parameters</div><div class="line">#</div><div class="line">################################################################################</div><div class="line">Orderer: &amp;OrdererDefaults</div><div class="line"></div><div class="line">    # Orderer Type: The orderer implementation to start</div><div class="line">    # Available types are &quot;solo&quot; and &quot;kafka&quot;</div><div class="line">    OrdererType: solo</div><div class="line"></div><div class="line">    Addresses:</div><div class="line">        - orderer.example.com:7050</div><div class="line"></div><div class="line">    # Batch Timeout: The amount of time to wait before creating a batch</div><div class="line">    BatchTimeout: 2s</div><div class="line"></div><div class="line">    # Batch Size: Controls the number of messages batched into a block</div><div class="line">    BatchSize:</div><div class="line"></div><div class="line">        # Max Message Count: The maximum number of messages to permit in a batch</div><div class="line">        MaxMessageCount: 10</div><div class="line"></div><div class="line">        # Absolute Max Bytes: The absolute maximum number of bytes allowed for</div><div class="line">        # the serialized messages in a batch.</div><div class="line">        AbsoluteMaxBytes: 99 MB</div><div class="line"></div><div class="line">        # Preferred Max Bytes: The preferred maximum number of bytes allowed for</div><div class="line">        # the serialized messages in a batch. A message larger than the preferred</div><div class="line">        # max bytes will result in a batch larger than preferred max bytes.</div><div class="line">        PreferredMaxBytes: 512 KB</div><div class="line"></div><div class="line">    Kafka:</div><div class="line">        # Brokers: A list of Kafka brokers to which the orderer connects</div><div class="line">        # NOTE: Use IP:port notation</div><div class="line">        Brokers:</div><div class="line">            - 127.0.0.1:9092</div><div class="line"></div><div class="line">    # Organizations is the list of orgs which are defined as participants on</div><div class="line">    # the orderer side of the network</div><div class="line">    Organizations:</div><div class="line"></div><div class="line">################################################################################</div><div class="line">#</div><div class="line">#   SECTION: Application</div><div class="line">#</div><div class="line">#   - This section defines the values to encode into a config transaction or</div><div class="line">#   genesis block for application related parameters</div><div class="line">#</div><div class="line">################################################################################</div><div class="line">Application: &amp;ApplicationDefaults</div><div class="line"></div><div class="line">    # Organizations is the list of orgs which are defined as participants on</div><div class="line">    # the application side of the network</div><div class="line">    Organizations:</div></pre></td></tr></table></figure>
-<ul>
-<li>该模板定义了TwoOrgsOrdererGenesis 和TwoOrgsChannel , TwoOrgsOrdererGenesis用于生成ordering服务初始区块文件。</li>
-<li>我们需要设置一个环境变量来告诉configtxgen哪里去寻找configtx.yaml。然后，我们将调用configtxgen工具去创建orderer genesis block：</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">export FABRIC_CFG_PATH=$PWD</div><div class="line">configtxgen -profile TwoOrgsOrdererGenesis -outputBlock ./channel-artifacts/genesis.block</div><div class="line">2018-03-13 16:52:18.697 CST [common/configtx/tool] main -&gt; INFO 001 Loading configuration</div><div class="line">2018-03-13 16:52:18.736 CST [common/configtx/tool] doOutputBlock -&gt; INFO 002 Generating genesis block</div><div class="line">2018-03-13 16:52:18.739 CST [common/configtx/tool] doOutputBlock -&gt; INFO 003 Writing genesis block</div></pre></td></tr></table></figure>
-<ul>
-<li>在/channel-artifacts目录下看到生成的genesis.block</li>
-</ul>
-<h4 id="创建交易通道配置"><a href="#创建交易通道配置" class="headerlink" title="创建交易通道配置"></a>创建交易通道配置</h4><ul>
-<li>我们需要创建channel transaction配置。请确保替换$CHANNEL_NAME或者将CHANNEL_NAME设置为整个说明中可以使用的环境变量：</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">export CHANNEL_NAME=mychannel</div><div class="line"># this file contains the definitions for our sample channel</div><div class="line">configtxgen -profile TwoOrgsChannel -outputCreateChannelTx ./channel-artifacts/channel.tx -channelID $CHANNEL_NAME</div><div class="line">2018-03-13 17:32:39.744 CST [common/configtx/tool] main -&gt; INFO 001 Loading configuration</div><div class="line">2018-03-13 17:32:39.750 CST [common/configtx/tool] doOutputChannelCreateTx -&gt; INFO 002 Generating new channel configtx</div><div class="line">2018-03-13 17:32:39.751 CST [common/configtx/tool] doOutputChannelCreateTx -&gt; INFO 003 Writing new channel tx</div></pre></td></tr></table></figure>
-<ul>
-<li><p>在channel-artifacts目录下看到生成的channel.tx</p>
-</li>
-<li><p>生成锚节点配置更新文件（每个组织中第一个节点peer0作为锚节点与其他组织进行通信）</p>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">configtxgen -profile TwoOrgsChannel -outputAnchorPeersUpdate ./channel-artifacts/Org1MSPanchors.</div><div class="line">2018-03-13 17:44:26.627 CST [common/configtx/tool] main -&gt; INFO 001 Loading configuration</div><div class="line">2018-03-13 17:44:26.634 CST [common/configtx/tool] doOutputAnchorPeersUpdate -&gt; INFO 002 Generating anchor peer update</div><div class="line">2018-03-13 17:44:26.635 CST [common/configtx/tool] doOutputAnchorPeersUpdate -&gt; INFO 003 Writing anchor peer update</div><div class="line">tx -channelID $CHANNEL_NAME -asOrg Org2MSPin/fabric-samples/first-network$configtxgen -profile TwoOrgsChannel -outputAnchorPeersUpdate ./channel-artifacts/Org2MSPanchors.</div><div class="line">2018-03-13 17:44:35.236 CST [common/configtx/tool] main -&gt; INFO 001 Loading configuration</div><div class="line">2018-03-13 17:44:35.239 CST [common/configtx/tool] doOutputAnchorPeersUpdate -&gt; INFO 002 Generating anchor peer update</div><div class="line">2018-03-13 17:44:35.239 CST [common/configtx/tool] doOutputAnchorPeersUpdate -&gt; INFO 003 Writing anchor peer update</div></pre></td></tr></table></figure>
-<ul>
-<li>channel-artifacts目录下生成了</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Org1MSPanchors.tx	Org2MSPanchors.tx	channel.tx  genesis.block</div></pre></td></tr></table></figure>
-<h3 id="启动网络"><a href="#启动网络" class="headerlink" title="启动网络"></a>启动网络</h3><ul>
-<li><p>我们将利用docker-compose-cli.yaml脚本来启动我们的区块链网络。docker-compose-cli.yaml文件利用我们之前下载的镜像，并用以前生成的genesis.block来引导orderer。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">working_dir: /opt/gopath/src/github.com/hyperledger/fabric/peer</div><div class="line"># command: /bin/bash -c &apos;./scripts/script.sh $&#123;CHANNEL_NAME&#125;; sleep $TIMEOUT&apos;</div><div class="line">volumes</div><div class="line">如果没有注释掉docker-compose-cli.yaml里这行，该脚本将在网络启动时执行所有命令</div></pre></td></tr></table></figure>
-</li>
-<li><p>启动这个网络</p>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">$CHANNEL_NAME=$CHANNEL_NAME TIMEOUT=1000 docker-compose -f docker-compose-cli.yaml up -d</div><div class="line">Creating peer0.org1.example.com ... done</div><div class="line">Creating cli ... done</div><div class="line">Creating peer0.org2.example.com ...</div><div class="line">Creating orderer.example.com ...</div><div class="line">Creating peer1.org2.example.com ...</div><div class="line">Creating peer0.org1.example.com ...</div><div class="line">Creating cli ...</div></pre></td></tr></table></figure>
-<h3 id="创建并加入通道"><a href="#创建并加入通道" class="headerlink" title="创建并加入通道"></a>创建并加入通道</h3><ul>
-<li>确保容器已经起来后，执行</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">- docker exec -it cli bash</div><div class="line">root@0d78bb69300d:/opt/gopath/src/github.com/hyperledger/fabric/peer#</div><div class="line">接下来执行：</div><div class="line">export CHANNEL_NAME=mychannel</div><div class="line">peer channel create -o orderer.example.com:7050 -c $CHANNEL_NAME -f ./channel-artifacts/channel.tx --tls $CORE_PEER_TLS_ENABLED --cafile /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem</div></pre></td></tr></table></figure>
-<ul>
-<li>创建成功会生成 mychannel.block</li>
-<li>peer channel join -b mychannel.block 节点加入通道，这个节点是 CORE_PEER_ADDRESS=peer0.org1.example.com:7051 可以修改cli容器里的地址进行让其他节点加入进行了</li>
-</ul>
-<h4 id="安装和实例化链码"><a href="#安装和实例化链码" class="headerlink" title="安装和实例化链码"></a>安装和实例化链码</h4><ul>
-<li><a href="https://zhulg.github.io/2018/03/01/Hyperledger-Fabric-Chaincode%E7%90%86%E8%A7%A3/" target="_blank" rel="external">参见其他笔记</a></li>
+<li>由client发起一个交易请求，而上图中的背书策略要求Peer1、Peer2及Peer3参与交易，所以client将请求分别发给Pee1、Peer2和Peer3</li>
+<li>三个Peer接收到交易请求后执行对应的智能合约并对结果进行签名然后分别将输出结果返回给client</li>
+<li>client收到所有执行结果后打包一并发送到Orderer</li>
+<li>Orderer将接收到的该次交易在交易池里进行排序并组合打包生成一个新的区块，Orderer将新的区块发送给所有的Peer节点，每个Peer节点接收到新区块后，对其中的每一笔交易结果的签名进行验证是否符合背书策略，以及比对读写集合（Read-Write Set，在下面的章节中解释）与本地的版本是否相同，如满足所有条件则将新的区块写入本地账本内完成交易。</li>
 </ul>
 
       
@@ -282,6 +237,10 @@
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">fabric</a>
+        		</li>
+      		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">区块链</a>
         		</li>
@@ -339,7 +298,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2018/03/13/fabric网络启动流程记录/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2018/04/04/fabric交易流程概述/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -353,18 +312,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/03/16/fabrci和node-sdk使用分析记录/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Fabrci和node Sdk使用分析记录
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/03/09/go代码结构及开发注意/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Go代码结构及开发注意</div>
+    <a href="/2018/03/28/fabric使用开发模式编写chaincode/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Fabric使用开发模式编写chaincode</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -496,15 +446,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">fabric</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">区块链</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">分布式/集群</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">fabric</a>
+                <a href="javascript:void(0)" class="js-tag color5">超级账本</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -512,11 +462,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">docker</a>
+                <a href="javascript:void(0)" class="js-tag color2">分布式/集群</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">go</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">chaincode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -532,11 +490,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">jenkins</a>
+                <a href="javascript:void(0)" class="js-tag color4">K8S</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">K8S</a>
+                <a href="javascript:void(0)" class="js-tag color3">jenkins</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -552,11 +510,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redis</a>
+                <a href="javascript:void(0)" class="js-tag color3">springboot相关</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">springboot相关</a>
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -576,11 +534,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">大数据&机器学习</a>
+                <a href="javascript:void(0)" class="js-tag color1">fabric-node-sdk</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">webstom</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">推荐系统</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">大数据&机器学习</a>
               </li>
             
             <div class="clearfix"></div>
