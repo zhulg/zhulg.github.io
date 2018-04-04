@@ -18,7 +18,7 @@
 <meta property="og:description" content="目前基于fabric1.0.6版本学习Fabric的交易流程中，主要关键节点参与，Peer节点、Orderer节点、CA节点及client端。 Peer节点 :该节点是参与交易的主体，可以说是代表每个参与到链上的成员，他负责储存完整的账本数据即区块链数据，负责共识环节中的执行智能合约，其中所有的Peer节点都维护完整的账本数据称之为Committer，而根据具体的业务划分背书策略时决定哪些Pee">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://hyperledger-fabric.readthedocs.io/en/latest/_images/flow-4.png">
-<meta property="og:updated_time" content="2018-04-04T07:25:57.000Z">
+<meta property="og:updated_time" content="2018-04-04T07:31:05.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Fabric交易流程概述">
 <meta name="twitter:description" content="目前基于fabric1.0.6版本学习Fabric的交易流程中，主要关键节点参与，Peer节点、Orderer节点、CA节点及client端。 Peer节点 :该节点是参与交易的主体，可以说是代表每个参与到链上的成员，他负责储存完整的账本数据即区块链数据，负责共识环节中的执行智能合约，其中所有的Peer节点都维护完整的账本数据称之为Committer，而根据具体的业务划分背书策略时决定哪些Pee">
@@ -190,7 +190,7 @@
 <h4 id="交易流程图"><a href="#交易流程图" class="headerlink" title="交易流程图"></a>交易流程图</h4><ul>
 <li><strong>整个执行流程</strong>：</li>
 <li>1,应用程序创建交易提案并提交给背书节点</li>
-<li>2,背书节点模拟执行交易并完成背书签名，</li>
+<li>2,背书节点模拟执行交易并完成背书签名</li>
 <li>3,背书节点将背书签名和模拟交易结果返回给应用程序</li>
 <li>4,应用程序需收集足够的交易背书，构建交易请求后发送给排序节点</li>
 <li>5,排序节点对交易进行排序并生成区块</li>
@@ -199,10 +199,10 @@
 </ul>
 <h4 id="官方图解主要包含4大步骤"><a href="#官方图解主要包含4大步骤" class="headerlink" title="官方图解主要包含4大步骤"></a>官方图解主要包含4大步骤</h4><p><img src="http://hyperledger-fabric.readthedocs.io/en/latest/_images/flow-4.png" alt=""></p>
 <ul>
-<li>由client发起一个交易请求，而上图中的背书策略要求Peer1、Peer2及Peer3参与交易，所以client将请求分别发给Pee1、Peer2和Peer3</li>
-<li>三个Peer接收到交易请求后执行对应的智能合约并对结果进行签名然后分别将输出结果返回给client</li>
-<li>client收到所有执行结果后打包一并发送到Orderer</li>
-<li>Orderer将接收到的该次交易在交易池里进行排序并组合打包生成一个新的区块，Orderer将新的区块发送给所有的Peer节点，每个Peer节点接收到新区块后，对其中的每一笔交易结果的签名进行验证是否符合背书策略，以及比对读写集合（Read-Write Set，在下面的章节中解释）与本地的版本是否相同，如满足所有条件则将新的区块写入本地账本内完成交易。</li>
+<li><strong>步骤1</strong>：由client发起一个交易请求，而上图中的背书策略要求Peer1、Peer2及Peer3参与交易，所以client将请求分别发给Pee1、Peer2和Peer3</li>
+<li><strong>步骤2</strong>：三个Peer接收到交易请求后执行对应的智能合约并对结果进行签名然后分别将输出结果返回给client</li>
+<li><strong>步骤3</strong>：client收到所有执行结果后打包一并发送到Orderer</li>
+<li><strong>步骤4</strong>：Orderer将接收到的该次交易在交易池里进行排序并组合打包生成一个新的区块，Orderer将新的区块发送给所有的Peer节点，每个Peer节点接收到新区块后，对其中的每一笔交易结果的签名进行验证是否符合背书策略，以及比对读写集合与本地的版本是否相同，如满足所有条件则将新的区块写入本地账本内完成交易。</li>
 </ul>
 
       
@@ -442,10 +442,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Elasticsearch</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">fabric</a>
               </li>
              
@@ -454,11 +450,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">超级账本</a>
+                <a href="javascript:void(0)" class="js-tag color4">Elasticsearch</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">AWK</a>
+                <a href="javascript:void(0)" class="js-tag color5">超级账本</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -466,11 +462,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">go</a>
+                <a href="javascript:void(0)" class="js-tag color4">AWK</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">docker</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">go</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -506,7 +506,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -514,7 +514,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redis</a>
+                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -530,15 +530,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">git/github/gitlab</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">fabric-node-sdk</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">webstom</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">git/github/gitlab</a>
               </li>
              
               <li class="article-tag-list-item">
