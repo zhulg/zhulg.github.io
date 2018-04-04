@@ -10,14 +10,14 @@
   <title>Fabric使用开发模式编写chaincode | zhulg笔记</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="在开发者模式下编写调试chaincode 在fabric-examples下提供有开发者模式，编译快速对chaincode的编写。 进入chaincode-docker-devmode，基于docker方式快速构建一个开发模式的网络。  1docker-compose -f docker-compose-simple.yaml up">
-<meta name="keywords" content="区块链,fabric,chaincode">
+<meta name="keywords" content="fabric,区块链,chaincode">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Fabric使用开发模式编写chaincode">
 <meta property="og:url" content="http://yoursite.com/2018/03/28/fabric使用开发模式编写chaincode/index.html">
 <meta property="og:site_name" content="zhulg笔记">
 <meta property="og:description" content="在开发者模式下编写调试chaincode 在fabric-examples下提供有开发者模式，编译快速对chaincode的编写。 进入chaincode-docker-devmode，基于docker方式快速构建一个开发模式的网络。  1docker-compose -f docker-compose-simple.yaml up">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-28T09:57:59.000Z">
+<meta property="og:updated_time" content="2018-04-04T09:00:09.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Fabric使用开发模式编写chaincode">
 <meta name="twitter:description" content="在开发者模式下编写调试chaincode 在fabric-examples下提供有开发者模式，编译快速对chaincode的编写。 进入chaincode-docker-devmode，基于docker方式快速构建一个开发模式的网络。  1docker-compose -f docker-compose-simple.yaml up">
@@ -187,13 +187,13 @@
 </li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">CONTAINER ID        IMAGE                        COMMAND                  CREATED             STATUS              PORTS                                            NAMES</div><div class="line">3d089e92ccc5        hyperledger/fabric-ccenv     &quot;/bin/bash -c &apos;sleep…&quot;   44 minutes ago      Up 44 minutes                                                        chaincode</div><div class="line">c6e93a9603f9        hyperledger/fabric-tools     &quot;/bin/bash -c ./scri…&quot;   44 minutes ago      Up 44 minutes                                                        cli</div><div class="line">84a87f2f2ab2        hyperledger/fabric-peer      &quot;peer node start --p…&quot;   44 minutes ago      Up 44 minutes       0.0.0.0:7051-&gt;7051/tcp, 0.0.0.0:7053-&gt;7053/tcp   peer</div><div class="line">2d4e748b5041        hyperledger/fabric-orderer   &quot;orderer&quot;                44 minutes ago      Up 44 minutes       0.0.0.0:7050-&gt;7050/tcp                           orderer</div></pre></td></tr></table></figure>
-<h4 id="初始化和实例化链码"><a href="#初始化和实例化链码" class="headerlink" title="初始化和实例化链码"></a>初始化和实例化链码</h4><ul>
+<h4 id="启动网络并运行链码"><a href="#启动网络并运行链码" class="headerlink" title="启动网络并运行链码"></a>启动网络并运行链码</h4><ul>
 <li>具体信息可以看ymal里的配置，可以看到创建了myc通道，和一个peer,order节点</li>
 <li>进入chaincode容器 docker exec -it chaincode bash</li>
 <li>编译（go build）并启动chaincode<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">CORE_PEER_ADDRESS=peer:7051 CORE_CHAINCODE_ID_NAME=mycc:0 ./chaincode_example02</div></pre></td></tr></table></figure>
 </li>
 </ul>
-<h4 id="实例化链码和查询"><a href="#实例化链码和查询" class="headerlink" title="实例化链码和查询"></a>实例化链码和查询</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">peer chaincode instantiate -n mycc -v 0 -c &apos;&#123;&quot;Args&quot;:[&quot;init&quot;,&quot;a&quot;,&quot;100&quot;,&quot;b&quot;,&quot;200&quot;]&#125;&apos; -o orderer:7050 -C myc</div><div class="line">peer chaincode invoke -n mycc -c &apos;&#123;&quot;Args&quot;:[&quot;invoke&quot;,&quot;a&quot;,&quot;b&quot;,&quot;10&quot;]&#125;&apos; -o orderer:7050 -C myc</div><div class="line">peer chaincode query -n mycc -c &apos;&#123;&quot;Args&quot;:[&quot;query&quot;,&quot;a&quot;]&#125;&apos; -o orderer -C myc</div></pre></td></tr></table></figure>
+<h4 id="实例化链码和查询"><a href="#实例化链码和查询" class="headerlink" title="实例化链码和查询"></a>实例化链码和查询</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">docker exec -it peer bash</div><div class="line">peer chaincode install -n mycc -v 0 -p  chaincodedev/chaincode/chaincode_example02</div><div class="line">peer chaincode instantiate -n mycc -v 0 -c &apos;&#123;&quot;Args&quot;:[&quot;init&quot;,&quot;a&quot;,&quot;100&quot;,&quot;b&quot;,&quot;200&quot;]&#125;&apos; -o orderer:7050 -C myc</div><div class="line">peer chaincode invoke -n mycc -c &apos;&#123;&quot;Args&quot;:[&quot;invoke&quot;,&quot;a&quot;,&quot;b&quot;,&quot;10&quot;]&#125;&apos; -o orderer:7050 -C myc</div><div class="line">peer chaincode query -n mycc -c &apos;&#123;&quot;Args&quot;:[&quot;query&quot;,&quot;a&quot;]&#125;&apos; -o orderer -C myc</div></pre></td></tr></table></figure>
       
 
       
@@ -227,11 +227,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">区块链</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">fabric</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">fabric</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">区块链</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -444,7 +444,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Elasticsearch</a>
+                <a href="javascript:void(0)" class="js-tag color2">fabric</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -452,7 +452,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">fabric</a>
+                <a href="javascript:void(0)" class="js-tag color4">Elasticsearch</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -488,15 +488,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">K8S</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">springcloud</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">jenkins</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">K8S</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -512,11 +512,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">springboot相关</a>
+                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
+                <a href="javascript:void(0)" class="js-tag color3">springboot相关</a>
               </li>
              
               <li class="article-tag-list-item">
