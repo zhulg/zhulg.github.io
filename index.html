@@ -151,6 +151,86 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-fabric中数据存储" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/04/10/fabric中数据存储/">Fabric中数据存储</a>
+    </h1>
+  
+
+        
+        <a href="/2018/04/10/fabric中数据存储/" class="archive-article-date">
+  	<time datetime="2018-04-10T07:49:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="fabric中默认存储库levelDb"><a href="#fabric中默认存储库levelDb" class="headerlink" title="fabric中默认存储库levelDb"></a>fabric中默认存储库levelDb</h3><h4 id="存储设计"><a href="#存储设计" class="headerlink" title="存储设计"></a>存储设计</h4><ul>
+<li>要达到数据不可篡改首先从数据结构上来看是一个链式存储，也是区块链之所以称之为区块链的原因。</li>
+<li>每个存储单元包含上一存储单元的hash值以及自身存储的交易数据块，可以从表象来看就像把所有数据块连接在一起，称之为“区块链”，形成链状可追述的交易记录。</li>
+<li>这种链状结构的数据称之为账本数据，保存着所有交易的记录，有普通文件保存，还有一个“世界状态”，其实质为Key-Value数据库，维护着交易数据的最终状态，便于查询等操作运算，并且每个数据都有其对应的版本号。</li>
+</ul>
+        
+          <a class="article-more-a" href="/2018/04/10/fabric中数据存储/#more">查看全文 >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">区块链</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">fabric</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-fabric交易流程概述" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -191,11 +271,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">fabric</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">区块链</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">区块链</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">fabric</a>
         		</li>
       		
 		</ul>
@@ -271,11 +351,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">fabric</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">区块链</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">区块链</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">fabric</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -440,11 +520,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">fabric</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">区块链</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">区块链</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">fabric</a>
         		</li>
       		
 		</ul>
@@ -521,11 +601,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">fabric</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">区块链</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">区块链</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">fabric</a>
         		</li>
       		
 		</ul>
@@ -814,86 +894,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">fabric</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">区块链</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">区块链</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-go代码结构及开发注意" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/09/go代码结构及开发注意/">Go代码结构及开发注意</a>
-    </h1>
-  
-
-        
-        <a href="/2018/03/09/go代码结构及开发注意/" class="archive-article-date">
-  	<time datetime="2018-03-09T07:10:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-09</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ul>
-<li>Go 代码必须保存在工作区中, 工作区就是一个特定的目录结构, 根目录下有如下3个目录</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">src 目录: 存放 go 源码文件, 按 package 来组织 (一个 package 一个文件夹)</div><div class="line">pkg 目录: 存放 package 对象</div><div class="line">bin 目录: 存放可执行的命令command</div></pre></td></tr></table></figure>
-        
-          <a class="article-more-a" href="/2018/03/09/go代码结构及开发注意/#more">查看全文 >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">go</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">fabric</a>
         		</li>
       		
 		</ul>
@@ -1030,7 +1035,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">fabric</a>
+                <a href="javascript:void(0)" class="js-tag color4">Elasticsearch</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1038,7 +1043,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Elasticsearch</a>
+                <a href="javascript:void(0)" class="js-tag color2">fabric</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1074,11 +1079,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">K8S</a>
+                <a href="javascript:void(0)" class="js-tag color2">springcloud</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">springcloud</a>
+                <a href="javascript:void(0)" class="js-tag color4">K8S</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1118,15 +1123,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">git/github/gitlab</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">fabric-node-sdk</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">webstom</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">git/github/gitlab</a>
               </li>
              
               <li class="article-tag-list-item">

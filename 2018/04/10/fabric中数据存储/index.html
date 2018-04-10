@@ -7,15 +7,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: fabric-node-sdk | zhulg笔记</title>
+  <title>Fabric中数据存储 | zhulg笔记</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="zhulg笔记">
-<meta property="og:url" content="http://yoursite.com/tags/fabric-node-sdk/index.html">
+  <meta name="description" content="fabric中默认存储库levelDb存储设计 要达到数据不可篡改首先从数据结构上来看是一个链式存储，也是区块链之所以称之为区块链的原因。 每个存储单元包含上一存储单元的hash值以及自身存储的交易数据块，可以从表象来看就像把所有数据块连接在一起，称之为“区块链”，形成链状可追述的交易记录。 这种链状结构的数据称之为账本数据，保存着所有交易的记录，有普通文件保存，还有一个“世界状态”，其实质为Ke">
+<meta name="keywords" content="区块链,fabric">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Fabric中数据存储">
+<meta property="og:url" content="http://yoursite.com/2018/04/10/fabric中数据存储/index.html">
 <meta property="og:site_name" content="zhulg笔记">
+<meta property="og:description" content="fabric中默认存储库levelDb存储设计 要达到数据不可篡改首先从数据结构上来看是一个链式存储，也是区块链之所以称之为区块链的原因。 每个存储单元包含上一存储单元的hash值以及自身存储的交易数据块，可以从表象来看就像把所有数据块连接在一起，称之为“区块链”，形成链状可追述的交易记录。 这种链状结构的数据称之为账本数据，保存着所有交易的记录，有普通文件保存，还有一个“世界状态”，其实质为Ke">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-04-10T09:12:39.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="zhulg笔记">
+<meta name="twitter:title" content="Fabric中数据存储">
+<meta name="twitter:description" content="fabric中默认存储库levelDb存储设计 要达到数据不可篡改首先从数据结构上来看是一个链式存储，也是区块链之所以称之为区块链的原因。 每个存储单元包含上一存储单元的hash值以及自身存储的交易数据块，可以从表象来看就像把所有数据块连接在一起，称之为“区块链”，形成链状可追述的交易记录。 这种链状结构的数据称之为账本数据，保存着所有交易的记录，有普通文件保存，还有一个“世界状态”，其实质为Ke">
   
     <link rel="alternative" href="/atom.xml" title="zhulg笔记" type="application/atom+xml">
   
@@ -149,68 +154,190 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-fabric中数据存储" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/03/26/webstom编译Fabric-node-sdk记录/" class="archive-article-date">
-  	<time datetime="2018-03-26T10:08:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-26</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/03/26/webstom编译Fabric-node-sdk记录/">webstom编译Fabric Node-Sdk记录</a>
+    <h1 class="article-title" itemprop="name">
+      Fabric中数据存储
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2018/04/10/fabric中数据存储/" class="archive-article-date">
+  	<time datetime="2018-04-10T07:49:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="fabric中默认存储库levelDb"><a href="#fabric中默认存储库levelDb" class="headerlink" title="fabric中默认存储库levelDb"></a>fabric中默认存储库levelDb</h3><h4 id="存储设计"><a href="#存储设计" class="headerlink" title="存储设计"></a>存储设计</h4><ul>
+<li>要达到数据不可篡改首先从数据结构上来看是一个链式存储，也是区块链之所以称之为区块链的原因。</li>
+<li>每个存储单元包含上一存储单元的hash值以及自身存储的交易数据块，可以从表象来看就像把所有数据块连接在一起，称之为“区块链”，形成链状可追述的交易记录。</li>
+<li>这种链状结构的数据称之为账本数据，保存着所有交易的记录，有普通文件保存，还有一个“世界状态”，其实质为Key-Value数据库，维护着交易数据的最终状态，便于查询等操作运算，并且每个数据都有其对应的版本号。</li>
+</ul>
+<a id="more"></a>
+<h4 id="存储实现"><a href="#存储实现" class="headerlink" title="存储实现"></a>存储实现</h4><ul>
+<li>Hyperledger fabric(HLF)的存储系统和比特币一样，也是由普通的文件和 kv 的数据库 <strong>（levelDB/couchDB）组成</strong></li>
+<li>Hyperledger fabric中，每个 channel 对应一个账本目录，在账本目录中由 blockfile_000000、blockfile_000001 命名格式的文件名组成。为了快速检索区块数据每个文件的大小是64M。每个区块的数据（区块头和区块里的所有交易）都会序列成字节码的形式写入 blockfile 文件中。</li>
+<li>在序列化的过程中，程序以 append 方式打开 blockfile 文件，然后将区块大小和和区块数据写入至 blockfile 文件中。<br>以下是区块数据写入的具体描述：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">1.写入区块头数据，依次写入的数据为区块高度、交易哈希和前一个区块哈希；</div><div class="line"></div><div class="line">2. 写入交易数据，依次写入的数据为区块包含交易总量和每笔交易详细数据；</div><div class="line"></div><div class="line">3. 写入区块的Metadata 数据，依次写入的数据为 Metadata 数据总量和每个 Metadata 项的数据详细信息。</div></pre></td></tr></table></figure>
+<ul>
+<li><p>在写入数据的过程中会以 kv 的形式保存区块和交易在 blockfile 文件中的索引信息，以方便 HLF 的快速查询。</p>
+</li>
+<li><p>HLF 区块索引信息格式在 kv 数据库中存储的最终的 LevelKey 值有前缀标志和区块 hash 组成，而 LevelValue 的值由区块高度，区块 hash，本地文件信息(文件名，文件偏移等信息)，每个交易在文件中的偏移列表和区块的 MetaData 组成， HLF 按照特定的编码方式将上述的信息拼接成 db 数据库中的 value 。</p>
+</li>
+<li><p>HLF交易索引信息格式在kv数据库中存储最终的LevelKey值由channel_name，chaincode_name和chaincode中的key值组合而成：</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">LevelKey = channel_name+chaincode_name+key(具体规则有待考证)</div></pre></td></tr></table></figure>
+<p>而 LevelValue 的值由BlockNum 区块号，TxNum 交易在区块中的编号组成， HLF 通过将区块号和交易编号按照特定的方式编码，然后与 chaincode 中的 value 相互拼接最终生成 db 数据库中的 value 。</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢点开，不收钱ing<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">区块链</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">fabric</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">fabric-node-sdk</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">webstom</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2018/04/10/fabric中数据存储/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2018/04/04/fabric交易流程概述/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Fabric交易流程概述</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
 
 
           </div>
@@ -233,9 +360,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
