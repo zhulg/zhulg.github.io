@@ -10,17 +10,19 @@
   <title>Fabric中数据存储 | zhulg笔记</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="fabric中默认存储库levelDb存储设计 要达到数据不可篡改首先从数据结构上来看是一个链式存储，也是区块链之所以称之为区块链的原因。 每个存储单元包含上一存储单元的hash值以及自身存储的交易数据块，可以从表象来看就像把所有数据块连接在一起，称之为“区块链”，形成链状可追述的交易记录。 这种链状结构的数据称之为账本数据，保存着所有交易的记录，有普通文件保存，还有一个“世界状态”，其实质为Ke">
-<meta name="keywords" content="区块链,fabric">
+<meta name="keywords" content="fabric,区块链">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Fabric中数据存储">
 <meta property="og:url" content="http://yoursite.com/2018/04/10/fabric中数据存储/index.html">
 <meta property="og:site_name" content="zhulg笔记">
 <meta property="og:description" content="fabric中默认存储库levelDb存储设计 要达到数据不可篡改首先从数据结构上来看是一个链式存储，也是区块链之所以称之为区块链的原因。 每个存储单元包含上一存储单元的hash值以及自身存储的交易数据块，可以从表象来看就像把所有数据块连接在一起，称之为“区块链”，形成链状可追述的交易记录。 这种链状结构的数据称之为账本数据，保存着所有交易的记录，有普通文件保存，还有一个“世界状态”，其实质为Ke">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-10T09:12:39.000Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/zhulg/allpic/master/fabric_leveldb.png">
+<meta property="og:updated_time" content="2018-04-11T03:42:18.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Fabric中数据存储">
 <meta name="twitter:description" content="fabric中默认存储库levelDb存储设计 要达到数据不可篡改首先从数据结构上来看是一个链式存储，也是区块链之所以称之为区块链的原因。 每个存储单元包含上一存储单元的hash值以及自身存储的交易数据块，可以从表象来看就像把所有数据块连接在一起，称之为“区块链”，形成链状可追述的交易记录。 这种链状结构的数据称之为账本数据，保存着所有交易的记录，有普通文件保存，还有一个“世界状态”，其实质为Ke">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/zhulg/allpic/master/fabric_leveldb.png">
   
     <link rel="alternative" href="/atom.xml" title="zhulg笔记" type="application/atom+xml">
   
@@ -183,7 +185,10 @@
 <h4 id="存储实现"><a href="#存储实现" class="headerlink" title="存储实现"></a>存储实现</h4><ul>
 <li>Hyperledger fabric(HLF)的存储系统和比特币一样，也是由普通的文件和 kv 的数据库 <strong>（levelDB/couchDB）组成</strong></li>
 <li>Hyperledger fabric中，每个 channel 对应一个账本目录，在账本目录中由 blockfile_000000、blockfile_000001 命名格式的文件名组成。为了快速检索区块数据每个文件的大小是64M。每个区块的数据（区块头和区块里的所有交易）都会序列成字节码的形式写入 blockfile 文件中。</li>
-<li>在序列化的过程中，程序以 append 方式打开 blockfile 文件，然后将区块大小和和区块数据写入至 blockfile 文件中。<br>以下是区块数据写入的具体描述：</li>
+<li><p>进入peer节点内可以查看到<br><img src="https://raw.githubusercontent.com/zhulg/allpic/master/fabric_leveldb.png" alt=""></p>
+</li>
+<li><p>在序列化的过程中，程序以 append 方式打开 blockfile 文件，然后将区块大小和和区块数据写入至 blockfile 文件中。<br>以下是区块数据写入的具体描述：</p>
+</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">1.写入区块头数据，依次写入的数据为区块高度、交易哈希和前一个区块哈希；</div><div class="line"></div><div class="line">2. 写入交易数据，依次写入的数据为区块包含交易总量和每笔交易详细数据；</div><div class="line"></div><div class="line">3. 写入区块的Metadata 数据，依次写入的数据为 Metadata 数据总量和每个 Metadata 项的数据详细信息。</div></pre></td></tr></table></figure>
 <ul>
@@ -230,11 +235,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">区块链</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">fabric</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">fabric</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">区块链</a>
         		</li>
       		
 		</ul>
@@ -438,15 +443,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">区块链</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">fabric</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">超级账本</a>
+                <a href="javascript:void(0)" class="js-tag color4">区块链</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -459,6 +460,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">go</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">超级账本</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -482,11 +487,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">K8S</a>
+                <a href="javascript:void(0)" class="js-tag color3">jenkins</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">jenkins</a>
+                <a href="javascript:void(0)" class="js-tag color4">K8S</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -502,11 +507,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
+                <a href="javascript:void(0)" class="js-tag color3">springboot相关</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">springboot相关</a>
+                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
               </li>
              
               <li class="article-tag-list-item">
