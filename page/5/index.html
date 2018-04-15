@@ -151,6 +151,156 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-springcloud-Hystrix记录" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/10/16/springcloud-Hystrix记录/">Springcloud Hystrix记录点</a>
+    </h1>
+  
+
+        
+        <a href="/2017/10/16/springcloud-Hystrix记录/" class="archive-article-date">
+  	<time datetime="2017-10-16T07:41:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="SpringCloud-Hystrix记录点"><a href="#SpringCloud-Hystrix记录点" class="headerlink" title="SpringCloud-Hystrix记录点"></a>SpringCloud-Hystrix记录点</h3><ul>
+<li>背景</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">雪崩效应:在微服务架构中通常会有多个服务层调用，基础服务的故障可能会导致级联故障，进而造成整个系统不可用的情况，这种现象被称为服务雪崩效应。服务雪崩效应是一种因“服务提供者”的不可用导致“服务消费者”的不可用,并将不可用逐渐放大的过程</div></pre></td></tr></table></figure>
+<h3 id="Hystrix特性"><a href="#Hystrix特性" class="headerlink" title="Hystrix特性"></a>Hystrix特性</h3><p><strong>1.断路器机制</strong></p>
+<p>断路器很好理解, 当Hystrix Command请求后端服务失败数量超过一定比例(默认50%), 断路器会切换到开路状态(Open). 这时所有请求会直接失败而不会发送到后端服务. 断路器保持在开路状态一段时间后(默认5秒), 自动切换到半开路状态(HALF-OPEN). 这时会判断下一次请求的返回情况, 如果请求成功, 断路器切回闭路状态(CLOSED), 否则重新切换到开路状态(OPEN). Hystrix的断路器就像我们家庭电路中的保险丝, 一旦后端服务不可用, 断路器会直接切断请求链, 避免发送大量无效请求影响系统吞吐量, 并且断路器有自我检测并恢复的能力.</p>
+<p><strong>2.Fallback</strong></p>
+<p>Fallback相当于是降级操作. 对于查询操作, 我们可以实现一个fallback方法, 当请求后端服务出现异常的时候, 可以使用fallback方法返回的值. fallback方法的返回值一般是设置的默认值或者来自缓存.</p>
+<p><strong>3.资源隔离</strong></p>
+<p>在Hystrix中, 主要通过线程池来实现资源隔离. 通常在使用的时候我们会根据调用的远程服务划分出多个线程池. 例如调用产品服务的Command放入A线程池, 调用账户服务的Command放入B线程池. 这样做的主要优点是运行环境被隔离开了. 这样就算调用服务的代码存在bug或者由于其他原因导致自己所在线程池被耗尽时, 不会对系统的其他服务造成影响. 但是带来的代价就是维护多个线程池会对系统带来额外的性能开销. 如果是对性能有严格要求而且确信自己调用服务的客户端代码不会出问题的话, 可以使用Hystrix的信号模式(Semaphores)来隔离资源.</p>
+        
+          <a class="article-more-a" href="/2017/10/16/springcloud-Hystrix记录/#more">查看全文 >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">springcloud</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-nginx配置文件" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/09/30/nginx配置文件/">Nginx配置文件</a>
+    </h1>
+  
+
+        
+        <a href="/2017/09/30/nginx配置文件/" class="archive-article-date">
+  	<time datetime="2017-09-30T09:19:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-30</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="nginx配置文件说明"><a href="#nginx配置文件说明" class="headerlink" title="nginx配置文件说明"></a>nginx配置文件说明</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div></pre></td><td class="code"><pre><div class="line">#定义Nginx运行的用户和用户组</div><div class="line">#user  nobody; </div><div class="line"></div><div class="line">#nginx进程数，建议设置为等于CPU总核心数。</div><div class="line">worker_processes  1; </div><div class="line"></div><div class="line">#全局错误日志定义类型，[ debug | info | notice | warn | error | crit ]</div><div class="line">#error_log  logs/error.log;</div><div class="line">#error_log  logs/error.log  notice;</div><div class="line">#error_log  logs/error.log  info;</div><div class="line"></div><div class="line">#进程文件</div><div class="line">#pid        logs/nginx.pid;</div><div class="line"></div><div class="line">#工作模式与连接数上限</div><div class="line">events &#123;</div><div class="line">    #单个进程最大连接数（最大连接数=连接数*进程数）</div><div class="line">    worker_connections  1024;</div><div class="line">&#125;</div><div class="line"></div><div class="line">#设定http服务器</div><div class="line">http &#123;</div><div class="line">    #文件扩展名与文件类型映射表</div><div class="line">    include       mime.types;</div><div class="line">    #默认文件类型</div><div class="line">    default_type  application/octet-stream;</div><div class="line"></div><div class="line">    #log_format  main  &apos;$remote_addr - $remote_user [$time_local] &quot;$request&quot; &apos;</div><div class="line">    #                  &apos;$status $body_bytes_sent &quot;$http_referer&quot; &apos;</div><div class="line">    #                  &apos;&quot;$http_user_agent&quot; &quot;$http_x_forwarded_for&quot;&apos;;</div><div class="line"></div><div class="line">    #access_log  logs/access.log  main;</div><div class="line"></div><div class="line">    #开启高效文件传输模式，sendfile指令指定nginx是否调用sendfile函数来输出文件，对于普通应用设为 on，如果用来进行下载等应用磁盘IO重负载应用，可设置为off，以平衡磁盘与网络I/O处理速度，降低系统的负载。注意：如果图片显示不正常把这个改 成off。</div><div class="line">    sendfile        on;</div><div class="line"></div><div class="line">    #防止网络阻塞</div><div class="line">    #tcp_nopush     on;</div><div class="line"></div><div class="line"></div><div class="line">    #长连接超时时间，单位是秒</div><div class="line">    #keepalive_timeout  0;</div><div class="line">    keepalive_timeout  65;</div><div class="line"></div><div class="line">    #开启gzip压缩输出</div><div class="line">    #gzip  on;</div><div class="line"></div><div class="line">    #虚拟主机的配置</div><div class="line">    server &#123;</div><div class="line">        #监听端口</div><div class="line">        listen       80;</div><div class="line"></div><div class="line">        #域名可以有多个，用空格隔开</div><div class="line">        server_name  localhost;</div><div class="line"></div><div class="line">        #默认编码</div><div class="line">        #charset utf-8;</div><div class="line"></div><div class="line">        #定义本虚拟主机的访问日志</div><div class="line">        #access_log  logs/host.access.log  main;</div><div class="line"></div><div class="line">        location / &#123;</div><div class="line">            root   html;</div><div class="line">            index  index.html index.htm;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        #error_page  404              /404.html;</div><div class="line"></div><div class="line">        # redirect server error pages to the static page /50x.html</div><div class="line">        #</div><div class="line">        error_page   500 502 503 504  /50x.html;</div><div class="line">        location = /50x.html &#123;</div><div class="line">            root   html;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        # proxy the PHP scripts to Apache listening on 127.0.0.1:80</div><div class="line">        #</div><div class="line">        #location ~ \.php$ &#123;</div><div class="line">        #    proxy_pass   http://127.0.0.1;</div><div class="line">        #&#125;</div><div class="line"></div><div class="line">        # pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000</div><div class="line">        #</div><div class="line">        #location ~ \.php$ &#123;</div><div class="line">        #    root           html;</div><div class="line">        #    fastcgi_pass   127.0.0.1:9000;</div><div class="line">        #    fastcgi_index  index.php;</div><div class="line">        #    fastcgi_param  SCRIPT_FILENAME  /scripts$fastcgi_script_name;</div><div class="line">        #    include        fastcgi_params;</div><div class="line">        #&#125;</div><div class="line"></div><div class="line">        # deny access to .htaccess files, if Apache&apos;s document root</div><div class="line">        # concurs with nginx&apos;s one</div><div class="line">        #</div><div class="line">        #location ~ /\.ht &#123;</div><div class="line">        #    deny  all;</div><div class="line">        #&#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">    # another virtual host using mix of IP-, name-, and port-based configuration</div><div class="line">    #</div><div class="line">    #server &#123;</div><div class="line">    #    listen       8000;</div><div class="line">    #    listen       somename:8080;</div><div class="line">    #    server_name  somename  alias  another.alias;</div><div class="line"></div><div class="line">    #    location / &#123;</div><div class="line">    #        root   html;</div><div class="line">    #        index  index.html index.htm;</div><div class="line">    #    &#125;</div><div class="line">    #&#125;</div><div class="line"></div><div class="line"></div><div class="line">    # HTTPS server</div><div class="line">    #</div><div class="line">    #server &#123;</div><div class="line">    #    listen       443 ssl;</div><div class="line">    #    server_name  localhost;</div><div class="line"></div><div class="line">    #    ssl_certificate      cert.pem;</div><div class="line">    #    ssl_certificate_key  cert.key;</div><div class="line"></div><div class="line">    #    ssl_session_cache    shared:SSL:1m;</div><div class="line">    #    ssl_session_timeout  5m;</div><div class="line"></div><div class="line">    #    ssl_ciphers  HIGH:!aNULL:!MD5;</div><div class="line">    #    ssl_prefer_server_ciphers  on;</div><div class="line"></div><div class="line">    #    location / &#123;</div><div class="line">    #        root   html;</div><div class="line">    #        index  index.html index.htm;</div><div class="line">    #    &#125;</div><div class="line">    #&#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">nginx</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-springcloud架构和技术点" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -816,158 +966,6 @@
 
 
   
-    <article id="post-springcloud-eureka注册中心集群" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/10/springcloud-eureka注册中心集群/">Springcloud Eureka注册中心集群</a>
-    </h1>
-  
-
-        
-        <a href="/2017/08/10/springcloud-eureka注册中心集群/" class="archive-article-date">
-  	<time datetime="2017-08-10T08:29:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-10</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="Eureka集群注册"><a href="#Eureka集群注册" class="headerlink" title="Eureka集群注册"></a>Eureka集群注册</h3><ul>
-<li>Eureka注册中心提供关键的服务，如果是单点话，遇到故障就是毁灭性的。在一个分布式系统中，服务注册中心是最重要的基础部分，理应随时处于可以提供服务的状态。为了维持其可用性，使用集群是很好的解决方案。</li>
-<li>Eureka通过互相注册的方式来实现高可用的部署。<h3 id="集群注册步骤"><a href="#集群注册步骤" class="headerlink" title="集群注册步骤"></a>集群注册步骤</h3></li>
-</ul>
-<p>1、创建application-peer1.properties，作为peer1服务中心的配置，并将serviceUrl指向peer2</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">spring.application.name=eureka-server</div><div class="line">server.port=8000</div><div class="line">#在集群注册时会有,否则服务显示unavailable-replicas</div><div class="line">eureka.client.register-with-eureka=true</div><div class="line">eureka.client.fetch-registry=true</div><div class="line">eureka.instance.hostname=peer1</div><div class="line">eureka.client.serviceUrl.defaultZone=http://peer2:8001/eureka/</div></pre></td></tr></table></figure>
-        
-          <a class="article-more-a" href="/2017/08/10/springcloud-eureka注册中心集群/#more">查看全文 >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">springcloud</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-springcloud" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/08/springcloud/">Springcloud</a>
-    </h1>
-  
-
-        
-        <a href="/2017/08/08/springcloud/" class="archive-article-date">
-  	<time datetime="2017-08-08T10:31:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-08</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="关于SpringCloud和SpringBoot"><a href="#关于SpringCloud和SpringBoot" class="headerlink" title="关于SpringCloud和SpringBoot"></a>关于SpringCloud和SpringBoot</h3><ul>
-<li>SpringCloud: 微服务工具包，为开发者提供了在分布式系统的配置管理、服务发现、断路器、智能路由、微代理、控制总线等开发工具包。</li>
-<li>Spring Boot: 旨在简化创建产品级的 Spring 应用和服务，简化了配置文件，使用嵌入式web服务器，含有诸多开箱即用微服务功能</li>
-</ul>
-        
-          <a class="article-more-a" href="/2017/08/08/springcloud/#more">查看全文 >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">springcloud</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/4/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/6/">Next &raquo;</a>
@@ -1073,6 +1071,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">分布式/集群</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">fabric</a>
               </li>
              
@@ -1082,10 +1084,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">超级账本</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">分布式/集群</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1129,15 +1127,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">springboot相关</a>
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redis</a>
+                <a href="javascript:void(0)" class="js-tag color3">springboot相关</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1157,15 +1159,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">git/github/gitlab</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">fabric-node-sdk</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">webstom</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">git/github/gitlab</a>
               </li>
              
               <li class="article-tag-list-item">
