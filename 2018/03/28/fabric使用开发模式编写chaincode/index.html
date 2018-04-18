@@ -17,7 +17,7 @@
 <meta property="og:site_name" content="zhulg笔记">
 <meta property="og:description" content="在开发者模式下编写调试chaincode 在fabric-examples下提供有开发者模式，编译快速对chaincode的编写。 进入chaincode-docker-devmode，基于docker方式快速构建一个开发模式的网络。  1docker-compose -f docker-compose-simple.yaml up">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-04T09:00:09.000Z">
+<meta property="og:updated_time" content="2018-04-18T06:20:26.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Fabric使用开发模式编写chaincode">
 <meta name="twitter:description" content="在开发者模式下编写调试chaincode 在fabric-examples下提供有开发者模式，编译快速对chaincode的编写。 进入chaincode-docker-devmode，基于docker方式快速构建一个开发模式的网络。  1docker-compose -f docker-compose-simple.yaml up">
@@ -193,7 +193,7 @@
 <li>编译（go build）并启动chaincode<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">CORE_PEER_ADDRESS=peer:7051 CORE_CHAINCODE_ID_NAME=mycc:0 ./chaincode_example02</div></pre></td></tr></table></figure>
 </li>
 </ul>
-<h4 id="实例化链码和查询"><a href="#实例化链码和查询" class="headerlink" title="实例化链码和查询"></a>实例化链码和查询</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">docker exec -it peer bash</div><div class="line">peer chaincode install -n mycc -v 0 -p  chaincodedev/chaincode/chaincode_example02</div><div class="line">peer chaincode instantiate -n mycc -v 0 -c &apos;&#123;&quot;Args&quot;:[&quot;init&quot;,&quot;a&quot;,&quot;100&quot;,&quot;b&quot;,&quot;200&quot;]&#125;&apos; -o orderer:7050 -C myc</div><div class="line">peer chaincode invoke -n mycc -c &apos;&#123;&quot;Args&quot;:[&quot;invoke&quot;,&quot;a&quot;,&quot;b&quot;,&quot;10&quot;]&#125;&apos; -o orderer:7050 -C myc</div><div class="line">peer chaincode query -n mycc -c &apos;&#123;&quot;Args&quot;:[&quot;query&quot;,&quot;a&quot;]&#125;&apos; -o orderer -C myc</div></pre></td></tr></table></figure>
+<h4 id="实例化链码和查询"><a href="#实例化链码和查询" class="headerlink" title="实例化链码和查询"></a>实例化链码和查询</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">docker exec -it cli bash</div><div class="line">peer chaincode install -n mycc -v 0 -p  chaincodedev/chaincode/chaincode_example02</div><div class="line">peer chaincode instantiate -n mycc -v 0 -c &apos;&#123;&quot;Args&quot;:[&quot;init&quot;,&quot;a&quot;,&quot;100&quot;,&quot;b&quot;,&quot;200&quot;]&#125;&apos; -o orderer:7050 -C myc</div><div class="line">peer chaincode invoke -n mycc -c &apos;&#123;&quot;Args&quot;:[&quot;invoke&quot;,&quot;a&quot;,&quot;b&quot;,&quot;10&quot;]&#125;&apos; -o orderer:7050 -C myc</div><div class="line">peer chaincode query -n mycc -c &apos;&#123;&quot;Args&quot;:[&quot;query&quot;,&quot;a&quot;]&#125;&apos; -o orderer -C myc</div></pre></td></tr></table></figure>
       
 
       
@@ -440,15 +440,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">springboot</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Elasticsearch</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">分布式/集群</a>
+                <a href="javascript:void(0)" class="js-tag color1">springboot</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -460,7 +456,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">超级账本</a>
+                <a href="javascript:void(0)" class="js-tag color2">分布式/集群</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -468,11 +464,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">docker</a>
+                <a href="javascript:void(0)" class="js-tag color5">超级账本</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">go</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -488,15 +488,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">springcloud</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">jenkins</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">K8S</a>
+                <a href="javascript:void(0)" class="js-tag color2">springcloud</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -504,7 +500,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+                <a href="javascript:void(0)" class="js-tag color4">K8S</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -512,11 +508,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redis</a>
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">springboot相关</a>
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -524,23 +520,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">springboot相关</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">openresty</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">spring</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">fabric-node-sdk</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">webstom</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -549,6 +537,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">随笔记录</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">fabric-node-sdk</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">webstom</a>
               </li>
              
               <li class="article-tag-list-item">

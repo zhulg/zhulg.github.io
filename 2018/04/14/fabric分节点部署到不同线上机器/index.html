@@ -17,7 +17,7 @@
 <meta property="og:site_name" content="zhulg笔记">
 <meta property="og:description" content="分机器部署节点 fabric在真正的应用环境里是不同的节点是部署在不同的机器上的，peer,orderer在不同机器是，根据需要orderer可集群。 先尝试把peer,orderer部署到不同的机器上。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-14T09:43:38.000Z">
+<meta property="og:updated_time" content="2018-04-16T04:19:23.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Fabric分节点部署到不同线上机器">
 <meta name="twitter:description" content="分机器部署节点 fabric在真正的应用环境里是不同的节点是部署在不同的机器上的，peer,orderer在不同机器是，根据需要orderer可集群。 先尝试把peer,orderer部署到不同的机器上。">
@@ -203,8 +203,15 @@
 <li>其他方式安装<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">yum install docker</div><div class="line">启动Docker服务：</div><div class="line">service docker start</div></pre></td></tr></table></figure>
 </li>
 </ul>
-<h5 id="3-安装docker-compose"><a href="#3-安装docker-compose" class="headerlink" title="3,安装docker-compose"></a>3,安装docker-compose</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">需要先安装企业版linux附加包（epel)</div><div class="line"> yum -y install epel-release</div><div class="line">安装pip</div><div class="line">yum -y install python-pip</div><div class="line">更新pip</div><div class="line">pip install --upgrade pip</div><div class="line">安装docker-compose</div><div class="line">pip install docker-compose</div><div class="line">查看docker-compose版本信息</div><div class="line">docker-compose --version</div></pre></td></tr></table></figure>
-<h3 id="下载fabric源码"><a href="#下载fabric源码" class="headerlink" title="下载fabric源码"></a>下载fabric源码</h3><ul>
+<h5 id="3-安装docker-compose"><a href="#3-安装docker-compose" class="headerlink" title="3,安装docker-compose"></a>3,安装docker-compose</h5><ul>
+<li><p><strong>第一种，使用yum安装</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">需要先安装企业版linux附加包（epel)</div><div class="line"> yum -y install epel-release</div><div class="line">安装pip</div><div class="line">yum -y install python-pip</div><div class="line">更新pip</div><div class="line">pip install --upgrade pip</div><div class="line">安装docker-compose</div><div class="line">pip install docker-compose</div><div class="line">查看docker-compose版本信息</div><div class="line">docker-compose --version</div><div class="line">环境正常可以直接安装（pip install docker-compose）</div></pre></td></tr></table></figure>
+</li>
+<li><p><strong>或者使用下载包安装</strong></p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sudo curl -L https://github.com/docker/compose/releases/download/1.21.0/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose</div><div class="line">sudo chmod +x /usr/local/bin/docker-compose</div><div class="line">docker-compose --version</div></pre></td></tr></table></figure>
+<h4 id="下载fabric源码"><a href="#下载fabric源码" class="headerlink" title="下载fabric源码"></a>下载fabric源码</h4><ul>
 <li>go get github.com/hyperledger/fabric</li>
 <li>cd /root/gopath/src/github.com/hyperledger/fabric</li>
 <li>目前使用1.0.6版本，刚发布1.1release.考虑稳定切换到1.0.6</li>
@@ -213,7 +220,9 @@
 </ul>
 <h4 id="进入源码提供脚本拉取镜像"><a href="#进入源码提供脚本拉取镜像" class="headerlink" title="进入源码提供脚本拉取镜像"></a>进入源码提供脚本拉取镜像</h4><ul>
 <li>fabric/examples/e2e_cli目录下，使用bash download-dockerimages.sh 下载需要的网络镜像。</li>
+<li>也可以使用本地已经下载好的镜像（原因是下载太特么慢了要几个小时，就用下载好的镜像了）</li>
 </ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">1,save本地镜像1.0.6的到images</div><div class="line">docker save $(docker images | grep 1.0.6 | awk &#123;&apos;print $1&apos;&#125; ) -o images</div><div class="line">2,上传到目前不机器,用户的根目录</div><div class="line">scp images xxxx@10.xxx.xx.xxx:~</div><div class="line">3,导入image</div><div class="line">docker load -i images</div></pre></td></tr></table></figure>
 
       
 
@@ -457,15 +466,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">springboot</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Elasticsearch</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">分布式/集群</a>
+                <a href="javascript:void(0)" class="js-tag color1">springboot</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -477,7 +482,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">超级账本</a>
+                <a href="javascript:void(0)" class="js-tag color2">分布式/集群</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -485,11 +490,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">docker</a>
+                <a href="javascript:void(0)" class="js-tag color5">超级账本</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">go</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -505,15 +514,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">springcloud</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">jenkins</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">K8S</a>
+                <a href="javascript:void(0)" class="js-tag color2">springcloud</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -521,7 +526,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+                <a href="javascript:void(0)" class="js-tag color4">K8S</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -529,11 +534,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redis</a>
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">springboot相关</a>
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -541,23 +546,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">springboot相关</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">openresty</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">spring</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">fabric-node-sdk</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">webstom</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -566,6 +563,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">随笔记录</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">fabric-node-sdk</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">webstom</a>
               </li>
              
               <li class="article-tag-list-item">
