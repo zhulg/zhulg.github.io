@@ -17,7 +17,7 @@
 <meta property="og:site_name" content="zhulg笔记">
 <meta property="og:description" content="分机器部署节点 fabric在真正的应用环境里是不同的节点是部署在不同的机器上的，peer,orderer在不同机器是，根据需要orderer可集群。 先尝试把peer,orderer部署到不同的机器上。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-16T04:19:23.000Z">
+<meta property="og:updated_time" content="2018-04-18T12:39:04.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Fabric分节点部署到不同线上机器">
 <meta name="twitter:description" content="分机器部署节点 fabric在真正的应用环境里是不同的节点是部署在不同的机器上的，peer,orderer在不同机器是，根据需要orderer可集群。 先尝试把peer,orderer部署到不同的机器上。">
@@ -215,7 +215,7 @@
 <li>go get github.com/hyperledger/fabric</li>
 <li>cd /root/gopath/src/github.com/hyperledger/fabric</li>
 <li>目前使用1.0.6版本，刚发布1.1release.考虑稳定切换到1.0.6</li>
-<li>branch里是没有1.0.6办的，使用指定tag的版本进行切换<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git tag （可以发现1.0.6版本）</div><div class="line">git checkout -b1.0.6  v1.0.6 （可拉取指定tag）</div></pre></td></tr></table></figure>
+<li>branch里是没有1.0.6办的，使用指定tag的版本进行切换<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git tag （可以发现1.0.6版本）</div><div class="line">git checkout -b 1.0.6  v1.0.6 （可拉取指定tag）</div></pre></td></tr></table></figure>
 </li>
 </ul>
 <h4 id="进入源码提供脚本拉取镜像"><a href="#进入源码提供脚本拉取镜像" class="headerlink" title="进入源码提供脚本拉取镜像"></a>进入源码提供脚本拉取镜像</h4><ul>
@@ -223,6 +223,16 @@
 <li>也可以使用本地已经下载好的镜像（原因是下载太特么慢了要几个小时，就用下载好的镜像了）</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">1,save本地镜像1.0.6的到images</div><div class="line">docker save $(docker images | grep 1.0.6 | awk &#123;&apos;print $1&apos;&#125; ) -o images</div><div class="line">2,上传到目前不机器,用户的根目录</div><div class="line">scp images xxxx@10.xxx.xx.xxx:~</div><div class="line">3,导入image</div><div class="line">docker load -i images</div></pre></td></tr></table></figure>
+<h4 id="运行源码下的例子"><a href="#运行源码下的例子" class="headerlink" title="运行源码下的例子"></a>运行源码下的例子</h4><ul>
+<li>进入源码里/examples/e2e_cli</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./network_setup.sh up</div></pre></td></tr></table></figure>
+<h4 id="一个坑记录（mac下没问题是被生存的docker网络刚好是要找的）"><a href="#一个坑记录（mac下没问题是被生存的docker网络刚好是要找的）" class="headerlink" title="一个坑记录（mac下没问题是被生存的docker网络刚好是要找的）"></a>一个坑记录（mac下没问题是被生存的docker网络刚好是要找的）</h4><p>– fabric源码里的例子example下的e2e_cli启动时定义要找的名字与生成的名字会不一致。e2e_cli_default而定义要找的是e2ecli_default<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Error: Error endorsing chaincode: rpc error: code = Unknown desc = Error starting container: API error (404): &#123;&quot;message&quot;:&quot;network chlnetwork not found&quot;&#125;</div></pre></td></tr></table></figure></p>
+<ul>
+<li>运行docker network ls命令，看一眼显示出来的网络里，有没有报错里那个网络，如果没有的话，将你的本地网络改为命令输出里的网络。</li>
+<li>改动配置文件e2e_cli/base/peer-base.yaml，里面的参数ORE_VM_DOCKER_HOSTCONFIG_NETWORKMODE=e2e_cli_default</li>
+<li>**关于docker网络名字，默认使用项目跟目录的项目名字_default,所以</li>
+</ul>
 
       
 
@@ -466,11 +476,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Elasticsearch</a>
+                <a href="javascript:void(0)" class="js-tag color1">springboot</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">springboot</a>
+                <a href="javascript:void(0)" class="js-tag color4">Elasticsearch</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -482,15 +492,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">超级账本</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">分布式/集群</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">AWK</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">超级账本</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -518,6 +528,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">K8S</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">springcloud</a>
               </li>
              
@@ -526,15 +540,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">K8S</a>
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -558,7 +568,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">git/github/gitlab</a>
+                <a href="javascript:void(0)" class="js-tag color1">fabric-node-sdk</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">webstom</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -566,11 +580,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">fabric-node-sdk</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">webstom</a>
+                <a href="javascript:void(0)" class="js-tag color3">git/github/gitlab</a>
               </li>
              
               <li class="article-tag-list-item">

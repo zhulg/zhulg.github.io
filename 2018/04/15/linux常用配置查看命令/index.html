@@ -17,7 +17,7 @@
 <meta property="og:site_name" content="zhulg笔记">
 <meta property="og:description" content="Linux操作系统主要分为两大类： RedHat系列：Redhat、Centos、Fedora等 Debian系列：Debian、Ubuntu等。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-18T02:05:23.000Z">
+<meta property="og:updated_time" content="2018-04-18T12:34:53.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux常用配置查看命令">
 <meta name="twitter:description" content="Linux操作系统主要分为两大类： RedHat系列：Redhat、Centos、Fedora等 Debian系列：Debian、Ubuntu等。">
@@ -208,10 +208,26 @@
 <li>lsof -i:端口号</li>
 </ul>
 <h4 id="查看系统架构类型"><a href="#查看系统架构类型" class="headerlink" title="查看系统架构类型"></a>查看系统架构类型</h4><ul>
-<li>arch 命令主要用于显示操作系统架构类型<h4 id="查看分组和用户所属组"><a href="#查看分组和用户所属组" class="headerlink" title="查看分组和用户所属组"></a>查看分组和用户所属组</h4></li>
+<li>arch 命令主要用于显示操作系统架构类型</li>
+</ul>
+<h4 id="查看分组和用户所属组"><a href="#查看分组和用户所属组" class="headerlink" title="查看分组和用户所属组"></a>查看分组和用户所属组</h4><ul>
 <li>cat /etc/group</li>
 </ul>
-
+<h3 id="查看系统架构-通用"><a href="#查看系统架构-通用" class="headerlink" title="查看系统架构(通用)"></a><strong>查看系统架构(通用)</strong></h3><ul>
+<li>echo $(echo “$(uname -s|tr ‘[:upper:]’ ‘[:lower:]’|sed ‘s/mingw64_nt.*/windows/‘)-$(uname -m | sed ‘s/x86_64/amd64/g’)” | awk ‘{print tolower($0)}’)</li>
+</ul>
+<h4 id="压缩，解压"><a href="#压缩，解压" class="headerlink" title="压缩，解压"></a>压缩，解压</h4><ul>
+<li>.tar.gz 和 .tgz</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">　　解压：tar zxvf FileName.tar.gz</div><div class="line">　　压缩：tar zcvf FileName.tar.gz DirName</div></pre></td></tr></table></figure>
+<ul>
+<li>.zip</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">解压：unzip FileName.zip</div><div class="line">压缩：zip FileName.zip DirName</div><div class="line">压缩一个目录使用 -r 参数，-r 递归。例： $ zip -r FileName.zip DirName</div></pre></td></tr></table></figure>
+<ul>
+<li>.tar</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"> 解包：tar xvf FileName.tar</div><div class="line"> 打包：tar cvf FileName.tar DirName</div><div class="line">（注：tar是打包，不是压缩！）</div></pre></td></tr></table></figure>
       
 
       
@@ -314,6 +330,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2018/04/19/fabric与springboot整合问题记录/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Fabric与springboot整合问题记录
+        
+      </div>
+    </a>
   
   
     <a href="/2018/04/14/fabric分节点部署到不同线上机器/" id="article-nav-older" class="article-nav-link-wrap">
@@ -441,11 +466,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Elasticsearch</a>
+                <a href="javascript:void(0)" class="js-tag color1">springboot</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">springboot</a>
+                <a href="javascript:void(0)" class="js-tag color4">Elasticsearch</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -457,15 +482,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">超级账本</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">分布式/集群</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">AWK</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">超级账本</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -493,6 +518,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">K8S</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">springcloud</a>
               </li>
              
@@ -501,15 +530,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">K8S</a>
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -533,7 +558,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">git/github/gitlab</a>
+                <a href="javascript:void(0)" class="js-tag color1">fabric-node-sdk</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">webstom</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -541,11 +570,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">fabric-node-sdk</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">webstom</a>
+                <a href="javascript:void(0)" class="js-tag color3">git/github/gitlab</a>
               </li>
              
               <li class="article-tag-list-item">

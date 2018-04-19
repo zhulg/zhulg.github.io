@@ -7,22 +7,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Go代码结构及开发注意 | zhulg笔记</title>
+  <title>Fabric与springboot整合问题记录 | zhulg笔记</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Go 代码必须保存在工作区中, 工作区就是一个特定的目录结构, 根目录下有如下3个目录  123src 目录: 存放 go 源码文件, 按 package 来组织 (一个 package 一个文件夹)pkg 目录: 存放 package 对象bin 目录: 存放可执行的命令command">
-<meta name="keywords" content="go">
+  <meta name="description" content="目前在做基于fabric的区块链项目，在整合springboot时遇到坑记录 在fabric网络启动后，springboot工程去连接时出现错误。 Channel mychannel sendDeliver failed on orderer orderer.example.com. Reason: INTERNAL: Connection closed with unknown cause">
+<meta name="keywords" content="springboot,fabric">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Go代码结构及开发注意">
-<meta property="og:url" content="http://yoursite.com/2018/03/09/go代码结构及开发注意/index.html">
+<meta property="og:title" content="Fabric与springboot整合问题记录">
+<meta property="og:url" content="http://yoursite.com/2018/04/19/fabric与springboot整合问题记录/index.html">
 <meta property="og:site_name" content="zhulg笔记">
-<meta property="og:description" content="Go 代码必须保存在工作区中, 工作区就是一个特定的目录结构, 根目录下有如下3个目录  123src 目录: 存放 go 源码文件, 按 package 来组织 (一个 package 一个文件夹)pkg 目录: 存放 package 对象bin 目录: 存放可执行的命令command">
+<meta property="og:description" content="目前在做基于fabric的区块链项目，在整合springboot时遇到坑记录 在fabric网络启动后，springboot工程去连接时出现错误。 Channel mychannel sendDeliver failed on orderer orderer.example.com. Reason: INTERNAL: Connection closed with unknown cause">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://raw.githubusercontent.com/zhulg/allpic/master/gostruct.png">
-<meta property="og:updated_time" content="2018-03-09T07:41:46.000Z">
+<meta property="og:updated_time" content="2018-04-19T08:52:38.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Go代码结构及开发注意">
-<meta name="twitter:description" content="Go 代码必须保存在工作区中, 工作区就是一个特定的目录结构, 根目录下有如下3个目录  123src 目录: 存放 go 源码文件, 按 package 来组织 (一个 package 一个文件夹)pkg 目录: 存放 package 对象bin 目录: 存放可执行的命令command">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/zhulg/allpic/master/gostruct.png">
+<meta name="twitter:title" content="Fabric与springboot整合问题记录">
+<meta name="twitter:description" content="目前在做基于fabric的区块链项目，在整合springboot时遇到坑记录 在fabric网络启动后，springboot工程去连接时出现错误。 Channel mychannel sendDeliver failed on orderer orderer.example.com. Reason: INTERNAL: Connection closed with unknown cause">
   
     <link rel="alternative" href="/atom.xml" title="zhulg笔记" type="application/atom+xml">
   
@@ -156,20 +154,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-go代码结构及开发注意" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-fabric与springboot整合问题记录" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Go代码结构及开发注意
+      Fabric与springboot整合问题记录
     </h1>
   
 
         
-        <a href="/2018/03/09/go代码结构及开发注意/" class="archive-article-date">
-  	<time datetime="2018-03-09T07:10:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-09</time>
+        <a href="/2018/04/19/fabric与springboot整合问题记录/" class="archive-article-date">
+  	<time datetime="2018-04-19T08:43:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-19</time>
 </a>
         
       </header>
@@ -177,16 +175,14 @@
     <div class="article-entry" itemprop="articleBody">
       
         <ul>
-<li>Go 代码必须保存在工作区中, 工作区就是一个特定的目录结构, 根目录下有如下3个目录</li>
+<li>目前在做基于fabric的区块链项目，在整合springboot时遇到坑记录</li>
+<li>在fabric网络启动后，springboot工程去连接时出现错误。</li>
+<li>Channel mychannel sendDeliver failed on orderer orderer.example.com. Reason: INTERNAL: Connection closed with unknown cause</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">src 目录: 存放 go 源码文件, 按 package 来组织 (一个 package 一个文件夹)</div><div class="line">pkg 目录: 存放 package 对象</div><div class="line">bin 目录: 存放可执行的命令command</div></pre></td></tr></table></figure>
-<a id="more"></a>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">io.grpc.StatusRuntimeException: INTERNAL: Connection closed with unknown cause</div><div class="line">	at io.grpc.Status.asRuntimeException(Status.java:526)</div><div class="line">	at io.grpc.stub.ClientCalls$StreamObserverToCallListenerAdapter.onClose(ClientCalls.java:380)</div><div class="line">	at io.grpc.internal.ClientCallImpl.closeObserver(ClientCallImpl.java:419)</div><div class="line">	at io.grpc.internal.ClientCallImpl.access$100(ClientCallImpl.java:60)</div><div class="line">	at io.grpc.internal.ClientCallImpl$ClientStreamListenerImpl.close(ClientCallImpl.java:493)</div><div class="line">	at io.grpc.internal.ClientCallImpl$ClientStreamListenerImpl.access$500(ClientCallImpl.java:422)</div><div class="line">	at io.grpc.internal.ClientCallImpl$ClientStreamListenerImpl$1StreamClosed.runInContext(ClientCallImpl.java:525)</div><div class="line">	at io.grpc.internal.ContextRunnable.run(ContextRunnable.java:37)</div><div class="line">	at io.grpc.internal.SerializingExecutor.run(SerializingExecutor.java:102)</div><div class="line">	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)</div><div class="line">	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)</div><div class="line">	at java.lang.Thread.run(Thread.java:748)</div><div class="line">ERROR OrdererClient - Channel mychannel sendDeliver failed on orderer orderer.example.com. Reason: INTERNAL: Connection closed with unknown cause</div><div class="line">org.hyperledger.fabric.sdk.exception.TransactionException: Channel mychannel sendDeliver failed on orderer orderer.example.com. Reason: INTERNAL: Connection closed with unknown cause</div><div class="line">	at org.hyperledger.fabric.sdk.OrdererClient.sendDeliver(OrdererClient.java:295)</div><div class="line">	at org.hyperledger.fabric.sdk.Orderer.sendDeliver(Orderer.java:172)</div><div class="line">	at org.hyperledger.fabric.sdk.Channel.seekBlock(Channel.java:1198)</div><div class="line">	at org.hyperledger.fabric.sdk.Channel.getLatestBlock(Channel.java:1274)</div><div class="line">	at org.hyperledger.fabric.sdk.Channel.getLastConfigIndex(Channel.java:1097)</div><div class="line">	at org.hyperledger.fabric.sdk.Channel.getConfigurationBlock(Channel.java:1028)</div><div class="line">	at org.hyperledger.fabric.sdk.Channel.parseConfigBlock(Channel.java:949)</div><div class="line">	at org.hyperledger.fabric.sdk.Channel.initialize(Channel.java:676)</div><div class="line">	at com.example.fabric.HFJavaSDKBasicExample.getChannel(HFJavaSDKBasicExample.java:196)</div><div class="line">	at com.example.fabric.HFJavaSDKBasicExample.main(HFJavaSDKBasicExample.java:63)</div><div class="line">Caused by: io.grpc.StatusRuntimeException: INTERNAL: Connection closed with unknown cause</div></pre></td></tr></table></figure>
 <ul>
-<li>注意配置go的开发环境，GOPATH,GOBIN,ROROOT,其中gopath是指的你的工作区目录,gobin是工作区生成bin目录，用于存放go install后生成的可执行文件,goroot:The root of the go tree</li>
-<li>go文件的包名可执行的为main,作为包使用的使用package xxx, 作为包使用的文件，其中的方法定义，需要第一个字母大写。</li>
-<li>go build,和go install.当作为包使用时，go build不会生成任何文件。当对使用包的文件进行install，才会被加载对应使用包的文件到pkg相应的目录下（xxx.a形式）。</li>
-<li>如果使用IDE则直接运行，命令行build,install可以看到以上过程。</li>
-<li>命令行后查看产生的文件如图<br><img src="https://raw.githubusercontent.com/zhulg/allpic/master/gostruct.png" alt=""></li>
+<li>这个错误原因居然是springboot版本导致。。。。目前fabric使用1.0.6（最新为1.1）</li>
+<li><strong>解决方法把springboot下降到2.0.0以下版本，注意是以下，1.5.9都可以。使用2.0.0以上目前会造成fabric网络出现必现问题，链接未知原因被拒，底层java代码不兼容。</strong></li>
 </ul>
 
       
@@ -222,7 +218,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">go</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">springboot</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">fabric</a>
         		</li>
       		
 		</ul>
@@ -278,7 +278,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2018/03/09/go代码结构及开发注意/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2018/04/19/fabric与springboot整合问题记录/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -292,18 +292,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/03/13/fabric网络启动流程-分步分析/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Fabric网络启动流程-分步分析
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/03/07/go语言glide包管理器使用/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Go语言glide包管理器使用</div>
+    <a href="/2018/04/15/linux常用配置查看命令/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Linux常用配置查看命令</div>
       <i class="icon-circle-right"></i>
     </a>
   
