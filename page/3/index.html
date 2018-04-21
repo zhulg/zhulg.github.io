@@ -151,6 +151,89 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-fabric部署例子错误日志" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/02/24/fabric部署例子错误日志/">Fabric部署例子错误日志</a>
+    </h1>
+  
+
+        
+        <a href="/2018/02/24/fabric部署例子错误日志/" class="archive-article-date">
+  	<time datetime="2018-02-24T11:15:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-24</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li>部署Building Your First Network例子时，最后一步出现错误</li>
+<li><p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/fabric-error.png" alt=""></p>
+</li>
+<li><p>日志为：Error: Error endorsing chaincode: rpc error: code = Unknown desc = Timeout expired while starting chaincode mycc:1.0(networkid:dev,peerid:peer0.org1.example.com,tx:936cdc1e9dd24b6eb0ae456ebd33b74706fdc682f5ce33c4c7bb479edc2e8353)</p>
+</li>
+<li>在mac环境下操作，可能与端口映射有关，暂时记录后续解决。</li>
+</ul>
+<h4 id="第二天进行上述问题解决"><a href="#第二天进行上述问题解决" class="headerlink" title="第二天进行上述问题解决"></a>第二天进行上述问题解决</h4><ul>
+<li>网上有相同错误出现也在最后一步，目前没有人回答解决方式。</li>
+<li>把容器关掉，重启电脑，按照文档重新操作。</li>
+<li>仍旧采用手动模式启动网络和构建环境，这次在最后一步没有出现上述错误。</li>
+<li>对比之前步骤：是对代码进行重新拉取（之前操作过代码），重新参照文档进行执行步骤进行，问题解决。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div></pre></td><td class="code"><pre><div class="line">[zhulianggang@deMacBook-Pro:/Users/Meixin/Blockchain/fabric-samples/first-network$CHANNEL_NAME=$CHANNEL_NAME TIMEOUT=100 docker-compose -f docker-compose-cli.yaml up -d</div><div class="line">Creating peer0.org1.example.com ... done</div><div class="line">Creating cli ... done</div><div class="line">Creating peer1.org1.example.com ...</div><div class="line">Creating peer1.org2.example.com ...</div><div class="line">Creating peer0.org1.example.com ...</div><div class="line">Creating orderer.example.com ...</div><div class="line">Creating cli ...</div><div class="line">[zhulianggang@deMacBook-Pro:/Users/Meixin/Blockchain/fabric-samples/first-network$docker exec -it cli bash</div><div class="line">NNEL_NAME=mychannelopt/gopath/src/github.com/hyperledger/fabric/peer# export CHA</div><div class="line">root@f3f2e62d56b9:/opt/gopath/src/github.com/hyperledger/fabric/peer#</div><div class="line">root@f3f2e62d56b9:/opt/gopath/src/github.com/hyperledger/fabric/peer#</div><div class="line">NNEL_NAME=mychannelopt/gopath/src/github.com/hyperledger/fabric/peer# export CHA</div><div class="line">root@f3f2e62d56b9:/opt/gopath/src/github.com/hyperledger/fabric/peer#</div><div class="line">le.com/msp/tlscacerts/tlsca.example.com-cert.pemample.com/orderers/orderer.examp</div><div class="line">2018-02-26 03:12:56.001 UTC [msp] GetLocalMSP -&gt; DEBU 001 Returning existing local MSP</div><div class="line">2018-02-26 03:12:56.001 UTC [msp] GetDefaultSigningIdentity -&gt; DEBU 002 Obtaining default signing identity</div><div class="line">2018-02-26 03:12:56.013 UTC [channelCmd] InitCmdFactory -&gt; INFO 003 Endorser and orderer connections initialized</div><div class="line">2018-02-26 03:12:56.016 UTC [msp] GetLocalMSP -&gt; DEBU 004 Returning existing local MSP</div><div class="line">2018-02-26 03:12:56.016 UTC [msp] GetDefaultSigningIdentity -&gt; DEBU 005 Obtaining default signing identity</div><div class="line">2018-02-26 03:12:56.016 UTC [msp] GetLocalMSP -&gt; DEBU 006 Returning existing local MSP</div><div class="line">2018-02-26 03:12:56.016 UTC [msp] GetDefaultSigningIdentity -&gt; DEBU 007 Obtaining default signing identity</div><div class="line">2018-02-26 03:12:56.016 UTC [msp/identity] Sign -&gt; DEBU 008 Sign: plaintext: 0A8C060A074F7267314D53501280062D...53616D706C65436F6E736F727469756D</div><div class="line">2018-02-26 03:12:56.016 UTC [msp/identity] Sign -&gt; DEBU 009 Sign: digest: B5D898A654F2EABC35005D34CED73EE570B2610DD5EA613383174A3AA5C59B33</div><div class="line">2018-02-26 03:12:56.016 UTC [msp] GetLocalMSP -&gt; DEBU 00a Returning existing local MSP</div><div class="line">2018-02-26 03:12:56.016 UTC [msp] GetDefaultSigningIdentity -&gt; DEBU 00b Obtaining default signing identity</div><div class="line">2018-02-26 03:12:56.017 UTC [msp] GetLocalMSP -&gt; DEBU 00c Returning existing local MSP</div><div class="line">2018-02-26 03:12:56.017 UTC [msp] GetDefaultSigningIdentity -&gt; DEBU 00d Obtaining default signing identity</div><div class="line">2018-02-26 03:12:56.017 UTC [msp/identity] Sign -&gt; DEBU 00e Sign: plaintext: 0AC3060A1508021A0608B8F6CDD40522...20AA143C54061DF7DAB091F959E8DE23</div><div class="line">2018-02-26 03:12:56.017 UTC [msp/identity] Sign -&gt; DEBU 00f Sign: digest: AA79F2F70CBBEB5B34445F2AECA34700B0BF5C57E4532ED4032AE2560F8BD765</div><div class="line">2018-02-26 03:12:56.149 UTC [msp] GetLocalMSP -&gt; DEBU 010 Returning existing local MSP</div><div class="line">2018-02-26 03:12:56.150 UTC [msp] GetDefaultSigningIdentity -&gt; DEBU 011 Obtaining default signing identity</div><div class="line">2018-02-26 03:12:56.150 UTC [msp] GetLocalMSP -&gt; DEBU 012 Returning existing local MSP</div><div class="line">2018-02-26 03:12:56.150 UTC [msp] GetDefaultSigningIdentity -&gt; DEBU 013 Obtaining default signing identity</div><div class="line">2018-02-26 03:12:56.150 UTC [msp/identity] Sign -&gt; DEBU 014 Sign: plaintext: 0AC3060A1508021A0608B8F6CDD40522...B68EBE5D9DB612080A021A0012021A00</div><div class="line">2018-02-26 03:12:56.150 UTC [msp/identity] Sign -&gt; DEBU 015 Sign: digest: 317192563E677B3B3F16EFAC2286A09EEFF929D636C7EEEC74CECB6895601041</div><div class="line">2018-02-26 03:12:56.153 UTC [channelCmd] readBlock -&gt; DEBU 016 Got status: &amp;&#123;NOT_FOUND&#125;</div><div class="line">2018-02-26 03:12:56.154 UTC [msp] GetLocalMSP -&gt; DEBU 017 Returning existing local MSP</div><div class="line">2018-02-26 03:12:56.155 UTC [msp] GetDefaultSigningIdentity -&gt; DEBU 018 Obtaining default signing identity</div><div class="line">2018-02-26 03:12:56.170 UTC [channelCmd] InitCmdFactory -&gt; INFO 019 Endorser and orderer connections initialized</div><div class="line">2018-02-26 03:12:56.370 UTC [msp] GetLocalMSP -&gt; DEBU 01a Returning existing local MSP</div><div class="line">2018-02-26 03:12:56.371 UTC [msp] GetDefaultSigningIdentity -&gt; DEBU 01b Obtaining default signing identity</div><div class="line">2018-02-26 03:12:56.371 UTC [msp] GetLocalMSP -&gt; DEBU 01c Returning existing local MSP</div><div class="line">2018-02-26 03:12:56.371 UTC [msp] GetDefaultSigningIdentity -&gt; DEBU 01d Obtaining default signing identity</div><div class="line">2018-02-26 03:12:56.371 UTC [msp/identity] Sign -&gt; DEBU 01e Sign: plaintext: 0AC3060A1508021A0608B8F6CDD40522...EF996566D82D12080A021A0012021A00</div><div class="line">2018-02-26 03:12:56.371 UTC [msp/identity] Sign -&gt; DEBU 01f Sign: digest: 10BC20CFB31CF56778E028F01EFF2E064ABCC753200CA906B9D13B998B4427F9</div><div class="line">2018-02-26 03:12:56.377 UTC [channelCmd] readBlock -&gt; DEBU 020 Received block: 0</div><div class="line">2018-02-26 03:12:56.378 UTC [main] main -&gt; INFO 021 Exiting.....</div><div class="line">root@f3f2e62d56b9:/opt/gopath/src/github.com/hyperledger/fabric/peer# ls</div><div class="line">channel-artifacts  crypto  mychannel.block  scripts</div><div class="line">el join -b mychannel.block th/src/github.com/hyperledger/fabric/peer# peer chann</div><div class="line">2018-02-26 03:13:12.733 UTC [msp] GetLocalMSP -&gt; DEBU 001 Returning existing local MSP</div><div class="line">2018-02-26 03:13:12.733 UTC [msp] GetDefaultSigningIdentity -&gt; DEBU 002 Obtaining default signing identity</div><div class="line">2018-02-26 03:13:12.741 UTC [channelCmd] InitCmdFactory -&gt; INFO 003 Endorser and orderer connections initialized</div><div class="line">2018-02-26 03:13:12.742 UTC [msp/identity] Sign -&gt; DEBU 004 Sign: plaintext: 0A8A070A5C08011A0C08C8F6CDD40510...929B4E708DB81A080A000A000A000A00</div><div class="line">2018-02-26 03:13:12.742 UTC [msp/identity] Sign -&gt; DEBU 005 Sign: digest: 1A319B71E615CC7D4071E1587AEE41061CB4FF5E68680166310788D109AA5208</div><div class="line">2018-02-26 03:13:12.808 UTC [channelCmd] executeJoin -&gt; INFO 006 Peer joined the channel!</div><div class="line">2018-02-26 03:13:12.808 UTC [main] main -&gt; INFO 007 Exiting.....</div><div class="line">go/chaincode_example02v 1.0 -p github.com/hyperledger/fabric/examples/chaincode/</div><div class="line">2018-02-26 03:13:20.735 UTC [msp] GetLocalMSP -&gt; DEBU 001 Returning existing local MSP</div><div class="line">2018-02-26 03:13:20.735 UTC [msp] GetDefaultSigningIdentity -&gt; DEBU 002 Obtaining default signing identity</div><div class="line">2018-02-26 03:13:20.736 UTC [chaincodeCmd] checkChaincodeCmdParams -&gt; INFO 003 Using default escc</div><div class="line">2018-02-26 03:13:20.736 UTC [chaincodeCmd] checkChaincodeCmdParams -&gt; INFO 004 Using default vscc</div><div class="line">2018-02-26 03:13:20.813 UTC [golang-platform] getCodeFromFS -&gt; DEBU 005 getCodeFromFS github.com/hyperledger/fabric/examples/chaincode/go/chaincode_example02</div><div class="line">2018-02-26 03:13:20.993 UTC [golang-platform] func1 -&gt; DEBU 006 Discarding GOROOT package fmt</div><div class="line">2018-02-26 03:13:20.993 UTC [golang-platform] func1 -&gt; DEBU 007 Discarding provided package github.com/hyperledger/fabric/core/chaincode/shim</div><div class="line">2018-02-26 03:13:20.993 UTC [golang-platform] func1 -&gt; DEBU 008 Discarding provided package github.com/hyperledger/fabric/protos/peer</div><div class="line">2018-02-26 03:13:20.994 UTC [golang-platform] func1 -&gt; DEBU 009 Discarding GOROOT package strconv</div><div class="line">2018-02-26 03:13:20.997 UTC [golang-platform] GetDeploymentPayload -&gt; DEBU 00a done</div><div class="line">2018-02-26 03:13:21.005 UTC [msp/identity] Sign -&gt; DEBU 00b Sign: plaintext: 0A89070A5B08031A0B08D1F6CDD40510...5F74FD270000FFFFDB02AC89002C0000</div><div class="line">2018-02-26 03:13:21.005 UTC [msp/identity] Sign -&gt; DEBU 00c Sign: digest: 02E5237D20C2C3CBFE7B25142D6B768F4EA32874302BDA8FAF41094AAC54C9C5</div><div class="line">2018-02-26 03:13:21.010 UTC [chaincodeCmd] install -&gt; DEBU 00d Installed remotely response:&lt;status:200 payload:&quot;OK&quot; &gt;</div><div class="line">2018-02-26 03:13:21.010 UTC [main] main -&gt; INFO 00e Exiting.....</div><div class="line">&apos; -P &quot;OR (&apos;Org1MSP.member&apos;,&apos;Org2MSP.member&apos;)&quot;gs&quot;:[&quot;init&quot;,&quot;a&quot;, &quot;100&quot;, &quot;b&quot;,&quot;200&quot;]&#125;</div><div class="line">2018-02-26 03:13:26.505 UTC [msp] GetLocalMSP -&gt; DEBU 001 Returning existing local MSP</div><div class="line">2018-02-26 03:13:26.505 UTC [msp] GetDefaultSigningIdentity -&gt; DEBU 002 Obtaining default signing identity</div><div class="line">2018-02-26 03:13:26.512 UTC [chaincodeCmd] checkChaincodeCmdParams -&gt; INFO 003 Using default escc</div><div class="line">2018-02-26 03:13:26.512 UTC [chaincodeCmd] checkChaincodeCmdParams -&gt; INFO 004 Using default vscc</div><div class="line">2018-02-26 03:13:26.513 UTC [msp/identity] Sign -&gt; DEBU 005 Sign: plaintext: 0A95070A6708031A0C08D6F6CDD40510...324D53500A04657363630A0476736363</div><div class="line">2018-02-26 03:13:26.514 UTC [msp/identity] Sign -&gt; DEBU 006 Sign: digest: 4713950FB2016BDEE810A76DA80E1A73703740B5F7C8E6230E617E843605280C</div><div class="line">2018-02-26 03:13:39.871 UTC [msp/identity] Sign -&gt; DEBU 007 Sign: plaintext: 0A95070A6708031A0C08D6F6CDD40510...1974DA15342608566EF6D2AE756A4CBF</div><div class="line">2018-02-26 03:13:39.872 UTC [msp/identity] Sign -&gt; DEBU 008 Sign: digest: E32CF9439BF3964502AAA3D418094EF596F9C9E70DC3E40FFCF26F1095593FC4</div><div class="line">2018-02-26 03:13:39.881 UTC [main] main -&gt; INFO 009 Exiting.....</div><div class="line">root@f3f2e62d56b9:/opt/gopath/src/github.com/hyperledger/fabric/peer# peer chaincode query -C $CHANNEL_NAME -n mycc -c &apos;&#123;&quot;Args&quot;:[&quot;query&quot;,&quot;a&quot;]&#125;&apos;</div><div class="line">2018-02-26 03:14:02.583 UTC [msp] GetLocalMSP -&gt; DEBU 001 Returning existing local MSP</div><div class="line">2018-02-26 03:14:02.583 UTC [msp] GetDefaultSigningIdentity -&gt; DEBU 002 Obtaining default signing identity</div><div class="line">2018-02-26 03:14:02.583 UTC [chaincodeCmd] checkChaincodeCmdParams -&gt; INFO 003 Using default escc</div><div class="line">2018-02-26 03:14:02.584 UTC [chaincodeCmd] checkChaincodeCmdParams -&gt; INFO 004 Using default vscc</div><div class="line">2018-02-26 03:14:02.584 UTC [msp/identity] Sign -&gt; DEBU 005 Sign: plaintext: 0A95070A6708031A0C08FAF6CDD40510...6D7963631A0A0A0571756572790A0161</div><div class="line">2018-02-26 03:14:02.584 UTC [msp/identity] Sign -&gt; DEBU 006 Sign: digest: 681150DCAE15AFAD4F1F6755A38CEA9A1860E2900A2C06D77953F604BCBC32EF</div><div class="line">Query Result: 100</div><div class="line">2018-02-26 03:14:02.601 UTC [main] main -&gt; INFO 007 Exiting.....</div><div class="line">root@f3f2e62d56b9:/opt/gopath/src/github.com/hyperledger/fabric/peer#</div></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">区块链</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-区块链基本概念" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -860,82 +943,6 @@
 
 
   
-    <article id="post-Elasticsearch-问题记录" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/01/Elasticsearch-问题记录/">Elasticsearch 问题记录</a>
-    </h1>
-  
-
-        
-        <a href="/2017/12/01/Elasticsearch-问题记录/" class="archive-article-date">
-  	<time datetime="2017-12-01T08:08:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-01</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ul>
-<li>错误日志：field “name” was indexed without position data; cannot run PhraseQuery </li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">java.lang.IllegalStateException: field &quot;name&quot; was indexed without position data; cannot run PhraseQuery (phrase=name:&quot;bbc ddr&quot;)</div><div class="line">	at org.apache.lucene.search.PhraseQuery$PhraseWeight.scorer(PhraseQuery.java:411)</div><div class="line">	at org.apache.lucene.search.Weight.bulkScorer(Weight.java:160)</div><div class="line">	at org.apache.lucene.search.IndexSearcher.search(IndexSearcher.java:666)</div><div class="line">	at org.apache.lucene.search.IndexSearcher.search(IndexSearcher.java:473)</div><div class="line">	at org.elasticsearch.search.query.QueryPhase.execute(QueryPhase.java:388)</div><div class="line">	at org.elasticsearch.search.query.QueryPhase.execute(QueryPhase.java:108)</div><div class="line">	at org.elasticsearch.search.SearchService.loadOrExecuteQueryPhase(SearchService.java:247)</div><div class="line">	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:261)</div><div class="line">	at org.elasticsearch.action.search.SearchTransportService$6.messageReceived(SearchTransportService.java:331)</div><div class="line">	at org.elasticsearch.action.search.SearchTransportService$6.messageReceived(SearchTransportService.java:328)</div><div class="line">	at org.elasticsearch.transport.RequestHandlerRegistry.processMessageReceived(RequestHandlerRegistry.java:69)</div><div class="line">	at org.elasticsearch.transport.TransportService$7.doRun(TransportService.java:627)</div><div class="line">	at org.elasticsearch.common.util.concurrent.ThreadContext$ContextPreservingAbstractRunnable.doRun(ThreadContext.java:638)</div><div class="line">	at org.elasticsearch.common.util.concurrent.AbstractRunnable.run(AbstractRunnable.java:37)</div><div class="line">	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)</div><div class="line">	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)</div><div class="line">	at java.lang.Thread.run(Thread.java:748)</div></pre></td></tr></table></figure>
-<ul>
-<li>问题与描述解决方法一致：<a href="https://github.com/elastic/elasticsearch/issues/4475" target="_blank" rel="external">https://github.com/elastic/elasticsearch/issues/4475</a></li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Elasticsearch</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
@@ -1033,11 +1040,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Elasticsearch</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">springboot</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Elasticsearch</a>
+                <a href="javascript:void(0)" class="js-tag color2">分布式/集群</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1050,10 +1061,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">超级账本</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">分布式/集群</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1081,15 +1088,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">springcloud</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">jenkins</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">K8S</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">springcloud</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1125,6 +1132,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">git/github/gitlab</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">fabric-node-sdk</a>
               </li>
              
@@ -1134,10 +1145,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">随笔记录</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">git/github/gitlab</a>
               </li>
              
               <li class="article-tag-list-item">
