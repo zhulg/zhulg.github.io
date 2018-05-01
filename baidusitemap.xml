@@ -4,6 +4,46 @@
 
     
   <url>
+    <loc>http://yoursite.com/2018/05/01/fabric%E9%9B%86%E6%88%90%E5%BC%80%E5%90%AFtls%E5%90%8E%E5%87%BA%E7%8E%B0%E9%94%99%E8%AF%AF%E8%AE%B0%E5%BD%95/</loc>
+    <lastmod>2018-05-01T14:20:23.000Z</lastmod>
+    <data>
+        <display>
+        <title>Fabric集成开启tls后出现错误记录</title>
+        <pubTime>2018-05-01T13:50:59.000Z</pubTime>
+        
+        <tag>fabric</tag>
+         
+        <tag>区块链</tag>
+         
+        <tag>tls</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2018/03/20/fabric%E7%9A%84%E8%83%8C%E4%B9%A6%E7%AD%96%E7%95%A5%E8%AE%B0%E5%BD%95/</loc>
+    <lastmod>2018-04-24T10:06:53.000Z</lastmod>
+    <data>
+        <display>
+        <title>Fabric的背书策略记录</title>
+        <pubTime>2018-03-20T03:14:22.000Z</pubTime>
+        
+        <tag>fabric</tag>
+         
+        <tag>区块链</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/2018/04/21/fabric%E7%9A%84chaincode%E7%BC%96%E5%86%99%E5%8F%8A%E6%8E%A5%E5%8F%A3/</loc>
     <lastmod>2018-04-21T10:07:02.000Z</lastmod>
     <data>
@@ -284,23 +324,6 @@
         <tag>区块链</tag>
          
         <tag>go</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2018/03/20/fabric%E7%9A%84%E8%83%8C%E4%B9%A6%E7%AD%96%E7%95%A5%E8%AE%B0%E5%BD%95/</loc>
-    <lastmod>2018-03-20T05:59:08.000Z</lastmod>
-    <data>
-        <display>
-        <title>Fabric的背书策略记录</title>
-        <pubTime>2018-03-20T03:14:22.000Z</pubTime>
-        
-        <tag>区块链</tag>
          
          
            
