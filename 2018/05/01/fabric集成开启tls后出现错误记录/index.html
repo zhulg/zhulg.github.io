@@ -17,7 +17,7 @@
 <meta property="og:site_name" content="zhulg笔记">
 <meta property="og:description" content="目前在不开启tls时，通过fabric javasdk链接到fabric网络，数据到链一切正常。 开启tls后，通过配置修改，并在java代码上进行处理后，目前错误出现\ Reason: UNAVAILABLE: Channel closed while performing protocol negotiation">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-02T08:15:46.000Z">
+<meta property="og:updated_time" content="2018-05-02T10:01:25.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Fabric集成开启tls后出现错误记录">
 <meta name="twitter:description" content="目前在不开启tls时，通过fabric javasdk链接到fabric网络，数据到链一切正常。 开启tls后，通过配置修改，并在java代码上进行处理后，目前错误出现\ Reason: UNAVAILABLE: Channel closed while performing protocol negotiation">
@@ -193,6 +193,9 @@
 <li><strong>根据昨天定位思路，查找在peer和order的Properties的属性里发现设置有问题，结合到官方测试例子的的写法</strong></li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ordererProperties.setProperty(&quot;hostnameOverride&quot;, 填写对应orderer或者peer的名字);</div></pre></td></tr></table></figure>
+<ul>
+<li><strong>目前fabric的javasdk还不是很好使用，官方只有测试用例，需要从测试用例里梳理使用的代码流程结合到自己的业务里去，还没看到过像样的例子提供。报错信息提示也比较隐晦。。比较坑</strong></li>
+</ul>
 
       
 
@@ -459,11 +462,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">go</a>
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">docker</a>
+                <a href="javascript:void(0)" class="js-tag color3">go</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -487,11 +490,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">kafka</a>
+                <a href="javascript:void(0)" class="js-tag color4">K8S</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+                <a href="javascript:void(0)" class="js-tag color1">kafka</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -499,7 +502,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">K8S</a>
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -511,15 +514,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">springboot相关</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">nginx</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">openresty</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">springboot相关</a>
               </li>
              
               <li class="article-tag-list-item">
