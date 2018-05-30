@@ -17,7 +17,7 @@
 <meta property="og:site_name" content="zhulg笔记">
 <meta property="og:description" content="composer构建和部署 关于composer的介绍和使用可参见官方文档。 以下关于composer的使用时结合项目，关键步骤记录。是在配置好连接，生成bna文件后的步骤。之前步骤可移步文档学习。 以下东西为自己笔记形式，不够详细。如需帮助指导请邮件我（lg.json@gmail.com）">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-30T15:49:42.000Z">
+<meta property="og:updated_time" content="2018-05-30T15:54:30.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用Hyperledger Composer落地项目">
 <meta name="twitter:description" content="composer构建和部署 关于composer的介绍和使用可参见官方文档。 以下关于composer的使用时结合项目，关键步骤记录。是在配置好连接，生成bna文件后的步骤。之前步骤可移步文档学习。 以下东西为自己笔记形式，不够详细。如需帮助指导请邮件我（lg.json@gmail.com）">
@@ -186,12 +186,12 @@
 <h5 id="1-开始前对docker进行了重启（目的是清除之前docker里的数据，在没有对数据持久进行挂载的时候，重启不会生成新的秘钥使用之前配好的）"><a href="#1-开始前对docker进行了重启（目的是清除之前docker里的数据，在没有对数据持久进行挂载的时候，重启不会生成新的秘钥使用之前配好的）" class="headerlink" title="1, 开始前对docker进行了重启（目的是清除之前docker里的数据，在没有对数据持久进行挂载的时候，重启不会生成新的秘钥使用之前配好的）"></a>1, 开始前对docker进行了重启（目的是清除之前docker里的数据，在没有对数据持久进行挂载的时候，重启不会生成新的秘钥使用之前配好的）</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">/byfn.sh -m restart -s couchdb -a</div><div class="line">rm -fr $HOME/.composer</div></pre></td></tr></table></figure>
 <h5 id="2-初始化业务网络-申请身份"><a href="#2-初始化业务网络-申请身份" class="headerlink" title="2, 初始化业务网络,申请身份"></a>2, 初始化业务网络,申请身份</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">composer network install --card PeerAdmin@byfn-network-org1 --archiveFile gome-sellers-network_0.0.12.bna</div><div class="line">composer network install --card PeerAdmin@byfn-network-org2 --archiveFile gome-sellers-network_0.0.12.bna</div><div class="line"></div><div class="line">composer identity request -c PeerAdmin@byfn-network-org1 -u admin -s adminpw -d gomeadmin</div><div class="line">composer identity request -c PeerAdmin@byfn-network-org2 -u admin -s adminpw -d geliadmin</div></pre></td></tr></table></figure>
 <h5 id="3-启动网络"><a href="#3-启动网络" class="headerlink" title="3, 启动网络"></a>3, 启动网络</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">composer network start -c PeerAdmin@byfn-network-org1 -n gome-sellers-network -V 0.0.3-deploy.12 -o endorsementPolicyFile=/tmp/composer/endorsement-policy.json -A gomeadmin -C gomeadmin/admin-pub.pem -A geliadmin -C geliadmin/admin-pub.pem</div></pre></td></tr></table></figure>
-<h5 id="4-添加管理员card-组织1和组织2"><a href="#4-添加管理员card-组织1和组织2" class="headerlink" title="4, 添加管理员card(组织1和组织2)"></a>4, 添加管理员card(组织1和组织2)</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">composer card create -p /tmp/composer/org1/byfn-network-org1.json -u gomeadmin -n gome-sellers-network -c gomeadmin/admin-pub.pem -k gomeadmin/admin-priv.pem</div><div class="line">composer card import -f gomeadmin@gome-sellers-network.card</div><div class="line"></div><div class="line">composer card create -p /tmp/composer/org2/byfn-network-org2.json -u geliadmin -n gome-sellers-network -c geliadmin/admin-pub.pem -k geliadmin/admin-priv.pem</div><div class="line">composer card import -f geliadmin@gome-sellers-network.card</div></pre></td></tr></table></figure>
+<h5 id="4-添加管理员card-组织1和组织2"><a href="#4-添加管理员card-组织1和组织2" class="headerlink" title="4, 添加管理员card(组织1和组织2)"></a>4, 添加管理员card(组织1和组织2)</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">composer card create -p /tmp/composer/org1/byfn-network-org1.json -u gomeadmin -n gome-sellers-network -c gomeadmin/admin-pub.pem -k gomeadmin/admin-priv.pem</div><div class="line"></div><div class="line">composer card import -f gomeadmin@gome-sellers-network.card</div><div class="line"></div><div class="line"></div><div class="line">composer card create -p /tmp/composer/org2/byfn-network-org2.json -u geliadmin -n gome-sellers-network -c geliadmin/admin-pub.pem -k geliadmin/admin-priv.pem</div><div class="line"></div><div class="line">composer card import -f geliadmin@gome-sellers-network.card</div></pre></td></tr></table></figure>
 <h5 id="5-启动API"><a href="#5-启动API" class="headerlink" title="5,启动API"></a>5,启动API</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">composer-rest-server -c gomeadmin@gome-sellers-network -n never -w true</div></pre></td></tr></table></figure>
-<h5 id="6-更新bna（测试开发阶段需要修改bna文件情况使用更新。执行一个组织上，在进行数据添加时发现会同步到其他pee容器）"><a href="#6-更新bna（测试开发阶段需要修改bna文件情况使用更新。执行一个组织上，在进行数据添加时发现会同步到其他pee容器）" class="headerlink" title="6, 更新bna（测试开发阶段需要修改bna文件情况使用更新。执行一个组织上，在进行数据添加时发现会同步到其他pee容器）"></a>6, 更新bna（测试开发阶段需要修改bna文件情况使用更新。执行一个组织上，在进行数据添加时发现会同步到其他pee容器）</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">composer network install --card PeerAdmin@byfn-network-org1 --archiveFile gome-sellers-network_0.0.12.bna</div><div class="line">composer network upgrade -c PeerAdmin@byfn-network-org1 -n gome-sellers-network -V 0.0.3-deploy.12</div><div class="line"></div><div class="line">composer network install --card PeerAdmin@byfn-network-org2 --archiveFile gome-sellers-network_0.0.12.bna</div><div class="line">composer network upgrade -c PeerAdmin@byfn-network-org2 -n gome-sellers-network -V 0.0.3-deploy.12</div></pre></td></tr></table></figure>
-<h5 id="7-添加seller1用户并申请身份信息"><a href="#7-添加seller1用户并申请身份信息" class="headerlink" title="7, 添加seller1用户并申请身份信息"></a>7, 添加seller1用户并申请身份信息</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">composer participant add -c gomeadmin@gome-sellers-network -d &apos;&#123;&quot;$class&quot;:&quot;com.gomesellers.network.Seller&quot;,&quot;Id&quot;:&quot;1&quot;, &quot;Name&quot;:&quot;zhulianggang&quot;,&quot;orgId&quot;:&quot;001&quot;,&quot;orgName&quot;:&quot;格力&quot;&#125;&apos;</div><div class="line">composer identity issue -c gomeadmin@gome-sellers-network -f seller1.card -u seller1 -a &quot;resource:com.gomesellers.network.Seller#1&quot;</div><div class="line">composer card import -f seller1.card</div></pre></td></tr></table></figure>
+<h5 id="6-更新bna（测试开发阶段需要修改bna文件情况使用更新。执行一个组织上，在进行数据添加时发现会同步到其他pee容器）"><a href="#6-更新bna（测试开发阶段需要修改bna文件情况使用更新。执行一个组织上，在进行数据添加时发现会同步到其他pee容器）" class="headerlink" title="6, 更新bna（测试开发阶段需要修改bna文件情况使用更新。执行一个组织上，在进行数据添加时发现会同步到其他pee容器）"></a>6, 更新bna（测试开发阶段需要修改bna文件情况使用更新。执行一个组织上，在进行数据添加时发现会同步到其他pee容器）</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">composer network install --card PeerAdmin@byfn-network-org1 --archiveFile gome-sellers-network_0.0.12.bna</div><div class="line"></div><div class="line">composer network upgrade -c PeerAdmin@byfn-network-org1 -n gome-sellers-network -V 0.0.3-deploy.12</div><div class="line"></div><div class="line"></div><div class="line">composer network install --card PeerAdmin@byfn-network-org2 --archiveFile gome-sellers-network_0.0.12.bna</div><div class="line"></div><div class="line">composer network upgrade -c PeerAdmin@byfn-network-org2 -n gome-sellers-network -V 0.0.3-deploy.12</div></pre></td></tr></table></figure>
+<h5 id="7-添加seller1用户并申请身份信息"><a href="#7-添加seller1用户并申请身份信息" class="headerlink" title="7, 添加seller1用户并申请身份信息"></a>7, 添加seller1用户并申请身份信息</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">composer participant add -c gomeadmin@gome-sellers-network -d &apos;&#123;&quot;$class&quot;:&quot;com.gomesellers.network.Seller&quot;,&quot;Id&quot;:&quot;1&quot;, &quot;Name&quot;:&quot;zhulianggang&quot;,&quot;orgId&quot;:&quot;001&quot;,&quot;orgName&quot;:&quot;格力&quot;&#125;&apos;</div><div class="line"></div><div class="line">composer identity issue -c gomeadmin@gome-sellers-network -f seller1.card -u seller1 -a &quot;resource:com.gomesellers.network.Seller#1&quot;</div><div class="line"></div><div class="line">composer card import -f seller1.card</div></pre></td></tr></table></figure>
 <h5 id="8-使用sell1-提交数据上链"><a href="#8-使用sell1-提交数据上链" class="headerlink" title="8, 使用sell1 提交数据上链"></a>8, 使用sell1 提交数据上链</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">composer transaction submit --card seller1@gome-sellers-network -d &apos;&#123;&quot;$class&quot;: &quot;org.hyperledger.composer.system.AddAsset&quot;,&quot;registryType&quot;: &quot;Asset&quot;,&quot;registryId&quot;: &quot;com.gomesellers.network.Order&quot;, &quot;targetRegistry&quot; : &quot;resource:org.hyperledger.composer.system.AssetRegistry#com.gomesellers.network.Order&quot;, &quot;resources&quot;: [&#123;&quot;$class&quot;: &quot;com.gomesellers.network.Order&quot;,&quot;orderId&quot;:&quot;1&quot;, &quot;itemDesc&quot;:&quot;MAC&quot;,&quot;channel&quot;:&quot;gome&quot;, &quot;itemNum&quot;:&quot;10&quot;,&quot;createTime&quot;:&quot;2018-5-30&quot;,&quot;sellerId&quot;:&quot;1&quot;,&quot;sellerName&quot;:&quot;zhulianggang&quot;,&quot;sellerOrgId&quot;:&quot;001&quot;,&quot;sellerOrgName&quot;:&quot;格力&quot;,&quot;sum&quot;:&quot;888&quot;,&quot;orginOrderId&quot;:&quot;1001&quot;&#125;]&#125;&apos;</div></pre></td></tr></table></figure>
-<h5 id="9-添加seller2用户并申请身份"><a href="#9-添加seller2用户并申请身份" class="headerlink" title="9,添加seller2用户并申请身份"></a>9,添加seller2用户并申请身份</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">composer participant add -c gomeadmin@gome-sellers-network -d &apos;&#123;&quot;$class&quot;:&quot;com.gomesellers.network.Seller&quot;,&quot;Id&quot;:&quot;2&quot;, &quot;Name&quot;:&quot;zhulg&quot;,&quot;orgId&quot;:&quot;001&quot;,&quot;orgName&quot;:&quot;格力&quot;&#125;&apos;</div><div class="line">composer identity issue -c gomeadmin@gome-sellers-network -f seller2.card -u seller2 -a &quot;resource:com.gomesellers.network.Seller#2&quot;</div><div class="line">composer card import -f seller2.card</div></pre></td></tr></table></figure>
+<h5 id="9-添加seller2用户并申请身份"><a href="#9-添加seller2用户并申请身份" class="headerlink" title="9,添加seller2用户并申请身份"></a>9,添加seller2用户并申请身份</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">composer participant add -c gomeadmin@gome-sellers-network -d &apos;&#123;&quot;$class&quot;:&quot;com.gomesellers.network.Seller&quot;,&quot;Id&quot;:&quot;2&quot;, &quot;Name&quot;:&quot;zhulg&quot;,&quot;orgId&quot;:&quot;001&quot;,&quot;orgName&quot;:&quot;格力&quot;&#125;&apos;</div><div class="line"></div><div class="line">composer identity issue -c gomeadmin@gome-sellers-network -f seller2.card -u seller2 -a &quot;resource:com.gomesellers.network.Seller#2&quot;</div><div class="line"></div><div class="line">composer card import -f seller2.card</div></pre></td></tr></table></figure>
 <h5 id="10-使用sell2-提交数据上链"><a href="#10-使用sell2-提交数据上链" class="headerlink" title="10, 使用sell2 提交数据上链"></a>10, 使用sell2 提交数据上链</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">composer transaction submit --card seller2@gome-sellers-network -d &apos;&#123;&quot;$class&quot;: &quot;org.hyperledger.composer.system.AddAsset&quot;,&quot;registryType&quot;: &quot;Asset&quot;,&quot;registryId&quot;: &quot;com.gomesellers.network.Order&quot;, &quot;targetRegistry&quot; : &quot;resource:org.hyperledger.composer.system.AssetRegistry#com.gomesellers.network.Order&quot;, &quot;resources&quot;: [&#123;&quot;$class&quot;: &quot;com.gomesellers.network.Order&quot;,&quot;orderId&quot;:&quot;2&quot;, &quot;itemDesc&quot;:&quot;MAC&quot;,&quot;channel&quot;:&quot;gome&quot;, &quot;itemNum&quot;:&quot;10&quot;,&quot;createTime&quot;:&quot;2018-5-30&quot;,&quot;sellerId&quot;:&quot;2&quot;,&quot;sellerName&quot;:&quot;zhulg&quot;,&quot;sellerOrgId&quot;:&quot;001&quot;,&quot;sellerOrgName&quot;:&quot;格力&quot;,&quot;sum&quot;:&quot;999&quot;,&quot;orginOrderId&quot;:&quot;1002&quot;&#125;]&#125;&apos;</div></pre></td></tr></table></figure>
 <ul>
 <li>不同身份提交数据上链，权限控制</li>
@@ -445,19 +445,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">区块链</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Elasticsearch</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">部署</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">区块链</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">超级账本</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Elasticsearch</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -501,19 +501,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">jenkins</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">K8S</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">kafka</a>
+                <a href="javascript:void(0)" class="js-tag color3">jenkins</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">kafka</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -541,6 +541,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">hyperledger composer</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">git/github/gitlab</a>
               </li>
              
@@ -550,10 +554,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">webstom</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">hyperledger composer</a>
               </li>
              
               <li class="article-tag-list-item">
