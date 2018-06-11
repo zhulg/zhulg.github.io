@@ -7,20 +7,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Mac搭建太坊私链 | zhulg笔记</title>
+  <title>Mac搭建以太坊私链 | zhulg笔记</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="搭建以太坊私链，需要安装geth 创建自己的私链存储目录，并创建个datadir目录。  1，添加传世区块配置文件">
+  <meta name="description" content="搭建以太坊私链，需要安装geth 创建自己的私链存储目录，并创建个datadir目录。  1，添加传世区块配置文件 cd 到自己私链目录下，vim genesis.json ，与datadir同级位置">
 <meta name="keywords" content="区块链,以太坊">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Mac搭建太坊私链">
+<meta property="og:title" content="Mac搭建以太坊私链">
 <meta property="og:url" content="http://yoursite.com/2018/06/11/mac搭建太坊私链/index.html">
 <meta property="og:site_name" content="zhulg笔记">
-<meta property="og:description" content="搭建以太坊私链，需要安装geth 创建自己的私链存储目录，并创建个datadir目录。  1，添加传世区块配置文件">
+<meta property="og:description" content="搭建以太坊私链，需要安装geth 创建自己的私链存储目录，并创建个datadir目录。  1，添加传世区块配置文件 cd 到自己私链目录下，vim genesis.json ，与datadir同级位置">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-11T14:47:46.000Z">
+<meta property="og:updated_time" content="2018-06-11T14:50:57.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Mac搭建太坊私链">
-<meta name="twitter:description" content="搭建以太坊私链，需要安装geth 创建自己的私链存储目录，并创建个datadir目录。  1，添加传世区块配置文件">
+<meta name="twitter:title" content="Mac搭建以太坊私链">
+<meta name="twitter:description" content="搭建以太坊私链，需要安装geth 创建自己的私链存储目录，并创建个datadir目录。  1，添加传世区块配置文件 cd 到自己私链目录下，vim genesis.json ，与datadir同级位置">
   
     <link rel="alternative" href="/atom.xml" title="zhulg笔记" type="application/atom+xml">
   
@@ -161,7 +161,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Mac搭建太坊私链
+      Mac搭建以太坊私链
     </h1>
   
 
@@ -178,9 +178,9 @@
 <li>搭建以太坊私链，需要安装geth</li>
 <li>创建自己的私链存储目录，并创建个datadir目录。</li>
 </ul>
-<h4 id="1，添加传世区块配置文件"><a href="#1，添加传世区块配置文件" class="headerlink" title="1，添加传世区块配置文件"></a>1，添加传世区块配置文件</h4><a id="more"></a>
-<ul>
-<li>cd 到自己私链目录下，vim genesis.json ，与datadir同级位置</li>
+<h4 id="1，添加传世区块配置文件"><a href="#1，添加传世区块配置文件" class="headerlink" title="1，添加传世区块配置文件"></a>1，添加传世区块配置文件</h4><ul>
+<li>cd 到自己私链目录下，vim genesis.json ，与datadir同级位置<a id="more"></a>
+</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">&#123;  </div><div class="line">     &quot;config&quot;: &#123;</div><div class="line">       &quot;chainId&quot;: 1000,</div><div class="line">       &quot;homesteadBlock&quot;: 0,</div><div class="line">       &quot;eip155Block&quot;: 0,</div><div class="line">       &quot;eip158Block&quot;: 0</div><div class="line">                &#125;,</div><div class="line">     &quot;nonce&quot;: &quot;0x0000000000000061&quot;,</div><div class="line">     &quot;timestamp&quot;: &quot;0x0&quot;,</div><div class="line">     &quot;parentHash&quot;: &quot;0x0000000000000000000000000000000000000000000000000000000000000000&quot;, </div><div class="line">     &quot;gasLimit&quot;: &quot;0x8000000&quot;,   </div><div class="line">     &quot;difficulty&quot;: &quot;0x100&quot;,    </div><div class="line">     &quot;mixhash&quot;: &quot;0x0000000000000000000000000000000000000000000000000000000000000000&quot;,</div><div class="line">     &quot;coinbase&quot;: &quot;0x3333333333333333333333333333333333333333&quot;,</div><div class="line">     &quot;extraData&quot;: &quot;0x00000000&quot;,</div><div class="line">     &quot;alloc&quot;: &#123;&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <ul>
@@ -429,11 +429,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Elasticsearch</a>
+                <a href="javascript:void(0)" class="js-tag color1">springboot</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">springboot</a>
+                <a href="javascript:void(0)" class="js-tag color4">Elasticsearch</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -449,7 +449,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">超级账本</a>
+                <a href="javascript:void(0)" class="js-tag color2">分布式/集群</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -457,7 +457,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">分布式/集群</a>
+                <a href="javascript:void(0)" class="js-tag color5">超级账本</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -489,10 +489,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">K8S</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">jenkins</a>
               </li>
              
@@ -501,11 +497,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+                <a href="javascript:void(0)" class="js-tag color4">K8S</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">kafka</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -514,6 +514,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">redis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">以太坊</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -570,10 +574,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ethereum</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">以太坊</a>
               </li>
             
             <div class="clearfix"></div>
