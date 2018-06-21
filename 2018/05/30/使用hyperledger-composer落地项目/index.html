@@ -18,7 +18,7 @@
 <meta property="og:description" content="composer构建和部署 关于composer的介绍和使用可参见官方文档。 以下关于composer的使用时结合项目，关键步骤记录。是在配置好连接，生成bna文件后的步骤。之前步骤可移步文档学习。 以下东西为自己笔记形式，不够详细。如需帮助指导请邮件我（lg.json@gmail.com）  开发基本步骤">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://hyperledger.github.io/composer/latest/assets/img/Angular.svg">
-<meta property="og:updated_time" content="2018-05-31T05:48:05.000Z">
+<meta property="og:updated_time" content="2018-06-21T07:32:59.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用Hyperledger Composer落地项目">
 <meta name="twitter:description" content="composer构建和部署 关于composer的介绍和使用可参见官方文档。 以下关于composer的使用时结合项目，关键步骤记录。是在配置好连接，生成bna文件后的步骤。之前步骤可移步文档学习。 以下东西为自己笔记形式，不够详细。如需帮助指导请邮件我（lg.json@gmail.com）  开发基本步骤">
@@ -203,6 +203,9 @@
 <li>本地启动composer playground，可查看不同card</li>
 <li>composer network list -c seller2@gome-sellers-network 业务网络下数据</li>
 <li>启动的reset api 可以执行同样操作。唯一不同的是reset api 对应身份切换好像没有。只能再生成reset api时命令行指定身份,这样的话对应提交上链就只能用命令行方式 –card 身份提交了。（需要进一步研究下这块）</li>
+</ul>
+<h4 id="11-多用户模式解决以上问题"><a href="#11-多用户模式解决以上问题" class="headerlink" title="11,多用户模式解决以上问题"></a>11,多用户模式解决以上问题</h4><ul>
+<li>最近涉及到多用户模式业务开发，composer里的多用户模式可以完全解决用户身份问题。等空了做个总结记录。</li>
 </ul>
 
       
@@ -451,6 +454,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Elasticsearch</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">springboot</a>
               </li>
              
@@ -463,15 +470,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Elasticsearch</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">超级账本</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">分布式/集群</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -480,6 +479,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">AWK</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">分布式/集群</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -515,15 +518,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">springcloud</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">jenkins</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">kafka</a>
+                <a href="javascript:void(0)" class="js-tag color2">springcloud</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -535,11 +534,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
+                <a href="javascript:void(0)" class="js-tag color1">kafka</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">springboot相关</a>
+                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -548,6 +547,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">以太坊</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">springboot相关</a>
               </li>
              
               <li class="article-tag-list-item">
