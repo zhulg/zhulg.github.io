@@ -4,6 +4,25 @@
 
     
   <url>
+    <loc>http://yoursite.com/2018/06/26/mac%E4%B8%8Adjango%E5%AE%89%E8%A3%85/</loc>
+    <lastmod>2018-06-26T14:56:36.000Z</lastmod>
+    <data>
+        <display>
+        <title>Mac上django安装</title>
+        <pubTime>2018-06-26T14:37:33.000Z</pubTime>
+        
+        <tag>python</tag>
+         
+        <tag>django</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/2018/05/30/%E4%BD%BF%E7%94%A8hyperledger-composer%E8%90%BD%E5%9C%B0%E9%A1%B9%E7%9B%AE/</loc>
     <lastmod>2018-06-21T07:32:59.000Z</lastmod>
     <data>
@@ -201,9 +220,9 @@
         <title>Fabric与springboot整合问题记录</title>
         <pubTime>2018-04-19T08:43:29.000Z</pubTime>
         
-        <tag>springboot</tag>
-         
         <tag>fabric</tag>
+         
+        <tag>springboot</tag>
          
          
            
