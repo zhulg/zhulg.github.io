@@ -4,6 +4,25 @@
 
     
   <url>
+    <loc>http://yoursite.com/2018/07/05/%E4%BD%BF%E7%94%A8composer%E9%83%A8%E7%BD%B2chaincode%E4%B8%AD%E8%B6%85%E6%97%B6%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/</loc>
+    <lastmod>2018-07-04T16:26:46.000Z</lastmod>
+    <data>
+        <display>
+        <title>使用Composer部署chaincode中超时问题记录</title>
+        <pubTime>2018-07-04T16:09:48.000Z</pubTime>
+        
+        <tag>fabric</tag>
+         
+        <tag>composer</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/2018/07/02/hyperledger-composer%E4%B8%8Bdocker%E9%87%8D%E5%90%AF%E5%90%8Echaincode%E6%97%A0%E6%B3%95%E5%90%AF%E5%8A%A8%E8%AE%B0%E5%BD%95/</loc>
     <lastmod>2018-07-02T10:26:28.000Z</lastmod>
     <data>

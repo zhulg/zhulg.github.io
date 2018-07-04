@@ -7,15 +7,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: 大数据&amp;机器学习 | zhulg笔记</title>
+  <title>使用Composer部署chaincode中超时问题记录 | zhulg笔记</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="zhulg笔记">
-<meta property="og:url" content="http://yoursite.com/tags/大数据-机器学习/index.html">
+  <meta name="description" content="使用composer进行部署chaincode，构建chaincode镜像时出现超时问题。 错误日志 Response from attempted peer comms was an error: Error: REQUEST_TIMEOUT 之前遇到过按照网上说法，设置yaml里peer上chaincode的超时时间有300改为1200，有时能解决，最近发现问题根源和有更简单处理方式。">
+<meta name="keywords" content="fabric,composer">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用Composer部署chaincode中超时问题记录">
+<meta property="og:url" content="http://yoursite.com/2018/07/05/使用composer部署chaincode中超时问题记录/index.html">
 <meta property="og:site_name" content="zhulg笔记">
+<meta property="og:description" content="使用composer进行部署chaincode，构建chaincode镜像时出现超时问题。 错误日志 Response from attempted peer comms was an error: Error: REQUEST_TIMEOUT 之前遇到过按照网上说法，设置yaml里peer上chaincode的超时时间有300改为1200，有时能解决，最近发现问题根源和有更简单处理方式。">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-07-04T16:26:46.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="zhulg笔记">
+<meta name="twitter:title" content="使用Composer部署chaincode中超时问题记录">
+<meta name="twitter:description" content="使用composer进行部署chaincode，构建chaincode镜像时出现超时问题。 错误日志 Response from attempted peer comms was an error: Error: REQUEST_TIMEOUT 之前遇到过按照网上说法，设置yaml里peer上chaincode的超时时间有300改为1200，有时能解决，最近发现问题根源和有更简单处理方式。">
   
     <link rel="alternative" href="/atom.xml" title="zhulg笔记" type="application/atom+xml">
   
@@ -149,60 +154,189 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-使用composer部署chaincode中超时问题记录" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/11/28/大数据机器学习/" class="archive-article-date">
-  	<time datetime="2017-11-28T02:22:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-28</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/11/28/大数据机器学习/">大数据技术&amp;机器学习储备知识点</a>
+    <h1 class="article-title" itemprop="name">
+      使用Composer部署chaincode中超时问题记录
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2018/07/05/使用composer部署chaincode中超时问题记录/" class="archive-article-date">
+  	<time datetime="2018-07-04T16:09:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-05</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li>使用composer进行部署chaincode，构建chaincode镜像时出现超时问题。</li>
+<li>错误日志 <strong>Response from attempted peer comms was an error: Error: REQUEST_TIMEOUT</strong></li>
+<li><p>之前遇到过按照网上说法，设置yaml里peer上chaincode的超时时间有300改为1200，有时能解决，最近发现问题根源和有更简单处理方式。</p>
+<a id="more"></a>
+</li>
+<li><p>一般执行composer network start xxx时出现</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Starting business network definition. This may take a minute...</div><div class="line">Error: Error trying to start business network. Error: No valid responses from any peers.</div><div class="line">Response from attempted peer comms was an error: Error: REQUEST_TIMEOUT</div><div class="line">Command failed</div></pre></td></tr></table></figure>
+<h4 id="最新解决方案"><a href="#最新解决方案" class="headerlink" title="最新解决方案"></a>最新解决方案</h4><ul>
+<li>之前解决过该问题，多设置超时，这个方案不靠谱。从出错的日志看，其实是npm要下载模块，进行构建image。但是npm这个东西国内。。。</li>
+<li><p>所以需要设置npm代理源，看到官网上有给出设置的方法<a href="https://hyperledger.github.io/composer/latest/managing/connector-information" target="_blank" rel="external">参见设置npm代理</a></p>
+</li>
+<li><p>步骤：</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">1，创建文件npmConfig，内容添加  https://registry.npm.taobao.org</div><div class="line">2，在文件目录下重新执行 composer network install --card PeerAdmin@hlfv1  --archiveFile my-network@0.1.6.bna -o npmrcFile=npmConfig</div></pre></td></tr></table></figure>
+<ul>
+<li>执行完，在进行composer network start就非常快完成创建chaincode镜像和容器启动工作了。（fabric之前记得重启）</li>
+</ul>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢点开，不收钱ing<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">大数据&机器学习</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">fabric</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">composer</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2018/07/05/使用composer部署chaincode中超时问题记录/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2018/07/02/hyperledger-composer下docker重启后chaincode无法启动记录/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Hyperledger Composer下docker重启后chaincode无法启动记录</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
 
 
           </div>
@@ -225,9 +359,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
