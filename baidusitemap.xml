@@ -5,7 +5,7 @@
     
   <url>
     <loc>http://yoursite.com/2018/07/05/%E4%BD%BF%E7%94%A8composer%E9%83%A8%E7%BD%B2chaincode%E4%B8%AD%E8%B6%85%E6%97%B6%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/</loc>
-    <lastmod>2018-07-04T16:26:46.000Z</lastmod>
+    <lastmod>2018-07-05T07:32:23.000Z</lastmod>
     <data>
         <display>
         <title>使用Composer部署chaincode中超时问题记录</title>
@@ -32,9 +32,9 @@
         
         <tag>fabric</tag>
          
-        <tag>composer</tag>
-         
         <tag>hyperledger</tag>
+         
+        <tag>composer</tag>
          
          
            
