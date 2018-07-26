@@ -7,15 +7,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2018/5 | zhulg笔记</title>
+  <title>总结下Fabric从入门到崩溃路线 | zhulg笔记</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="zhulg笔记">
-<meta property="og:url" content="http://yoursite.com/archives/2018/05/index.html">
+  <meta name="description" content="fabric的学习路线总结回顾一下，也作为归纳和知识回顾。  技术点基本储备 了解区块链工作原理，各种概念算法，区块链的分布式，密码学，去中心，CAP，Basic Paxos, Multi-Paxos, Raft,Pow, PoS, DPoS,pbft fabric的源码基于go编写的，要学习源码go语言必须会,java基础，nodejs也会点。 docker的使用，grpc知道是什么怎么用，p">
+<meta name="keywords" content="fabric,区块链">
+<meta property="og:type" content="article">
+<meta property="og:title" content="总结下Fabric从入门到崩溃路线">
+<meta property="og:url" content="http://yoursite.com/2018/07/26/总结下fabric从入门到崩溃路线/index.html">
 <meta property="og:site_name" content="zhulg笔记">
+<meta property="og:description" content="fabric的学习路线总结回顾一下，也作为归纳和知识回顾。  技术点基本储备 了解区块链工作原理，各种概念算法，区块链的分布式，密码学，去中心，CAP，Basic Paxos, Multi-Paxos, Raft,Pow, PoS, DPoS,pbft fabric的源码基于go编写的，要学习源码go语言必须会,java基础，nodejs也会点。 docker的使用，grpc知道是什么怎么用，p">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-07-26T03:40:53.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="zhulg笔记">
+<meta name="twitter:title" content="总结下Fabric从入门到崩溃路线">
+<meta name="twitter:description" content="fabric的学习路线总结回顾一下，也作为归纳和知识回顾。  技术点基本储备 了解区块链工作原理，各种概念算法，区块链的分布式，密码学，去中心，CAP，Basic Paxos, Multi-Paxos, Raft,Pow, PoS, DPoS,pbft fabric的源码基于go编写的，要学习源码go语言必须会,java基础，nodejs也会点。 docker的使用，grpc知道是什么怎么用，p">
   
     <link rel="alternative" href="/atom.xml" title="zhulg笔记" type="application/atom+xml">
   
@@ -149,124 +154,79 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-总结下fabric从入门到崩溃路线" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      总结下Fabric从入门到崩溃路线
+    </h1>
+  
+
+        
+        <a href="/2018/07/26/总结下fabric从入门到崩溃路线/" class="archive-article-date">
+  	<time datetime="2018-07-26T03:00:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-26</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li>fabric的学习路线总结回顾一下，也作为归纳和知识回顾。</li>
+</ul>
+<h4 id="技术点基本储备"><a href="#技术点基本储备" class="headerlink" title="技术点基本储备"></a>技术点基本储备</h4><ul>
+<li>了解区块链工作原理，各种概念算法，区块链的分布式，密码学，去中心，CAP，Basic Paxos, Multi-Paxos, Raft,Pow, PoS, DPoS,pbft</li>
+<li>fabric的源码基于go编写的，要学习源码go语言必须会,java基础，nodejs也会点。</li>
+<li>docker的使用，grpc知道是什么怎么用，p2p网络了解不，kafka你的懂，数据库couchdb,leveldb你也得会些。</li>
+</ul>
+<a id="more"></a>
+<h4 id="学习Fabric"><a href="#学习Fabric" class="headerlink" title="学习Fabric"></a>学习Fabric</h4><ul>
+<li>环境构建，入门一般按照文档例子，本地能搭建起fabric网络，这里面docker，sh什么的需要熟悉，go环境等。网络搭建起来为止。</li>
+<li>fabric基本例子，参考源码里的例子，自己运行这个过程可能比较让人放弃</li>
+<li>模仿里面的例子进行改造，跑起自己区块链网络，这里面有常用的部署方式solo,kafka</li>
+<li>通过fabric sdk连接自己构建的区块链网络，尝试区块链项目。有java,python,node，go 版本sdk.</li>
+<li>学习composer,使用composer开发区块链项目。</li>
+</ul>
+<h4 id="接下来学习"><a href="#接下来学习" class="headerlink" title="接下来学习"></a>接下来学习</h4><ul>
+<li>以上学习fabric中的每一步，其实都是很大的一块东西，未必能学明白。是个多次反复都不一定明白的过程（目前资料还是有限）</li>
+<li>学习fabric的源码，从源码里明白些东西，再回来折腾环境。要不环境可能就已经让你崩溃</li>
+<li>学习过程中可能有很多新知识点不断出现,composer里的node各种框架，建模语言，各种查询方式，都要学下。</li>
+<li>尝试个项目可能感觉还是力不从心，落地时候问题太多。fabric给的参考项目可能也会让你崩溃，但还是要参考下。</li>
+<li>目前结合落地还是有很多不切实际的地方，能研究明白源码，进行改造贡献代码。</li>
+<li>坚持总结，同行多交流，有些弯路是躲不了，就为给你涨经验。</li>
+</ul>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢点开，不收钱ing<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/05/30/使用hyperledger-composer落地项目/" class="archive-article-date">
-  	<time datetime="2018-05-30T15:17:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-30</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/05/30/使用hyperledger-composer落地项目/">使用Hyperledger Composer落地项目</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">区块链</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">composer</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">hyperledger composer</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/05/17/开搞以太坊/" class="archive-article-date">
-  	<time datetime="2018-05-17T14:49:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-17</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/05/17/开搞以太坊/">开搞以太坊</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">区块链</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">以太坊</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/05/17/hyperledger-composer创建card区别记录/" class="archive-article-date">
-  	<time datetime="2018-05-17T12:01:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-17</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/05/17/hyperledger-composer创建card区别记录/">Hyperledger Composer创建card区别记录</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -278,207 +238,108 @@
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">区块链</a>
         		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">composer</a>
-        		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2018/07/26/总结下fabric从入门到崩溃路线/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/05/16/目前主流区块链技术/" class="archive-article-date">
-  	<time datetime="2018-05-16T14:52:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-16</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2018/07/05/node里express框架知识点记录/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Node里express框架知识点记录</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/05/16/目前主流区块链技术/">目前主流区块链技术</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">fabric</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">区块链</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ethereum</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/05/14/Fabric部署阿里云错误记录/" class="archive-article-date">
-  	<time datetime="2018-05-14T11:27:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-14</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/05/14/Fabric部署阿里云错误记录/">Fabric部署阿里云错误记录</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">fabric</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">部署</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/05/14/使用hyperledger-composer问题记录/" class="archive-article-date">
-  	<time datetime="2018-05-14T09:30:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-14</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/05/14/使用hyperledger-composer问题记录/">使用Hyperledger Composer问题记录</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">fabric</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">区块链</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">composer</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/05/01/fabric集成开启tls后出现错误记录/" class="archive-article-date">
-  	<time datetime="2018-05-01T13:50:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-01</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/05/01/fabric集成开启tls后出现错误记录/">Fabric集成开启tls后出现错误记录</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">fabric</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">区块链</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">tls</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -501,8 +362,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
