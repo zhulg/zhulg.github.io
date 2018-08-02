@@ -17,7 +17,7 @@
 <meta property="og:site_name" content="zhulg笔记">
 <meta property="og:description" content="目前升级了fabric 1.2版本，是当前最新release版本。 从fabric1.1开始，这个经典的例子改为kafka共识，做为学习。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-08-02T10:33:49.000Z">
+<meta property="og:updated_time" content="2018-08-02T11:05:08.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="fabric1.2下e2e_cli问题记录">
 <meta name="twitter:description" content="目前升级了fabric 1.2版本，是当前最新release版本。 从fabric1.1开始，这个经典的例子改为kafka共识，做为学习。">
@@ -187,6 +187,11 @@
 <li>看起来运行成功了,查找了下发现是个bug.</li>
 <li>这个bug地址是 <a href="https://jira.hyperledger.org/browse/FAB-11196" target="_blank" rel="external">https://jira.hyperledger.org/browse/FAB-11196</a></li>
 <li>可以根据这个修改，在运行就OK了。</li>
+<li>修改 e2e_cli下的configtx.yaml，在Org3处进行添加Org3MSP.member，如下。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">Policies:</div><div class="line">Readers:</div><div class="line">Type: Signature</div><div class="line">Rule: &quot;OR(&apos;Org3MSP.admin&apos;, &apos;Org3MSP.peer&apos;, &apos;Org3MSP.client&apos;, &apos;Org3MSP.member&apos;)&quot;</div><div class="line">Writers:</div><div class="line">Type: Signature</div><div class="line">Rule: &quot;OR(&apos;Org3MSP.admin&apos;, &apos;Org3MSP.client&apos;, &apos;Org3MSP.member&apos;)&quot;</div><div class="line">Admins:</div><div class="line">Type: Signature</div><div class="line">Rule: &quot;OR(&apos;Org3MSP.admin&apos;)&quot;</div></pre></td></tr></table></figure>
+<ul>
+<li>新的代码作者已经提交了，可以用以上暂规避处理。</li>
 </ul>
 
       
@@ -426,6 +431,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Elasticsearch</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">fabric</a>
               </li>
              
@@ -434,15 +443,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Elasticsearch</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">部署</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">AWK</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -454,11 +455,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">docker</a>
+                <a href="javascript:void(0)" class="js-tag color4">AWK</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">go</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -494,11 +499,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">jenkins</a>
+                <a href="javascript:void(0)" class="js-tag color4">K8S</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">K8S</a>
+                <a href="javascript:void(0)" class="js-tag color3">jenkins</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -526,11 +531,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">springboot相关</a>
+                <a href="javascript:void(0)" class="js-tag color4">以太坊</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">以太坊</a>
+                <a href="javascript:void(0)" class="js-tag color3">springboot相关</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -562,10 +567,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">hyperledger composer</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">区块链，以太坊</a>
               </li>
              
@@ -575,6 +576,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">webstom</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">hyperledger composer</a>
               </li>
              
               <li class="article-tag-list-item">
