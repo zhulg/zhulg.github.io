@@ -7,15 +7,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: Linux | zhulg笔记</title>
+  <title>fabric1.2下e2e_cli问题记录 | zhulg笔记</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="zhulg笔记">
-<meta property="og:url" content="http://yoursite.com/tags/Linux/index.html">
+  <meta name="description" content="目前升级了fabric 1.2版本，是当前最新release版本。 从fabric1.1开始，这个经典的例子改为kafka共识，做为学习。">
+<meta name="keywords" content="fabric,区块链">
+<meta property="og:type" content="article">
+<meta property="og:title" content="fabric1.2下e2e_cli问题记录">
+<meta property="og:url" content="http://yoursite.com/2018/08/02/fabric1-2下e2e-cli问题记录/index.html">
 <meta property="og:site_name" content="zhulg笔记">
+<meta property="og:description" content="目前升级了fabric 1.2版本，是当前最新release版本。 从fabric1.1开始，这个经典的例子改为kafka共识，做为学习。">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-08-02T10:33:49.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="zhulg笔记">
+<meta name="twitter:title" content="fabric1.2下e2e_cli问题记录">
+<meta name="twitter:description" content="目前升级了fabric 1.2版本，是当前最新release版本。 从fabric1.1开始，这个经典的例子改为kafka共识，做为学习。">
   
     <link rel="alternative" href="/atom.xml" title="zhulg笔记" type="application/atom+xml">
   
@@ -149,108 +154,182 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-fabric1-2下e2e-cli问题记录" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/04/15/linux常用配置查看命令/" class="archive-article-date">
-  	<time datetime="2018-04-15T10:06:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-15</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/04/15/linux常用配置查看命令/">Linux常用配置查看命令</a>
+    <h1 class="article-title" itemprop="name">
+      fabric1.2下e2e_cli问题记录
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2018/08/02/fabric1-2下e2e-cli问题记录/" class="archive-article-date">
+  	<time datetime="2018-08-02T10:25:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-02</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li>目前升级了fabric 1.2版本，是当前最新release版本。</li>
+<li>从fabric1.1开始，这个经典的例子改为kafka共识，做为学习。</li>
+</ul>
+<a id="more"></a>
+<h4 id="升级后常规验证"><a href="#升级后常规验证" class="headerlink" title="升级后常规验证"></a>升级后常规验证</h4><ul>
+<li>运行e2e_cli后发现日志有如下错误：Failed evaluating policy on signed data during check policy on channel </li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">Error: error endorsing query: rpc error: code = Unknown desc = Failed evaluating policy on signed data during check policy on channel [mychannel] with policy [/Channel/Application/Writers]: [Failed to reach implicit threshold of 1 sub-policies, required 1 remaining] - proposal response: &lt;nil&gt;</div><div class="line"></div><div class="line">===================== Query successful on peer1.org3 on channel &apos;mychannel&apos; ===================== </div><div class="line"></div><div class="line">===================== All GOOD, End-2-End execution completed ===================== </div><div class="line"></div><div class="line"></div><div class="line"> _____   _   _   ____            _____   ____    _____ </div><div class="line">| ____| | \ | | |  _ \          | ____| |___ \  | ____|</div><div class="line">|  _|   |  \| | | | | |  _____  |  _|     __) | |  _|  </div><div class="line">| |___  | |\  | | |_| | |_____| | |___   / __/  | |___ </div><div class="line">|_____| |_| \_| |____/          |_____| |_____| |_____|</div></pre></td></tr></table></figure>
+<ul>
+<li>看起来运行成功了,查找了下发现是个bug.</li>
+<li>这个bug地址是 <a href="https://jira.hyperledger.org/browse/FAB-11196" target="_blank" rel="external">https://jira.hyperledger.org/browse/FAB-11196</a></li>
+<li>可以根据这个修改，在运行就OK了。</li>
+</ul>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢点开，不收钱ing<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">fabric</a>
         		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-      
-        </div></section>
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/11/15/shell常用点记录/" class="archive-article-date">
-  	<time datetime="2017-11-15T04:02:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/11/15/shell常用点记录/">Shell常用点记录</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
+      		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">区块链</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2018/08/02/fabric1-2下e2e-cli问题记录/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2018/08/01/linux当前用户加入docker组/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Linux当前用户加入docker组</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
 
 
           </div>
@@ -273,9 +352,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
