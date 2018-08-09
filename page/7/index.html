@@ -151,6 +151,89 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-springcloud-Gateway记录" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/10/17/springcloud-Gateway记录/">Springcloud-Gateway记录</a>
+    </h1>
+  
+
+        
+        <a href="/2017/10/17/springcloud-Gateway记录/" class="archive-article-date">
+  	<time datetime="2017-10-17T03:17:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-17</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="SpringCloud-Gateway相关点"><a href="#SpringCloud-Gateway相关点" class="headerlink" title="SpringCloud Gateway相关点"></a>SpringCloud Gateway相关点</h3><ul>
+<li>在微服务架构中，后端服务往往不直接开放给调用端，而是通过一个API网关根据请求的url，路由到相应的服务。</li>
+<li>当添加API网关后，在第三方调用端和服务提供方之间就创建了一面墙，这面墙直接与调用方通信进行权限控制，后将请求均衡分发给后台服务端。</li>
+</ul>
+<h4 id="Spring-Cloud-Zuul"><a href="#Spring-Cloud-Zuul" class="headerlink" title="Spring Cloud Zuul"></a>Spring Cloud Zuul</h4><ul>
+<li>springcloud zull 路由是微服务架构的不可或缺的一部分，提供动态路由，监控，弹性，安全等的边缘服务。Zuul是Netflix出品的一个基于JVM路由和服务端的负载均衡器。</li>
+</ul>
+<h3 id="使用方式"><a href="#使用方式" class="headerlink" title="使用方式"></a>使用方式</h3><h4 id="1，简单使用"><a href="#1，简单使用" class="headerlink" title="1，简单使用"></a>1，简单使用</h4><ul>
+<li><p><strong>单实例配置：通过一组zuul.routes.\<route>.path与zuul.routes.\<route>.url参数对的方式配置，\<route>是相关的服务名：比如:</route></route></route></strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">#这里的配置表示，访问/user/** 直接重定向到http://xxxx/**</div><div class="line">zuul.routes.user-service.path=/user-service/**</div><div class="line">zuul.routes.user-service.url=http://localhost:8080/</div></pre></td></tr></table></figure>
+</li>
+</ul>
+        
+          <a class="article-more-a" href="/2017/10/17/springcloud-Gateway记录/#more">查看全文 >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">springcloud</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-springcloud-Hystrix记录" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -885,87 +968,6 @@
 
 
   
-    <article id="post-springboot部署" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/15/springboot部署/">Springboot部署</a>
-    </h1>
-  
-
-        
-        <a href="/2017/08/15/springboot部署/" class="archive-article-date">
-  	<time datetime="2017-08-15T10:13:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="Springboot部署阿里云"><a href="#Springboot部署阿里云" class="headerlink" title="Springboot部署阿里云"></a>Springboot部署阿里云</h3><ul>
-<li><p>环境准备<br></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">1,mac下准备ssh shell</div><div class="line">2,准备云服务地址</div><div class="line">3,使用ssh shell 登录服务地址</div><div class="line">4,构建服务端运行环境</div><div class="line">5,部署springboot项目</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h4 id="环境安装记录："><a href="#环境安装记录：" class="headerlink" title="环境安装记录："></a>环境安装记录：</h4><ul>
-<li><p>java 环境安装：采用先下载到本地，在scp到远程服务器(直接服务器上下载后无法解压成功，其下载是个html压缩包，不是真实jdk)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">scp jdk-8u144-linux-x64.tar.gz  root@120.76.xxx.xxx:/root/zhulg/jdk/jdk-8u144-linux-x64.tar.gz</div></pre></td></tr></table></figure>
-</li>
-</ul>
-        
-          <a class="article-more-a" href="/2017/08/15/springboot部署/#more">查看全文 >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">springboot</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/6/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/8/">Next &raquo;</a>
@@ -1067,10 +1069,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Elasticsearch</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">fabric</a>
               </li>
              
@@ -1079,7 +1077,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">部署</a>
+                <a href="javascript:void(0)" class="js-tag color4">Elasticsearch</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1087,11 +1085,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">分布式/集群</a>
+                <a href="javascript:void(0)" class="js-tag color3">部署</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">AWK</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">分布式/集群</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1135,11 +1137,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">K8S</a>
+                <a href="javascript:void(0)" class="js-tag color3">jenkins</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">jenkins</a>
+                <a href="javascript:void(0)" class="js-tag color4">K8S</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1199,14 +1201,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">git/github/gitlab</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">区块链，以太坊</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">fabric-node-sdk</a>
               </li>
              
@@ -1215,11 +1209,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">hyperledger composer</a>
+                <a href="javascript:void(0)" class="js-tag color3">git/github/gitlab</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">区块链，以太坊</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">随笔记录</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">hyperledger composer</a>
               </li>
              
               <li class="article-tag-list-item">
