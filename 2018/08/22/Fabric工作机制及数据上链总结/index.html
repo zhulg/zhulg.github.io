@@ -7,20 +7,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>机器学习入门 | zhulg笔记</title>
+  <title>Fabric工作机制及数据上链总结 | zhulg笔记</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="机器学习路线 Machine Learning in action，中文版本叫“机器学习实践”。(数学知识随时恶补) Andrew Ng老师的machine learning的课程。（一定要耐着性子过一遍甚至是几面这个课程） 周志华老师的西瓜书《机器学习》和李航老师的《统计学习方法》 准备制定相关的学习路线与应用方向结合学习。（做大数据分析的，去学spark，Hadoop。图模型，深度学习…自然语">
-<meta name="keywords" content="机器学习">
+  <meta name="description" content="通过总结来进一步检验对fabric工作机制及底层数据存储和上链过程的认识，加深对fabric的理解和认识。 个人总结记录（如错误欢迎指正lg.json@gmail.com)">
+<meta name="keywords" content="fabric,区块链">
 <meta property="og:type" content="article">
-<meta property="og:title" content="机器学习入门">
-<meta property="og:url" content="http://yoursite.com/2017/07/27/机器学习入门/index.html">
+<meta property="og:title" content="Fabric工作机制及数据上链总结">
+<meta property="og:url" content="http://yoursite.com/2018/08/22/Fabric工作机制及数据上链总结/index.html">
 <meta property="og:site_name" content="zhulg笔记">
-<meta property="og:description" content="机器学习路线 Machine Learning in action，中文版本叫“机器学习实践”。(数学知识随时恶补) Andrew Ng老师的machine learning的课程。（一定要耐着性子过一遍甚至是几面这个课程） 周志华老师的西瓜书《机器学习》和李航老师的《统计学习方法》 准备制定相关的学习路线与应用方向结合学习。（做大数据分析的，去学spark，Hadoop。图模型，深度学习…自然语">
+<meta property="og:description" content="通过总结来进一步检验对fabric工作机制及底层数据存储和上链过程的认识，加深对fabric的理解和认识。 个人总结记录（如错误欢迎指正lg.json@gmail.com)">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-07-27T03:22:07.000Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/zhulg/allpic/master/fabric10.png">
+<meta property="og:image" content="https://hyperledger-fabric.readthedocs.io/en/release-1.2/_images/flow-4.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/zhulg/allpic/master/fabic_block-structure.png">
+<meta property="og:updated_time" content="2018-08-22T12:01:14.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="机器学习入门">
-<meta name="twitter:description" content="机器学习路线 Machine Learning in action，中文版本叫“机器学习实践”。(数学知识随时恶补) Andrew Ng老师的machine learning的课程。（一定要耐着性子过一遍甚至是几面这个课程） 周志华老师的西瓜书《机器学习》和李航老师的《统计学习方法》 准备制定相关的学习路线与应用方向结合学习。（做大数据分析的，去学spark，Hadoop。图模型，深度学习…自然语">
+<meta name="twitter:title" content="Fabric工作机制及数据上链总结">
+<meta name="twitter:description" content="通过总结来进一步检验对fabric工作机制及底层数据存储和上链过程的认识，加深对fabric的理解和认识。 个人总结记录（如错误欢迎指正lg.json@gmail.com)">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/zhulg/allpic/master/fabric10.png">
   
     <link rel="alternative" href="/atom.xml" title="zhulg笔记" type="application/atom+xml">
   
@@ -154,31 +158,65 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-机器学习入门" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Fabric工作机制及数据上链总结" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      机器学习入门
+      Fabric工作机制及数据上链总结
     </h1>
   
 
         
-        <a href="/2017/07/27/机器学习入门/" class="archive-article-date">
-  	<time datetime="2017-07-27T03:01:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-27</time>
+        <a href="/2018/08/22/Fabric工作机制及数据上链总结/" class="archive-article-date">
+  	<time datetime="2018-08-22T02:57:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-22</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="机器学习路线"><a href="#机器学习路线" class="headerlink" title="机器学习路线"></a>机器学习路线</h3><ul>
-<li>Machine Learning in action，中文版本叫“机器学习实践”。(数学知识随时恶补)</li>
-<li>Andrew Ng老师的machine learning的课程。（一定要耐着性子过一遍甚至是几面这个课程）</li>
-<li>周志华老师的西瓜书《机器学习》和李航老师的《统计学习方法》</li>
-<li>准备制定相关的学习路线与应用方向结合学习。（做大数据分析的，去学spark，Hadoop。图模型，深度学习…自然语言处理、图像识别、语音识别等等）</li>
+        <ul>
+<li>通过总结来进一步检验对fabric工作机制及底层数据存储和上链过程的认识，加深对fabric的理解和认识。</li>
+<li>个人总结记录（如错误欢迎指正lg.json@gmail.com)</li>
+</ul>
+<a id="more"></a>
+<h4 id="一-fabric1-0之后的运行架构"><a href="#一-fabric1-0之后的运行架构" class="headerlink" title="一,fabric1.0之后的运行架构"></a>一,fabric1.0之后的运行架构</h4><p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/fabric10.png" alt=""></p>
+<ul>
+<li><strong>登记证书（0 Enroll):</strong> 使用fabric SDK向CA获取用户的证书（图上membership 服务，就是上图中的注册登记、身份认证，CA是MSP的实现）</li>
+<li><strong>发送提案(1 Endrose proposal)：</strong> 拿到正式根据背书策略发送提案到背书节点（背书策略在chaincode实例化时已经指定），到背书节点后会进行证书验证，并模拟计算chaincode里相关代码。</li>
+<li><strong>返回背书内容（图上没表示出来):</strong> 背书节点会把背书内容返回给客户端,客户端会收集到相关背书节点的背书内容，验证背书节点有效性（有几个背书节点要收到几个节点背书内容）</li>
+<li><strong>提交交易到order(2 Submit Transaction/ 3 Relay Submit tX):</strong> 提交事务到order里，图上显示是先到peer上，在转播到order,实际是直接到order上,order对交易进行排序，根据出块策略进行出块。</li>
+<li><strong>传递区块(4 Deliver batch)</strong>将排序后的区块Deliver到leader peer上, 底层通过gossip协议进行同步到各节点，节点再次验证计算结果，与之前计算一致，就写人到Ledger，写完账本通过event通知到客户端。</li>
+</ul>
+<h4 id="fabric交易流程"><a href="#fabric交易流程" class="headerlink" title="fabric交易流程"></a>fabric交易流程</h4><p><img src="https://hyperledger-fabric.readthedocs.io/en/release-1.2/_images/flow-4.png" alt=""></p>
+<ul>
+<li><strong>交易流程基本上也展示了fabric在运行时的架构，在官网的这个图上可以比较详细看到交易涉及的流程</strong> <a href="https://zhulg.github.io/2018/04/04/fabric%E4%BA%A4%E6%98%93%E6%B5%81%E7%A8%8B%E6%A6%82%E8%BF%B0/" target="_blank" rel="external">参考另一篇笔记</a></li>
+</ul>
+<h4 id="二，fabric数据存储方式及数据结构"><a href="#二，fabric数据存储方式及数据结构" class="headerlink" title="二，fabric数据存储方式及数据结构"></a>二，fabric数据存储方式及数据结构</h4><ul>
+<li>fabric的数据是一个个数据块组成链式结构，第一个区块为创世区块，后边区块链接上一个区块的hash头部区块</li>
+<li>每一个区块有区块头和区块体组成，区块体里存储交易的数据。</li>
+</ul>
+<h5 id="1-区块构成"><a href="#1-区块构成" class="headerlink" title="1,区块构成"></a>1,区块构成</h5><p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/fabic_block-structure.png" alt=""></p>
+<ul>
+<li>区块头部分:有当前number,上一个区块hash，当前区块体数据hash。</li>
+<li>区块数据:包含多条交易数据</li>
+<li>区块元数据:包含4种元数据，SIGNATURES、 LAST_CONFIG、ORDERER和TRANSACTIONS_FILTER，前三个是Order service添加的，最后一个是Committer添加的。</li>
+<li><a href="https://blockchain-fabric.blogspot.com/2017/04/hyperledger-fabric-v10-block-structure.html" target="_blank" rel="external">参考更多介绍</a> </li>
+</ul>
+<h5 id="2-Fabric账本结构"><a href="#2-Fabric账本结构" class="headerlink" title="2,Fabric账本结构"></a>2,Fabric账本结构</h5><ul>
+<li>fabric的账本存在与每一个peer里，数据存储分为文件存储和数据库（leveldb,couchdb）,文件存储部分用来存储区块数据，写入到BlockFile_xx中</li>
+<li>先通过一个图看下账本基本结构，进入peer容器里，到/var/hyperledger/production/ledgersData下。(这个使用了couchdb所以下边没有stateLeveldb)</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div></pre></td><td class="code"><pre><div class="line">root@1658e694975d:/var/hyperledger/production# tree ledgersData/</div><div class="line">ledgersData/</div><div class="line">|-- chains</div><div class="line">|   |-- chains</div><div class="line">|   |   `-- gomevisionchannel</div><div class="line">|   |       |-- blockfile_000000</div><div class="line">|   |       |-- blockfile_000001</div><div class="line">|   |       |-- blockfile_000002</div><div class="line">|   |       |-- blockfile_000003</div><div class="line">|   |       |-- blockfile_000004</div><div class="line">|   |       |-- blockfile_000005</div><div class="line">|   |       |-- blockfile_000006</div><div class="line">|   |       |-- blockfile_000007</div><div class="line">|   |       |-- blockfile_000008</div><div class="line">|   |       `-- blockfile_000009</div><div class="line">|   `-- index</div><div class="line">|       |-- 000168.ldb</div><div class="line">|       |-- 000237.ldb</div><div class="line">|       |-- 000238.ldb</div><div class="line">|       |-- 000239.ldb</div><div class="line">|       |-- 000240.ldb</div><div class="line">|       |-- 000241.ldb</div><div class="line">|       |-- 000242.ldb</div><div class="line">|       |-- 000243.ldb</div><div class="line">|       |-- 000244.ldb</div><div class="line">|       |-- 000245.ldb</div><div class="line">|       |-- 000246.ldb</div><div class="line">|       |-- 000247.ldb</div><div class="line">|       |-- 000248.ldb</div><div class="line">|       |-- CURRENT</div><div class="line">|       |-- LOCK</div><div class="line">|       |-- LOG</div><div class="line">|       `-- MANIFEST-000263</div><div class="line">|-- historyLeveldb</div><div class="line">|   |-- 000010.log</div><div class="line">|   |-- 000012.ldb</div><div class="line">|   |-- CURRENT</div><div class="line">|   |-- LOCK</div><div class="line">|   |-- LOG</div><div class="line">|   `-- MANIFEST-000011</div><div class="line">`-- ledgerProvider</div><div class="line">    |-- 000002.ldb</div><div class="line">    |-- 000005.log</div><div class="line">    |-- CURRENT</div><div class="line">    |-- LOCK</div><div class="line">    |-- LOG</div><div class="line">    `-- MANIFEST-000006</div></pre></td></tr></table></figure>
+<ul>
+<li>chains：chains/chains下包含的mychannel是对应的channel的名称，因为Fabric是有多channel的机制，而channel之间的账本是隔离的，每个channel都有自己的账本空间。</li>
+<li>chains/index下面包含的是levelDB数据库文件，DB中存储的是区块索引部分。（从indexDB中读取Block的位置信息（blockfile的编号、位置偏移量，打开对应的blockfile，位移到指定位置，读取Block数据）</li>
+<li>stateLeveldb：存储的是链码 putstate写入的数据(我这个用的couchdb所以没有出现)</li>
+<li>ledgerProvider：数据库内存储的是当前节点所包含channel的信息。主要是为了Fabric的多channel机制服务的;</li>
+<li>historyLeveldb：数据库内存储的链码写入的key的历史记录的索引地址。</li>
 </ul>
 
       
@@ -214,7 +252,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">fabric</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">区块链</a>
         		</li>
       		
 		</ul>
@@ -270,7 +312,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/07/27/机器学习入门/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2018/08/22/Fabric工作机制及数据上链总结/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -284,18 +326,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/07/27/分布式与集群/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          分布式与集群
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/07/26/mac安装redis/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Mac安装redis</div>
+    <a href="/2018/08/21/关于区块链账户模型记录/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">关于区块链账户模型记录</div>
       <i class="icon-circle-right"></i>
     </a>
   
