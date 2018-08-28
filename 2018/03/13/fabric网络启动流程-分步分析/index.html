@@ -19,7 +19,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://raw.githubusercontent.com/zhulg/allpic/master/fabric-networkup.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/zhulg/allpic/master/weixin.png">
-<meta property="og:updated_time" content="2018-05-04T07:14:28.000Z">
+<meta property="og:updated_time" content="2018-08-28T11:50:44.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Fabric网络启动流程-分步分析">
 <meta name="twitter:description" content="farbic 网络启动过程 基于fabric-samples/first-network下手动网络启动相关文件生成和配置。   生成组织关系和身份证书 使用Cryptogen，消费一个包含网络拓扑的crypto-config.yaml，并允许我们为组织和属于这些组织的组件生成一组证书和密钥。 crypto-config.yaml文件内容如下，">
@@ -210,6 +210,9 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div></pre></td><td class="code"><pre><div class="line"># Copyright IBM Corp. All Rights Reserved.</div><div class="line">#</div><div class="line"># SPDX-License-Identifier: Apache-2.0</div><div class="line">#</div><div class="line"></div><div class="line">---</div><div class="line">################################################################################</div><div class="line">#</div><div class="line">#   Profile</div><div class="line">#</div><div class="line">#   - Different configuration profiles may be encoded here to be specified</div><div class="line">#   as parameters to the configtxgen tool</div><div class="line">#</div><div class="line">################################################################################</div><div class="line">Profiles:</div><div class="line"></div><div class="line">    TwoOrgsOrdererGenesis:</div><div class="line">        Orderer:</div><div class="line">            &lt;&lt;: *OrdererDefaults</div><div class="line">            Organizations:</div><div class="line">                - *OrdererOrg</div><div class="line">        Consortiums:</div><div class="line">            SampleConsortium:</div><div class="line">                Organizations:</div><div class="line">                    - *Org1</div><div class="line">                    - *Org2</div><div class="line">    TwoOrgsChannel:</div><div class="line">        Consortium: SampleConsortium</div><div class="line">        Application:</div><div class="line">            &lt;&lt;: *ApplicationDefaults</div><div class="line">            Organizations:</div><div class="line">                - *Org1</div><div class="line">                - *Org2</div><div class="line"></div><div class="line">################################################################################</div><div class="line">#</div><div class="line">#   Section: Organizations</div><div class="line">#</div><div class="line">#   - This section defines the different organizational identities which will</div><div class="line">#   be referenced later in the configuration.</div><div class="line">#</div><div class="line">################################################################################</div><div class="line">Organizations:</div><div class="line"></div><div class="line">    # SampleOrg defines an MSP using the sampleconfig.  It should never be used</div><div class="line">    # in production but may be used as a template for other definitions</div><div class="line">    - &amp;OrdererOrg</div><div class="line">        # DefaultOrg defines the organization which is used in the sampleconfig</div><div class="line">        # of the fabric.git development environment</div><div class="line">        Name: OrdererOrg</div><div class="line"></div><div class="line">        # ID to load the MSP definition as</div><div class="line">        ID: OrdererMSP</div><div class="line"></div><div class="line">        # MSPDir is the filesystem path which contains the MSP configuration</div><div class="line">        MSPDir: crypto-config/ordererOrganizations/example.com/msp</div><div class="line"></div><div class="line">    - &amp;Org1</div><div class="line">        # DefaultOrg defines the organization which is used in the sampleconfig</div><div class="line">        # of the fabric.git development environment</div><div class="line">        Name: Org1MSP</div><div class="line"></div><div class="line">        # ID to load the MSP definition as</div><div class="line">        ID: Org1MSP</div><div class="line"></div><div class="line">        MSPDir: crypto-config/peerOrganizations/org1.example.com/msp</div><div class="line"></div><div class="line">        AnchorPeers:</div><div class="line">            # AnchorPeers defines the location of peers which can be used</div><div class="line">            # for cross org gossip communication.  Note, this value is only</div><div class="line">            # encoded in the genesis block in the Application section context</div><div class="line">            - Host: peer0.org1.example.com</div><div class="line">              Port: 7051</div><div class="line"></div><div class="line">    - &amp;Org2</div><div class="line">        # DefaultOrg defines the organization which is used in the sampleconfig</div><div class="line">        # of the fabric.git development environment</div><div class="line">        Name: Org2MSP</div><div class="line"></div><div class="line">        # ID to load the MSP definition as</div><div class="line">        ID: Org2MSP</div><div class="line"></div><div class="line">        MSPDir: crypto-config/peerOrganizations/org2.example.com/msp</div><div class="line"></div><div class="line">        AnchorPeers:</div><div class="line">            # AnchorPeers defines the location of peers which can be used</div><div class="line">            # for cross org gossip communication.  Note, this value is only</div><div class="line">            # encoded in the genesis block in the Application section context</div><div class="line">            - Host: peer0.org2.example.com</div><div class="line">              Port: 7051</div><div class="line"></div><div class="line">################################################################################</div><div class="line">#</div><div class="line">#   SECTION: Orderer</div><div class="line">#</div><div class="line">#   - This section defines the values to encode into a config transaction or</div><div class="line">#   genesis block for orderer related parameters</div><div class="line">#</div><div class="line">################################################################################</div><div class="line">Orderer: &amp;OrdererDefaults</div><div class="line"></div><div class="line">    # Orderer Type: The orderer implementation to start</div><div class="line">    # Available types are &quot;solo&quot; and &quot;kafka&quot;</div><div class="line">    OrdererType: solo</div><div class="line"></div><div class="line">    Addresses:</div><div class="line">        - orderer.example.com:7050</div><div class="line"></div><div class="line">    # Batch Timeout: The amount of time to wait before creating a batch</div><div class="line">    BatchTimeout: 2s</div><div class="line"></div><div class="line">    # Batch Size: Controls the number of messages batched into a block</div><div class="line">    BatchSize:</div><div class="line"></div><div class="line">        # Max Message Count: The maximum number of messages to permit in a batch</div><div class="line">        MaxMessageCount: 10</div><div class="line"></div><div class="line">        # Absolute Max Bytes: The absolute maximum number of bytes allowed for</div><div class="line">        # the serialized messages in a batch.</div><div class="line">        AbsoluteMaxBytes: 99 MB</div><div class="line"></div><div class="line">        # Preferred Max Bytes: The preferred maximum number of bytes allowed for</div><div class="line">        # the serialized messages in a batch. A message larger than the preferred</div><div class="line">        # max bytes will result in a batch larger than preferred max bytes.</div><div class="line">        PreferredMaxBytes: 512 KB</div><div class="line"></div><div class="line">    Kafka:</div><div class="line">        # Brokers: A list of Kafka brokers to which the orderer connects</div><div class="line">        # NOTE: Use IP:port notation</div><div class="line">        Brokers:</div><div class="line">            - 127.0.0.1:9092</div><div class="line"></div><div class="line">    # Organizations is the list of orgs which are defined as participants on</div><div class="line">    # the orderer side of the network</div><div class="line">    Organizations:</div><div class="line"></div><div class="line">################################################################################</div><div class="line">#</div><div class="line">#   SECTION: Application</div><div class="line">#</div><div class="line">#   - This section defines the values to encode into a config transaction or</div><div class="line">#   genesis block for application related parameters</div><div class="line">#</div><div class="line">################################################################################</div><div class="line">Application: &amp;ApplicationDefaults</div><div class="line"></div><div class="line">    # Organizations is the list of orgs which are defined as participants on</div><div class="line">    # the application side of the network</div><div class="line">    Organizations:</div></pre></td></tr></table></figure>
 <ul>
 <li>该模板定义了TwoOrgsOrdererGenesis 和TwoOrgsChannel , TwoOrgsOrdererGenesis用于生成ordering服务初始区块文件。</li>
+<li><strong>BatchTimeout是配置多久产生一个区块，默认是2秒</strong>。如果配置的时间过小就会产生很多空的区块，配置时间太长，则发现等待产生区块的时间太长。具体时间由交易频率和业务量决定。我们实际项目中，通常配置在30秒。</li>
+<li><strong>MaxMessageCount是配置在一个区块中允许的交易数的最大值。默认值是10。</strong> 交易数设置过小，导致区块过多，增加orderer的负担，因为要orderer要不断的打包区块，然后deliver给通道内的所有peer,这样还容易增加网络负载，引起网络拥堵。实际项目中通常配置500，不过具体还应该看业务情况，因为如果每个交易包含的数据的size如果太大，那么500个交易可能导致一个区块太大，因此需要根据实际业务需求权衡。</li>
+<li>以上2个设置谁先满足要求，即执行。</li>
 <li>我们需要设置一个环境变量来告诉configtxgen哪里去寻找configtx.yaml。然后，我们将调用configtxgen工具去创建orderer genesis block：</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">export FABRIC_CFG_PATH=$PWD</div><div class="line">configtxgen -profile TwoOrgsOrdererGenesis -outputBlock ./channel-artifacts/genesis.block</div><div class="line">2018-03-13 16:52:18.697 CST [common/configtx/tool] main -&gt; INFO 001 Loading configuration</div><div class="line">2018-03-13 16:52:18.736 CST [common/configtx/tool] doOutputBlock -&gt; INFO 002 Generating genesis block</div><div class="line">2018-03-13 16:52:18.739 CST [common/configtx/tool] doOutputBlock -&gt; INFO 003 Writing genesis block</div></pre></td></tr></table></figure>
@@ -497,14 +500,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">fabric</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">区块链</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Elasticsearch</a>
               </li>
              
@@ -513,7 +508,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">超级账本</a>
+                <a href="javascript:void(0)" class="js-tag color2">fabric</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">区块链</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -521,11 +520,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">分布式/集群</a>
+                <a href="javascript:void(0)" class="js-tag color5">超级账本</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">AWK</a>
+                <a href="javascript:void(0)" class="js-tag color2">分布式/集群</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -545,15 +544,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">AWK</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">chaincode</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">flume</a>
+                <a href="javascript:void(0)" class="js-tag color4">tls</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">tls</a>
+                <a href="javascript:void(0)" class="js-tag color1">flume</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -565,11 +568,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">hyperledger</a>
+                <a href="javascript:void(0)" class="js-tag color4">composer</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">composer</a>
+                <a href="javascript:void(0)" class="js-tag color2">hyperledger</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -593,10 +596,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">python</a>
               </li>
              
@@ -605,11 +604,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">以太坊</a>
+                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">redis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">以太坊</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -665,11 +668,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">推荐系统</a>
+                <a href="javascript:void(0)" class="js-tag color4">大数据&机器学习</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">大数据&机器学习</a>
+                <a href="javascript:void(0)" class="js-tag color5">推荐系统</a>
               </li>
              
               <li class="article-tag-list-item">
