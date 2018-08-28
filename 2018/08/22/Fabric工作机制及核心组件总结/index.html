@@ -7,20 +7,26 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>关于学习遗忘曲线 | zhulg笔记</title>
+  <title>Fabric工作机制及核心组件总结 | zhulg笔记</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="学习新东西太多，更容易忘记太多。 一段时间过后，如果没能对新技术多次实践应用到项目，发现可以忘的一干二净。。。">
-<meta name="keywords" content="随笔记录">
+  <meta name="description" content="通过总结来进一步检验对fabric工作机制及底层数据存储和上链过程的认识，加深对fabric的理解和认识。 个人总结记录（如错误欢迎指正lg.json@gmail.com)">
+<meta name="keywords" content="fabric,区块链">
 <meta property="og:type" content="article">
-<meta property="og:title" content="关于学习遗忘曲线">
-<meta property="og:url" content="http://yoursite.com/2018/04/11/关于学习遗忘曲线/index.html">
+<meta property="og:title" content="Fabric工作机制及核心组件总结">
+<meta property="og:url" content="http://yoursite.com/2018/08/22/Fabric工作机制及核心组件总结/index.html">
 <meta property="og:site_name" content="zhulg笔记">
-<meta property="og:description" content="学习新东西太多，更容易忘记太多。 一段时间过后，如果没能对新技术多次实践应用到项目，发现可以忘的一干二净。。。">
+<meta property="og:description" content="通过总结来进一步检验对fabric工作机制及底层数据存储和上链过程的认识，加深对fabric的理解和认识。 个人总结记录（如错误欢迎指正lg.json@gmail.com)">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-11T06:03:25.000Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/zhulg/allpic/master/fabric10.png">
+<meta property="og:image" content="https://hyperledger-fabric.readthedocs.io/en/release-1.2/_images/flow-4.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/zhulg/allpic/master/fabic_block-structure.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/zhulg/allpic/master/fabric_tx_struct.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/zhulg/allpic/master/fabric_chaincode.png">
+<meta property="og:updated_time" content="2018-08-28T10:24:57.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="关于学习遗忘曲线">
-<meta name="twitter:description" content="学习新东西太多，更容易忘记太多。 一段时间过后，如果没能对新技术多次实践应用到项目，发现可以忘的一干二净。。。">
+<meta name="twitter:title" content="Fabric工作机制及核心组件总结">
+<meta name="twitter:description" content="通过总结来进一步检验对fabric工作机制及底层数据存储和上链过程的认识，加深对fabric的理解和认识。 个人总结记录（如错误欢迎指正lg.json@gmail.com)">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/zhulg/allpic/master/fabric10.png">
   
     <link rel="alternative" href="/atom.xml" title="zhulg笔记" type="application/atom+xml">
   
@@ -154,20 +160,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-关于学习遗忘曲线" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Fabric工作机制及核心组件总结" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      关于学习遗忘曲线
+      Fabric工作机制及核心组件总结
     </h1>
   
 
         
-        <a href="/2018/04/11/关于学习遗忘曲线/" class="archive-article-date">
-  	<time datetime="2018-04-11T04:21:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-11</time>
+        <a href="/2018/08/22/Fabric工作机制及核心组件总结/" class="archive-article-date">
+  	<time datetime="2018-08-22T02:57:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-22</time>
 </a>
         
       </header>
@@ -175,10 +181,109 @@
     <div class="article-entry" itemprop="articleBody">
       
         <ul>
-<li>学习新东西太多，更容易忘记太多。</li>
-<li>一段时间过后，如果没能对新技术多次实践应用到项目，发现可以忘的一干二净。。。<a id="more"></a></li>
-<li>如何快速找回，就是对原来研究的技术做笔记，记录概念，原理，应用场景，在操作遍实际例子。基本1个小时快速找回当初状态。</li>
-<li>对应新技术研究学习一定要记录一个学习路线，从简单是什么，原理，应用场景，附带个简单demo，为遗忘路线准备快速回忆。</li>
+<li>通过总结来进一步检验对fabric工作机制及底层数据存储和上链过程的认识，加深对fabric的理解和认识。</li>
+<li>个人总结记录（如错误欢迎指正lg.json@gmail.com)</li>
+</ul>
+<a id="more"></a>
+<h2 id="一-fabric1-0之后的运行架构"><a href="#一-fabric1-0之后的运行架构" class="headerlink" title="一, fabric1.0之后的运行架构"></a>一, fabric1.0之后的运行架构</h2><p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/fabric10.png" alt=""></p>
+<ul>
+<li><strong>登记证书（0 Enroll):</strong> 使用fabric SDK向CA获取用户的证书（图上membership 服务，就是上图中的注册登记、身份认证，CA是MSP的实现）</li>
+<li><strong>发送提案(1 Endrose proposal)：</strong> 拿到正式根据背书策略发送提案到背书节点（背书策略在chaincode实例化时已经指定），到背书节点后会进行证书验证，并模拟计算chaincode里相关代码。</li>
+<li><strong>返回背书内容（图上没表示出来):</strong> 背书节点会把背书内容返回给客户端,客户端会收集到相关背书节点的背书内容，验证背书节点有效性（有几个背书节点要收到几个节点背书内容）</li>
+<li><strong>提交交易到order(2 Submit Transaction/ 3 Relay Submit tX):</strong> 提交事务到order里，图上显示是先到peer上，在转播到order,实际是直接到order上,order对交易进行排序，根据出块策略进行出块。</li>
+<li><strong>传递区块(4 Deliver batch)</strong>将排序后的区块Deliver到leader peer上, 底层通过gossip协议进行同步到各节点，节点再次验证计算结果，与之前计算一致，就写人到Ledger，写完账本通过event通知到客户端。</li>
+</ul>
+<h2 id="二，fabric交易流程"><a href="#二，fabric交易流程" class="headerlink" title="二，fabric交易流程"></a>二，fabric交易流程</h2><p><img src="https://hyperledger-fabric.readthedocs.io/en/release-1.2/_images/flow-4.png" alt=""></p>
+<ul>
+<li><strong>交易流程基本上也展示了fabric在运行时的架构，在官网的这个图上可以比较详细看到交易涉及的流程</strong> <a href="https://zhulg.github.io/2018/04/04/fabric%E4%BA%A4%E6%98%93%E6%B5%81%E7%A8%8B%E6%A6%82%E8%BF%B0/" target="_blank" rel="external">参考另一篇笔记</a></li>
+</ul>
+<h2 id="三，fabric数据存储方式及数据结构"><a href="#三，fabric数据存储方式及数据结构" class="headerlink" title="三，fabric数据存储方式及数据结构"></a>三，fabric数据存储方式及数据结构</h2><ul>
+<li>fabric的数据是一个个数据块组成链式结构，第一个区块为创世区块，后边区块链接上一个区块的hash头部区块</li>
+<li>每一个区块有区块头和区块体组成，区块体里存储交易的数据。</li>
+</ul>
+<h4 id="1-区块构成"><a href="#1-区块构成" class="headerlink" title="1,区块构成"></a>1,区块构成</h4><p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/fabic_block-structure.png" alt=""></p>
+<ul>
+<li>区块头部分:有当前number,上一个区块hash，当前区块体数据hash。</li>
+<li>区块数据:包含多条交易数据</li>
+<li>区块元数据:包含4种元数据，SIGNATURES、 LAST_CONFIG、ORDERER和TRANSACTIONS_FILTER，前三个是Order service添加进去的，最后一个是Committer添加的。</li>
+<li><a href="https://blockchain-fabric.blogspot.com/2017/04/hyperledger-fabric-v10-block-structure.html" target="_blank" rel="external">参考更多介绍</a> </li>
+</ul>
+<h4 id="2-Fabric账本结构"><a href="#2-Fabric账本结构" class="headerlink" title="2,Fabric账本结构"></a>2,Fabric账本结构</h4><ul>
+<li>fabric的账本存在与每一个peer里，数据存储分为文件存储和数据库（leveldb,couchdb）,文件存储部分用来存储区块数据，写入到BlockFile_xx中</li>
+<li>先通过一个图看下账本基本结构，进入peer容器里，到/var/hyperledger/production/ledgersData下。(这个使用了couchdb所以下边没有stateLeveldb)</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div></pre></td><td class="code"><pre><div class="line">root@1658e694975d:/var/hyperledger/production# tree ledgersData/</div><div class="line">ledgersData/</div><div class="line">|-- chains</div><div class="line">|   |-- chains</div><div class="line">|   |   `-- gomevisionchannel</div><div class="line">|   |       |-- blockfile_000000</div><div class="line">|   |       |-- blockfile_000001</div><div class="line">|   |       |-- blockfile_000002</div><div class="line">|   |       |-- blockfile_000003</div><div class="line">|   |       |-- blockfile_000004</div><div class="line">|   |       |-- blockfile_000005</div><div class="line">|   |       |-- blockfile_000006</div><div class="line">|   |       |-- blockfile_000007</div><div class="line">|   |       |-- blockfile_000008</div><div class="line">|   |       `-- blockfile_000009</div><div class="line">|   `-- index</div><div class="line">|       |-- 000168.ldb</div><div class="line">|       |-- 000237.ldb</div><div class="line">|       |-- 000238.ldb</div><div class="line">|       |-- 000239.ldb</div><div class="line">|       |-- 000240.ldb</div><div class="line">|       |-- 000241.ldb</div><div class="line">|       |-- 000242.ldb</div><div class="line">|       |-- 000243.ldb</div><div class="line">|       |-- 000244.ldb</div><div class="line">|       |-- 000245.ldb</div><div class="line">|       |-- 000246.ldb</div><div class="line">|       |-- 000247.ldb</div><div class="line">|       |-- 000248.ldb</div><div class="line">|       |-- CURRENT</div><div class="line">|       |-- LOCK</div><div class="line">|       |-- LOG</div><div class="line">|       `-- MANIFEST-000263</div><div class="line">|-- historyLeveldb</div><div class="line">|   |-- 000010.log</div><div class="line">|   |-- 000012.ldb</div><div class="line">|   |-- CURRENT</div><div class="line">|   |-- LOCK</div><div class="line">|   |-- LOG</div><div class="line">|   `-- MANIFEST-000011</div><div class="line">`-- ledgerProvider</div><div class="line">    |-- 000002.ldb</div><div class="line">    |-- 000005.log</div><div class="line">    |-- CURRENT</div><div class="line">    |-- LOCK</div><div class="line">    |-- LOG</div><div class="line">    `-- MANIFEST-000006</div></pre></td></tr></table></figure>
+<ul>
+<li>chains：chains/chains下包含的mychannel是对应的channel的名称，因为Fabric是有多channel的机制，而channel之间的账本是隔离的，每个channel都有自己的账本空间。</li>
+<li>chains/index下面包含的是levelDB数据库文件，DB中存储的是区块索引部分。（从indexDB中读取Block的位置信息（blockfile的编号、位置偏移量，打开对应的blockfile，位移到指定位置，读取Block数据）</li>
+<li>stateLeveldb：存储的是链码 putstate写入的数据(我这个用的couchdb所以没有出现)</li>
+<li>ledgerProvider：数据库内存储的是当前节点所包含channel的信息。主要是为了Fabric的多channel机制服务的;</li>
+<li>historyLeveldb：数据库内存储的链码写入的key的历史记录的索引地址。</li>
+</ul>
+<h2 id="四，Fabric数据交易结构"><a href="#四，Fabric数据交易结构" class="headerlink" title="四，Fabric数据交易结构"></a>四，Fabric数据交易结构</h2><ul>
+<li><strong>数据交易的结构在源码 protos/common/common.pb.go，交易的封装即Envelope结构体</strong></li>
+<li><strong>Envelope直译为信封，封装Payload和Signature。Payload为有效负荷，又包括Header和Data,其中Header又包括ChannelHeader，SignatureHeader</strong></li>
+</ul>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Envelope wraps a Payload with a signature so that the message may be authenticated</span></div><div class="line"><span class="keyword">type</span> Envelope <span class="keyword">struct</span> &#123;</div><div class="line">	<span class="comment">// A marshaled Payload</span></div><div class="line">	Payload []<span class="keyword">byte</span> <span class="string">`protobuf:"bytes,1,opt,name=payload,proto3" json:"payload,omitempty"`</span></div><div class="line">	<span class="comment">// A signature by the creator specified in the Payload header</span></div><div class="line">	Signature []<span class="keyword">byte</span> <span class="string">`protobuf:"bytes,2,opt,name=signature,proto3" json:"signature,omitempty"`</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li><strong>Payload结构体：</strong></li>
+</ul>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">type</span> Payload <span class="keyword">struct</span> &#123;</div><div class="line">    Header *Header <span class="comment">//Header</span></div><div class="line">    Data []<span class="keyword">byte</span> <span class="comment">//Transaction序列化</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li><strong>Payload里Header结构：</strong></li>
+</ul>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">type</span> Header <span class="keyword">struct</span> &#123;</div><div class="line">	ChannelHeader   []<span class="keyword">byte</span> <span class="string">`protobuf:"bytes,1,opt,name=channel_header,json=channelHeader,proto3" json:"channel_header,omitempty"`</span></div><div class="line">	SignatureHeader []<span class="keyword">byte</span> <span class="string">`protobuf:"bytes,2,opt,name=signature_header,json=signatureHeader,proto3" json:"signature_header,omitempty"`</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>网上一张比较直观交易结构图，交易的数据结构进行了划分。<br><img src="https://raw.githubusercontent.com/zhulg/allpic/master/fabric_tx_struct.png" alt=""></li>
+</ul>
+<ul>
+<li><strong>Transaction相关结构体</strong></li>
+</ul>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">type</span> Transaction <span class="keyword">struct</span> &#123;</div><div class="line">    Actions []*TransactionAction <span class="comment">//Payload.Data是个TransactionAction数组，容纳每个交易</span></div><div class="line">&#125;</div><div class="line"><span class="comment">//代码在protos/peer/transaction.pb.go</span></div></pre></td></tr></table></figure>
+<ul>
+<li>s<strong>TransactionAction结构体：</strong></li>
+</ul>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">type</span> TransactionAction <span class="keyword">struct</span> &#123;</div><div class="line">    Header []<span class="keyword">byte</span></div><div class="line">    Payload []<span class="keyword">byte</span></div><div class="line">&#125;</div><div class="line"><span class="comment">//代码在protos/peer/transaction.pb.go</span></div></pre></td></tr></table></figure>
+<ul>
+<li><strong>ChaincodeActionPayload相关结构体</strong></li>
+</ul>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">type</span> ChaincodeActionPayload <span class="keyword">struct</span> &#123;</div><div class="line">    ChaincodeProposalPayload []<span class="keyword">byte</span></div><div class="line">    Action *ChaincodeEndorsedAction</div><div class="line">&#125;</div><div class="line"><span class="comment">//代码在protos/peer/transaction.pb.go</span></div></pre></td></tr></table></figure>
+<ul>
+<li><strong>ChaincodeEndorsedAction结构体：</strong></li>
+</ul>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">type</span> ChaincodeEndorsedAction <span class="keyword">struct</span> &#123;</div><div class="line">    ProposalResponsePayload []<span class="keyword">byte</span> <span class="comment">//ProposalResponsePayload序列化</span></div><div class="line">    Endorsements []*Endorsement</div><div class="line">&#125;</div><div class="line"><span class="comment">//代码在protos/peer/transaction.pb.go</span></div></pre></td></tr></table></figure>
+<ul>
+<li><strong>ProposalResponsePayload结构体：</strong></li>
+</ul>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">type</span> ProposalResponsePayload <span class="keyword">struct</span> &#123;</div><div class="line">    ProposalHash []<span class="keyword">byte</span></div><div class="line">    Extension []<span class="keyword">byte</span> <span class="comment">//ChaincodeAction序列化</span></div><div class="line">&#125;</div><div class="line"><span class="comment">//代码在protos/peer/proposal_response.pb.go</span></div></pre></td></tr></table></figure>
+<ul>
+<li><strong>ChaincodeAction结构体：</strong></li>
+</ul>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">type</span> ChaincodeAction <span class="keyword">struct</span> &#123;</div><div class="line">    Results []<span class="keyword">byte</span> <span class="comment">//TxRwSet序列化</span></div><div class="line">    Events []<span class="keyword">byte</span></div><div class="line">    Response *Response</div><div class="line">    ChaincodeId *ChaincodeID</div><div class="line">&#125;</div><div class="line"><span class="comment">//代码在protos/peer/proposal.pb.go</span></div></pre></td></tr></table></figure>
+<h2 id="五，Fabric的智能合约chaincode"><a href="#五，Fabric的智能合约chaincode" class="headerlink" title="五，Fabric的智能合约chaincode"></a>五，Fabric的智能合约chaincode</h2><ul>
+<li><strong>Fabric项目中提供了用户链码和系统链码</strong></li>
+<li>用户chaincode运行在单独的容器中，提供对上层应用的支持，系统chaincode则嵌入在系统内，提供对系统进行配置、管理的支持。</li>
+<li>开发过程中通过调用chaincode达到对账本的操作。</li>
+<li>系统chaincode则维护整改交易过程中的各个环节操作。</li>
+<li><p>参考网上一张图用于说明</p>
+<p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/fabric_chaincode.png" alt=""></p>
+</li>
+<li>chaincode有对应的生命周期，install, instantiate,invoke,query,upgrade等操作，声明周期有系统链码LSCC进行管理</li>
+<li>chaincode初始化会把chaincode放到各个peer内部。</li>
+</ul>
+<h4 id="用户chaincode生成容器方式与peer交互"><a href="#用户chaincode生成容器方式与peer交互" class="headerlink" title="用户chaincode生成容器方式与peer交互"></a>用户chaincode生成容器方式与peer交互</h4><ul>
+<li><p><strong>书写用户链码2个重要的方法</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Init：当链码收到实例化（instantiate）或者升级（update）类型的交易时，Init被调用。 </div><div class="line">Invoke：当链码收到调用（invoke）或者查询（query）类型的交易时，invoke方法被调用。</div></pre></td></tr></table></figure>
+</li>
+<li><p><strong>用户链码容器通过Grpc与peer进行通信，链码容器启动后，会向Peer节点进行注册，gRPC地址为/protos.ChaincodeSupport/Register，消息为ChaincodeMessage结构</strong></p>
+</li>
+</ul>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">type</span> ChaincodeMessage <span class="keyword">struct</span> &#123;</div><div class="line">	Type      ChaincodeMessage_Type       <span class="string">`protobuf:"varint,1,opt,name=type,enum=protos.ChaincodeMessage_Type" json:"type,omitempty"`</span></div><div class="line">	Timestamp *google_protobuf1.Timestamp <span class="string">`protobuf:"bytes,2,opt,name=timestamp" json:"timestamp,omitempty"`</span></div><div class="line">	Payload   []<span class="keyword">byte</span>                      <span class="string">`protobuf:"bytes,3,opt,name=payload,proto3" json:"payload,omitempty"`</span></div><div class="line">	Txid      <span class="keyword">string</span>                      <span class="string">`protobuf:"bytes,4,opt,name=txid" json:"txid,omitempty"`</span></div><div class="line">	Proposal  *SignedProposal             <span class="string">`protobuf:"bytes,5,opt,name=proposal" json:"proposal,omitempty"`</span></div><div class="line">	<span class="comment">// event emitted by chaincode. Used only with Init or Invoke.</span></div><div class="line">	<span class="comment">// This event is then stored (currently)</span></div><div class="line">	<span class="comment">// with Block.NonHashData.TransactionResult</span></div><div class="line">	ChaincodeEvent *ChaincodeEvent <span class="string">`protobuf:"bytes,6,opt,name=chaincode_event,json=chaincodeEvent" json:"chaincode_event,omitempty"`</span></div><div class="line">	<span class="comment">// channel id</span></div><div class="line">	ChannelId <span class="keyword">string</span> <span class="string">`protobuf:"bytes,7,opt,name=channel_id,json=channelId" json:"channel_id,omitempty"`</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="Order组件"><a href="#Order组件" class="headerlink" title="Order组件"></a>Order组件</h2><ul>
+<li>待完成</li>
+</ul>
+<h2 id="MSP"><a href="#MSP" class="headerlink" title="MSP"></a>MSP</h2><ul>
+<li>待完成</li>
 </ul>
 
       
@@ -214,7 +319,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">随笔记录</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">fabric</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">区块链</a>
         		</li>
       		
 		</ul>
@@ -270,7 +379,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2018/04/11/关于学习遗忘曲线/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2018/08/22/Fabric工作机制及核心组件总结/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -284,18 +393,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/04/14/fabric分节点部署到不同线上机器/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Fabric分节点部署到不同线上机器
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/04/10/fabric中数据存储/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Fabric中数据存储</div>
+    <a href="/2018/08/21/关于区块链账户模型记录/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">关于区块链账户模型记录</div>
       <i class="icon-circle-right"></i>
     </a>
   
