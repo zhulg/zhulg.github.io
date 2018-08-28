@@ -22,7 +22,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/zhulg/allpic/master/fabic_block-structure.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/zhulg/allpic/master/fabric_tx_struct.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/zhulg/allpic/master/fabric_chaincode.png">
-<meta property="og:updated_time" content="2018-08-28T10:21:36.000Z">
+<meta property="og:updated_time" content="2018-08-28T10:24:57.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Fabric工作机制及核心组件总结">
 <meta name="twitter:description" content="通过总结来进一步检验对fabric工作机制及底层数据存储和上链过程的认识，加深对fabric的理解和认识。 个人总结记录（如错误欢迎指正lg.json@gmail.com)">
@@ -224,15 +224,15 @@
 <li><strong>数据交易的结构在源码 protos/common/common.pb.go，交易的封装即Envelope结构体</strong></li>
 <li><strong>Envelope直译为信封，封装Payload和Signature。Payload为有效负荷，又包括Header和Data,其中Header又包括ChannelHeader，SignatureHeader</strong></li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">// Envelope wraps a Payload with a signature so that the message may be authenticated</div><div class="line">type Envelope struct &#123;</div><div class="line">	// A marshaled Payload</div><div class="line">	Payload []byte `protobuf:&quot;bytes,1,opt,name=payload,proto3&quot; json:&quot;payload,omitempty&quot;`</div><div class="line">	// A signature by the creator specified in the Payload header</div><div class="line">	Signature []byte `protobuf:&quot;bytes,2,opt,name=signature,proto3&quot; json:&quot;signature,omitempty&quot;`</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Envelope wraps a Payload with a signature so that the message may be authenticated</span></div><div class="line"><span class="keyword">type</span> Envelope <span class="keyword">struct</span> &#123;</div><div class="line">	<span class="comment">// A marshaled Payload</span></div><div class="line">	Payload []<span class="keyword">byte</span> <span class="string">`protobuf:"bytes,1,opt,name=payload,proto3" json:"payload,omitempty"`</span></div><div class="line">	<span class="comment">// A signature by the creator specified in the Payload header</span></div><div class="line">	Signature []<span class="keyword">byte</span> <span class="string">`protobuf:"bytes,2,opt,name=signature,proto3" json:"signature,omitempty"`</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <ul>
 <li><strong>Payload结构体：</strong></li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">type Payload struct &#123;</div><div class="line">    Header *Header //Header</div><div class="line">    Data []byte //Transaction序列化</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">type</span> Payload <span class="keyword">struct</span> &#123;</div><div class="line">    Header *Header <span class="comment">//Header</span></div><div class="line">    Data []<span class="keyword">byte</span> <span class="comment">//Transaction序列化</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <ul>
 <li><strong>Payload里Header结构：</strong></li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">type Header struct &#123;</div><div class="line">	ChannelHeader   []byte `protobuf:&quot;bytes,1,opt,name=channel_header,json=channelHeader,proto3&quot; json:&quot;channel_header,omitempty&quot;`</div><div class="line">	SignatureHeader []byte `protobuf:&quot;bytes,2,opt,name=signature_header,json=signatureHeader,proto3&quot; json:&quot;signature_header,omitempty&quot;`</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">type</span> Header <span class="keyword">struct</span> &#123;</div><div class="line">	ChannelHeader   []<span class="keyword">byte</span> <span class="string">`protobuf:"bytes,1,opt,name=channel_header,json=channelHeader,proto3" json:"channel_header,omitempty"`</span></div><div class="line">	SignatureHeader []<span class="keyword">byte</span> <span class="string">`protobuf:"bytes,2,opt,name=signature_header,json=signatureHeader,proto3" json:"signature_header,omitempty"`</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <ul>
 <li>网上一张比较直观交易结构图，交易的数据结构进行了划分。<br><img src="https://raw.githubusercontent.com/zhulg/allpic/master/fabric_tx_struct.png" alt=""></li>
 </ul>
@@ -278,7 +278,7 @@
 <li><p><strong>用户链码容器通过Grpc与peer进行通信，链码容器启动后，会向Peer节点进行注册，gRPC地址为/protos.ChaincodeSupport/Register，消息为ChaincodeMessage结构</strong></p>
 </li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">type ChaincodeMessage struct &#123;</div><div class="line">	Type      ChaincodeMessage_Type       `protobuf:&quot;varint,1,opt,name=type,enum=protos.ChaincodeMessage_Type&quot; json:&quot;type,omitempty&quot;`</div><div class="line">	Timestamp *google_protobuf1.Timestamp `protobuf:&quot;bytes,2,opt,name=timestamp&quot; json:&quot;timestamp,omitempty&quot;`</div><div class="line">	Payload   []byte                      `protobuf:&quot;bytes,3,opt,name=payload,proto3&quot; json:&quot;payload,omitempty&quot;`</div><div class="line">	Txid      string                      `protobuf:&quot;bytes,4,opt,name=txid&quot; json:&quot;txid,omitempty&quot;`</div><div class="line">	Proposal  *SignedProposal             `protobuf:&quot;bytes,5,opt,name=proposal&quot; json:&quot;proposal,omitempty&quot;`</div><div class="line">	// event emitted by chaincode. Used only with Init or Invoke.</div><div class="line">	// This event is then stored (currently)</div><div class="line">	// with Block.NonHashData.TransactionResult</div><div class="line">	ChaincodeEvent *ChaincodeEvent `protobuf:&quot;bytes,6,opt,name=chaincode_event,json=chaincodeEvent&quot; json:&quot;chaincode_event,omitempty&quot;`</div><div class="line">	// channel id</div><div class="line">	ChannelId string `protobuf:&quot;bytes,7,opt,name=channel_id,json=channelId&quot; json:&quot;channel_id,omitempty&quot;`</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">type</span> ChaincodeMessage <span class="keyword">struct</span> &#123;</div><div class="line">	Type      ChaincodeMessage_Type       <span class="string">`protobuf:"varint,1,opt,name=type,enum=protos.ChaincodeMessage_Type" json:"type,omitempty"`</span></div><div class="line">	Timestamp *google_protobuf1.Timestamp <span class="string">`protobuf:"bytes,2,opt,name=timestamp" json:"timestamp,omitempty"`</span></div><div class="line">	Payload   []<span class="keyword">byte</span>                      <span class="string">`protobuf:"bytes,3,opt,name=payload,proto3" json:"payload,omitempty"`</span></div><div class="line">	Txid      <span class="keyword">string</span>                      <span class="string">`protobuf:"bytes,4,opt,name=txid" json:"txid,omitempty"`</span></div><div class="line">	Proposal  *SignedProposal             <span class="string">`protobuf:"bytes,5,opt,name=proposal" json:"proposal,omitempty"`</span></div><div class="line">	<span class="comment">// event emitted by chaincode. Used only with Init or Invoke.</span></div><div class="line">	<span class="comment">// This event is then stored (currently)</span></div><div class="line">	<span class="comment">// with Block.NonHashData.TransactionResult</span></div><div class="line">	ChaincodeEvent *ChaincodeEvent <span class="string">`protobuf:"bytes,6,opt,name=chaincode_event,json=chaincodeEvent" json:"chaincode_event,omitempty"`</span></div><div class="line">	<span class="comment">// channel id</span></div><div class="line">	ChannelId <span class="keyword">string</span> <span class="string">`protobuf:"bytes,7,opt,name=channel_id,json=channelId" json:"channel_id,omitempty"`</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h2 id="Order组件"><a href="#Order组件" class="headerlink" title="Order组件"></a>Order组件</h2><ul>
 <li>待完成</li>
 </ul>
@@ -519,10 +519,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">springboot</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">fabric</a>
               </li>
              
@@ -535,7 +531,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">springboot</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">部署</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">超级账本</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -548,10 +552,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">gradle</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">超级账本</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -587,19 +587,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">hyperledger</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">composer</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">jenkins</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">springcloud</a>
+                <a href="javascript:void(0)" class="js-tag color2">hyperledger</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -607,11 +599,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">kafka</a>
+                <a href="javascript:void(0)" class="js-tag color2">springcloud</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">jenkins</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">kafka</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -635,15 +635,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">springboot相关</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">nginx</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">vue</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">springboot相关</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -663,19 +663,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">fabric-node-sdk</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">webstom</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">git/github/gitlab</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">区块链，以太坊</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">fabric-node-sdk</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">webstom</a>
               </li>
              
               <li class="article-tag-list-item">
