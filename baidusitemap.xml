@@ -4,6 +4,42 @@
 
     
   <url>
+    <loc>http://yoursite.com/2018/08/29/Hyperledger-Fabric-orderer%E5%88%86%E6%9E%90%E8%AE%B0%E5%BD%95/</loc>
+    <lastmod>2018-08-29T09:59:11.000Z</lastmod>
+    <data>
+        <display>
+        <title>Hyperledger Fabric Orderer分析记录</title>
+        <pubTime>2018-08-29T09:51:46.000Z</pubTime>
+        
+        <tag>区块链</tag>
+         
+        <tag>fabric</tag>
+         
+        <tag>orderer</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2018/08/29/fabric%E4%B8%ADOrderer%E5%88%86%E6%9E%90/</loc>
+    <lastmod>2018-08-29T09:58:06.000Z</lastmod>
+    <data>
+        <display>
+        <title></title>
+        <pubTime>2018-08-29T02:05:44.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/2018/03/13/fabric%E7%BD%91%E7%BB%9C%E5%90%AF%E5%8A%A8%E6%B5%81%E7%A8%8B-%E5%88%86%E6%AD%A5%E5%88%86%E6%9E%90/</loc>
     <lastmod>2018-08-28T11:50:44.000Z</lastmod>
     <data>
@@ -11,9 +47,9 @@
         <title>Fabric网络启动流程-分步分析</title>
         <pubTime>2018-03-13T07:33:57.000Z</pubTime>
         
-        <tag>fabric</tag>
-         
         <tag>区块链</tag>
+         
+        <tag>fabric</tag>
          
          
            
@@ -30,9 +66,9 @@
         <title>Fabric工作机制及核心组件总结</title>
         <pubTime>2018-08-22T02:57:52.000Z</pubTime>
         
-        <tag>fabric</tag>
-         
         <tag>区块链</tag>
+         
+        <tag>fabric</tag>
          
          
            
@@ -104,9 +140,9 @@
         <title>fabric1.2下e2e_cli问题记录</title>
         <pubTime>2018-08-02T10:25:18.000Z</pubTime>
         
-        <tag>fabric</tag>
-         
         <tag>区块链</tag>
+         
+        <tag>fabric</tag>
          
          
            
@@ -140,9 +176,9 @@
         <title>总结下Fabric从入门到崩溃路线</title>
         <pubTime>2018-07-26T03:00:40.000Z</pubTime>
         
-        <tag>fabric</tag>
-         
         <tag>区块链</tag>
+         
+        <tag>fabric</tag>
          
          
            
@@ -201,9 +237,9 @@
         
         <tag>fabric</tag>
          
-        <tag>composer</tag>
-         
         <tag>hyperledger</tag>
+         
+        <tag>composer</tag>
          
          
            
@@ -370,9 +406,9 @@
         <title>Hyperledger Composer创建card区别记录</title>
         <pubTime>2018-05-17T12:01:18.000Z</pubTime>
         
-        <tag>fabric</tag>
-         
         <tag>区块链</tag>
+         
+        <tag>fabric</tag>
          
         <tag>composer</tag>
          
@@ -391,9 +427,9 @@
         <title>目前主流区块链技术</title>
         <pubTime>2018-05-16T14:52:35.000Z</pubTime>
         
-        <tag>fabric</tag>
-         
         <tag>区块链</tag>
+         
+        <tag>fabric</tag>
          
         <tag>ethereum</tag>
          
@@ -450,9 +486,9 @@
         <title>使用Hyperledger Composer问题记录</title>
         <pubTime>2018-05-14T09:30:12.000Z</pubTime>
         
-        <tag>fabric</tag>
-         
         <tag>区块链</tag>
+         
+        <tag>fabric</tag>
          
         <tag>composer</tag>
          
@@ -471,9 +507,9 @@
         <title>Fabric中数据存储</title>
         <pubTime>2018-04-10T07:49:17.000Z</pubTime>
         
-        <tag>fabric</tag>
-         
         <tag>区块链</tag>
+         
+        <tag>fabric</tag>
          
          
            
@@ -490,9 +526,9 @@
         <title>Fabric分节点部署到不同线上机器</title>
         <pubTime>2018-04-14T06:48:18.000Z</pubTime>
         
-        <tag>fabric</tag>
-         
         <tag>区块链</tag>
+         
+        <tag>fabric</tag>
          
          
            
@@ -509,9 +545,9 @@
         <title>Fabric集成开启tls后出现错误记录</title>
         <pubTime>2018-05-01T13:50:59.000Z</pubTime>
         
-        <tag>fabric</tag>
-         
         <tag>区块链</tag>
+         
+        <tag>fabric</tag>
          
         <tag>tls</tag>
          
@@ -530,9 +566,9 @@
         <title>Fabric的背书策略记录</title>
         <pubTime>2018-03-20T03:14:22.000Z</pubTime>
         
-        <tag>fabric</tag>
-         
         <tag>区块链</tag>
+         
+        <tag>fabric</tag>
          
          
            
@@ -549,9 +585,9 @@
         <title>Fabric的chaincode编写及接口</title>
         <pubTime>2018-04-21T09:57:38.000Z</pubTime>
         
-        <tag>fabric</tag>
-         
         <tag>区块链</tag>
+         
+        <tag>fabric</tag>
          
         <tag>chaincode</tag>
          
@@ -587,9 +623,9 @@
         <title>Fabric使用开发模式编写chaincode</title>
         <pubTime>2018-03-28T09:40:22.000Z</pubTime>
         
-        <tag>fabric</tag>
-         
         <tag>区块链</tag>
+         
+        <tag>fabric</tag>
          
         <tag>chaincode</tag>
          
@@ -625,9 +661,9 @@
         <title>Fabric交易流程概述</title>
         <pubTime>2018-04-04T06:21:24.000Z</pubTime>
         
-        <tag>fabric</tag>
-         
         <tag>区块链</tag>
+         
+        <tag>fabric</tag>
          
          
            
@@ -665,9 +701,9 @@
         <title>Fabric中的术语</title>
         <pubTime>2018-03-05T08:30:36.000Z</pubTime>
         
-        <tag>fabric</tag>
-         
         <tag>区块链</tag>
+         
+        <tag>fabric</tag>
          
          
            
@@ -684,9 +720,9 @@
         <title>Hyperledger Fabric Chaincode汇总</title>
         <pubTime>2018-03-01T02:43:44.000Z</pubTime>
         
-        <tag>fabric</tag>
-         
         <tag>区块链</tag>
+         
+        <tag>fabric</tag>
          
         <tag>超级账本</tag>
          
@@ -705,9 +741,9 @@
         <title>Fabric网络启动流程-多节点操作查询</title>
         <pubTime>2018-03-23T10:29:29.000Z</pubTime>
         
-        <tag>fabric</tag>
-         
         <tag>区块链</tag>
+         
+        <tag>fabric</tag>
          
          
            
@@ -724,9 +760,9 @@
         <title>Fabric Explorer部署记录</title>
         <pubTime>2018-03-22T07:28:25.000Z</pubTime>
         
-        <tag>fabric</tag>
-         
         <tag>区块链</tag>
+         
+        <tag>fabric</tag>
          
          
            

@@ -151,6 +151,212 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Hyperledger-Fabric-orderer分析记录" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/29/Hyperledger-Fabric-orderer分析记录/">Hyperledger Fabric Orderer分析记录</a>
+    </h1>
+  
+
+        
+        <a href="/2018/08/29/Hyperledger-Fabric-orderer分析记录/" class="archive-article-date">
+  	<time datetime="2018-08-29T09:51:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-29</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Fabric-Orderer主要作用"><a href="#Fabric-Orderer主要作用" class="headerlink" title="Fabric Orderer主要作用"></a>Fabric Orderer主要作用</h2><p>Orderer，为排序节点，对所有发往网络中的交易进行排序，将排序后的交易进行出块，之后提交给Committer进行提交处理。</p>
+<p><strong>Orderer代码在orderer目录,基于1.2代码</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">orderer</div><div class="line">├── README.md</div><div class="line">├── common</div><div class="line">│   ├── blockcutter //切块代码</div><div class="line">│   ├── bootstrap //初始区块的提供方式</div><div class="line">│   ├── broadcast //广播代码</div><div class="line">│   ├── localconfig //本地配置相关实现</div><div class="line">│   ├── metadata   //通过metadata.go实现获取版本信息。</div><div class="line">│   ├── msgprocessor //消息处理</div><div class="line">│   ├── multichannel</div><div class="line">│   ├── performance</div><div class="line">│   └── server</div><div class="line">├── consensus //共识代码</div><div class="line">│   ├── consensus.go</div><div class="line">│   ├── kafka</div><div class="line">│   └── solo</div><div class="line">├── main.go  //main入口</div><div class="line">├── mocks</div><div class="line">│   ├── common</div><div class="line">│   └── util</div><div class="line">└── sample_clients</div><div class="line">    ├── broadcast_config</div><div class="line">    ├── broadcast_msg</div><div class="line">    └── deliver_stdout</div></pre></td></tr></table></figure>
+<h2 id="Orderer核心启动代码"><a href="#Orderer核心启动代码" class="headerlink" title="Orderer核心启动代码"></a>Orderer核心启动代码</h2><ul>
+<li>通过 orderer 包下的 main() 方法实现，会进一步调用到 orderer/common/server 包中的 Main() 方法。</li>
+</ul>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">Main</span><span class="params">()</span></span> &#123;</div><div class="line">    <span class="comment">//解析命令行参数</span></div><div class="line">	fullCmd := kingpin.MustParse(app.Parse(os.Args[<span class="number">1</span>:]))</div><div class="line"></div><div class="line">	<span class="comment">// "version" command</span></div><div class="line">	<span class="keyword">if</span> fullCmd == version.FullCommand() &#123;</div><div class="line">		fmt.Println(metadata.GetVersionInfo())</div><div class="line">		<span class="keyword">return</span></div><div class="line">	&#125;</div><div class="line">   <span class="comment">//加载本地配置</span></div><div class="line">	conf, err := localconfig.Load()</div><div class="line">	<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</div><div class="line">		logger.Error(<span class="string">"failed to parse config: "</span>, err)</div><div class="line">		os.Exit(<span class="number">1</span>)</div><div class="line">	&#125;</div><div class="line">	initializeLoggingLevel(conf)</div><div class="line">	initializeLocalMsp(conf)</div><div class="line"></div><div class="line">	prettyPrintStruct(conf)</div><div class="line">	Start(fullCmd, conf)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>localconfig.Load（）：从本地配置文件和环境变量中读取配置信息，构建配置树结构。</li>
+<li>initializeLoggingLevel(conf)：配置日志级别。</li>
+<li>initializeLocalMsp(conf)：配置 MSP 结构。</li>
+<li>prettyPrintStruct(conf)： 打印相关</li>
+<li>Start(fullCmd, conf)：完成启动后的核心工作。</li>
+</ul>
+<h2 id="1、加载命令行工具并解析命令行参数"><a href="#1、加载命令行工具并解析命令行参数" class="headerlink" title="1、加载命令行工具并解析命令行参数"></a>1、加载命令行工具并解析命令行参数</h2><p>orderer的命令行工具，基于gopkg.in/alecthomas/kingpin.v2实现，地址：<a href="http://gopkg.in/alecthomas/kingpin.v2。" target="_blank" rel="external">http://gopkg.in/alecthomas/kingpin.v2。</a><br>相关代码如下</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> (</div><div class="line">	app = kingpin.New(<span class="string">"orderer"</span>, <span class="string">"Hyperledger Fabric orderer node"</span>)</div><div class="line">    <span class="comment">//创建子命令start和version</span></div><div class="line">	start = app.Command(<span class="string">"start"</span>, <span class="string">"Start the orderer node"</span>).Default()</div><div class="line">	version   = app.Command(<span class="string">"version"</span>, <span class="string">"Show version information"</span>)</div><div class="line">	benchmark = app.Command(<span class="string">"benchmark"</span>, <span class="string">"Run orderer in benchmark mode"</span>)</div><div class="line">)</div><div class="line"></div><div class="line"><span class="comment">//代码在orderer/main.go</span></div></pre></td></tr></table></figure>
+<p>metadata.GetVersionInfo()代码如下：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">GetVersionInfo</span><span class="params">()</span> <span class="title">string</span></span> &#123;</div><div class="line">	Version = common.Version</div><div class="line">	<span class="keyword">if</span> Version == <span class="string">""</span> &#123;</div><div class="line">		Version = <span class="string">"development build"</span></div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="keyword">return</span> fmt.Sprintf(<span class="string">"%s:\n Version: %s\n Commit SHA: %s\n"</span>+</div><div class="line">		<span class="string">" Go version: %s\n OS/Arch: %s\n"</span>+</div><div class="line">		<span class="string">" Experimental features: %s\n"</span>, ProgramName, Version, common.CommitSHA,</div><div class="line">		runtime.Version(),</div><div class="line">		fmt.Sprintf(<span class="string">"%s/%s"</span>, runtime.GOOS, runtime.GOARCH), common.Experimental)</div><div class="line">&#125;</div><div class="line"><span class="comment">//代码在orderer/metadata/metadata.go</span></div></pre></td></tr></table></figure>
+<h2 id="2、加载配置文件"><a href="#2、加载配置文件" class="headerlink" title="2、加载配置文件"></a>2、加载配置文件</h2><p>配置文件的加载，基于viper实现，即<a href="https://github.com/spf13/viper。" target="_blank" rel="external">https://github.com/spf13/viper。</a></p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">conf, err := localconfig.Load()</div><div class="line"><span class="comment">//代码在orderer/main.go</span></div></pre></td></tr></table></figure>
+<p>localconfig.Load()代码如下：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">Load</span><span class="params">()</span> <span class="params">(*TopLevel, error)</span></span> &#123;</div><div class="line">	config := viper.New()</div><div class="line">	 <span class="comment">//cf.InitViper作用为加载配置文件路径及设置配置文件名称</span></div><div class="line">	coreconfig.InitViper(config, <span class="string">"orderer"</span>)</div><div class="line">	config.SetEnvPrefix(Prefix)</div><div class="line">	config.AutomaticEnv()</div><div class="line">	replacer := strings.NewReplacer(<span class="string">"."</span>, <span class="string">"_"</span>)</div><div class="line">	config.SetEnvKeyReplacer(replacer)</div><div class="line"></div><div class="line">	<span class="keyword">if</span> err := config.ReadInConfig(); err != <span class="literal">nil</span> &#123;</div><div class="line">		<span class="keyword">return</span> <span class="literal">nil</span>, fmt.Errorf(<span class="string">"Error reading configuration: %s"</span>, err)</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="keyword">var</span> uconf TopLevel</div><div class="line">	<span class="keyword">if</span> err := viperutil.EnhancedExactUnmarshal(config, &amp;uconf); err != <span class="literal">nil</span> &#123;</div><div class="line">		<span class="keyword">return</span> <span class="literal">nil</span>, fmt.Errorf(<span class="string">"Error unmarshaling config into struct: %s"</span>, err)</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	uconf.completeInitialization(filepath.Dir(config.ConfigFileUsed()))</div><div class="line">	<span class="keyword">return</span> &amp;uconf, <span class="literal">nil</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//代码在orderer/localconfig/config.go</span></div></pre></td></tr></table></figure>
+<h2 id="3、初始化日志系统（日志输出、日志格式、日志级别等）"><a href="#3、初始化日志系统（日志输出、日志格式、日志级别等）" class="headerlink" title="3、初始化日志系统（日志输出、日志格式、日志级别等）"></a>3、初始化日志系统（日志输出、日志格式、日志级别等）</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">initializeLoggingLevel(conf)</div><div class="line"><span class="comment">//代码在orderer/main.go</span></div></pre></td></tr></table></figure>
+<p>initializeLoggingLevel(conf)代码如下：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">initializeLoggingLevel</span><span class="params">(conf *localconfig.TopLevel)</span></span> &#123;</div><div class="line">    <span class="comment">//初始化日志输出对象及输出格式</span></div><div class="line">	flogging.InitBackend(flogging.SetFormat(conf.General.LogFormat), os.Stderr)</div><div class="line">	 <span class="comment">//按初始化日志级别</span></div><div class="line">	flogging.InitFromSpec(conf.General.LogLevel)</div><div class="line">&#125;</div><div class="line"><span class="comment">//代码在orderer/main.go</span></div></pre></td></tr></table></figure>
+<h2 id="4、初始化本地MSP"><a href="#4、初始化本地MSP" class="headerlink" title="4、初始化本地MSP"></a>4、初始化本地MSP</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">initializeLocalMsp(conf)</div></pre></td></tr></table></figure>
+<p>initializeLocalMsp(conf)代码如下：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">initializeLocalMsp</span><span class="params">(conf *localconfig.TopLevel)</span></span> &#123;</div><div class="line">	<span class="comment">// Load local MSP</span></div><div class="line">	err := mspmgmt.LoadLocalMsp(conf.General.LocalMSPDir, conf.General.BCCSP, conf.General.LocalMSPID)</div><div class="line">	<span class="keyword">if</span> err != <span class="literal">nil</span> &#123; <span class="comment">// Handle errors reading the config file</span></div><div class="line">		logger.Fatal(<span class="string">"Failed to initialize local MSP:"</span>, err)</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"><span class="comment">//代码在orderer/main.go</span></div></pre></td></tr></table></figure>
+<h2 id="5-启动Start方法"><a href="#5-启动Start方法" class="headerlink" title="5,启动Start方法"></a>5,启动Start方法</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">Start</span><span class="params">(cmd <span class="keyword">string</span>, conf *localconfig.TopLevel)</span></span> &#123;</div><div class="line">	signer := localmsp.NewSigner() <span class="comment">// 初始化签名结构</span></div><div class="line">	serverConfig := initializeServerConfig(conf)</div><div class="line">	grpcServer := initializeGrpcServer(conf, serverConfig)</div><div class="line">	caSupport := &amp;comm.CASupport&#123;</div><div class="line">		AppRootCAsByChain:     <span class="built_in">make</span>(<span class="keyword">map</span>[<span class="keyword">string</span>][][]<span class="keyword">byte</span>),</div><div class="line">		OrdererRootCAsByChain: <span class="built_in">make</span>(<span class="keyword">map</span>[<span class="keyword">string</span>][][]<span class="keyword">byte</span>),</div><div class="line">		ClientRootCAs:         serverConfig.SecOpts.ClientRootCAs,</div><div class="line">	&#125;</div><div class="line">	tlsCallback := <span class="function"><span class="keyword">func</span><span class="params">(bundle *channelconfig.Bundle)</span></span> &#123;</div><div class="line">		<span class="comment">// only need to do this if mutual TLS is required</span></div><div class="line">		<span class="keyword">if</span> grpcServer.MutualTLSRequired() &#123;</div><div class="line">			logger.Debug(<span class="string">"Executing callback to update root CAs"</span>)</div><div class="line">			updateTrustedRoots(grpcServer, caSupport, bundle)</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	manager := initializeMultichannelRegistrar(conf, signer, tlsCallback)</div><div class="line">	mutualTLS := serverConfig.SecOpts.UseTLS &amp;&amp; serverConfig.SecOpts.RequireClientCert</div><div class="line">	server := NewServer(manager, signer, &amp;conf.Debug, conf.General.Authentication.TimeWindow, mutualTLS)</div><div class="line"></div><div class="line">	<span class="keyword">switch</span> cmd &#123;</div><div class="line">	<span class="keyword">case</span> start.FullCommand(): <span class="comment">// "start" command</span></div><div class="line">		logger.Infof(<span class="string">"Starting %s"</span>, metadata.GetVersionInfo())</div><div class="line">		initializeProfilingService(conf)</div><div class="line">		ab.RegisterAtomicBroadcastServer(grpcServer.Server(), server)</div><div class="line">		logger.Info(<span class="string">"Beginning to serve requests"</span>)</div><div class="line">		grpcServer.Start()</div><div class="line">	<span class="keyword">case</span> benchmark.FullCommand(): <span class="comment">// "benchmark" command</span></div><div class="line">		logger.Info(<span class="string">"Starting orderer in benchmark mode"</span>)</div><div class="line">		benchmarkServer := performance.GetBenchmarkServer()</div><div class="line">		benchmarkServer.RegisterService(server)</div><div class="line">		benchmarkServer.Start()</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="5-1-start方法里"><a href="#5-1-start方法里" class="headerlink" title="5-1 start方法里"></a>5-1 start方法里</h2><ul>
+<li><strong>经过initializeServerConfig(conf)</strong></li>
+<li><strong>initializeGrpcServer(conf, serverConfig)启动Grpc服务</strong></li>
+<li><strong>初始化initializeMultiChainManager（启动共识插件，接收和处理消息）</strong></li>
+</ul>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">manager := initializeMultiChainManager(conf, signer)</div></pre></td></tr></table></figure>
+<p><strong>initializeMultiChainManager(conf, signer)代码如下：</strong></p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">initializeMultichannelRegistrar</span><span class="params">(conf *localconfig.TopLevel, signer crypto.LocalSigner,</span></span></div><div class="line"><span class="function"><span class="params">	callbacks ...<span class="keyword">func</span>(bundle *channelconfig.Bundle)</span>) *<span class="title">multichannel</span>.<span class="title">Registrar</span></span> &#123;</div><div class="line">    <span class="comment">// 创建操作账本的工厂结构</span></div><div class="line">	lf, _ := createLedgerFactory(conf)</div><div class="line">	<span class="comment">// Are we bootstrapping?</span></div><div class="line">	 如果是首次启动情况，默认先创建系统通道的本地账本结构</div><div class="line">	<span class="keyword">if</span> <span class="built_in">len</span>(lf.ChainIDs()) == <span class="number">0</span> &#123;</div><div class="line">		initializeBootstrapChannel(conf, lf)<span class="comment">//初始化引导通道（获取初始区块、创建链、添加初始区块）</span></div><div class="line">	&#125; <span class="keyword">else</span> &#123;</div><div class="line">		logger.Info(<span class="string">"Not bootstrapping because of existing chains"</span>)</div><div class="line">	&#125;</div><div class="line">    <span class="comment">//初始化共识插件，共识插件负责跟后台的队列打交道</span></div><div class="line">	consenters := <span class="built_in">make</span>(<span class="keyword">map</span>[<span class="keyword">string</span>]consensus.Consenter)</div><div class="line">	consenters[<span class="string">"solo"</span>] = solo.New()</div><div class="line">	consenters[<span class="string">"kafka"</span>] = kafka.New(conf.Kafka)</div><div class="line">	</div><div class="line">   <span class="comment">// 创建各个账本的管理器（Registrar）结构，并启动共识过程</span></div><div class="line">	<span class="keyword">return</span> multichannel.NewRegistrar(lf, consenters, signer, callbacks...) <span class="comment">//LedgerFactory、Consenter、签名</span></div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="5-1-1-initializeMultiChainManager方法总结"><a href="#5-1-1-initializeMultiChainManager方法总结" class="headerlink" title="5-1-1: initializeMultiChainManager方法总结"></a>5-1-1: initializeMultiChainManager方法总结</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">创建账本操作的工厂结构；</div><div class="line">如果是新启动情况，利用给定的系统初始区块文件初始化系统通道的相关结构；</div><div class="line">完成共识插件（包括 solo 和 kafka 两种）的初始化；</div><div class="line">multichannel.NewRegistrar(lf, consenters, signer) 方法会扫描本地账本数据（此时至少已存在系统通道），创建 Registrar 结构，并为每个账本都启动共识（如 Kafka 排序）过程。</div></pre></td></tr></table></figure>
+<h2 id="5-1-2-multichannel-NewRegistrar方法"><a href="#5-1-2-multichannel-NewRegistrar方法" class="headerlink" title="5-1-2: multichannel.NewRegistrar方法"></a>5-1-2: multichannel.NewRegistrar方法</h2><ul>
+<li>核心相关代码</li>
+</ul>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">existingChains := ledgerFactory.ChainIDs()</div><div class="line"><span class="keyword">for</span> _, chainID := <span class="keyword">range</span> existingChains &#123; <span class="comment">// 启动本地所有的账本结构的共识过程</span></div><div class="line">	<span class="keyword">if</span> _, ok := ledgerResources.ConsortiumsConfig(); ok &#123; <span class="comment">// 如果是系统账本（默认在首次启动时会自动创建）</span></div><div class="line">		chain := newChainSupport(r, ledgerResources, consenters, signer)</div><div class="line">		chain.Processor = msgprocessor.NewSystemChannel(chain, r.templator, msgprocessor.CreateSystemChannelFilters(r, chain))</div><div class="line">		r.chains[chainID] = chain</div><div class="line">		r.systemChannelID = chainID</div><div class="line">		r.systemChannel = chain</div><div class="line">		<span class="keyword">defer</span> chain.start() <span class="comment">// 启动共识过程</span></div><div class="line">	<span class="keyword">else</span> <span class="comment">// 如果是应用账本</span></div><div class="line">		chain := newChainSupport(r, ledgerResources, consenters, signer)</div><div class="line">		r.chains[chainID] = chain</div><div class="line">		chain.start()  <span class="comment">// 启动共识过程,以 Kafka 共识插件为例，最终以协程方式调用到 orderer.consensus.kafka 包中的 startThread() 方法，将在后台持续运行</span></div><div class="line">	&#125;</div></pre></td></tr></table></figure>
+<h2 id="5-2-根据输入命令选择启动方式-“start”下"><a href="#5-2-根据输入命令选择启动方式-“start”下" class="headerlink" title="5-2, 根据输入命令选择启动方式 (“start”下)"></a>5-2, 根据输入命令选择启动方式 (“start”下)</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//启动Go profiling服务（Go语言分析工具）</span></div><div class="line">initializeProfilingService(conf)</div><div class="line"><span class="comment">//绑定 gRPC 服务并启动</span></div><div class="line">ab.RegisterAtomicBroadcastServer(grpcServer.Server(), server)</div><div class="line">logger.Info(<span class="string">"Beginning to serve requests"</span>)</div><div class="line">grpcServer.Start()</div></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">区块链</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">fabric</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">orderer</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-fabric中Orderer分析" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Fabric-Orderer主要作用"><a href="#Fabric-Orderer主要作用" class="headerlink" title="Fabric Orderer主要作用"></a>Fabric Orderer主要作用</h2><p>Orderer，为排序节点，对所有发往网络中的交易进行排序，将排序后的交易进行出块，之后提交给Committer进行提交处理。</p>
+<p><strong>Orderer代码在orderer目录,基于1.2代码</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">orderer</div><div class="line">├── README.md</div><div class="line">├── common</div><div class="line">│   ├── blockcutter //切块代码</div><div class="line">│   ├── bootstrap //初始区块的提供方式</div><div class="line">│   ├── broadcast //广播代码</div><div class="line">│   ├── localconfig //本地配置相关实现</div><div class="line">│   ├── metadata   //通过metadata.go实现获取版本信息。</div><div class="line">│   ├── msgprocessor //消息处理</div><div class="line">│   ├── multichannel</div><div class="line">│   ├── performance</div><div class="line">│   └── server</div><div class="line">├── consensus //共识代码</div><div class="line">│   ├── consensus.go</div><div class="line">│   ├── kafka</div><div class="line">│   └── solo</div><div class="line">├── main.go  //main入口</div><div class="line">├── mocks</div><div class="line">│   ├── common</div><div class="line">│   └── util</div><div class="line">└── sample_clients</div><div class="line">    ├── broadcast_config</div><div class="line">    ├── broadcast_msg</div><div class="line">    └── deliver_stdout</div></pre></td></tr></table></figure>
+<h2 id="Orderer核心启动代码"><a href="#Orderer核心启动代码" class="headerlink" title="Orderer核心启动代码"></a>Orderer核心启动代码</h2><ul>
+<li>通过 orderer 包下的 main() 方法实现，会进一步调用到 orderer/common/server 包中的 Main() 方法。</li>
+</ul>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">Main</span><span class="params">()</span></span> &#123;</div><div class="line">    <span class="comment">//解析命令行参数</span></div><div class="line">	fullCmd := kingpin.MustParse(app.Parse(os.Args[<span class="number">1</span>:]))</div><div class="line"></div><div class="line">	<span class="comment">// "version" command</span></div><div class="line">	<span class="keyword">if</span> fullCmd == version.FullCommand() &#123;</div><div class="line">		fmt.Println(metadata.GetVersionInfo())</div><div class="line">		<span class="keyword">return</span></div><div class="line">	&#125;</div><div class="line">   <span class="comment">//加载本地配置</span></div><div class="line">	conf, err := localconfig.Load()</div><div class="line">	<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</div><div class="line">		logger.Error(<span class="string">"failed to parse config: "</span>, err)</div><div class="line">		os.Exit(<span class="number">1</span>)</div><div class="line">	&#125;</div><div class="line">	initializeLoggingLevel(conf)</div><div class="line">	initializeLocalMsp(conf)</div><div class="line"></div><div class="line">	prettyPrintStruct(conf)</div><div class="line">	Start(fullCmd, conf)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>localconfig.Load（）：从本地配置文件和环境变量中读取配置信息，构建配置树结构。</li>
+<li>initializeLoggingLevel(conf)：配置日志级别。</li>
+<li>initializeLocalMsp(conf)：配置 MSP 结构。</li>
+<li>prettyPrintStruct(conf)： 打印相关</li>
+<li>Start(fullCmd, conf)：完成启动后的核心工作。</li>
+</ul>
+<h2 id="1、加载命令行工具并解析命令行参数"><a href="#1、加载命令行工具并解析命令行参数" class="headerlink" title="1、加载命令行工具并解析命令行参数"></a>1、加载命令行工具并解析命令行参数</h2><p>orderer的命令行工具，基于gopkg.in/alecthomas/kingpin.v2实现，地址：<a href="http://gopkg.in/alecthomas/kingpin.v2。" target="_blank" rel="external">http://gopkg.in/alecthomas/kingpin.v2。</a><br>相关代码如下</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> (</div><div class="line">	app = kingpin.New(<span class="string">"orderer"</span>, <span class="string">"Hyperledger Fabric orderer node"</span>)</div><div class="line">    <span class="comment">//创建子命令start和version</span></div><div class="line">	start = app.Command(<span class="string">"start"</span>, <span class="string">"Start the orderer node"</span>).Default()</div><div class="line">	version   = app.Command(<span class="string">"version"</span>, <span class="string">"Show version information"</span>)</div><div class="line">	benchmark = app.Command(<span class="string">"benchmark"</span>, <span class="string">"Run orderer in benchmark mode"</span>)</div><div class="line">)</div><div class="line"></div><div class="line"><span class="comment">//代码在orderer/main.go</span></div></pre></td></tr></table></figure>
+<p>metadata.GetVersionInfo()代码如下：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">GetVersionInfo</span><span class="params">()</span> <span class="title">string</span></span> &#123;</div><div class="line">	Version = common.Version</div><div class="line">	<span class="keyword">if</span> Version == <span class="string">""</span> &#123;</div><div class="line">		Version = <span class="string">"development build"</span></div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="keyword">return</span> fmt.Sprintf(<span class="string">"%s:\n Version: %s\n Commit SHA: %s\n"</span>+</div><div class="line">		<span class="string">" Go version: %s\n OS/Arch: %s\n"</span>+</div><div class="line">		<span class="string">" Experimental features: %s\n"</span>, ProgramName, Version, common.CommitSHA,</div><div class="line">		runtime.Version(),</div><div class="line">		fmt.Sprintf(<span class="string">"%s/%s"</span>, runtime.GOOS, runtime.GOARCH), common.Experimental)</div><div class="line">&#125;</div><div class="line"><span class="comment">//代码在orderer/metadata/metadata.go</span></div></pre></td></tr></table></figure>
+<h2 id="2、加载配置文件"><a href="#2、加载配置文件" class="headerlink" title="2、加载配置文件"></a>2、加载配置文件</h2><p>配置文件的加载，基于viper实现，即<a href="https://github.com/spf13/viper。" target="_blank" rel="external">https://github.com/spf13/viper。</a></p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">conf, err := localconfig.Load()</div><div class="line"><span class="comment">//代码在orderer/main.go</span></div></pre></td></tr></table></figure>
+<p>localconfig.Load()代码如下：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">Load</span><span class="params">()</span> <span class="params">(*TopLevel, error)</span></span> &#123;</div><div class="line">	config := viper.New()</div><div class="line">	 <span class="comment">//cf.InitViper作用为加载配置文件路径及设置配置文件名称</span></div><div class="line">	coreconfig.InitViper(config, <span class="string">"orderer"</span>)</div><div class="line">	config.SetEnvPrefix(Prefix)</div><div class="line">	config.AutomaticEnv()</div><div class="line">	replacer := strings.NewReplacer(<span class="string">"."</span>, <span class="string">"_"</span>)</div><div class="line">	config.SetEnvKeyReplacer(replacer)</div><div class="line"></div><div class="line">	<span class="keyword">if</span> err := config.ReadInConfig(); err != <span class="literal">nil</span> &#123;</div><div class="line">		<span class="keyword">return</span> <span class="literal">nil</span>, fmt.Errorf(<span class="string">"Error reading configuration: %s"</span>, err)</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="keyword">var</span> uconf TopLevel</div><div class="line">	<span class="keyword">if</span> err := viperutil.EnhancedExactUnmarshal(config, &amp;uconf); err != <span class="literal">nil</span> &#123;</div><div class="line">		<span class="keyword">return</span> <span class="literal">nil</span>, fmt.Errorf(<span class="string">"Error unmarshaling config into struct: %s"</span>, err)</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	uconf.completeInitialization(filepath.Dir(config.ConfigFileUsed()))</div><div class="line">	<span class="keyword">return</span> &amp;uconf, <span class="literal">nil</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//代码在orderer/localconfig/config.go</span></div></pre></td></tr></table></figure>
+<h2 id="3、初始化日志系统（日志输出、日志格式、日志级别等）"><a href="#3、初始化日志系统（日志输出、日志格式、日志级别等）" class="headerlink" title="3、初始化日志系统（日志输出、日志格式、日志级别等）"></a>3、初始化日志系统（日志输出、日志格式、日志级别等）</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">initializeLoggingLevel(conf)</div><div class="line"><span class="comment">//代码在orderer/main.go</span></div></pre></td></tr></table></figure>
+<p>initializeLoggingLevel(conf)代码如下：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">initializeLoggingLevel</span><span class="params">(conf *localconfig.TopLevel)</span></span> &#123;</div><div class="line">    <span class="comment">//初始化日志输出对象及输出格式</span></div><div class="line">	flogging.InitBackend(flogging.SetFormat(conf.General.LogFormat), os.Stderr)</div><div class="line">	 <span class="comment">//按初始化日志级别</span></div><div class="line">	flogging.InitFromSpec(conf.General.LogLevel)</div><div class="line">&#125;</div><div class="line"><span class="comment">//代码在orderer/main.go</span></div></pre></td></tr></table></figure>
+<h2 id="4、初始化本地MSP"><a href="#4、初始化本地MSP" class="headerlink" title="4、初始化本地MSP"></a>4、初始化本地MSP</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">initializeLocalMsp(conf)</div></pre></td></tr></table></figure>
+<p>initializeLocalMsp(conf)代码如下：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">initializeLocalMsp</span><span class="params">(conf *localconfig.TopLevel)</span></span> &#123;</div><div class="line">	<span class="comment">// Load local MSP</span></div><div class="line">	err := mspmgmt.LoadLocalMsp(conf.General.LocalMSPDir, conf.General.BCCSP, conf.General.LocalMSPID)</div><div class="line">	<span class="keyword">if</span> err != <span class="literal">nil</span> &#123; <span class="comment">// Handle errors reading the config file</span></div><div class="line">		logger.Fatal(<span class="string">"Failed to initialize local MSP:"</span>, err)</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"><span class="comment">//代码在orderer/main.go</span></div></pre></td></tr></table></figure>
+<h2 id="5-启动Start方法"><a href="#5-启动Start方法" class="headerlink" title="5,启动Start方法"></a>5,启动Start方法</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">Start</span><span class="params">(cmd <span class="keyword">string</span>, conf *localconfig.TopLevel)</span></span> &#123;</div><div class="line">	signer := localmsp.NewSigner() <span class="comment">// 初始化签名结构</span></div><div class="line">	serverConfig := initializeServerConfig(conf)</div><div class="line">	grpcServer := initializeGrpcServer(conf, serverConfig)</div><div class="line">	caSupport := &amp;comm.CASupport&#123;</div><div class="line">		AppRootCAsByChain:     <span class="built_in">make</span>(<span class="keyword">map</span>[<span class="keyword">string</span>][][]<span class="keyword">byte</span>),</div><div class="line">		OrdererRootCAsByChain: <span class="built_in">make</span>(<span class="keyword">map</span>[<span class="keyword">string</span>][][]<span class="keyword">byte</span>),</div><div class="line">		ClientRootCAs:         serverConfig.SecOpts.ClientRootCAs,</div><div class="line">	&#125;</div><div class="line">	tlsCallback := <span class="function"><span class="keyword">func</span><span class="params">(bundle *channelconfig.Bundle)</span></span> &#123;</div><div class="line">		<span class="comment">// only need to do this if mutual TLS is required</span></div><div class="line">		<span class="keyword">if</span> grpcServer.MutualTLSRequired() &#123;</div><div class="line">			logger.Debug(<span class="string">"Executing callback to update root CAs"</span>)</div><div class="line">			updateTrustedRoots(grpcServer, caSupport, bundle)</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	manager := initializeMultichannelRegistrar(conf, signer, tlsCallback)</div><div class="line">	mutualTLS := serverConfig.SecOpts.UseTLS &amp;&amp; serverConfig.SecOpts.RequireClientCert</div><div class="line">	server := NewServer(manager, signer, &amp;conf.Debug, conf.General.Authentication.TimeWindow, mutualTLS)</div><div class="line"></div><div class="line">	<span class="keyword">switch</span> cmd &#123;</div><div class="line">	<span class="keyword">case</span> start.FullCommand(): <span class="comment">// "start" command</span></div><div class="line">		logger.Infof(<span class="string">"Starting %s"</span>, metadata.GetVersionInfo())</div><div class="line">		initializeProfilingService(conf)</div><div class="line">		ab.RegisterAtomicBroadcastServer(grpcServer.Server(), server)</div><div class="line">		logger.Info(<span class="string">"Beginning to serve requests"</span>)</div><div class="line">		grpcServer.Start()</div><div class="line">	<span class="keyword">case</span> benchmark.FullCommand(): <span class="comment">// "benchmark" command</span></div><div class="line">		logger.Info(<span class="string">"Starting orderer in benchmark mode"</span>)</div><div class="line">		benchmarkServer := performance.GetBenchmarkServer()</div><div class="line">		benchmarkServer.RegisterService(server)</div><div class="line">		benchmarkServer.Start()</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="5-1-start方法里"><a href="#5-1-start方法里" class="headerlink" title="5-1 start方法里"></a>5-1 start方法里</h2><ul>
+<li><strong>经过initializeServerConfig(conf)</strong></li>
+<li><strong>initializeGrpcServer(conf, serverConfig)启动Grpc服务</strong></li>
+<li><strong>初始化initializeMultiChainManager（启动共识插件，接收和处理消息）</strong></li>
+</ul>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">manager := initializeMultiChainManager(conf, signer)</div></pre></td></tr></table></figure>
+<p><strong>initializeMultiChainManager(conf, signer)代码如下：</strong></p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">initializeMultichannelRegistrar</span><span class="params">(conf *localconfig.TopLevel, signer crypto.LocalSigner,</span></span></div><div class="line"><span class="function"><span class="params">	callbacks ...<span class="keyword">func</span>(bundle *channelconfig.Bundle)</span>) *<span class="title">multichannel</span>.<span class="title">Registrar</span></span> &#123;</div><div class="line">    <span class="comment">// 创建操作账本的工厂结构</span></div><div class="line">	lf, _ := createLedgerFactory(conf)</div><div class="line">	<span class="comment">// Are we bootstrapping?</span></div><div class="line">	 如果是首次启动情况，默认先创建系统通道的本地账本结构</div><div class="line">	<span class="keyword">if</span> <span class="built_in">len</span>(lf.ChainIDs()) == <span class="number">0</span> &#123;</div><div class="line">		initializeBootstrapChannel(conf, lf)<span class="comment">//初始化引导通道（获取初始区块、创建链、添加初始区块）</span></div><div class="line">	&#125; <span class="keyword">else</span> &#123;</div><div class="line">		logger.Info(<span class="string">"Not bootstrapping because of existing chains"</span>)</div><div class="line">	&#125;</div><div class="line">    <span class="comment">//初始化共识插件，共识插件负责跟后台的队列打交道</span></div><div class="line">	consenters := <span class="built_in">make</span>(<span class="keyword">map</span>[<span class="keyword">string</span>]consensus.Consenter)</div><div class="line">	consenters[<span class="string">"solo"</span>] = solo.New()</div><div class="line">	consenters[<span class="string">"kafka"</span>] = kafka.New(conf.Kafka)</div><div class="line">	</div><div class="line">   <span class="comment">// 创建各个账本的管理器（Registrar）结构，并启动共识过程</span></div><div class="line">	<span class="keyword">return</span> multichannel.NewRegistrar(lf, consenters, signer, callbacks...) <span class="comment">//LedgerFactory、Consenter、签名</span></div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="5-1-1-initializeMultiChainManager方法总结"><a href="#5-1-1-initializeMultiChainManager方法总结" class="headerlink" title="5-1-1: initializeMultiChainManager方法总结"></a>5-1-1: initializeMultiChainManager方法总结</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">创建账本操作的工厂结构；</div><div class="line">如果是新启动情况，利用给定的系统初始区块文件初始化系统通道的相关结构；</div><div class="line">完成共识插件（包括 solo 和 kafka 两种）的初始化；</div><div class="line">multichannel.NewRegistrar(lf, consenters, signer) 方法会扫描本地账本数据（此时至少已存在系统通道），创建 Registrar 结构，并为每个账本都启动共识（如 Kafka 排序）过程。</div></pre></td></tr></table></figure>
+<h2 id="5-1-2-multichannel-NewRegistrar方法"><a href="#5-1-2-multichannel-NewRegistrar方法" class="headerlink" title="5-1-2: multichannel.NewRegistrar方法"></a>5-1-2: multichannel.NewRegistrar方法</h2><ul>
+<li>核心相关代码</li>
+</ul>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">existingChains := ledgerFactory.ChainIDs()</div><div class="line"><span class="keyword">for</span> _, chainID := <span class="keyword">range</span> existingChains &#123; <span class="comment">// 启动本地所有的账本结构的共识过程</span></div><div class="line">	<span class="keyword">if</span> _, ok := ledgerResources.ConsortiumsConfig(); ok &#123; <span class="comment">// 如果是系统账本（默认在首次启动时会自动创建）</span></div><div class="line">		chain := newChainSupport(r, ledgerResources, consenters, signer)</div><div class="line">		chain.Processor = msgprocessor.NewSystemChannel(chain, r.templator, msgprocessor.CreateSystemChannelFilters(r, chain))</div><div class="line">		r.chains[chainID] = chain</div><div class="line">		r.systemChannelID = chainID</div><div class="line">		r.systemChannel = chain</div><div class="line">		<span class="keyword">defer</span> chain.start() <span class="comment">// 启动共识过程</span></div><div class="line">	<span class="keyword">else</span> <span class="comment">// 如果是应用账本</span></div><div class="line">		chain := newChainSupport(r, ledgerResources, consenters, signer)</div><div class="line">		r.chains[chainID] = chain</div><div class="line">		chain.start()  <span class="comment">// 启动共识过程,以 Kafka 共识插件为例，最终以协程方式调用到 orderer.consensus.kafka 包中的 startThread() 方法，将在后台持续运行</span></div><div class="line">	&#125;</div></pre></td></tr></table></figure>
+<h2 id="5-2-根据输入命令选择启动方式-“start”下"><a href="#5-2-根据输入命令选择启动方式-“start”下" class="headerlink" title="5-2, 根据输入命令选择启动方式 (“start”下)"></a>5-2, 根据输入命令选择启动方式 (“start”下)</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//启动Go profiling服务（Go语言分析工具）</span></div><div class="line">initializeProfilingService(conf)</div><div class="line"><span class="comment">//绑定 gRPC 服务并启动</span></div><div class="line">ab.RegisterAtomicBroadcastServer(grpcServer.Server(), server)</div><div class="line">logger.Info(<span class="string">"Beginning to serve requests"</span>)</div><div class="line">grpcServer.Start()</div></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Fabric工作机制及核心组件总结" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -190,11 +396,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">fabric</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">区块链</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">区块链</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">fabric</a>
         		</li>
       		
 		</ul>
@@ -504,11 +710,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">fabric</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">区块链</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">区块链</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">fabric</a>
         		</li>
       		
 		</ul>
@@ -662,11 +868,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">fabric</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">区块链</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">区块链</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">fabric</a>
         		</li>
       		
 		</ul>
@@ -749,172 +955,6 @@
       		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">vscode</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-使用composer部署chaincode中超时问题记录" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/05/使用composer部署chaincode中超时问题记录/">使用Composer部署chaincode中超时问题记录</a>
-    </h1>
-  
-
-        
-        <a href="/2018/07/05/使用composer部署chaincode中超时问题记录/" class="archive-article-date">
-  	<time datetime="2018-07-04T16:09:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-05</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ul>
-<li>使用composer进行部署chaincode，构建chaincode镜像时出现超时问题。</li>
-<li>错误日志 <strong>Response from attempted peer comms was an error: Error: REQUEST_TIMEOUT</strong></li>
-<li><p>之前遇到过按照网上说法，设置yaml里peer上chaincode的超时时间有300改为1200，有时能解决，最近发现问题根源和有更简单处理方式。</p>
-        
-          <a class="article-more-a" href="/2018/07/05/使用composer部署chaincode中超时问题记录/#more">查看全文 >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">fabric</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">composer</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-hyperledger-composer下docker重启后chaincode无法启动记录" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/02/hyperledger-composer下docker重启后chaincode无法启动记录/">Hyperledger Composer下docker重启后chaincode无法启动记录</a>
-    </h1>
-  
-
-        
-        <a href="/2018/07/02/hyperledger-composer下docker重启后chaincode无法启动记录/" class="archive-article-date">
-  	<time datetime="2018-07-02T10:04:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-02</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ul>
-<li>背景是磁盘空间因为docker容器日志满，环境是使用composer的区块链网络。</li>
-<li>正确清理姿势（比如我这个）</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">到 /app/install/docker/lib/docker/containers/ 下面的那个容器文件夹内执行  </div><div class="line">cat /dev/null &gt; *-json.log</div></pre></td></tr></table></figure>
-<ul>
-<li>lsof |grep deleted 查看删除文件是否存在引用（如果直接删的日志，是不会减少空间的，需要删除引用）</li>
-</ul>
-        
-          <a class="article-more-a" href="/2018/07/02/hyperledger-composer下docker重启后chaincode无法启动记录/#more">查看全文 >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">fabric</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">composer</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">hyperledger</a>
         		</li>
       		
 		</ul>
@@ -1055,15 +1095,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">fabric</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">区块链</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">部署</a>
+                <a href="javascript:void(0)" class="js-tag color2">fabric</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1071,7 +1107,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">分布式/集群</a>
+                <a href="javascript:void(0)" class="js-tag color3">部署</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">AWK</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1083,15 +1123,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">orderer</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">分布式/集群</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">go</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">docker</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">AWK</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1115,11 +1159,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">composer</a>
+                <a href="javascript:void(0)" class="js-tag color2">hyperledger</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">hyperledger</a>
+                <a href="javascript:void(0)" class="js-tag color4">composer</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1135,11 +1179,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">kafka</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1151,15 +1199,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
+                <a href="javascript:void(0)" class="js-tag color4">以太坊</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">redis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">以太坊</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1215,11 +1259,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">大数据&机器学习</a>
+                <a href="javascript:void(0)" class="js-tag color5">推荐系统</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">推荐系统</a>
+                <a href="javascript:void(0)" class="js-tag color4">大数据&机器学习</a>
               </li>
              
               <li class="article-tag-list-item">
