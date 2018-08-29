@@ -10,14 +10,14 @@
   <title>Hyperledger Fabric Orderer分析记录 | zhulg笔记</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="Fabric Orderer主要作用Orderer，为排序节点，对所有发往网络中的交易进行排序，将排序后的交易进行出块，之后提交给Committer进行提交处理。 Orderer代码在orderer目录,基于1.2代码 123456789101112131415161718192021222324orderer├── README.md├── common│   ├── blockcutter /">
-<meta name="keywords" content="区块链,fabric,orderer">
+<meta name="keywords" content="fabric,区块链,orderer">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hyperledger Fabric Orderer分析记录">
 <meta property="og:url" content="http://yoursite.com/2018/08/29/Hyperledger-Fabric-orderer分析记录/index.html">
 <meta property="og:site_name" content="zhulg笔记">
 <meta property="og:description" content="Fabric Orderer主要作用Orderer，为排序节点，对所有发往网络中的交易进行排序，将排序后的交易进行出块，之后提交给Committer进行提交处理。 Orderer代码在orderer目录,基于1.2代码 123456789101112131415161718192021222324orderer├── README.md├── common│   ├── blockcutter /">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-08-29T09:59:11.000Z">
+<meta property="og:updated_time" content="2018-08-29T10:55:28.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hyperledger Fabric Orderer分析记录">
 <meta name="twitter:description" content="Fabric Orderer主要作用Orderer，为排序节点，对所有发往网络中的交易进行排序，将排序后的交易进行出块，之后提交给Committer进行提交处理。 Orderer代码在orderer目录,基于1.2代码 123456789101112131415161718192021222324orderer├── README.md├── common│   ├── blockcutter /">
@@ -177,6 +177,7 @@
         <h2 id="Fabric-Orderer主要作用"><a href="#Fabric-Orderer主要作用" class="headerlink" title="Fabric Orderer主要作用"></a>Fabric Orderer主要作用</h2><p>Orderer，为排序节点，对所有发往网络中的交易进行排序，将排序后的交易进行出块，之后提交给Committer进行提交处理。</p>
 <p><strong>Orderer代码在orderer目录,基于1.2代码</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">orderer</div><div class="line">├── README.md</div><div class="line">├── common</div><div class="line">│   ├── blockcutter //切块代码</div><div class="line">│   ├── bootstrap //初始区块的提供方式</div><div class="line">│   ├── broadcast //广播代码</div><div class="line">│   ├── localconfig //本地配置相关实现</div><div class="line">│   ├── metadata   //通过metadata.go实现获取版本信息。</div><div class="line">│   ├── msgprocessor //消息处理</div><div class="line">│   ├── multichannel</div><div class="line">│   ├── performance</div><div class="line">│   └── server</div><div class="line">├── consensus //共识代码</div><div class="line">│   ├── consensus.go</div><div class="line">│   ├── kafka</div><div class="line">│   └── solo</div><div class="line">├── main.go  //main入口</div><div class="line">├── mocks</div><div class="line">│   ├── common</div><div class="line">│   └── util</div><div class="line">└── sample_clients</div><div class="line">    ├── broadcast_config</div><div class="line">    ├── broadcast_msg</div><div class="line">    └── deliver_stdout</div></pre></td></tr></table></figure>
+<a id="more"></a>
 <h2 id="Orderer核心启动代码"><a href="#Orderer核心启动代码" class="headerlink" title="Orderer核心启动代码"></a>Orderer核心启动代码</h2><ul>
 <li>通过 orderer 包下的 main() 方法实现，会进一步调用到 orderer/common/server 包中的 Main() 方法。</li>
 </ul>
@@ -251,11 +252,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">区块链</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">fabric</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">fabric</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">区块链</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -455,11 +456,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Elasticsearch</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">springboot</a>
+                <a href="javascript:void(0)" class="js-tag color2">fabric</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -467,11 +464,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">fabric</a>
+                <a href="javascript:void(0)" class="js-tag color1">springboot</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">超级账本</a>
+                <a href="javascript:void(0)" class="js-tag color4">Elasticsearch</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -479,7 +476,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">AWK</a>
+                <a href="javascript:void(0)" class="js-tag color3">orderer</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">超级账本</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -491,11 +492,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">orderer</a>
+                <a href="javascript:void(0)" class="js-tag color2">分布式/集群</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">分布式/集群</a>
+                <a href="javascript:void(0)" class="js-tag color4">AWK</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -547,11 +548,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+                <a href="javascript:void(0)" class="js-tag color1">kafka</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">kafka</a>
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -567,11 +568,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">以太坊</a>
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redis</a>
+                <a href="javascript:void(0)" class="js-tag color4">以太坊</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -603,15 +604,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">git/github/gitlab</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">fabric-node-sdk</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">webstom</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">git/github/gitlab</a>
               </li>
              
               <li class="article-tag-list-item">
