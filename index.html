@@ -151,6 +151,210 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-docker日志管理记录" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/30/docker日志管理记录/">Docker日志管理记录</a>
+    </h1>
+  
+
+        
+        <a href="/2018/08/30/docker日志管理记录/" class="archive-article-date">
+  	<time datetime="2018-08-30T06:42:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-30</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="docker日志清理"><a href="#docker日志清理" class="headerlink" title="docker日志清理"></a>docker日志清理</h2><ul>
+<li><p>容器日志一般存放在/var/lib/docker/containers/container_id/下面</p>
+</li>
+<li><p><strong>查看产生日志大小</strong></p>
+</li>
+</ul>
+        
+          <a class="article-more-a" href="/2018/08/30/docker日志管理记录/#more">查看全文 >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">docker</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Hyperledger-Fabric-MSP分析记录" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/30/Hyperledger-Fabric-MSP分析记录/">Hyperledger-Fabric-MSP分析记录</a>
+    </h1>
+  
+
+        
+        <a href="/2018/08/30/Hyperledger-Fabric-MSP分析记录/" class="archive-article-date">
+  	<time datetime="2018-08-30T03:31:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-30</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="fabric-MSP"><a href="#fabric-MSP" class="headerlink" title="fabric MSP"></a>fabric MSP</h4><ul>
+<li>MSP是Membership Service Provider的缩写，直译为成员关系服务提供者,</li>
+<li>成员服务提供者（MSP）是一个提供抽象化成员操作框架的组件。MSP将颁发与校验证书，以及用户认证背后的所有密码学机制与协议都抽象了出来</li>
+<li>一个MSP可以自己定义身份，以及身份的管理（身份验证）与认证（生成与验证签名）规则。也就是说，在一个运行的fabric系统网络中有众多的参与者，MSP就是为了管理这些参与者，可以辨识验证哪些人有资格，哪些人没资格，既维护某一个参与者的权限，也维护参与者之间的关系</li>
+<li><p>Fabric中提出了成员服务提供者（Membership Service Provider，MSP）的概念，抽象代表了一个身份验证的实体。基于它可以实现对不同资源进行基于身份证书的权限验证</p>
+</li>
+<li><p><strong>简要核心概述MSP:</strong></p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">MSP的作用：在Fabric网络中，提供用户管理与权限验证的功能。</div><div class="line">MSP的基本结构: 也就是实现用户管理与权限验证，需要哪些信息才能提供保障,包括，根证书列表、组织单元列表、管理员身份证书、撤销证书列表、私钥库、TLS根证书列表、TLS中间证书等等。</div></pre></td></tr></table></figure>
+<h2 id="msp常见结构"><a href="#msp常见结构" class="headerlink" title="msp常见结构"></a>msp常见结构</h2><ul>
+<li>以下是一个MSP结构中常见的组成部分：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">· 一组信任的根证书，是整个组织证书信任的基础，根证书可以签发中间层证书；</div><div class="line">· MSP的管理员的身份证书，管理员可以对MSP中证书进行管理；</div><div class="line">· 组织单元（Organizational Unit）列表（可选）；</div><div class="line">· 一组信任的中间证书，中间证书由根证书签发（可选）； </div><div class="line">· 证书撤销列表，代表被吊销的证书名单（可选）。</div></pre></td></tr></table></figure>
+<ul>
+<li><strong>图片来自官网</strong></li>
+</ul>
+<p><img src="https://hyperledger-fabric.readthedocs.io/en/release-1.2/_images/membership.diagram.5.png" alt=""></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">Root CAs | 根证书列表</div><div class="line">此文件夹包含，由此MSP代表的组织信任的Root CA，自签名X.509证书列表。此MSP文件夹中必须至少有一个Root CA X.509证书。这是最重要的文件夹，因为它标识了所有其它证书。</div><div class="line"></div><div class="line">Intermediate CAs | 中间证书列表</div><div class="line">此文件夹包含此组织信任的Intermediate CA的X.509证书列表。每个证书都必须由MSP中的一个Root CA签署，或者由 Intermediate CA 签署。</div><div class="line"></div><div class="line">Intermediate CA可以表示组织的不同细分或组织本身（例如，如果商业CA用于组织的身份管理）。在前一种情况下，可以使用CA层次结构中，较低的其他Intermediate CA来表示组织细分。请注意，可能有一个没有任何中间CA的功能网络，在这种情况下，此文件夹将为空。</div><div class="line">与Root CA文件夹一样，此文件夹定义了中间证书。只有拥有了这些证书，才能被系统视为组织成员的CA。</div><div class="line"></div><div class="line">Organizational Units (OUs) | 组织单元列表</div><div class="line">可选的</div><div class="line"></div><div class="line">Administrators | 管理员身份证书</div><div class="line">该文件夹包含一个身份列表，用于定义具有该组织管理员角色的参与者。对于标准MSP类型，此列表中应该有一个或多个X.509证书。</div><div class="line"></div><div class="line">Revoked Certificates | 撤销证书列表</div><div class="line">可选的</div><div class="line"></div><div class="line">KeyStore for Private Key | 私钥库</div><div class="line">该文件夹为peer 或 orderer节点（或客户端的local MSP）的local MSP定义，并包含节点的signing key（签名密钥）。 此密钥用于签署数据，作为认可阶段的一部分。</div><div class="line">该文件夹对Local MSP是必须的，并且必须包含一个私钥。 很明显，访问这个文件夹，只能由，对此peer有管理权限的用户。</div><div class="line">Channel MSP的配置不包括此部分，因为Channel MSP旨在提供纯粹的身份验证功能，而不是签署能力。</div><div class="line"></div><div class="line">TLS Root CA | TLS根证书列表</div><div class="line">此文件夹包含，此组织为TLS通信所信任的Root CA的自签名X.509证书列表。 TLS通信的一个例子是，peer需要连接到orderer以便它可以接收ledger更新。</div><div class="line">MSP TLS信息涉及网络内的节点，即对peers 和 the orderers，此文件夹中必须至少有一个TLS Root CA X.509证书。</div><div class="line"></div><div class="line"></div><div class="line">TLS Intermediate CA | TLS中间证书</div><div class="line">此文件夹包含由此MSP代表的，组织信任的用于TLS通信的Intermediate CA证书列表。当商业CA用于组织的TLS证书时，此文件夹特别有用。 它是可选的。</div><div class="line">Fabric中MSP相关实现代码都在msp目录下，目前采用了bccspmsp结构来代表一个成员身份结构，并且采用了MSPConfig（主要是其成员FabricMSPConfig）结构来代表跟该实体相关的证书信息。</div><div class="line"></div><div class="line">MSP中各实体资源的证书必须被证书信任树上的叶子节点签名。中间层签名的证书会被认为是非法实体证书。</div></pre></td></tr></table></figure>
+<h2 id="MSP实践操作"><a href="#MSP实践操作" class="headerlink" title="MSP实践操作"></a>MSP实践操作</h2><ul>
+<li>MSP在Fabric中的作用是对用户进行管理，实践的基本步骤：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">第一，生成MSP相关的证书和签名。</div><div class="line">第二，在Peer，Orderer,Channel等组件的配置文件设置关于msp的相关信息</div><div class="line">（即：通过crypto-config.yaml，然后配置到configtx.yaml，配置到相关peer,order）</div></pre></td></tr></table></figure>
+<ul>
+<li><strong>实际操作中</strong></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">1. 编写crypto-config.yaml配置文件指定网络的拓扑结构和组织结构。</div><div class="line">2. cryptogen-生成秘钥和证书文件。</div><div class="line">快速地根据配置自动批量生成所需要的密钥和证书文件。</div><div class="line">3. 编写依赖配置文件configtx.yaml。</div><div class="line">该文件包含网络的定义，并给出了网络组件的每个网络实体的加密材料的存储位置。</div><div class="line">4. configtxgen-生成通道配置。</div><div class="line">在这个过程中，会生成系统channel的创世纪块。该创世纪块（genesis block）中包含所有MSP的验证元素。MSP验证元素有MSP身份标识（MSP identifier），root CAs，intermediate CAs，admin CAs，OU List，CRLs。</div></pre></td></tr></table></figure>
+<h3 id="用cryptogen工具来生成的MSP需要用到的证书和相关文件。"><a href="#用cryptogen工具来生成的MSP需要用到的证书和相关文件。" class="headerlink" title="用cryptogen工具来生成的MSP需要用到的证书和相关文件。"></a>用cryptogen工具来生成的MSP需要用到的证书和相关文件。</h3><ul>
+<li>主要包括各种证书和相关的签名。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div></pre></td><td class="code"><pre><div class="line">org1.example.com/</div><div class="line">├── ca     # 存放组织Org1的根证书和对应的私钥文件，默认采用EC算法，证书为自签名。组织内的实体将基于该根证书作为证书根。</div><div class="line">│   ├── ca.org1.example.com-cert.pem</div><div class="line">│   └── dfb841b77804d726eea25231ae5e89a31901ca0538688a6d764731148f0bdc5b_sk</div><div class="line">├── msp    # 存放代表该组织的身份信息。</div><div class="line">│   ├── admincerts         # 组织管理员的身份验证证书，被根证书签名。</div><div class="line">│   │   └── Admin@org1.example.com-cert.pem</div><div class="line">│   ├── cacerts # 组织的根证书，同ca目录下文件。</div><div class="line">│   │   └── ca.org1.example.com-cert.pem</div><div class="line">│   └── tlscacerts          # 用于TLS的CA证书，自签名。</div><div class="line">│       └── tlsca.org1.example.com-cert.pem</div><div class="line">├── peers   # 存放属于该组织的所有Peer节点</div><div class="line">│   ├── peer0.org1.example.com    # 第一个peer的信息，包括其msp证书和tls证书两类。</div><div class="line">│   │   ├── msp # msp相关证书   </div><div class="line">│   │   │   ├── admincerts  # 组织管理员的身份验证证书。Peer将基于这些证书来认证交易签署者是否为管理员身份。</div><div class="line">│   │   │   │   └── Admin@org1.example.com-cert.pem</div><div class="line">│   │   │   ├── cacerts     # 存放组织的根证书</div><div class="line">│   │   │   │   └── ca.org1.example.com-cert.pem</div><div class="line">│   │   │   ├── keystore    # 本节点的身份私钥，用来签名</div><div class="line">│   │   │   │   └── 59be216646c0fb18c015c58d27bf40c3845907849b1f0671562041b8fd6e0da2_sk</div><div class="line">│   │   │   ├── signcerts   # 验证本节点签名的证书，被组织根证书签名 </div><div class="line">│   │   │   │   └── peer0.org1.example.com-cert.pem</div><div class="line">│   │   │   └── tlscacerts  # TLS连接用到身份证书，即组织TLS证书</div><div class="line">│   │   │       └── tlsca.org1.example.com-cert.pem</div><div class="line">│   │   └── tls # tls相关证书</div><div class="line">│   │       ├── ca.crt      # 组织的根证书</div><div class="line">│   │       ├── server.crt  # 验证本节点签名的证书，被组织根证书签名</div><div class="line">│   │       └── server.key  # 本节点的身份私钥，用来签名</div><div class="line">│   └── peer1.org1.example.com    # 第二个peer的信息，结构类似。（此处省略。）</div><div class="line">│       ├── msp</div><div class="line">│       │   ├── admincerts</div><div class="line">│       │   │   └── Admin@org1.example.com-cert.pem</div><div class="line">│       │   ├── cacerts</div><div class="line">│       │   │   └── ca.org1.example.com-cert.pem</div><div class="line">│       │   ├── keystore</div><div class="line">│       │   │   └── 82aa3f8f9178b0a83a14fdb1a4e1f944e63b72de8df1baeea36dddf1fe110800_sk</div><div class="line">│       │   ├── signcerts</div><div class="line">│       │   │   └── peer1.org1.example.com-cert.pem</div><div class="line">│       │   └── tlscacerts</div><div class="line">│       │       └── tlsca.org1.example.com-cert.pem</div><div class="line">│       └── tls</div><div class="line">│           ├── ca.crt</div><div class="line">│           ├── server.crt</div><div class="line">│           └── server.key</div><div class="line">├── tlsca    # 存放tls相关的证书和私钥。</div><div class="line">│   ├── 00e4666e5f56804274aadb07e2192db2f005a05f2f8fcfd8a1433bdb8ee6e3cf_sk</div><div class="line">│   └── tlsca.org1.example.com-cert.pem</div><div class="line">└── users    # 存放属于该组织的用户的实体</div><div class="line">    ├── Admin@org1.example.com    # 管理员用户的信息，其中包括msp证书和tls证书两类。</div><div class="line">    │   ├── msp # msp相关证书</div><div class="line">    │   │   ├── admincerts     # 组织根证书作为管理员身份验证证书 </div><div class="line">    │   │   │   └── Admin@org1.example.com-cert.pem</div><div class="line">    │   │   ├── cacerts        # 存放组织的根证书</div><div class="line">    │   │   │   └── ca.org1.example.com-cert.pem</div><div class="line">    │   │   ├── keystore       # 本用户的身份私钥，用来签名</div><div class="line">    │   │   │   └── fa719a7d19e7b04baebbe4fa3c659a91961a084f5e7b1020670be6adc6713aa7_sk</div><div class="line">    │   │   ├── signcerts      # 管理员用户的身份验证证书，被组织根证书签名。要被某个Peer认可，则必须放到该Peer的msp/admincerts目录下</div><div class="line">    │   │   │   └── Admin@org1.example.com-cert.pem</div><div class="line">    │   │   └── tlscacerts     # TLS连接用的身份证书，即组织TLS证书</div><div class="line">    │   │       └── tlsca.org1.example.com-cert.pem</div><div class="line">    │   └── tls # 存放tls相关的证书和私钥。</div><div class="line">    │       ├── ca.crt       # 组织的根证书</div><div class="line">    │       ├── server.crt   # 管理员的用户身份验证证书，被组织根证书签名</div><div class="line">    │       └── server.key   # 管理员用户的身份私钥，被组织根证书签名。</div><div class="line">    └── User1@org1.example.com    # 第一个用户的信息，包括msp证书和tls证书两类</div><div class="line">        ├── msp # msp证书相关信息</div><div class="line">        │   ├── admincerts   # 组织根证书作为管理者身份验证证书。</div><div class="line">        │   │   └── User1@org1.example.com-cert.pem</div><div class="line">        │   ├── cacerts      # 存放组织的根证书</div><div class="line">        │   │   └── ca.org1.example.com-cert.pem</div><div class="line">        │   ├── keystore     # 本用户的身份私钥，用来签名</div><div class="line">        │   │   └── 97f2b74ee080b9bf417a4060bfb737ce08bf33d0287cb3eef9b5be9707e3c3ed_sk</div><div class="line">        │   ├── signcerts    # 验证本用户签名的身份证书，被组织根证书签名</div><div class="line">        │   │   └── User1@org1.example.com-cert.pem</div><div class="line">        │   └── tlscacerts   # TLS连接用的身份证书，被组织根证书签名。</div><div class="line">        │       └── tlsca.org1.example.com-cert.pem</div><div class="line">        └── tls # 组织的根证书</div><div class="line">            ├── ca.crt       # 组织的根证书</div><div class="line">            ├── server.crt   # 验证用户签名的身份证书，被根组织证书签名</div><div class="line">            └── server.key   # 用户的身份私钥用来签名。</div></pre></td></tr></table></figure>
+<h2 id="一张网上MSP总结图（侵权必删）"><a href="#一张网上MSP总结图（侵权必删）" class="headerlink" title="一张网上MSP总结图（侵权必删）"></a>一张网上MSP总结图（侵权必删）</h2><p><img src="https://pic4.zhimg.com/v2-fa72991dbb8a9245bea5234ff5f59f50_r.jpg" alt=""></p>
+<ul>
+<li>MSP方案的作用？<br>它负责区块链网络中对身份的管理和认证。可以对区块链中从成员进行身份验证，还可以生成与验证签名。</li>
+<li><p>MSP通过什么方式解决了问题？<br>实现用户的管理与验证涉及到很多的密码学相关的知识。其中包括颁发与校验证书，以及用户认证背后的所有密码学机制与协议。Fabric设计者，将所有的这些技术，打包成一个逻辑框架，叫做MSP，从而实现了在工程上，较为方便对用户进行管理和验证。</p>
+</li>
+<li><p>MSP要解决的问题是什么？<br>商业应用场景下，有时会要求区块链中的数据仅仅对区块链中部分成员可见。这就产生了权限管理的需求。所以，MSP要解决的问题，在区块链网络中实现权限管理。</p>
+</li>
+</ul>
+<h3 id="msp的作用域分类"><a href="#msp的作用域分类" class="headerlink" title="msp的作用域分类"></a>msp的作用域分类</h3><ul>
+<li><p>MSP出现在区块链网络中的两个地方：Channel配置（Channel MSP），以及本地（local MSP）。因此，MSP可以分为：local 和 channel MSPs</p>
+</li>
+<li><p><strong>localMSP</strong><br>localMSP，是为节点（peer 或 orderer）和用户（使用CLI或使用SDK的客户端应用程序的管理员）定义的。每个节点和用户都必须定义一个localMSP，以便在加入区块链的时候，进行权限验证。</p>
+</li>
+<li><p><strong>channelMSP</strong><br>channel MSP在channel层面定义管理和参与权。参与Channel的每个组织，都必须为其定义MSP。Channel上的Peers 和 orderers将在Channel MSP上共享数据，并且此后将能够正确认证Channel参与者。这意味着如果一个组织希望加入该Channel，那么需要在Channel配置中，加入一个包含该组织成员的信任链的MSP。否则来自该组织身份的交易将被拒绝。</p>
+</li>
+</ul>
+<h3 id="MSP功能分类"><a href="#MSP功能分类" class="headerlink" title="MSP功能分类"></a>MSP功能分类</h3><ul>
+<li>Network MSP<br>通过定义参与者组织MSPs，来定义网络中的成员。同时定义这些成员中哪些成员，有权执行管理任务（例如，创建Channel）</li>
+<li>Channel MSP<br>Channel提供了一组特定的组织之间的私人通信，这些组织又对其进行管理控制。在该Channel的MSP上下文中的Channel policies定义谁能够参与Channel上的某些操作，例如添加组织或实例化chaincodes。</li>
+<li>Peer MSP<br>此Local MSP在每个peer的文件系统上定义，并且每个peer都有一个MSP实例。从概念上讲，它执行的功能与Channel MSP完全相同，限制条件是它仅用于定义它的peer上。</li>
+<li>Orderer MSP<br>与peer MSP一样，orderer local MSP也在节点的文件系统上定义，并且仅用于该节点。与peer 节点相似，orderer也由单个组织拥有，因此只有一个MSP来列出其信任的参与者或节点。</li>
+</ul>
+<h3 id="msp与组织的对应关系"><a href="#msp与组织的对应关系" class="headerlink" title="msp与组织的对应关系"></a>msp与组织的对应关系</h3><p><strong>1，组织与MSP之间建立映射关系</strong></p>
+<ul>
+<li><p>建议实际的组织和MSP之间建立一一对应关系。当然也可以选择其他类型的映射关系</p>
+</li>
+<li><p>一个组织对应多个MSP的情况<br>这种情况是一个组织有多个部门，从方便管理的角度或者隐私保护的角度而言，每个部门都要设置不同的MSP。每个Peer节点只设置一个MSP，同一组织内不同MSP的Peer节点之间不能互相认证，这样相同组织的不同部门之间不会同步数据，数据不能共享。</p>
+</li>
+<li><p>多个组织对应一个MSP<br>这种情况是同一个联盟的不同组织之间采用相同的成员管理架构，数据会在不同组织之间同步。在Peer节点之间的Gossip通信中，数据是在相同通道配置了相同MSP的Peer节点之间同步的。如果多个组织对应一个MSP，则数据就不会限制在组织内部，会跨组织进行同步。这种情况我觉得很有应用场景。比如，C9联盟可以在同一个MSP管理下，既能够确保信任的基础，又能够实现数据的共享。<br>其实这是由MSP定义的粒度问题，一个MSP可以和一个组织对应，也可以和多个组织对应，还可以和一个组织内部的多个部门对应，根据MSP配置好Peer节点后，数据同步就限制在了MSP定义的范围内。</p>
+</li>
+</ul>
+<p><strong>2，一个组织内部实现不同的权限控制</strong></p>
+<ul>
+<li><p>给组织内的所有部门定义一个MSP<br>给Peer节点配置MSP的时候，包含相同的可信根CA证书列表、中间CA证书、管理员证书，不同的Peer节点设置不同的所属部门。节点所属的部门是利用证书和部门之间映射的OrganizationalUnitIdentifiers定义的，它包含在MSP目录下配置文件“config.yaml”中。按照基于部门验证的方法来定义交易背书策略和通道管理策略，这样就可以实现不同的权限控制了。<br>这种方法会有一个问题<br>数据实际还是会在不同的Peer节点之间同步。因为Peer节点在识别组织身份类型OrgIdentityType的时候获取的是MSP标识，它会认为通道内相同MSP的节点都是可以分发数据的。</p>
+</li>
+<li><p>给组织内的每个部门单独定义MSP<br>给Peer节点配置MSP的时候，不同部门配置的可信中间CA证书、管理员证书可以是不同的，不同部门成员的证书路径也是不同的。这种方式解决了所有部门定义在一个MSP中的问题，但是会带来管理上的复杂度。</p>
+</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Hyperledger-Fabric-orderer分析记录" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -784,167 +988,6 @@
 
 
   
-    <article id="post-node里express框架知识点记录" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/05/node里express框架知识点记录/">Node里express框架知识点记录</a>
-    </h1>
-  
-
-        
-        <a href="/2018/07/05/node里express框架知识点记录/" class="archive-article-date">
-  	<time datetime="2018-07-05T10:40:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-05</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ul>
-<li>Express是基于nodejs的web开发框架,使用vscode开发node</li>
-<li>使用node调用hyperledger composer提供的模块接口,实现自己的composer接口服务。
-        
-          <a class="article-more-a" href="/2018/07/05/node里express框架知识点记录/#more">查看全文 >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">composer</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">node</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">vscode</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-使用composer部署chaincode中超时问题记录" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/05/使用composer部署chaincode中超时问题记录/">使用Composer部署chaincode中超时问题记录</a>
-    </h1>
-  
-
-        
-        <a href="/2018/07/05/使用composer部署chaincode中超时问题记录/" class="archive-article-date">
-  	<time datetime="2018-07-04T16:09:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-05</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ul>
-<li>使用composer进行部署chaincode，构建chaincode镜像时出现超时问题。</li>
-<li>错误日志 <strong>Response from attempted peer comms was an error: Error: REQUEST_TIMEOUT</strong></li>
-<li><p>之前遇到过按照网上说法，设置yaml里peer上chaincode的超时时间有300改为1200，有时能解决，最近发现问题根源和有更简单处理方式。</p>
-        
-          <a class="article-more-a" href="/2018/07/05/使用composer部署chaincode中超时问题记录/#more">查看全文 >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">fabric</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">composer</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1042,11 +1085,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">springboot</a>
+                <a href="javascript:void(0)" class="js-tag color4">Elasticsearch</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Elasticsearch</a>
+                <a href="javascript:void(0)" class="js-tag color1">springboot</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1058,6 +1101,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">部署</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">超级账本</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">orderer</a>
               </li>
              
@@ -1066,11 +1117,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">部署</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">超级账本</a>
+                <a href="javascript:void(0)" class="js-tag color4">AWK</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1082,11 +1129,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">go</a>
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">AWK</a>
+                <a href="javascript:void(0)" class="js-tag color3">go</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1110,11 +1157,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">composer</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">hyperledger</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">composer</a>
+                <a href="javascript:void(0)" class="js-tag color2">springcloud</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1126,19 +1177,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">kafka</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">springcloud</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">docker</a>
+                <a href="javascript:void(0)" class="js-tag color1">kafka</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1150,19 +1197,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">以太坊</a>
+                <a href="javascript:void(0)" class="js-tag color3">springboot相关</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">springboot相关</a>
+                <a href="javascript:void(0)" class="js-tag color4">以太坊</a>
               </li>
              
               <li class="article-tag-list-item">

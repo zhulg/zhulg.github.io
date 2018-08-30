@@ -7,20 +7,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Hyperledger Fabric Chaincode汇总 | zhulg笔记</title>
+  <title>Docker日志管理记录 | zhulg笔记</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="chaincode是什么 是一个类，这个类要实现fabric预先定义的一个接口。 它部署在fabric系统的结点上，Chaincode程序是依赖于fabric系统结点的。 Chaincode可通过应用提交的交易对账本状态初始化并进行管理，是生成Transaction的唯一来源，是外界与Fabric区块链交互的唯一渠道。 Fabric中，Chaincode就是开发者实现智能合约的方式。（智能合约就是">
-<meta name="keywords" content="fabric,区块链,超级账本">
+  <meta name="description" content="docker日志清理 容器日志一般存放在/var/lib/docker/containers/container_id/下面  查看产生日志大小">
+<meta name="keywords" content="docker">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hyperledger Fabric Chaincode汇总">
-<meta property="og:url" content="http://yoursite.com/2018/03/01/Hyperledger-Fabric-Chaincode理解/index.html">
+<meta property="og:title" content="Docker日志管理记录">
+<meta property="og:url" content="http://yoursite.com/2018/08/30/docker日志管理记录/index.html">
 <meta property="og:site_name" content="zhulg笔记">
-<meta property="og:description" content="chaincode是什么 是一个类，这个类要实现fabric预先定义的一个接口。 它部署在fabric系统的结点上，Chaincode程序是依赖于fabric系统结点的。 Chaincode可通过应用提交的交易对账本状态初始化并进行管理，是生成Transaction的唯一来源，是外界与Fabric区块链交互的唯一渠道。 Fabric中，Chaincode就是开发者实现智能合约的方式。（智能合约就是">
+<meta property="og:description" content="docker日志清理 容器日志一般存放在/var/lib/docker/containers/container_id/下面  查看产生日志大小">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-27T15:00:45.000Z">
+<meta property="og:updated_time" content="2018-08-30T06:54:13.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hyperledger Fabric Chaincode汇总">
-<meta name="twitter:description" content="chaincode是什么 是一个类，这个类要实现fabric预先定义的一个接口。 它部署在fabric系统的结点上，Chaincode程序是依赖于fabric系统结点的。 Chaincode可通过应用提交的交易对账本状态初始化并进行管理，是生成Transaction的唯一来源，是外界与Fabric区块链交互的唯一渠道。 Fabric中，Chaincode就是开发者实现智能合约的方式。（智能合约就是">
+<meta name="twitter:title" content="Docker日志管理记录">
+<meta name="twitter:description" content="docker日志清理 容器日志一般存放在/var/lib/docker/containers/container_id/下面  查看产生日志大小">
   
     <link rel="alternative" href="/atom.xml" title="zhulg笔记" type="application/atom+xml">
   
@@ -154,94 +154,45 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Hyperledger-Fabric-Chaincode理解" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-docker日志管理记录" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Hyperledger Fabric Chaincode汇总
+      Docker日志管理记录
     </h1>
   
 
         
-        <a href="/2018/03/01/Hyperledger-Fabric-Chaincode理解/" class="archive-article-date">
-  	<time datetime="2018-03-01T02:43:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-01</time>
+        <a href="/2018/08/30/docker日志管理记录/" class="archive-article-date">
+  	<time datetime="2018-08-30T06:42:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-30</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="chaincode是什么"><a href="#chaincode是什么" class="headerlink" title="chaincode是什么"></a>chaincode是什么</h4><ul>
-<li>是一个类，这个类要实现fabric预先定义的一个接口。</li>
-<li>它部署在fabric系统的结点上，Chaincode程序是依赖于fabric系统结点的。</li>
-<li>Chaincode可通过应用提交的交易对账本状态初始化并进行管理，是生成Transaction的唯一来源，是外界与Fabric区块链交互的唯一渠道。</li>
-<li>Fabric中，Chaincode就是开发者实现智能合约的方式。（智能合约就是用程序实现合约的内容，并且这个程序是事件驱动、有状态的）。</li>
-</ul>
-<h4 id="chaincode相关联的几个概念"><a href="#chaincode相关联的几个概念" class="headerlink" title="chaincode相关联的几个概念"></a>chaincode相关联的几个概念</h4><ul>
-<li>Channel:通道，⼦链。同⼀peer可加⼊不同channel。Chaincode的操作基于channel进⾏。同⼀channel上的peer结点同步其上chaincode执⾏的结果。</li>
-<li>Endorser:（模拟）执⾏Chaincode。分离计算任务，减轻consensus节点负担，增加吞吐量。⽀持endorsement policy，更加灵活。</li>
-<li>Orderer: 对chaincode执⾏结果consensus。⽀持solo/ka|a/sBFT不同的ordering策略。<br>-Committer:将chaincode执⾏结果写进ledger。</li>
+        <h2 id="docker日志清理"><a href="#docker日志清理" class="headerlink" title="docker日志清理"></a>docker日志清理</h2><ul>
+<li><p>容器日志一般存放在/var/lib/docker/containers/container_id/下面</p>
+</li>
+<li><p><strong>查看产生日志大小</strong></p>
+</li>
 </ul>
 <a id="more"></a>
-<h4 id="chaincode-编写"><a href="#chaincode-编写" class="headerlink" title="chaincode 编写"></a>chaincode 编写</h4><ul>
-<li><p>实现这个Fabric的接口</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">type Chaincode interface &#123;</div><div class="line">    // Init is called during Instantiate transaction after the chaincode container</div><div class="line">    // has been established for the first time, allowing the chaincode to</div><div class="line">    // initialize its internal data</div><div class="line">    Init(stub ChaincodeStubInterface) pb.Response</div><div class="line"></div><div class="line">    // Invoke is called to update or query the ledger in a proposal transaction.</div><div class="line">    // Updated state variables are not committed to the ledger until the</div><div class="line">    // transaction is committed.</div><div class="line">    Invoke(stub ChaincodeStubInterface) pb.Response</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>例如</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">package	main	</div><div class="line">import	(	</div><div class="line">&quot;errors&quot;	</div><div class="line">&quot;fmt&quot;	</div><div class="line">&quot;github.com/hyperledger/fabric/core/chaincode/shim&quot;	</div><div class="line">)	</div><div class="line">type SimpleChaincode struct	&#123;	&#125;</div><div class="line">func (t *SimpleChaincode)	Init(stub shim.ChaincodeStubInterface,funcGon string, args []string)([]byte,error)</div><div class="line">func	(t	*SimpleChaincode)	Invoke(stub shim.ChaincodeStubInterface,funcGon string,args[]string)([]byte,error)</div><div class="line">func main()	&#123;	</div><div class="line">err	:= shim.Start(new(SimpleChaincode))	</div><div class="line">if	err	!=	nil	&#123;	</div><div class="line">	 	fmt.Prinn(&quot;Error	starGng	Simple	chaincode:	%s&quot;,	err)	</div><div class="line">&#125;	</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h4 id="chaincode-生命周期"><a href="#chaincode-生命周期" class="headerlink" title="chaincode 生命周期"></a>chaincode 生命周期</h4><ul>
-<li>chaincode生命周期的命令：package, install, instantiate,upgrade。在未来的版本中会添加stop和start交易的指令，以便能方便地停止与重启chaincode，而不用非要真正卸载它才行。在成功安装与实例化chaincode后，chaincode就处于运行状态，接着就可以用invoke交易指令来处理交易了。一段chaincode可以在安装后的任何时间被更新。</li>
-</ul>
-<!-- more -->
-<h4 id="chaincode操作"><a href="#chaincode操作" class="headerlink" title="chaincode操作"></a>chaincode操作</h4><ul>
-<li>进入开发者模式进行操作，确保已经下载过fabric-samples的例子代码（官网github上）</li>
-<li>cd chaincode-docker-devmode</li>
-<li>docker-compose-simple.yaml peer容器（ command: peer node start –peer-chaincodedev=true -o orderer:7050）有一个 –peer-chaincodedev标识，在构建peer node的时候传递这个标识，可以不使用Docker容器部署chaincode。</li>
-<li>(启动网络)</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker-compose -f docker-compose-simple.yaml up</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">#!/bin/sh</div><div class="line"></div><div class="line">echo &quot;======== docker containers logs file size ========&quot;  </div><div class="line"> </div><div class="line">logs=$(find /app/install/docker/lib/docker/containers/ -name *-json.log)</div><div class="line"> </div><div class="line">for log in $logs</div><div class="line">        do</div><div class="line">                ls -lh $log                </div><div class="line">        done</div></pre></td></tr></table></figure>
 <ul>
-<li>docker ps 可以看到需要的容器</li>
+<li><strong>清理日志脚本</strong></li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">CONTAINER ID        IMAGE                        COMMAND                  CREATED             STATUS              PORTS                                            NAMES</div><div class="line">46c8bcf1c57a        hyperledger/fabric-tools     &quot;/bin/bash -c ./scri…&quot;   4 hours ago         Up 4 hours                                                           cli</div><div class="line">c1ade7741693        hyperledger/fabric-ccenv     &quot;/bin/bash -c &apos;sleep…&quot;   4 hours ago         Up 4 hours                                                           chaincode</div><div class="line">01cdf578d4bb        hyperledger/fabric-peer      &quot;peer node start --p…&quot;   4 hours ago         Up 4 hours          0.0.0.0:7051-&gt;7051/tcp, 0.0.0.0:7053-&gt;7053/tcp   peer</div><div class="line">c57803b7d3e9        hyperledger/fabric-orderer   &quot;orderer&quot;                4 hours ago         Up 4 hours          0.0.0.0:7050-&gt;7050/tcp                           orderer</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">#!/bin/sh</div><div class="line">echo &quot;==================== start clean docker containers logs ==========================&quot;</div><div class="line"> </div><div class="line">logs=$(find /app/install/docker/lib/docker/containers/ -name *-json.log)</div><div class="line"> </div><div class="line">for log in $logs</div><div class="line">        do</div><div class="line">                echo &quot;clean logs : $log&quot;</div><div class="line">                cat /dev/null &gt; $log</div><div class="line">        done</div><div class="line"> </div><div class="line"> </div><div class="line">echo &quot;==================== end clean docker containers logs   ==========================&quot;</div></pre></td></tr></table></figure>
+<h2 id="通过设置容器的日志大小解决"><a href="#通过设置容器的日志大小解决" class="headerlink" title="通过设置容器的日志大小解决"></a>通过设置容器的日志大小解决</h2><ul>
+<li>在/etc/docker/daemon.json, 增加配置项**</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&quot;log-driver&quot;:&quot;json-file&quot;,</div><div class="line"> &quot;log-opts&quot;: &#123;&quot;max-size&quot;:&quot;500m&quot;, &quot;max-file&quot;:&quot;3&quot;&#125;</div></pre></td></tr></table></figure>
 <ul>
-<li><p>进入chaincode docker</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">docker exec -it chaincode bash</div><div class="line">root@c1ade7741693:/opt/gopath/src/chaincode# ls</div><div class="line">chaincode_example02  fabcar  marbles02  sacc</div><div class="line">root@c1ade7741693:/opt/gopath/src/chaincode# cd sacc</div><div class="line">root@c1ade7741693:/opt/gopath/src/chaincode/sacc# ls</div><div class="line">sacc  sacc.go</div><div class="line">root@c1ade7741693:/opt/gopath/src/chaincode/sacc#</div></pre></td></tr></table></figure>
-</li>
-<li><p>cd sacc</p>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">go build</div></pre></td></tr></table></figure>
-<ul>
-<li>现在运行chaincode：</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">CORE_PEER_ADDRESS=peer:7051 CORE_CHAINCODE_ID_NAME=mycc:0 ./sacc</div></pre></td></tr></table></figure>
-<ul>
-<li>另起一个终端</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">docker exec -it cli bash</div><div class="line">peer chaincode install -p chaincodedev/chaincode/sacc -n mycc -v 0</div><div class="line">peer chaincode instantiate -n mycc -v 0 -c &apos;&#123;&quot;Args&quot;:[&quot;a&quot;,&quot;10&quot;]&#125;&apos; -C myc</div></pre></td></tr></table></figure>
-<ul>
-<li>以上步骤，会把chaincode初始化到peer节点的文件系统中，位置在peer容器里的var/hyperledger/production/chaincodes下面，instantiate时从这个地方实例化</li>
-<li>‘-c‘参数指定的函数名和参数，-v 版本，-C 通道名称 -n 链码名称</li>
-<li><p>现在我们执行一次将a的值设为20的调用：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">peer chaincode invoke -n mycc -c &apos;&#123;&quot;Args&quot;:[&quot;set&quot;, &quot;a&quot;, &quot;20&quot;]&#125;&apos; -C myc</div></pre></td></tr></table></figure>
-</li>
-<li><p>最后查询a的值，我们会看到20。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">peer chaincode query -n mycc -c &apos;&#123;&quot;Args&quot;:[&quot;query&quot;,&quot;a&quot;]&#125;&apos; -C myc</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h4 id="chaincode-更新"><a href="#chaincode-更新" class="headerlink" title="chaincode 更新"></a>chaincode 更新</h4><ul>
-<li>chaincode的更新过程目前验证是这样的</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">1,需要重新启动下自己的chaincode代码，CORE_PEER_ADDRESS=peer:7051 CORE_CHAINCODE_ID_NAME=mycc:输入新版本号 ./sacc</div><div class="line">2,peer chaincode install -p chaincodedev/chaincode/sacc -n mycc -v 新版本号</div><div class="line">3,peer chaincode upgrade -n mycc -v 新版本号 -c &apos;&#123;&quot;Args&quot;:[&quot;a&quot;,&quot;10&quot;]&#125;&apos; -C myc</div></pre></td></tr></table></figure>
-<ul>
-<li>以上比较不理解的是需要从新启动下新版本对应的chaincode才行，否则在更新时会报找不到<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Error: Error endorsing chaincode: rpc error: code = Unknown desc = Failed to init chaincode(handler not found for chaincode mycc:xxx)</div></pre></td></tr></table></figure>
-</li>
+<li>max-size=500m，意味着一个容器日志大小上限是500M， </li>
+<li>max-file=3，意味着一个容器有三个日志，分别是id+.json、id+1.json、id+2.json。</li>
 </ul>
 
       
@@ -277,15 +228,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">fabric</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">区块链</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">超级账本</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">docker</a>
         		</li>
       		
 		</ul>
@@ -341,7 +284,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2018/03/01/Hyperledger-Fabric-Chaincode理解/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2018/08/30/docker日志管理记录/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -355,18 +298,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/03/05/fabric中的术语/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Fabric中的术语
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/02/28/goland破解使用/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Goland破解使用</div>
+    <a href="/2018/08/30/Hyperledger-Fabric-MSP分析记录/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Hyperledger-Fabric-MSP分析记录</div>
       <i class="icon-circle-right"></i>
     </a>
   

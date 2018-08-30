@@ -7,20 +7,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Hyperledger Fabric Chaincode汇总 | zhulg笔记</title>
+  <title>Hyperledger-Fabric-MSP分析记录 | zhulg笔记</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="chaincode是什么 是一个类，这个类要实现fabric预先定义的一个接口。 它部署在fabric系统的结点上，Chaincode程序是依赖于fabric系统结点的。 Chaincode可通过应用提交的交易对账本状态初始化并进行管理，是生成Transaction的唯一来源，是外界与Fabric区块链交互的唯一渠道。 Fabric中，Chaincode就是开发者实现智能合约的方式。（智能合约就是">
-<meta name="keywords" content="fabric,区块链,超级账本">
+  <meta name="description" content="fabric MSP MSP是Membership Service Provider的缩写，直译为成员关系服务提供者, 成员服务提供者（MSP）是一个提供抽象化成员操作框架的组件。MSP将颁发与校验证书，以及用户认证背后的所有密码学机制与协议都抽象了出来 一个MSP可以自己定义身份，以及身份的管理（身份验证）与认证（生成与验证签名）规则。也就是说，在一个运行的fabric系统网络中有众多的参与者，">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hyperledger Fabric Chaincode汇总">
-<meta property="og:url" content="http://yoursite.com/2018/03/01/Hyperledger-Fabric-Chaincode理解/index.html">
+<meta property="og:title" content="Hyperledger-Fabric-MSP分析记录">
+<meta property="og:url" content="http://yoursite.com/2018/08/30/Hyperledger-Fabric-MSP分析记录/index.html">
 <meta property="og:site_name" content="zhulg笔记">
-<meta property="og:description" content="chaincode是什么 是一个类，这个类要实现fabric预先定义的一个接口。 它部署在fabric系统的结点上，Chaincode程序是依赖于fabric系统结点的。 Chaincode可通过应用提交的交易对账本状态初始化并进行管理，是生成Transaction的唯一来源，是外界与Fabric区块链交互的唯一渠道。 Fabric中，Chaincode就是开发者实现智能合约的方式。（智能合约就是">
+<meta property="og:description" content="fabric MSP MSP是Membership Service Provider的缩写，直译为成员关系服务提供者, 成员服务提供者（MSP）是一个提供抽象化成员操作框架的组件。MSP将颁发与校验证书，以及用户认证背后的所有密码学机制与协议都抽象了出来 一个MSP可以自己定义身份，以及身份的管理（身份验证）与认证（生成与验证签名）规则。也就是说，在一个运行的fabric系统网络中有众多的参与者，">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-27T15:00:45.000Z">
+<meta property="og:image" content="https://hyperledger-fabric.readthedocs.io/en/release-1.2/_images/membership.diagram.5.png">
+<meta property="og:image" content="https://pic4.zhimg.com/v2-fa72991dbb8a9245bea5234ff5f59f50_r.jpg">
+<meta property="og:updated_time" content="2018-08-30T03:55:55.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hyperledger Fabric Chaincode汇总">
-<meta name="twitter:description" content="chaincode是什么 是一个类，这个类要实现fabric预先定义的一个接口。 它部署在fabric系统的结点上，Chaincode程序是依赖于fabric系统结点的。 Chaincode可通过应用提交的交易对账本状态初始化并进行管理，是生成Transaction的唯一来源，是外界与Fabric区块链交互的唯一渠道。 Fabric中，Chaincode就是开发者实现智能合约的方式。（智能合约就是">
+<meta name="twitter:title" content="Hyperledger-Fabric-MSP分析记录">
+<meta name="twitter:description" content="fabric MSP MSP是Membership Service Provider的缩写，直译为成员关系服务提供者, 成员服务提供者（MSP）是一个提供抽象化成员操作框架的组件。MSP将颁发与校验证书，以及用户认证背后的所有密码学机制与协议都抽象了出来 一个MSP可以自己定义身份，以及身份的管理（身份验证）与认证（生成与验证签名）规则。也就是说，在一个运行的fabric系统网络中有众多的参与者，">
+<meta name="twitter:image" content="https://hyperledger-fabric.readthedocs.io/en/release-1.2/_images/membership.diagram.5.png">
   
     <link rel="alternative" href="/atom.xml" title="zhulg笔记" type="application/atom+xml">
   
@@ -154,93 +156,93 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Hyperledger-Fabric-Chaincode理解" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Hyperledger-Fabric-MSP分析记录" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Hyperledger Fabric Chaincode汇总
+      Hyperledger-Fabric-MSP分析记录
     </h1>
   
 
         
-        <a href="/2018/03/01/Hyperledger-Fabric-Chaincode理解/" class="archive-article-date">
-  	<time datetime="2018-03-01T02:43:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-01</time>
+        <a href="/2018/08/30/Hyperledger-Fabric-MSP分析记录/" class="archive-article-date">
+  	<time datetime="2018-08-30T03:31:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-30</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="chaincode是什么"><a href="#chaincode是什么" class="headerlink" title="chaincode是什么"></a>chaincode是什么</h4><ul>
-<li>是一个类，这个类要实现fabric预先定义的一个接口。</li>
-<li>它部署在fabric系统的结点上，Chaincode程序是依赖于fabric系统结点的。</li>
-<li>Chaincode可通过应用提交的交易对账本状态初始化并进行管理，是生成Transaction的唯一来源，是外界与Fabric区块链交互的唯一渠道。</li>
-<li>Fabric中，Chaincode就是开发者实现智能合约的方式。（智能合约就是用程序实现合约的内容，并且这个程序是事件驱动、有状态的）。</li>
-</ul>
-<h4 id="chaincode相关联的几个概念"><a href="#chaincode相关联的几个概念" class="headerlink" title="chaincode相关联的几个概念"></a>chaincode相关联的几个概念</h4><ul>
-<li>Channel:通道，⼦链。同⼀peer可加⼊不同channel。Chaincode的操作基于channel进⾏。同⼀channel上的peer结点同步其上chaincode执⾏的结果。</li>
-<li>Endorser:（模拟）执⾏Chaincode。分离计算任务，减轻consensus节点负担，增加吞吐量。⽀持endorsement policy，更加灵活。</li>
-<li>Orderer: 对chaincode执⾏结果consensus。⽀持solo/ka|a/sBFT不同的ordering策略。<br>-Committer:将chaincode执⾏结果写进ledger。</li>
-</ul>
-<a id="more"></a>
-<h4 id="chaincode-编写"><a href="#chaincode-编写" class="headerlink" title="chaincode 编写"></a>chaincode 编写</h4><ul>
-<li><p>实现这个Fabric的接口</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">type Chaincode interface &#123;</div><div class="line">    // Init is called during Instantiate transaction after the chaincode container</div><div class="line">    // has been established for the first time, allowing the chaincode to</div><div class="line">    // initialize its internal data</div><div class="line">    Init(stub ChaincodeStubInterface) pb.Response</div><div class="line"></div><div class="line">    // Invoke is called to update or query the ledger in a proposal transaction.</div><div class="line">    // Updated state variables are not committed to the ledger until the</div><div class="line">    // transaction is committed.</div><div class="line">    Invoke(stub ChaincodeStubInterface) pb.Response</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+        <h4 id="fabric-MSP"><a href="#fabric-MSP" class="headerlink" title="fabric MSP"></a>fabric MSP</h4><ul>
+<li>MSP是Membership Service Provider的缩写，直译为成员关系服务提供者,</li>
+<li>成员服务提供者（MSP）是一个提供抽象化成员操作框架的组件。MSP将颁发与校验证书，以及用户认证背后的所有密码学机制与协议都抽象了出来</li>
+<li>一个MSP可以自己定义身份，以及身份的管理（身份验证）与认证（生成与验证签名）规则。也就是说，在一个运行的fabric系统网络中有众多的参与者，MSP就是为了管理这些参与者，可以辨识验证哪些人有资格，哪些人没资格，既维护某一个参与者的权限，也维护参与者之间的关系</li>
+<li><p>Fabric中提出了成员服务提供者（Membership Service Provider，MSP）的概念，抽象代表了一个身份验证的实体。基于它可以实现对不同资源进行基于身份证书的权限验证</p>
 </li>
-<li><p>例如</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">package	main	</div><div class="line">import	(	</div><div class="line">&quot;errors&quot;	</div><div class="line">&quot;fmt&quot;	</div><div class="line">&quot;github.com/hyperledger/fabric/core/chaincode/shim&quot;	</div><div class="line">)	</div><div class="line">type SimpleChaincode struct	&#123;	&#125;</div><div class="line">func (t *SimpleChaincode)	Init(stub shim.ChaincodeStubInterface,funcGon string, args []string)([]byte,error)</div><div class="line">func	(t	*SimpleChaincode)	Invoke(stub shim.ChaincodeStubInterface,funcGon string,args[]string)([]byte,error)</div><div class="line">func main()	&#123;	</div><div class="line">err	:= shim.Start(new(SimpleChaincode))	</div><div class="line">if	err	!=	nil	&#123;	</div><div class="line">	 	fmt.Prinn(&quot;Error	starGng	Simple	chaincode:	%s&quot;,	err)	</div><div class="line">&#125;	</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<li><p><strong>简要核心概述MSP:</strong></p>
 </li>
 </ul>
-<h4 id="chaincode-生命周期"><a href="#chaincode-生命周期" class="headerlink" title="chaincode 生命周期"></a>chaincode 生命周期</h4><ul>
-<li>chaincode生命周期的命令：package, install, instantiate,upgrade。在未来的版本中会添加stop和start交易的指令，以便能方便地停止与重启chaincode，而不用非要真正卸载它才行。在成功安装与实例化chaincode后，chaincode就处于运行状态，接着就可以用invoke交易指令来处理交易了。一段chaincode可以在安装后的任何时间被更新。</li>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">MSP的作用：在Fabric网络中，提供用户管理与权限验证的功能。</div><div class="line">MSP的基本结构: 也就是实现用户管理与权限验证，需要哪些信息才能提供保障,包括，根证书列表、组织单元列表、管理员身份证书、撤销证书列表、私钥库、TLS根证书列表、TLS中间证书等等。</div></pre></td></tr></table></figure>
+<h2 id="msp常见结构"><a href="#msp常见结构" class="headerlink" title="msp常见结构"></a>msp常见结构</h2><ul>
+<li>以下是一个MSP结构中常见的组成部分：</li>
 </ul>
-<!-- more -->
-<h4 id="chaincode操作"><a href="#chaincode操作" class="headerlink" title="chaincode操作"></a>chaincode操作</h4><ul>
-<li>进入开发者模式进行操作，确保已经下载过fabric-samples的例子代码（官网github上）</li>
-<li>cd chaincode-docker-devmode</li>
-<li>docker-compose-simple.yaml peer容器（ command: peer node start –peer-chaincodedev=true -o orderer:7050）有一个 –peer-chaincodedev标识，在构建peer node的时候传递这个标识，可以不使用Docker容器部署chaincode。</li>
-<li>(启动网络)</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker-compose -f docker-compose-simple.yaml up</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">· 一组信任的根证书，是整个组织证书信任的基础，根证书可以签发中间层证书；</div><div class="line">· MSP的管理员的身份证书，管理员可以对MSP中证书进行管理；</div><div class="line">· 组织单元（Organizational Unit）列表（可选）；</div><div class="line">· 一组信任的中间证书，中间证书由根证书签发（可选）； </div><div class="line">· 证书撤销列表，代表被吊销的证书名单（可选）。</div></pre></td></tr></table></figure>
 <ul>
-<li>docker ps 可以看到需要的容器</li>
+<li><strong>图片来自官网</strong></li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">CONTAINER ID        IMAGE                        COMMAND                  CREATED             STATUS              PORTS                                            NAMES</div><div class="line">46c8bcf1c57a        hyperledger/fabric-tools     &quot;/bin/bash -c ./scri…&quot;   4 hours ago         Up 4 hours                                                           cli</div><div class="line">c1ade7741693        hyperledger/fabric-ccenv     &quot;/bin/bash -c &apos;sleep…&quot;   4 hours ago         Up 4 hours                                                           chaincode</div><div class="line">01cdf578d4bb        hyperledger/fabric-peer      &quot;peer node start --p…&quot;   4 hours ago         Up 4 hours          0.0.0.0:7051-&gt;7051/tcp, 0.0.0.0:7053-&gt;7053/tcp   peer</div><div class="line">c57803b7d3e9        hyperledger/fabric-orderer   &quot;orderer&quot;                4 hours ago         Up 4 hours          0.0.0.0:7050-&gt;7050/tcp                           orderer</div></pre></td></tr></table></figure>
+<p><img src="https://hyperledger-fabric.readthedocs.io/en/release-1.2/_images/membership.diagram.5.png" alt=""></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">Root CAs | 根证书列表</div><div class="line">此文件夹包含，由此MSP代表的组织信任的Root CA，自签名X.509证书列表。此MSP文件夹中必须至少有一个Root CA X.509证书。这是最重要的文件夹，因为它标识了所有其它证书。</div><div class="line"></div><div class="line">Intermediate CAs | 中间证书列表</div><div class="line">此文件夹包含此组织信任的Intermediate CA的X.509证书列表。每个证书都必须由MSP中的一个Root CA签署，或者由 Intermediate CA 签署。</div><div class="line"></div><div class="line">Intermediate CA可以表示组织的不同细分或组织本身（例如，如果商业CA用于组织的身份管理）。在前一种情况下，可以使用CA层次结构中，较低的其他Intermediate CA来表示组织细分。请注意，可能有一个没有任何中间CA的功能网络，在这种情况下，此文件夹将为空。</div><div class="line">与Root CA文件夹一样，此文件夹定义了中间证书。只有拥有了这些证书，才能被系统视为组织成员的CA。</div><div class="line"></div><div class="line">Organizational Units (OUs) | 组织单元列表</div><div class="line">可选的</div><div class="line"></div><div class="line">Administrators | 管理员身份证书</div><div class="line">该文件夹包含一个身份列表，用于定义具有该组织管理员角色的参与者。对于标准MSP类型，此列表中应该有一个或多个X.509证书。</div><div class="line"></div><div class="line">Revoked Certificates | 撤销证书列表</div><div class="line">可选的</div><div class="line"></div><div class="line">KeyStore for Private Key | 私钥库</div><div class="line">该文件夹为peer 或 orderer节点（或客户端的local MSP）的local MSP定义，并包含节点的signing key（签名密钥）。 此密钥用于签署数据，作为认可阶段的一部分。</div><div class="line">该文件夹对Local MSP是必须的，并且必须包含一个私钥。 很明显，访问这个文件夹，只能由，对此peer有管理权限的用户。</div><div class="line">Channel MSP的配置不包括此部分，因为Channel MSP旨在提供纯粹的身份验证功能，而不是签署能力。</div><div class="line"></div><div class="line">TLS Root CA | TLS根证书列表</div><div class="line">此文件夹包含，此组织为TLS通信所信任的Root CA的自签名X.509证书列表。 TLS通信的一个例子是，peer需要连接到orderer以便它可以接收ledger更新。</div><div class="line">MSP TLS信息涉及网络内的节点，即对peers 和 the orderers，此文件夹中必须至少有一个TLS Root CA X.509证书。</div><div class="line"></div><div class="line"></div><div class="line">TLS Intermediate CA | TLS中间证书</div><div class="line">此文件夹包含由此MSP代表的，组织信任的用于TLS通信的Intermediate CA证书列表。当商业CA用于组织的TLS证书时，此文件夹特别有用。 它是可选的。</div><div class="line">Fabric中MSP相关实现代码都在msp目录下，目前采用了bccspmsp结构来代表一个成员身份结构，并且采用了MSPConfig（主要是其成员FabricMSPConfig）结构来代表跟该实体相关的证书信息。</div><div class="line"></div><div class="line">MSP中各实体资源的证书必须被证书信任树上的叶子节点签名。中间层签名的证书会被认为是非法实体证书。</div></pre></td></tr></table></figure>
+<h2 id="MSP实践操作"><a href="#MSP实践操作" class="headerlink" title="MSP实践操作"></a>MSP实践操作</h2><ul>
+<li>MSP在Fabric中的作用是对用户进行管理，实践的基本步骤：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">第一，生成MSP相关的证书和签名。</div><div class="line">第二，在Peer，Orderer,Channel等组件的配置文件设置关于msp的相关信息</div><div class="line">（即：通过crypto-config.yaml，然后配置到configtx.yaml，配置到相关peer,order）</div></pre></td></tr></table></figure>
 <ul>
-<li><p>进入chaincode docker</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">docker exec -it chaincode bash</div><div class="line">root@c1ade7741693:/opt/gopath/src/chaincode# ls</div><div class="line">chaincode_example02  fabcar  marbles02  sacc</div><div class="line">root@c1ade7741693:/opt/gopath/src/chaincode# cd sacc</div><div class="line">root@c1ade7741693:/opt/gopath/src/chaincode/sacc# ls</div><div class="line">sacc  sacc.go</div><div class="line">root@c1ade7741693:/opt/gopath/src/chaincode/sacc#</div></pre></td></tr></table></figure>
+<li><strong>实际操作中</strong></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">1. 编写crypto-config.yaml配置文件指定网络的拓扑结构和组织结构。</div><div class="line">2. cryptogen-生成秘钥和证书文件。</div><div class="line">快速地根据配置自动批量生成所需要的密钥和证书文件。</div><div class="line">3. 编写依赖配置文件configtx.yaml。</div><div class="line">该文件包含网络的定义，并给出了网络组件的每个网络实体的加密材料的存储位置。</div><div class="line">4. configtxgen-生成通道配置。</div><div class="line">在这个过程中，会生成系统channel的创世纪块。该创世纪块（genesis block）中包含所有MSP的验证元素。MSP验证元素有MSP身份标识（MSP identifier），root CAs，intermediate CAs，admin CAs，OU List，CRLs。</div></pre></td></tr></table></figure>
+<h3 id="用cryptogen工具来生成的MSP需要用到的证书和相关文件。"><a href="#用cryptogen工具来生成的MSP需要用到的证书和相关文件。" class="headerlink" title="用cryptogen工具来生成的MSP需要用到的证书和相关文件。"></a>用cryptogen工具来生成的MSP需要用到的证书和相关文件。</h3><ul>
+<li>主要包括各种证书和相关的签名。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div></pre></td><td class="code"><pre><div class="line">org1.example.com/</div><div class="line">├── ca     # 存放组织Org1的根证书和对应的私钥文件，默认采用EC算法，证书为自签名。组织内的实体将基于该根证书作为证书根。</div><div class="line">│   ├── ca.org1.example.com-cert.pem</div><div class="line">│   └── dfb841b77804d726eea25231ae5e89a31901ca0538688a6d764731148f0bdc5b_sk</div><div class="line">├── msp    # 存放代表该组织的身份信息。</div><div class="line">│   ├── admincerts         # 组织管理员的身份验证证书，被根证书签名。</div><div class="line">│   │   └── Admin@org1.example.com-cert.pem</div><div class="line">│   ├── cacerts # 组织的根证书，同ca目录下文件。</div><div class="line">│   │   └── ca.org1.example.com-cert.pem</div><div class="line">│   └── tlscacerts          # 用于TLS的CA证书，自签名。</div><div class="line">│       └── tlsca.org1.example.com-cert.pem</div><div class="line">├── peers   # 存放属于该组织的所有Peer节点</div><div class="line">│   ├── peer0.org1.example.com    # 第一个peer的信息，包括其msp证书和tls证书两类。</div><div class="line">│   │   ├── msp # msp相关证书   </div><div class="line">│   │   │   ├── admincerts  # 组织管理员的身份验证证书。Peer将基于这些证书来认证交易签署者是否为管理员身份。</div><div class="line">│   │   │   │   └── Admin@org1.example.com-cert.pem</div><div class="line">│   │   │   ├── cacerts     # 存放组织的根证书</div><div class="line">│   │   │   │   └── ca.org1.example.com-cert.pem</div><div class="line">│   │   │   ├── keystore    # 本节点的身份私钥，用来签名</div><div class="line">│   │   │   │   └── 59be216646c0fb18c015c58d27bf40c3845907849b1f0671562041b8fd6e0da2_sk</div><div class="line">│   │   │   ├── signcerts   # 验证本节点签名的证书，被组织根证书签名 </div><div class="line">│   │   │   │   └── peer0.org1.example.com-cert.pem</div><div class="line">│   │   │   └── tlscacerts  # TLS连接用到身份证书，即组织TLS证书</div><div class="line">│   │   │       └── tlsca.org1.example.com-cert.pem</div><div class="line">│   │   └── tls # tls相关证书</div><div class="line">│   │       ├── ca.crt      # 组织的根证书</div><div class="line">│   │       ├── server.crt  # 验证本节点签名的证书，被组织根证书签名</div><div class="line">│   │       └── server.key  # 本节点的身份私钥，用来签名</div><div class="line">│   └── peer1.org1.example.com    # 第二个peer的信息，结构类似。（此处省略。）</div><div class="line">│       ├── msp</div><div class="line">│       │   ├── admincerts</div><div class="line">│       │   │   └── Admin@org1.example.com-cert.pem</div><div class="line">│       │   ├── cacerts</div><div class="line">│       │   │   └── ca.org1.example.com-cert.pem</div><div class="line">│       │   ├── keystore</div><div class="line">│       │   │   └── 82aa3f8f9178b0a83a14fdb1a4e1f944e63b72de8df1baeea36dddf1fe110800_sk</div><div class="line">│       │   ├── signcerts</div><div class="line">│       │   │   └── peer1.org1.example.com-cert.pem</div><div class="line">│       │   └── tlscacerts</div><div class="line">│       │       └── tlsca.org1.example.com-cert.pem</div><div class="line">│       └── tls</div><div class="line">│           ├── ca.crt</div><div class="line">│           ├── server.crt</div><div class="line">│           └── server.key</div><div class="line">├── tlsca    # 存放tls相关的证书和私钥。</div><div class="line">│   ├── 00e4666e5f56804274aadb07e2192db2f005a05f2f8fcfd8a1433bdb8ee6e3cf_sk</div><div class="line">│   └── tlsca.org1.example.com-cert.pem</div><div class="line">└── users    # 存放属于该组织的用户的实体</div><div class="line">    ├── Admin@org1.example.com    # 管理员用户的信息，其中包括msp证书和tls证书两类。</div><div class="line">    │   ├── msp # msp相关证书</div><div class="line">    │   │   ├── admincerts     # 组织根证书作为管理员身份验证证书 </div><div class="line">    │   │   │   └── Admin@org1.example.com-cert.pem</div><div class="line">    │   │   ├── cacerts        # 存放组织的根证书</div><div class="line">    │   │   │   └── ca.org1.example.com-cert.pem</div><div class="line">    │   │   ├── keystore       # 本用户的身份私钥，用来签名</div><div class="line">    │   │   │   └── fa719a7d19e7b04baebbe4fa3c659a91961a084f5e7b1020670be6adc6713aa7_sk</div><div class="line">    │   │   ├── signcerts      # 管理员用户的身份验证证书，被组织根证书签名。要被某个Peer认可，则必须放到该Peer的msp/admincerts目录下</div><div class="line">    │   │   │   └── Admin@org1.example.com-cert.pem</div><div class="line">    │   │   └── tlscacerts     # TLS连接用的身份证书，即组织TLS证书</div><div class="line">    │   │       └── tlsca.org1.example.com-cert.pem</div><div class="line">    │   └── tls # 存放tls相关的证书和私钥。</div><div class="line">    │       ├── ca.crt       # 组织的根证书</div><div class="line">    │       ├── server.crt   # 管理员的用户身份验证证书，被组织根证书签名</div><div class="line">    │       └── server.key   # 管理员用户的身份私钥，被组织根证书签名。</div><div class="line">    └── User1@org1.example.com    # 第一个用户的信息，包括msp证书和tls证书两类</div><div class="line">        ├── msp # msp证书相关信息</div><div class="line">        │   ├── admincerts   # 组织根证书作为管理者身份验证证书。</div><div class="line">        │   │   └── User1@org1.example.com-cert.pem</div><div class="line">        │   ├── cacerts      # 存放组织的根证书</div><div class="line">        │   │   └── ca.org1.example.com-cert.pem</div><div class="line">        │   ├── keystore     # 本用户的身份私钥，用来签名</div><div class="line">        │   │   └── 97f2b74ee080b9bf417a4060bfb737ce08bf33d0287cb3eef9b5be9707e3c3ed_sk</div><div class="line">        │   ├── signcerts    # 验证本用户签名的身份证书，被组织根证书签名</div><div class="line">        │   │   └── User1@org1.example.com-cert.pem</div><div class="line">        │   └── tlscacerts   # TLS连接用的身份证书，被组织根证书签名。</div><div class="line">        │       └── tlsca.org1.example.com-cert.pem</div><div class="line">        └── tls # 组织的根证书</div><div class="line">            ├── ca.crt       # 组织的根证书</div><div class="line">            ├── server.crt   # 验证用户签名的身份证书，被根组织证书签名</div><div class="line">            └── server.key   # 用户的身份私钥用来签名。</div></pre></td></tr></table></figure>
+<h2 id="一张网上MSP总结图（侵权必删）"><a href="#一张网上MSP总结图（侵权必删）" class="headerlink" title="一张网上MSP总结图（侵权必删）"></a>一张网上MSP总结图（侵权必删）</h2><p><img src="https://pic4.zhimg.com/v2-fa72991dbb8a9245bea5234ff5f59f50_r.jpg" alt=""></p>
+<ul>
+<li>MSP方案的作用？<br>它负责区块链网络中对身份的管理和认证。可以对区块链中从成员进行身份验证，还可以生成与验证签名。</li>
+<li><p>MSP通过什么方式解决了问题？<br>实现用户的管理与验证涉及到很多的密码学相关的知识。其中包括颁发与校验证书，以及用户认证背后的所有密码学机制与协议。Fabric设计者，将所有的这些技术，打包成一个逻辑框架，叫做MSP，从而实现了在工程上，较为方便对用户进行管理和验证。</p>
 </li>
-<li><p>cd sacc</p>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">go build</div></pre></td></tr></table></figure>
-<ul>
-<li>现在运行chaincode：</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">CORE_PEER_ADDRESS=peer:7051 CORE_CHAINCODE_ID_NAME=mycc:0 ./sacc</div></pre></td></tr></table></figure>
-<ul>
-<li>另起一个终端</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">docker exec -it cli bash</div><div class="line">peer chaincode install -p chaincodedev/chaincode/sacc -n mycc -v 0</div><div class="line">peer chaincode instantiate -n mycc -v 0 -c &apos;&#123;&quot;Args&quot;:[&quot;a&quot;,&quot;10&quot;]&#125;&apos; -C myc</div></pre></td></tr></table></figure>
-<ul>
-<li>以上步骤，会把chaincode初始化到peer节点的文件系统中，位置在peer容器里的var/hyperledger/production/chaincodes下面，instantiate时从这个地方实例化</li>
-<li>‘-c‘参数指定的函数名和参数，-v 版本，-C 通道名称 -n 链码名称</li>
-<li><p>现在我们执行一次将a的值设为20的调用：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">peer chaincode invoke -n mycc -c &apos;&#123;&quot;Args&quot;:[&quot;set&quot;, &quot;a&quot;, &quot;20&quot;]&#125;&apos; -C myc</div></pre></td></tr></table></figure>
-</li>
-<li><p>最后查询a的值，我们会看到20。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">peer chaincode query -n mycc -c &apos;&#123;&quot;Args&quot;:[&quot;query&quot;,&quot;a&quot;]&#125;&apos; -C myc</div></pre></td></tr></table></figure>
+<li><p>MSP要解决的问题是什么？<br>商业应用场景下，有时会要求区块链中的数据仅仅对区块链中部分成员可见。这就产生了权限管理的需求。所以，MSP要解决的问题，在区块链网络中实现权限管理。</p>
 </li>
 </ul>
-<h4 id="chaincode-更新"><a href="#chaincode-更新" class="headerlink" title="chaincode 更新"></a>chaincode 更新</h4><ul>
-<li>chaincode的更新过程目前验证是这样的</li>
+<h3 id="msp的作用域分类"><a href="#msp的作用域分类" class="headerlink" title="msp的作用域分类"></a>msp的作用域分类</h3><ul>
+<li><p>MSP出现在区块链网络中的两个地方：Channel配置（Channel MSP），以及本地（local MSP）。因此，MSP可以分为：local 和 channel MSPs</p>
+</li>
+<li><p><strong>localMSP</strong><br>localMSP，是为节点（peer 或 orderer）和用户（使用CLI或使用SDK的客户端应用程序的管理员）定义的。每个节点和用户都必须定义一个localMSP，以便在加入区块链的时候，进行权限验证。</p>
+</li>
+<li><p><strong>channelMSP</strong><br>channel MSP在channel层面定义管理和参与权。参与Channel的每个组织，都必须为其定义MSP。Channel上的Peers 和 orderers将在Channel MSP上共享数据，并且此后将能够正确认证Channel参与者。这意味着如果一个组织希望加入该Channel，那么需要在Channel配置中，加入一个包含该组织成员的信任链的MSP。否则来自该组织身份的交易将被拒绝。</p>
+</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">1,需要重新启动下自己的chaincode代码，CORE_PEER_ADDRESS=peer:7051 CORE_CHAINCODE_ID_NAME=mycc:输入新版本号 ./sacc</div><div class="line">2,peer chaincode install -p chaincodedev/chaincode/sacc -n mycc -v 新版本号</div><div class="line">3,peer chaincode upgrade -n mycc -v 新版本号 -c &apos;&#123;&quot;Args&quot;:[&quot;a&quot;,&quot;10&quot;]&#125;&apos; -C myc</div></pre></td></tr></table></figure>
+<h3 id="MSP功能分类"><a href="#MSP功能分类" class="headerlink" title="MSP功能分类"></a>MSP功能分类</h3><ul>
+<li>Network MSP<br>通过定义参与者组织MSPs，来定义网络中的成员。同时定义这些成员中哪些成员，有权执行管理任务（例如，创建Channel）</li>
+<li>Channel MSP<br>Channel提供了一组特定的组织之间的私人通信，这些组织又对其进行管理控制。在该Channel的MSP上下文中的Channel policies定义谁能够参与Channel上的某些操作，例如添加组织或实例化chaincodes。</li>
+<li>Peer MSP<br>此Local MSP在每个peer的文件系统上定义，并且每个peer都有一个MSP实例。从概念上讲，它执行的功能与Channel MSP完全相同，限制条件是它仅用于定义它的peer上。</li>
+<li>Orderer MSP<br>与peer MSP一样，orderer local MSP也在节点的文件系统上定义，并且仅用于该节点。与peer 节点相似，orderer也由单个组织拥有，因此只有一个MSP来列出其信任的参与者或节点。</li>
+</ul>
+<h3 id="msp与组织的对应关系"><a href="#msp与组织的对应关系" class="headerlink" title="msp与组织的对应关系"></a>msp与组织的对应关系</h3><p><strong>1，组织与MSP之间建立映射关系</strong></p>
 <ul>
-<li>以上比较不理解的是需要从新启动下新版本对应的chaincode才行，否则在更新时会报找不到<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Error: Error endorsing chaincode: rpc error: code = Unknown desc = Failed to init chaincode(handler not found for chaincode mycc:xxx)</div></pre></td></tr></table></figure>
+<li><p>建议实际的组织和MSP之间建立一一对应关系。当然也可以选择其他类型的映射关系</p>
+</li>
+<li><p>一个组织对应多个MSP的情况<br>这种情况是一个组织有多个部门，从方便管理的角度或者隐私保护的角度而言，每个部门都要设置不同的MSP。每个Peer节点只设置一个MSP，同一组织内不同MSP的Peer节点之间不能互相认证，这样相同组织的不同部门之间不会同步数据，数据不能共享。</p>
+</li>
+<li><p>多个组织对应一个MSP<br>这种情况是同一个联盟的不同组织之间采用相同的成员管理架构，数据会在不同组织之间同步。在Peer节点之间的Gossip通信中，数据是在相同通道配置了相同MSP的Peer节点之间同步的。如果多个组织对应一个MSP，则数据就不会限制在组织内部，会跨组织进行同步。这种情况我觉得很有应用场景。比如，C9联盟可以在同一个MSP管理下，既能够确保信任的基础，又能够实现数据的共享。<br>其实这是由MSP定义的粒度问题，一个MSP可以和一个组织对应，也可以和多个组织对应，还可以和一个组织内部的多个部门对应，根据MSP配置好Peer节点后，数据同步就限制在了MSP定义的范围内。</p>
+</li>
+</ul>
+<p><strong>2，一个组织内部实现不同的权限控制</strong></p>
+<ul>
+<li><p>给组织内的所有部门定义一个MSP<br>给Peer节点配置MSP的时候，包含相同的可信根CA证书列表、中间CA证书、管理员证书，不同的Peer节点设置不同的所属部门。节点所属的部门是利用证书和部门之间映射的OrganizationalUnitIdentifiers定义的，它包含在MSP目录下配置文件“config.yaml”中。按照基于部门验证的方法来定义交易背书策略和通道管理策略，这样就可以实现不同的权限控制了。<br>这种方法会有一个问题<br>数据实际还是会在不同的Peer节点之间同步。因为Peer节点在识别组织身份类型OrgIdentityType的时候获取的是MSP标识，它会认为通道内相同MSP的节点都是可以分发数据的。</p>
+</li>
+<li><p>给组织内的每个部门单独定义MSP<br>给Peer节点配置MSP的时候，不同部门配置的可信中间CA证书、管理员证书可以是不同的，不同部门成员的证书路径也是不同的。这种方式解决了所有部门定义在一个MSP中的问题，但是会带来管理上的复杂度。</p>
 </li>
 </ul>
 
@@ -272,25 +274,6 @@
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">fabric</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">区块链</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">超级账本</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
       
 
       
@@ -341,7 +324,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2018/03/01/Hyperledger-Fabric-Chaincode理解/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2018/08/30/Hyperledger-Fabric-MSP分析记录/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -355,18 +338,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/03/05/fabric中的术语/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/08/30/docker日志管理记录/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Fabric中的术语
+          Docker日志管理记录
         
       </div>
     </a>
   
   
-    <a href="/2018/02/28/goland破解使用/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Goland破解使用</div>
+    <a href="/2018/08/29/Hyperledger-Fabric-orderer分析记录/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Hyperledger Fabric Orderer分析记录</div>
       <i class="icon-circle-right"></i>
     </a>
   
