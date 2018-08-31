@@ -10,6 +10,7 @@
   <title>Hyperledger-Fabric-MSP分析记录 | zhulg笔记</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="fabric MSP功能及源码分析 MSP是Membership Service Provider的缩写，直译为成员关系服务提供者。 MSP作用就是负责区块链网络中对身份的管理和验证，在区块链网络中实现权限管理，包括下发、吊销及验证功能。 MSP是一个提供抽象化成员操作框架的组件,CA是MSP的具体实现。">
+<meta name="keywords" content="fabric,区块链">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hyperledger-Fabric-MSP分析记录">
 <meta property="og:url" content="http://yoursite.com/2018/08/30/Hyperledger-Fabric-MSP分析记录/index.html">
@@ -17,7 +18,7 @@
 <meta property="og:description" content="fabric MSP功能及源码分析 MSP是Membership Service Provider的缩写，直译为成员关系服务提供者。 MSP作用就是负责区块链网络中对身份的管理和验证，在区块链网络中实现权限管理，包括下发、吊销及验证功能。 MSP是一个提供抽象化成员操作框架的组件,CA是MSP的具体实现。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://hyperledger-fabric.readthedocs.io/en/release-1.2/_images/membership.diagram.5.png">
-<meta property="og:updated_time" content="2018-08-30T09:10:46.000Z">
+<meta property="og:updated_time" content="2018-08-31T07:16:16.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hyperledger-Fabric-MSP分析记录">
 <meta name="twitter:description" content="fabric MSP功能及源码分析 MSP是Membership Service Provider的缩写，直译为成员关系服务提供者。 MSP作用就是负责区块链网络中对身份的管理和验证，在区块链网络中实现权限管理，包括下发、吊销及验证功能。 MSP是一个提供抽象化成员操作框架的组件,CA是MSP的具体实现。">
@@ -207,7 +208,7 @@
 </li>
 <li><p><strong>localMSP</strong><br>localMSP，是为节点（peer 或 orderer）和用户（使用CLI或使用SDK的客户端应用程序的管理员）定义的。每个节点和用户都必须定义一个localMSP，以便在加入区块链的时候，进行权限验证。</p>
 </li>
-<li><p><strong>channelMSP</strong><br>channel MSP在channel层面定义管理和参与权。参与Channel的每个组织，都必须为其定义MSP。Channel上的Peers 和 orderers将在Channel MSP上共享数据，并且此后将能够正确认证Channel参与者。这意味着如果一个组织希望加入该Channel，那么需要在Channel配置中，加入一个包含该组织成员的信任链的MSP。否则来自该组织身份的交易将被拒绝。</p>
+<li><p><strong>channelMSP（globalMSP)</strong><br>channel MSP在channel层面定义管理和参与权。参与Channel的每个组织，都必须为其定义MSP。Channel上的Peers 和 orderers将在Channel MSP上共享数据，并且此后将能够正确认证Channel参与者。这意味着如果一个组织希望加入该Channel，那么需要在Channel配置中，加入一个包含该组织成员的信任链的MSP。否则来自该组织身份的交易将被拒绝。</p>
 </li>
 </ul>
 <h2 id="MSP功能分类"><a href="#MSP功能分类" class="headerlink" title="MSP功能分类"></a>MSP功能分类</h2><ul>
@@ -268,6 +269,21 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">fabric</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">区块链</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -467,15 +483,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">springboot</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Elasticsearch</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">fabric</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">区块链</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Elasticsearch</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -487,10 +507,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">springboot</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">android</a>
               </li>
              
@@ -499,19 +515,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">分布式/集群</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">orderer</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">AWK</a>
+                <a href="javascript:void(0)" class="js-tag color2">分布式/集群</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">go</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">AWK</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -555,11 +571,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">K8S</a>
+                <a href="javascript:void(0)" class="js-tag color1">kafka</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">kafka</a>
+                <a href="javascript:void(0)" class="js-tag color4">K8S</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -579,11 +595,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">以太坊</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redis</a>
+                <a href="javascript:void(0)" class="js-tag color3">springboot相关</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -595,14 +615,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">springboot相关</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">openresty</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">node</a>
               </li>
              
@@ -611,7 +623,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">openresty</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">spring</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">git/github/gitlab</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -627,10 +647,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">git/github/gitlab</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">hyperledger composer</a>
               </li>
              
@@ -639,11 +655,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">推荐系统</a>
+                <a href="javascript:void(0)" class="js-tag color4">大数据&机器学习</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">大数据&机器学习</a>
+                <a href="javascript:void(0)" class="js-tag color5">推荐系统</a>
               </li>
              
               <li class="article-tag-list-item">

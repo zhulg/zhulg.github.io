@@ -7,15 +7,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: 以太坊 | zhulg笔记</title>
+  <title>Hyperledger-Fabric-Peer分析记录 | zhulg笔记</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="zhulg笔记">
-<meta property="og:url" content="http://yoursite.com/tags/以太坊/index.html">
+  <meta name="description" content="Fabric Peer分析 peer节点负责fabric中的交易背书和提交，每个peer里包含一个账本 peer节点之间通过Grpc进行通信，peer的常用角色类型为：  12- Endorser（背书者）：负责对来自客户端的交易提案进行检查和背书。- Committer（提交者）：负责检查交易请求，执行交易并维护区块链和账本结构。  peer代码目录  123456789101112peer├─">
+<meta name="keywords" content="fabric,区块链">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hyperledger-Fabric-Peer分析记录">
+<meta property="og:url" content="http://yoursite.com/2018/08/31/Hyperledger-Fabric-Peer分析记录/index.html">
 <meta property="og:site_name" content="zhulg笔记">
+<meta property="og:description" content="Fabric Peer分析 peer节点负责fabric中的交易背书和提交，每个peer里包含一个账本 peer节点之间通过Grpc进行通信，peer的常用角色类型为：  12- Endorser（背书者）：负责对来自客户端的交易提案进行检查和背书。- Committer（提交者）：负责检查交易请求，执行交易并维护区块链和账本结构。  peer代码目录  123456789101112peer├─">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-08-31T07:14:18.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="zhulg笔记">
+<meta name="twitter:title" content="Hyperledger-Fabric-Peer分析记录">
+<meta name="twitter:description" content="Fabric Peer分析 peer节点负责fabric中的交易背书和提交，每个peer里包含一个账本 peer节点之间通过Grpc进行通信，peer的常用角色类型为：  12- Endorser（背书者）：负责对来自客户端的交易提案进行检查和背书。- Committer（提交者）：负责检查交易请求，执行交易并维护区块链和账本结构。  peer代码目录  123456789101112peer├─">
   
     <link rel="alternative" href="/atom.xml" title="zhulg笔记" type="application/atom+xml">
   
@@ -149,106 +154,180 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Hyperledger-Fabric-Peer分析记录" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/06/11/mac搭建太坊私链/" class="archive-article-date">
-  	<time datetime="2018-06-11T14:24:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-11</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/06/11/mac搭建太坊私链/">Mac搭建以太坊私链</a>
+    <h1 class="article-title" itemprop="name">
+      Hyperledger-Fabric-Peer分析记录
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2018/08/31/Hyperledger-Fabric-Peer分析记录/" class="archive-article-date">
+  	<time datetime="2018-08-31T06:39:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-31</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Fabric-Peer分析"><a href="#Fabric-Peer分析" class="headerlink" title="Fabric Peer分析"></a>Fabric Peer分析</h2><ul>
+<li>peer节点负责fabric中的交易背书和提交，每个peer里包含一个账本</li>
+<li>peer节点之间通过Grpc进行通信，peer的常用角色类型为：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">- Endorser（背书者）：负责对来自客户端的交易提案进行检查和背书。</div><div class="line">- Committer（提交者）：负责检查交易请求，执行交易并维护区块链和账本结构。</div></pre></td></tr></table></figure>
+<ul>
+<li>peer代码目录</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">peer</div><div class="line">├── chaincode </div><div class="line">├── channel</div><div class="line">├── clilogging //peer clilogging命令及子命令实现</div><div class="line">├── common</div><div class="line">├── gossip //gossip最终一致性算法相关代码</div><div class="line">├── main.go //peer命令入口</div><div class="line">├── main_test.go</div><div class="line">├── mocks</div><div class="line">├── node</div><div class="line">├── testdata</div><div class="line">└── version</div></pre></td></tr></table></figure>
+<h2 id="Peer启动分析"><a href="#Peer启动分析" class="headerlink" title="Peer启动分析"></a>Peer启动分析</h2><ul>
+<li>待完成</li>
+</ul>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢点开，不收钱ing<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">区块链</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">fabric</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">以太坊</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">区块链</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2018/08/31/Hyperledger-Fabric-Peer分析记录/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/05/17/开搞以太坊/" class="archive-article-date">
-  	<time datetime="2018-05-17T14:49:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-17</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2018/08/30/docker日志管理记录/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Docker日志管理记录</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/05/17/开搞以太坊/">开搞以太坊</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">区块链</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">以太坊</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
 
 
           </div>
@@ -271,9 +350,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
