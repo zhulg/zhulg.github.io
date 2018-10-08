@@ -4,6 +4,27 @@
 
     
   <url>
+    <loc>http://yoursite.com/2018/10/08/mac%E7%BB%88%E7%AB%AF%E4%BB%A3%E7%90%86%E8%A7%A3%E5%86%B3dep-ensure/</loc>
+    <lastmod>2018-10-08T05:49:57.000Z</lastmod>
+    <data>
+        <display>
+        <title>Mac终端代理解决dep Ensure</title>
+        <pubTime>2018-10-08T05:39:07.000Z</pubTime>
+        
+        <tag>区块链</tag>
+         
+        <tag>go</tag>
+         
+        <tag>stellar</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/2018/09/25/Stellar%E5%8C%BA%E5%9D%97%E9%93%BE%E8%AE%B0%E5%BD%95/</loc>
     <lastmod>2018-09-29T06:50:11.000Z</lastmod>
     <data>
@@ -296,9 +317,9 @@
         
         <tag>fabric</tag>
          
-        <tag>hyperledger</tag>
-         
         <tag>composer</tag>
+         
+        <tag>hyperledger</tag>
          
          
            
