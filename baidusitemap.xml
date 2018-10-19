@@ -5,7 +5,7 @@
     
   <url>
     <loc>http://yoursite.com/2018/10/12/go%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80%E8%AE%B0%E5%BD%95/</loc>
-    <lastmod>2018-10-19T06:51:06.000Z</lastmod>
+    <lastmod>2018-10-19T08:38:51.000Z</lastmod>
     <data>
         <display>
         <title>Go语言基础记录</title>
@@ -334,9 +334,9 @@
         
         <tag>fabric</tag>
          
-        <tag>composer</tag>
-         
         <tag>hyperledger</tag>
+         
+        <tag>composer</tag>
          
          
            
@@ -564,9 +564,9 @@
         <title>Fabric与springboot整合问题记录</title>
         <pubTime>2018-04-19T08:43:29.000Z</pubTime>
         
-        <tag>fabric</tag>
-         
         <tag>springboot</tag>
+         
+        <tag>fabric</tag>
          
          
            

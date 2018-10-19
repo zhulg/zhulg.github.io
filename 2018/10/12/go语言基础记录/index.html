@@ -17,7 +17,7 @@
 <meta property="og:site_name" content="zhulg笔记">
 <meta property="og:description" content="go最基础备忘录 Go的基本类型：  123456789101112131415布尔类型：bool字符串：string有符号整形：int  int8  int16  int32  int64无符号整形：uint uint8 uint16 uint32 uint64 uintptr                  byte // uint8 的别名                  rune //">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-19T06:51:06.000Z">
+<meta property="og:updated_time" content="2018-10-19T08:38:51.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Go语言基础记录">
 <meta name="twitter:description" content="go最基础备忘录 Go的基本类型：  123456789101112131415布尔类型：bool字符串：string有符号整形：int  int8  int16  int32  int64无符号整形：uint uint8 uint16 uint32 uint64 uintptr                  byte // uint8 的别名                  rune //">
@@ -220,7 +220,7 @@ slice := []int{10, 20, 30, 40, 50}
 
 - 如何计算长度和容量
 </code></pre><p>对底层数组容量是 k 的切片 slice[i:j]来说<br>长度: j - i<br>容量: k - i<br>对 newSlice 应用这个公式就能得到代码清单 4-27 所示的数字。<br>计算新的长度和容量 对底层数组容量是 5 的切片 slice[1:3]来说<br>长度: 3 - 1 = 2<br>容量: 5 - 1 = 4<br>可以用另一种方法来描述这几个值。第一个值表示新切片开始的元素的索引位置，这个例子 中是 1。第二个值表示开始的索引位置(1)，加上希望包含的元素的个数(2)，1+2 的结果是 3， 所以第二个值就是 3。容量是该与切片相关联的所有元素的数量</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">- 切片增加元素</div><div class="line">- 要使用 append，需要一个被操作的切片和一个要追加的值。当 append 调用返回时，会返回一个包含修改结果的新切片。函数 append 总是会增加新切片的长 度，而容量有可能会改变，也可能不会改变，这取决于被操作的切片的可用容量</div><div class="line"></div><div class="line">```// 创建一个整型切片// 其长度和容量都是 5 个元素slice := []int&#123;10, 20, 30, 40, 50&#125;</div><div class="line">// 创建一个新切片,其长度为 2 个元素，容量为 4 个元素 newSlice := slice[1:3]</div><div class="line">// 使用原有的容量来分配一个新元素, 将新元素赋值为 60newSlice = append(newSlice, 60)</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div><div class="line">- 切片增加元素,要使用 append，需要一个被操作的切片和一个要追加的值。当 append 调用返回时，会返回一个包含修改结果的新切片。函数 append 总是会增加新切片的长 度，而容量有可能会改变，也可能不会改变，这取决于被操作的切片的可用容量</div><div class="line"></div><div class="line">```// 创建一个整型切片// 其长度和容量都是 5 个元素slice := []int&#123;10, 20, 30, 40, 50&#125;</div><div class="line">// 创建一个新切片,其长度为 2 个元素，容量为 4 个元素 newSlice := slice[1:3]</div><div class="line">// 使用原有的容量来分配一个新元素, 将新元素赋值为 60newSlice = append(newSlice, 60)</div></pre></td></tr></table></figure>
 <ul>
 <li>使用 append 同时增加切片的长度和容量,如果切片的底层数组没有足够的可用容量，append 函数会创建一个新的底层数组，将被引 用的现有的值复制到新数组里，再追加新的值</li>
 </ul>
@@ -675,6 +675,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">springboot</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Elasticsearch</a>
               </li>
              
@@ -683,15 +687,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">区块链</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">springboot</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">部署</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">区块链</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -703,14 +703,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">android</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">gradle</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">orderer</a>
               </li>
              
@@ -719,7 +711,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">go</a>
+                <a href="javascript:void(0)" class="js-tag color3">android</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">gradle</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -728,6 +724,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">docker</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">go</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -751,11 +751,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">composer</a>
+                <a href="javascript:void(0)" class="js-tag color2">hyperledger</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">hyperledger</a>
+                <a href="javascript:void(0)" class="js-tag color4">composer</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -799,15 +799,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">springboot相关</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">nginx</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">vue</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">springboot相关</a>
               </li>
              
               <li class="article-tag-list-item">
