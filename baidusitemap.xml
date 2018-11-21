@@ -4,6 +4,25 @@
 
     
   <url>
+    <loc>http://yoursite.com/2018/11/21/go%E7%BB%93%E5%90%88gorm%E6%A0%BC%E5%BC%8F%E5%8C%96%E6%97%B6%E9%97%B4/</loc>
+    <lastmod>2018-11-21T06:01:05.000Z</lastmod>
+    <data>
+        <display>
+        <title>Go结合gorm格式化时间</title>
+        <pubTime>2018-11-21T04:28:35.000Z</pubTime>
+        
+        <tag>go</tag>
+         
+        <tag>gorm</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/2018/11/02/go-cobra%E4%BD%BF%E7%94%A8%E8%AE%B0%E5%BD%95/</loc>
     <lastmod>2018-11-02T10:49:39.000Z</lastmod>
     <data>
@@ -368,9 +387,9 @@
         
         <tag>fabric</tag>
          
-        <tag>composer</tag>
-         
         <tag>hyperledger</tag>
+         
+        <tag>composer</tag>
          
          
            
