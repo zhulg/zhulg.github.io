@@ -4,6 +4,25 @@
 
     
   <url>
+    <loc>http://yoursite.com/2018/12/27/Flutter%E4%B8%ADScopedModel%E7%9A%84%E4%BD%9C%E7%94%A8/</loc>
+    <lastmod>2018-12-27T13:18:31.000Z</lastmod>
+    <data>
+        <display>
+        <title>Flutter中ScopedModel的作用</title>
+        <pubTime>2018-12-27T12:53:33.000Z</pubTime>
+        
+        <tag>flutter</tag>
+         
+        <tag>dart</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/2018/12/14/flutter%E5%92%8C%E5%8E%9F%E7%94%9F%E5%92%8CRN%E6%9E%B6%E6%9E%84%E4%B8%8D%E5%90%8C/</loc>
     <lastmod>2018-12-14T10:46:10.000Z</lastmod>
     <data>
@@ -11,9 +30,9 @@
         <title>flutter和原生和RN架构不同</title>
         <pubTime>2018-12-14T10:22:08.000Z</pubTime>
         
-        <tag>android</tag>
-         
         <tag>flutter</tag>
+         
+        <tag>android</tag>
          
          
            
@@ -421,9 +440,9 @@
         
         <tag>fabric</tag>
          
-        <tag>hyperledger</tag>
-         
         <tag>composer</tag>
+         
+        <tag>hyperledger</tag>
          
          
            
