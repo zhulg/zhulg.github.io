@@ -4,6 +4,23 @@
 
     
   <url>
+    <loc>http://yoursite.com/2019/01/11/python3%E4%B8%ADSimpleHTTPServer%E4%BD%BF%E7%94%A8/</loc>
+    <lastmod>2019-01-11T12:27:23.000Z</lastmod>
+    <data>
+        <display>
+        <title>python3中SimpleHTTPServer使用</title>
+        <pubTime>2019-01-11T11:55:55.000Z</pubTime>
+        
+        <tag>python</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/2018/12/27/Flutter%E4%B8%ADScopedModel%E7%9A%84%E4%BD%9C%E7%94%A8/</loc>
     <lastmod>2018-12-27T13:18:31.000Z</lastmod>
     <data>
@@ -155,9 +172,9 @@
         
         <tag>区块链</tag>
          
-        <tag>stellar</tag>
-         
         <tag>go</tag>
+         
+        <tag>stellar</tag>
          
          
            
@@ -440,9 +457,9 @@
         
         <tag>fabric</tag>
          
-        <tag>composer</tag>
-         
         <tag>hyperledger</tag>
+         
+        <tag>composer</tag>
          
          
            
