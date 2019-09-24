@@ -90,3 +90,37 @@ val isEmpty: Boolean
 
 ```
 - field是当前属性的影子，就是当前的值this,setter/getter方法中使用。
+
+
+#### kotlin in/out泛型中使用
+
+- 父类泛型对象可以赋值给子类泛型对象，用 in,子类泛型对象可以赋值给父类泛型对象，用 out。
+- 如果你的类是将泛型作为内部方法的返回，那么可以用 out：
+
+```
+interface Production<out T> {
+    fun produce(): T
+}
+可以称其为 production class/interface，因为其主要是产生（produce）指定泛型对象。因此，可以这样来记：produce = output = out。
+
+```
+
+- In(逆变)
+
+```
+如果你的类是将泛型对象作为函数的参数，那么可以用 in：
+
+interface Consumer<in T> {
+    fun consume(item: T)
+}
+可以称其为 consumer class/interface，因为其主要是消费指定泛型对象。因此，可以这样来记：consume = input = in。
+```
+
+- Invariant(不变)
+- 如果既将泛型作为函数参数，又将泛型作为函数的输出，那就既不用 in 或 out。
+```
+interface ProductionConsumer<T> {
+    fun produce(): T
+    fun consume(item: T)
+}
+```
