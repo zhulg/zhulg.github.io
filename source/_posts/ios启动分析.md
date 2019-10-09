@@ -5,14 +5,14 @@ tags:
 ---
 
 
-##1、OC调用
+## 1、OC调用
 
 - C++ 会为静态创建的对象生成初始化器，与静态语言不同，OC基于Runtime机制可以用类的名字来实例化一个类的对象。Runtime 维护了一张映射类名与类的全局表，当加载一个 dylib 时，其定义的所有的类都需要被注册到这个全局表中。ObjC 在加载时可以通过 fix-up 在动态类中改变实例变量的偏移量，利用这个技术可以在不改变dylib的情况下添加另一个 dylib 中类的方法，而非常见的通过定义类别（Category）的方式改变一个类的方法。
 
 - 主执行文件和相关的 dylib的依赖关系构成了一张巨大的有向图，执行初始化器先加载叶子节点，然后逐步向上加载中间节点，直至最后加载根节点。这种加载顺序确保了安全性，加载某个 dylib 前，其所依赖的其余 dylib 文件肯定已经被预先加载。最后 dyld 会调用 main() 函数。main() 会调用 UIApplicationMain()，程序启动。
 <!-- more -->
 
-##2、程序启动逻辑
+## 2、程序启动逻辑
 
 - 使用Xcode打开一个项目，很容易会发现一个文件－－main.m文件，此处就是应用的入口了。程序启动时，先执行main函数，main函数是ios程序的入口点，内部会调用UIApplicationMain函数，UIApplicationMain里会创建一个UIApplication对象 ，然后创建UIApplication的delegate对象 —–（您的）AppDelegate ，开启一个消息循环（main runloop），每当监听到对应的系统事件时，就会通知AppDelegate。
 
@@ -32,7 +32,7 @@ return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate cl
 
 
 
-### 三、UIApplicationMain函数实现如下：
+### 3、UIApplicationMain函数实现如下：
 ```
 int UIApplicationMain{
   int argc,
@@ -54,7 +54,7 @@ int UIApplicationMain{
 
 
 
-##四、程序启动的完整过程如下：
+## 4、程序启动的完整过程如下：
 
 - 1.main 函数
 
@@ -74,7 +74,7 @@ delegate对象开始处理(监听)系统事件(没有storyboard)
 - 创建UIWindow
 - 创建和设置UIWindow的rootViewController
 - 显示窗口
-## 五、AppDelegate的代理方法
+## 5、AppDelegate的代理方法
 
 - app启动完毕后就会调用
 
@@ -181,7 +181,7 @@ delegate对象开始处理(监听)系统事件(没有storyboard)
 
 
 
-##六、启动分析
+## 6、启动分析
 
 - 应用启动时，会播放一个启动动画。iPhone上是400ms，iPad上是500ms。如果应用启动过慢，用户就会放弃使用，甚至永远都不再回来。为了防止一个应用占用过多的系统资源，开发iOS的苹果工程师门设计了一个“看门狗”的机制。在不同的场景下，“看门狗”会监测应用的性能。如果超出了该场景所规定的运行间，“看门狗”就会强制终结这个应用的进程。
 
