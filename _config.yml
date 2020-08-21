@@ -7,13 +7,15 @@ title: zhulg笔记
 subtitle: 兴趣是最好的老师，其次是耻辱
 description: 
 author: zhulg
-language: zh-Hans
+# language: zh-Hans
+language: zh-CN
+
 timezone:
 
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://yoursite.com
+url: http://zhulg.github.io
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
@@ -80,14 +82,15 @@ jsonContent:
       link: false
       permalink: false
       excerpt: false
-      categories: false
-      tags: true
+      categories: true
+      tags: false
 
 
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: yilia
+#theme: yilia
+theme: pure
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
