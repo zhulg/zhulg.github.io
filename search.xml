@@ -674,9 +674,9 @@
             
             <tag> fabric </tag>
             
-            <tag> composer </tag>
-            
             <tag> hyperledger </tag>
+            
+            <tag> composer </tag>
             
         </tags>
       
@@ -978,9 +978,9 @@
       
         <tags>
             
-            <tag> springboot </tag>
-            
             <tag> fabric </tag>
+            
+            <tag> springboot </tag>
             
         </tags>
       
