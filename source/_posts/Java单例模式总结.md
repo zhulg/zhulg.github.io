@@ -3,6 +3,7 @@ title: Java单例模式总结
 date: 2020-08-28 10:38:12
 tags: java
 categories: Java
+toc: true
 ---
 
 - 单例的创建常分为2种类型
