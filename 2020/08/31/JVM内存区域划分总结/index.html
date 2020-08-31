@@ -17,21 +17,23 @@
   <meta http-equiv="window-target" content="_top">
   
   
-  <title>Goland破解使用 | zhulg笔记</title>
-  <meta name="description" content="Mac下 goland的使用 官网下载 地址 目前版本为2017.3.2 sudo cp /users/xxxx/Downloads/JetbrainsLicense.jar /Library/JetbrainsLicense/ 把下载到jar包放到固定位置，后续使用。 去应用程序/Applications中找到对应程序显示包,打开bin下面面的goland.vmoptions 追加 -java">
-<meta name="keywords" content="区块链">
+  <title>JVM内存区域划分总结 | zhulg笔记</title>
+  <meta name="description" content="JVM 内存区域分为下面几个方面,程序计数器、Java虚拟机栈（Java栈）、Java堆、方法区、运行时常量池、本地方法栈。  1.程序计数器 程序计数器会存储当前线程正在执行的Java方法的JVM指令地址（字节码指令地址）。在 JVM规范中，每个线程都有它自己的程序计数器，并且任何时间一个线程都只有一个方法在执行，也就是所谓的当前方法。 程序计数器的作用  12字节码解释器通过改变程序计数器来">
+<meta name="keywords" content="java">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Goland破解使用">
-<meta property="og:url" content="https://zhulg.github.io/2018/02/28/goland破解使用/index.html">
+<meta property="og:title" content="JVM内存区域划分总结">
+<meta property="og:url" content="https://zhulg.github.io/2020/08/31/JVM内存区域划分总结/index.html">
 <meta property="og:site_name" content="zhulg笔记">
-<meta property="og:description" content="Mac下 goland的使用 官网下载 地址 目前版本为2017.3.2 sudo cp /users/xxxx/Downloads/JetbrainsLicense.jar /Library/JetbrainsLicense/ 把下载到jar包放到固定位置，后续使用。 去应用程序/Applications中找到对应程序显示包,打开bin下面面的goland.vmoptions 追加 -java">
+<meta property="og:description" content="JVM 内存区域分为下面几个方面,程序计数器、Java虚拟机栈（Java栈）、Java堆、方法区、运行时常量池、本地方法栈。  1.程序计数器 程序计数器会存储当前线程正在执行的Java方法的JVM指令地址（字节码指令地址）。在 JVM规范中，每个线程都有它自己的程序计数器，并且任何时间一个线程都只有一个方法在执行，也就是所谓的当前方法。 程序计数器的作用  12字节码解释器通过改变程序计数器来">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-08-22T11:01:37.915Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/zhulg/allpic/master/memory.png">
+<meta property="og:updated_time" content="2020-08-31T16:18:04.243Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Goland破解使用">
-<meta name="twitter:description" content="Mac下 goland的使用 官网下载 地址 目前版本为2017.3.2 sudo cp /users/xxxx/Downloads/JetbrainsLicense.jar /Library/JetbrainsLicense/ 把下载到jar包放到固定位置，后续使用。 去应用程序/Applications中找到对应程序显示包,打开bin下面面的goland.vmoptions 追加 -java">
+<meta name="twitter:title" content="JVM内存区域划分总结">
+<meta name="twitter:description" content="JVM 内存区域分为下面几个方面,程序计数器、Java虚拟机栈（Java栈）、Java堆、方法区、运行时常量池、本地方法栈。  1.程序计数器 程序计数器会存储当前线程正在执行的Java方法的JVM指令地址（字节码指令地址）。在 JVM规范中，每个线程都有它自己的程序计数器，并且任何时间一个线程都只有一个方法在执行，也就是所谓的当前方法。 程序计数器的作用  12字节码解释器通过改变程序计数器来">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/zhulg/allpic/master/memory.png">
   <!-- Canonical links -->
-  <link rel="canonical" href="https://zhulg.github.io/2018/02/28/goland破解使用/index.html">
+  <link rel="canonical" href="https://zhulg.github.io/2020/08/31/JVM内存区域划分总结/index.html">
   
     <link rel="alternate" href="/atom.xml" title="zhulg笔记" type="application/atom+xml">
   
@@ -298,16 +300,25 @@
 
   
   
+<aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    <nav id="toc" class="article-toc">
+      <h3 class="toc-title">文章目录</h3>
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-程序计数器"><span class="toc-number">1.</span> <span class="toc-text">1.程序计数器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Java-虚拟机栈（Java-Virtual-Machine-Stack）"><span class="toc-number">2.</span> <span class="toc-text">2.Java 虚拟机栈（Java Virtual Machine Stack）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-本地方法栈"><span class="toc-number">3.</span> <span class="toc-text">3.本地方法栈</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-堆（Heap）"><span class="toc-number">4.</span> <span class="toc-text">4.堆（Heap）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-方法区（Method-Area）"><span class="toc-number">5.</span> <span class="toc-text">5.方法区（Method Area）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-运行时常量池"><span class="toc-number">6.</span> <span class="toc-text">6.运行时常量池</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#内存结构图"><span class="toc-number"></span> <span class="toc-text">内存结构图</span></a>
+    </nav>
+  </div>
+</aside>
+
 <main class="main" role="main">
   <div class="content">
-  <article id="post-goland破解使用" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <article id="post-JVM内存区域划分总结" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
     <div class="article-header">
       
         
   
     <h1 class="article-title" itemprop="name">
-      Goland破解使用
+      JVM内存区域划分总结
     </h1>
   
 
@@ -315,15 +326,20 @@
       <div class="article-meta">
         <span class="article-date">
     <i class="icon icon-calendar-check"></i>
-	<a href="/2018/02/28/goland破解使用/" class="article-date">
-	  <time datetime="2018-02-28T11:01:49.000Z" itemprop="datePublished">2018-02-28</time>
+	<a href="/2020/08/31/JVM内存区域划分总结/" class="article-date">
+	  <time datetime="2020-08-31T15:22:20.000Z" itemprop="datePublished">2020-08-31</time>
 	</a>
 </span>
         
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/Java/">Java</a>
+  </span>
+
         
   <span class="article-tag">
     <i class="icon icon-tags"></i>
-	<a class="article-tag-link" href="/tags/区块链/">区块链</a>
+	<a class="article-tag-link" href="/tags/java/">java</a>
   </span>
 
 
@@ -336,13 +352,13 @@
 	</span>
 
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2018/02/28/goland破解使用/#comments" class="article-comment-link">评论</a></span>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/08/31/JVM内存区域划分总结/#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 416(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 972(字)</span>
 	
 	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 2(分)</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 3(分)</span>
 	
 
       </div>
@@ -350,18 +366,50 @@
     <div class="article-entry marked-body" itemprop="articleBody">
       
         <ul>
-<li>Mac下 goland的使用</li>
-<li>官网下载 <a href="https://www.jetbrains.com/go/" target="_blank" rel="noopener">地址</a> 目前版本为2017.3.2</li>
-<li>sudo cp /users/xxxx/Downloads/JetbrainsLicense.jar /Library/JetbrainsLicense/ 把下载到jar包放到固定位置，后续使用。</li>
-<li>去应用程序/Applications中找到对应程序显示包,打开bin下面面的goland.vmoptions</li>
-<li>追加 -javaagent:/Library/JetbrainsLicense/JetbrainsLicense.jar</li>
-<li>打开goland 选择认证方式Activaction code，输入下面内容</li>
+<li>JVM 内存区域分为下面几个方面,程序计数器、Java虚拟机栈（Java栈）、Java堆、方法区、运行时常量池、本地方法栈。</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">&#123;&quot;licenseId&quot;:&quot;1337&quot;,</span><br><span class="line">&quot;licenseeName&quot;:&quot;替换你的名字（随意）&quot;,</span><br><span class="line">&quot;assigneeName&quot;:&quot;&quot;,</span><br><span class="line">&quot;assigneeEmail&quot;:&quot;&quot;,</span><br><span class="line">&quot;licenseRestriction&quot;:&quot;Unlimited license till end of the century.&quot;,</span><br><span class="line">&quot;checkConcurrentUse&quot;:false,</span><br><span class="line">&quot;products&quot;:[</span><br><span class="line">&#123;&quot;code&quot;:&quot;II&quot;,&quot;paidUpTo&quot;:&quot;2099-12-31&quot;&#125;,</span><br><span class="line">&#123;&quot;code&quot;:&quot;DM&quot;,&quot;paidUpTo&quot;:&quot;2099-12-31&quot;&#125;,</span><br><span class="line">&#123;&quot;code&quot;:&quot;AC&quot;,&quot;paidUpTo&quot;:&quot;2099-12-31&quot;&#125;,</span><br><span class="line">&#123;&quot;code&quot;:&quot;RS0&quot;,&quot;paidUpTo&quot;:&quot;2099-12-31&quot;&#125;,</span><br><span class="line">&#123;&quot;code&quot;:&quot;WS&quot;,&quot;paidUpTo&quot;:&quot;2099-12-31&quot;&#125;,</span><br><span class="line">&#123;&quot;code&quot;:&quot;DPN&quot;,&quot;paidUpTo&quot;:&quot;2099-12-31&quot;&#125;,</span><br><span class="line">&#123;&quot;code&quot;:&quot;RC&quot;,&quot;paidUpTo&quot;:&quot;2099-12-31&quot;&#125;,</span><br><span class="line">&#123;&quot;code&quot;:&quot;PS&quot;,&quot;paidUpTo&quot;:&quot;2099-12-31&quot;&#125;,</span><br><span class="line">&#123;&quot;code&quot;:&quot;DC&quot;,&quot;paidUpTo&quot;:&quot;2099-12-31&quot;&#125;,</span><br><span class="line">&#123;&quot;code&quot;:&quot;RM&quot;,&quot;paidUpTo&quot;:&quot;2099-12-31&quot;&#125;,</span><br><span class="line">&#123;&quot;code&quot;:&quot;CL&quot;,&quot;paidUpTo&quot;:&quot;2099-12-31&quot;&#125;,</span><br><span class="line">&#123;&quot;code&quot;:&quot;PC&quot;,&quot;paidUpTo&quot;:&quot;2099-12-31&quot;&#125;,</span><br><span class="line">&#123;&quot;code&quot;:&quot;DB&quot;,&quot;paidUpTo&quot;:&quot;2099-12-31&quot;&#125;,</span><br><span class="line">&#123;&quot;code&quot;:&quot;GO&quot;,&quot;paidUpTo&quot;:&quot;2099-12-31&quot;&#125;,</span><br><span class="line">&#123;&quot;code&quot;:&quot;RD&quot;,&quot;paidUpTo&quot;:&quot;2099-12-31&quot;&#125;</span><br><span class="line">],</span><br><span class="line">&quot;hash&quot;:&quot;2911276/0&quot;,</span><br><span class="line">&quot;gracePeriodDays&quot;:7,</span><br><span class="line">&quot;autoProlongated&quot;:false&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="1-程序计数器"><a href="#1-程序计数器" class="headerlink" title="1.程序计数器"></a>1.程序计数器</h3><ul>
+<li><strong>程序计数器会存储当前线程正在执行的Java方法的JVM指令地址（字节码指令地址）</strong>。在 JVM规范中，每个线程都有它自己的程序计数器，并且任何时间一个线程都只有一个方法在执行，也就是所谓的当前方法。</li>
+<li>程序计数器的作用</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">字节码解释器通过改变程序计数器来依次读取指令，从而实现代码的流程控制。</span><br><span class="line">在多线程情况下，程序计数器记录的是当前线程执行的位置，从而当线程切换回来时，就知道上次线程执行到哪了。</span><br></pre></td></tr></table></figure>
 
 <ul>
-<li>确认下，之后可以使用了。</li>
-<li>附jar包下载:<a href="https://github.com/zhulg/allpic/blob/master/JetbrainsLicense.jar" target="_blank" rel="noopener">地址</a></li>
+<li>程序计数器的特点</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">是一块较小的内存空间。</span><br><span class="line">线程私有，每条线程都有自己的程序计数器。</span><br><span class="line">生命周期：随着线程的创建而创建，随着线程的结束而销毁。</span><br><span class="line">是唯一一个不会出现OutOfMemoryError的内存区域。</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-Java-虚拟机栈（Java-Virtual-Machine-Stack）"><a href="#2-Java-虚拟机栈（Java-Virtual-Machine-Stack）" class="headerlink" title="2.Java 虚拟机栈（Java Virtual Machine Stack）"></a>2.Java 虚拟机栈（Java Virtual Machine Stack）</h3><ul>
+<li><p><strong>Java 虚拟机栈是描述 Java 方法运行过程的内存模型。</strong> 早期也叫 Java 栈。每个线程在创建时都会创建一个虚拟机栈，其内部保存一个个的栈帧（Stack Frame），对应着一次次的 Java 方法调用。</p>
+</li>
+<li><p><strong>栈帧</strong>中存储着局部变量表、操作数（operand）栈、动态链接、方法正常退出或者异常退出的定义等</p>
+</li>
+<li><p>Java 虚拟机栈的特点</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1. 局部变量表随着栈帧的创建而创建，它的大小在编译时确定，创建时只需分配事先规定的大小即可。在方法运行过程中，局部变量表的大小不会发生改变。</span><br><span class="line">2. Java 虚拟机栈会出现两种异常：StackOverFlowError 和 OutOfMemoryError。</span><br><span class="line">StackOverFlowError 若 Java 虚拟机栈的大小不允许动态扩展，那么当线程请求栈的深度超过当前 Java 虚拟机栈的最大深度时，抛出 StackOverFlowError 异常。</span><br><span class="line">OutOfMemoryError 若允许动态扩展，那么当线程请求栈时内存用完了，无法再动态扩展时，抛出 OutOfMemoryError 异常。</span><br><span class="line">3. Java 虚拟机栈也是线程私有，随着线程创建而创建，随着线程的结束而销毁。</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-本地方法栈"><a href="#3-本地方法栈" class="headerlink" title="3.本地方法栈"></a>3.本地方法栈</h3><ul>
+<li><strong>本地方法栈是为 JVM 运行 Native 方法准备的空间</strong>，由于很多 Native 方法都是用 C 语言实现的，所以它通常又叫 C 栈。</li>
+<li>它与 Java 虚拟机栈实现的功能类似，只不过本地方法栈是描述本地方法运行过程的内存模型。</li>
+</ul>
+<h3 id="4-堆（Heap）"><a href="#4-堆（Heap）" class="headerlink" title="4.堆（Heap）"></a>4.堆（Heap）</h3><ul>
+<li><strong>堆是用来存放对象的内存空间，几乎所有的对象都存储在堆中</strong>。</li>
+<li>堆的特点</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">线程共享，整个 Java 虚拟机只有一个堆，所有的线程都访问同一个堆。而程序计数器、Java 虚拟机栈、本地方法栈都是一个线程对应一个。</span><br><span class="line">在虚拟机启动时创建。</span><br><span class="line">是垃圾回收的主要场所。</span><br><span class="line">进一步可分为：新生代、老年代</span><br></pre></td></tr></table></figure>
+
+<h3 id="5-方法区（Method-Area）"><a href="#5-方法区（Method-Area）" class="headerlink" title="5.方法区（Method Area）"></a>5.方法区（Method Area）</h3><ul>
+<li><strong>Java 虚拟机规范中定义方法区是堆的一个逻辑部分</strong>,这也是所有线程共享的一块内存区域，用于存储所谓的元（Meta）数据，例如类结构信息，以及对应的运行时常量池、字段、方法代码等</li>
+</ul>
+<h3 id="6-运行时常量池"><a href="#6-运行时常量池" class="headerlink" title="6.运行时常量池"></a>6.运行时常量池</h3><ul>
+<li><strong>常量池是方法区里的一部分</strong>, 方法区中存放：类信息、常量、静态变量、即时编译器编译后的代码。常量就存放在运行时常量池中</li>
+</ul>
+<h2 id="内存结构图"><a href="#内存结构图" class="headerlink" title="内存结构图"></a>内存结构图</h2><p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/memory.png" alt></p>
+<ul>
+<li>直接内存</li>
+<li>产生OOM的地方</li>
+<li>垃圾回收</li>
 </ul>
 
       
@@ -372,7 +420,7 @@
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="https://zhulg.github.io/2018/02/28/goland破解使用/" title="Goland破解使用" target="_blank" rel="external">https://zhulg.github.io/2018/02/28/goland破解使用/</a>
+      <a href="https://zhulg.github.io/2020/08/31/JVM内存区域划分总结/" title="JVM内存区域划分总结" target="_blank" rel="external">https://zhulg.github.io/2020/08/31/JVM内存区域划分总结/</a>
     </li>
     
     <li class="post-copyright-license">
@@ -416,15 +464,20 @@
   
   <ul class="pager pull-left">
     
-    <li class="prev">
-      <a href="/2018/03/01/Hyperledger-Fabric-Chaincode理解/" title="Hyperledger Fabric Chaincode汇总"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
-    </li>
-    
     
     <li class="next">
-      <a href="/2018/02/24/fabric部署例子错误日志/" title="Fabric部署例子错误日志"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+      <a href="/2020/08/28/Java单例模式总结/" title="Java单例模式总结"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
     </li>
     
+    
+    <li class="toggle-toc">
+      <a class="toggle-btn collapsed" data-toggle="collapse" href="#collapseToc" aria-expanded="false" title="文章目录" role="button">
+        <span>[&nbsp;</span><span>文章目录</span>
+        <i class="text-collapsed icon icon-anchor"></i>
+        <i class="text-in icon icon-close"></i>
+        <span>]</span>
+      </a>
+    </li>
     
   </ul>
   
