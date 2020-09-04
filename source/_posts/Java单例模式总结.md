@@ -67,7 +67,7 @@ public class Singleton {
     private volatile static Singleton singleton;  //1:volatile修饰
     private Singleton (){}  
     public static Singleton getSingleton() {  
-    if (singleton == null) {  //2:减少不要同步，优化性能
+    if (singleton == null) {  //2:减少不必要要同步，优化性能
         synchronized (Singleton.class) {  // 3：同步，线程安全
         if (singleton == null) {  
             singleton = new Singleton();  //4：创建singleton 对象
@@ -79,11 +79,18 @@ public class Singleton {
 }
 ```
 
-- 相关好处：
+- 为什么要双重检验:
 
- ```
- 延迟初始化。和懒汉模式一致，只有在初次调用静态方法getSingleton，才会初始化signleton实例。
-性能优化。同步会造成性能下降，在同步前通过判读singleton是否初始化，减少不必要的同步开销。
+```
+ 第一重判断在同步前通过判读singleton是否初始化，减少不必要的同步开销。第2重抢到锁之后再次判断是否为空, 多线程情况下如果第2个线程抢到锁后发现不为空了，就不在创建。
+ volatile 作用是为了防止singleton = new Singleton() 指令重拍，造成返回对象是错误的。下边具体有介绍。
+```
+
+- 整体好处：
+
+```
+延迟初始化。和懒汉模式一致，只有在初次调用静态方法getSingleton，才会初始化signleton实例。
+性能优化。同步会造成性能下降，同步前通过判读singleton是否初始化，减少不必要的同步开销
 线程安全。同步创建Singleton对象，同时注意到静态变量singleton使用volatile修饰。
 ```
 
@@ -194,4 +201,27 @@ public final class T extends Enum
 }
 ```
 
+- 枚举类编译后默认为final class，可防止被子类修改。常量类可被继承修改、增加字段等，容易导致父类的不兼容。枚举类型是线程安全的，并且只会装载一次，充分的利用了枚举的这个特性来实现单例模式。
+- **枚举实现的单例可以避免反射、序列化问题。序列化会通过反射调用无参数的构造方法创建一个新的对象， 枚举是无法进行反射的，所以也达到了防止反射和反序列化相关隐患**
 - **static类型的属性会在类被加载之后被初始化, 当一个Java类第一次被真正使用到的时候静态资源被初始化、Java类的加载和初始化过程都是线程安全的（因为虚拟机在加载枚举的类的时候，会使用ClassLoader的loadClass方法，而这个方法使用同步代码块保证了线程安全）。所以，创建一个enum类型是线程安全的**
+
+
+## 破坏单例模式的方法及预防措施
+- 1、除枚举方式外，其他方法都会通过反射的方式破坏单例。反射是通过强行调用私有构造方法生成新的对象，所以如果我们想要阻止单例破坏，可以在构造方法中进行判断，若已有实例,，则阻止生成新的实例，解决办法如下:
+```
+private Singleton(){
+    if (instance != null){
+        throw new RuntimeException("实例已经存在，请通过 getInstance()方法获取");
+    }
+}
+```
+
+- 2、如果单例类实现了序列化接口Serializable, 就可以通过反序列化破坏单例。所以我们可以不实现序列化接口，如果非得实现序列化接口，可以重写反序列化方法readResolve()，反序列化时直接返回相关单例对象。
+
+```
+public Object readResolve() throws ObjectStreamException {
+    return instance;
+}
+```
+
+- 参考相关文章总结：https://blog.csdn.net/u011514810/article/details/76762176

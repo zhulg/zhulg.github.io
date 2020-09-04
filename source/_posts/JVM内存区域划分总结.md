@@ -67,7 +67,34 @@ OutOfMemoryError 若允许动态扩展，那么当线程请求栈时内存用完
 
 ![](https://raw.githubusercontent.com/zhulg/allpic/master/memory.png)
 
-- 直接内存
-- 产生OOM的地方
-- 垃圾回收
+- 产生OOM的地方：除了程序计数器之外，都会产生相关的OOM，最主要是在堆上。还有一种是直接内存，也是造成OOM的原因。
+
+
+## 直接内存
+-  **内存对象分配在JVM中堆以外的内存称为直接内存**，这些内存直接受操作系统管理（而不是JVM），这样做的好处是能够在一定程度上减少垃圾回收对应用程序造成的影响。**一般我们使用Unsafe和NIO包下ByteBuffer来创建堆外内存**
+
+- 为什么使用堆外内存：
+
+```
+1、减少了垃圾回收
+使用堆外内存的话，堆外内存是直接受操作系统管理( 而不是虚拟机 )。这样做的结果就是能保持一个较小的堆内内存，以减少垃圾收集对应用的影响。
+2、提升复制速度(io效率)
+堆内内存由JVM管理，属于“用户态”；而堆外内存由OS管理，属于“内核态”。如果从堆内向磁盘写数据时，数据会被先复制到堆外内存，即内核缓冲区，然后再由OS写入磁盘，使用堆外内存避免了这个操作
+```
+
+### 堆外内存申请(了解)
+-  DK的ByteBuffer类提供了一个接口allocateDirect(int capacity)进行堆外内存的申请，底层通过unsafe.allocateMemory(size)实现。Netty、Mina等框架提供的接口也是基于ByteBuffer封装的。
+
+```
+import java.nio.ByteBuffer;
+public class DirectOom {    
+    public static void main(String[] args) {        
+        //直接分配128M的直接内存(100M)        
+        ByteBuffer bb = ByteBuffer.allocateDirect(128*1024*1204);    
+    }
+}
+
+```
+
+- 直接内存（direct memory）不属于JVM运行时数据区的一部分，属于堆外内存，会被频繁使用，因此在设置各个内存范围时要留出一部分物理内存，否则也容易抛出OutOfMemoryError
 
