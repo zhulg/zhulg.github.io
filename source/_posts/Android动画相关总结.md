@@ -2,7 +2,7 @@
 
 title: Android动画相关总结
 date: 2020-08-25 20:53:00
-tags: android
+tags: Android
 categories: Android
 
 ---
