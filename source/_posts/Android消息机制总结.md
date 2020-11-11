@@ -318,3 +318,7 @@ Handler mHandler = new Handler( handlerThread.getLooper() ) {
 //步骤4：结束线程，即停止线程的消息循环
 mHandlerThread.quit();
 ```
+
+- 使用场景：
+- 存在多个耗时的任务需要放到开启子线程依次去处理（串行处理任务）
+- HandlerThread是一个子线程，适合处理耗时的任务，其次，Handler分发消息是通过MessageQueue顶部的Message不断的通过Message的next依次取出Message，符合任务的按顺序串行处理的要求，所以使用HandlerThread就能完美的解决
