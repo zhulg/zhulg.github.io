@@ -53,7 +53,10 @@ In the top level of the scratchjr repo directory, install npm dependencies for b
 
 - 环境依赖安装成功后，就可以进行源码进行相关编译项目，这过程可能会有相关环境安装失败情况出现（自行查找解决）
 - ![](https://raw.githubusercontent.com/zhulg/allpic/master/scratch4.png)
-- 根据边的架构可以看到相关代码模块的构成部分。
+- 根据边的架构可以看到相关代码模块的构成部分，**可能运行不起来，需要把google相关的google-services进行移除下。**
+
+#### ios方式打开
+- 打开的方式和依赖于Android相同，需要相关的依赖环境与Android依赖相同，之后通过xcode打开ios/ScratchJr.xcworkspace即可
 
 
 
