@@ -1,7 +1,9 @@
 ---
 title: 总结下fabric从入门到崩溃路线
 date: 2018-07-26 11:00:40
-tags: [fabric,区块链]
+tags: 区块链
+categories: 区块链
+toc: true
 ---
 
 - fabric的学习路线总结回顾一下，也作为归纳和知识回顾。

@@ -1,7 +1,9 @@
 ---
 title: Hyperledger Fabric orderer分析记录
 date: 2018-08-29 17:51:46
-tags: [fabric,orderer,区块链]
+tags: 区块链
+categories: 区块链
+toc: true
 ---
 
 ## Fabric Orderer主要作用

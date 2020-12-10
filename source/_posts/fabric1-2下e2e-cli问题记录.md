@@ -1,7 +1,9 @@
 ---
 title: fabric1.2下e2e_cli问题记录
 date: 2018-08-02 18:25:18
-tags: [fabric,区块链]
+tags: 区块链
+categories: 区块链
+toc: true
 ---
 
 - 目前升级了fabric 1.2版本，是当前最新release版本。

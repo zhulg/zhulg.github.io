@@ -1,7 +1,9 @@
 ---
 title: springboot里几个常用注解
 date: 2017-08-04 18:23:30
-tags: springboot相关
+tags: springboot
+categories: springboot
+toc: true
 ---
 #### Spring里几个常用注解区别
 |注解	|用途|

@@ -1,7 +1,9 @@
 ---
 title: rabbitMQ安装记录
 date: 2017-08-07 11:07:49
-tags: springboot相关
+tags: springboot
+categories: springboot
+toc: true
 ---
 
 - 安装

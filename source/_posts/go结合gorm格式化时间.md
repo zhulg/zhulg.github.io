@@ -1,7 +1,9 @@
 ---
 title: go结合gorm格式化时间
 date: 2018-11-21 12:28:35
-tags: [go,gorm]
+tags: go
+categories: go
+toc: true
 ---
 
 - go使用gorm做数据库映射时，数据库里存储时间为UTC时间

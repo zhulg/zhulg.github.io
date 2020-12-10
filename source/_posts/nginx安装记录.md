@@ -2,6 +2,8 @@
 title: nginx安装记录
 date: 2017-09-06 11:24:07
 tags: nginx
+categories : nginx
+toc: true
 ---
 ### Mac安装Nginx
 - 使用brew安装nginx

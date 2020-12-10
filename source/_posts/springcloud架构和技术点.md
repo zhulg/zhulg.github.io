@@ -2,6 +2,8 @@
 title: springcloud架构和技术点
 date: 2017-09-29 16:57:19
 tags: springcloud
+categories: springcloud
+toc: true
 ---
 ### SpringCloud架构图
 

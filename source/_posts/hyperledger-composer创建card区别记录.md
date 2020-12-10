@@ -1,7 +1,9 @@
 ---
 title: hyperledger composer创建card区别记录
 date: 2018-05-17 20:01:18
-tags: [fabric,composer,区块链]
+tags: 区块链
+categories: 区块链
+toc: true
 ---
 
 

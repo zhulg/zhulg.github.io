@@ -1,7 +1,9 @@
 ---
 title: 如何绑定两个github帐号
 date: 2018-09-26 15:55:50
-tag: git/github/gitlab
+tags: git
+categories: Git
+toc: true
 ---
 ![](/images/coffee.jpg)
 

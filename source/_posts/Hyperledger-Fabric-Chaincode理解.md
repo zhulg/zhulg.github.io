@@ -1,7 +1,9 @@
 ---
 title: Hyperledger Fabric Chaincode汇总
 date: 2018-03-01 10:43:44
-tags: [区块链,fabric,超级账本]
+tags: 区块链
+categories: 区块链
+toc: true
 ---
 #### chaincode是什么
 - 是一个类，这个类要实现fabric预先定义的一个接口。

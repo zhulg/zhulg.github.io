@@ -1,7 +1,9 @@
 ---
 title: fabric集成开启tls后出现错误记录
 date: 2018-05-01 21:50:59
-tags: [fabric,区块链,tls]
+tags: 区块链
+categories: 区块链
+toc: true
 ---
 
 - 目前在不开启tls时，通过fabric javasdk链接到fabric网络，数据到链一切正常。

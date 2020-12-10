@@ -2,7 +2,7 @@
 title: Java线程状态及关键方法
 date: 2020-08-18 09:56:08
 categories: Java
-tags: Java,线程
+tags: Java
 toc: true
 ---
 

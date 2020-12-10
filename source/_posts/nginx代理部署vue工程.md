@@ -1,7 +1,9 @@
 ---
 title: nginx代理部署vue工程
 date: 2018-06-12 18:13:37
-tags: [nginx,vue]
+tags: nginx
+categories : nginx
+toc: true
 ---
 
 - docker pull nginx 拉取镜像

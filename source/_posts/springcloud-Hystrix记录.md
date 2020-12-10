@@ -2,6 +2,8 @@
 title: springcloud Hystrix记录点
 date: 2017-10-16 15:41:25
 tags: springcloud
+categories: springcloud
+toc: true
 ---
 
 ### SpringCloud-Hystrix记录点

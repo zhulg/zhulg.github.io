@@ -1,7 +1,9 @@
 ---
 title: fabric的chaincode编写及接口
 date: 2018-04-21 17:57:38
-tags: [fabric,区块链,chaincode]
+tags: 区块链
+categories: 区块链
+toc: true
 ---
 
 - fabric里链码的编写是go语言，一般编写和调试可在开发环境进行快速测试和开发。上次笔记有介绍。

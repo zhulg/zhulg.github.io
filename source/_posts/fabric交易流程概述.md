@@ -1,7 +1,9 @@
 ---
 title: fabric交易流程概述
 date: 2018-04-04 14:21:24
-tags: [区块链,fabric]
+tags: 区块链
+categories: 区块链
+toc: true
 ---
 - 目前基于fabric1.0.6版本学习
 #### Fabric的交易流程中，主要关键节点参与，Peer节点、Orderer节点、CA节点及client端。

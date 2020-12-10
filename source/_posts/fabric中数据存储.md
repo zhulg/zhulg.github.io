@@ -1,7 +1,9 @@
 ---
 title: fabric中数据存储
 date: 2018-04-10 15:49:17
-tags: [fabric,区块链]
+tags: 区块链
+categories: 区块链
+toc: true
 ---
 ### fabric中默认存储库levelDb
 

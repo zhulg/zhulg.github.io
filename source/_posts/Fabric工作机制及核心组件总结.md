@@ -1,7 +1,9 @@
 ---
 title: Fabric工作机制及核心组件总结
 date: 2018-08-22 10:57:52
-tags: [fabric,区块链]
+tags: 区块链
+categories: 区块链
+toc: true
 ---
 
 - 通过总结来进一步检验对fabric工作机制及底层数据存储和上链过程的认识，加深对fabric的理解和认识。

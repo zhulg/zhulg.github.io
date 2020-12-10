@@ -2,6 +2,8 @@
 title: fabric部署例子错误日志
 date: 2018-02-24 19:15:49
 tags: 区块链
+categories: 区块链
+toc: true
 ---
 
 - 部署Building Your First Network例子时，最后一步出现错误

@@ -1,7 +1,9 @@
 ---
 title: Fabric网络启动流程-多节点操作查询
 date: 2018-03-23 18:29:29
-tags: [fabric,区块链]
+tags: 区块链
+categories: 区块链
+toc: true
 ---
 
 

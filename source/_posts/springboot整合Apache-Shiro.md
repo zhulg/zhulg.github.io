@@ -1,7 +1,9 @@
 ---
 title: springboot整合Apache Shiro
 date: 2017-10-24 19:44:59
-tags: springcloud
+tags: springboot
+categories: springboot
+toc: true
 ---
 
 ### Shiro的记录

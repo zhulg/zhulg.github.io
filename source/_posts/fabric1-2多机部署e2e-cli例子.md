@@ -1,7 +1,9 @@
 ---
 title: fabric1.2多机部署e2e_cli例子
 date: 2018-08-09 11:40:27
-tags: [fabric,部署]
+tags: 区块链
+categories: 区块链
+toc: true
 ---
 
 ### fabric1.2版本多机器部署e2e_cli

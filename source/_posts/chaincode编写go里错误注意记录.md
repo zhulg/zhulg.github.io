@@ -1,7 +1,9 @@
 ---
 title: chaincode编写go里错误注意记录
 date: 2018-03-21 19:19:57
-tags: [区块链,go] 
+tags: 区块链
+categories: 区块链
+toc: true
 ---
 
 - go里的方法在使用json.Marshal()时需要，结构的定义需要按照大写的方式来定义。

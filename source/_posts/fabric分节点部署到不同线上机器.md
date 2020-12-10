@@ -1,7 +1,9 @@
 ---
 title: fabric分节点部署到不同线上机器
 date: 2018-04-14 14:48:18
-tags: [fabric,区块链]
+tags: 区块链
+categories: 区块链
+toc: true
 ---
 #### 分机器部署节点
 - fabric在真正的应用环境里是不同的节点是部署在不同的机器上的，peer,orderer在不同机器是，根据需要orderer可集群。

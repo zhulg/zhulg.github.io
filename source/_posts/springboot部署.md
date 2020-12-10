@@ -2,6 +2,8 @@
 title: springboot部署
 date: 2017-08-15 18:13:47
 tags: springboot
+categories: springboot
+toc: true
 ---
 ### Springboot部署阿里云
 - 环境准备<br>

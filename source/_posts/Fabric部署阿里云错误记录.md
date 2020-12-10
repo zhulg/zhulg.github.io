@@ -1,7 +1,9 @@
 ---
 title: Fabric部署阿里云错误记录
 date: 2018-05-14 19:27:57
-tags: [fabric,部署]
+tags: 区块链
+categories: 区块链
+toc: true
 ---
 
 #### Fabric部署在阿里云上错误解决

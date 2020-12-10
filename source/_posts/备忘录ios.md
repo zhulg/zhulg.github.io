@@ -2,6 +2,8 @@
 title: ios遗忘记录
 date: 2019-10-1 22:53:06
 tags: ios
+categories : ios
+toc: true
 ---
 
 

@@ -2,6 +2,8 @@
 title: springcloud-sleuth记录
 date: 2017-10-18 17:09:11
 tags: springcloud
+categories: springcloud
+toc: true
 ---
 
 ### SpringCloud Sleuth记录
@@ -51,3 +53,4 @@ Elasticsearch
 - sr：服务端接收到请求，并开始处理内部事务，其中sr - cs则为网络延迟和时钟抖动
 - ss：服务端处理完请求，返回响应内容，其中ss - sr则为服务端处理请求耗时
 - cr：客户端接收到服务端响应内容，标志着Span的结束，其中cr - ss则为网络延迟和时钟抖动
+H

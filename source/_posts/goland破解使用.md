@@ -1,7 +1,9 @@
 ---
 title: goland破解使用
 date: 2018-02-28 19:01:49
-tags: 区块链
+tags: go
+categories: go
+toc: true
 ---
 - Mac下 goland的使用
 - 官网下载 [地址](https://www.jetbrains.com/go/) 目前版本为2017.3.2

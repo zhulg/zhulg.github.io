@@ -1,7 +1,9 @@
 ---
 title: Hyperledger-Fabric-MSP分析记录
 date: 2018-08-30 11:31:28
-tags: [fabric,区块链]
+tags: 区块链
+categories: 区块链
+toc: true
 ---
 
 ## fabric MSP功能及源码分析

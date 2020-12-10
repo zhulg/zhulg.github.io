@@ -2,6 +2,8 @@
 title: nginx配置文件
 date: 2017-09-30 17:19:51
 tags: nginx
+categories : nginx
+toc: true
 ---
 ### nginx配置文件说明
 

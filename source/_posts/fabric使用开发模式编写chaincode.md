@@ -1,7 +1,9 @@
 ---
 title: fabric使用开发模式编写chaincode
 date: 2018-03-28 17:40:22
-tags: [fabric,区块链,chaincode]
+tags: 区块链
+categories: 区块链
+toc: true
 ---
 
 #### 在开发者模式下编写调试chaincode
