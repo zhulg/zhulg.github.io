@@ -1,8 +1,8 @@
 ---
 title: goland破解使用
 date: 2018-02-28 19:01:49
-tags: go
-categories: go
+tags: Tools
+categories: Tools
 toc: true
 ---
 - Mac下 goland的使用
