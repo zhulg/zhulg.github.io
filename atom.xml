@@ -6,7 +6,7 @@
   <link href="https://zhulg.github.io/atom.xml" rel="self"/>
   
   <link href="https://zhulg.github.io/"/>
-  <updated>2020-12-10T14:56:00.443Z</updated>
+  <updated>2020-12-30T12:17:01.597Z</updated>
   <id>https://zhulg.github.io/</id>
   
   <author>
@@ -15,6 +15,82 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>App WebView白屏总结</title>
+    <link href="https://zhulg.github.io/2020/12/30/App-WebView%E7%99%BD%E5%B1%8F%E6%80%BB%E7%BB%93/"/>
+    <id>https://zhulg.github.io/2020/12/30/App-WebView%E7%99%BD%E5%B1%8F%E6%80%BB%E7%BB%93/</id>
+    <published>2020-12-30T02:39:30.000Z</published>
+    <updated>2020-12-30T12:17:01.597Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="App上WebView白屏"><a href="#App上WebView白屏" class="headerlink" title="App上WebView白屏"></a>App上WebView白屏</h2><ul><li>在移动端上场景的H5页面白屏问题，根据平台分为Android和ios端上H5白屏问题（相关解决和优化基于移动端侧）</li><li>Android的的白屏问题表现现对比较多些，按问题类型大致可以概括为：</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">机型兼容造成</span><br><span class="line">JS语法兼容造成</span><br><span class="line">网络加载获取数据造成</span><br><span class="line">软件系统版本兼容造成</span><br><span class="line">内存或者渲染进程造成</span><br><span class="line">android上疑难杂症</span><br></pre></td></tr></table></figure><ul><li>IOS的问题造成白屏的原因现对较少，因为WKWebView来说通过系统组件来保障，相对Android系统webview碎片化要好的多：</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">网络加载获取数据造成</span><br><span class="line">系统软件版本造成</span><br><span class="line">JS语言兼容造成</span><br><span class="line">内存不足造成</span><br></pre></td></tr></table></figure><h2 id="Android端白屏问题（APP侧解决方案）"><a href="#Android端白屏问题（APP侧解决方案）" class="headerlink" title="Android端白屏问题（APP侧解决方案）"></a>Android端白屏问题（APP侧解决方案）</h2><ul><li>常见的语法造成白屏相关</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">使用了es6的语法对低版本未做兼容引入了三方外部插件，外部插件语法存在兼容性问题</span><br><span class="line">语法错误造成页面无法渲染</span><br></pre></td></tr></table></figure><ul><li>webview加载H5界面时,H5中的一些控件标签可能使用后android中不支持设置如下方式</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 解决对某些标签的不支持出现白屏</span><br><span class="line">webSettings.setDomStorageEnabled(true);</span><br></pre></td></tr></table></figure><ul><li>一些机型硬件加速相关问题</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">webView.setBackgroundColor(ContextCompat.getColor(this,android.R.color.transparent));</span><br><span class="line">webView.setBackgroundResource(R.color.black);//根据需求修改</span><br></pre></td></tr></table></figure><ul><li>网络资源获取造成的白屏<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">这种情况与获取的资源有关系，可以通过loading状态和箭听webviewClient方法进行处理</span><br><span class="line">（这次主要调研基于业务的本地化内存造成的白屏）</span><br></pre></td></tr></table></figure></li></ul><h3 id="内存相关造成白屏"><a href="#内存相关造成白屏" class="headerlink" title="内存相关造成白屏"></a>内存相关造成白屏</h3><ul><li>内存导致的白屏或者其他异常问题，有时白屏显示，有时界面渲染失败等奇怪现象，但是内存白屏是最不好处理，又需要给用户友好体验的问题。</li><li><strong>webview自身内存问题</strong>：本身webview自身比较重，切存在activity或fragment里就牵涉到声明周期和创建的问题，和声明周期里回收问题，一般解决方法在声明周期销毁时先destory在设置null 。先加载null内容的过程需要实际代码验证。</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">if (mWebView != null) &#123;</span><br><span class="line">      mWebView.loadDataWithBaseURL(null, &quot;&quot;, &quot;text/html&quot;, &quot;utf-8&quot;, null); </span><br><span class="line">      mWebView.clearHistory(); </span><br><span class="line">      mLayout.removeView(mWebView); </span><br><span class="line">       mWebView.destroy(); </span><br><span class="line">       mWebView = null; </span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure><ul><li><p>独立进程的方式，一般不采用涉及跨进程数据通信，加大维护难度</p></li><li><p><strong>加载内容内存问题造成的白屏</strong>：可以从以下几个思路进行解决</p></li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">监控webview的渲染进程状态</span><br><span class="line">监测H5页面白屏页面</span><br><span class="line">监测webview里的内存</span><br></pre></td></tr></table></figure><h4 id="监控WebView渲染进程（适合项目应用）"><a href="#监控WebView渲染进程（适合项目应用）" class="headerlink" title="监控WebView渲染进程（适合项目应用）"></a>监控WebView渲染进程（适合项目应用）</h4><ul><li><p>webView的内存从4.4变为基于Google的Chromium的实现</p></li><li><p><img src="https://a77db9aa-a-7b23c8ea-s-sites.googlegroups.com/a/chromium.org/dev/developers/design-documents/multi-process-architecture/arch.png?attachauth=ANoY7cqlEjwaSt9DhazJlP1VN54Qg4oNubWeXO7MRVGONSZrVwZCB2Vvl2kcllXIMx0HiAUkj5NDQnHjw5WLRfTG9HUkGpS55566yzX_vxQm51n-BkL8mxAn-MTQxOW3-hkfSplcGkVnicYgxFLnP2iCsf_dh1_T1Ofao4EYgGBgzD7r6NbnSOtNCLDPp5_ZrEKP8Btw5dVA8YeOLe9lSJmjt3In3DVKSvxhzYhj5fAvATUExgxC4v-ZbATgEttqxZyXitUfe-HifXb9KZRAfKKk3BkizPjZmw%3D%3D&attredirects=0" alt></p></li><li><p>Chromium的架构可以看到（Android 8.0默认打开多进程），Render Process 是单独的进程通过IPC来交互数据，GPU Process仍然为Browser Process的一个线程</p></li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">We use separate processes for browser tabs to protect the overall application from bugs and glitches in the rendering engine. We also restrict access from each rendering engine process to others and to the rest of the system. In some ways, this brings to web browsing the benefits that memory protection and access control brought to operating systems.</span><br><span class="line">We refer to the main process that runs the UI and manages tab and plugin processes as the &quot;browser process&quot; or &quot;browser.&quot; Likewise, the tab-specific processes are called &quot;render processes&quot; or &quot;renderers.&quot; The renderers use the Blink open-source layout engine for interpreting and laying out HTML.</span><br></pre></td></tr></table></figure><ul><li><p>官网架构里解释了相关多进程的目的，browser是单独的进程，确保渲染在出现故障的时候可以不影响browser的进程显示。</p></li><li><p><strong>我们相关的白屏的出现除了之前的因素和语法问题之前，就是渲染进程出现了问题。因为我们白屏主要出现在渲染进程，那就可以通过渲染进程查找出问题时相关的状态信息，问题就转化为我们如何知道Render Process的相关状态和监控</strong></p></li><li><p>关于Render进程可以在文档里查到关于webview的Termination Handling ，通过该方法检测到渲染进程, 通过实现client里的onRenderProcessGone方法。</p></li><li><p><strong>原理和实现：</strong></p></li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">当检测到渲染进程被页面大内存消耗导致被杀或者异常终止时，</span><br><span class="line">移除当前webview实例并消耗，否则新渲染进程会失效</span><br><span class="line">通过新的实例加载出新的执行逻辑，可以reload页面或者其他业务逻辑, （而browser进程不死用户无感知）</span><br><span class="line">防止当前reload页面如有大内存死循环，可能直接会被系统kill</span><br><span class="line">（要考虑到系统版本限制问题，并适用于X5WebView）</span><br></pre></td></tr></table></figure><ul><li>代码demo可以联系我,目前暂时未放gitlab上</li></ul><h4 id="监控WebView页面白屏（适合数据采集）"><a href="#监控WebView页面白屏（适合数据采集）" class="headerlink" title="监控WebView页面白屏（适合数据采集）"></a>监控WebView页面白屏（适合数据采集）</h4><ul><li>内存问题是造成白屏的重要一部分，还有就是其他莫名奇妙问题造成的页面白屏（这种白屏可能不是内存，js语法、网络加载等造成白屏）</li><li>如果能够在APP端检测到白屏页面出现，采取相应的提示或者reload ,也是很好解决疑难杂症的白屏方案</li><li>技术点实现：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">对WebView在调用完成后进行截图</span><br><span class="line">遍历截图的像素点的颜色值</span><br><span class="line">设定白色像素点比例确认是否白屏</span><br></pre></td></tr></table></figure></li></ul><h4 id="监测webview里的内存"><a href="#监测webview里的内存" class="headerlink" title="监测webview里的内存"></a>监测webview里的内存</h4><ul><li>目前关于如何监测webView里的内存占用情况，在原生端上还没有更好的思路去处理，需要进一步调研</li><li>在项目里的实现，可以优先使用前2中方案。</li></ul><h2 id="Ios端WKWebView白屏"><a href="#Ios端WKWebView白屏" class="headerlink" title="Ios端WKWebView白屏"></a>Ios端WKWebView白屏</h2><ul><li>相对Android上的白屏，ios白屏的出现在app端上大部分为内存占用产生。</li><li><strong>产生的原因</strong>：WKWebView 是运行在一个独立进程中的组件，当 WKWebView 上占用内存过大时，WKWebView 所在的 WebContent Process 会被系统 kill 掉，反映在用户体验上就是发生了白屏。</li></ul><h3 id="ios系统方案"><a href="#ios系统方案" class="headerlink" title="ios系统方案"></a>ios系统方案</h3><ul><li>WKNavigationDelegate的回调方法webViewWebContentProcessDidTerminate 里直接进行reload</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"> 尝试在每次请求kWebview前清理缓存</span><br><span class="line"> webview reload</span><br></pre></td></tr></table></figure><h3 id="白屏像素检测（因为有些不是内存引起的，也不回调系统的方法）"><a href="#白屏像素检测（因为有些不是内存引起的，也不回调系统的方法）" class="headerlink" title="白屏像素检测（因为有些不是内存引起的，也不回调系统的方法）"></a>白屏像素检测（因为有些不是内存引起的，也不回调系统的方法）</h3><ul><li>原理：类似于android的白屏检测，通过截图检测像素点，来判断是否白屏</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">通过获取截图</span><br><span class="line">截图进行缩放</span><br><span class="line">像素点进行遍历判断比例</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;App上WebView白屏&quot;&gt;&lt;a href=&quot;#App上WebView白屏&quot; class=&quot;headerlink&quot; title=&quot;App上WebView白屏&quot;&gt;&lt;/a&gt;App上WebView白屏&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;在移动端上场景的H5页面白屏问题，根据平</summary>
+      
+    
+    
+    
+    <category term="App" scheme="https://zhulg.github.io/categories/App/"/>
+    
+    
+    <category term="App" scheme="https://zhulg.github.io/tags/App/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Medium文章免费阅读方法</title>
+    <link href="https://zhulg.github.io/2020/12/17/medium%E6%96%87%E7%AB%A0%E5%85%8D%E8%B4%B9%E9%98%85%E8%AF%BB%E6%96%B9%E6%B3%95/"/>
+    <id>https://zhulg.github.io/2020/12/17/medium%E6%96%87%E7%AB%A0%E5%85%8D%E8%B4%B9%E9%98%85%E8%AF%BB%E6%96%B9%E6%B3%95/</id>
+    <published>2020-12-17T03:19:26.000Z</published>
+    <updated>2020-12-30T02:37:07.349Z</updated>
+    
+    <content type="html"><![CDATA[<ul><li><p>medium上一些不错的技术文章会长付费阅读，技术文章在未商业化前应该是平等获取及阅读的。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Not every story on Medium is free, like this one. Become a member to get unlimited access and support the voices you want to hear more from.</span><br></pre></td></tr></table></figure></li><li><p>网上看到有个国外小哥破解教程，记录下. 里面包括教程，已验证目前完全可用。</p></li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://sugoidesune.github.io/readium/</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;medium上一些不错的技术文章会长付费阅读，技术文章在未商业化前应该是平等获取及阅读的。&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class</summary>
+      
+    
+    
+    
+    <category term="Tools" scheme="https://zhulg.github.io/categories/Tools/"/>
+    
+    
+    <category term="Tools" scheme="https://zhulg.github.io/tags/Tools/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ScratchJr源代码编译记录</title>
+    <link href="https://zhulg.github.io/2020/12/14/ScratchJr%E6%BA%90%E4%BB%A3%E7%A0%81%E7%BC%96%E8%AF%91%E8%AE%B0%E5%BD%95/"/>
+    <id>https://zhulg.github.io/2020/12/14/ScratchJr%E6%BA%90%E4%BB%A3%E7%A0%81%E7%BC%96%E8%AF%91%E8%AE%B0%E5%BD%95/</id>
+    <published>2020-12-14T09:26:51.000Z</published>
+    <updated>2020-12-30T02:37:07.344Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="ScratchJr编译"><a href="#ScratchJr编译" class="headerlink" title="ScratchJr编译"></a>ScratchJr编译</h2><ul><li>源码下载后可以根据相应的模块进行编译，由于源代码里包含google相关的统计服务，在国内环境下一版不会使用，国内有自己的统计和上报服务。</li><li>代码下载：<a href="https://github.com/LLK/scratchjr.git" target="_blank" rel="noopener">https://github.com/LLK/scratchjr.git</a></li></ul><h2 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h2><ul><li>1.需要安装相应的python svg&amp; librsvg&amp; imagemagick， 需要有brew相关环境</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Run sudo easy_install pysvg to install python svg libraries</span><br><span class="line">Run brew install librsvg to install commandline rsvg-convert</span><br><span class="line">Run brew install imagemagick to install commandline magick</span><br></pre></td></tr></table></figure><ul><li>2.由于项目依赖nodejs ，需要安装相应的nodejs并在工程下载后进行 npm install 安装相应模块. 在项目跟目录</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install</span><br></pre></td></tr></table></figure><ul><li>依赖完成后会存在 node_modules 目录下，（ 如果不进行初始化依赖。后边工程将无法运行 scratchjr/node_modules/webpack/bin/webpack.js’）</li></ul><h2 id="ios源码编译"><a href="#ios源码编译" class="headerlink" title="ios源码编译"></a>ios源码编译</h2><ul><li>进入源码的工程打开ios代码所在的目录, 查看相关Podfile , 由于原工程使用Firebase 需要google相关服务，可以直接拿掉。然后代码里去掉相关代码即可。</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">platform :ios, &apos;8.0&apos;</span><br><span class="line"># add the Firebase pod for Google Analytics</span><br><span class="line">#pod &apos;Firebase/Analytics&apos;</span><br><span class="line">target &apos;ScratchJr Free&apos; do</span><br><span class="line">end</span><br><span class="line">target &apos;ScratchJrTests&apos; do</span><br><span class="line">end</span><br></pre></td></tr></table></figure><ul><li>去掉代码里相关的使用的相关地方:</li><li><img src="https://raw.githubusercontent.com/zhulg/allpic/master/scratch7.png" alt></li><li><img src="https://raw.githubusercontent.com/zhulg/allpic/master/scratch8.png" alt></li><li>运行相关的工程，在运行务必进行npm install 初始化项目依赖，否则运行可能出现依赖错误导致界面异常。</li></ul><h2 id="Android源码编译"><a href="#Android源码编译" class="headerlink" title="Android源码编译"></a>Android源码编译</h2><ul><li>进入android的目录打开studio进行编译，相同的直接去掉相关依赖</li><li>在build.gradle工程和Module的gradle文件里去掉相关依赖</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">classpath &apos;com.google.gms:google-services</span><br><span class="line">apply plugin: &apos;com.google.gms.google-services&apos;</span><br></pre></td></tr></table></figure><ul><li>注释去掉</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">processFreeDebugGoogleServices.dependsOn switchToFreeGA</span><br><span class="line">processFreeReleaseGoogleServices.dependsOn switchToFreeGA</span><br></pre></td></tr></table></figure><ul><li>工程出现错误  bundle-compile.sh    finished with non-zero exit value 1 (这个是执行文件里所依赖的nodejs没有找到执行路径，需要软引用进行下处理) </li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ln -s &quot;$(which node)&quot; /usr/local/bin/node</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;ScratchJr编译&quot;&gt;&lt;a href=&quot;#ScratchJr编译&quot; class=&quot;headerlink&quot; title=&quot;ScratchJr编译&quot;&gt;&lt;/a&gt;ScratchJr编译&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;源码下载后可以根据相应的模块进行编译，由于源代码里包含g</summary>
+      
+    
+    
+    
+    <category term="Scratch" scheme="https://zhulg.github.io/categories/Scratch/"/>
+    
+    
+    <category term="Scratch" scheme="https://zhulg.github.io/tags/Scratch/"/>
+    
+  </entry>
   
   <entry>
     <title>Scratch项目和原理</title>
@@ -143,26 +219,6 @@
     
     
     <category term="Android" scheme="https://zhulg.github.io/tags/Android/"/>
-    
-  </entry>
-  
-  <entry>
-    <title></title>
-    <link href="https://zhulg.github.io/2020/09/30/%E6%9C%AA%E5%91%BD%E5%90%8D/"/>
-    <id>https://zhulg.github.io/2020/09/30/%E6%9C%AA%E5%91%BD%E5%90%8D/</id>
-    <published>2020-09-29T19:14:57.488Z</published>
-    <updated>2020-09-29T19:14:57.488Z</updated>
-    
-    <content type="html"><![CDATA[<p>​上线类项目：<br>本周学堂2端iosV2.6.1和AndroidV2.3.1域名切换小版本本周开发完成，目前Android先上官网，iOS已提交审核。<br>本周培优APP iOS端小版本开发完成已提交审核，内容包括微信分享SDK升级和iOS14适配。<br>培优iOS马甲包APP项目，暂搁置状态（被拒原因绘本内容重复,非技术问题）<br>开发中项目：<br>学堂两端本周开始启动1V10开发<br>相关技术点方案开始验证推进 ,两端排期和分工已明确到人。<br>对外对接技术方案和时间点安排，已于相关负责接口人进行了时间点确认，确保对接时间。<br>​需求评审及对外：<br>  本周重点是1V10需求开发细化，域名切换需求细节核对</p><p>优化及技术类跟踪：<br>本周crash情况，ios学堂在(0.04%-0.16%)，本周全版本crash周五下降明显，查看crash日志上报正常全APP版本崩溃共3次, crash率首次进入万分单位，需要继续观察。目前整体在千分之1-2左右。  Android学堂目前保持在 1.18%-2.10%，crash已恢复到之前，培优Android在千分之2-3左右，培优Android需要解决些问题，达到万分单位。培优ios整体在万分2-3左右，保持良好水平。 Q4的目标会重点对Android学堂开始进行降低crash率。目前因为机型碎片化和人数相对少，整体crash率为百分1-2，目标为千分以内Q4完成。</p><p>个人工作重心​​<br>域名切换进行方案梳理，确定两端实现方案切换时间点和执行重试次数控制，与测试对接需求。<br>跟进培优APP ios 小版本的发布工作，涉及技术点和方案与产品对接。<br>小班课整体技术方案和相关技术点流程整理成时序图，统一两端实现和细节下周发布到teammark<br>Q4期准备要要做的技术优化进行了梳理，并在小班课期间会进行落地（<a href="https://rouchi.teammark.com/160380911716245506/articles/229241859515752450）" target="_blank" rel="noopener">https://rouchi.teammark.com/160380911716245506/articles/229241859515752450）</a><br>调研各端在小班课里使用的动效方案，目前选定lottie降低开发难度。</p><p>本周思考/遇到了什么问题​<br>本周有哪些思考？或者遇到了哪些问题，需要谁的帮助？<br>小班课项目制定了里程碑的时间点和技术实现与流程图同步起来，通过技术点流程和时序图文档化，来确保细节执行环节和方案的一致性。并避免细节实现遗漏之处。</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;​上线类项目：&lt;br&gt;本周学堂2端iosV2.6.1和AndroidV2.3.1域名切换小版本本周开发完成，目前Android先上官网，iOS已提交审核。&lt;br&gt;本周培优APP iOS端小版本开发完成已提交审核，内容包括微信分享SDK升级和iOS14适配。&lt;br&gt;培优iOS</summary>
-      
-    
-    
-    
     
   </entry>
   
@@ -469,58 +525,6 @@
     
     
     <category term="linux" scheme="https://zhulg.github.io/tags/linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Kotlin常混淆操作记录</title>
-    <link href="https://zhulg.github.io/2019/08/20/kotlin%E5%B8%B8%E6%B7%B7%E6%B7%86%E6%93%8D%E4%BD%9C%E8%AE%B0%E5%BD%95/"/>
-    <id>https://zhulg.github.io/2019/08/20/kotlin%E5%B8%B8%E6%B7%B7%E6%B7%86%E6%93%8D%E4%BD%9C%E8%AE%B0%E5%BD%95/</id>
-    <published>2019-08-20T07:23:52.000Z</published>
-    <updated>2020-12-10T14:56:00.455Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="kotlin易混淆操作符"><a href="#kotlin易混淆操作符" class="headerlink" title="kotlin易混淆操作符"></a>kotlin易混淆操作符</h3><ul><li><strong>操作符？</strong></li><li>如果要允许为空，我们可以声明一个变量为可空字符串，写作 String?</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var b: String? = &quot;abc&quot;</span><br><span class="line">b = null // ok</span><br><span class="line">print(b)</span><br><span class="line">var b: String? = &quot;abc&quot;</span><br><span class="line">b = null // ok</span><br><span class="line">print(b)</span><br></pre></td></tr></table></figure><ul><li>安全调用操作符 ?</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">val a = &quot;Kotlin&quot;</span><br><span class="line">val b: String? = null</span><br><span class="line">println(b?.length)</span><br><span class="line">println(a?.length) // 无需安全调用</span><br></pre></td></tr></table></figure><ul><li><p>以上结果</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">null</span><br><span class="line">6</span><br><span class="line">如果 b 非空，就返回 b.length，否则返回 null，这个表达式的类型是 Int?。</span><br></pre></td></tr></table></figure></li><li><p><strong>安全调用在链式调用中很有用</strong>。例如，如果一个员工 Bob 可能会（或者不会）分配给一个部门， 并且可能有另外一个员工是该部门的负责人，那么获取 Bob 所在部门负责人（如果有的话）的名字，我们写作：</p></li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">bob?.department?.head?.name</span><br><span class="line">如果任意一个属性（环节）为空，这个链式调用就会返回 null。</span><br></pre></td></tr></table></figure><ul><li><strong>操作符!!</strong><br>第三种选择是为 NPE 爱好者准备的：非空断言运算符（!!）将任何值转换为非空类型，若该值为空则抛出异常。我们可以写 b!! ，这会返回一个非空的 b 值 （例如：在我们例子中的 String）或者如果 b 为空，就会抛出一个 NPE 异常：</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">val l = b!!.length</span><br><span class="line">因此，如果你想要一个 NPE，你可以得到它，但是你必须显式要求它，否则它不会不期而至。</span><br></pre></td></tr></table></figure><ul><li><strong>安全的类型转换</strong></li><li>如果对象不是目标类型，那么常规类型转换可能会导致 ClassCastException。 另一个选择是使用安全的类型转换，如果尝试转换不成功则返回 null：</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">val aInt: Int? = a as? Int</span><br><span class="line">val aInt: Int? = a as? Int</span><br></pre></td></tr></table></figure><h5 id="取值方法-Getter-与设值方法-Setter"><a href="#取值方法-Getter-与设值方法-Setter" class="headerlink" title="取值方法(Getter)与设值方法(Setter)"></a>取值方法(Getter)与设值方法(Setter)</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var &lt;propertyName&gt;[: &lt;PropertyType&gt;] [= &lt;property_initializer&gt;]</span><br><span class="line">    [&lt;getter&gt;]</span><br><span class="line">    [&lt;setter&gt;]</span><br></pre></td></tr></table></figure><ul><li><p>其中的初始化器(initializer), 取值方法(getter), 以及设值方法(setter)都是可选的. 如果属性类型可以通过初始化器自动推断得到, (或者可以通过取值方法的返回值类型推断得到, 详情见下文), 则属性类型的声明也可以省略.</p></li><li><p>如果我们定义一个自定义取值方法(Getter), 那么每次读取属性值时都会调用这个方法(因此我们可以用这种方式实现一个计算得到的属性). 下面是一个自定义取值方法的示例:</p></li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">val isEmpty: Boolean</span><br><span class="line">    get() = this.size == 0</span><br></pre></td></tr></table></figure><h4 id="field的使用"><a href="#field的使用" class="headerlink" title="field的使用"></a>field的使用</h4><ul><li>幕后属性或幕后字段。在Kotlin语言中，如果在类中定义一个成员变量，Kotlin将自动生成默认setter/getter方法。而Kotlin提供了一种非常特殊的方式声明setter/getter方法：</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var name: String? = null</span><br><span class="line">      set(value) &#123;</span><br><span class="line">          field = value</span><br><span class="line">          name = value //如果这样写，则出现循环调用</span><br><span class="line">      &#125;</span><br><span class="line">      get() = field</span><br></pre></td></tr></table></figure><ul><li>field是当前属性的影子，就是当前的值this,setter/getter方法中使用。</li></ul><h4 id="kotlin-in-out泛型中使用"><a href="#kotlin-in-out泛型中使用" class="headerlink" title="kotlin in/out泛型中使用"></a>kotlin in/out泛型中使用</h4><ul><li>父类泛型对象可以赋值给子类泛型对象，用 in,子类泛型对象可以赋值给父类泛型对象，用 out。</li><li>如果你的类是将泛型作为内部方法的返回，那么可以用 out：</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">interface Production&lt;out T&gt; &#123;</span><br><span class="line">    fun produce(): T</span><br><span class="line">&#125;</span><br><span class="line">可以称其为 production class/interface，因为其主要是产生（produce）指定泛型对象。因此，可以这样来记：produce = output = out。</span><br></pre></td></tr></table></figure><ul><li>In(逆变)</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">如果你的类是将泛型对象作为函数的参数，那么可以用 in：</span><br><span class="line"></span><br><span class="line">interface Consumer&lt;in T&gt; &#123;</span><br><span class="line">    fun consume(item: T)</span><br><span class="line">&#125;</span><br><span class="line">可以称其为 consumer class/interface，因为其主要是消费指定泛型对象。因此，可以这样来记：consume = input = in。</span><br></pre></td></tr></table></figure><ul><li>Invariant(不变)</li><li>如果既将泛型作为函数参数，又将泛型作为函数的输出，那就既不用 in 或 out。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">interface ProductionConsumer&lt;T&gt; &#123;</span><br><span class="line">    fun produce(): T</span><br><span class="line">    fun consume(item: T)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li></ul>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h3 id=&quot;kotlin易混淆操作符&quot;&gt;&lt;a href=&quot;#kotlin易混淆操作符&quot; class=&quot;headerlink&quot; title=&quot;kotlin易混淆操作符&quot;&gt;&lt;/a&gt;kotlin易混淆操作符&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;操作符？&lt;/strong&gt;&lt;/l</summary>
-      
-    
-    
-    
-    <category term="Android" scheme="https://zhulg.github.io/categories/Android/"/>
-    
-    
-    <category term="Android" scheme="https://zhulg.github.io/tags/Android/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Android Q适配</title>
-    <link href="https://zhulg.github.io/2019/08/11/Android%20Q%E9%80%82%E9%85%8D/"/>
-    <id>https://zhulg.github.io/2019/08/11/Android%20Q%E9%80%82%E9%85%8D/</id>
-    <published>2019-08-11T07:47:11.000Z</published>
-    <updated>2020-12-10T14:56:00.438Z</updated>
-    
-    <content type="html"><![CDATA[<ul><li>安卓Q | 用户画像等功能受影响，Device ID禁用适配指南</li></ul><h3 id="变更影响"><a href="#变更影响" class="headerlink" title="变更影响"></a>变更影响</h3><ul><li>1、影响范围</li></ul><p>所有通过READ_PHONE_STATE权限获取Device ID的应用以及将设备WiFi Mac地址作为设备唯一标志符的应用都将受影响，预计受影响的应用比例超过90%。</p><a id="more"></a><ul><li>2、兼容性表现</li></ul><p>对于TargetSdkVersion&lt;Q且没有申请READ_PHONE_STATE权限的应用和TargetSdkVersion&gt;=Q的全部应用，获取device id会抛异常SecurityException。</p><p>对于 TargetSdkVersion&lt;Q且申请了READ_PHONE_STATE权限的应用，通过getDeviceId接口读取的值为Null。</p><p>当设备连接到不同的 Wi-Fi 网络时，系统会随机生成不同的 MAC 地址，将无法作为用户唯一标志。</p><ul><li>3、受影响的业务场景</li></ul><p>所有依赖Device ID以及固定Mac地址数据的业务都会受到影响，如数据统计、推荐、用户历史数据记录、广告、用户画像等。</p><h3 id="适配指导"><a href="#适配指导" class="headerlink" title="适配指导"></a>适配指导</h3><ul><li>1、参照官方文档进行适配</li></ul><p>唯一标识符最佳方案：</p><p><a href="https://developer.android.google.cn/training/articles/user-data-ids" target="_blank" rel="noopener">https://developer.android.google.cn/training/articles/user-data-ids</a></p><p>Device ID变更介绍文档：</p><p><a href="https://developer.android.google.cn/preview/privacy/data-identifiers" target="_blank" rel="noopener">https://developer.android.google.cn/preview/privacy/data-identifiers</a></p><ul><li>2、使用Android ID 代替Device ID</li></ul><p>Android ID获取代码：</p><p>Settings.System.getString(context.getContentResolver(), Settings.Secure.ANDROID_ID);</p><p>Android ID和Device ID主要区别在于手机恢复出厂设置后，Android ID将被重置，而Device ID无法重置。</p>]]></content>
-    
-    
-    <summary type="html">&lt;ul&gt;
-&lt;li&gt;安卓Q | 用户画像等功能受影响，Device ID禁用适配指南&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;变更影响&quot;&gt;&lt;a href=&quot;#变更影响&quot; class=&quot;headerlink&quot; title=&quot;变更影响&quot;&gt;&lt;/a&gt;变更影响&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;1、影响范围&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;所有通过READ_PHONE_STATE权限获取Device ID的应用以及将设备WiFi Mac地址作为设备唯一标志符的应用都将受影响，预计受影响的应用比例超过90%。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Android" scheme="https://zhulg.github.io/categories/Android/"/>
-    
-    
-    <category term="Android" scheme="https://zhulg.github.io/tags/Android/"/>
     
   </entry>
   
