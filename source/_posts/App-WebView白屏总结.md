@@ -81,7 +81,7 @@ webView.setBackgroundResource(R.color.black);//根据需求修改
  
 ```
 
-#### 监控WebView渲染进程（适合项目应用）
+#### 1. 监控WebView渲染进程（适合项目应用）
 - webView的内存从4.4变为基于Google的Chromium的实现
 - ![](https://a77db9aa-a-7b23c8ea-s-sites.googlegroups.com/a/chromium.org/dev/developers/design-documents/multi-process-architecture/arch.png?attachauth=ANoY7cqlEjwaSt9DhazJlP1VN54Qg4oNubWeXO7MRVGONSZrVwZCB2Vvl2kcllXIMx0HiAUkj5NDQnHjw5WLRfTG9HUkGpS55566yzX_vxQm51n-BkL8mxAn-MTQxOW3-hkfSplcGkVnicYgxFLnP2iCsf_dh1_T1Ofao4EYgGBgzD7r6NbnSOtNCLDPp5_ZrEKP8Btw5dVA8YeOLe9lSJmjt3In3DVKSvxhzYhj5fAvATUExgxC4v-ZbATgEttqxZyXitUfe-HifXb9KZRAfKKk3BkizPjZmw%3D%3D&attredirects=0)
 
@@ -108,7 +108,7 @@ We refer to the main process that runs the UI and manages tab and plugin process
 
 - 代码demo可以联系我,目前暂时未放gitlab上
 
-#### 监控WebView页面白屏（适合数据采集）
+#### 2. 监控WebView页面白屏（适合数据采集）
 - 内存问题是造成白屏的重要一部分，还有就是其他莫名奇妙问题造成的页面白屏（这种白屏可能不是内存，js语法、网络加载等造成白屏）
 - 如果能够在APP端检测到白屏页面出现，采取相应的提示或者reload ,也是很好解决疑难杂症的白屏方案
 - 技术点实现：
@@ -118,28 +118,48 @@ We refer to the main process that runs the UI and manages tab and plugin process
 设定白色像素点比例确认是否白屏
 ```
 
-####  监测webview里的内存
+#### 3. 监测webview里的内存
 - 目前关于如何监测webView里的内存占用情况，在原生端上还没有更好的思路去处理，需要进一步调研
 - 在项目里的实现，可以优先使用前2中方案。
 
 ## Ios端WKWebView白屏
-- 相对Android上的白屏，ios白屏的出现在app端上大部分为内存占用产生。
-- **产生的原因**：WKWebView 是运行在一个独立进程中的组件，当 WKWebView 上占用内存过大时，WKWebView 所在的 WebContent Process 会被系统 kill 掉，反映在用户体验上就是发生了白屏。
+- 相对Android上的白屏，ios白屏的出现在app端上大部分为内存占用产生，其他网络、资源、js语言兼容、中文字样ulr等同样也会发生白屏，这类问题需要针对分析。关于内存原因造成的白屏问题可以从下边思路着手解决。
+- **内存白屏产生的原因**：WKWebView 是运行在一个独立进程中的组件，当 WKWebView 上占用内存过大时，WKWebView 所在的 WebContent Process 会被系统 kill 掉，反映在用户体验上就是发生了白屏。
 
-### ios系统方案
+### 1. ios系统方案 （原理同Android上的RendProcess）
 
 - WKNavigationDelegate的回调方法webViewWebContentProcessDidTerminate 里直接进行reload
+- 检测 webView.title 是否为空
 
 ```
  尝试在每次请求kWebview前清理缓存
  webview reload
 ```
 
-### 白屏像素检测（因为有些不是内存引起的，也不回调系统的方法）
-- 原理：类似于android的白屏检测，通过截图检测像素点，来判断是否白屏
+### 2.白屏像素检测（非内存引起的，适合数据采集或必要reload）
+- **原理**：类似于android的白屏检测，通过截图检测像素点，来判断是否白屏
 
 ```
 通过获取截图
 截图进行缩放
-像素点进行遍历判断比例
+像素点进行遍历色值判断比例
 ```
+- **检测时机** : 在loadurl之后 接收到didcommit 或 didfinish回调中进行判断, 另外需在业务项目里核算性能开销
+
+### 3.疑难问题白屏
+ - **渲染异常:** 这种白屏问题可以通过检查层级定位相关问题 https://github.com/Flipboard/FLEX，使用flex查看白屏层级，查看异常时view层级（ APP测）
+- **资源遇错:** H5里进行监测的方式，当出现加载H5资源错误的时候，wkwebview的渲染异常，就根据加载出错重新reload (H5内部监控)
+
+
+##  Reload处理白屏
+- 在APP端上除去相关页面元素，加载错误、兼容性，语法错误造成白屏，以上相关方案可以启到检测并尝试重试刷新页面，达到用户无感知，避免白屏的出现和出现白屏瞬间进行切换或者刷新。
+- reload可以做到解决一部分问题，但同时需要关注reload带来的异常问题需要关注解决。
+
+```
+页面上大内存出现后，短时间内存回收不及时，造成reload后问题依然存在。
+reload前需要释放必要的内存资源，否则可能持续内存占用reload不能解决问题。
+设置reload的最大重试次数，防止页面意外进入死循环
+调试解决耗内存的原因，从根源上进行优化处理
+```
+
+
