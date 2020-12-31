@@ -27,7 +27,7 @@
 <meta property="og:description" content="App上WebView白屏 在移动端上场景的H5页面白屏问题，根据平台分为Android和ios端上H5白屏问题（相关解决和优化基于移动端侧） Android的的白屏问题表现现对比较多些，按问题类型大致可以概括为：  123456机型兼容造成JS语法兼容造成网络加载获取数据造成软件系统版本兼容造成内存或者渲染进程造成android上疑难杂症   IOS的问题造成白屏的原因现对较少，因为WKWebV">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://a77db9aa-a-7b23c8ea-s-sites.googlegroups.com/a/chromium.org/dev/developers/design-documents/multi-process-architecture/arch.png?attachauth=ANoY7cqlEjwaSt9DhazJlP1VN54Qg4oNubWeXO7MRVGONSZrVwZCB2Vvl2kcllXIMx0HiAUkj5NDQnHjw5WLRfTG9HUkGpS55566yzX_vxQm51n-BkL8mxAn-MTQxOW3-hkfSplcGkVnicYgxFLnP2iCsf_dh1_T1Ofao4EYgGBgzD7r6NbnSOtNCLDPp5_ZrEKP8Btw5dVA8YeOLe9lSJmjt3In3DVKSvxhzYhj5fAvATUExgxC4v-ZbATgEttqxZyXitUfe-HifXb9KZRAfKKk3BkizPjZmw%3D%3D&attredirects=0">
-<meta property="og:updated_time" content="2020-12-30T12:17:01.597Z">
+<meta property="og:updated_time" content="2020-12-31T06:02:44.630Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="App WebView白屏总结">
 <meta name="twitter:description" content="App上WebView白屏 在移动端上场景的H5页面白屏问题，根据平台分为Android和ios端上H5白屏问题（相关解决和优化基于移动端侧） Android的的白屏问题表现现对比较多些，按问题类型大致可以概括为：  123456机型兼容造成JS语法兼容造成网络加载获取数据造成软件系统版本兼容造成内存或者渲染进程造成android上疑难杂症   IOS的问题造成白屏的原因现对较少，因为WKWebV">
@@ -304,7 +304,7 @@
   <div class="slimContent">
     <nav id="toc" class="article-toc">
       <h3 class="toc-title">文章目录</h3>
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#App上WebView白屏"><span class="toc-number">1.</span> <span class="toc-text">App上WebView白屏</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Android端白屏问题（APP侧解决方案）"><span class="toc-number">2.</span> <span class="toc-text">Android端白屏问题（APP侧解决方案）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#内存相关造成白屏"><span class="toc-number">2.1.</span> <span class="toc-text">内存相关造成白屏</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#监控WebView渲染进程（适合项目应用）"><span class="toc-number">2.1.1.</span> <span class="toc-text">监控WebView渲染进程（适合项目应用）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#监控WebView页面白屏（适合数据采集）"><span class="toc-number">2.1.2.</span> <span class="toc-text">监控WebView页面白屏（适合数据采集）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#监测webview里的内存"><span class="toc-number">2.1.3.</span> <span class="toc-text">监测webview里的内存</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Ios端WKWebView白屏"><span class="toc-number">3.</span> <span class="toc-text">Ios端WKWebView白屏</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ios系统方案"><span class="toc-number">3.1.</span> <span class="toc-text">ios系统方案</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#白屏像素检测（因为有些不是内存引起的，也不回调系统的方法）"><span class="toc-number">3.2.</span> <span class="toc-text">白屏像素检测（因为有些不是内存引起的，也不回调系统的方法）</span></a></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#App上WebView白屏"><span class="toc-number">1.</span> <span class="toc-text">App上WebView白屏</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Android端白屏问题（APP侧解决方案）"><span class="toc-number">2.</span> <span class="toc-text">Android端白屏问题（APP侧解决方案）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#内存相关造成白屏"><span class="toc-number">2.1.</span> <span class="toc-text">内存相关造成白屏</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-监控WebView渲染进程（适合项目应用）"><span class="toc-number">2.1.1.</span> <span class="toc-text">1. 监控WebView渲染进程（适合项目应用）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-监控WebView页面白屏（适合数据采集）"><span class="toc-number">2.1.2.</span> <span class="toc-text">2. 监控WebView页面白屏（适合数据采集）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-监测webview里的内存"><span class="toc-number">2.1.3.</span> <span class="toc-text">3. 监测webview里的内存</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Ios端WKWebView白屏"><span class="toc-number">3.</span> <span class="toc-text">Ios端WKWebView白屏</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-ios系统方案-（原理同Android上的RendProcess）"><span class="toc-number">3.1.</span> <span class="toc-text">1. ios系统方案 （原理同Android上的RendProcess）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-白屏像素检测（非内存引起的，适合数据采集或必要reload）"><span class="toc-number">3.2.</span> <span class="toc-text">2.白屏像素检测（非内存引起的，适合数据采集或必要reload）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-疑难问题白屏"><span class="toc-number">3.3.</span> <span class="toc-text">3.疑难问题白屏</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Reload处理白屏"><span class="toc-number">4.</span> <span class="toc-text">Reload处理白屏</span></a></li></ol>
     </nav>
   </div>
 </aside>
@@ -355,10 +355,10 @@
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/12/30/App-WebView白屏总结/#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1.6k(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 2k(字)</span>
 	
 	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 5(分)</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 7(分)</span>
 	
 
       </div>
@@ -410,7 +410,7 @@
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">监控webview的渲染进程状态</span><br><span class="line">监测H5页面白屏页面</span><br><span class="line">监测webview里的内存</span><br></pre></td></tr></table></figure>
 
-<h4 id="监控WebView渲染进程（适合项目应用）"><a href="#监控WebView渲染进程（适合项目应用）" class="headerlink" title="监控WebView渲染进程（适合项目应用）"></a>监控WebView渲染进程（适合项目应用）</h4><ul>
+<h4 id="1-监控WebView渲染进程（适合项目应用）"><a href="#1-监控WebView渲染进程（适合项目应用）" class="headerlink" title="1. 监控WebView渲染进程（适合项目应用）"></a>1. 监控WebView渲染进程（适合项目应用）</h4><ul>
 <li><p>webView的内存从4.4变为基于Google的Chromium的实现</p>
 </li>
 <li><p><img src="https://a77db9aa-a-7b23c8ea-s-sites.googlegroups.com/a/chromium.org/dev/developers/design-documents/multi-process-architecture/arch.png?attachauth=ANoY7cqlEjwaSt9DhazJlP1VN54Qg4oNubWeXO7MRVGONSZrVwZCB2Vvl2kcllXIMx0HiAUkj5NDQnHjw5WLRfTG9HUkGpS55566yzX_vxQm51n-BkL8mxAn-MTQxOW3-hkfSplcGkVnicYgxFLnP2iCsf_dh1_T1Ofao4EYgGBgzD7r6NbnSOtNCLDPp5_ZrEKP8Btw5dVA8YeOLe9lSJmjt3In3DVKSvxhzYhj5fAvATUExgxC4v-ZbATgEttqxZyXitUfe-HifXb9KZRAfKKk3BkizPjZmw%3D%3D&attredirects=0" alt></p>
@@ -435,30 +435,46 @@
 <ul>
 <li>代码demo可以联系我,目前暂时未放gitlab上</li>
 </ul>
-<h4 id="监控WebView页面白屏（适合数据采集）"><a href="#监控WebView页面白屏（适合数据采集）" class="headerlink" title="监控WebView页面白屏（适合数据采集）"></a>监控WebView页面白屏（适合数据采集）</h4><ul>
+<h4 id="2-监控WebView页面白屏（适合数据采集）"><a href="#2-监控WebView页面白屏（适合数据采集）" class="headerlink" title="2. 监控WebView页面白屏（适合数据采集）"></a>2. 监控WebView页面白屏（适合数据采集）</h4><ul>
 <li>内存问题是造成白屏的重要一部分，还有就是其他莫名奇妙问题造成的页面白屏（这种白屏可能不是内存，js语法、网络加载等造成白屏）</li>
 <li>如果能够在APP端检测到白屏页面出现，采取相应的提示或者reload ,也是很好解决疑难杂症的白屏方案</li>
 <li>技术点实现：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">对WebView在调用完成后进行截图</span><br><span class="line">遍历截图的像素点的颜色值</span><br><span class="line">设定白色像素点比例确认是否白屏</span><br></pre></td></tr></table></figure>
 
 </li>
 </ul>
-<h4 id="监测webview里的内存"><a href="#监测webview里的内存" class="headerlink" title="监测webview里的内存"></a>监测webview里的内存</h4><ul>
+<h4 id="3-监测webview里的内存"><a href="#3-监测webview里的内存" class="headerlink" title="3. 监测webview里的内存"></a>3. 监测webview里的内存</h4><ul>
 <li>目前关于如何监测webView里的内存占用情况，在原生端上还没有更好的思路去处理，需要进一步调研</li>
 <li>在项目里的实现，可以优先使用前2中方案。</li>
 </ul>
 <h2 id="Ios端WKWebView白屏"><a href="#Ios端WKWebView白屏" class="headerlink" title="Ios端WKWebView白屏"></a>Ios端WKWebView白屏</h2><ul>
-<li>相对Android上的白屏，ios白屏的出现在app端上大部分为内存占用产生。</li>
-<li><strong>产生的原因</strong>：WKWebView 是运行在一个独立进程中的组件，当 WKWebView 上占用内存过大时，WKWebView 所在的 WebContent Process 会被系统 kill 掉，反映在用户体验上就是发生了白屏。</li>
+<li>相对Android上的白屏，ios白屏的出现在app端上大部分为内存占用产生，其他网络、资源、js语言兼容、中文字样ulr等同样也会发生白屏，这类问题需要针对分析。关于内存原因造成的白屏问题可以从下边思路着手解决。</li>
+<li><strong>内存白屏产生的原因</strong>：WKWebView 是运行在一个独立进程中的组件，当 WKWebView 上占用内存过大时，WKWebView 所在的 WebContent Process 会被系统 kill 掉，反映在用户体验上就是发生了白屏。</li>
 </ul>
-<h3 id="ios系统方案"><a href="#ios系统方案" class="headerlink" title="ios系统方案"></a>ios系统方案</h3><ul>
+<h3 id="1-ios系统方案-（原理同Android上的RendProcess）"><a href="#1-ios系统方案-（原理同Android上的RendProcess）" class="headerlink" title="1. ios系统方案 （原理同Android上的RendProcess）"></a>1. ios系统方案 （原理同Android上的RendProcess）</h3><ul>
 <li>WKNavigationDelegate的回调方法webViewWebContentProcessDidTerminate 里直接进行reload</li>
+<li>检测 webView.title 是否为空</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"> 尝试在每次请求kWebview前清理缓存</span><br><span class="line"> webview reload</span><br></pre></td></tr></table></figure>
 
-<h3 id="白屏像素检测（因为有些不是内存引起的，也不回调系统的方法）"><a href="#白屏像素检测（因为有些不是内存引起的，也不回调系统的方法）" class="headerlink" title="白屏像素检测（因为有些不是内存引起的，也不回调系统的方法）"></a>白屏像素检测（因为有些不是内存引起的，也不回调系统的方法）</h3><ul>
-<li>原理：类似于android的白屏检测，通过截图检测像素点，来判断是否白屏</li>
+<h3 id="2-白屏像素检测（非内存引起的，适合数据采集或必要reload）"><a href="#2-白屏像素检测（非内存引起的，适合数据采集或必要reload）" class="headerlink" title="2.白屏像素检测（非内存引起的，适合数据采集或必要reload）"></a>2.白屏像素检测（非内存引起的，适合数据采集或必要reload）</h3><ul>
+<li><strong>原理</strong>：类似于android的白屏检测，通过截图检测像素点，来判断是否白屏</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">通过获取截图</span><br><span class="line">截图进行缩放</span><br><span class="line">像素点进行遍历判断比例</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">通过获取截图</span><br><span class="line">截图进行缩放</span><br><span class="line">像素点进行遍历色值判断比例</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>检测时机</strong> : 在loadurl之后 接收到didcommit 或 didfinish回调中进行判断, 另外需在业务项目里核算性能开销</li>
+</ul>
+<h3 id="3-疑难问题白屏"><a href="#3-疑难问题白屏" class="headerlink" title="3.疑难问题白屏"></a>3.疑难问题白屏</h3><ul>
+<li><strong>渲染异常:</strong> 这种白屏问题可以通过检查层级定位相关问题 <a href="https://github.com/Flipboard/FLEX，使用flex查看白屏层级，查看异常时view层级（" target="_blank" rel="noopener">https://github.com/Flipboard/FLEX，使用flex查看白屏层级，查看异常时view层级（</a> APP测）<ul>
+<li><strong>资源遇错:</strong> H5里进行监测的方式，当出现加载H5资源错误的时候，wkwebview的渲染异常，就根据加载出错重新reload (H5内部监控)</li>
+</ul>
+</li>
+</ul>
+<h2 id="Reload处理白屏"><a href="#Reload处理白屏" class="headerlink" title="Reload处理白屏"></a>Reload处理白屏</h2><ul>
+<li>在APP端上除去相关页面元素，加载错误、兼容性，语法错误造成白屏，以上相关方案可以启到检测并尝试重试刷新页面，达到用户无感知，避免白屏的出现和出现白屏瞬间进行切换或者刷新。</li>
+<li>reload可以做到解决一部分问题，但同时需要关注reload带来的异常问题需要关注解决。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">页面上大内存出现后，短时间内存回收不及时，造成reload后问题依然存在。</span><br><span class="line">reload前需要释放必要的内存资源，否则可能持续内存占用reload不能解决问题。</span><br><span class="line">设置reload的最大重试次数，防止页面意外进入死循环</span><br><span class="line">调试解决耗内存的原因，从根源上进行优化处理</span><br></pre></td></tr></table></figure>
 
 
       
