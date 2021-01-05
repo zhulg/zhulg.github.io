@@ -153,7 +153,7 @@ We refer to the main process that runs the UI and manages tab and plugin process
 
 ##  Reload处理白屏
 - 在APP端上除去相关页面元素，加载错误、兼容性，语法错误造成白屏，以上相关方案可以启到检测并尝试重试刷新页面，达到用户无感知，避免白屏的出现和出现白屏瞬间进行切换或者刷新。
-- reload可以做到解决一部分问题，但同时需要关注reload带来的异常问题需要关注解决。
+- **reload可以做到解决一部分问题，但同时需要关注reload带来的异常问题和解决内存泄露的根本问题**
 
 ```
 页面上大内存出现后，短时间内存回收不及时，造成reload后问题依然存在。
