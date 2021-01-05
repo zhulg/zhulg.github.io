@@ -27,7 +27,7 @@
 <meta property="og:description" content="App上WebView白屏 在移动端上场景的H5页面白屏问题，根据平台分为Android和ios端上H5白屏问题（相关解决和优化基于移动端侧） Android的的白屏问题表现现对比较多些，按问题类型大致可以概括为：  123456机型兼容造成JS语法兼容造成网络加载获取数据造成软件系统版本兼容造成内存或者渲染进程造成android上疑难杂症   IOS的问题造成白屏的原因现对较少，因为WKWebV">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://a77db9aa-a-7b23c8ea-s-sites.googlegroups.com/a/chromium.org/dev/developers/design-documents/multi-process-architecture/arch.png?attachauth=ANoY7cqlEjwaSt9DhazJlP1VN54Qg4oNubWeXO7MRVGONSZrVwZCB2Vvl2kcllXIMx0HiAUkj5NDQnHjw5WLRfTG9HUkGpS55566yzX_vxQm51n-BkL8mxAn-MTQxOW3-hkfSplcGkVnicYgxFLnP2iCsf_dh1_T1Ofao4EYgGBgzD7r6NbnSOtNCLDPp5_ZrEKP8Btw5dVA8YeOLe9lSJmjt3In3DVKSvxhzYhj5fAvATUExgxC4v-ZbATgEttqxZyXitUfe-HifXb9KZRAfKKk3BkizPjZmw%3D%3D&attredirects=0">
-<meta property="og:updated_time" content="2020-12-31T06:02:44.630Z">
+<meta property="og:updated_time" content="2020-12-31T06:11:51.180Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="App WebView白屏总结">
 <meta name="twitter:description" content="App上WebView白屏 在移动端上场景的H5页面白屏问题，根据平台分为Android和ios端上H5白屏问题（相关解决和优化基于移动端侧） Android的的白屏问题表现现对比较多些，按问题类型大致可以概括为：  123456机型兼容造成JS语法兼容造成网络加载获取数据造成软件系统版本兼容造成内存或者渲染进程造成android上疑难杂症   IOS的问题造成白屏的原因现对较少，因为WKWebV">
@@ -472,7 +472,7 @@
 </ul>
 <h2 id="Reload处理白屏"><a href="#Reload处理白屏" class="headerlink" title="Reload处理白屏"></a>Reload处理白屏</h2><ul>
 <li>在APP端上除去相关页面元素，加载错误、兼容性，语法错误造成白屏，以上相关方案可以启到检测并尝试重试刷新页面，达到用户无感知，避免白屏的出现和出现白屏瞬间进行切换或者刷新。</li>
-<li>reload可以做到解决一部分问题，但同时需要关注reload带来的异常问题需要关注解决。</li>
+<li><strong>reload可以做到解决一部分问题，但同时需要关注reload带来的异常问题和解决内存泄露的根本问题</strong></li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">页面上大内存出现后，短时间内存回收不及时，造成reload后问题依然存在。</span><br><span class="line">reload前需要释放必要的内存资源，否则可能持续内存占用reload不能解决问题。</span><br><span class="line">设置reload的最大重试次数，防止页面意外进入死循环</span><br><span class="line">调试解决耗内存的原因，从根源上进行优化处理</span><br></pre></td></tr></table></figure>
 
