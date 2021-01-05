@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>Scratch Android安装</title>
+      <link href="/2021/01/05/Scratch-Android%E5%AE%89%E8%A3%85/"/>
+      <url>/2021/01/05/Scratch-Android%E5%AE%89%E8%A3%85/</url>
+      
+        <content type="html"><![CDATA[<h2 id="Scratch-APK"><a href="#Scratch-APK" class="headerlink" title="Scratch APK"></a>Scratch APK</h2><ul><li>Scratch由于官网被墙，正常的话也无法从googlePlay进行安装。而官方的APK安装包可以进行参考对二次开发的话需要安装。</li><li>Scratch APK的下载可以从googleplay上下载国内被墙也基本上无法用，需要下载最新的APK包进行安装。</li></ul><h2 id="下载APK包"><a href="#下载APK包" class="headerlink" title="下载APK包"></a>下载APK包</h2><ul><li>下载APK包可以从apkpure上进行下载，前提是需要科学上网，下载完成后可以对其安装</li><li>由于Scratch的包是XAPK的，需要进行XAPK的安装器进行安装</li></ul><h2 id="下载安装Xapk-install"><a href="#下载安装Xapk-install" class="headerlink" title="下载安装Xapk install"></a>下载安装Xapk install</h2><ul><li>xapk install 的下载也可以<a href="https://www.xapk.pro/" target="_blank" rel="noopener">https://www.xapk.pro/</a> 进行下载并安装</li></ul><h2 id="Scratch-push-SDCARD"><a href="#Scratch-push-SDCARD" class="headerlink" title="Scratch push SDCARD"></a>Scratch push SDCARD</h2><ul><li>将下载好的 Scratch APK push 到SD卡上进行扫描安装，如果小米手机关闭miui优化，进行安装。</li></ul><h2 id="最新安装包"><a href="#最新安装包" class="headerlink" title="最新安装包"></a>最新安装包</h2><ul><li>目前最新安装包已下载，如有童鞋需要可以邮件我</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> Scratch </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Scratch </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>App WebView白屏总结</title>
       <link href="/2020/12/30/App-WebView%E7%99%BD%E5%B1%8F%E6%80%BB%E7%BB%93/"/>
       <url>/2020/12/30/App-WebView%E7%99%BD%E5%B1%8F%E6%80%BB%E7%BB%93/</url>
