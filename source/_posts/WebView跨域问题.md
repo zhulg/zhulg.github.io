@@ -6,7 +6,7 @@ categories: App
 toc: true
 ---
 
-## WebView同源策略
+## WebView的资源跨域
 
 - #### 从出现的问题来讲：
 
