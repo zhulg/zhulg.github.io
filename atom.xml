@@ -6,7 +6,7 @@
   <link href="https://zhulg.github.io/atom.xml" rel="self"/>
   
   <link href="https://zhulg.github.io/"/>
-  <updated>2021-09-12T14:51:00.142Z</updated>
+  <updated>2021-09-12T15:41:32.354Z</updated>
   <id>https://zhulg.github.io/</id>
   
   <author>
@@ -17,19 +17,44 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>技术开发流程</title>
+    <link href="https://zhulg.github.io/2021/09/12/%E6%8A%80%E6%9C%AF%E5%BC%80%E5%8F%91%E6%B5%81%E7%A8%8B/"/>
+    <id>https://zhulg.github.io/2021/09/12/%E6%8A%80%E6%9C%AF%E5%BC%80%E5%8F%91%E6%B5%81%E7%A8%8B/</id>
+    <published>2021-09-12T15:20:34.000Z</published>
+    <updated>2021-09-12T15:41:32.354Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="技术开发流程"><a href="#技术开发流程" class="headerlink" title="技术开发流程"></a>技术开发流程</h2><ul><li>产品研发过程中，涉及到技术实现环节的相关流程梳理的梳理是非常重要的，在多年的技术管理过程中一直实践并不断总结和完善开发流程、管理方法论。</li><li>相关的方法论也是经过验证在产品交付、项目把控、人员能力提升等环节都有非常好的使用价值。</li><li><strong>技术管理和技术开发流程没有一成不变，只有最适合自己团队发展现状的管理方法</strong>。</li></ul><h3 id="1-图解流程"><a href="#1-图解流程" class="headerlink" title="1.图解流程"></a>1.图解流程</h3><p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/jishu.jpg" alt></p><h3 id="2-核心阶段："><a href="#2-核心阶段：" class="headerlink" title="2.核心阶段："></a>2.核心阶段：</h3><ul><li>第一阶段，研发需要对业务进行深度体验，吃透业务场景，分析里面使用技术，形成基于业务场景的技术选型和架构。</li><li>第二阶段，在产品人员进行业务设计阶段，研发需要开始着手搭建，不基于产品层面的所有底层基础技术。</li><li>第三阶段，在产品评审完成研发任务后，进入开发阶段，研发需要提供排期和项目里程碑点，预留技术buffer时间和备选方案，里程碑验收。</li></ul><h3 id="3-版本迭代规范："><a href="#3-版本迭代规范：" class="headerlink" title="3.版本迭代规范："></a>3.版本迭代规范：</h3><ul><li>版本迭代基本规范，遵循大小版本，大功能点提前准备，隔版本上线，小版本当前版本上线。</li><li>版本迭代中，除产品需求外，默认包括线上问题bugfix ,性能优化，代码完善，研发排期需要预留时间。</li><li>隔代版本技术预研，要在版本迭代中研发提前安排进入预言阶段，确保隔代版本能进入下版本上线。</li></ul><h3 id="4-研发核心遵守："><a href="#4-研发核心遵守：" class="headerlink" title="4.研发核心遵守："></a>4.研发核心遵守：</h3><ul><li>预研先行，提前储备</li><li>技术实现，遵循产品需求，业务评审文档</li><li>代码编写，遵循通用及各端语言规范，入库review流程</li><li>需求变动，知会到负责人（产品&amp;技术），并要明确确认和风险</li><li>技术文档，记录研发过程技术实现相关设计，时序图等，达到第2人能交接标准</li><li>跟踪文档，记录每个版本产品需求、技术、优化改动的，提测前知会QA，协助验收。</li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;技术开发流程&quot;&gt;&lt;a href=&quot;#技术开发流程&quot; class=&quot;headerlink&quot; title=&quot;技术开发流程&quot;&gt;&lt;/a&gt;技术开发流程&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;产品研发过程中，涉及到技术实现环节的相关流程梳理的梳理是非常重要的，在多年的技术管理过程中一直实</summary>
+      
+    
+    
+    
+    <category term="管理杂烩" scheme="https://zhulg.github.io/categories/管理杂烩/"/>
+    
+    
+    <category term="管理杂烩" scheme="https://zhulg.github.io/tags/管理杂烩/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Linux系统安装rvm管理rbuy版本</title>
     <link href="https://zhulg.github.io/2021/09/12/linux%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85rvm%E7%AE%A1%E7%90%86rbuy%E7%89%88%E6%9C%AC/"/>
     <id>https://zhulg.github.io/2021/09/12/linux%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85rvm%E7%AE%A1%E7%90%86rbuy%E7%89%88%E6%9C%AC/</id>
     <published>2021-09-12T14:34:48.000Z</published>
-    <updated>2021-09-12T14:51:00.142Z</updated>
+    <updated>2021-09-12T15:10:18.622Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="ruby使用"><a href="#ruby使用" class="headerlink" title="ruby使用"></a>ruby使用</h3><ul><li>ruby是个面向对象的脚步语言，相对比较小众使用，随着python的兴起。但是对应工具类的使用还是占有一席之地，使用也比较广泛很多创业公司也在只用。</li></ul><h3 id="rvm是管理ruby的版本"><a href="#rvm是管理ruby的版本" class="headerlink" title="rvm是管理ruby的版本"></a>rvm是管理ruby的版本</h3><ul><li>rvm类似node的nvm，方便管理对版本的管理和使用切换。由于ruby是不经常使用，<strong>现用现学，快速解决问题，ruby也更简洁符合人类思维</strong>。最近工具类使用了下对后续使用快速搭建环境做个简单的记录，后续能快速恢复知识和使用。</li></ul><h4 id="安装rvm"><a href="#安装rvm" class="headerlink" title="安装rvm"></a>安装rvm</h4><ul><li><p>1.可能会失败、按指示进行或者重复几次，依赖网络和翻墙情况</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -L get.rvm.io | bash -s stable</span><br></pre></td></tr></table></figure></li><li><p>2 . 查看rvm安装情况, 并生效配置其中的配置项  source /usr/local/rvm/scripts/rvm</p></li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find / -name rvm</span><br></pre></td></tr></table></figure><ul><li><ol start="3"><li>查看版本情况（可能你需要特定的版本安装）</li></ol></li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rvm list known</span><br></pre></td></tr></table></figure><ul><li><ol start="4"><li>安装版本ruby（从上边选择你期望的版本）</li></ol></li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rvm install  xxx</span><br></pre></td></tr></table></figure><ul><li><ol start="5"><li>使用版本ruby</li></ol></li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rvm use  xxx</span><br></pre></td></tr></table></figure><h3 id="其他操作"><a href="#其他操作" class="headerlink" title="其他操作"></a>其他操作</h3>]]></content>
+    <content type="html"><![CDATA[<h3 id="ruby使用"><a href="#ruby使用" class="headerlink" title="ruby使用"></a>ruby使用</h3><ul><li>ruby是个面向对象的脚本语言，相对比较小众使用，随着python的兴起。但是对应工具类的使用还是占有一席之地，使用也比较广泛很多创业公司也在只用。</li></ul><h3 id="rvm是管理ruby的版本"><a href="#rvm是管理ruby的版本" class="headerlink" title="rvm是管理ruby的版本"></a>rvm是管理ruby的版本</h3><ul><li>rvm类似node的nvm，方便管理对版本的管理和使用切换。由于ruby是不经常使用，<strong>现用现学，快速解决问题，ruby也更简洁符合人类思维</strong>。最近工具类使用了下对后续使用快速搭建环境做个简单的记录，后续能快速恢复知识和使用。</li></ul><h4 id="安装rvm"><a href="#安装rvm" class="headerlink" title="安装rvm"></a>安装rvm</h4><ul><li><p>1.可能会失败、按指示进行或者重复几次，依赖网络和翻墙情况</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -L get.rvm.io | bash -s stable</span><br></pre></td></tr></table></figure></li><li><p>2 . 查看rvm安装情况, 并生效配置其中的配置项  source /usr/local/rvm/scripts/rvm</p></li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find / -name rvm</span><br></pre></td></tr></table></figure><ul><li><ol start="3"><li>查看版本情况（可能你需要特定的版本安装）</li></ol></li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rvm list known</span><br></pre></td></tr></table></figure><ul><li><ol start="4"><li>安装版本ruby（从上边选择你期望的版本）</li></ol></li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rvm install  xxx</span><br></pre></td></tr></table></figure><ul><li><ol start="5"><li>使用版本ruby</li></ol></li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rvm use  xxx</span><br></pre></td></tr></table></figure><h3 id="其他操作"><a href="#其他操作" class="headerlink" title="其他操作"></a>其他操作</h3>]]></content>
     
     
       
       
     <summary type="html">&lt;h3 id=&quot;ruby使用&quot;&gt;&lt;a href=&quot;#ruby使用&quot; class=&quot;headerlink&quot; title=&quot;ruby使用&quot;&gt;&lt;/a&gt;ruby使用&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;ruby是个面向对象的脚步语言，相对比较小众使用，随着python的兴起。但是对应工具类的使用还</summary>
+&lt;li&gt;ruby是个面向对象的脚本语言，相对比较小众使用，随着python的兴起。但是对应工具类的使用还</summary>
       
     
     
@@ -497,31 +522,6 @@
     
     
     <category term="Android" scheme="https://zhulg.github.io/tags/Android/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Git项目使用子模块</title>
-    <link href="https://zhulg.github.io/2020/08/22/git%E9%A1%B9%E7%9B%AE%E4%BD%BF%E7%94%A8%E5%AD%90%E6%A8%A1%E5%9D%97/"/>
-    <id>https://zhulg.github.io/2020/08/22/git%E9%A1%B9%E7%9B%AE%E4%BD%BF%E7%94%A8%E5%AD%90%E6%A8%A1%E5%9D%97/</id>
-    <published>2020-08-22T12:18:55.000Z</published>
-    <updated>2020-08-22T12:35:41.132Z</updated>
-    
-    <content type="html"><![CDATA[<ul><li><p>当你在一个Git项目上工作时，你需要在其中使用另外一个Git项目做为子项目。一般做法你可以使用release的版本作为子项目不更新，也可以使用库。当一些场景，比如你要使用别人的样式库，可能会随着更新或做自己的调整，这个时候通过导入包不是很适合了，这个使用你需要使用git的子模块了。</p></li><li><p>git 添加子项目工submodules 来解决上述场景。</p></li><li><p><strong>添加子模块:</strong> 在你主工程下依赖子git项目</p></li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git submodule add https://github.com/xxx.git  xxx目录下</span><br></pre></td></tr></table></figure><ul><li><strong>查看子模块:</strong><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git submodule</span><br></pre></td></tr></table></figure></li></ul><ul><li><strong>克隆带有含子模块的仓库</strong> 直接 进行克隆是无法拉取之模块的代码，可加上 –recursive 参数</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone --recursive https://github.com/zhulg/zhulg.github.io.git</span><br></pre></td></tr></table></figure><ul><li>提交子模块</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">先到子模块里提交后，回到主模块里进行提交。主页在子模块里的分之提交时，要看当前分之，否则可能链接失败在github上通过主模块看不到子模块。</span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;当你在一个Git项目上工作时，你需要在其中使用另外一个Git项目做为子项目。一般做法你可以使用release的版本作为子项目不更新，也可以使用库。当一些场景，比如你要使用别人的样式库，可能会随着更新或做自己的调整，这个时候通过导入包不是很适合了，这个使用你</summary>
-      
-    
-    
-    
-    <category term="Git" scheme="https://zhulg.github.io/categories/Git/"/>
-    
-    
-    <category term="git" scheme="https://zhulg.github.io/tags/git/"/>
     
   </entry>
   
