@@ -6,7 +6,7 @@
   <link href="https://zhulg.github.io/atom.xml" rel="self"/>
   
   <link href="https://zhulg.github.io/"/>
-  <updated>2021-08-13T11:40:20.821Z</updated>
+  <updated>2021-09-12T14:51:00.142Z</updated>
   <id>https://zhulg.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Linux系统安装rvm管理rbuy版本</title>
+    <link href="https://zhulg.github.io/2021/09/12/linux%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85rvm%E7%AE%A1%E7%90%86rbuy%E7%89%88%E6%9C%AC/"/>
+    <id>https://zhulg.github.io/2021/09/12/linux%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85rvm%E7%AE%A1%E7%90%86rbuy%E7%89%88%E6%9C%AC/</id>
+    <published>2021-09-12T14:34:48.000Z</published>
+    <updated>2021-09-12T14:51:00.142Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="ruby使用"><a href="#ruby使用" class="headerlink" title="ruby使用"></a>ruby使用</h3><ul><li>ruby是个面向对象的脚步语言，相对比较小众使用，随着python的兴起。但是对应工具类的使用还是占有一席之地，使用也比较广泛很多创业公司也在只用。</li></ul><h3 id="rvm是管理ruby的版本"><a href="#rvm是管理ruby的版本" class="headerlink" title="rvm是管理ruby的版本"></a>rvm是管理ruby的版本</h3><ul><li>rvm类似node的nvm，方便管理对版本的管理和使用切换。由于ruby是不经常使用，<strong>现用现学，快速解决问题，ruby也更简洁符合人类思维</strong>。最近工具类使用了下对后续使用快速搭建环境做个简单的记录，后续能快速恢复知识和使用。</li></ul><h4 id="安装rvm"><a href="#安装rvm" class="headerlink" title="安装rvm"></a>安装rvm</h4><ul><li><p>1.可能会失败、按指示进行或者重复几次，依赖网络和翻墙情况</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -L get.rvm.io | bash -s stable</span><br></pre></td></tr></table></figure></li><li><p>2 . 查看rvm安装情况, 并生效配置其中的配置项  source /usr/local/rvm/scripts/rvm</p></li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find / -name rvm</span><br></pre></td></tr></table></figure><ul><li><ol start="3"><li>查看版本情况（可能你需要特定的版本安装）</li></ol></li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rvm list known</span><br></pre></td></tr></table></figure><ul><li><ol start="4"><li>安装版本ruby（从上边选择你期望的版本）</li></ol></li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rvm install  xxx</span><br></pre></td></tr></table></figure><ul><li><ol start="5"><li>使用版本ruby</li></ol></li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rvm use  xxx</span><br></pre></td></tr></table></figure><h3 id="其他操作"><a href="#其他操作" class="headerlink" title="其他操作"></a>其他操作</h3>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;ruby使用&quot;&gt;&lt;a href=&quot;#ruby使用&quot; class=&quot;headerlink&quot; title=&quot;ruby使用&quot;&gt;&lt;/a&gt;ruby使用&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;ruby是个面向对象的脚步语言，相对比较小众使用，随着python的兴起。但是对应工具类的使用还</summary>
+      
+    
+    
+    
+    <category term="Ruby" scheme="https://zhulg.github.io/categories/Ruby/"/>
+    
+    
+    <category term="Ruby" scheme="https://zhulg.github.io/tags/Ruby/"/>
+    
+  </entry>
   
   <entry>
     <title>WebView跨域问题</title>
@@ -497,31 +522,6 @@
     
     
     <category term="git" scheme="https://zhulg.github.io/tags/git/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Java线程状态及关键方法</title>
-    <link href="https://zhulg.github.io/2020/08/18/Java%E7%BA%BF%E7%A8%8B%E7%8A%B6%E6%80%81%E5%8F%8A%E5%85%B3%E9%94%AE%E6%96%B9%E6%B3%95/"/>
-    <id>https://zhulg.github.io/2020/08/18/Java%E7%BA%BF%E7%A8%8B%E7%8A%B6%E6%80%81%E5%8F%8A%E5%85%B3%E9%94%AE%E6%96%B9%E6%B3%95/</id>
-    <published>2020-08-18T01:56:08.000Z</published>
-    <updated>2020-12-10T14:56:00.443Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="先回顾Java里的几个方法"><a href="#先回顾Java里的几个方法" class="headerlink" title="先回顾Java里的几个方法"></a>先回顾Java里的几个方法</h2><ul><li><p>先了解下Java跟线程相关的几个方法是sleep、yield、wait、join，为什么会有这么些个方法，这些方法是要解决什么问题？</p></li><li><p>直观区别：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Object里的相关的方法：wait()和notify()、notifyAll()  </span><br><span class="line">Thread类的静态方法： Thread.sleep(long) 和Thread.yield()</span><br><span class="line">join()：是由线程对象来调用。</span><br></pre></td></tr></table></figure></li><li><p>Object.wait()和Thread. sleep()的关键的区别在于</p></li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">wait()是用于线程间通信的，而sleep()是用于短时间暂停当前线程</span><br><span class="line">wait，释放cpu资源，也释放锁资源 ，sleep释放cpu资源，不释放锁资源</span><br><span class="line">wait用于锁机制， wait，notify,notifyall 都是Object对象的方法，是一起使用的，用于锁机制</span><br><span class="line">sleep是线程的方法,  这就是为啥sleep不释放锁，wait释放锁的原因</span><br></pre></td></tr></table></figure><ul><li><p>Thread.sleep(long) 和Thread.yield() 区别</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sleep()会让当前线程休眠进入阻塞状态并释放CPU。 方法会给其他线程运行的机会，而不考虑其他线程的优先级，因此会给较低线程一个运行的机会,如果有同步锁则sleep不会释放锁即其他线程无法获得同步锁  可通过调用interrupt()方法来唤醒休眠线程</span><br><span class="line">yield()让出CPU调度 。方法只会给相同优先级者更高优先级的线程一个运行的机会。调用yield方法只是一个建议，告诉线程调度器我的工作已经做的差不多了，可以让别的相同优先级的线程使用CPU了，没有任何机制保证采纳。</span><br></pre></td></tr></table></figure></li><li><p>join：一种特殊的wait， thread.join()，用于保持线程的执行顺序。当前运行线程调用另一个线程的join方法，当前线程进入阻塞状态直到另一个线程运行结束等待该线程终止。 注意该方法也需要捕捉异常。</p></li></ul><p>##Java 线程声明周期<br><img src="https://raw.githubusercontent.com/zhulg/allpic/master/thread-life-cycle.png" alt></p><ul><li><p><strong>NEW :</strong> A thread that has not yet started is in this state.</p></li><li><p><strong>RUNNABLE:</strong> A thread executing in the Java virtual machine is in this state.</p></li><li><p><strong>BLOCKED:</strong> A thread that is blocked waiting for a monitor lock is in this state.</p></li><li><p><strong>WAITING:</strong> A thread that is waiting indefinitely for another thread to perform a particular action is in this state. 比如：ThreadA调用了Object.wait()方法，此时ThreadA状态为WAITING。ThreadA会等待其他的线程调用 Object.notify()或Object.notifyAll才会被唤醒，继续执行后面的逻辑</p></li><li><p><strong>TIMED_WAITING:</strong> A thread that is waiting for another thread to perform an action for up to a specified waiting time is in this state.  线程正在等待其他线程的操作，直到超过指定的超时时间,线程在调用以下方法是会将状态改变为TIMED_WAITING状态:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Thread.sleep</span><br><span class="line">Object.wait with timeout</span><br><span class="line">Thread.join with timeout</span><br><span class="line">LockSupport.parkNanos</span><br><span class="line">LockSupport.parkUntil</span><br></pre></td></tr></table></figure></li><li><p><strong>TERMINATED:</strong>  A thread that has exited is in this state.</p></li></ul>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h2 id=&quot;先回顾Java里的几个方法&quot;&gt;&lt;a href=&quot;#先回顾Java里的几个方法&quot; class=&quot;headerlink&quot; title=&quot;先回顾Java里的几个方法&quot;&gt;&lt;/a&gt;先回顾Java里的几个方法&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;先了解下Java跟线程相关的几个方</summary>
-      
-    
-    
-    
-    <category term="Java" scheme="https://zhulg.github.io/categories/Java/"/>
-    
-    
-    <category term="Java" scheme="https://zhulg.github.io/tags/Java/"/>
     
   </entry>
   
