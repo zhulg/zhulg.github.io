@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>iOS设备型号和名称对照</title>
+      <link href="/2022/01/11/iOS%E8%AE%BE%E5%A4%87%E5%9E%8B%E5%8F%B7%E5%92%8C%E5%90%8D%E7%A7%B0%E5%AF%B9%E7%85%A7/"/>
+      <url>/2022/01/11/iOS%E8%AE%BE%E5%A4%87%E5%9E%8B%E5%8F%B7%E5%92%8C%E5%90%8D%E7%A7%B0%E5%AF%B9%E7%85%A7/</url>
+      
+        <content type="html"><![CDATA[<ul><li>方便线上日志根据获取到的设备标示，去查找对应具体设备名称</li></ul><h1 id="iPad设备标示和设备名称对应表："><a href="#iPad设备标示和设备名称对应表：" class="headerlink" title="iPad设备标示和设备名称对应表："></a>iPad设备标示和设备名称对应表：</h1><table><thead><tr><th>iPad设备型号</th><th>设备名称</th></tr></thead><tbody><tr><td>iPad1,1</td><td>iPad</td></tr><tr><td>iPad1,2</td><td>iPad 3G</td></tr><tr><td>iPad2,1</td><td>iPad 2</td></tr><tr><td>iPad2,2</td><td>iPad 2</td></tr><tr><td>iPad2,3</td><td>iPad 2</td></tr><tr><td>iPad2,4</td><td>iPad 2</td></tr><tr><td>iPad2,5</td><td>iPad Mini</td></tr><tr><td>iPad2,6</td><td>iPad Mini</td></tr><tr><td>iPad2,7</td><td>iPad Mini</td></tr><tr><td>iPad3,1</td><td>iPad 3</td></tr><tr><td>iPad3,2</td><td>iPad 3</td></tr><tr><td>iPad3,3</td><td>iPad 3</td></tr><tr><td>iPad3,4</td><td>iPad 4</td></tr><tr><td>iPad3,5</td><td>iPad 4</td></tr><tr><td>iPad3,6</td><td>iPad 4</td></tr><tr><td>iPad4,1</td><td>iPad Air</td></tr><tr><td>iPad4,2</td><td>iPad Air</td></tr><tr><td>iPad4,3</td><td>iPad Air</td></tr><tr><td>iPad4,4</td><td>iPad Mini 2</td></tr><tr><td>iPad4,5</td><td>iPad Mini 2</td></tr><tr><td>iPad4,6</td><td>iPad Mini 2</td></tr><tr><td>iPad4,7</td><td>iPad Mini 3</td></tr><tr><td>iPad4,8</td><td>iPad Mini 3</td></tr><tr><td>iPad4,9</td><td>iPad Mini 3</td></tr><tr><td>iPad5,1</td><td>iPad Mini 4</td></tr><tr><td>iPad5,2</td><td>iPad Mini 4</td></tr><tr><td>iPad5,3</td><td>iPad Air 2</td></tr><tr><td>iPad5,4</td><td>iPad Air 2</td></tr><tr><td>iPad6,3</td><td>iPad Pro 9.7</td></tr><tr><td>iPad6,4</td><td>iPad Pro 9.7</td></tr><tr><td>iPad6,7</td><td>iPad Pro 12.9</td></tr><tr><td>iPad6,8</td><td>iPad Pro 12.9</td></tr><tr><td>iPad6,11</td><td>iPad 5</td></tr><tr><td>iPad6,12</td><td>iPad 5</td></tr><tr><td>iPad7,1</td><td>iPad Pro 12.9 inch 2nd gen</td></tr><tr><td>iPad7,2</td><td>iPad Pro 12.9 inch 2nd gen</td></tr><tr><td>iPad7,3</td><td>iPad Pro 10.5 inch</td></tr><tr><td>iPad7,4</td><td>iPad Pro 10.5 inch</td></tr><tr><td>iPad7,5</td><td>iPad 6</td></tr><tr><td>iPad7,6</td><td>iPad 6</td></tr><tr><td>iPad7,11</td><td>iPad 7</td></tr><tr><td>iPad7,12</td><td>iPad 7</td></tr><tr><td>iPad8,1 ~ 8,4</td><td>iPad Pro 11-inch</td></tr><tr><td>iPad8,5 ~ 8,8</td><td>iPad Pro 12.9-inch 3rd gen</td></tr><tr><td>iPad8,9 ~ 8,10</td><td>iPad Pro 11-inch 2nd gen</td></tr><tr><td>iPad8,11 ~ 8,12</td><td>iPad Pro 12.9-inch 4th gen</td></tr><tr><td>iPad11,1</td><td>iPad Mini 5</td></tr><tr><td>iPad11,2</td><td>iPad Mini 5</td></tr><tr><td>iPad11,3</td><td>iPad Air 3</td></tr><tr><td>iPad11,4</td><td>iPad Air 3</td></tr><tr><td>iPad11,6</td><td>iPad 8</td></tr><tr><td>iPad11,7</td><td>iPad 8</td></tr><tr><td>iPad13,1</td><td>iPad Air 4</td></tr><tr><td>iPad13,2</td><td>iPad Air 4</td></tr><tr><td>iPad12,1</td><td>iPad 9</td></tr><tr><td>iPad12,2</td><td>iPad 9</td></tr><tr><td>iPad14,1</td><td>iPad Mini 6</td></tr><tr><td>iPad14,2</td><td>iPad Mini 6</td></tr><tr><td>iPad13,4 ~ 13,7</td><td>iPad Pro 11-inch 3nd gen</td></tr><tr><td>iPad13,8 ~ 13,11</td><td>iPad Pro 12.9-inch 5th gen</td></tr><tr><td></td><td></td></tr></tbody></table><h1 id="手机型号对应表："><a href="#手机型号对应表：" class="headerlink" title="手机型号对应表："></a>手机型号对应表：</h1><table><thead><tr><th>iphone对应型号</th><th>名称</th></tr></thead><tbody><tr><td>iPhone3,1</td><td>iPhone 4</td></tr><tr><td>iPhone3,2</td><td>iPhone 4</td></tr><tr><td>iPhone3,3</td><td>iPhone 4</td></tr><tr><td>iPhone4,1</td><td>iPhone 4S</td></tr><tr><td>iPhone5,1</td><td>iPhone 5</td></tr><tr><td>iPhone5,2</td><td>iPhone 5</td></tr><tr><td>iPhone5,3</td><td>iPhone 5c</td></tr><tr><td>iPhone5,4</td><td>iPhone 5c</td></tr><tr><td>iPhone6,1</td><td>iPhone 5s</td></tr><tr><td>iPhone6,2</td><td>iPhone 5s</td></tr><tr><td>iPhone7,1</td><td>iPhone 6 Plus</td></tr><tr><td>iPhone7,2</td><td>iPhone 6</td></tr><tr><td>iPhone8,1</td><td>iPhone 6s</td></tr><tr><td>iPhone8,2</td><td>iPhone 6s Plus</td></tr><tr><td>iPhone8,4</td><td>iPhone SE</td></tr><tr><td>iPhone9,1</td><td>iPhone 7</td></tr><tr><td>iPhone9,2</td><td>iPhone 7 Plus</td></tr><tr><td>iPhone9,3</td><td>iPhone 7</td></tr><tr><td>iPhone9,4</td><td>iPhone 7 Plus</td></tr><tr><td>iPhone10,1</td><td>iPhone 8</td></tr><tr><td>iPhone10,2</td><td>iPhone 8 Plus</td></tr><tr><td>iPhone10,4</td><td>iPhone 8</td></tr><tr><td>iPhone10,5</td><td>iPhone 8 Plus</td></tr><tr><td>iPhone10,3</td><td>iPhone X</td></tr><tr><td>iPhone10,6</td><td>iPhone X</td></tr><tr><td>iPhone11,2</td><td>iPhone XS</td></tr><tr><td>iPhone11,4</td><td>iPhone XS Max</td></tr><tr><td>iPhone11,6</td><td>iPhone XS Max</td></tr><tr><td>iPhone11,8</td><td>iPhone XR</td></tr><tr><td>iPhone12,1</td><td>iPhone 11</td></tr><tr><td>iPhone12,3</td><td>iPhone 11 Pro</td></tr><tr><td>iPhone12,5</td><td>iPhone 11 Pro Max</td></tr><tr><td>iPhone12,8</td><td>iPhone SE 2</td></tr><tr><td>iPhone13,1</td><td>iPhone 12 mini</td></tr><tr><td>iPhone13,2</td><td>iPhone 12</td></tr><tr><td>iPhone13,3</td><td>iPhone 12 Pro</td></tr><tr><td>iPhone13,4</td><td>iPhone 12 Pro Max</td></tr><tr><td>iPhone14,4</td><td>iPhone 13 mini</td></tr><tr><td>iPhone14,5</td><td>iPhone 13</td></tr><tr><td>iPhone14,2</td><td>iPhone 13 Pro</td></tr><tr><td>iPhone14,3</td><td>iPhone 13 Pro Max</td></tr></tbody></table>]]></content>
+      
+      
+      <categories>
+          
+          <category> ios </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> ios </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>技术开发流程</title>
       <link href="/2021/09/12/%E6%8A%80%E6%9C%AF%E5%BC%80%E5%8F%91%E6%B5%81%E7%A8%8B/"/>
       <url>/2021/09/12/%E6%8A%80%E6%9C%AF%E5%BC%80%E5%8F%91%E6%B5%81%E7%A8%8B/</url>
