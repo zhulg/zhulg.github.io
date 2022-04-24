@@ -4,6 +4,64 @@
   
     
     <entry>
+      <title> Web3是什么与区块链关系</title>
+      <link href="/2022/04/23/Web3%E6%98%AF%E4%BB%80%E4%B9%88%E4%B8%8E%E5%8C%BA%E5%9D%97%E9%93%BE%E5%85%B3%E7%B3%BB/"/>
+      <url>/2022/04/23/Web3%E6%98%AF%E4%BB%80%E4%B9%88%E4%B8%8E%E5%8C%BA%E5%9D%97%E9%93%BE%E5%85%B3%E7%B3%BB/</url>
+      
+        <content type="html"><![CDATA[<h2 id="web3是什么"><a href="#web3是什么" class="headerlink" title="web3是什么"></a>web3是什么</h2><h3 id="1-先从维基百科看Web3的解释"><a href="#1-先从维基百科看Web3的解释" class="headerlink" title="1.先从维基百科看Web3的解释:"></a>1.先从维基百科看Web3的解释:</h3><ul><li>Web 3.0是关于万维网发展的一个概念，主要与基于区块链的去中心化、加密货币以及非同质化代币有关。</li><li>区块链有关的web3概念是由以太坊联合创始人Gavin Wood于2014年提出，并于2021年受到加密货币爱好者、大型科技公司, 风险投资公司的关注Web3</li></ul><h3 id="2-对比web1-0和web2-0来理解："><a href="#2-对比web1-0和web2-0来理解：" class="headerlink" title="2. 对比web1.0和web2.0来理解："></a>2. 对比web1.0和web2.0来理解：</h3><ul><li><strong>Web 1.0 is like a one-way system.</strong> 用户只能被动地浏览文本、图片以及简单的视频内容，网站提供什么，用户查看什么。几乎没有互动可言。</li><li><strong>In Web 2.0 of the internet.</strong> 互联网开始与人互动,论坛、语音、朋友圈</li><li><strong>In Web 3.0, data will be connected in a decentralized way.</strong>  数据已去中心用户生活在互联网中</li></ul><h3 id="3-从时代规则来进行对比："><a href="#3-从时代规则来进行对比：" class="headerlink" title="3.从时代规则来进行对比："></a>3.从时代规则来进行对比：</h3><ul><li>Web 1.0 时代规则：<strong>平台进行创造、所有、控制、并自身受益。（早期信息网站）</strong></li><li>Web 2.0时代规则：<strong>用户来创造、平台所有和控制、平台分配。（近期比较火的自媒体、抖音短视频等）</strong></li><li>Web 3.0时代规则：<strong>用户来创造、用户所有和控制、协议分配。（归属明确，协议不可篡改，去中心化）</strong><br><img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/1fede61b-7038-4349-bdd7-0a6ee88dc101/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220424%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220424T113454Z&X-Amz-Expires=86400&X-Amz-Signature=ae21b5a0d7d095917304c35a7c680321c193f0807ff29889c4f3a0cf4c618d04&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22&x-id=GetObject" alt></li></ul><h3 id="4-对比目前Web2-0的应用来看web3-0"><a href="#4-对比目前Web2-0的应用来看web3-0" class="headerlink" title="4.对比目前Web2.0的应用来看web3.0:"></a>4.对比目前Web2.0的应用来看web3.0:</h3><p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/web3app.jpeg" alt></p><h2 id="web3与区块链的关系"><a href="#web3与区块链的关系" class="headerlink" title="web3与区块链的关系"></a>web3与区块链的关系</h2><ul><li>区块链是一个去中心化计算协议，区块链技术确保了数据不可篡改，明确了相关归属，具备天然的分布式数据储存，在协议方面区块链有智能合约概念，通过合约，用户权利与价值的分配协议可以无需借助可信第三方。</li><li>区块链技术满足了web3定义的相关规则，是一种重要的技术实现手段。<br><img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/b2ffcada-8e1b-4895-89fa-082115d3e0d1/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220424%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220424T120251Z&X-Amz-Expires=86400&X-Amz-Signature=260eed048b81ac014e97646a54205249af70d6d03ffc22df57a55422e0879b43&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22&x-id=GetObject" alt></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> web3 </category>
+          
+          <category> 区块链 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 区块链 </tag>
+            
+            <tag> web3 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>MVC/MVP/MVVM/MVI架构模式</title>
+      <link href="/2022/02/13/MVC-MVP-MVVM-MVI%E6%9E%B6%E6%9E%84%E6%A8%A1%E5%BC%8F/"/>
+      <url>/2022/02/13/MVC-MVP-MVVM-MVI%E6%9E%B6%E6%9E%84%E6%A8%A1%E5%BC%8F/</url>
+      
+        <content type="html"><![CDATA[<h2 id="1-MVC"><a href="#1-MVC" class="headerlink" title="1.MVC:"></a>1.MVC:</h2><div align="center" width="100%">  <img width="80%" src="https://raw.githubusercontent.com/zhulg/allpic/master/mvc.png"></div><ol><li>View 层接受输入，并送到指令到 Controller层</li><li>Controller 处理业务逻辑后，对 Model 改变状态，有时也直接更新View</li><li>Model 更新数据发送到 View，View层更新界面</li></ol><h2 id="2-MVP"><a href="#2-MVP" class="headerlink" title="2.MVP:"></a>2.MVP:</h2><div align="center" width="100%">  <img width="80%" src="https://raw.githubusercontent.com/zhulg/allpic/master/mvp.png"></div><ol><li>View 与 Model 不再进行通信</li><li>View 与 Model 通过Presenter层通信降低耦合</li><li>View层负责界面展示，Presenter层处理逻辑业务代码会变厚</li></ol><h2 id="3-MVVM："><a href="#3-MVVM：" class="headerlink" title="3.MVVM："></a>3.MVVM：</h2><div align="center" width="100%">  <img width="80%" src="https://raw.githubusercontent.com/zhulg/allpic/master/mvvm.png"></div><ol><li>View 与 Model 保持不直接通信，与MVP思想大致相同</li><li>通过绑定思想建立View层和ViewModel映射，实现界面和数据自动同步</li><li>ViewModel层多包含处理的业务逻辑，并与Model层通信</li></ol><h2 id="4-MVI"><a href="#4-MVI" class="headerlink" title="4.MVI:"></a>4.MVI:</h2><ul><li>MVI 是 <strong>Model-View-Intent</strong> 的缩写，它也是一种响应式 + 流式处理思想的架构（数据模型驱动界面）。</li></ul><div align="center" width="100%">  <img width="80%" src="https://raw.githubusercontent.com/zhulg/allpic/master/mvi.png"></div><ol><li>把用户操作，形成以<code>Intent</code>的形式，通知<code>Model</code>里对应的状态方法</li><li><code>Model</code>基于<code>Intent</code>更新<code>State</code>，保证状态逻辑的一致性</li><li><code>View</code>接收到<code>State</code>变化刷新界面层</li></ol><h3 id="Android架构中MVI与MVVM分层变动："><a href="#Android架构中MVI与MVVM分层变动：" class="headerlink" title="Android架构中MVI与MVVM分层变动："></a>Android架构中MVI与MVVM分层变动：</h3><ul><li>MVVM 代码分层的 View 和 ViewModel 在 MVI 中统一称为 UI Layer，而 Model 层在 MVI 中变成了 Data Layer。</li><li>MVI 概念中的 Model 作为状态模型，在 UI Layer 的 ViewModel 和 Data Layer 的 Repository 中分别体现为 UI State 和 Data Flow</li></ul><p><em>MVI优点:</em></p><ul><li>通<strong>过数据模型驱动界面，</strong>应用会更便于测试、更稳定可靠</li><li><strong>强调数据单向流动</strong>，容易对状态变化进行跟踪和回溯</li></ul><p><em>MVI缺点:</em></p><ul><li>所有的操作都会转换成State，所以当复杂页面的State容易膨胀</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> Android </category>
+          
+          <category> 架构 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> App </tag>
+            
+            <tag> 架构 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>iOS设备型号和名称对照</title>
       <link href="/2022/01/11/iOS%E8%AE%BE%E5%A4%87%E5%9E%8B%E5%8F%B7%E5%92%8C%E5%90%8D%E7%A7%B0%E5%AF%B9%E7%85%A7/"/>
       <url>/2022/01/11/iOS%E8%AE%BE%E5%A4%87%E5%9E%8B%E5%8F%B7%E5%92%8C%E5%90%8D%E7%A7%B0%E5%AF%B9%E7%85%A7/</url>
