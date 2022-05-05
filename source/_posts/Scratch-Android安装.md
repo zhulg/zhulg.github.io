@@ -1,9 +1,10 @@
 ---
 title: Scratch Android安装
-date: 2021-01-05 10:47:51
 tags: Scratch
 categories: Scratch
 toc: true
+abbrlink: 1971
+date: 2021-01-05 10:47:51
 ---
 
 ## Scratch APK

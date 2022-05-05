@@ -1,9 +1,10 @@
 ---
 title: springcloud-Gateway记录
-date: 2017-10-17 11:17:35
 tags: springcloud
 categories: springcloud
 toc: true
+abbrlink: 16737
+date: 2017-10-17 11:17:35
 ---
 ### SpringCloud Gateway相关点
 

@@ -1,7 +1,8 @@
 ---
 title: redis常用场景
-date: 2017-09-19 14:46:37
 tags: redis
+abbrlink: 23891
+date: 2017-09-19 14:46:37
 ---
 ### Redis的特点
 Redis  与其他  key - value  缓存产品有以下三个特点：

@@ -1,9 +1,10 @@
 ---
 title: JVM内存区域划分总结
-date: 2020-08-31 23:22:20
-tags: java 
+tags: java
 categories: Java
 toc: true
+abbrlink: 50924
+date: 2020-08-31 23:22:20
 ---
 
 - JVM 内存区域分为下面几个方面,程序计数器、Java虚拟机栈（Java栈）、Java堆、方法区、运行时常量池、本地方法栈。

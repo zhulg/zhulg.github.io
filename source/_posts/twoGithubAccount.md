@@ -1,9 +1,10 @@
 ---
 title: 如何绑定两个github帐号
-date: 2018-09-26 15:55:50
 tags: git
 categories: Git
 toc: true
+abbrlink: 59372
+date: 2018-09-26 15:55:50
 ---
 ![](/images/coffee.jpg)
 

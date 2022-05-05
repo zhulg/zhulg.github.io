@@ -1,9 +1,10 @@
 ---
 title: fabric中的术语
-date: 2018-03-05 16:30:36
 tags: 区块链
 categories: 区块链
 toc: true
+abbrlink: 50907
+date: 2018-03-05 16:30:36
 ---
 
 - Auditability（审计性）：在一定权限和许可下，可以对链上的交易进行审计和检查。

@@ -1,7 +1,8 @@
 ---
 title: mongodb介绍
-date: 2017-08-02 11:12:34
 tags: springboot相关
+abbrlink: 49782
+date: 2017-08-02 11:12:34
 ---
 
 #### SQL 和 NoSQL 的区别

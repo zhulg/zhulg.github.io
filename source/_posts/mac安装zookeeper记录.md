@@ -1,7 +1,8 @@
 ---
 title: mac安装zookeeper记录
-date: 2017-07-28 15:46:14
 tags: 分布式/集群
+abbrlink: 23207
+date: 2017-07-28 15:46:14
 ---
 - brew install zookeeper 安装后配置文件位置：/usr/local/etc/zookeeper
 - 配置文件路径： /usr/local/etc/zookeeper/zoo.cfg

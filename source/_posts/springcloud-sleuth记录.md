@@ -1,9 +1,10 @@
 ---
 title: springcloud-sleuth记录
-date: 2017-10-18 17:09:11
 tags: springcloud
 categories: springcloud
 toc: true
+abbrlink: 53406
+date: 2017-10-18 17:09:11
 ---
 
 ### SpringCloud Sleuth记录

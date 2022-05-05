@@ -1,9 +1,10 @@
 ---
 title: go语言基础记录
-date: 2018-10-12 11:22:46
 tags: go
 categories: go
 toc: true
+abbrlink: 35121
+date: 2018-10-12 11:22:46
 ---
 
 ## go最基础备忘录

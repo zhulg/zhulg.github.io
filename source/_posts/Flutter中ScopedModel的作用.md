@@ -1,9 +1,10 @@
 ---
 title: Flutter中ScopedModel的作用
-date: 2018-12-27 20:53:33
 tags: flutter
 categories: flutter
 toc: true
+abbrlink: 23620
+date: 2018-12-27 20:53:33
 ---
 
 - Scoped_model是一个dart第三方库，提供将数据模型从父Widget传递到它的后代的功能,它还会在模型更新时重新渲染使用该模型的所有子项.

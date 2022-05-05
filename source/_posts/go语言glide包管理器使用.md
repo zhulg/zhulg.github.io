@@ -1,9 +1,10 @@
 ---
 title: go语言glide包管理器使用
-date: 2018-03-07 19:09:02
 tags: go
 categories: go
 toc: true
+abbrlink: 42315
+date: 2018-03-07 19:09:02
 ---
 
 - glide 安装 

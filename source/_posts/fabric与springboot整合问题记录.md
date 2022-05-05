@@ -1,9 +1,10 @@
 ---
 title: fabric与springboot整合问题记录
-date: 2018-04-19 16:43:29
 tags: 区块链
 categories: 区块链
 toc: true
+abbrlink: 46195
+date: 2018-04-19 16:43:29
 ---
 
 - 目前在做基于fabric的区块链项目，在整合springboot时遇到坑记录

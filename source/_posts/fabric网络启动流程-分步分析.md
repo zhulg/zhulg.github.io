@@ -1,9 +1,10 @@
 ---
 title: fabric网络启动流程-分步分析
-date: 2018-03-13 15:33:57
 tags: 区块链
 categories: 区块链
 toc: true
+abbrlink: 29630
+date: 2018-03-13 15:33:57
 ---
 
 ### farbic 网络启动过程

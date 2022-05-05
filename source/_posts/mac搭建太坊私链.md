@@ -1,9 +1,10 @@
 ---
 title: mac搭建以太坊私链
-date: 2018-06-11 22:24:51
 tags: 区块链
 categories: 区块链
 toc: true
+abbrlink: 9685
+date: 2018-06-11 22:24:51
 ---
 
 - 搭建以太坊私链，需要安装geth

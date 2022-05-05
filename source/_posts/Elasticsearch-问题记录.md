@@ -1,7 +1,8 @@
 ---
 title: Elasticsearch 问题记录
-date: 2017-12-01 16:08:58
 tags: Elasticsearch
+abbrlink: 57643
+date: 2017-12-01 16:08:58
 ---
 
 - 错误日志：field "name" was indexed without position data; cannot run PhraseQuery 

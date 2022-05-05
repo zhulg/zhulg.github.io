@@ -1,7 +1,8 @@
 ---
 title: awk常用记录
-date: 2017-11-20 11:22:17
 tags: AWK
+abbrlink: 39087
+date: 2017-11-20 11:22:17
 ---
 
 ### AWK记录

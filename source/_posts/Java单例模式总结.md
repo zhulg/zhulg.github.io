@@ -1,9 +1,10 @@
 ---
 title: Java单例模式总结
-date: 2020-08-28 10:38:12
 tags: java
 categories: Java
 toc: true
+abbrlink: 28018
+date: 2020-08-28 10:38:12
 ---
 
 - 单例的创建常分为2种类型

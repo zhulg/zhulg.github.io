@@ -1,9 +1,10 @@
 ---
 title: iOS设备型号和名称对照
-date: 2022-01-11 20:00:05
 tags: ios
-categories : ios
+categories: ios
 toc: true
+abbrlink: 14423
+date: 2022-01-11 20:00:05
 ---
 
 - 方便线上日志根据获取到的设备标示，去查找对应具体设备名称

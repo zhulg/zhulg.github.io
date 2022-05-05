@@ -1,9 +1,10 @@
 ---
 title: springboot整合Apache Shiro
-date: 2017-10-24 19:44:59
 tags: springboot
 categories: springboot
 toc: true
+abbrlink: 37485
+date: 2017-10-24 19:44:59
 ---
 
 ### Shiro的记录

@@ -1,7 +1,9 @@
 ---
 title: 以太坊geth及mac安装
+tags:
+  - 区块链，以太坊
+abbrlink: 52667
 date: 2018-06-08 00:29:17
-tags: [区块链，以太坊]
 ---
 
 

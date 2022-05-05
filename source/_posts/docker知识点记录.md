@@ -1,7 +1,8 @@
 ---
 title: docker知识点记录
-date: 2017-10-21 10:37:39
 tags: docker
+abbrlink: 26571
+date: 2017-10-21 10:37:39
 ---
 
 ### Docker概念点

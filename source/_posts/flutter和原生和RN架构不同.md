@@ -1,9 +1,10 @@
 ---
 title: flutter和原生和RN架构不同
-date: 2018-12-14 18:22:08
 tags: flutter
 categories: flutter
 toc: true
+abbrlink: 16190
+date: 2018-12-14 18:22:08
 ---
 
 - 原生：![](https://cdn-images-1.medium.com/max/1600/1*DXsvg0ir2nvYOTiUpp9KJw.png)

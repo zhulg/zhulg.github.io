@@ -1,7 +1,11 @@
 ---
 title: node里express框架知识点记录
+tags:
+  - node
+  - composer
+  - vscode
+abbrlink: 32797
 date: 2018-07-05 18:40:54
-tags: [node,composer,vscode]
 ---
 
 - Express是基于nodejs的web开发框架,使用vscode开发node

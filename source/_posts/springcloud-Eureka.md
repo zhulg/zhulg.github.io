@@ -1,9 +1,10 @@
 ---
 title: springcloud Eureka
-date: 2017-08-08 11:08:36
 tags: springcloud
 categories: springcloud
 toc: true
+abbrlink: 23872
+date: 2017-08-08 11:08:36
 ---
 ### 关于Eureka
 - Eureka，是 Spring Cloud Eureka 的简称，是 Spring Cloud Netflix 组件之一。Spring Cloud Netflix 中核心的组件包括了服务治理（Eureka），服务容断（Hystrix），路由（Zuul）和客户端负载均衡（Ribbon）等

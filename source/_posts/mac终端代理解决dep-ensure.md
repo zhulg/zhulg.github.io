@@ -1,7 +1,11 @@
 ---
 title: mac终端代理解决dep ensure
+tags:
+  - go
+  - stellar
+  - 区块链
+abbrlink: 11588
 date: 2018-10-08 13:39:07
-tags: [go,stellar,区块链]
 ---
 
 - 使用Stellar go sdk,同步sdk里的依赖dep ensure -v 发现错误，需要挂上代理了。

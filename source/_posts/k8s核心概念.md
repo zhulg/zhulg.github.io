@@ -1,7 +1,8 @@
 ---
 title: k8s核心概念
-date: 2017-11-03 14:25:50
 tags: K8S
+abbrlink: 18975
+date: 2017-11-03 14:25:50
 ---
 
 ### kubernetes核心概念

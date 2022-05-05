@@ -1,9 +1,10 @@
 ---
 title: JVM思维导图知识点回顾
-date: 2020-09-24 10:31:22
 tags: java
 catgeories: JAVA
 toc: true
+abbrlink: 59677
+date: 2020-09-24 10:31:22
 ---
 
 

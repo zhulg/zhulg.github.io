@@ -1,7 +1,10 @@
 ---
 title: android gradle依赖下载巨慢问题记录
+tags:
+  - android
+  - gradle
+abbrlink: 4988
 date: 2018-08-09 18:32:00
-tags: [android,gradle]
 ---
 
 - 有段时间没写Android项目了，最近android9也发布了。当年也是从1.5开始的android之路。。。时间飞快。

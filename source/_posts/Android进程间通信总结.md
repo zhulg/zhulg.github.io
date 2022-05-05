@@ -1,9 +1,10 @@
 ---
 title: Android进程间通信总结
-date: 2020-11-12 18:47:51
 tags: Android
 categories: Android
 toc: true
+abbrlink: 44524
+date: 2020-11-12 18:47:51
 ---
 
 - Android进程间通用常见方式:

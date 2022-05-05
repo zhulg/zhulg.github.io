@@ -1,9 +1,10 @@
 ---
 title: go版本管理工具gvm使用
-date: 2018-06-21 12:20:04
 tags: go
 categories: go
 toc: true
+abbrlink: 63736
+date: 2018-06-21 12:20:04
 ---
 
 #### gvm 用于管理go版本

@@ -1,7 +1,8 @@
 ---
 title: kafka
-date: 2017-12-16 12:03:28
 tags: kafka
+abbrlink: 13749
+date: 2017-12-16 12:03:28
 ---
 
 ###kafka概述

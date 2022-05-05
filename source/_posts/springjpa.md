@@ -1,7 +1,8 @@
 ---
 title: jpa/hibernate/spring data/spring data jpa都是什么
-date: 2017-07-22 06:44:37
 tags: spring
+abbrlink: 4061
+date: 2017-07-22 06:44:37
 ---
 
 ### 什么是JPA

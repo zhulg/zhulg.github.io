@@ -1,9 +1,10 @@
 ---
 title: linux当前用户加入docker组
-date: 2018-08-01 16:57:15
 tags: Linux
 categories: Linux
 toc: true
+abbrlink: 55312
+date: 2018-08-01 16:57:15
 ---
 
 - docker的运行在root下，需要sudo方式进行查看 sudo docker ps

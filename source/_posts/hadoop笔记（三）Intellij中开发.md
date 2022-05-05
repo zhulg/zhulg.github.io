@@ -1,7 +1,8 @@
 ---
 title: hadoop笔记（三）Intellij中开发
-date: 2017-12-10 11:30:39
 tags: hadoop
+abbrlink: 14959
+date: 2017-12-10 11:30:39
 ---
 
 ### 在Intellij中运行hadoop程序

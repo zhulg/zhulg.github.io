@@ -1,7 +1,11 @@
 ---
 title: webstom编译Fabric node-sdk记录
+tags:
+  - fabric
+  - fabric-node-sdk
+  - webstom
+abbrlink: 14437
 date: 2018-03-26 18:08:11
-tags: [fabric,fabric-node-sdk,webstom]
 ---
 
 #### 使用fabric-node-sdk

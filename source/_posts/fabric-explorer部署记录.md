@@ -1,9 +1,10 @@
 ---
 title: fabric explorer部署记录
-date: 2018-03-22 15:28:25
 tags: 区块链
 categories: 区块链
 toc: true
+abbrlink: 30329
+date: 2018-03-22 15:28:25
 ---
 - Hyperledger Explorer is a simple, powerful, easy-to-use, highly maintainable, open source browser for viewing activity on the underlying blockchain network.
 - 通过explorer可以看到fabric的peer,channel,block 等信息

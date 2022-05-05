@@ -1,10 +1,10 @@
 ---
 title: Android等保评测处理
-date: 2020-09-30 10:39:19
 tags: Android
 categories: Android
 toc: true
-
+abbrlink: 65331
+date: 2020-09-30 10:39:19
 ---
 
 - 等保评测常见问题处理，处理等保类相关风险，加固是最好的选择，特别是付费专业版。但是有些付费还是比较贵。

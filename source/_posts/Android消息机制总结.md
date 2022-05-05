@@ -1,9 +1,10 @@
 ---
 title: Android消息机制总结
-date: 2020-11-09 15:12:36
 tags: Android
 categories: Android
 toc: true
+abbrlink: 4547
+date: 2020-11-09 15:12:36
 ---
 
 ## 消息机制相关知识点

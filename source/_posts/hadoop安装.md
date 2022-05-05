@@ -1,7 +1,8 @@
 ---
 title: hadoop笔记（二）
-date: 2017-12-5 10:22:17
 tags: hadoop
+abbrlink: 880
+date: 2017-12-05 10:22:17
 ---
 ### hadoop mac上安装记录
 

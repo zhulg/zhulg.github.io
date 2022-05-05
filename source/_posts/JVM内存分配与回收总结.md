@@ -1,9 +1,10 @@
 ---
 title: JVM内存分配与回收总结
-date: 2020-09-15 10:05:15
 tags: java
 categories: Java
 toc: true
+abbrlink: 44013
+date: 2020-09-15 10:05:15
 ---
 
 - **对象的内存分配主要在堆上分配，主要分配在新生代的 Eden 区上，少数情况下可能直接分配在老年代**

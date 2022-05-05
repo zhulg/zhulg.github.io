@@ -1,9 +1,10 @@
 ---
 title: ios启动分析
-date: 2019-09-26 22:53:06
 tags: ios
-categories : ios
+categories: ios
 toc: true
+abbrlink: 12312
+date: 2019-09-26 22:53:06
 ---
 
 

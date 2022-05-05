@@ -1,9 +1,10 @@
 ---
 title: Java线程状态及关键方法
-date: 2020-08-18 09:56:08
 categories: Java
 tags: Java
 toc: true
+abbrlink: 23024
+date: 2020-08-18 09:56:08
 ---
 
 ## 先回顾Java里的几个方法

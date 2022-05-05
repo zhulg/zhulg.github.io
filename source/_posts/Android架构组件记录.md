@@ -1,10 +1,10 @@
 ---
 title: Android架构组件记录
-date: 2019-07-31 17:43:48
 tags: Android
 categories: Android
 toc: true
-
+abbrlink: 57116
+date: 2019-07-31 17:43:48
 ---
 
 

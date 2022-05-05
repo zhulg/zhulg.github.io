@@ -1,7 +1,8 @@
 ---
 title: Apache Camel
-date: 2017-08-16 18:13:47
 tags: springboot
+abbrlink: 53101
+date: 2017-08-16 18:13:47
 ---
 ### Apache Camel
 - Camel 是一个开源的企业应用集成框架。

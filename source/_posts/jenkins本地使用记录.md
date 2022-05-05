@@ -1,7 +1,8 @@
 ---
 title: jenkins本地使用命令记录
-date: 2017-12-08 14:37:49
 tags: jenkins
+abbrlink: 55605
+date: 2017-12-08 14:37:49
 ---
 
 ### mac上jenkins记录安装

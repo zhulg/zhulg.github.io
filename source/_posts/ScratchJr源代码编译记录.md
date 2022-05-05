@@ -1,9 +1,10 @@
 ---
 title: ScratchJr源代码编译记录
-date: 2020-12-14 17:26:51
 tags: Scratch
 categories: Scratch
 top: Scratch
+abbrlink: 32936
+date: 2020-12-14 17:26:51
 ---
 
 ## ScratchJr编译

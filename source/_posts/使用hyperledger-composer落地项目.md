@@ -1,7 +1,11 @@
 ---
 title: 使用hyperledger composer落地项目
+tags:
+  - 区块链
+  - hyperledger composer
+  - composer
+abbrlink: 59496
 date: 2018-05-30 23:17:56
-tags: [区块链,hyperledger composer,composer]
 ---
 
 #### composer构建和部署

@@ -1,9 +1,10 @@
 ---
 title: springcloud eureka注册中心集群
-date: 2017-08-10 16:29:02
 tags: springcloud
 categories: springcloud
 toc: true
+abbrlink: 17105
+date: 2017-08-10 16:29:02
 ---
 ### Eureka集群注册
 - Eureka注册中心提供关键的服务，如果是单点话，遇到故障就是毁灭性的。在一个分布式系统中，服务注册中心是最重要的基础部分，理应随时处于可以提供服务的状态。为了维持其可用性，使用集群是很好的解决方案。

@@ -1,9 +1,10 @@
 ---
 title: Java垃圾收集总结
-date: 2020-09-04 08:51:50
 tags: java
 categories: Java
 toc: true
+abbrlink: 80
+date: 2020-09-04 08:51:50
 ---
 
 ## 一，垃圾收集的相关原理

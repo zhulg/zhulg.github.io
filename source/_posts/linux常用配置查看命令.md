@@ -1,9 +1,10 @@
 ---
 title: linux常用配置查看命令
-date: 2018-04-15 18:06:18
 tags: Linux
 categories: Linux
 toc: true
+abbrlink: 6996
+date: 2018-04-15 18:06:18
 ---
 
 #### Linux操作系统主要分为两大类：

@@ -1,7 +1,8 @@
 ---
 title: shell常用点记录
-date: 2017-11-15 12:02:15
 tags: Linux
+abbrlink: 32296
+date: 2017-11-15 12:02:15
 ---
 
 ###Shell中的常用字符串截取。

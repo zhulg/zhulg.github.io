@@ -1,9 +1,10 @@
 ---
 title: Stellar区块链记录
-date: 2018-09-25 15:55:50
 tags: 区块链
 categories: 区块链
 toc: true
+abbrlink: 42221
+date: 2018-09-25 15:55:50
 ---
 
 ## 一，关于Stellar网络相关概述

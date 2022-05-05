@@ -1,7 +1,8 @@
 ---
 title: mac minikube本地集群
-date: 2017-11-08 19:40:16
 tags: K8S
+abbrlink: 27685
+date: 2017-11-08 19:40:16
 ---
 
 ### Minikube 本地集群

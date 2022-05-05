@@ -1,7 +1,10 @@
 ---
 title: mac上django安装
+tags:
+  - python
+  - django
+abbrlink: 34049
 date: 2018-06-26 22:37:33
-tags: [python,django]
 ---
 
 #### django安装失败问题记录

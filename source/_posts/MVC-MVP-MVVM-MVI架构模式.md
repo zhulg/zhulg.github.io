@@ -1,9 +1,14 @@
 ---
 title: MVC/MVP/MVVM/MVI架构模式
-date: 2022-02-13 10:51:41
-tags: [App,架构]
-categories: [Android,架构]
+tags:
+  - App
+  - 架构
+categories:
+  - Android
+  - 架构
 toc: true
+abbrlink: 9541
+date: 2022-02-13 10:51:41
 ---
 
 ## 1.MVC:

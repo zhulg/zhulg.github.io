@@ -1,7 +1,8 @@
 ---
 title: mac安装redis
-date: 2017-07-26 17:52:09
 tags: redis
+abbrlink: 56043
+date: 2017-07-26 17:52:09
 ---
 ###  Mac使用brew安装redis
 - 下载redis<br>

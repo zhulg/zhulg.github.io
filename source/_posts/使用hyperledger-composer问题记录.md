@@ -1,9 +1,10 @@
 ---
 title: 使用hyperledger composer问题记录
-date: 2018-05-14 17:30:12
 tags: 区块链
 categories: 区块链
 toc: true
+abbrlink: 24749
+date: 2018-05-14 17:30:12
 ---
 
 #### 使用hyperledger composer 进行构建区块链项目

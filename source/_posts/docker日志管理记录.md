@@ -1,7 +1,9 @@
 ---
 title: docker日志管理记录
+tags:
+  - docker
+abbrlink: 43715
 date: 2018-08-30 14:42:12
-tags: [docker]
 ---
 
 ## docker日志清理

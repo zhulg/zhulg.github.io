@@ -1,9 +1,10 @@
 ---
 title: hyperledger composer创建card区别记录
-date: 2018-05-17 20:01:18
 tags: 区块链
 categories: 区块链
 toc: true
+abbrlink: 29329
+date: 2018-05-17 20:01:18
 ---
 
 

@@ -1,9 +1,10 @@
 ---
 title: kotlin常混淆操作记录
-date: 2019-08-20 15:23:52
 tags: App
 categories: Android
 toc: true
+abbrlink: 40178
+date: 2019-08-20 15:23:52
 ---
 
 ### kotlin易混淆操作符

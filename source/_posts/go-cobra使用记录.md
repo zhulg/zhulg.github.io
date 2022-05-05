@@ -1,9 +1,10 @@
 ---
 title: go cobra使用记录
-date: 2018-11-02 18:15:18
 tags: go
 categories: go
 toc: true
+abbrlink: 3161
+date: 2018-11-02 18:15:18
 ---
 
 - go cobra 地址 https://github.com/spf13/cobra.git ,是一个创建CLI 命令行的golang库。

@@ -1,7 +1,8 @@
 ---
 title: 机器学习，K-近邻算法
-date: 2017-07-31 23:03:46
 tags: 机器学习
+abbrlink: 28699
+date: 2017-07-31 23:03:46
 ---
 ### K-近邻算法
 - k近邻法(k-nearest neighbor, k-NN)是1967年由Cover T和Hart P提出的一种基本分类与回归方法。

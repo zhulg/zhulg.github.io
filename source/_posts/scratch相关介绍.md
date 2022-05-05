@@ -1,9 +1,10 @@
 ---
 title: Scratch相关介绍
-date: 2020-12-07 15:33:23
 tags: Scratch
 categories: Scratch
 toc: true
+abbrlink: 60112
+date: 2020-12-07 15:33:23
 ---
 
 ### 关于Scratch

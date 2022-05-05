@@ -1,7 +1,8 @@
 ---
 title: hadoop笔记（一）
-date: 2017-11-30 10:15:38
 tags: hadoop
+abbrlink: 37642
+date: 2017-11-30 10:15:38
 ---
 
 - Hadoop是使用Java编写，允许分布在集群，使用简单的编程模型的计算机大型数据集处理的Apache的开源框架。

@@ -1,7 +1,8 @@
 ---
 title: openresty安装Mac环境
-date: 2017-12-12 09:38:52
 tags: openresty
+abbrlink: 89
+date: 2017-12-12 09:38:52
 ---
 
 ### openresty概述

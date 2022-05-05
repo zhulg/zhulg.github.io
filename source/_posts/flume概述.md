@@ -1,7 +1,8 @@
 ---
 title: flume概述
-date: 2017-12-12 11:16:10
 tags: flume
+abbrlink: 15079
+date: 2017-12-12 11:16:10
 ---
 
 ### 概述

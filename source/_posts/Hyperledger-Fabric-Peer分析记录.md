@@ -1,9 +1,10 @@
 ---
 title: Hyperledger-Fabric-Peer分析记录
-date: 2018-08-31 14:39:56
 tags: 区块链
 categories: 区块链
 toc: true
+abbrlink: 46484
+date: 2018-08-31 14:39:56
 ---
 
 ## Fabric Peer分析

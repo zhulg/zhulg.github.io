@@ -1,9 +1,14 @@
 ---
 title: ' Web3是什么与区块链关系'
-date: 2022-04-23 22:03:44
-tags: [web3,区块链]
-categories: [web3,区块链]
+tags:
+  - web3
+  - 区块链
+categories:
+  - web3
+  - 区块链
 toc: true
+abbrlink: 55503
+date: 2022-04-23 22:03:44
 ---
 
 

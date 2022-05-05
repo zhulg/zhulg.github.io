@@ -1,7 +1,8 @@
 ---
 title: mac iterm2 rz/sz使用
-date: 2019-09-24 19:54:55
 tags: linux
+abbrlink: 16281
+date: 2019-09-24 19:54:55
 ---
 
 

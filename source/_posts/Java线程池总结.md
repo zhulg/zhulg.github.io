@@ -1,9 +1,10 @@
 ---
 title: Java线程池总结
-date: 2020-09-14 23:22:44
 tags: java
 categories: Java
 toc: true
+abbrlink: 8776
+date: 2020-09-14 23:22:44
 ---
 
 ## 一. 线程池主要解决什么问题

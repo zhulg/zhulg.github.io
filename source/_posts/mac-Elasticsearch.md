@@ -1,7 +1,8 @@
 ---
 title: mac Elasticsearch
-date: 2017-09-13 10:53:25
 tags: Elasticsearch
+abbrlink: 3639
+date: 2017-09-13 10:53:25
 ---
 ### 1,Mac安装Elasticsearch 
 - Elasticsearch 是一个基于 Apache Lucene(TM) 的开源搜索引擎。被认为是迄今为止最先进、性能最好的、功能最全的搜索引擎库。并通过简单的 RESTful API 来隐藏 Lucene 的复杂性，从而让全文搜索变得简单。

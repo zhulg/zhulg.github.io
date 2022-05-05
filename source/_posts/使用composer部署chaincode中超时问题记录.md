@@ -1,7 +1,10 @@
 ---
 title: 使用composer部署chaincode中超时问题记录
+tags:
+  - fabric
+  - composer
+abbrlink: 58142
 date: 2018-07-05 00:09:48
-tags: [fabric,composer]
 ---
 
 - 使用composer进行部署chaincode，构建chaincode镜像时出现超时问题。

@@ -1,7 +1,8 @@
 ---
 title: Android唯一标示
-date: 2019-08-11 15:47:11
 tags: android
+abbrlink: 32390
+date: 2019-08-11 15:47:11
 ---
 
 ### androrid 唯一标示
