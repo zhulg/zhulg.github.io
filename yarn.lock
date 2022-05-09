@@ -4341,8 +4341,8 @@
     "object-assign" "^4.0.1"
 
 "hexo-generator-json-content@^3.0.1":
-  "integrity" "sha1-gXz87L6avZMEFAXyQGDb6T6YR0Q="
-  "resolved" "https://registry.npm.taobao.org/hexo-generator-json-content/download/hexo-generator-json-content-3.0.1.tgz"
+  "integrity" "sha512-aq6nbhKcAU/tozkQ7u8kVGgrrStmnBM+qc54snzA9NuAJT2lwnX0ODw1OAa1En1QVE1r45ILzvjOvYIjIHAnjg=="
+  "resolved" "https://registry.npmmirror.com/hexo-generator-json-content/-/hexo-generator-json-content-3.0.1.tgz"
   "version" "3.0.1"
   dependencies:
     "hexo-util" "latest"
@@ -8671,6 +8671,7 @@
     "resolve" "^1.1.7"
 
 "resolve-file@github:jonschlinkert/resolve-file":
+  "integrity" "sha512-0jlys1B8Q1aHQxzKYZFKA7QXeaidNXXOLLChDBSMWKhEhomFfm8YLK5YdwHCfCHBhpotcjCDNsgyEkQOb2Ejuw=="
   "resolved" "git+ssh://git@github.com/jonschlinkert/resolve-file.git#261082c95a5f407c43d82797c13bae3527462842"
   "version" "0.1.0"
   dependencies:

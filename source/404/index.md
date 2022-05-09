@@ -15,7 +15,7 @@ layout: false
 </head>
 <body>
 <br>
-<h1>原链接有调整，请到首页，通过文章标题来查阅</h1>
+<h1>原链接有调整，请到首页搜索框，搜索原标题即可找到~ </h1>
 <h2>笔记首页： <a href="https://zhulg.github.io/" target="_blank" title="">https://zhulg.github.io/</a></h2>
 <h2><div id="countdown"></div></h2>
 <script language="javascript" type="text/javascript">

@@ -70,26 +70,49 @@ per_page: 10
 pagination_dir: page
 
 
-#tag
-jsonContent:
-    meta: false
-    pages: false
-    posts:
-      title: true
-      date: true
-      path: true
-      text: false
-      raw: false
-      content: false
-      slug: false
-      updated: false
-      comments: false
-      link: false
-      permalink: false
-      excerpt: false
-      categories: true
-      tags: false
+# jsonContent:
+#   dateFormat: MM-DD
+#   pages:
+#     title: true
+#     text: true
+#     path: true
+#     date: true
+#     excerpt: true
+#     preview: true
+#   posts:
+#     title: true
+#     text: true
+#     path: true
+#     date: true
+#     excerpt: true
+#     tags: [{
+#       name: tag.name,
+#       slug: tag.slug,
+#       permalink: tag.permalink
+#     }]
+#     preview: true
 
+jsonContent:
+  dateFormat: MM-DD
+  pages:
+    title: false
+    text: false
+    path: true
+    date: true
+    excerpt: true
+    preview: false
+  posts:
+    title: true
+    text: true
+    path: true
+    date: true
+    excerpt: true
+    tags: [{
+      name: tag.name,
+      slug: tag.slug,
+      permalink: tag.permalink
+    }]
+    preview: true
 
 # Extensions
 ## Plugins: https://hexo.io/plugins/
