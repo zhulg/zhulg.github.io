@@ -10,7 +10,6 @@ date: 2018-11-21 12:28:35
 - go使用gorm做数据库映射时，数据库里存储时间为UTC时间
 - 返回给前端数据可能涉及到记录的创建时间，需要对时间进行格式化
 - Go中使用gorm时，通过加入gorm.Model到自己的struct来定义一个model,一般定义时间类型为time.Time。由于在go的time包中实现json.Marshaler接口时指定了使用RFC3339Nano这种格式，所以model序列化为JSON的时候默认调MarshalJSON方法把time.Time类型的字段都搞成这种格式
-<!-- more -->
 
 ## 格式化时间格式
 - https://stackoverflow.com/questions/28800672/how-to-add-new-methods-to-an-existing-type-in-go 通过别名和内嵌方式进行重写json.Marshaler方法。

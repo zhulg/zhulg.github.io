@@ -15,7 +15,6 @@ date: 2018-05-30 23:17:56
 
 - 开发基本步骤 ![](https://hyperledger.github.io/composer/latest/assets/img/Angular.svg)
 
-<!-- more -->
 
 #### 生成bna文件之后的步骤
 

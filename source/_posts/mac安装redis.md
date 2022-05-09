@@ -22,7 +22,6 @@ redis-cli
 brew services stop redis
 ```
 
-<!-- more -->
 
 
 - 常用配置含义

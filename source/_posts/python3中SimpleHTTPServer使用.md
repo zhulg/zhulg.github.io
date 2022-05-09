@@ -12,6 +12,5 @@ date: 2019-01-11 19:55:55
 python3 -m http.server 8000
 
 ```
-<!-- more -->
 
 - python2之前都是 python -m SimpleHTTPServer 8000启动

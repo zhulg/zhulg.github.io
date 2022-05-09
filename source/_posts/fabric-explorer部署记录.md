@@ -15,7 +15,7 @@ git clone https://github.com/hyperledger/blockchain-explorer.git
 cd blockchain-explorer
 ```
 
-<!-- more -->
+
 
 - 使用mysql导入表
 

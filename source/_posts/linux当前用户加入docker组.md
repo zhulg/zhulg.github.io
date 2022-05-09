@@ -10,7 +10,7 @@ date: 2018-08-01 16:57:15
 - docker的运行在root下，需要sudo方式进行查看 sudo docker ps
 - 可以通过将当前普通用户加入到docker组里，不需要在sudo
 
-<!-- more -->
+
 
 - 通过ls -alh /var/run/docker.sock 查看到执行需要root权限。
 - 把自己加入到docker group里 

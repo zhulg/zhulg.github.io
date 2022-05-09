@@ -40,7 +40,7 @@ orderer
     └── deliver_stdout
 ```
 
-<!-- more -->
+
 
 ## Orderer核心启动代码
 - 通过 orderer 包下的 main() 方法实现，会进一步调用到 orderer/common/server 包中的 Main() 方法。

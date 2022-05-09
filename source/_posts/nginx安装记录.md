@@ -33,7 +33,7 @@ brew services stop nginx
 nginx -s reload
 ```
 
-<!-- more -->
+
 
 
 - 相关安装文件路径(可进行更改)

@@ -14,7 +14,7 @@ src 目录: 存放 go 源码文件, 按 package 来组织 (一个 package 一个
 pkg 目录: 存放 package 对象
 bin 目录: 存放可执行的命令command
 ```
-<!-- more -->
+
 
 - 注意配置go的开发环境，GOPATH,GOBIN,ROROOT,其中gopath是指的你的工作区目录,gobin是工作区生成bin目录，用于存放go install后生成的可执行文件,goroot:The root of the go tree
 - go文件的包名可执行的为main,作为包使用的使用package xxx, 作为包使用的文件，其中的方法定义，需要第一个字母大写。

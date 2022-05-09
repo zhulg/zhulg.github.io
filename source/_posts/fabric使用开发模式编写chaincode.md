@@ -15,7 +15,7 @@ date: 2018-03-28 17:40:22
 ```
 docker-compose -f docker-compose-simple.yaml up
 ```
-<!-- more -->
+
 
 - 在这个yaml里可以看到关键信息，在peer容器里命令标志用于设置开发者模式 command: peer node start --peer-chaincodedev=true -o orderer:7050
 

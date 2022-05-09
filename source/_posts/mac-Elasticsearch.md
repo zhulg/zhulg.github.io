@@ -12,7 +12,7 @@ date: 2017-09-13 10:53:25
 brew install elasticsearch
 ```
 
-<!-- more -->
+
 
 - 安装结果
 

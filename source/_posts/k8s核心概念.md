@@ -33,4 +33,4 @@ kube-scheduler: 负责资源调度；
 ```
 
 #### node
-- 除了master，k8s集群中的其他节点是node节点,也是实际的工作点。node节点可以是一台物理机或者虚拟机。node节点是k8s集群中的工作负载节点，master会把一些任务调度到node节点上进行。当某个node出现故障时，master会把这个节点上的任务转移到其他节点上。<!-- more -->
+- 除了master，k8s集群中的其他节点是node节点,也是实际的工作点。node节点可以是一台物理机或者虚拟机。node节点是k8s集群中的工作负载节点，master会把一些任务调度到node节点上进行。当某个node出现故障时，master会把这个节点上的任务转移到其他节点上

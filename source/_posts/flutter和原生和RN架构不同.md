@@ -14,7 +14,6 @@ date: 2018-12-14 18:22:08
 
 - flutter: ![](https://cdn-images-1.medium.com/max/1600/1*UpoHX3az39ZqkFwBr_gndA.png)
 
-<!-- more -->
 
 - RN通过js编译成个平台view
 - Flutter自己实现了一台UI框架，然后直接系统更底层渲染系统上画UI。它采用的开发语言不是JS，而Dart。Dart语言可以编译成原生代码，直接跟原生通信。

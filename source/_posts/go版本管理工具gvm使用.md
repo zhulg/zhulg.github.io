@@ -21,7 +21,7 @@ bash < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/bins
 gvm install go1.4
 gvm use go1.4 [--default]
 ```
-<!-- more -->
+
 
 - gvm下的配置地址需要修改下用github上地址
 

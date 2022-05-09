@@ -13,7 +13,7 @@ Redis  与其他  key - value  缓存产品有以下三个特点：
 　　· Redis 支持数据的备份，即 master-slave 模式的数据备份。
 ```
 
-<!-- more -->
+
 
 
 #### Redis的优势：

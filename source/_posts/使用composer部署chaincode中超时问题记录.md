@@ -10,7 +10,7 @@ date: 2018-07-05 00:09:48
 - 使用composer进行部署chaincode，构建chaincode镜像时出现超时问题。
 - 错误日志 **Response from attempted peer comms was an error: Error: REQUEST_TIMEOUT**
 - 之前遇到过按照网上说法，设置yaml里peer上chaincode的超时时间有300改为1200，有时能解决，最近发现问题根源和有更简单处理方式。
-<!-- more -->
+
 
 - 一般执行composer network start xxx时出现
 

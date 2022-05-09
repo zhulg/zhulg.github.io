@@ -12,7 +12,7 @@ date: 2017-07-25 15:35:35
 - SpringMVC出来了，作为Spring的一个子项目，与Spring的IoC容器配合起来更简便，逐步淘汰Struts。
 - SpringMVC基于spring实现，基于DispatcherServle实现分发器，最终把这个框架引导起来，进行其自己的逻辑处理,代替了struts.
 
-<!-- more -->
+
 
 
 ### SpringBoot

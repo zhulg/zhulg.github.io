@@ -18,7 +18,6 @@ Flume提供对数据进行简单处理，并写到各种数据接受方（可定
 - brew install flume
 
 
-<!-- more -->
 
 ```
 $brew install flume

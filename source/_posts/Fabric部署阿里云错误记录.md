@@ -12,7 +12,7 @@ date: 2018-05-14 19:27:57
 - 正常执行docker-compose相关yaml，启动fabric容器时出现错误。
 - 相关错误信息: runtime stack: runtime.throw(0xf11259, 0x2a)  /opt/go/src/runtime/panic.go:605 +0x95
 
-<!-- more -->
+
 
 ```
 atal error: unexpected signal during runtime execution

@@ -1,5 +1,5 @@
 ---
-title: springcloud
+title: springcloud包含子项目
 tags: springcloud
 categories: springcloud
 toc: true
@@ -11,7 +11,6 @@ date: 2017-08-08 18:31:12
 - SpringCloud: 微服务工具包，为开发者提供了在分布式系统的配置管理、服务发现、断路器、智能路由、微代理、控制总线等开发工具包。
 - Spring Boot: 旨在简化创建产品级的 Spring 应用和服务，简化了配置文件，使用嵌入式web服务器，含有诸多开箱即用微服务功能
 
-<!-- more -->
 
 ### 关于SpringCloud子项目
 - **Spring Cloud Config**：配置管理开发工具包，可以让你把配置放到远程服务器，目前支持本地存储、Git以及Subversion。

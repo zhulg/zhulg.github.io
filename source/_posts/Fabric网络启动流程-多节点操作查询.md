@@ -15,7 +15,6 @@ date: 2018-03-23 18:29:29
 - 上篇分析中使用的是单个几点peer0.org1.example.com:7051上进行的操作。
 - 在这个网络中有2个组织，4个节点，在cli的配置里可以看到如下默认的配置，对应peer0.org1.example.com:7051
 
-<!-- more -->
 
 ```
 peer.org1.example.com:7051

@@ -9,7 +9,7 @@ date: 2018-03-21 19:19:57
 
 - go里的方法在使用json.Marshal()时需要，结构的定义需要按照大写的方式来定义。
 
-<!-- more-->
+
 
 ```
 	var people = People{NAME: params[1], AGE: params[2]}

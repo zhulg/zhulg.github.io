@@ -24,8 +24,6 @@ date: 2019-07-31 17:43:48
 
 
 
-<!-- more -->
-
 ### LiveData
 
 - LiveData 是一个可观察的数据持有者。与常规可观察性不同，LiveData 具有生命周期感知能力，这意味着它尊从其他应用程序组件（例如 Activity, Fragment, Service）的生命周期。 这种设计确保 LiveData 只更新处于活动生命周期状态的应用程序组件观察者。如果观察者的生命周期处于 STARTED 或 RESUMED 状态，则 LiveData 会将观察者视为活动状态。LiveData 仅将更新通知给活跃的观察者，未注册和非活动的观察者不会收到有关更新的通知。

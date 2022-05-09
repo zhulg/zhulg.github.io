@@ -39,7 +39,7 @@ clientPort=2181
 #autopurge.purgeInterval=1
 ```
 
-<!-- more -->
+
 
 
 - 相关参数说明：

@@ -10,7 +10,7 @@ date: 2018-07-05 18:40:54
 
 - Express是基于nodejs的web开发框架,使用vscode开发node
 - 使用node调用hyperledger composer提供的模块接口,实现自己的composer接口服务。
-<!-- more -->
+
 
 #### vscode安装express
 

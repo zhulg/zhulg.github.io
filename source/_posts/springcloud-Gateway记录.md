@@ -24,7 +24,6 @@ zuul.routes.user-service.path=/user-service/**
 zuul.routes.user-service.url=http://localhost:8080/
  ```
  
- <!-- more -->
 
 ####2，服务化方式，通过对于的服务名称
 - 通过一组zuul.routes.\<route>.path与zuul.routes.\<route>.serviceId参数对的方式配置

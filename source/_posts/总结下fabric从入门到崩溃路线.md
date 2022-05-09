@@ -14,7 +14,6 @@ date: 2018-07-26 11:00:40
 - fabric的源码基于go编写的，要学习源码go语言必须会,java基础，nodejs也会点。
 - docker的使用，grpc知道是什么怎么用，p2p网络了解不，kafka你的懂，数据库couchdb,leveldb你也得会些。
 
-<!-- more -->
 #### 学习Fabric
 - 环境构建，入门一般按照文档例子，本地能搭建起fabric网络，这里面docker，sh什么的需要熟悉，go环境等。网络搭建起来为止。
 - fabric基本例子，参考源码里的例子，自己运行这个过程可能比较让人放弃

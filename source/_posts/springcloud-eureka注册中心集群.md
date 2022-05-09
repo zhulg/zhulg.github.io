@@ -24,7 +24,6 @@ eureka.client.serviceUrl.defaultZone=http://peer2:8001/eureka/
 
 ```
 
-<!-- more -->
 
 
 2、创建application-peer2.properties，作为peer2服务中心的配置，并将serviceUrl指向peer1

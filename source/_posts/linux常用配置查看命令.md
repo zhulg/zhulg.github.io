@@ -11,7 +11,7 @@ date: 2018-04-15 18:06:18
 
 - RedHat系列：Redhat、Centos、Fedora等
 - Debian系列：Debian、Ubuntu等。
-<!-- more -->
+
 
 #### linux下个系统软件安装辅助工具
 - wget （名字是World Wide Web与get的结合）类似于迅雷，是一种下载工具，用于下载网站/批量文件，通过HTTP、HTTPS、FTP三个最常见的TCP/IP协议下载。

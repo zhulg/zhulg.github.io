@@ -16,7 +16,7 @@ date: 2018-03-13 15:33:57
 
 - 使用Cryptogen，消费一个包含网络拓扑的crypto-config.yaml，并允许我们为组织和属于这些组织的组件生成一组证书和密钥。
 - crypto-config.yaml文件内容如下，
-<!-- more -->
+
 
 ```
 OrdererOrgs:

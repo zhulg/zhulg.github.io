@@ -18,7 +18,7 @@ docker container run \
   --name mynginx \
   nginx
 ```
-<!-- more -->
+
 
 - 参数说明
 ```

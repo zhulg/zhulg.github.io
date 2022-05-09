@@ -9,7 +9,7 @@ date: 2017-12-10 11:30:39
 - 使用Intellij创建maven工程。
 - 在pom.xml里创建hadoop相关依赖。
 
-<!-- more -->
+
 
 ```
     <dependencies>

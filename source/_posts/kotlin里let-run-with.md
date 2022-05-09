@@ -20,4 +20,4 @@ fun test() {
     println(mood)  // I am sad
 }
 ```
-<!-- more -->
+

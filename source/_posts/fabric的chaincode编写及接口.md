@@ -9,7 +9,7 @@ date: 2018-04-21 17:57:38
 
 - fabric里链码的编写是go语言，一般编写和调试可在开发环境进行快速测试和开发。上次笔记有介绍。
 - chaincode的编写比较简单,主要涉及2个接口，实现这2个接口，在接口里编写对应的业务即可。
-<!-- more -->
+
 
 ```
 func (s *gomevisionchaincode) Init(apiSub shim.ChaincodeStubInterface) pb.Response {

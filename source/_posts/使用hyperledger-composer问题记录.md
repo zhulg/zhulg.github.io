@@ -11,7 +11,6 @@ date: 2018-05-14 17:30:12
 
 - 该问题在最后使用 Angular连接rest api时，出现 Invalid Host header
 
-<!-- more -->
 
 ```
 yo hyperledger-composer:angular

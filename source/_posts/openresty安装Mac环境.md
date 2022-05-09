@@ -16,7 +16,7 @@ date: 2017-12-12 09:38:52
  - brew install openresty/brew/openresty
  
  
- <!-- more -->
+
  
  - 安装成功后把nginx配置到环境变量(如果之前安装过nginx,干脆给卸载了，用brew uninstall）
 

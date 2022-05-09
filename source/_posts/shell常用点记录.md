@@ -17,7 +17,7 @@ echo ${var#*//}
 结果是 ：www.aaa.com/123.htm
 ```
 
-<!-- more -->
+
 
 
 ```

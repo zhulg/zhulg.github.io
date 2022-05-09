@@ -5,6 +5,7 @@ abbrlink: 16281
 date: 2019-09-24 19:54:55
 ---
 
+## 问题描述：
 
 - 使用 rz 进行上传时却报错了：
 
@@ -13,16 +14,16 @@ rz waiting to receive.**B0100000023be50
 使用 sz 下载也是报错：
 **B00000000000000
 
-
 ```
 
-### 解决方案
+## 解决方案：
 - 安装 lrzsz :brew install lrzsz
 - 配置 iTerm2
-<!-- more -->
+
 安装完成后我们需要在 iTerm2 中使用的话，还需要一些配置
 
 进入到 /usr/local/bin 目录下，下载两个脚本文件
+
 ```
 cd /usr/local/bin 
 sudo wget https://gist.githubusercontent.com/sy-records/1b3010b566af42f57fa6fa38138dd22a/raw/2bfe590665d3b0e6c8223623922474361058920c/iterm2-send-zmodem.sh 

@@ -21,7 +21,6 @@ date: 2017-08-04 18:23:30
 - @Controller 用于页面的跳转（return "index"）跳转到index页面去，否则返回的内容就是字符串 "index"
 - 当类使用@Controller注解，而对应的接口方法需要返回JSON，XML或自定义mediaType内容到页面，则需要在对应的方法上加上@ResponseBody注解。
 
-<!-- more -->
 
 
 - 以下代码不跳转

@@ -17,7 +17,6 @@ cat /dev/null > *-json.log
 ```
 - lsof |grep deleted 查看删除文件是否存在引用（如果直接删的日志，是不会减少空间的，需要删除引用）
 
-<!-- more -->
 
 - 由于一开始没有正确清理，直接删除了。空间没有恢复。果断重启了docker。。。发现之前的停止的chaincode则无法重启了，其他fabric组件都起来了，只有chaincode容器失败，日志。
 

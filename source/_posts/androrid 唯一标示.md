@@ -18,7 +18,6 @@ APP首次使用时，创建UUID，并保存到SD卡中。
 缺点：需要SD卡读写权限；防不住用户手动删除SD卡的文件；
 
 ```
-<!--more -->
 
 
 - 方案2：imei + android_id + serial + 硬件uuid（自生成）

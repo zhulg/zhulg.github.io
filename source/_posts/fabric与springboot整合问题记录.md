@@ -11,7 +11,7 @@ date: 2018-04-19 16:43:29
 - 在fabric网络启动后，springboot工程去连接时出现错误。
 - Channel mychannel sendDeliver failed on orderer orderer.example.com. Reason: INTERNAL: Connection closed with unknown cause
 
-<!-- more -->
+
 
 ```
 io.grpc.StatusRuntimeException: INTERNAL: Connection closed with unknown cause

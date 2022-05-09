@@ -17,9 +17,9 @@ date: 2018-03-01 10:43:44
 - Channel:通道，⼦链。同⼀peer可加⼊不同channel。Chaincode的操作基于channel进⾏。同⼀channel上的peer结点同步其上chaincode执⾏的结果。
 - Endorser:（模拟）执⾏Chaincode。分离计算任务，减轻consensus节点负担，增加吞吐量。⽀持endorsement policy，更加灵活。
 - Orderer: 对chaincode执⾏结果consensus。⽀持solo/ka|a/sBFT不同的ordering策略。
--Committer:将chaincode执⾏结果写进ledger。
+- Committer:将chaincode执⾏结果写进ledger。
 
-<!-- more -->
+
 #### chaincode 编写
 - 实现这个Fabric的接口
 ```
@@ -56,7 +56,7 @@ if	err	!=	nil	{
 #### chaincode 生命周期
 - chaincode生命周期的命令：package, install, instantiate,upgrade。在未来的版本中会添加stop和start交易的指令，以便能方便地停止与重启chaincode，而不用非要真正卸载它才行。在成功安装与实例化chaincode后，chaincode就处于运行状态，接着就可以用invoke交易指令来处理交易了。一段chaincode可以在安装后的任何时间被更新。
 
-<!-- more -->
+
 
 #### chaincode操作
 - 进入开发者模式进行操作，确保已经下载过fabric-samples的例子代码（官网github上）

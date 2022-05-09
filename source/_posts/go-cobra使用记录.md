@@ -9,7 +9,7 @@ date: 2018-11-02 18:15:18
 
 - go cobra 地址 https://github.com/spf13/cobra.git ,是一个创建CLI 命令行的golang库。
 - 使用cobra可以在cli下返回程序和交互，功能强大。
-<!-- more -->
+
 
 ## 下载
 - go get -u github.com/spf13/cobra/cobra （下载时可能要科学上网）
