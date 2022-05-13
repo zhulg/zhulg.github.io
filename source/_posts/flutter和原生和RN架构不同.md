@@ -1,5 +1,5 @@
 ---
-title: flutter和原生和RN架构不同
+title: flutter和原生和RN架构不同点
 tags: Flutter
 categories: Flutter
 toc: true

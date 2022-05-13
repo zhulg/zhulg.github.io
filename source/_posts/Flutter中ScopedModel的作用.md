@@ -1,5 +1,5 @@
 ---
-title: Flutter中ScopedModel的作用
+title: Flutter中ScopedModel的使用
 tags: Flutter
 categories: Flutter
 toc: true
