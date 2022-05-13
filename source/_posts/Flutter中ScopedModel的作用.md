@@ -1,7 +1,7 @@
 ---
 title: Flutter中ScopedModel的使用
-tags: Flutter
-categories: Flutter
+tags: flutter
+categories: flutter
 toc: true
 abbrlink: 23620
 date: 2018-12-27 20:53:33
