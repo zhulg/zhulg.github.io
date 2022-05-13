@@ -1,7 +1,7 @@
 ---
 title: flutter和原生和RN架构不同
-tags: flutter
-categories: flutter
+tags: Flutter
+categories: Flutter
 toc: true
 abbrlink: 16190
 date: 2018-12-14 18:22:08

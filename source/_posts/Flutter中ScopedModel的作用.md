@@ -1,7 +1,7 @@
 ---
 title: Flutter中ScopedModel的作用
-tags: flutter
-categories: flutter
+tags: Flutter
+categories: Flutter
 toc: true
 abbrlink: 23620
 date: 2018-12-27 20:53:33
