@@ -12,12 +12,10 @@ date: 2022-05-27 14:26:29
 ## 一.StatefulWidget的生命周期
 
 -  先看一张statefulwidget生命周期图（科学上网查看看图片或邮箱联系提供配图）
+-  继承StatefulWidget的组件会先进行构造方法，在进行对应的Widget的CreateState, 在State里
 
-<div align=center width=100%>
-  <img width=90% src="https://raw.githubusercontent.com/zhulg/allpic/master/flutter_widgetlifecycle.png">
-</div>
+![](https://raw.githubusercontent.com/zhulg/allpic/master/flutter_widgetlifecycle.png)
 
-- 继承StatefulWidget的组件会先进行构造方法，在进行对应的Widget的CreateState, 在State里
 
 ### *1.createState：*
 - 创建新的StatefulWidget的时候，就会立即执行createState方法，**返回一个state的实例与当前widget建立关系。**
