@@ -7,11 +7,13 @@ abbrlink: 60112
 date: 2020-12-07 15:33:23
 ---
 
-### 关于Scratch
+- 国内图形化编程的应用，大部分都是基于scratch源码来实现的二次开发，主要介绍scratch的源码和模块
+
+## 关于Scratch
 - Scratch是麻省理工学院的“终身幼儿园团队”（Lifelong Kindergarten Group）开发的图形化编程工具，主要面对青少年开放。
 - 目前已有原始版本（1.4版本）、2.0版本（增加克隆积木，Lego和Makey makey拓展积木）、3.0版本（增加音乐、画笔、视频侦测、文字朗读、翻译等选择性下载扩展积木，并增加micro：bit和Lego mindstorms EV3拓展积木）所有人可以在任意版本中创作自己的程序
 
-#### Scratch相关源码
+### Scratch相关源码
 - **全项目分组:** https://github.com/LLK
 - **Scratch-www** : https://github.com/LLK/scratch-www   Scratch-www是Scratch社区的独立Web客户端，使用React和Redux构建。
 - **ScratchJr:** ScratchJr是一种入门编程语言，可让幼儿（5-7岁）创建自己的互动故事和游戏。
