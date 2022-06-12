@@ -1,5 +1,5 @@
 ---
-title: mac iterm2 rz/sz使用
+title: mac iterm2 rz/sz上传下载文件
 tags: linux
 abbrlink: 16281
 date: 2019-09-24 19:54:55

@@ -1,5 +1,5 @@
 ---
-title: python3中SimpleHTTPServer使用
+title: 使用python快速搭建静态服务器
 tags:
   - python
 abbrlink: 25502
