@@ -10,7 +10,7 @@ abbrlink: 64ceaf0c
 date: 2022-05-06 13:59:54
 ---
 
-## NFT是什么
+## NFT是什么 
 -  NFT的全称为 Non-fungible Tokens（非同质化代币 ) ，**用以代表独特物品所有权的代币**
 -  **非同质化**是一个经济术语，用它来描述家具、歌曲、字画、电脑等物品，**这些东西不能与其他物品互换，因为它们具有独特属性。**
 -  **NFT的主要功能是作为可验证的所有权证明，并显示资产所有权随时间推移的转移记录**
@@ -19,6 +19,8 @@ date: 2022-05-06 13:59:54
 <div align=center width=100%>
   <img width=80% src="https://raw.githubusercontent.com/zhulg/allpic/master/NFT_PIC.jpeg">
 </div>
+- **（若文中图片无法显示，请科学上网查看：[推荐工具](https://order.yizhihongxing.network/aff.php?aff=12299)）**
+
 
 ## NFT的工作原理
 

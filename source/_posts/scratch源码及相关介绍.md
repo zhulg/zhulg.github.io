@@ -34,6 +34,7 @@ https://github.com/LLK/scratch-gui.git
 ```
 
 -  到项目目录下进行 npm install （前提相关的node环境已经安装）
+-  **（若文中图片无法显示，请科学上网查看：[推荐工具](https://order.yizhihongxing.network/aff.php?aff=12299)）**
 -  ![](https://raw.githubusercontent.com/zhulg/allpic/master/scratch2.png)
 
 - 运行项目：npm start  ![](https://raw.githubusercontent.com/zhulg/allpic/master/scratch1.png)

@@ -28,7 +28,7 @@ android上疑难杂症
 JS语言兼容造成
 内存不足造成
 ```
-
+- **（若文中图片无法显示，请科学上网查看：[推荐工具](https://order.yizhihongxing.network/aff.php?aff=12299)）**
 ## Android端白屏问题（APP侧解决方案）
 
 - 常见的语法造成白屏相关

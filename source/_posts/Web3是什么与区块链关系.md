@@ -23,11 +23,11 @@ date: 2022-04-23 22:03:44
 - **In Web 2.0 of the internet.** 互联网开始与人互动,论坛、语音、朋友圈
 - **In Web 3.0, data will be connected in a decentralized way.**  数据已去中心用户生活在互联网中
 
-### 3.从时代规则来进行对比：
+### 3.从时代规则来进行对比：**（若文中图片无法显示，请科学上网查看：[推荐工具](https://order.yizhihongxing.network/aff.php?aff=12299)）**
    - Web 1.0 时代规则：**平台进行创造、所有、控制、并自身受益。（早期信息网站）**
    - Web 2.0时代规则：**用户来创造、平台所有和控制、平台分配。（近期比较火的自媒体、抖音短视频等）**
    - Web 3.0时代规则：**用户来创造、用户所有和控制、协议分配。（归属明确，协议不可篡改，去中心化）**
-
+   
 <div align=center width=100%>
   <img width=80% src="https://raw.githubusercontent.com/zhulg/allpic/master/web3%E5%AF%B9%E6%AF%94.png">
 </div>
