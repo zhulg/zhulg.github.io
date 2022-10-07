@@ -8,8 +8,9 @@ date: 2022-09-24 14:53:01
 ---
 
 # Rust精简笔记
-- Rust精简笔记适用对Rust感兴趣，想快速学习上手（多学几轮）、Rust知识点速查与回顾。
-- 精简总结使用，深入扩展需继续对应官网、真知实践。
+- 适用对Rust感兴趣，想快速学习上手（多学几轮）、Rust知识点速查、回顾。
+- 精简总结使用，深入扩展需继续对应官网，真知实践。
+- *参考The Rust Programming Language &  Rust in Action*
 
 ## 1.**变量：**
 - **变量声明使用let, 默认为不可变（即只读），声明可变变量 mut （可读写）**
@@ -307,6 +308,234 @@ impl Rectangle {
 
 - **多个 impl 块**： 每个结构体都允许拥有多个 impl 块, 但一个方法只能属于一个impl块。
 
+## 6.Enum
+
+- 结构体给予将字段和数据聚合在一起的方法，像 Rectangle 结构体有 width 和 height 两个字段。而枚举给予你将一个值成为一个集合之一的方法。
 
 
+```
+enum IpAddrKind {
+    V4,
+    V6,
+}
+enum IpAddrKind {
+    V4,
+    V6,
+}
 
+fn main() {
+    let four = IpAddrKind::V4;
+    let six = IpAddrKind::V6;
+    route(IpAddrKind::V4);
+    route(IpAddrKind::V6);
+}
+
+fn route(ip_kind: IpAddrKind) {}
+
+```
+
+- **枚举可以包含不同的类型:**
+
+```
+enum Message {
+    Quit, // 没有关联任何数据
+    Move { x: i32, y: i32 }, //类似结构体包含命名字段
+    Write(String), //包含单独一个 String
+    ChangeColor(i32, i32, i32), //包含三个 i32
+}
+
+```
+
+- 结构体和枚举还有另一个相似点：**就像可以使用 impl 来为结构体定义方法那样**，也可以在枚举上定义方法。这是一个定义于我们 Message 枚举上的叫做 call 的方法：
+
+```
+fn main() {
+    enum Message {
+        Quit,
+        Move { x: i32, y: i32 },
+        Write(String),
+        ChangeColor(i32, i32, i32),
+    }
+
+    impl Message {
+        fn call(&self) {
+            // 在这里定义方法体
+        }
+    }
+
+    let m = Message::Write(String::from("hello"));
+    m.call();
+}
+
+```
+
+- **标准库中实用的枚举：Option**
+
+```
+enum Option<T> {
+        None,
+        Some(T),
+    }
+```
+
+```
+enum Result<T, E> {
+    OK(T),
+    Err(E),
+}
+```
+
+## 7.match控制流结构
+- 前面流程控制简单说明了match使用，**结合enum来看看match的更多使用场景总结**
+
+- **基础匹配语法：**
+
+```
+    let number = 2;
+    match number {
+        1 | 2 => println!("1 or 2"), // 匹配到某一个
+        3..=5 => println!("3到5"),  // 通过 ..= 匹配值的范围
+        _ => println!("invalid"),    //未匹配到 _
+    }
+```
+- **match 解构结构体：**
+
+```
+struct Point {
+    x: i32,
+    y: i32,
+}
+
+fn main() {
+    let p = Point { x: 0, y: 7 };
+
+    let Point { x: a, y: b } = p;
+    assert_eq!(0, a);
+    assert_eq!(7, b);
+}
+
+```
+
+- **解构枚举：**
+
+```
+enum Message {
+    Quit,
+    Move { x: i32, y: i32 },
+    Write(String),
+    ChangeColor(i32, i32, i32),
+}
+
+fn main() {
+    let msg = Message::ChangeColor(0, 160, 255);
+
+    match msg {
+        Message::Quit => {
+            println!("The Quit variant has no data to destructure.")
+        }
+        Message::Move { x, y } => {
+            println!(
+                "Move in the x direction {} and in the y direction {}",
+                x, y
+            );
+        }
+        Message::Write(text) => println!("Text message: {}", text),
+        Message::ChangeColor(r, g, b) => println!(
+            "Change the color to red {}, green {}, and blue {}",
+            r, g, b
+        ),
+    }
+}
+//打印结果到change the color....
+
+```
+
+- **解构嵌套的结构体和枚举:**
+
+```
+enum Color {
+    Rgb(i32, i32, i32),
+    Hsv(i32, i32, i32),
+}
+
+enum Message {
+    Quit,
+    Move { x: i32, y: i32 },
+    Write(String),
+    ChangeColor(Color),
+}
+
+fn main() {
+    let msg = Message::ChangeColor(Color::Hsv(0, 160, 255));
+
+    match msg {
+        Message::ChangeColor(Color::Rgb(r, g, b)) => println!(
+            "Change the color to red {}, green {}, and blue {}",
+            r, g, b
+        ),
+        Message::ChangeColor(Color::Hsv(h, s, v)) => println!(
+            "Change the color to hue {}, saturation {}, and value {}",
+            h, s, v
+        ),
+        _ => (),
+    }
+}
+
+```
+
+- **用 .. 忽略剩余值:**
+
+```
+//通过使用 .. 来忽略 Point 中除 x 以外的字段
+fn main() {
+    struct Point {
+        x: i32,
+        y: i32,
+        z: i32,
+    }
+
+    let origin = Point { x: 0, y: 0, z: 0 };
+
+    match origin {
+        Point { x, .. } => println!("x is {}", x),
+    }
+}
+
+```
+
+- **Match guards:**
+- 匹配守卫（match guard）是一个指定于 match 分支模式之后的额外 if 条件，它也必须被满足才能选择此分支
+
+```
+fn main() {
+    let num = Some(4);
+    match num {
+        Some(x) if x < 5 => println!("less than five: {}", x),
+        Some(x) => println!("{}", x),
+        None => (),
+    }
+}
+
+```
+
+- **@绑定:**
+- 运算符@，允许我们在创建一个存放值的变量的同时，测试其值是否匹配模式。即@ 可以在一个模式中同时测试和保存变量值。
+
+```
+fn main() {
+    enum Message {
+        Hello { id: i32 },
+    }
+    let msg = Message::Hello { id: 5 };
+    match msg {
+        Message::Hello {
+            id: id_variable @ 3..=7, //使用id_variable变量配合@，以便此分支相关联的代码可以使用它
+        } => println!("Found an id in range: {}", id_variable),
+        Message::Hello { id: 10..=12 } => {
+            println!("Found an id in another range")
+        }
+        Message::Hello { id } => println!("Found some other id: {}", id),
+    }
+}
+
+```
