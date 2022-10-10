@@ -150,3 +150,58 @@ fn some_function<T, U>(t: &T, u: &U) -> i32
 }
 ```
 
+#### 声明周期：
+- Rust 中的每一个引用都有其 生命周期（lifetime），也就是引用保持有效的作用域，Rust 编译器有一个借用检查器（borrow checker）它比较作用域来确保所有的借用都是有效的
+
+- **函数签名中的生命周期注解：**
+
+```rust
+fn longest<'a>(x: &'a str, y: &'a str) -> &'a str {
+    if x.len() > y.len() {
+        x
+    } else {
+        y
+    }
+}
+fn main() {
+    let string1 = String::from("abcd");
+    let string2 = "xyz";
+
+    let result = longest(string1.as_str(), string2);
+    println!("The longest string is {}", result);
+}
+
+```
+
+- 参数声明周期使用方法，或者靠编译器提示添加。
+
+```rust
+&i32        // 引用, 没有生命周期参数的 i32 的引用
+&'a i32     // 带有显式生命周期的引用 ，一个有叫做 'a 的生命周期参数的 i32 的引用
+&'a mut i32 // 带有显式生命周期的可变引用 一个生命周期也是 'a 的 i32 的可变引用
+
+```
+
+- **结构体定义中的生命周期注解：**
+```rust
+struct ImportantExcerpt<'a> {
+    part: &'a str,
+}
+fn main() {
+    let novel = String::from("Call me Ishmael. Some years ago...");
+    let first_sentence = novel.split('.').next().expect("Could not find a '.'");
+    let i = ImportantExcerpt {
+        part: first_sentence,
+    };
+}
+```
+
+- **静态生命周期:**
+
+- 生命周期能够存活于整个程序期间。所有的字符串字面值都拥有 'static 生命周期
+
+```rust
+let s: &'static str = "I have a static lifetime.";
+```
+
+## 九，集合：
