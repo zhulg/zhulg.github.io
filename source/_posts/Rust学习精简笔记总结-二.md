@@ -205,3 +205,126 @@ let s: &'static str = "I have a static lifetime.";
 ```
 
 ## 九，集合：
+#### vector:
+- 类型是 Vec<T> 在内存中彼此相邻地排列所有的值, vector 只能储存相同类型的值
+
+```rust
+  // Vec::new 创建
+  let v: Vec<i32> = Vec::new();
+  v.push(2);
+  v.push(4);
+  let x = v.pop();
+
+```
+
+- **初始值来创建一个 Vec<T> :**
+
+```rust
+
+ let v = vec![1, 2, 3];
+
+```
+
+- **读取 vector 的元素:**
+     使用 &[index] 返回一个引用, 或者使用 get 方法以索引作为参数来返回一个 Option<&T>。
+```rust
+fn main() {
+    let v = vec![1, 2, 3, 4, 5];
+
+    let third: &i32 = &v[2];
+    println!("The third element is {}", third);
+
+    match v.get(2) {
+        Some(third) => println!("The third element is {}", third),
+        None => println!("There is no third element."),
+    }
+}
+```
+- **使用枚举来储存多种类型:**
+    创建一个储存枚举值的 vector，这样最终就能够通过vector存储实际是不同类型的值了
+    
+ ````rust
+ fn main() {
+    enum SpreadsheetCell {
+        Int(i32),
+        Float(f64),
+        Text(String),
+    }
+    let row = vec![
+        SpreadsheetCell::Int(3),
+        SpreadsheetCell::Text(String::from("blue")),
+        SpreadsheetCell::Float(10.12),
+    ];
+}
+
+ ```
+ 
+#### HashMap
+
+```rust
+    let mut scores = HashMap::new();
+    scores.insert(String::from("Blue"), 10); //插入
+    //只在键没有对应值时插入
+    scores.entry(String::from("Yellow")).or_insert(50);
+    scores.entry(String::from("Blue")).or_insert(50);
+    println!("{:?}", scores);
+```
+
+- more： https://doc.rust-lang.org/std/collections/index.html
+
+## 十，函数、闭包、迭代器
+
+#### 函数：
+ -  函数的定义方式及在结构体实现里关联函数，关联函数与方法的使用区别
+ 
+```rust
+use std::primitive;
+
+struct Point {
+    x: i32,
+    y: i32,
+}
+impl Point {
+    // 关联函数(没有self相关参数)
+    fn new(x: i32, y: i32) -> Point {
+        Point { x: x, y: y }
+    }
+    // 方法(参数为&self，是个隐示的，调用时无需传递表明是该类型而已）
+    fn get_x(&self) -> i32 {
+        self.x
+    }
+}
+fn main() {
+    //关联函数使用:: 方法使用类型.方法，如Point::new, point.get_x
+    let point = Point::new(5, 6);
+    println!("get x={}", point.get_x());
+}
+
+```
+#### 闭包：
+-  闭包（closures）是可以保存在一个变量中或作为参数传递给其他函数的匿名函数。
+-  闭包的定义以一对竖线（|）开始，在竖线中指定闭包的参数
+
+```rust
+fn  add_one_v1   (x: u32) -> u32 { x + 1 }  //函数的定义
+let add_one_v2 = |x: u32| -> u32 { x + 1 }; // 完整标注的闭包定义
+let add_one_v3 = |x|             { x + 1 };  // 闭包定义中省略了类型注解
+let add_one_v4 = |x|               x + 1  ;  // 闭包体只有一行,去掉了大括号
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
