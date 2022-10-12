@@ -227,6 +227,7 @@ let s: &'static str = "I have a static lifetime.";
 
 - **读取 vector 的元素:**
      使用 &[index] 返回一个引用, 或者使用 get 方法以索引作为参数来返回一个 Option<&T>。
+     
 ```rust
 fn main() {
     let v = vec![1, 2, 3, 4, 5];
@@ -326,11 +327,105 @@ fn main() {
 ```
 - **_当闭包从环境中捕获一个值，闭包会在闭包体中储存这个值以供使用，这会使用内存并产生额外的开销。_**
 
+- 闭包可以通过三种方式捕获其环境，他们直接对应函数的三种获取参数的方式：获取所有权，可变借用和不可变借用。
+
+```rust
+FnOnce 消费从周围作用域捕获的变量，闭包周围的作用域被称为其 环境，environment。为了消费捕获到的变量，闭包必须获取其所有权并在定义闭包时将其移动进闭包。其名称的 Once 部分代表了闭包不能多次获取相同变量的所有权的事实，所以它只能被调用一次
+FnMut 获取可变的借用值所以可以改变其环境
+Fn 从其环境获取不可变的借用值
+
+```
+
+由于所有闭包都可以被调用至少一次，所以所有闭包都实现了 FnOnce .**大部分需要指定一个 Fn 系列 trait bound 的时候，可以从 Fn 开始，而编译器会根据闭包体中的情况告诉你是否需要 FnMut 或 FnOnce。**
+
+
 
 - **带有泛型和 Fn trait 的闭包:**
-    可以创建一个存放闭包和调用闭包结果的结构体, 目的：结构体只会在需要结果时执行闭包，并会缓存结果值，再次调用闭包可以复用该值
+    可以创建一个存放闭包和调用闭包结果的结构体, 目的：结构体只会在需要结果时执行闭包，并会缓存结果值，再次调用闭包可以复用该值.
 
+```rust
+struct Cacher<T>
+where
+    T: Fn(u32) -> u32,
+{
+    calculation: T,
+    value: Option<u32>,
+}
 
+```
+
+ ***创建Cache的结构体，泛型T类型使用where 声明类型为闭包，结构体包含一个闭包，和一个用于存放闭包返回的值的u32类型，因为有可能第一次没有缓存，所有使用Option<u32>的类型。即可能是some(u32) 或者None***
+
+- **官方完整例子：**
+
+```rust
+use std::thread;
+use std::time::Duration;
+
+struct Cacher<T>
+where
+    T: Fn(u32) -> u32,
+{
+    calculation: T,
+    value: Option<u32>,
+}
+
+impl<T> Cacher<T>
+where
+    T: Fn(u32) -> u32,
+{
+    fn new(calculation: T) -> Cacher<T> {
+        Cacher {
+            calculation,
+            value: None,
+        }
+    }
+
+    fn value(&mut self, arg: u32) -> u32 {
+        match self.value {
+            Some(v) => v,
+            None => {
+                let v = (self.calculation)(arg);
+                self.value = Some(v);
+                v
+            }
+        }
+    }
+}
+
+fn generate_workout(intensity: u32, random_number: u32) {
+    let mut expensive_result = Cacher::new(|num| {
+        println!("calculating slowly...");
+        thread::sleep(Duration::from_secs(2));
+        num
+    });
+
+    if intensity < 25 {
+        println!("Today, do {} pushups!", expensive_result.value(intensity));
+        println!("Next, do {} situps!", expensive_result.value(intensity));
+    } else {
+        if random_number == 3 {
+            println!("Take a break today! Remember to stay hydrated!");
+        } else {
+            println!(
+                "Today, run for {} minutes!",
+                expensive_result.value(intensity)
+            );
+        }
+    }
+}
+
+fn main() {
+    let simulated_user_specified_value = 10;
+    let simulated_random_number = 7;
+
+    generate_workout(simulated_user_specified_value, simulated_random_number);
+}
+
+```
+
+**a.这样可以起到了使用结构体缓存了闭包执行的结果，会先从结构体里查找缓存的值，没有再计算。
+b.同理也可以改造value的类型为HashMap, 可以通过key来找值，避免返回之前计算的始终同一个值。**
 
 
 
