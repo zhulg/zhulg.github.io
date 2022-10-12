@@ -42,7 +42,7 @@ s.parentNode.insertBefore(el, s);
 <meta property="og:site_name" content="zhulg笔记">
 <meta property="og:description" content="Rust精简笔记第2部分 继续Rust基础知识点总结，趁假期回顾学习 参考The Rust Programming Language &amp;amp;  Rust in Action  八，泛型、Trait、生命周期泛型： 函数定义中使用泛型  1234fn largest&amp;lt;T&amp;gt;(list: &amp;amp;[T]) -&amp;gt; T &amp;#123;&amp;#125;//函数 largest 有泛型类型 T">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2022-10-11T12:39:48.424Z">
+<meta property="og:updated_time" content="2022-10-12T12:11:22.142Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Rust学习精简笔记总结(二)">
 <meta name="twitter:description" content="Rust精简笔记第2部分 继续Rust基础知识点总结，趁假期回顾学习 参考The Rust Programming Language &amp;amp;  Rust in Action  八，泛型、Trait、生命周期泛型： 函数定义中使用泛型  1234fn largest&amp;lt;T&amp;gt;(list: &amp;amp;[T]) -&amp;gt; T &amp;#123;&amp;#125;//函数 largest 有泛型类型 T">
@@ -366,10 +366,10 @@ s.parentNode.insertBefore(el, s);
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/posts/6b1809c0.html#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1.6k(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1.8k(字)</span>
 	
 	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 7(分)</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 8(分)</span>
 	
 
       </div>
@@ -496,11 +496,22 @@ s.parentNode.insertBefore(el, s);
 <figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> std::primitive;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Point</span></span> &#123;</span><br><span class="line">    x: <span class="built_in">i32</span>,</span><br><span class="line">    y: <span class="built_in">i32</span>,</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">impl</span> Point &#123;</span><br><span class="line">    <span class="comment">// 关联函数(没有self相关参数)</span></span><br><span class="line">    <span class="function"><span class="keyword">fn</span> <span class="title">new</span></span>(x: <span class="built_in">i32</span>, y: <span class="built_in">i32</span>) -&gt; Point &#123;</span><br><span class="line">        Point &#123; x: x, y: y &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 方法(参数为&amp;self，是个隐示的，调用时无需传递表明是该类型而已）</span></span><br><span class="line">    <span class="function"><span class="keyword">fn</span> <span class="title">get_x</span></span>(&amp;<span class="keyword">self</span>) -&gt; <span class="built_in">i32</span> &#123;</span><br><span class="line">        <span class="keyword">self</span>.x</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">main</span></span>() &#123;</span><br><span class="line">    <span class="comment">//关联函数使用:: 方法使用类型.方法，如Point::new, point.get_x</span></span><br><span class="line">    <span class="keyword">let</span> point = Point::new(<span class="number">5</span>, <span class="number">6</span>);</span><br><span class="line">    <span class="built_in">println!</span>(<span class="string">"get x=&#123;&#125;"</span>, point.get_x());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h4 id="闭包："><a href="#闭包：" class="headerlink" title="闭包："></a>闭包：</h4><ul>
-<li>闭包（closures）是可以保存在一个变量中或作为参数传递给其他函数的匿名函数。</li>
-<li>闭包的定义以一对竖线（|）开始，在竖线中指定闭包的参数</li>
+<li><strong>闭包（closures）</strong>是可以保存在一个变量中或作为参数传递给其他函数的匿名函数。 闭包的定义以一对竖线（|）开始，在竖线中指定闭包的参数</li>
 </ul>
 <figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fn</span>  <span class="title">add_one_v1</span>   </span>(x: <span class="built_in">u32</span>) -&gt; <span class="built_in">u32</span> &#123; x + <span class="number">1</span> &#125;  <span class="comment">//函数的定义</span></span><br><span class="line"><span class="keyword">let</span> add_one_v2 = |x: <span class="built_in">u32</span>| -&gt; <span class="built_in">u32</span> &#123; x + <span class="number">1</span> &#125;; <span class="comment">// 完整标注的闭包定义</span></span><br><span class="line"><span class="keyword">let</span> add_one_v3 = |x|             &#123; x + <span class="number">1</span> &#125;;  <span class="comment">// 闭包定义中省略了类型注解</span></span><br><span class="line"><span class="keyword">let</span> add_one_v4 = |x|               x + <span class="number">1</span>  ;  <span class="comment">// 闭包体只有一行,去掉了大括号</span></span><br></pre></td></tr></table></figure>
 
+<ul>
+<li><strong>闭包会捕获其环境:</strong> </li>
+<li>可以捕获其环境并访问其被定义的作用域的变量。如下边 x 并不是 equal_to_x 的一个参数，equal_to_x 闭包也被允许使用变量 x，因为它与 equal_to_x 定义于相同的作用域</li>
+</ul>
+<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">main</span></span>() &#123;</span><br><span class="line">    <span class="keyword">let</span> x = <span class="number">4</span>;</span><br><span class="line">    <span class="keyword">let</span> equal_to_x = |z| z == x;</span><br><span class="line">    <span class="keyword">let</span> y = <span class="number">4</span>;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">assert!</span>(equal_to_x(y));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong><em>当闭包从环境中捕获一个值，闭包会在闭包体中储存这个值以供使用，这会使用内存并产生额外的开销。</em></strong></li>
+</ul>
+<ul>
+<li><strong>带有泛型和 Fn trait 的闭包:</strong><br>  可以创建一个存放闭包和调用闭包结果的结构体, 目的：结构体只会在需要结果时执行闭包，并会缓存结果值，再次调用闭包可以复用该值</li>
+</ul>
 
       
     </div>
