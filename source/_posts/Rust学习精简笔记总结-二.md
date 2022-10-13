@@ -428,9 +428,39 @@ fn main() {
 b.同理也可以改造value的类型为HashMap, 可以通过key来找值，避免返回之前计算的始终同一个值。**
 
 
+#### iterator
+
+- **迭代器（iterator):**负责遍历序列中的每一项和决定序列何时结束的逻辑。
+
+```rust
+    let v1 = vec![1, 2, 3];
+    let v1_iter = v1.iter();
+    let total: i32 = v1_iter.sum();
+    println!("value = {}", { total })
+```
+
+- next 是 Iterator 实现者被要求定义的唯一方法
+
+```rust
+  let v1 = vec![1, 2, 3];
+  let mut v1_iter = v1.iter();
+  assert_eq!(v1_iter.next(), Some(&1));
+
+```
+
+- 调用 map 方法创建一个新迭代器，接着调用 collect 方法消费新迭代器并创建一个 vector
 
 
+```rust
+。next 一次返回迭代器中的一个项，封装在 Some 中，当迭代器结束时，它返回 None
+fn main() {
+    let v1: Vec<i32> = vec![1, 2, 3];
+    let mut newiter = v1.iter().map(|x| x + 1);
+    let newVector: Vec<_> = newiter.collect();
+    assert_eq!(newVector, vec![2, 3, 4]);
+}
 
+```
 
 
 
