@@ -492,7 +492,40 @@ fn main() {
    
 ```
 
+-  **实现Iterator trait 来创建自定义迭代器:**
 
+```
+struct Counter {
+    count: u32,
+}
 
+impl Counter {
+    fn new() -> Counter {
+        Counter { count: 0 }
+    }
+}
 
+//Counter 类型实现 Iterator trait，通过定义 next 方法来指定使用迭代器时的行为
+impl Iterator for Counter {
+    type Item = u32; 
+     //将迭代器的关联类型 Item 设置为 u32，意味着迭代器会返回 u32 值集合
+    fn next(&mut self) -> Option<Self::Item> {
+        if self.count < 5 {
+            self.count += 1;
+            Some(self.count)
+        } else {
+            None
+        }
+    }
+}
+```
 
+- Rust里iterator的定义：
+
+```rust
+pub trait Iterator {
+    type Item;
+
+    fn next(&mut self) -> Option<Self::Item>;
+}
+```
