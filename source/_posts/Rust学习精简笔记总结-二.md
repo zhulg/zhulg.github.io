@@ -4,6 +4,7 @@ abbrlink: 6b1809c0
 date: 2022-10-03 22:06:44
 tags: Rust
 categories: Rust
+toc: true
 ---
 
 # Rust精简笔记第2部分
