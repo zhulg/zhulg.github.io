@@ -1,5 +1,5 @@
 ---
-title: Rust学习精简笔记总结
+title: Rust学习精简笔记总结(一)
 tags: Rust
 categories: Rust
 toc: true
