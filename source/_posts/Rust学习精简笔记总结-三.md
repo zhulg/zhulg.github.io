@@ -1,9 +1,10 @@
 ---
 title: Rust学习精简笔记总结(三)
-date: 2022-10-16 10:21:29
 tags: Rust
 categories: Rust
 toc: true
+abbrlink: 15eb29eb
+date: 2022-10-16 10:21:29
 ---
 
 # Rust精简笔记第3部分
