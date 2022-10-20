@@ -182,7 +182,14 @@ i686-linux-android
 thumbv7neon-linux-androideabi
 x86_64-linux-android
 ```
-- 如果没有安装，需要安装下对应的, rustup target list可以查看到那些已经安装和rust支持的。
+- 如果没有安装，需要安装下对应的
+
+```
+rustup target add aarch64-linux-android armv7-linux-androideabi
+```
+
+- rustup show 可以看到当前rust开发语言环境，包括 （installed targets for active toolchain）
+- rustup target list可以查看到那些已经安装和rust支持的。
 
 ### 执行编译
 - 到rust_lib目录下执行编译
