@@ -153,4 +153,4 @@ class RustGreetings {
     }
 ```
 
-- 例子只验证rust调用使用的过程 [源码下载](https://github.com/zhulg/iOSUseRust)
+- 例子只验证rust调用使用的过程 [源码下载](https://github.com/zhulg/iOSUseRust) ，有问题邮件我lg.json@gmail.com
