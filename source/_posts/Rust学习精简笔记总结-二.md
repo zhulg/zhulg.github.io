@@ -245,7 +245,7 @@ fn main() {
 - **使用枚举来储存多种类型:**
     创建一个储存枚举值的 vector，这样最终就能够通过vector存储实际是不同类型的值了
     
- ````rust
+ ```rust
  fn main() {
     enum SpreadsheetCell {
         Int(i32),
@@ -259,7 +259,7 @@ fn main() {
     ];
 }
 
- ```
+```
  
 #### HashMap
 
