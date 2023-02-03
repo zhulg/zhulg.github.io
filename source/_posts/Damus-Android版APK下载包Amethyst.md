@@ -16,7 +16,7 @@ date: 2023-02-03 11:32:01
 
 ### Amethyst安装包下载：
 
-- 点击下载获取该Android版本安装包：[Amethyst 安装包点击下载](https://raw.githubusercontent.com/zhulg/allpic/master/Amethyst_0.11.5.apk)
+- 点击下载获取该Android版本安装包：[Amethyst 安装包点击下载](https://raw.githubusercontent.com/zhulg/allpic/master/Amethyst_0.11.5.apk) pc上直接点击下载，手机上通过浏览器打开再点击。
 - 下载安装到Androids手机即可，如有问题可邮件(lg.json@gmail.com) 单独再提供安装包
 
 <div align=center width=100%>
