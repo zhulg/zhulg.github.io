@@ -37,8 +37,8 @@ date: 2018-09-26 15:55:50
   HostName github.com
   IdentityFile ~/.ssh/id_rsa
 
-  #新的账号，注意github_second
-  Host github_second
+  #新的账号，注意github_second,测试使用host
+  Host github_second.github.com
   HostName github.com
   IdentityFile ~/.ssh/id_rsa_second
 ```
