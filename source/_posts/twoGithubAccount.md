@@ -58,7 +58,7 @@ git config  user.name “xxxx”
  git clone git@github_second:username/reponame
 
 ```
-## 检测
+## 检测后使用
 
 ```
 $ssh -T git@github.com
@@ -68,4 +68,5 @@ ssh -T git@github_second.github.com
 Hi xxx! You've successfully authenticated, but GitHub does not provide shell access.
 
 说明已经可以成功使用，注意新账号使用别名（github_second）即可。
+
 ```
