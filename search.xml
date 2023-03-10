@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>ChatGPT API介绍及使用</title>
+      <link href="/posts/c22af37b.html"/>
+      <url>/posts/c22af37b.html</url>
+      
+        <content type="html"><![CDATA[<h2 id="ChatGPT-API介绍和使用"><a href="#ChatGPT-API介绍和使用" class="headerlink" title="ChatGPT API介绍和使用"></a>ChatGPT API介绍和使用</h2><ul><li>ChatGPT API的发布，可以让大家快速使用，不仅可以搭建类似ChatGPT应用，还可以通过API制作自己的应用、接入自己的产品、快速拥有强大的AI能力。</li><li>本文介绍ChatGPT API如何使用、API key的创建，请求花费、定价规则、运行官方起名应用快速入门ChatGPT API 的使用。</li></ul><h3 id="ChatGPT-API-介绍"><a href="#ChatGPT-API-介绍" class="headerlink" title="ChatGPT API 介绍"></a>ChatGPT API 介绍</h3><ul><li><strong>先看下张图：</strong>从这图上官方正式介绍，可以使用API方式接入ChatGPT到自己的应用里了，这不仅仅对开发者，更多对不懂开发的人也可以通过自然语言及指令接入自己应用中。<br><strong>（若文中图片无法显示，请科学上网查看：<a href="https://order.yizhihongxing.network/aff.php?aff=12299" target="_blank" rel="noopener">推荐工具</a>）</strong></li></ul><div align="center" width="100%">  <img width="80%" src="https://raw.githubusercontent.com/zhulg/allpic/master/chatgptapi_1.png"></div><ul><li><strong>API更新介绍：</strong><br>这里说到gpt-3.5-turbo是ChatGPT产品中使用的相同模型，但其价格为每1k tokens为0.002美元，相当于每100万token只需要2美元。 比我们现有的GPT-3.5模型便宜10倍，这是3月1号最新官网介绍。</li></ul><div align="center" width="100%">  <img width="80%" src="https://raw.githubusercontent.com/zhulg/allpic/master/chatgptapi_2.png"></div><h3 id="Tokens是什么"><a href="#Tokens是什么" class="headerlink" title="Tokens是什么"></a>Tokens是什么</h3><ul><li><p><strong>API计费单位</strong>。</p></li><li><p><strong>一次提问怎么计费 : 问题tokens + 答案tokens</strong></p></li><li><p>具体来讲，在模型里它指系统将句子和单词分解成的文本块，以便预测接下来应该输出什么文本。根据 OpenAI 官方文档显示，“ChatGPT is great!”这组单词需要六个 token，它的 API 将其分解为“Chat”、“G”、“PT”、“is”、“great”和“!”。与此同时，OpenAI 还专门提供了一个用于检查解释一串文本需要多少 token 的工具，并表示，按照一般的经验来看，在英语中“一个 token 通常对应大约 4 个字符”</p><div align="center" width="100%"><img width="80%" src="https://raw.githubusercontent.com/zhulg/allpic/master/tokeninfo.png"></div></li><li><p><strong>1000个tokens大概750个单词</strong></p></li></ul><div align="center" width="100%">  <img width="80%" src="https://raw.githubusercontent.com/zhulg/allpic/master/models.png"></div><h3 id="如何预估tokens"><a href="#如何预估tokens" class="headerlink" title="如何预估tokens:"></a>如何预估tokens:</h3><ul><li>提供了技术tokens的方法，可以参考理解tokens的计算：</li></ul><div align="center" width="100%">  <img width="80%" src="https://raw.githubusercontent.com/zhulg/allpic/master/tokens.png"></div><h2 id="创建账号和API-Key"><a href="#创建账号和API-Key" class="headerlink" title="创建账号和API Key"></a>创建账号和API Key</h2><ul><li>第一步我们需要登录openAI并注册账号，没有的需要先进行注册 (如果国内无法注册，可以看下方邮件地址邮件我）注册的账号里会先送有18美元，可以对基本的API测试和使用足够了。</li><li>第二步，通过账号登录后进行API key的创建，可以通过个人中心 View API keys来创建，点击创建即可。也可以通过QuickStart里的demo一步步创建。都是可以的，创建好要记得保存下来，后边将不会全部显示了，如果忘记需要移除再次创建。<div align="center" width="100%"><img width="80%" src="https://raw.githubusercontent.com/zhulg/allpic/master/keycreate.png"></div></li></ul><h2 id="使用API"><a href="#使用API" class="headerlink" title="使用API"></a>使用API</h2><ul><li>为了快速演示，使用curl来进行访问接口。 国内的朋友一定要记得科学上网，这个接口否则无法访问（代理一定要设置好，否则接口是无法访问的），我这里验证了后对API返回的数据也进行各说明，如图，返回的接口里有API给的信息和这次请求的花费。</li></ul><div align="center" width="100%">  <img width="80%" src="https://raw.githubusercontent.com/zhulg/allpic/master/api.png"></div><ul><li>返回的数据包括了此次请求花费显示：</li></ul><div align="center" width="100%">  <img width="80%" src="https://raw.githubusercontent.com/zhulg/allpic/master/apidata.png"></div><ul><li>官方也提供了其他语言的SDK，你都可以快速接入。<div align="center" width="100%"><img width="80%" src="https://raw.githubusercontent.com/zhulg/allpic/master/othersdk.png"></div></li></ul><h2 id="应用演示"><a href="#应用演示" class="headerlink" title="应用演示"></a>应用演示</h2><ul><li>运行官方的例子，可以通过代码和页面来查看具体API的使用方法。可以使用node来进行运行起来，并查看具体的代码, 运行后如图：<div align="center" width="100%"><img width="80%" src="https://raw.githubusercontent.com/zhulg/allpic/master/pet.png"></div></li><li>这个demo 通过npm install 之后可以快速启动起来。官方也提供了其他产品接入的演示。希望给大家带来更多整合应用的灵感。</li><li>这个demo的运行需要注意，一个是node的版本不要太低18之后最好，其次访问时还是要科学上网。（有任何代理和账号注册问题都可以邮寄我协助解决）</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> ChatGPT </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> ChatGPT </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Damus Android版APK下载包Amethyst</title>
       <link href="/posts/f235cc57.html"/>
       <url>/posts/f235cc57.html</url>
