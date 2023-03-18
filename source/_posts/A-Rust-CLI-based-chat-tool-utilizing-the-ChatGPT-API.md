@@ -16,8 +16,22 @@ date: 2023-03-15 08:08:07
 - The source code will be shared in the article for reference.
 
 
-## Introduction to the core code
+## Why create ChatGPT CLI
 
+- **If you can access the network through VPN, you can watch this video to learn more.**
+
+   <iframe width="560" height="315"
+src="https://www.youtube.com/embed/UXSgo9Ounuk" 
+frameborder="0" 
+allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+allowfullscreen></iframe>
+
+
+
+ **（若文中视频&图片无法显示，请科学上网查看：[推荐工具](https://order.yizhihongxing.network/aff.php?aff=12299)）**
+
+
+## Introduction to the core code
 
 - **首先构建命令行工具和信息：**let matches = Command::new("ChatGPT CLI").使用 clap 库创建一个命令行工具，其中包含多个命令行参数（如 DomainName，APIKey 等）和一个命令行帮助信息
 
