@@ -6,7 +6,7 @@
   <link href="https://zhulg.github.io/atom.xml" rel="self"/>
   
   <link href="https://zhulg.github.io/"/>
-  <updated>2024-07-13T04:59:25.369Z</updated>
+  <updated>2024-07-14T11:01:51.201Z</updated>
   <id>https://zhulg.github.io/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>技术重构何时做，为什么做要想清楚</title>
+    <link href="https://zhulg.github.io/posts/39b94e3a.html"/>
+    <id>https://zhulg.github.io/posts/39b94e3a.html</id>
+    <published>2024-07-14T10:58:39.000Z</published>
+    <updated>2024-07-14T11:01:51.201Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="技术重构何时做，为什么做要想清楚"><a href="#技术重构何时做，为什么做要想清楚" class="headerlink" title="技术重构何时做，为什么做要想清楚"></a>技术重构何时做，为什么做要想清楚</h1><p><em>代码重构（Refactoring）是指在不改变代码外部行为的前提下，对代码内部结构进行调整，以提高代码的可读性、可维护性和可扩展性。</em></p><ul><li><p>重构的目标是让代码变得更简洁、更优雅、更容易理解和修改</p></li><li><p>重构不难，何时做，以及为什么要做要想清楚，不要为了重构而重构、不为了KPI 夸大事实来重构。</p></li></ul><h1 id="何时进行代码重构"><a href="#何时进行代码重构" class="headerlink" title="何时进行代码重构"></a>何时进行代码重构</h1><h2 id="1-交付快慢"><a href="#1-交付快慢" class="headerlink" title="1.交付快慢"></a>1.交付快慢</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">当写一个需求发现代码新增量比较大，代码编写比较多</span><br><span class="line"></span><br><span class="line">扩展一个功能发现要改动范围比较多，涉及多个文件或者类</span><br></pre></td></tr></table></figure><ul><li><p>可能要考虑是否原来的代码没有基建，造成重复增加代码。</p></li><li><p>扩展的功能没有模块化、没有分层、要反复改动多处。</p></li></ul><p><strong>交付缓慢，当代码变得难以理解和维护且错误频出时，可能就是重构的最佳时机</strong></p><h2 id="2-使用体验"><a href="#2-使用体验" class="headerlink" title="2.使用体验"></a>2.使用体验</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">当使用产品时卡顿、不流畅，页面加载时间比较长</span><br><span class="line">使用中应用频繁出错、页面出错，内存读写等问题</span><br></pre></td></tr></table></figure><ul><li>可能需要看下卡顿的原因，性能问题、渲染问题、数据量过大造成请求缓慢等问题，可能来源于代码的效率低下、资源的过度消耗等。</li></ul><p><strong>当系统体验已经严重影响用户了，就需要重构提高系统的响应速度和稳定性</strong></p><h2 id="3-需求变化"><a href="#3-需求变化" class="headerlink" title="3.需求变化"></a>3.需求变化</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">当需求或者业务发生变化时，代码无法通过相关配置进行快速开发</span><br><span class="line">为满足需求变化，需要改动大的模块进行调整，牵一发而动全身的代码调整代价</span><br></pre></td></tr></table></figure><ul><li>需要从架构设计、模块耦合、数据隔离等方面来判断造成代码耦合度高，不能快速响应业务和需求变化的原因。</li></ul><p><strong>更好地适应新的需求变化，此时进行重构，确保系统的灵活性和可扩展性</strong></p><h2 id="4-技术问题"><a href="#4-技术问题" class="headerlink" title="4.技术问题"></a>4.技术问题</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">当原有的系统使用框架、组件在开发需求中不能满足新的呈现形式</span><br><span class="line"></span><br><span class="line">当老的控件开发速度缓慢、还有相关老技术所暴露的安全隐患类问题</span><br></pre></td></tr></table></figure><ul><li>需要评估老技术的局限性，并判断新技术的稳定性、快捷性，能从效率和稳定性上改善老系统</li></ul><p><strong>如果系统依赖于过时的技术，此时需要重构来升级技术、确保系统安全和可维护性。</strong></p><h2 id="5-团队人员变化"><a href="#5-团队人员变化" class="headerlink" title="5.团队人员变化"></a>5.团队人员变化</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">当团队人员发生变化，老的系统、代码无人知晓和熟悉</span><br><span class="line">新人不知道原来逻辑，要看懂别人代码、维护代码成本都会比较高</span><br></pre></td></tr></table></figure><ul><li>当对系统的代码不熟悉，新的扩展和改动逻辑都会是比较危险的事情，可能里面一些坑因为不知道逻辑，导致系统频繁出错。</li></ul><p><strong>此时进行重构可以帮助新成员更快地上手业务、梳理代码逻辑，同时熟悉到系统间关联代码。</strong></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;技术重构何时做，为什么做要想清楚&quot;&gt;&lt;a href=&quot;#技术重构何时做，为什么做要想清楚&quot; class=&quot;headerlink&quot; title=&quot;技术重构何时做，为什么做要想清楚&quot;&gt;&lt;/a&gt;技术重构何时做，为什么做要想清楚&lt;/h1&gt;&lt;p&gt;&lt;em&gt;代码重构（Refac</summary>
+      
+    
+    
+    
+    <category term="技术成长" scheme="https://zhulg.github.io/categories/技术成长/"/>
+    
+    
+    <category term="技术成长" scheme="https://zhulg.github.io/tags/技术成长/"/>
+    
+  </entry>
   
   <entry>
     <title>35岁+技术人成长和思考</title>
@@ -506,31 +530,6 @@
     
     
     <category term="Ruby" scheme="https://zhulg.github.io/tags/Ruby/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>WebView跨域问题</title>
-    <link href="https://zhulg.github.io/posts/52150.html"/>
-    <id>https://zhulg.github.io/posts/52150.html</id>
-    <published>2021-08-13T05:54:41.000Z</published>
-    <updated>2024-07-07T04:21:27.926Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="WebView的资源跨域"><a href="#WebView的资源跨域" class="headerlink" title="WebView的资源跨域"></a>WebView的资源跨域</h2><ul><li><h4 id="从出现的问题来讲："><a href="#从出现的问题来讲：" class="headerlink" title="从出现的问题来讲："></a>从出现的问题来讲：</h4></li><li><p>移动端使用webView去加载本地H5离线包（file://），在离线的H5里有http相关的请求，这样会出现file协议和http造成的不同源问题</p></li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">from origin &apos;null&apos; has been blocked by CORS policy: No &apos;Access-Control-Allow-Origin&apos; header is present on the requested resource. If an opaque response serves your needs, set the request&apos;s mode to &apos;no-cors&apos; to fetch the resource with CORS disabled.</span><br></pre></td></tr></table></figure><ul><li>或者类似出现：</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cross origin requests are only supported for protocol schemes: http, data, chrome, https.</span><br></pre></td></tr></table></figure><p>﻿</p><h4 id="出现原因："><a href="#出现原因：" class="headerlink" title="出现原因："></a>出现原因：</h4><ul><li>同源策略造成，大众叫法一般称为跨域了</li><li>同源要满足：协议相同、域名相同、端口相同  <em><a href="http://www.example.com:80/" target="_blank" rel="noopener">http://www.example.com:80/</a></em></li><li>同源政策的目的，是为了保证用户信息的安全，防止恶意的网站窃取数据</li></ul><p>﻿</p><h4 id="​CORS是什么："><a href="#​CORS是什么：" class="headerlink" title="​CORS是什么："></a>​CORS是什么：</h4><ul><li>是一种基于HTTP 头的机制，该机制通过允许服务器标示除了它自己以外的其它 origin（域，协议和端口），这样浏览器可以访问加载这些资源。</li><li>跨源资源共享还通过一种机制来检查服务器是否会允许要发送的真实请求，该机制通过浏览器发起一个到服务器托管的跨源资源的”预检”请求。</li><li>在预检中，浏览器发送的头中标示有HTTP方法和真实请求中会用到的头。</li><li>跨源域资源共享（ CORS ）机制允许 Web 应用服务器进行跨源访问控制，从而使跨源数据传输得以安全进行。﻿</li></ul><h4 id="​原理解决：​"><a href="#​原理解决：​" class="headerlink" title="​原理解决：​"></a>​原理解决：​</h4><ul><li>出现不同源情况下，使用cors的方式来进行解决，如上日志描述</li><li>对请求的资源服务器设置允许跨源请求</li><li>使用WebView的设置允许使用file文件来进行访问，但是APP安全性来说是致命</li><li>使用同源的方式来进行请求和加载    </li></ul><h4 id="推荐方案："><a href="#推荐方案：" class="headerlink" title="推荐方案："></a>推荐方案：</h4><ul><li>Android上以前解决该类问题方案设置 setAllowFileAccessFromFileURLs 来允许其他协议访问加载的file开头的页面，这个已经被披露严重漏洞</li><li>官方推荐： WebViewAssetLoader   androidx.webkit.WebViewAssetLoader</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Helper class to load local files including application&apos;s static assets and resources using http(s):﻿// URLs inside a WebView class. Loading local files using web-like URLs instead of ﻿&quot;file://&quot; is desirable as it is compatible with the Same-Origin policy.</span><br></pre></td></tr></table></figure><ul><li><p>AssetsPathHandler ​为该PathHandler的实现类</p></li><li><p><strong>提供 AssetsPathHandler, ResourcesPathHandler 、InternalStoragePathHandler 满足各个场景需要</strong></p></li><li><p>﻿DEFAULT_DOMAIN默认appassets.androidplatform.net 字符串常量可替换</p></li><li><p>AssetsPathHandler的用法：</p></li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">final WebViewAssetLoader assetLoader = new WebViewAssetLoader﻿.﻿Builder﻿(﻿)</span><br><span class="line">         .﻿addPathHandler﻿(﻿&quot;/assets/&quot;﻿, new AssetsPathHandler﻿(﻿this﻿)﻿)</span><br><span class="line">         .﻿build﻿(﻿)﻿;</span><br><span class="line">﻿</span><br><span class="line">webView.﻿setWebViewClient﻿(﻿new WebViewClient﻿(﻿) &#123;</span><br><span class="line">    @Override</span><br><span class="line">    @RequiresApi﻿(﻿21﻿)</span><br><span class="line">    public WebResourceResponse shouldInterceptRequest﻿(﻿WebView view,</span><br><span class="line">                                     WebResourceRequest request) &#123;</span><br><span class="line">        return assetLoader.﻿shouldInterceptRequest﻿(request.﻿getUrl﻿(﻿)﻿)﻿;</span><br><span class="line">    &#125;</span><br><span class="line">﻿</span><br><span class="line">    @Override</span><br><span class="line">    @SuppressWarnings﻿(﻿&quot;deprecation&quot;﻿) // for API &lt; 21</span><br><span class="line">    public WebResourceResponse shouldInterceptRequest﻿(﻿WebView view,</span><br><span class="line">                                     WebResourceRequest request) &#123;</span><br><span class="line">        return assetLoader.﻿shouldInterceptRequest﻿(﻿Uri﻿.﻿parse﻿(request)﻿)﻿;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;﻿)﻿;</span><br><span class="line">﻿</span><br><span class="line">WebSettings webViewSettings = webView.﻿getSettings﻿(﻿)﻿;</span><br><span class="line">// Setting this off for security. Off by default for SDK versions &gt;= 16.</span><br><span class="line">webViewSettings.﻿setAllowFileAccessFromFileURLs﻿(﻿false﻿)﻿;</span><br><span class="line">// Off by default, deprecated for SDK versions &gt;= 30.</span><br><span class="line">webViewSettings.﻿setAllowUniversalAccessFromFileURLs﻿(﻿false﻿)﻿;</span><br><span class="line">// Keeping these off is less critical but still a good idea, especially if your app is not</span><br><span class="line">// using file:// or content:// URLs.</span><br><span class="line">webViewSettings.﻿setAllowFileAccess﻿(﻿false﻿)﻿;</span><br><span class="line">webViewSettings.﻿setAllowContentAccess﻿(﻿false﻿)﻿;</span><br><span class="line">﻿</span><br><span class="line">// Assets are hosted under http(s)://appassets.androidplatform.net/assets/... .</span><br><span class="line">// If the application&apos;s assets are in the &quot;main/assets&quot; folder this will read the file</span><br><span class="line">// from &quot;main/assets/www/index.html&quot; and load it as if it were hosted on:</span><br><span class="line">// https://appassets.androidplatform.net/assets/www/index.html</span><br><span class="line">webview.﻿loadUrl﻿(﻿&quot;https://appassets.androidplatform.net/assets/www/index.html&quot;﻿)﻿;</span><br></pre></td></tr></table></figure><ul><li><strong>这样在loadurl是就可以使用 <a href="https://appassets.androidplatform.net/assets/www/index.html" target="_blank" rel="noopener">https://appassets.androidplatform.net/assets/www/index.html</a>  主要domain的部分和后边assets是需要对应的，这样通过https来加载，而实际好找的对应的本地资源通过流的方式进行的读取，避免了非同源问题的出现。</strong>﻿﻿</li></ul>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h2 id=&quot;WebView的资源跨域&quot;&gt;&lt;a href=&quot;#WebView的资源跨域&quot; class=&quot;headerlink&quot; title=&quot;WebView的资源跨域&quot;&gt;&lt;/a&gt;WebView的资源跨域&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;&lt;h4 id=&quot;从出现的问题来讲：&quot;&gt;&lt;a hr</summary>
-      
-    
-    
-    
-    <category term="App" scheme="https://zhulg.github.io/categories/App/"/>
-    
-    
-    <category term="App" scheme="https://zhulg.github.io/tags/App/"/>
     
   </entry>
   
