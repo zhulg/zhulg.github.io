@@ -6,7 +6,7 @@
   <link href="https://zhulg.github.io/atom.xml" rel="self"/>
   
   <link href="https://zhulg.github.io/"/>
-  <updated>2024-08-18T05:23:05.990Z</updated>
+  <updated>2024-08-18T05:51:25.041Z</updated>
   <id>https://zhulg.github.io/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>2024年客户端、前端开发，这些赛道值得你关注</title>
+    <link href="https://zhulg.github.io/posts/9826b570.html"/>
+    <id>https://zhulg.github.io/posts/9826b570.html</id>
+    <published>2024-08-19T05:43:25.000Z</published>
+    <updated>2024-08-18T05:51:25.041Z</updated>
+    
+    <content type="html"><![CDATA[<p>首先，这篇文章没有任何广告，只是给目前前端开发、客户端开发伙伴们的一些个人思考和建议。</p><p>前几年，移动互联网如火如荼，给大家在吃住行方面带来了巨大的便利，也改变了大家的生活方式。外卖、打车、支付、金融等应用极大地方便了人们的日常生活。</p><p>特别是客户端开发的岗位，前几年由于开发需求旺盛，薪资非常可观。但随着移动APP生态的完善，APP的需求也接近饱和，进入了维护期。许多资深前端工程师、客户端Android、iOS、Flutter工程师由于种种原因，职业发展也进入了瓶颈期。一方面担心失业问题，另一方面市场上的新岗位也不如以前多。</p><p><strong>人通常都是有惰性的，即便知道这个行业在走下坡路，可能还是不好轻易的做出改变和尝试新赛道</strong></p><p>确实转型新赛道来进行开发，也有一些学习成本，那我们要尽可能选择适合自己的技术栈，能快速切入的一些领域。</p><p><strong>先尝试的学习和用起来，看看实际写起来是怎么样子的，了解岗位薪资和赛道人数。</strong></p><p>就比如之前做J2EE(现在很少听这个名字了)开发大火时期，业余里进行了Android、iOS研究，没想到在1-2年内业余薪资迅速远远超过了主业工资2倍，且大量移动岗位冒出，那怎么办，放弃J2EE,  顺应时代趋势来开发啊。</p><p>目前，互联网可以说处于Web3.0阶段，这个时期或未来的发展如何，可以看到的是区块链和大模型AI行业。今天先看一下前端和客户端技术人员在区块链行业有哪些可以做的事情。</p><p>这里的区块链指的是区块链相关的开发岗位有哪些可以切入的，也是政府支持和开展的 图片引用：<a href="https://www.gov.cn/" target="_blank" rel="noopener">https://www.gov.cn/</a></p><p><a href="https://www.gov.cn/lianbo/bumen/202401/content_6925730.htm" target="_blank" rel="noopener">2025年初步形成支撑区块链发展标准体系</a></p><p><a href="https://www.gov.cn/lianbo/difang/202405/content_6952135.htm" target="_blank" rel="noopener">上海启动首批国资国企区块链创新应用场景建设</a></p><p><strong>区块链技术是一种分布式账本技术，可以让信息记录更加安全、透明和不可篡改</strong>。从官方发布的信息看，技术可以应用于许多领域，比如共识机制、分布式应用、智能合约、数据上链等。</p><p>那适合前端和客户端开发，又比较好进行切入，或者可以先尝试起来的区块链开发岗都有哪些，薪资如何，我觉得可以从这些方面进行尝试：</p><h3 id="DAPP开发"><a href="#DAPP开发" class="headerlink" title="DAPP开发"></a>DAPP开发</h3><p> 如果你是做前端开发的JavaScript、React、vue不在话下，那可以直接来构建DApp的前端部分，并结合Web3.js或Ethers.js进行智能合约交互。<strong>Web3.js</strong> 用于与以太坊区块链进行交互，支持发送交易、调用智能合约等操作。<strong>Ethers.js</strong> 功能类似于Web3.js，但更加现代化和模块化。</p><p>如果你是客户端开发其实也可以进行DAPP来开发，通过WalletConnect协议，开发支持移动设备的DApp开发，这些都可以沿用一些移动开发的经验。与智能合约进行交互，这部分学习和你在移动开发中与后端API交互的经验相似。</p><h3 id="智能合约开发"><a href="#智能合约开发" class="headerlink" title="智能合约开发"></a><strong>智能合约开发</strong></h3><p>无论前端还是客户端如果接触了区块链还可以进行智能合约的开发，可以理解它是自动执行合约条款的代码，运行在区块链上，确保交易的透明和安全。</p><p>智能合约编写语言，主要有Solidity：是太坊及其兼容区块链平台，Rust ：用于Polkadot、Solana区块链平台的智能合约开发，这个可能需要学习一下Solidity, rust语言了。</p><p>如果是前端和客户端开发，这2个语言学习起来还是比较容易的，语法也比较类似 Solidity也有JavaScript的借鉴，rust也是跟kotlin、swift有相似之处。</p><h3 id="其他区块链开发"><a href="#其他区块链开发" class="headerlink" title="其他区块链开发"></a><strong>其他区块链开发</strong></h3><p>还有一些区块链的其他开发方向，比如共识算法、公链开发等。这些需要较高的技术功底，涉及密码学和安全学，可能不太适合目前前端、客户端开发的技术基础。</p><p><strong>DAPP开发和智能合约开发比较适合前端、客户端开发人员尝试切换赛道、可以在业余时间进行学习和研究，而且行业薪资待遇不错，业内人数也不拥挤。</strong>长远看，这是一种技术趋势和应用创新，从上方官方新闻也可以看的出。</p><h2 id="思考总结"><a href="#思考总结" class="headerlink" title="思考总结"></a><strong>思考总结</strong></h2><p>以上就是对前端、客户端开发，比较低成本切换到区块链岗位赛道的建议，可以业余尝试和了解，多学总是没有坏处的。</p><p>技术不是一成不变的，业务需求也是一直变革，前端、客户端开发还是要做好未雨绸缪提升自己技术力。</p><p>切换技术赛道和岗位时，还是要结合自身的技术栈来适应技术潮流，提升竞争力，拓宽自己的岗位选择。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;首先，这篇文章没有任何广告，只是给目前前端开发、客户端开发伙伴们的一些个人思考和建议。&lt;/p&gt;
+&lt;p&gt;前几年，移动互联网如火如荼，给大家在吃住行方面带来了巨大的便利，也改变了大家的生活方式。外卖、打车、支付、金融等应用极大地方便了人们的日常生活。&lt;/p&gt;
+&lt;p&gt;特别是客户端</summary>
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>技术管理，要用人之长</title>
@@ -490,35 +512,6 @@
     
     
     <category term="元宇宙" scheme="https://zhulg.github.io/categories/元宇宙/"/>
-    
-    
-    <category term="区块链" scheme="https://zhulg.github.io/tags/区块链/"/>
-    
-    <category term="元宇宙" scheme="https://zhulg.github.io/tags/元宇宙/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>元宇宙是什么有哪些应用场景</title>
-    <link href="https://zhulg.github.io/posts/263.html"/>
-    <id>https://zhulg.github.io/posts/263.html</id>
-    <published>2022-04-28T08:17:29.000Z</published>
-    <updated>2024-07-07T04:21:27.932Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="一-元宇宙是什么："><a href="#一-元宇宙是什么：" class="headerlink" title="一,元宇宙是什么："></a>一,元宇宙是什么：</h2><ul><li><strong>元宇宙本质上是对现实世界的虚拟化、数字化的一些列技术</strong></li><li>通过多种技术构成的一种虚拟世界和现实的映射，这些技术最主要的构成包括：</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">人机交互设备</span><br><span class="line">网络传输</span><br><span class="line">芯片算力</span><br><span class="line">人工智能</span><br><span class="line">区块链</span><br><span class="line">云服务</span><br><span class="line">游戏技术</span><br><span class="line">....</span><br></pre></td></tr></table></figure><ul><li><strong>目前更多对元宇宙的探索多停留在虚拟空间和世界</strong>，但元宇宙远远不至此，更多的技术结合还在探索和落地。</li><li>在元宇宙世界里，人们可以自由穿梭于物理世界和数字世界，在虚拟空间和时间节点所构成的元宇宙中学习、工作、交友、购物、旅游等等 </li></ul><h2 id="二-元宇宙包含哪些技术："><a href="#二-元宇宙包含哪些技术：" class="headerlink" title="二,元宇宙包含哪些技术："></a>二,元宇宙包含哪些技术：</h2><ul><li><strong>（若文中图片无法显示，请科学上网查看：<a href="https://order.yizhihongxing.network/aff.php?aff=12299" target="_blank" rel="noopener">推荐工具</a>）</strong></li></ul><div align="center" width="100%">  <img width="80%" src="https://raw.githubusercontent.com/zhulg/allpic/master/%E5%85%83%E5%AE%87%E5%AE%99.jpeg"></div><h4 id="人机交互设备："><a href="#人机交互设备：" class="headerlink" title="人机交互设备："></a><em>人机交互设备：</em></h4><ul><li>这个大家很容易想到AR、VR、MR等，特别是 XR，持续迭代升级，虚拟沉浸现实体验的基础</li></ul><h4 id="网络传输："><a href="#网络传输：" class="headerlink" title="网络传输："></a><em>网络传输：</em></h4><ul><li>未来需要更强的网络传输能力包括6G等，零延迟，满足高分辨率图像和视频传输能力</li></ul><h4 id="芯片算力："><a href="#芯片算力：" class="headerlink" title="芯片算力："></a><em>芯片算力：</em></h4><ul><li>需要更多对算力满足对数据技术等软硬件能力，包括GPU 服务器、CPU、量子计算等</li></ul><h4 id="人工智能："><a href="#人工智能：" class="headerlink" title="人工智能："></a><em>人工智能：</em></h4><ul><li>这个包括机器学习、视觉处理、自然语言、知识图谱等满足人类更多智能推断和判定需求</li></ul><h4 id="区块链技术："><a href="#区块链技术：" class="headerlink" title="区块链技术："></a><em>区块链技术：</em></h4><ul><li>区块链技术满足了虚拟世界中去中心化，数字货币，智能合约等天然技术基础</li></ul><h4 id="云服务："><a href="#云服务：" class="headerlink" title="云服务："></a><em>云服务：</em></h4><ul><li>大量的数据需要云技术、云存储、边缘计算满足终端设备数据显示和存储需求</li></ul><h4 id="游戏技术"><a href="#游戏技术" class="headerlink" title="游戏技术"></a><em>游戏技术</em></h4><ul><li>新的业务场景需要游戏引擎、3D、unity技术结合构建图形化技术和沉浸式画面体验</li></ul><h2 id="三-元宇宙未来发展阶段："><a href="#三-元宇宙未来发展阶段：" class="headerlink" title="三,元宇宙未来发展阶段："></a>三,元宇宙未来发展阶段：</h2><ul><li><strong>个人认为目前的元宇宙更多在概念阶段，也包括一些通过元宇宙来概念和骗局，大家需要理清技术原理慎重投资</strong></li></ul><h3 id="1-已落地场景："><a href="#1-已落地场景：" class="headerlink" title="1.已落地场景："></a>1.已落地场景：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">AR/VR 虚拟游戏</span><br><span class="line">链游</span><br><span class="line">3D网购</span><br></pre></td></tr></table></figure><h3 id="2-进展中场景："><a href="#2-进展中场景：" class="headerlink" title="2.进展中场景："></a>2.进展中场景：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">智能头盔</span><br><span class="line">虚拟场景会议</span><br><span class="line">沉浸式社交、游戏</span><br><span class="line">沉浸式娱乐、体育、健康模拟等应用</span><br><span class="line">形成人类虚拟式，面对面体验</span><br></pre></td></tr></table></figure><h3 id="3-未来场景"><a href="#3-未来场景" class="headerlink" title="3.未来场景"></a>3.未来场景</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">在已有场景中包含有工作</span><br><span class="line">资产的交易</span><br><span class="line">元宇宙中角色职位</span><br><span class="line">真实世界互通、形成元宇宙社会形态</span><br></pre></td></tr></table></figure><h2 id="四-元宇宙构成和应用场景"><a href="#四-元宇宙构成和应用场景" class="headerlink" title="四,元宇宙构成和应用场景"></a>四,元宇宙构成和应用场景</h2><ul><li>通过一张图来概括元宇宙从底层技术到应用场景的构成，来更好理解元宇宙的生态和落地场景。</li><li>从技术视角也许<strong>没有创造性的技术产出</strong>，但是随着元宇宙快速发展和巨头的投入，<strong>未来一定会有创新的落地和业务</strong>，为用户提供更多的体验和便利场景。</li></ul><div align="center" width="100%">  <img width="90%" src="https://raw.githubusercontent.com/zhulg/allpic/master/%E5%85%83%E5%AE%87%E5%AE%99%E7%94%9F%E6%80%81.png"></div><h2 id="五-元宇宙的投资："><a href="#五-元宇宙的投资：" class="headerlink" title="五,元宇宙的投资："></a>五,元宇宙的投资：</h2><ul><li>目前投资大多在链游、AR\VR应用和硬件、技术投资参考大公司风向标，关注新技术。</li><li><strong>以元宇宙&amp;区块链的炒作、技术类用户慎重投资</strong></li></ul>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h2 id=&quot;一-元宇宙是什么：&quot;&gt;&lt;a href=&quot;#一-元宇宙是什么：&quot; class=&quot;headerlink&quot; title=&quot;一,元宇宙是什么：&quot;&gt;&lt;/a&gt;一,元宇宙是什么：&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;元宇宙本质上是对现实世界的虚拟化、数字化的一些列技术&lt;/</summary>
-      
-    
-    
-    
-    <category term="元宇宙" scheme="https://zhulg.github.io/categories/元宇宙/"/>
-    
-    <category term="区块链" scheme="https://zhulg.github.io/categories/元宇宙/区块链/"/>
     
     
     <category term="区块链" scheme="https://zhulg.github.io/tags/区块链/"/>
