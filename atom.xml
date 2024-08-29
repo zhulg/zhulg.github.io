@@ -6,7 +6,7 @@
   <link href="https://zhulg.github.io/atom.xml" rel="self"/>
   
   <link href="https://zhulg.github.io/"/>
-  <updated>2024-08-29T00:06:40.927Z</updated>
+  <updated>2024-08-29T00:19:55.072Z</updated>
   <id>https://zhulg.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>技术人别被AI课割韭菜</title>
+    <link href="https://zhulg.github.io/posts/f452b115.html"/>
+    <id>https://zhulg.github.io/posts/f452b115.html</id>
+    <published>2024-08-29T00:17:13.000Z</published>
+    <updated>2024-08-29T00:19:55.072Z</updated>
+    
+    <content type="html"><![CDATA[<p>这篇文章，或许会引起那些专门售卖AI课程者的不满。我要强调，这里说的是那些纯粹割韭菜的AI课，真正有深度和干货的课程自然另当别论。</p><p>作为技术人，你是否已经注意到这些现象？这些课程大多打着“大模型”的旗号，内容却五花八门，从AI写作、AI作图、AI编程到用AI快速赚钱等等，无所不包。</p><p>仔细分析这些课程，会发现大多数内容浅显，仅停留在表面应用。课程或许教你如何使用提示词、如何做个图、通过比喻讲解一些模棱两可原理，或教你输出一些文章，整体来看虎头蛇尾。</p><p>这些课程通常存在以下几个问题：</p><ol><li><p>内容浅显：大多数课程只讲解基础概念，缺乏深入的技术原理和流程环节。</p></li><li><p>缺乏实践：很多课程没有实际项目的指导，或者仅通过简单例子介绍AI工具的使用。</p></li><li><p>误导性宣传：有的课程夸大效果，贩卖焦虑，吸引对AI感兴趣的技术人，实际操作远非如此。</p></li></ol><p>例如，之前有新闻报道某些利用AI课虚头大肆卖课割韭菜的事件，某清华教授靠卖AI课狂赚上亿，然而他本人却是门外汉，靠的就是营销割小白韭菜。</p><p>图片</p><p><strong>这些课程是否一无是处？也不尽然。</strong></p><p>对于小白用户，如果想快速了解某些概念，利用现有的AI模型和工具制作图像、视频，这些课程可能会提高工作效率。如果你懒得查资料且有经济条件购买，这类课程也许有帮助。</p><p>但对于技术人来说，这类课程并不建议。你需要防止这些课程误导你对AI和大模型产生错误认识。</p><p>仅知道概念、会使用ChatGPT等AI模型，对于技术人来说远远不够。非技术人如果掌握了提示词的使用，可能比你还会操作，毕竟现在国内也有很多出名的大模型产品，包括百度的文心一言、字节的抖音豆包大模型、腾讯的混元大模型、百川智能的百川大模型、Kimi和科大讯飞的星火大模型等等，一些写作类用户可能使用的更为溜一些。</p><p>技术人学习大模型技术，可以结合自己的情况和发展方向选择一些入门基础课程。以下是我认为需要学习和了解的内容：</p><p>首先，如果你是计算机专业出身或从事技术工作，应了解数学、统计学和编程语言。大模型时代使用较多的是Python语言，但语言只是工具，不要局限于此。</p><p>了解AI大模型的相关名词和概念，它们之间的关联和关系，比如以下这些术语：</p><p>• AI (Artificial Intelligence): 模拟人类智能的计算机系统。</p><p>• Machine Learning (ML): 通过数据训练模型，使计算机能够自动学习和改进。</p><p>• Deep Learning: 使用神经网络进行的机器学习，通常具有多层架构。</p><p>• Neural Network: 模仿人脑结构的计算模型，用于识别模式和预测。</p><p>• Natural Language Processing (NLP): 计算机处理和理解人类语言的技术。</p><p>• Training Data: 用于训练机器学习模型的数据集。</p><p>• Model: 通过训练算法从数据中学到的数学表示，用于预测或分类。</p><p>• Algorithm: 一组用于解决特定问题的规则或步骤。</p><p>• Transformer: 现代NLP中的重要模型架构，依赖于自注意力机制。</p><p>• GPT (Generative Pre-trained Transformer): 一种生成式预训练语言模型，用于生成文本。</p><p>其次，了解原理后，需要深入学习大模型所使用的相关技术，如神经网络、卷积神经网络（CNN）、循环神经网络（RNN）、生成对抗网络（GAN），以及用于文本处理的NLP、图像识别的计算机视觉。深入理解Transformer模型的结构和工作原理，学习大模型的训练方法和技巧，如分布式训练、混合精度训练等，学习如何优化大模型的性能和调优超参数。</p><h3 id="最重要的事，自己动手实践。"><a href="#最重要的事，自己动手实践。" class="headerlink" title="最重要的事，自己动手实践。"></a>最重要的事，自己动手实践。</h3><p>可以搭建一些开源大模型，用本地的CPU进行部署，学习API相关调用，进行数据准备和预处理、模型推理和结果解析等操作。通过这些实践，你会对大模型有更深入的理解。对于技术人来说，这还只是知道大模型在每个步骤大概的工作方式。</p><p>技术人学习AI大模型，先理解其工作原理，再去做开源模型部署和调参数以及服务的对接，确实大多数技术人不从事底层大模型开发，但在应用层开发和使用大模型技术时，要多要思考大模型技术如何服务于当前的产品，并与未来的产品业务形态结合，提高效率。</p><p>技术人不要被市面上贩卖焦虑的AI韭菜课所迷惑。 任何技术都有连续性，不是凭空冒出来的新技术，脚踏实地学习技术本质才能实现更多的结合与创新。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;这篇文章，或许会引起那些专门售卖AI课程者的不满。我要强调，这里说的是那些纯粹割韭菜的AI课，真正有深度和干货的课程自然另当别论。&lt;/p&gt;
+&lt;p&gt;作为技术人，你是否已经注意到这些现象？这些课程大多打着“大模型”的旗号，内容却五花八门，从AI写作、AI作图、AI编程到用AI快</summary>
+      
+    
+    
+    
+    <category term="技术成长" scheme="https://zhulg.github.io/categories/技术成长/"/>
+    
+    
+    <category term="技术成长" scheme="https://zhulg.github.io/tags/技术成长/"/>
+    
+  </entry>
   
   <entry>
     <title>尽早觉醒：找到自己一人能做的互联网生意</title>
@@ -494,33 +519,6 @@
     
     
     <category term="Rust" scheme="https://zhulg.github.io/tags/Rust/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Flutter Widget生命周期总结</title>
-    <link href="https://zhulg.github.io/posts/f4ca6a79.html"/>
-    <id>https://zhulg.github.io/posts/f4ca6a79.html</id>
-    <published>2022-05-27T06:26:29.000Z</published>
-    <updated>2024-07-07T04:21:27.923Z</updated>
-    
-    <content type="html"><![CDATA[<ul><li>Flutter Widget生命周期分为2种，一种有状态的组件StatefulWidget的生命周期，和无状态的StatelessWidget 组件的生命周期。</li></ul><h2 id="一-StatefulWidget的生命周期"><a href="#一-StatefulWidget的生命周期" class="headerlink" title="一.StatefulWidget的生命周期"></a>一.StatefulWidget的生命周期</h2><ul><li>先看一张statefulwidget生命周期图 <strong>（若文中图片无法显示，请科学上网查看：<a href="https://order.yizhihongxing.network/aff.php?aff=12299" target="_blank" rel="noopener">推荐工具</a>）</strong></li><li>继承StatefulWidget的组件会先进行构造方法，在进行对应的Widget的CreateState, 在State里</li></ul><p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/flutter_widgetlifecycle.png" alt></p><h3 id="1-createState："><a href="#1-createState：" class="headerlink" title="1.createState："></a><em>1.createState：</em></h3><ul><li>创建新的StatefulWidget的时候，就会立即执行createState方法，<strong>返回一个state的实例与当前widget建立关系。</strong></li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">class MyHomePage extends StatefulWidget &#123;</span><br><span class="line">  const MyHomePage(&#123;Key? key, required this.title&#125;) : super(key: key);</span><br><span class="line">  final String title;</span><br><span class="line">  @override</span><br><span class="line">  State&lt;MyHomePage&gt; createState() =&gt; _MyHomePageState();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="2-initState："><a href="#2-initState：" class="headerlink" title="2. initState："></a><em>2. initState：</em></h3><ul><li>initState 是 StatefulWidget 创建完后，在State里调用的第一个方法, 只执行一次（iOS 的 viewDidLoad()、Android 的 onCreate）, StatefulWidget 已经被加载到渲染树里了但还没开始渲染，这里常做一些初始化变量工作。</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@override</span><br><span class="line">void initState()&#123;</span><br><span class="line">  super.initState();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="3-didChangeDependencies"><a href="#3-didChangeDependencies" class="headerlink" title="3. didChangeDependencies:"></a><em>3. didChangeDependencies:</em></h3><ul><li>在initState回调函数执行之后立即调用，之后当 StatefulWidget 刷新的时候，就不会调用了, <strong>当State对象的依赖发生变化时会被再次调用（层级变化&amp;共享依赖变化）</strong>。官网文档举例，如果之前build构建里依赖的 InheritedWidget 发生变化之后，那么他的 didChangeDependencies 会被再次调用。（InheritedWidget是 Flutter 中非常重要的一个功能型组件，它提供了一种在 widget 树中从上到下共享数据的方式，应用的根 widget 中通过InheritedWidget共享了一个数据，可以在任意子widget 中来获取该共享的数据）（场景：主题颜色、地区语言或者其他通用变量等）</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@override</span><br><span class="line">void didChangeDependencies() &#123; &#125;</span><br></pre></td></tr></table></figure><h3 id="4-build："><a href="#4-build：" class="headerlink" title="4. build："></a><em>4. build：</em></h3><ul><li>build方法在didChangeDependencies之后会立即调用，之后每次当setState方法被调用后，都会进行重新build，并返回要渲染的widiget </li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@override</span><br><span class="line">Widget build(BuildContext context) &#123;</span><br><span class="line">  return Scaffold()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="5-didUpdateWidget："><a href="#5-didUpdateWidget：" class="headerlink" title="5. didUpdateWidget："></a><em>5. didUpdateWidget：</em></h3><ul><li>比较严谨官方描述:  If the parent widget changes its properties or configurations, and the parent wants to rebuild the child widget, with the same Runtime Type, then didUpdateWidget is triggered. This unsubscribes to the old widget and subscribes to the configuration changes of the new widget! </li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">@override</span><br><span class="line">  void didUpdateWidget(covariant CurrentClass oldWidget) &#123;</span><br><span class="line">    // TODO: implement didUpdateWidget</span><br><span class="line">    super.didUpdateWidget(oldWidget);</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure><h3 id="6-deactivate："><a href="#6-deactivate：" class="headerlink" title="6.  deactivate："></a><em>6.  deactivate：</em></h3><ul><li>当要将 State 对象从渲染树中移除的时候，就会调用 deactivate 生命周期，这标志着 StatefulWidget 将要销毁，但是有时候 State 不会被销毁，而是重新插入到渲染树种(例如；当使用Navigator.push 移动到下一个屏幕)</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@override</span><br><span class="line">  void deactivate() &#123;</span><br><span class="line">    super.deactivate();</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure><h3 id="7-dispose"><a href="#7-dispose" class="headerlink" title="7. dispose"></a><em>7. dispose</em></h3><ul><li>当 View 不需要再显示，从渲染树中移除的时候，State 就会永久的从渲染树中移除，就会调用 dispose 生命周期，(在 dispose 里做一些取消监听、动画的操作，和 initState 是相反)</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@override</span><br><span class="line">  void dispose() &#123;</span><br><span class="line">    super.dispose();</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure><h2 id="二-StatelessWidget的生命周期"><a href="#二-StatelessWidget的生命周期" class="headerlink" title="二. StatelessWidget的生命周期"></a>二. StatelessWidget的生命周期</h2><ul><li>StatelessWidget的生命周期比较简单，通过构造方法，build方法来进行渲染需要的widget，由于是无状态的也就执行一次。</li></ul>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;ul&gt;
-&lt;li&gt;Flutter Widget生命周期分为2种，一种有状态的组件StatefulWidget的生命周期，和无状态的StatelessWidget 组件的生命周期。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&quot;一-StatefulWidget的生命周期&quot;&gt;&lt;a href=</summary>
-      
-    
-    
-    
-    <category term="flutter" scheme="https://zhulg.github.io/categories/flutter/"/>
-    
-    
-    <category term="flutter" scheme="https://zhulg.github.io/tags/flutter/"/>
     
   </entry>
   
