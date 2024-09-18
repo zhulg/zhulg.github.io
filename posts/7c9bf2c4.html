@@ -33,21 +33,30 @@ s.parentNode.insertBefore(el, s);
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>分布式与集群 | zhulg笔记</title>
-  <meta name="description" content="分布式与集群的理解 规范定义分布式系统是一组电脑（computer），通过网络相互链接传递消息与通信后并协调它们的行为而形成的系统。组件之间彼此进行交互以实现一个共同的目标。把需要进行大量计算的工程数据分区成小块，由多台计算机分别计算，再上传运算结果后，将结果统一合并得出数据结论的科学。计算机集群简称集群是一种计算机系统，它通过一组松散集成的计算机软件和/或硬件连接起来高度紧密地协作完成计算工作。">
-<meta name="keywords" content="分布式&#x2F;集群">
+  <title>2024年Rust的八大应用领域 | zhulg笔记</title>
+  <meta name="description" content="Rust的八大用途你了解多少呢？| 良技漫谈介绍下Rust的主要应用场景，特别是第8点目前也有不少在应用。 1. 系统编程：Rust 因其内存安全性和高性能，适用于开发 操作系统、设备驱动、底层库和系统服务。        2. 高性能网络开发：Rust 常用于构建 高性能、低延迟的网络服务器和分布式系统。       3. 嵌入式与物联网 (IoT)：Rust 的资源效率和跨平台特性，使其非常适">
+<meta name="keywords" content="Rust">
 <meta property="og:type" content="article">
-<meta property="og:title" content="分布式与集群">
-<meta property="og:url" content="https://zhulg.github.io/posts/50577.html">
+<meta property="og:title" content="2024年Rust的八大应用领域">
+<meta property="og:url" content="https://zhulg.github.io/posts/7c9bf2c4.html">
 <meta property="og:site_name" content="zhulg笔记">
-<meta property="og:description" content="分布式与集群的理解 规范定义分布式系统是一组电脑（computer），通过网络相互链接传递消息与通信后并协调它们的行为而形成的系统。组件之间彼此进行交互以实现一个共同的目标。把需要进行大量计算的工程数据分区成小块，由多台计算机分别计算，再上传运算结果后，将结果统一合并得出数据结论的科学。计算机集群简称集群是一种计算机系统，它通过一组松散集成的计算机软件和/或硬件连接起来高度紧密地协作完成计算工作。">
+<meta property="og:description" content="Rust的八大用途你了解多少呢？| 良技漫谈介绍下Rust的主要应用场景，特别是第8点目前也有不少在应用。 1. 系统编程：Rust 因其内存安全性和高性能，适用于开发 操作系统、设备驱动、底层库和系统服务。        2. 高性能网络开发：Rust 常用于构建 高性能、低延迟的网络服务器和分布式系统。       3. 嵌入式与物联网 (IoT)：Rust 的资源效率和跨平台特性，使其非常适">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2024-07-07T04:21:27.933Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/zhulg/allpic/master/63.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/zhulg/allpic/master/64.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/zhulg/allpic/master/65.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/zhulg/allpic/master/66.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/zhulg/allpic/master/67.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/zhulg/allpic/master/68.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/zhulg/allpic/master/69.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/zhulg/allpic/master/70.png">
+<meta property="og:updated_time" content="2024-09-18T06:44:36.342Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="分布式与集群">
-<meta name="twitter:description" content="分布式与集群的理解 规范定义分布式系统是一组电脑（computer），通过网络相互链接传递消息与通信后并协调它们的行为而形成的系统。组件之间彼此进行交互以实现一个共同的目标。把需要进行大量计算的工程数据分区成小块，由多台计算机分别计算，再上传运算结果后，将结果统一合并得出数据结论的科学。计算机集群简称集群是一种计算机系统，它通过一组松散集成的计算机软件和/或硬件连接起来高度紧密地协作完成计算工作。">
+<meta name="twitter:title" content="2024年Rust的八大应用领域">
+<meta name="twitter:description" content="Rust的八大用途你了解多少呢？| 良技漫谈介绍下Rust的主要应用场景，特别是第8点目前也有不少在应用。 1. 系统编程：Rust 因其内存安全性和高性能，适用于开发 操作系统、设备驱动、底层库和系统服务。        2. 高性能网络开发：Rust 常用于构建 高性能、低延迟的网络服务器和分布式系统。       3. 嵌入式与物联网 (IoT)：Rust 的资源效率和跨平台特性，使其非常适">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/zhulg/allpic/master/63.png">
   <!-- Canonical links -->
-  <link rel="canonical" href="https://zhulg.github.io/posts/50577.html">
+  <link rel="canonical" href="https://zhulg.github.io/posts/7c9bf2c4.html">
   
     <link rel="alternate" href="/atom.xml" title="zhulg笔记" type="application/atom+xml">
   
@@ -328,14 +337,14 @@ s.parentNode.insertBefore(el, s);
   
 <main class="main" role="main">
   <div class="content">
-  <article id="post-分布式与集群" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <article id="post-2024年rust的八大应用领域" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
     <div class="article-header">
       
         
   
     <h1 class="article-title" itemprop="name">
-      分布式与集群
+      2024年Rust的八大应用领域
     </h1>
   
 
@@ -344,24 +353,29 @@ s.parentNode.insertBefore(el, s);
         
 <span class="article-date">
     <i class="icon icon-calendar-check"></i>
-	<a href="/posts/50577.html" class="article-date">
-	  <time datetime="2017-07-27T06:12:21.000Z" itemprop="datePublished">2017-07-27</time>
+	<a href="/posts/7c9bf2c4.html" class="article-date">
+	  <time datetime="2024-09-18T06:22:48.000Z" itemprop="datePublished">2024-09-18</time>
 	</a>
 </span>
         
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/Rust/">Rust</a>
+  </span>
+
         
   <span class="article-tag">
     <i class="icon icon-tags"></i>
-	<a class="article-tag-link" href="/tags/分布式-集群/">分布式/集群</a>
+	<a class="article-tag-link" href="/tags/Rust/">Rust</a>
   </span>
 
 
         
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/posts/50577.html#comments" class="article-comment-link">评论</a></span>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/posts/7c9bf2c4.html#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 447(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 421(字)</span>
 	
 	
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 1(分)</span>
@@ -385,15 +399,49 @@ s.parentNode.insertBefore(el, s);
     
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <h3 id="分布式与集群的理解"><a href="#分布式与集群的理解" class="headerlink" title="分布式与集群的理解"></a>分布式与集群的理解</h3><ul>
-<li><p>规范定义<br><br>分布式系统是一组电脑（computer），通过网络相互链接传递消息与通信后并协调它们的行为而形成的系统。组件之间彼此进行交互以实现一个共同的目标。把需要进行大量计算的工程数据分区成小块，由多台计算机分别计算，再上传运算结果后，将结果统一合并得出数据结论的科学。<br><br>计算机集群简称集群是一种计算机系统，它通过一组松散集成的计算机软件和/或硬件连接起来高度紧密地协作完成计算工作。在某种意义上，他们可以被看作是一台计算机。集群系统中的单个计算机通常称为节点，通常通过局域网连接，但也有其它的可能连接方式。集群计算机通常用来改进单个计算机的计算速度和/或可靠性。</p>
-</li>
-<li><p>简单记忆<br><br>分布式：一个业务分拆多个子业务，部署在不同的服务器上<br><br>集群：同一个业务，部署在多个服务器上</p>
-</li>
-<li><p>通俗理解<br><br>小饭店原来只有一个厨师，切菜洗菜备料炒菜全干。后来客人多了，厨房一个厨师忙不过来，又请了个厨师，两个厨师都能炒一样的菜，这两个厨师的关系是集群。为了让厨师专心炒菜，把菜做到极致，又请了个配菜师负责切菜，备菜，备料，厨师和配菜师的关系是分布式，一个配菜师也忙不过来了，又请了个配菜师，两个配菜师关系是集群</p>
-</li>
-</ul>
+        <p>Rust的八大用途你了解多少呢？| 良技漫谈<br>介绍下Rust的主要应用场景，特别是第8点目前也有不少在应用。</p>
+<h2 id="1-系统编程："><a href="#1-系统编程：" class="headerlink" title="1. 系统编程："></a>1. 系统编程：</h2><p>Rust 因其内存安全性和高性能，适用于开发 操作系统、设备驱动、底层库和系统服务。</p>
+<div align="center" width="100%">
+  <img width="50%" src="https://raw.githubusercontent.com/zhulg/allpic/master/63.png">
+</div>
 
+
+<h2 id="2-高性能网络开发："><a href="#2-高性能网络开发：" class="headerlink" title="2. 高性能网络开发："></a>2. 高性能网络开发：</h2><p>Rust 常用于构建 高性能、低延迟的网络服务器和分布式系统。</p>
+<div align="center" width="100%">
+  <img width="50%" src="https://raw.githubusercontent.com/zhulg/allpic/master/64.png">
+</div>
+
+<h2 id="3-嵌入式与物联网-IoT-："><a href="#3-嵌入式与物联网-IoT-：" class="headerlink" title="3. 嵌入式与物联网 (IoT)："></a>3. 嵌入式与物联网 (IoT)：</h2><p>Rust 的资源效率和跨平台特性，使其非常适合用于开发嵌入式设备固件和物联网应用。</p>
+<div align="center" width="100%">
+  <img width="50%" src="https://raw.githubusercontent.com/zhulg/allpic/master/65.png">
+</div>
+
+<h2 id="4-WebAssembly和前端开发："><a href="#4-WebAssembly和前端开发：" class="headerlink" title="4. WebAssembly和前端开发："></a>4. WebAssembly和前端开发：</h2><ul>
+<li>支持将代码编译成 WebAssembly (Wasm)，在浏览器中以接近原生速度运行，适合开发高性能前端Web 应用和浏览器扩展。</li>
+</ul>
+<div align="center" width="100%">
+  <img width="50%" src="https://raw.githubusercontent.com/zhulg/allpic/master/66.png">
+</div>
+
+<h2 id="5-命令行工具开发-CLI-："><a href="#5-命令行工具开发-CLI-：" class="headerlink" title="5. 命令行工具开发 (CLI)："></a>5. 命令行工具开发 (CLI)：</h2><p>Rust 的高效性能和良好的跨平台支持，使其成为开发命令行工具 (CLI) 的理想语言，最近也有很多基于rust重新的好佣的命令行工具。</p>
+<div align="center" width="100%">
+  <img width="50%" src="https://raw.githubusercontent.com/zhulg/allpic/master/67.png">
+</div>
+
+<h2 id="6-区块链与加密货币："><a href="#6-区块链与加密货币：" class="headerlink" title="6. 区块链与加密货币："></a>6. 区块链与加密货币：</h2><p>Rust 因其内存安全性和高并发处理能力，被广泛应用于区块链技术开发，包括智能合约、加密钱包、去中心化交易平台。</p>
+<div align="center" width="100%">
+  <img width="50%" src="https://raw.githubusercontent.com/zhulg/allpic/master/68.png">
+</div>
+
+<h2 id="7-游戏开发："><a href="#7-游戏开发：" class="headerlink" title="7. 游戏开发："></a>7. 游戏开发：</h2><p>Rust 的 并发处理和图形处理能力，使其在高性能跨平台游戏开发中表现出色。</p>
+<div align="center" width="100%">
+  <img width="50%" src="https://raw.githubusercontent.com/zhulg/allpic/master/69.png">
+</div>
+
+<h2 id="8-其他领域："><a href="#8-其他领域：" class="headerlink" title="8. 其他领域："></a>8. 其他领域：</h2><p>Rust 在桌面应用、跨平台移动端底层组件开发、人工智能 (AI)、数据科学和音视频处理等领域逐渐得到应用，以完全和高效性能被广泛多领域选用。</p>
+<div align="center" width="100%">
+  <img width="50%" src="https://raw.githubusercontent.com/zhulg/allpic/master/70.png">
+</div>
       
     </div>
     <div class="article-footer">
@@ -415,7 +463,7 @@ s.parentNode.insertBefore(el, s);
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="https://zhulg.github.io/posts/50577.html" title="分布式与集群" target="_blank" rel="external">https://zhulg.github.io/posts/50577.html</a>
+      <a href="https://zhulg.github.io/posts/7c9bf2c4.html" title="2024年Rust的八大应用领域" target="_blank" rel="external">https://zhulg.github.io/posts/7c9bf2c4.html</a>
     </li>
     
     <li class="post-copyright-license">
@@ -463,13 +511,9 @@ s.parentNode.insertBefore(el, s);
   
   <ul class="pager pull-left">
     
-    <li class="prev">
-      <a href="/posts/9798.html" title="SOA与分布式相关术语"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
-    </li>
-    
     
     <li class="next">
-      <a href="/posts/62760.html" title="机器学习入门"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+      <a href="/posts/c0234e14.html" title="用2个重要途径，打造自己技术影响力"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
     </li>
     
     
