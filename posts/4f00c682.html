@@ -33,25 +33,21 @@ s.parentNode.insertBefore(el, s);
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>Flume概述 | zhulg笔记</title>
-  <meta name="description" content="概述 Flume是Cloudera提供的一个高可用的，高可靠的，分布式的海量日志采集、聚合和传输的系统，Flume支持在日志系统中定制各类数据发送方，用于收集数据；同时，Flume提供对数据进行简单处理，并写到各种数据接受方（可定制）的能力。 主要功能 1.日志收集Flume最早是Cloudera提供的日志收集系统，目前是Apache下的一个孵化项目，Flume支持在日志系统中定制各类数据发送方，">
-<meta name="keywords" content="flume">
+  <title>从0到1，用Rust轻松制作电子书 | zhulg笔记</title>
+  <meta name="description" content="在之前的文章《经济下行的时候，这些行业可能会更好》中，我简单提到过用 Rust 做电子书，有收到读者朋友的私信，问怎么做电子书。今天正好有空，就来快速为大家做一个详细的介绍。   制作电子书其实用途广泛，不仅可以用于技术文档、用户手册、教程等，还可以应用于文学创作。如果你有想法写小说或者做知识付费，电子书也是一个不错的切入点。特别是知识付费领域，通过小范围试水电子书，收集读者反馈，进一步打磨内容，">
+<meta name="keywords" content="技术成长">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Flume概述">
-<meta property="og:url" content="https://zhulg.github.io/posts/15079.html">
+<meta property="og:title" content="从0到1，用Rust轻松制作电子书">
+<meta property="og:url" content="https://zhulg.github.io/posts/4f00c682.html">
 <meta property="og:site_name" content="zhulg笔记">
-<meta property="og:description" content="概述 Flume是Cloudera提供的一个高可用的，高可靠的，分布式的海量日志采集、聚合和传输的系统，Flume支持在日志系统中定制各类数据发送方，用于收集数据；同时，Flume提供对数据进行简单处理，并写到各种数据接受方（可定制）的能力。 主要功能 1.日志收集Flume最早是Cloudera提供的日志收集系统，目前是Apache下的一个孵化项目，Flume支持在日志系统中定制各类数据发送方，">
+<meta property="og:description" content="在之前的文章《经济下行的时候，这些行业可能会更好》中，我简单提到过用 Rust 做电子书，有收到读者朋友的私信，问怎么做电子书。今天正好有空，就来快速为大家做一个详细的介绍。   制作电子书其实用途广泛，不仅可以用于技术文档、用户手册、教程等，还可以应用于文学创作。如果你有想法写小说或者做知识付费，电子书也是一个不错的切入点。特别是知识付费领域，通过小范围试水电子书，收集读者反馈，进一步打磨内容，">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://flume.apache.org/_images/UserGuide_image00.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/zhulg/allpic/master/flume1.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/zhulg/allpic/master/flume2.png">
-<meta property="og:updated_time" content="2024-07-07T04:21:27.927Z">
+<meta property="og:updated_time" content="2024-12-26T12:20:41.459Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Flume概述">
-<meta name="twitter:description" content="概述 Flume是Cloudera提供的一个高可用的，高可靠的，分布式的海量日志采集、聚合和传输的系统，Flume支持在日志系统中定制各类数据发送方，用于收集数据；同时，Flume提供对数据进行简单处理，并写到各种数据接受方（可定制）的能力。 主要功能 1.日志收集Flume最早是Cloudera提供的日志收集系统，目前是Apache下的一个孵化项目，Flume支持在日志系统中定制各类数据发送方，">
-<meta name="twitter:image" content="https://flume.apache.org/_images/UserGuide_image00.png">
+<meta name="twitter:title" content="从0到1，用Rust轻松制作电子书">
+<meta name="twitter:description" content="在之前的文章《经济下行的时候，这些行业可能会更好》中，我简单提到过用 Rust 做电子书，有收到读者朋友的私信，问怎么做电子书。今天正好有空，就来快速为大家做一个详细的介绍。   制作电子书其实用途广泛，不仅可以用于技术文档、用户手册、教程等，还可以应用于文学创作。如果你有想法写小说或者做知识付费，电子书也是一个不错的切入点。特别是知识付费领域，通过小范围试水电子书，收集读者反馈，进一步打磨内容，">
   <!-- Canonical links -->
-  <link rel="canonical" href="https://zhulg.github.io/posts/15079.html">
+  <link rel="canonical" href="https://zhulg.github.io/posts/4f00c682.html">
   
     <link rel="alternate" href="/atom.xml" title="zhulg笔记" type="application/atom+xml">
   
@@ -332,14 +328,14 @@ s.parentNode.insertBefore(el, s);
   
 <main class="main" role="main">
   <div class="content">
-  <article id="post-flume概述" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <article id="post-从0到1，用Rust轻松制作电子书" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
     <div class="article-header">
       
         
   
     <h1 class="article-title" itemprop="name">
-      Flume概述
+      从0到1，用Rust轻松制作电子书
     </h1>
   
 
@@ -348,27 +344,32 @@ s.parentNode.insertBefore(el, s);
         
 <span class="article-date">
     <i class="icon icon-calendar-check"></i>
-	<a href="/posts/15079.html" class="article-date">
-	  <time datetime="2017-12-12T03:16:10.000Z" itemprop="datePublished">2017-12-12</time>
+	<a href="/posts/4f00c682.html" class="article-date">
+	  <time datetime="2024-12-26T04:57:17.000Z" itemprop="datePublished">2024-12-26</time>
 	</a>
 </span>
         
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/技术成长/">技术成长</a>
+  </span>
+
         
   <span class="article-tag">
     <i class="icon icon-tags"></i>
-	<a class="article-tag-link" href="/tags/flume/">flume</a>
+	<a class="article-tag-link" href="/tags/技术成长/">技术成长</a>
   </span>
 
 
         
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/posts/15079.html#comments" class="article-comment-link">评论</a></span>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/posts/4f00c682.html#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 902(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 786(字)</span>
 	
 	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 3(分)</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 2(分)</span>
 	
 
       </div>
@@ -389,50 +390,35 @@ s.parentNode.insertBefore(el, s);
     
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><ul>
-<li><p>Flume是Cloudera提供的一个高可用的，高可靠的，分布式的海量日志采集、聚合和传输的系统，Flume支持在日志系统中定制各类数据发送方，用于收集数据；同时，Flume提供对数据进行简单处理，并写到各种数据接受方（可定制）的能力。</p>
-<h4 id="主要功能"><a href="#主要功能" class="headerlink" title="主要功能"></a>主要功能</h4></li>
-<li><p>1.日志收集<br>Flume最早是Cloudera提供的日志收集系统，目前是Apache下的一个孵化项目，Flume支持在日志系统中定制各类数据发送方，用于收集数据。</p>
-</li>
-<li><p>2.数据处理<br>Flume提供对数据进行简单处理，并写到各种数据接受方（可定制）的能力 Flume提供了从console（控制台）、RPC（Thrift-RPC）、text（文件）、tail（UNIX tail）、syslog（syslog日志系统，支持TCP和UDP等2种模式），exec（命令执行）等数据源上收集数据的能力。</p>
-</li>
-</ul>
-<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><ul>
-<li>brew install flume</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">$brew install flume</span><br><span class="line">Updating Homebrew...</span><br><span class="line">==&gt; Auto-updated Homebrew!</span><br><span class="line">Updated 2 taps (caskroom/cask, homebrew/core).</span><br><span class="line">==&gt; New Formulae</span><br><span class="line">libidn2                                                                                    mongodb@3.4</span><br><span class="line">==&gt; Updated Formulae</span><br><span class="line">mongodb ✔             advancemame           gsoap                 libcdio               oniguruma             pygobject             tinyxml2              youtube-dl</span><br><span class="line">ack                   ffmpeg                lgogdownloader        mono                  optipng               shpotify              wireguard-tools</span><br><span class="line"></span><br><span class="line">==&gt; Downloading https://www.apache.org/dyn/closer.cgi?path=flume/1.6.0/apache-flume-1.6.0-bin.tar.gz</span><br><span class="line">==&gt; Best Mirror http://mirrors.hust.edu.cn/apache/flume/1.6.0/apache-flume-1.6.0-bin.tar.gz</span><br><span class="line">######################################################################## 100.0%</span><br><span class="line">🍺  /usr/local/Cellar/flume/1.6.0: 1,497 files, 77.8MB, built in 1 minute 55 seconds</span><br></pre></td></tr></table></figure>
+        <p>在之前的文章《<a href="http://mp.weixin.qq.com/s?__biz=MzIzNDA3MzA3MQ==&mid=2464356238&idx=1&sn=d22e9c4604c35adb11c714ff8754f45b&chksm=ffec490ec89bc018245032ac8b6cd2b5168f0d28e019123707e542836e6bb744b425891256cd&scene=21#wechat_redirect" target="_blank" rel="noopener">经济下行的时候，这些行业可能会更好</a>》中，我简单提到过用 Rust 做电子书，有收到读者朋友的私信，问怎么做电子书。今天正好有空，就来快速为大家做一个详细的介绍。  </p>
+<p>制作电子书其实用途广泛，不仅可以用于技术文档、用户手册、教程等，还可以应用于文学创作。如果你有想法写小说或者做知识付费，电子书也是一个不错的切入点。特别是知识付费领域，通过小范围试水电子书，收集读者反馈，进一步打磨内容，最后也可以出版成书。</p>
+<p>好了，有点扯远了，我们重点先说下怎么用Rust做电子书。</p>
+<h2 id="1-环境准备"><a href="#1-环境准备" class="headerlink" title="1. 环境准备"></a>1. 环境准备</h2><p>我们准备用Rust来创建电子书，首先，需要安装有Rust的环境，Rust环境安装也比较简单打开官方地址，复制安装命令安装即可。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl --proto &apos;=https&apos; --tlsv1.2 -sSf https://sh.rustup.rs | sh</span><br></pre></td></tr></table></figure>
 
-<h3 id="核心原理和概念"><a href="#核心原理和概念" class="headerlink" title="核心原理和概念"></a>核心原理和概念</h3><p><img src="https://flume.apache.org/_images/UserGuide_image00.png" alt></p>
-<ul>
-<li>Flume使用agent来收集日志，agent包括三个组成部分：</li>
-<li><strong><em>source：收集数据</em></strong></li>
-<li><strong><em>channel：存储数据</em></strong></li>
-<li><strong><em>sink ：输出数据</em></strong></li>
-<li>Flume使用source接收日志，然后缓存到channel中，最后通过sink将数据输出到目的地。只有在sink将channel中的数据成功发送出去之后，channel才会将临时数据进行删除，这种机制保证了数据传输的可靠性与安全性。</li>
-<li>Flume支持agent串联操作，也就是说可以将上一个agent的sink输出到作为下一个agent的source的输入。</li>
-<li>source还支持接受多个输入，sink也可以将数据输出到多个目的地中</li>
-</ul>
-<h4 id="配置和例子使用"><a href="#配置和例子使用" class="headerlink" title="配置和例子使用"></a>配置和例子使用</h4><ul>
-<li>配置文件在 /usr/local/Cellar/flume/1.6.0/libexec/conf, flume可以接收很多不同的输入源, 也可以输出到不同地方, 首先如果配置文件下没有flume-env.sh, 那么需要 cp flume-env.sh.template flume-env.sh, 然后需要cp flume-conf.properties.template flume-conf.properties, 这个是创建一个flume启动的配置文件。（使用时需要在这个里面进行配置）</li>
-<li><strong>运行官方的例子：编辑example.conf 放在/usr/local/Cellar/flume/1.6.0目录下</strong></li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"># example.conf: A single-node Flume configuration</span><br><span class="line"></span><br><span class="line"># Name the components on this agent</span><br><span class="line">a1.sources = r1</span><br><span class="line">a1.sinks = k1</span><br><span class="line">a1.channels = c1</span><br><span class="line"></span><br><span class="line"># Describe/configure the source</span><br><span class="line">a1.sources.r1.type = netcat</span><br><span class="line">a1.sources.r1.bind = localhost</span><br><span class="line">a1.sources.r1.port = 44444</span><br><span class="line"></span><br><span class="line"># Describe the sink</span><br><span class="line">a1.sinks.k1.type = logger</span><br><span class="line"></span><br><span class="line"># Use a channel which buffers events in memory</span><br><span class="line">a1.channels.c1.type = memory</span><br><span class="line">a1.channels.c1.capacity = 1000</span><br><span class="line">a1.channels.c1.transactionCapacity = 100</span><br><span class="line"></span><br><span class="line"># Bind the source and sink to the channel</span><br><span class="line">a1.sources.r1.channels = c1</span><br><span class="line">a1.sinks.k1.channel = c1</span><br></pre></td></tr></table></figure>
+<p>其次，需要对Markdown语法了解，如果不了解的可以看下，强烈推荐所有人来学。很多精美的排版和插图都可以通过md语法来实现，现在更有md的编辑器，稍微了解配合编辑器就能如虎添翼了。</p>
+<p>如果有不熟悉markdown可以到这个网站来学习了解下，<a href="https://www.markdownguide.org/" target="_blank" rel="noopener">https://www.markdownguide.org/</a> ，也可以其他中文网站了解。</p>
+<h2 id="2-安装使用"><a href="#2-安装使用" class="headerlink" title="2. 安装使用"></a>2. 安装使用</h2><p><strong>介绍下我们做电子书的主角mdBook，一款由rust实现的开源软件</strong>，可以进行文档生成，搜索，语法高亮，生产的电子书可以支持在PC、和移动设备打开使用。</p>
+<p>通过cargo来安装</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cargo install mdbook</span><br></pre></td></tr></table></figure>
 
-<ul>
-<li>在这个配置文件里面仅定义了一个agent，它的名字叫a1，a1有一个source监听的是端口44444的数据，有一个channel是在内存中缓存event数据，还有一个sink将event数据打印到console控制台。在这个配置文件中配置了多个组件，然后描述了它们的type和配置参数。一个给定的配置文件可以指定多个不同名字的agent，当一个flume进程启动的时候，一个标志会被传进去告诉它启动哪一个agent</li>
-</ul>
-<ul>
-<li>/usr/local/Cellar/flume/1.6.0下启动：</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$bin/flume-ng agent --conf conf --conf-file example.conf --name a1 -Dflume.root.logger=INFO,console</span><br></pre></td></tr></table></figure>
+<p>安装成功，可以进行创建</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mdbook init my-first-book</span><br></pre></td></tr></table></figure>
 
-<ul>
-<li>另起客户端 telnet localhost 44444 </li>
-</ul>
-<p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/flume1.png" alt></p>
-<ul>
-<li>查看输出<br><img src="https://raw.githubusercontent.com/zhulg/allpic/master/flume2.png" alt></li>
-</ul>
+<p>创建过程中可以起名字，创建完成后到该文件目录下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd my-first-book</span><br><span class="line">mdbook serve --open</span><br></pre></td></tr></table></figure>
+
+<p>打开地址<a href="http://localhost:3000/" target="_blank" rel="noopener">http://localhost:3000/</a> ，可以看到创建的电子书模板已经打开了，尽管内容还是空的，但电子书的结构已经有了，左边导航，右边文章内容，以及搜索框。</p>
+<p>剩下就是我们写电子书的内容了。</p>
+<h2 id="3-写电子书内容"><a href="#3-写电子书内容" class="headerlink" title="3. 写电子书内容"></a>3. 写电子书内容</h2><p>在创建的电子书工程下，会看到src文件目录、book.toml配置文件、book目录，我们先关注电子书的内容src目录</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">├── SUMMARY.md</span><br><span class="line">└── chapter_1.md</span><br></pre></td></tr></table></figure>
+
+<p>SUMMARY.md 里打开可以看到就是左侧的导航配置，比如对应的章节配置在这个文件里，chapter_1.md就是对应的章节内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># Summary</span><br><span class="line">- [Chapter 1](./chapter_1.md)</span><br></pre></td></tr></table></figure>
+
+<p>可以对chapter_1.md进行内容写作，就可以形成对应的电子书的内容了。</p>
+<p>比如这个我复制了个内容，修改了章节命名，然后重新刷新即可看到内容。</p>
+<h2 id="4-部署"><a href="#4-部署" class="headerlink" title="4. 部署"></a>4. 部署</h2><p>电子书制作完后，编译后会发现在book的目录下会有编译好的文件，可以通过GitHub Pages上这样完全可以免费，也可以支持远程别人打开和阅读。</p>
 
       
     </div>
@@ -455,7 +441,7 @@ s.parentNode.insertBefore(el, s);
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="https://zhulg.github.io/posts/15079.html" title="Flume概述" target="_blank" rel="external">https://zhulg.github.io/posts/15079.html</a>
+      <a href="https://zhulg.github.io/posts/4f00c682.html" title="从0到1，用Rust轻松制作电子书" target="_blank" rel="external">https://zhulg.github.io/posts/4f00c682.html</a>
     </li>
     
     <li class="post-copyright-license">
@@ -503,13 +489,9 @@ s.parentNode.insertBefore(el, s);
   
   <ul class="pager pull-left">
     
-    <li class="prev">
-      <a href="/posts/13749.html" title="Kafka"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
-    </li>
-    
     
     <li class="next">
-      <a href="/posts/89.html" title="openresty安装Mac环境"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+      <a href="/posts/adbd9bd2.html" title="技术人必修课：锻炼自己的商业思维"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
     </li>
     
     
