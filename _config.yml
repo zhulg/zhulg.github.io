@@ -3,9 +3,10 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: zhulg笔记
-subtitle: 兴趣是最好的老师，其次是耻辱
-description: "zhulg.github.io 是个人技术博客，分享编程、开发工具、技术成长与项目经验，帮助开发者提高技术水平与工作效率。"
+title: "技术干货分享 | zhulg技术博客"
+subtitle: "专注全栈开发、技术分享与解决方案"
+description: "zhulg技术博客致力于分享Java、Python、机器学习、区块链等技术干货，提供实用的开发教程、项目经验和解决方案，帮助开发者提升技术能力。"
+keywords: "技术博客,Java开发,Python教程,AI,机器学习,区块链,Android,iOS,全栈开发,开发教程"
 author: zhulg
 # language: zh-Hans
 language: zh-CN
@@ -17,7 +18,7 @@ timezone:
 url: https://zhulg.github.io
 root: /
 # permalink: :year/:month/:day/:title/
-permalink: posts/:category/:title.html
+permalink: posts/:abbrlink.html
 abbrlink:
   alg: crc32 #算法： crc16(default) and crc32
   rep: hex #进制： dec(default) and hex
