@@ -6,7 +6,7 @@
   <link href="https://zhulg.github.io/atom.xml" rel="self"/>
   
   <link href="https://zhulg.github.io/"/>
-  <updated>2024-12-27T23:24:19.026Z</updated>
+  <updated>2024-12-28T07:37:42.676Z</updated>
   <id>https://zhulg.github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>学python，拥抱ai：吴恩达Python初级课让你轻松上手编程</title>
+    <link href="https://zhulg.github.io/posts/5d7e12b8.html"/>
+    <id>https://zhulg.github.io/posts/5d7e12b8.html</id>
+    <published>2024-12-28T07:27:37.000Z</published>
+    <updated>2024-12-28T07:37:42.676Z</updated>
+    
+    <content type="html"><![CDATA[<p>在近年来AI应用的爆发下，一跃冲到了排行榜的首位。随着AI技术的快速进步，加上ChatGPT等智能工具的推动，编程正逐步迈向“自然语言编程”的新时代，门槛越来越低，人人皆可成为开发者。</p><p>今天，我花了一小时左右看了吴恩达老师的《AI Python for Beginners》课程（地址在文末），<strong>看下来非常推荐给没有编程背景的职场人士、学生，以及会计、金融、行政等领域的从业者来学习了解python。尽管是初级课程，也比较适合程序员来学习吴恩达老师的深入浅出教学风格。</strong></p><p>吴恩达老师是斯坦福大学的教授，还是全球人工智能领域的领军人物。他曾担任Google大脑的负责人，并在百度担任过首席科学家，拥有丰富的行业经验。</p><h2 id="课程基础有趣"><a href="#课程基础有趣" class="headerlink" title="课程基础有趣"></a>课程基础有趣</h2><p>视频里吴恩达老师也讲了他的观点，为什么其他行业人也建议学，十年前可能不建议其他行业来学，而现在因为有了生成式AI，有了助手，编程更简单了。</p><p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/640-20241228153237145" alt="图片"></p><p>非常欣赏这种大师级的人来做一些看似基础的课程，也往往能把一些基础的课，生动的讲给非计算机行业的人这个才是厉害的。视频里先从什么是计算机编程来讲起，并结合日常的例子来说明。</p><p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/640-20241228153217676" alt="图片"></p><p><em>题外话，你可能看到我截图的视频是有中文字幕的，这个建议安装个沉浸式翻译插件就好了，适合英语不好的自动就翻译了（但我建议听原版讲解）。</em></p><p>视频里也重点提到在AI的协助下可以把每个行业要做的事情步骤告诉AI，通过生成代码，来提高自己的工作效率。</p><p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/640-20241228153218235" alt="图片"></p><p>*<br>*</p><h2 id="AI-配合教学"><a href="#AI-配合教学" class="headerlink" title="AI 配合教学"></a>AI 配合教学</h2><p>视频在讲解能了解Python 基础知识，不仅能快速了解编程概念，python里的变量、函数、循环、数据结构基础语法，能快速知道编程最核心基础是什么样子的。</p><p>通过和大模型的结合调用，可以了解一些基本的调用关系，这样通过python的简单语法代码来调用LLM，也就能搞清楚AI 智能体（ai agent）是在说什么。<strong>比如下图这个，其实就是通过设置变量后，调用LLM来生产结果，这样多个调用过程结合起来就是AI agent.</strong></p><p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/640-20241228153250465" alt="图片"></p><p>如果是非计算机行业，可以慢慢看，每一步骤都有一些可执行的操作，跟着视频来做。</p><p>比如下边这个图，中间其实就是一个编辑器，你可以直接修改代码，然后点击运行，这个里面也配置了生成式的chat工具，可以通过对话来指引你程序错误的地方。</p><p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/640-20241228153218758" alt="图片"></p><p>写在最后</p><p>整体看这个视频教程非常适合新手来学习，不仅了解python的最最基础语法，也能体验和LLM来一起结合调用的体验。</p><p>当然这个虽然是大师的课程，如果想进一步学习的话，还是建议针对系统学习python开发语言，python入门简单，通过了解基础语法和生成式AI的结合，你至少要能看懂代码，然后让chatgpt来进行协助，这样很快一款真正的产品才能快速诞生。</p><p><strong>这个课程地址：</strong></p><p><a href="https://learn.deeplearning.ai/courses/ai-python-for-beginners" target="_blank" rel="noopener">https://learn.deeplearning.ai/courses/ai-python-for-beginners</a></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;在近年来AI应用的爆发下，一跃冲到了排行榜的首位。随着AI技术的快速进步，加上ChatGPT等智能工具的推动，编程正逐步迈向“自然语言编程”的新时代，门槛越来越低，人人皆可成为开发者。&lt;/p&gt;
+&lt;p&gt;今天，我花了一小时左右看了吴恩达老师的《AI Python for Beg</summary>
+      
+    
+    
+    
+    <category term="技术成长" scheme="https://zhulg.github.io/categories/技术成长/"/>
+    
+    
+    <category term="Python" scheme="https://zhulg.github.io/tags/Python/"/>
+    
+    <category term="AI" scheme="https://zhulg.github.io/tags/AI/"/>
+    
+  </entry>
   
   <entry>
     <title>互联网小生意平台推荐，思考适合你的副业机会</title>
@@ -480,30 +507,6 @@
     <summary type="html">&lt;p&gt;技术架构师在软件系统开发中扮演着重要的角色，决定了用什么技术、如何架构设计系统、技术攻关、方案选型等&lt;/p&gt;
 &lt;p&gt;如同建造高楼大厦，需要安全可靠的图纸和精准无误的规划设计，都离不开架构师的规划建设能力。&lt;/p&gt;
 &lt;p&gt;为保证系统稳定可靠，要成为技术架构师需要更要从各个方面</summary>
-      
-    
-    
-    
-    <category term="技术成长" scheme="https://zhulg.github.io/categories/技术成长/"/>
-    
-    
-    <category term="技术成长" scheme="https://zhulg.github.io/tags/技术成长/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>技术重构何时做，为什么做要想清楚</title>
-    <link href="https://zhulg.github.io/posts/39b94e3a.html"/>
-    <id>https://zhulg.github.io/posts/39b94e3a.html</id>
-    <published>2024-07-14T10:58:39.000Z</published>
-    <updated>2024-07-14T11:01:51.201Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="技术重构何时做，为什么做要想清楚"><a href="#技术重构何时做，为什么做要想清楚" class="headerlink" title="技术重构何时做，为什么做要想清楚"></a>技术重构何时做，为什么做要想清楚</h1><p><em>代码重构（Refactoring）是指在不改变代码外部行为的前提下，对代码内部结构进行调整，以提高代码的可读性、可维护性和可扩展性。</em></p><ul><li><p>重构的目标是让代码变得更简洁、更优雅、更容易理解和修改</p></li><li><p>重构不难，何时做，以及为什么要做要想清楚，不要为了重构而重构、不为了KPI 夸大事实来重构。</p></li></ul><h1 id="何时进行代码重构"><a href="#何时进行代码重构" class="headerlink" title="何时进行代码重构"></a>何时进行代码重构</h1><h2 id="1-交付快慢"><a href="#1-交付快慢" class="headerlink" title="1.交付快慢"></a>1.交付快慢</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">当写一个需求发现代码新增量比较大，代码编写比较多</span><br><span class="line"></span><br><span class="line">扩展一个功能发现要改动范围比较多，涉及多个文件或者类</span><br></pre></td></tr></table></figure><ul><li><p>可能要考虑是否原来的代码没有基建，造成重复增加代码。</p></li><li><p>扩展的功能没有模块化、没有分层、要反复改动多处。</p></li></ul><p><strong>交付缓慢，当代码变得难以理解和维护且错误频出时，可能就是重构的最佳时机</strong></p><h2 id="2-使用体验"><a href="#2-使用体验" class="headerlink" title="2.使用体验"></a>2.使用体验</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">当使用产品时卡顿、不流畅，页面加载时间比较长</span><br><span class="line">使用中应用频繁出错、页面出错，内存读写等问题</span><br></pre></td></tr></table></figure><ul><li>可能需要看下卡顿的原因，性能问题、渲染问题、数据量过大造成请求缓慢等问题，可能来源于代码的效率低下、资源的过度消耗等。</li></ul><p><strong>当系统体验已经严重影响用户了，就需要重构提高系统的响应速度和稳定性</strong></p><h2 id="3-需求变化"><a href="#3-需求变化" class="headerlink" title="3.需求变化"></a>3.需求变化</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">当需求或者业务发生变化时，代码无法通过相关配置进行快速开发</span><br><span class="line">为满足需求变化，需要改动大的模块进行调整，牵一发而动全身的代码调整代价</span><br></pre></td></tr></table></figure><ul><li>需要从架构设计、模块耦合、数据隔离等方面来判断造成代码耦合度高，不能快速响应业务和需求变化的原因。</li></ul><p><strong>更好地适应新的需求变化，此时进行重构，确保系统的灵活性和可扩展性</strong></p><h2 id="4-技术问题"><a href="#4-技术问题" class="headerlink" title="4.技术问题"></a>4.技术问题</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">当原有的系统使用框架、组件在开发需求中不能满足新的呈现形式</span><br><span class="line"></span><br><span class="line">当老的控件开发速度缓慢、还有相关老技术所暴露的安全隐患类问题</span><br></pre></td></tr></table></figure><ul><li>需要评估老技术的局限性，并判断新技术的稳定性、快捷性，能从效率和稳定性上改善老系统</li></ul><p><strong>如果系统依赖于过时的技术，此时需要重构来升级技术、确保系统安全和可维护性。</strong></p><h2 id="5-团队人员变化"><a href="#5-团队人员变化" class="headerlink" title="5.团队人员变化"></a>5.团队人员变化</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">当团队人员发生变化，老的系统、代码无人知晓和熟悉</span><br><span class="line">新人不知道原来逻辑，要看懂别人代码、维护代码成本都会比较高</span><br></pre></td></tr></table></figure><ul><li>当对系统的代码不熟悉，新的扩展和改动逻辑都会是比较危险的事情，可能里面一些坑因为不知道逻辑，导致系统频繁出错。</li></ul><p><strong>此时进行重构可以帮助新成员更快地上手业务、梳理代码逻辑，同时熟悉到系统间关联代码。</strong></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;技术重构何时做，为什么做要想清楚&quot;&gt;&lt;a href=&quot;#技术重构何时做，为什么做要想清楚&quot; class=&quot;headerlink&quot; title=&quot;技术重构何时做，为什么做要想清楚&quot;&gt;&lt;/a&gt;技术重构何时做，为什么做要想清楚&lt;/h1&gt;&lt;p&gt;&lt;em&gt;代码重构（Refac</summary>
       
     
     
