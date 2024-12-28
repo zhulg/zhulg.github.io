@@ -4,19 +4,6 @@
   
     
     <entry>
-      <title></title>
-      <link href="/posts/0.html"/>
-      <url>/posts/0.html</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>学python，拥抱ai：吴恩达Python初级课让你轻松上手编程</title>
       <link href="/posts/5d7e12b8.html"/>
       <url>/posts/5d7e12b8.html</url>
@@ -33,9 +20,9 @@
       
         <tags>
             
-            <tag> Python </tag>
-            
             <tag> AI </tag>
+            
+            <tag> python </tag>
             
         </tags>
       
@@ -1721,7 +1708,7 @@
       
         <tags>
             
-            <tag> Python </tag>
+            <tag> python </tag>
             
         </tags>
       
