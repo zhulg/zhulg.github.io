@@ -3,9 +3,9 @@ title: 学python，拥抱ai：吴恩达Python初级课让你轻松上手编程
 abbrlink: 5d7e12b8
 date: 2024-12-28 15:27:37
 tags: 
-- Python
-- AI
-categories: 技术成长
+ - python
+ - AI
+categories: AI
 ---
 
 在近年来AI应用的爆发下，一跃冲到了排行榜的首位。随着AI技术的快速进步，加上ChatGPT等智能工具的推动，编程正逐步迈向“自然语言编程”的新时代，门槛越来越低，人人皆可成为开发者。
