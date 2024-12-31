@@ -1,7 +1,7 @@
 ---
 title: AI时代，只学1项技能，就学会提问
 tags: AI
-catgories: 技术成长
+categories: 技术成长
 abbrlink: b59faea6
 date: 2024-12-31 07:54:59
 ---
