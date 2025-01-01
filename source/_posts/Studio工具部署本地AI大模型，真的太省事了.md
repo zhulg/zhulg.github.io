@@ -6,6 +6,8 @@ tags: AI
 categories: 技术成长
 ---
 
+普通人如何部署自己的本地大模型，如何用Studio工具部署本地AI大模型。
+
 前面写过[AI时代：玩AI却不懂一点原理，真的靠谱吗？](http://mp.weixin.qq.com/s?__biz=MzIzNDA3MzA3MQ==&mid=2464356719&idx=1&sn=6df620a76eabec6d4fe8566ab33d95ad&chksm=ffec47efc89bcef95afddf24c3b8eafbcc606e3cc82f8670fa810344b1deb084afbd116fdfe5&scene=21#wechat_redirect)的基础篇，也说过这类的文章我后边会持续输出，核心目标帮助技术人、对AI感兴趣的读者，可以用一种比较轻松和漫谈的形式理解，并给大家一些学习和玩AI的方法。今天先介绍下普通人如何部署自己的本地大模型。
 
 *你可能会问：为什么要自己部署本地大模型？*
