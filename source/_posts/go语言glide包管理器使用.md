@@ -1,7 +1,7 @@
 ---
 title: go语言glide包管理器使用
 tags: go
-categories: go
+categories: Go
 toc: true
 abbrlink: 42315
 date: 2018-03-07 19:09:02
