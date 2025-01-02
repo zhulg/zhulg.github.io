@@ -4,6 +4,7 @@ tags:
   - go
   - stellar
   - 区块链
+Categories: go
 abbrlink: 11588
 date: 2018-10-08 13:39:07
 ---

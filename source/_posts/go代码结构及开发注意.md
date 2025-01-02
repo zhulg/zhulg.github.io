@@ -1,7 +1,7 @@
 ---
 title: go代码结构及开发注意
 tags: go
-categories: Go
+categories: go
 toc: true
 abbrlink: 23918
 date: 2018-03-09 15:10:25

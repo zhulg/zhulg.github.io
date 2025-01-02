@@ -1,7 +1,7 @@
 ---
 title: go语言基础记录
 tags: go
-categories: Go
+categories: go
 toc: true
 abbrlink: 35121
 date: 2018-10-12 11:22:46

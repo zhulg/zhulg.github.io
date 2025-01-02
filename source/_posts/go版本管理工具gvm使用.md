@@ -1,7 +1,7 @@
 ---
 title: go版本管理工具gvm使用
 tags: go
-categories: Go
+categories: go
 toc: true
 abbrlink: 63736
 date: 2018-06-21 12:20:04
