@@ -1,9 +1,11 @@
 ---
-layout: 用lm
 title: Studio工具部署本地AI大模型，真的太省事了
+tags: 
+  - AI
+  - 技术成长
+categories: AI
+abbrlink: 87fa9ee5
 date: 2025-01-01 11:12:50
-tags: AI
-categories: 技术成长
 ---
 
 普通人如何部署自己的本地大模型，如何用Studio工具部署本地AI大模型。
