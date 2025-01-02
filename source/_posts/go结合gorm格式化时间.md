@@ -1,7 +1,7 @@
 ---
 title: go结合gorm格式化时间
 tags: go
-categories: Go语言
+categories: go
 toc: true
 abbrlink: 41039
 date: 2018-11-21 12:28:35
