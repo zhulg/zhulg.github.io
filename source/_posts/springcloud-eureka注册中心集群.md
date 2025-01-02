@@ -1,7 +1,7 @@
 ---
 title: springcloud eureka注册中心集群
 tags: springcloud
-categories: springcloud
+categories: Java
 toc: true
 abbrlink: 17105
 date: 2017-08-10 16:29:02

@@ -1,7 +1,7 @@
 ---
 title: springcloud consul mac安装
 tags: springcloud
-categories: springcloud
+categories: Java
 toc: true
 abbrlink: 60822
 date: 2017-08-23 16:50:22

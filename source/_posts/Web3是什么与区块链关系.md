@@ -3,9 +3,7 @@ title: ' Web3是什么与区块链关系'
 tags:
   - web3
   - 区块链
-categories:
-  - web3
-  - 区块链
+categories: 区块链
 toc: true
 abbrlink: 55503
 date: 2022-04-23 22:03:44
@@ -27,7 +25,7 @@ date: 2022-04-23 22:03:44
    - Web 1.0 时代规则：**平台进行创造、所有、控制、并自身受益。（早期信息网站）**
    - Web 2.0时代规则：**用户来创造、平台所有和控制、平台分配。（近期比较火的自媒体、抖音短视频等）**
    - Web 3.0时代规则：**用户来创造、用户所有和控制、协议分配。（归属明确，协议不可篡改，去中心化）**
-   
+
 <div align=center width=100%>
   <img width=80% src="https://raw.githubusercontent.com/zhulg/allpic/master/web3%E5%AF%B9%E6%AF%94.png">
 </div>

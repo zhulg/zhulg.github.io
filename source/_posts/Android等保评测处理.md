@@ -1,7 +1,7 @@
 ---
 title: Android等保评测处理
 tags: Android
-categories: Android
+categories: App
 toc: true
 abbrlink: 65331
 date: 2020-09-30 10:39:19
@@ -60,4 +60,4 @@ lib/armeabi-v7a/libRSSupport.so  renderscript这些系统的的可以去除掉�
         exclude 'lib/armeabi-v7a/librsjni_androidx.so'
         exclude 'lib/armeabi-v7a/librsjni.so'
     }
-  ```
+```

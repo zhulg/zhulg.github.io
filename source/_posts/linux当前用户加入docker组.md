@@ -1,7 +1,7 @@
 ---
 title: linux当前用户加入docker组
 tags: Linux
-categories: Linux
+categories: 技术运维
 toc: true
 abbrlink: 55312
 date: 2018-08-01 16:57:15

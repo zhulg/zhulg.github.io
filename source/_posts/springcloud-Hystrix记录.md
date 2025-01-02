@@ -1,7 +1,7 @@
 ---
 title: springcloud Hystrix记录点
 tags: springcloud
-categories: springcloud
+categories: Java
 toc: true
 abbrlink: 47604
 date: 2017-10-16 15:41:25

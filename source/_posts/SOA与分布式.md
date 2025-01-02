@@ -1,6 +1,7 @@
 ---
 title: SOA与分布式相关术语
 tags: 分布式/集群
+Categories:  技术运维
 abbrlink: 9798
 date: 2017-07-28 13:48:56
 ---

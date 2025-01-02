@@ -1,7 +1,7 @@
 ---
 title: rabbitMQ安装记录
 tags: springboot
-categories: springboot
+categories: Java
 toc: true
 abbrlink: 46741
 date: 2017-08-07 11:07:49

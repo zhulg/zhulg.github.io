@@ -1,7 +1,7 @@
 ---
 title: ios遗忘记录
 tags: ios
-categories: ios
+categories: App
 toc: true
 abbrlink: 16388
 date: 2019-10-01 22:53:06

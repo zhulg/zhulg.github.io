@@ -1,7 +1,7 @@
 ---
 title: springcloud包含子项目
 tags: springcloud
-categories: springcloud
+categories: Java
 toc: true
 abbrlink: 25087
 date: 2017-08-08 18:31:12

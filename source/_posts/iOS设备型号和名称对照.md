@@ -1,7 +1,7 @@
 ---
 title: iOS设备型号和名称对照
 tags: ios
-categories: ios
+categories: App
 toc: true
 abbrlink: 14423
 date: 2022-01-11 20:00:05

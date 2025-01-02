@@ -1,7 +1,7 @@
 ---
 title: goland破解使用
 tags: Tools
-categories: Tools
+categories: 技术成长
 toc: true
 abbrlink: 50193
 date: 2018-02-28 19:01:49

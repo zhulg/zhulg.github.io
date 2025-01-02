@@ -1,11 +1,12 @@
 ---
 title: shell常用点记录
 tags: Linux
+categories: 技术运维
 abbrlink: 32296
 date: 2017-11-15 12:02:15
 ---
 
-###Shell中的常用字符串截取。
+### Shell中的常用字符串截取。
 
 - 假设有变量 var=http://www.aaa.com/123.htm
 

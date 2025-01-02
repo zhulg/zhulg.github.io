@@ -1,7 +1,7 @@
 ---
 title: nginx配置文件
 tags: nginx
-categories: nginx
+categories: 技术运维
 toc: true
 abbrlink: 42566
 date: 2017-09-30 17:19:51

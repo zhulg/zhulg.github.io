@@ -1,7 +1,7 @@
 ---
 title: springboot部署
 tags: springboot
-categories: springboot
+categories: Java
 toc: true
 abbrlink: 27748
 date: 2017-08-15 18:13:47
@@ -16,17 +16,17 @@ date: 2017-08-15 18:13:47
   4,构建服务端运行环境
   5,部署springboot项目
  
-  ```
-  
+ ```
+
 #### 环境安装记录：
- 
+
  - java 环境安装：采用先下载到本地，在scp到远程服务器(直接服务器上下载后无法解压成功，其下载是个html压缩包，不是真实jdk)
- 
+
  ```
  scp jdk-8u144-linux-x64.tar.gz  root@120.76.xxx.xxx:/root/zhulg/jdk/jdk-8u144-linux-x64.tar.gz 
  
  ```
- 
+
 
 后续输入密码
 
@@ -36,7 +36,7 @@ date: 2017-08-15 18:13:47
 tar -zxvf jdk-xxxxx
 ```
 - 环境变量配置:系统环境变量 vi /etc/environment 添加以下内容
- 
+
 ```
 PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:$JAVA_HOME/bin"
 export CLASSPATH=.:$JAVA_HOME/lib:$JAVA_HOME/jre/lib

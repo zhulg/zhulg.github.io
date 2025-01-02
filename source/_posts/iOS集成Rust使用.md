@@ -1,7 +1,7 @@
 ---
 title: iOS集成Rust使用
 tags: Rust
-categories: Rust
+categories: App
 toc: true
 abbrlink: e04cad1e
 date: 2022-10-23 09:37:06
@@ -84,7 +84,7 @@ void rust_greeting_free(char *);
 ```
 
 - 3. **Cargo.toml定义编译类型：**
-    staticlib 编译会生成 .a 文件（在 Linux 和 MacOS 上），或 .lib 文件（在 Windows 上）。
+      staticlib 编译会生成 .a 文件（在 Linux 和 MacOS 上），或 .lib 文件（在 Windows 上）。
 
 ```
 [lib]

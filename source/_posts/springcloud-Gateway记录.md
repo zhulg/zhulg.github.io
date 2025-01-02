@@ -1,7 +1,7 @@
 ---
 title: springcloud-Gateway记录
 tags: springcloud
-categories: springcloud
+categories: Java
 toc: true
 abbrlink: 16737
 date: 2017-10-17 11:17:35
@@ -23,7 +23,7 @@ date: 2017-10-17 11:17:35
 zuul.routes.user-service.path=/user-service/**
 zuul.routes.user-service.url=http://localhost:8080/
  ```
- 
+
 
 ####2，服务化方式，通过对于的服务名称
 - 通过一组zuul.routes.\<route>.path与zuul.routes.\<route>.serviceId参数对的方式配置
@@ -33,7 +33,7 @@ zuul.routes.user-service.path=/user-service/**
 zuul.routes.user-service.serviceId=user-service
 ```
 ####3，简洁的配置方式
- 
+
 **zuul.routes.\<serviceId>=\<path>，其中<serviceId>用来指定路由的具体服务名，<path>用来配置匹配的请求表达式。比如下面的例子，它的路由规则等价于上面通过path与serviceId组合使用的配置方式**
 
 ```

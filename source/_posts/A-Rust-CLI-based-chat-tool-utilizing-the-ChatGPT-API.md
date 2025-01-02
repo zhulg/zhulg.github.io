@@ -1,7 +1,9 @@
 ---
 title: A Rust CLI-based chat tool utilizing the ChatGPT API
-tags: ChatGPT
-categories: ChatGPT
+tags: 
+ - ChatGPT
+ - AI
+categories: AI
 abbrlink: dca54e0f
 date: 2023-03-15 08:08:07
 ---
@@ -108,7 +110,7 @@ fn read_api_key() -> String {
 cargo build
 ```
   2. cd target/debug 
-    
+
 ```
    ./chatgpt_rust
 ```
@@ -133,7 +135,7 @@ cargo install chatgpt_rust
 <div align=center width=100%>
   <img width=80% src="https://raw.githubusercontent.com/zhulg/allpic/master/chatgpt_cli.png">
 </div>
-  
+
 - chatgpt_rust --help 
 
 ```

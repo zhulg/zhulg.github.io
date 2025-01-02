@@ -1,7 +1,7 @@
 ---
 title: springcloud-sleuth记录
 tags: springcloud
-categories: springcloud
+categories: Java
 toc: true
 abbrlink: 53406
 date: 2017-10-18 17:09:11

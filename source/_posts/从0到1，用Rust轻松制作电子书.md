@@ -1,7 +1,7 @@
 ---
 title: 从0到1，用Rust轻松制作电子书
 tags: 技术成长
-categories: 技术成长
+categories: Rust
 abbrlink: 4f00c682
 date: 2024-12-26 12:57:17
 ---

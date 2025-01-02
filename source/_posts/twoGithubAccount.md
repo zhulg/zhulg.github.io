@@ -1,7 +1,7 @@
 ---
 title: 如何绑定两个github帐号
 tags: git
-categories: Git
+categories: 技术成长
 toc: true
 abbrlink: 59372
 date: 2018-09-26 15:55:50
@@ -12,7 +12,7 @@ date: 2018-09-26 15:55:50
 
 ## 操作
 - 进入到.ssh目录下查看已有的秘钥
- 
+
 ```
  $ cd ~/.ssh 
  $ ls

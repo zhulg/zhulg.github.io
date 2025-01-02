@@ -1,7 +1,7 @@
 ---
 title: Flutter Widget生命周期总结
 tags: flutter
-categories: flutter
+categories: App
 toc: true
 abbrlink: f4ca6a79
 date: 2022-05-27 14:26:29

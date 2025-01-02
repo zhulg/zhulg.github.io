@@ -3,6 +3,7 @@ title: mac上django安装
 tags:
   - python
   - django
+categories: Python
 abbrlink: 34049
 date: 2018-06-26 22:37:33
 ---

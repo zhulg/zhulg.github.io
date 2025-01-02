@@ -1,7 +1,8 @@
 ---
 title: ChatGPT API介绍及使用
-tags: ChatGPT
-categories: ChatGPT
+tags: 
+ - ChatGPT
+categories: AI
 toc: true
 abbrlink: c22af37b
 date: 2023-03-10 07:44:59

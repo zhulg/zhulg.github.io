@@ -1,7 +1,7 @@
 ---
 title: ios启动分析
 tags: ios
-categories: ios
+categories: App
 toc: true
 abbrlink: 12312
 date: 2019-09-26 22:53:06
@@ -90,7 +90,7 @@ delegate对象开始处理(监听)系统事件(没有storyboard)
 (void)applicationWillResignActive:(UIApplication *)application
 
 ```
- 
+
 
 - app进入后台的时候调用， 一般在这里保存应用的数据(游戏数据,比如暂停游戏)
 

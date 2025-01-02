@@ -1,7 +1,7 @@
 ---
 title: springboot里几个常用注解
 tags: springboot
-categories: springboot
+categories: Java
 toc: true
 abbrlink: 6507
 date: 2017-08-04 18:23:30

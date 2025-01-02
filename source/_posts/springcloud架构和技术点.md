@@ -1,7 +1,7 @@
 ---
 title: springcloud架构和技术点
 tags: springcloud
-categories: springcloud
+categories: Java
 toc: true
 abbrlink: 56314
 date: 2017-09-29 16:57:19
@@ -23,5 +23,4 @@ date: 2017-09-29 16:57:19
 ### SpringCloud相关技术点
 
 ![](https://raw.githubusercontent.com/zhulg/allpic/master/SpringCloudTechs.png)
-
 

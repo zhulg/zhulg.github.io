@@ -1,6 +1,7 @@
 ---
 title: python3 K-近邻算法实现
 tags: 机器学习
+categories: Python
 abbrlink: 29486
 date: 2017-08-03 13:47:11
 ---

@@ -1,7 +1,7 @@
 ---
 title: spring/SpringMVC/SpringBoot/Springcloud概念
 tags: springboot
-categories: springboot
+categories: Java
 toc: true
 abbrlink: 21634
 date: 2017-07-25 15:35:35

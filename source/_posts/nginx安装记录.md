@@ -1,7 +1,7 @@
 ---
 title: nginx安装记录
 tags: nginx
-categories: nginx
+categories: 技术运维
 toc: true
 abbrlink: 54142
 date: 2017-09-06 11:24:07

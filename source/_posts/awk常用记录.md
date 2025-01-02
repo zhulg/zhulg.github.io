@@ -1,6 +1,7 @@
 ---
 title: awk常用记录
-tags: AWK
+tags: Tools
+Categories: 技术运维
 abbrlink: 39087
 date: 2017-11-20 11:22:17
 ---

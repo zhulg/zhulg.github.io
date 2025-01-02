@@ -1,7 +1,7 @@
 ---
 title: Android消息机制总结
 tags: Android
-categories: Android
+categories: App
 toc: true
 abbrlink: 4547
 date: 2020-11-09 15:12:36

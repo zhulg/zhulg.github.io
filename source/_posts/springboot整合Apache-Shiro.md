@@ -1,7 +1,7 @@
 ---
 title: springboot整合Apache Shiro
 tags: springboot
-categories: springboot
+categories: Java
 toc: true
 abbrlink: 37485
 date: 2017-10-24 19:44:59

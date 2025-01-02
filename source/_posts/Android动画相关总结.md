@@ -1,7 +1,7 @@
 ---
 title: Android动画相关总结
 tags: Android
-categories: Android
+categories: App
 abbrlink: 42188
 date: 2020-08-25 20:53:00
 ---

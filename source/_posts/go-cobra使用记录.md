@@ -1,7 +1,7 @@
 ---
 title: go cobra使用记录
 tags: go
-categories: go
+categories: Go
 toc: true
 abbrlink: 3161
 date: 2018-11-02 18:15:18

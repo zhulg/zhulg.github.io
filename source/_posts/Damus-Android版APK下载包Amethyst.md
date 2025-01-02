@@ -4,7 +4,7 @@ tags:
   - Android
   - 区块链
 categories:
-  - 区块链
+  - App
 toc: true
 abbrlink: f235cc57
 date: 2023-02-03 11:32:01

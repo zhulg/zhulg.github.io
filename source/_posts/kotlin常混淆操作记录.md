@@ -1,7 +1,9 @@
 ---
 title: kotlin常混淆操作记录
-tags: App
-categories: Android
+tags: 
+ - Android
+ - kotlin
+categories: App
 toc: true
 abbrlink: 40178
 date: 2019-08-20 15:23:52

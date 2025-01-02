@@ -4,8 +4,7 @@ tags:
   - App
   - 架构
 categories:
-  - Android
-  - 架构
+  - 技术成长
 toc: true
 abbrlink: 9541
 date: 2022-02-13 10:51:41

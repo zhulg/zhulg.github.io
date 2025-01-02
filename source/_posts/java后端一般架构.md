@@ -1,7 +1,7 @@
 ---
 title: java后端一般架构
 tags: springboot
-categories: springboot
+categories: Java
 toc: true
 abbrlink: 7571
 date: 2017-10-23 14:51:44

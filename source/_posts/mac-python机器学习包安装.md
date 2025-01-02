@@ -3,6 +3,7 @@ title: mac python机器学习相关包安装
 tags: 
 - 机器学习
 - python
+Categories: Python
 abbrlink: 23709
 date: 2017-07-30 21:45:14
 ---

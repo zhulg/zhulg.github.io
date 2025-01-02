@@ -1,6 +1,7 @@
 ---
 title: docker知识点记录
 tags: docker
+Caterories: 技术运维
 abbrlink: 26571
 date: 2017-10-21 10:37:39
 ---

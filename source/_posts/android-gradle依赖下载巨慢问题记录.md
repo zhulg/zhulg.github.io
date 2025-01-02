@@ -3,6 +3,7 @@ title: android gradle依赖下载巨慢问题记录
 tags:
   - android
   - gradle
+caterories: App
 abbrlink: 4988
 date: 2018-08-09 18:32:00
 ---

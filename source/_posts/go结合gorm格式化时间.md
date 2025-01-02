@@ -1,7 +1,7 @@
 ---
 title: go结合gorm格式化时间
 tags: go
-categories: go
+categories: Go
 toc: true
 abbrlink: 41039
 date: 2018-11-21 12:28:35
@@ -56,5 +56,4 @@ func (t *LocalTime) Scan(v interface{}) error {
 }
 ```
 - 使用时在model里时间字段，使用LocalTime类型
-
 

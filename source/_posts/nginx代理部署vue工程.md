@@ -1,7 +1,7 @@
 ---
 title: nginx代理部署vue工程
 tags: nginx
-categories: nginx
+categories: 技术运维
 toc: true
 abbrlink: 30090
 date: 2018-06-12 18:13:37

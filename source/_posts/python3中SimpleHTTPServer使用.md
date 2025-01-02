@@ -2,6 +2,7 @@
 title: 使用python快速搭建静态服务器
 tags:
   - python
+categories: Python
 abbrlink: 25502
 date: 2019-01-11 19:55:55
 ---

@@ -1,6 +1,7 @@
 ---
 title: Apache Camel
 tags: springboot
+Categories: 技术运维
 abbrlink: 53101
 date: 2017-08-16 18:13:47
 ---

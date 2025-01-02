@@ -1,7 +1,7 @@
 ---
 title: springcloud Eureka
 tags: springcloud
-categories: springcloud
+categories: Java
 toc: true
 abbrlink: 23872
 date: 2017-08-08 11:08:36

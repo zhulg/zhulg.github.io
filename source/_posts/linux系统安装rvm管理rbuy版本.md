@@ -1,7 +1,8 @@
 ---
 title: linux系统安装rvm管理rbuy版本
-tags: Ruby
-categories: Ruby
+tags: 
+ - Ruby
+categories: 技术成长
 toc: true
 abbrlink: 17705
 date: 2021-09-12 22:34:48

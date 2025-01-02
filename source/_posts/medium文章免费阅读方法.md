@@ -1,7 +1,7 @@
 ---
 title: medium文章免费阅读方法
 tags: Tools
-categories: Tools
+categories: 技术成长
 toc: ture
 abbrlink: 43467
 date: 2020-12-17 11:19:26

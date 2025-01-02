@@ -1,7 +1,7 @@
 ---
 title: Android Q适配
 tags: Android
-categories: Android
+categories: App
 toc: true
 abbrlink: 51024
 date: 2019-08-11 15:47:11

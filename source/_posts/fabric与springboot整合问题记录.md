@@ -1,7 +1,8 @@
 ---
 title: fabric与springboot整合问题记录
 tags: 区块链
-categories: 区块链
+categories: 
+ - Java
 toc: true
 abbrlink: 46195
 date: 2018-04-19 16:43:29

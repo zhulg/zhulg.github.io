@@ -1,7 +1,7 @@
 ---
 title: springcloud 网关服务记录
 tags: springcloud
-categories: springcloud
+categories: Java
 toc: true
 abbrlink: 56664
 date: 2017-09-07 17:27:16
