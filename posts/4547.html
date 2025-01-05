@@ -34,18 +34,18 @@ s.parentNode.insertBefore(el, s);
   
   
   <title>Android消息机制总结 | 良技漫谈|技术博客|编程开发与成长思考</title>
-  <meta name="description" content="消息机制相关知识点 Android消息机制涉及相关的知识点，handler 、ThreadLocal 、looper、 MessageQueue、Message、对象池使用Handler handler在Android里常用在子线程的数据抛给主线程使用，常见操作更新UI。但是它也能实现任意两个线程的数据传递。 在子线程上创建Handler时需要Looper.prepare()和Looper.loo">
+  <meta name="description" content="本文来总结下Android消息机制涉及相关的知识点，handler 、ThreadLocal 、looper、 MessageQueue、Message、对象池使用，掌握消息机制相关知识。 消息机制相关知识点 Android消息机制涉及相关的知识点，handler 、ThreadLocal 、looper、 MessageQueue、Message、对象池使用Handler handler在And">
 <meta name="keywords" content="Android">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android消息机制总结">
 <meta property="og:url" content="https://zhulg.github.io/posts/4547.html">
 <meta property="og:site_name" content="技术干货分享 | zhulg技术博客">
-<meta property="og:description" content="消息机制相关知识点 Android消息机制涉及相关的知识点，handler 、ThreadLocal 、looper、 MessageQueue、Message、对象池使用Handler handler在Android里常用在子线程的数据抛给主线程使用，常见操作更新UI。但是它也能实现任意两个线程的数据传递。 在子线程上创建Handler时需要Looper.prepare()和Looper.loo">
+<meta property="og:description" content="本文来总结下Android消息机制涉及相关的知识点，handler 、ThreadLocal 、looper、 MessageQueue、Message、对象池使用，掌握消息机制相关知识。 消息机制相关知识点 Android消息机制涉及相关的知识点，handler 、ThreadLocal 、looper、 MessageQueue、Message、对象池使用Handler handler在And">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2025-01-02T01:51:22.039Z">
+<meta property="og:updated_time" content="2025-01-05T14:24:39.384Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android消息机制总结">
-<meta name="twitter:description" content="消息机制相关知识点 Android消息机制涉及相关的知识点，handler 、ThreadLocal 、looper、 MessageQueue、Message、对象池使用Handler handler在Android里常用在子线程的数据抛给主线程使用，常见操作更新UI。但是它也能实现任意两个线程的数据传递。 在子线程上创建Handler时需要Looper.prepare()和Looper.loo">
+<meta name="twitter:description" content="本文来总结下Android消息机制涉及相关的知识点，handler 、ThreadLocal 、looper、 MessageQueue、Message、对象池使用，掌握消息机制相关知识。 消息机制相关知识点 Android消息机制涉及相关的知识点，handler 、ThreadLocal 、looper、 MessageQueue、Message、对象池使用Handler handler在And">
   <!-- Canonical links -->
   <link rel="canonical" href="https://zhulg.github.io/posts/4547.html">
   
@@ -375,7 +375,7 @@ s.parentNode.insertBefore(el, s);
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/posts/4547.html#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 2k(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 2.1k(字)</span>
 	
 	
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 9(分)</span>
@@ -399,7 +399,8 @@ s.parentNode.insertBefore(el, s);
     
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <h2 id="消息机制相关知识点"><a href="#消息机制相关知识点" class="headerlink" title="消息机制相关知识点"></a>消息机制相关知识点</h2><ul>
+        <p>本文来总结下Android消息机制涉及相关的知识点，handler 、ThreadLocal 、looper、 MessageQueue、Message、对象池使用，掌握消息机制相关知识。</p>
+<h2 id="消息机制相关知识点"><a href="#消息机制相关知识点" class="headerlink" title="消息机制相关知识点"></a>消息机制相关知识点</h2><ul>
 <li>Android消息机制涉及相关的知识点，handler 、ThreadLocal 、looper、 MessageQueue、Message、对象池使用<h3 id="Handler"><a href="#Handler" class="headerlink" title="Handler"></a>Handler</h3></li>
 <li>handler在Android里常用在子线程的数据抛给主线程使用，常见操作更新UI。但是它也能实现任意两个线程的数据传递。</li>
 <li>在子线程上创建Handler时需要Looper.prepare()和Looper.loop() , UI线程也是需要的可以从ActivityThread的main里看到，所以默认系统为主线程已经调用过</li>

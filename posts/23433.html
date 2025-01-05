@@ -34,23 +34,23 @@ s.parentNode.insertBefore(el, s);
   
   
   <title>Fabric工作机制及核心组件总结 | 良技漫谈|技术博客|编程开发与成长思考</title>
-  <meta name="description" content="通过总结来进一步检验对fabric工作机制及底层数据存储和上链过程的认识，加深对fabric的理解和认识。 个人总结记录（如错误欢迎指正lg.json@gmail.com)  一, fabric1.0之后的运行架构  登记证书（0 Enroll): 使用fabric SDK向CA获取用户的证书（图上membership 服务，就是上图中的注册登记、身份认证，CA是MSP的实现） 发送提案(1 E">
+  <meta name="description" content="本文总结fabric工作机制及底层数据存储和上链过程的认识，帮助加深对fabric的理解和认识。 一, fabric1.0之后的运行架构  登记证书（0 Enroll): 使用fabric SDK向CA获取用户的证书（图上membership 服务，就是上图中的注册登记、身份认证，CA是MSP的实现） 发送提案(1 Endrose proposal)： 拿到正式根据背书策略发送提案到背书节点（背书">
 <meta name="keywords" content="区块链">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Fabric工作机制及核心组件总结">
 <meta property="og:url" content="https://zhulg.github.io/posts/23433.html">
 <meta property="og:site_name" content="技术干货分享 | zhulg技术博客">
-<meta property="og:description" content="通过总结来进一步检验对fabric工作机制及底层数据存储和上链过程的认识，加深对fabric的理解和认识。 个人总结记录（如错误欢迎指正lg.json@gmail.com)  一, fabric1.0之后的运行架构  登记证书（0 Enroll): 使用fabric SDK向CA获取用户的证书（图上membership 服务，就是上图中的注册登记、身份认证，CA是MSP的实现） 发送提案(1 E">
+<meta property="og:description" content="本文总结fabric工作机制及底层数据存储和上链过程的认识，帮助加深对fabric的理解和认识。 一, fabric1.0之后的运行架构  登记证书（0 Enroll): 使用fabric SDK向CA获取用户的证书（图上membership 服务，就是上图中的注册登记、身份认证，CA是MSP的实现） 发送提案(1 Endrose proposal)： 拿到正式根据背书策略发送提案到背书节点（背书">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://raw.githubusercontent.com/zhulg/allpic/master/fabric10.png">
 <meta property="og:image" content="https://hyperledger-fabric.readthedocs.io/en/release-1.2/_images/flow-4.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/zhulg/allpic/master/fabic_block-structure.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/zhulg/allpic/master/fabric_tx_struct.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/zhulg/allpic/master/fabric_chaincode.png">
-<meta property="og:updated_time" content="2024-07-07T04:21:27.923Z">
+<meta property="og:updated_time" content="2025-01-05T14:18:34.875Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Fabric工作机制及核心组件总结">
-<meta name="twitter:description" content="通过总结来进一步检验对fabric工作机制及底层数据存储和上链过程的认识，加深对fabric的理解和认识。 个人总结记录（如错误欢迎指正lg.json@gmail.com)  一, fabric1.0之后的运行架构  登记证书（0 Enroll): 使用fabric SDK向CA获取用户的证书（图上membership 服务，就是上图中的注册登记、身份认证，CA是MSP的实现） 发送提案(1 E">
+<meta name="twitter:description" content="本文总结fabric工作机制及底层数据存储和上链过程的认识，帮助加深对fabric的理解和认识。 一, fabric1.0之后的运行架构  登记证书（0 Enroll): 使用fabric SDK向CA获取用户的证书（图上membership 服务，就是上图中的注册登记、身份认证，CA是MSP的实现） 发送提案(1 Endrose proposal)： 拿到正式根据背书策略发送提案到背书节点（背书">
 <meta name="twitter:image" content="https://raw.githubusercontent.com/zhulg/allpic/master/fabric10.png">
   <!-- Canonical links -->
   <link rel="canonical" href="https://zhulg.github.io/posts/23433.html">
@@ -405,10 +405,7 @@ s.parentNode.insertBefore(el, s);
     
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <ul>
-<li>通过总结来进一步检验对fabric工作机制及底层数据存储和上链过程的认识，加深对fabric的理解和认识。</li>
-<li>个人总结记录（如错误欢迎指正<a href="mailto:lg.json@gmail.com" target="_blank" rel="noopener">lg.json@gmail.com</a>)</li>
-</ul>
+        <p>本文总结fabric工作机制及底层数据存储和上链过程的认识，帮助加深对fabric的理解和认识。</p>
 <h2 id="一-fabric1-0之后的运行架构"><a href="#一-fabric1-0之后的运行架构" class="headerlink" title="一, fabric1.0之后的运行架构"></a>一, fabric1.0之后的运行架构</h2><p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/fabric10.png" alt></p>
 <ul>
 <li><strong>登记证书（0 Enroll):</strong> 使用fabric SDK向CA获取用户的证书（图上membership 服务，就是上图中的注册登记、身份认证，CA是MSP的实现）</li>
