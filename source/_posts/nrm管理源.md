@@ -3,7 +3,7 @@ title: nrm管理源
 tags: 
  - npm
  - JS
-categories: 技术成长
+categories: 前端
 toc: true
 abbrlink: 26211
 date: 2021-03-04 10:49:05

@@ -1,7 +1,7 @@
 ---
 title: Scratch源码及相关介绍
 tags: Scratch
-categories: Scratch
+categories: 前端
 toc: true
 abbrlink: 60112
 date: 2020-12-07 15:33:23
@@ -61,7 +61,6 @@ In the top level of the scratchjr repo directory, install npm dependencies for b
 
 #### ios方式打开
 - 打开的方式和依赖于Android相同，需要相关的依赖环境与Android依赖相同，之后通过xcode打开ios/ScratchJr.xcworkspace即可
-
 
 
 

@@ -1,7 +1,7 @@
 ---
 title: Scratch项目和原理
 tags: Scratch
-categories: Scratch
+categories: 前端
 top: Scratch
 abbrlink: 36765
 date: 2020-12-09 14:57:43

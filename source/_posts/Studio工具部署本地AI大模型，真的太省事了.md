@@ -1,5 +1,5 @@
 ---
-title: Studio工具部署本地AI大模型，真的太省事了
+title: 用LM Studio工具部署本地AI大模型，真的太省事了
 tags: 
   - AI
   - 技术成长
