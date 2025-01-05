@@ -7,7 +7,10 @@ abbrlink: 4547
 date: 2020-11-09 15:12:36
 ---
 
+本文来总结下Android消息机制涉及相关的知识点，handler 、ThreadLocal 、looper、 MessageQueue、Message、对象池使用，掌握消息机制相关知识。
+
 ## 消息机制相关知识点
+
 - Android消息机制涉及相关的知识点，handler 、ThreadLocal 、looper、 MessageQueue、Message、对象池使用
 ### Handler
 - handler在Android里常用在子线程的数据抛给主线程使用，常见操作更新UI。但是它也能实现任意两个线程的数据传递。

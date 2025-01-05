@@ -7,8 +7,7 @@ abbrlink: 23433
 date: 2018-08-22 10:57:52
 ---
 
-- 通过总结来进一步检验对fabric工作机制及底层数据存储和上链过程的认识，加深对fabric的理解和认识。
-- 个人总结记录（如错误欢迎指正lg.json@gmail.com)
+本文总结fabric工作机制及底层数据存储和上链过程的认识，帮助加深对fabric的理解和认识。
 
 
 ## 一, fabric1.0之后的运行架构
@@ -34,7 +33,9 @@ date: 2018-08-22 10:57:52
 #### 1,区块构成
 ![](https://raw.githubusercontent.com/zhulg/allpic/master/fabic_block-structure.png)
 
-- 区块头部分:有当前number,上一个区块hash，当前区块体数据hash。- 区块数据:包含多条交易数据- 区块元数据:包含4种元数据，SIGNATURES、 LAST_CONFIG、ORDERER和TRANSACTIONS_FILTER，前三个是Order service添加进去的，最后一个是Committer添加的。
+- 区块头部分:有当前number,上一个区块hash，当前区块体数据hash。
+- 区块数据:包含多条交易数据
+- 区块元数据:包含4种元数据，SIGNATURES、 LAST_CONFIG、ORDERER和TRANSACTIONS_FILTER，前三个是Order service添加进去的，最后一个是Committer添加的。
 - [参考更多介绍](https://blockchain-fabric.blogspot.com/2017/04/hyperledger-fabric-v10-block-structure.html) 
 
 #### 2,Fabric账本结构
