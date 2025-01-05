@@ -39,7 +39,7 @@ s.parentNode.insertBefore(el, s);
 <meta property="og:type" content="article">
 <meta property="og:title" content="JVM内存分配与回收总结">
 <meta property="og:url" content="https://zhulg.github.io/posts/44013.html">
-<meta property="og:site_name" content="技术干货分享 | zhulg技术博客">
+<meta property="og:site_name" content="良技漫谈 | 技术干货分享">
 <meta property="og:description" content="对象的内存分配主要在堆上分配，主要分配在新生代的 Eden 区上，少数情况下可能直接分配在老年代 堆内存结构通常将堆内存结构按新生代和老年代进行划分，在 JDK 8 之后取消了永久代。   新生代 内部包含 Eden 区域，作为对象初始分配的区域；两个 Survivor，也叫 from、to 区域，用来放置从 Minor GC 中生存下来的对象。  如果Eden内存空间不足，就会发生Minor">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://raw.githubusercontent.com/zhulg/allpic/master/duineicun.png">
@@ -52,7 +52,7 @@ s.parentNode.insertBefore(el, s);
   <!-- Canonical links -->
   <link rel="canonical" href="https://zhulg.github.io/posts/44013.html">
   
-    <link rel="alternate" href="/atom.xml" title="技术干货分享 | zhulg技术博客" type="application/atom+xml">
+    <link rel="alternate" href="/atom.xml" title="良技漫谈 | 技术干货分享" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png" type="image/x-icon">
@@ -342,6 +342,42 @@ s.parentNode.insertBefore(el, s);
   <div class="content">
   <article id="post-JVM内存分配与回收总结" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
+    
+    
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://zhulg.github.io/posts/44013.html"
+      },
+      "headline": "JVM内存分配与回收总结",
+      "description": "",
+      "datePublished": "2020-09-15T02:05:15.000Z",
+      "dateModified": "2024-07-07T04:21:27.924Z",
+      "author": {
+        "@type": "Person",
+        "name": "zhulg",
+        "url": "https://zhulg.github.io",
+        "alternateName": "良技漫谈"
+      },
+      "image": "https://raw.githubusercontent.com/zhulg/allpic/master/duineicun.png",
+      "keywords": ["java","Java","JVM内存分配与回收总结"],
+      "publisher": {
+        "@type": "Organization",
+        "name": "良技漫谈",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://zhulg.github.io/favicon.png",
+          "width": "60",
+          "height": "60"
+        }
+      }
+    }
+    </script>
+
     <div class="article-header">
       
         

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>技术干货分享 | zhulg技术博客</title>
+  <title>良技漫谈 | 技术干货分享</title>
   
-  <subtitle>专注全栈开发、技术分享与解决方案</subtitle>
+  <subtitle>专注全栈开发与技术成长</subtitle>
   <link href="https://zhulg.github.io/atom.xml" rel="self"/>
   
   <link href="https://zhulg.github.io/"/>
