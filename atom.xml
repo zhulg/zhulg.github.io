@@ -6,7 +6,7 @@
   <link href="https://zhulg.github.io/atom.xml" rel="self"/>
   
   <link href="https://zhulg.github.io/"/>
-  <updated>2025-01-04T01:48:19.504Z</updated>
+  <updated>2025-01-05T01:33:01.673Z</updated>
   <id>https://zhulg.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>从0到1，如何快速上架一款chrome插件</title>
+    <link href="https://zhulg.github.io/posts/5e8ea077.html"/>
+    <id>https://zhulg.github.io/posts/5e8ea077.html</id>
+    <published>2025-01-05T01:27:20.000Z</published>
+    <updated>2025-01-05T01:33:01.673Z</updated>
+    
+    <content type="html"><![CDATA[<p>如何快速上架chrome插件? 如何搞定chrome开发者注册？本文来进行详细的讲解一下，方便国内开发轻松上架插件。</p><p>前两天上架了个护眼助手的插件，有读者私信问上架这个国内能否访问，目前因为是google的chrome商店，如果没有科学上网，确实无法访问。（需要的话可以关注公众号，回复护眼助手即可获取软件，到时添加在chrome浏览器就行。如果使用微软Edge浏览器的，等审核通过也可以安装）</p><p>今天快速介绍下，怎么从0到1上架一块插件软件，就上架来说要比Android 和iOS的审核和填写的东西要少一些。我快速介绍下给想尝试这个插件开发的读者。也顺便说一下，如果你想开发一些插件来赚钱的话，也是可以的，回头再介绍这块，先说下如何从0上架一款插件。</p><h2 id="开发账号准备"><a href="#开发账号准备" class="headerlink" title="开发账号准备"></a><strong>开发账号准备</strong></h2><p>开发插件本身不难，会JS技术并能解决用户痛点这些就可以了，上架插件就需要先有账号，用来管理你的插件后台，提交和版本更新的管理后台。</p><p>我知道很多人就卡在这一步，先注册为chrome应用开发者地址：</p><p><a href="https://chrome.google.com/webstore/devconsole/" target="_blank" rel="noopener">https://chrome.google.com/webstore/devconsole/</a></p><p>注册开发者账号的门槛就是需要支付5美元注册费。</p><p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/640" alt="图片"></p><p>这个是一次性支付，但支付是个问题，他不支持国内支付方式，需要有美国信用卡，目前支持的有通过 GPay 支付 Google 开发者账号的注册费用，或使用带有以下徽标的信用卡或借记卡：</p><ul><li>Mastercard</li><li>Visa</li><li>American Express</li><li>Discover（仅限美国）</li><li>Visa Electron（美国以外的国家/地区）</li></ul><p>是不是有点头大了？</p><p>如果没有海外信用卡或者Gpay这个基本上就没法支付，我这边也是在经过对比后选择了WildCard，他可以支持海外很多支付，下边的海外支付都支持。（我之前也用过depay就是每月有月费，不如这个划算）</p><p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/640-20250105092857762" alt="图片"></p><p>可以注册后就有了一张虚拟信用卡可以用于支付了，wildcard他支持微信和支付宝充值也比较方便。这个开卡是有费用的可以开2年或3年（这卡没有月租这点还是划算的），<strong>开卡时可以使用我的个人邀请码: LJMT</strong>，就是良技漫谈的首字母，你会有个9折优惠。</p><p>这个开卡后，可以微信支付宝支付充值，然后去chrome插件后台填写自己的虚拟卡号支付即可。（有问题可以私下我）</p><h3 id="上架应用"><a href="#上架应用" class="headerlink" title="上架应用"></a><strong>上架应用</strong></h3><p>开发账号开通后，就可以有插件后台了，去上传自己的插件就好。</p><p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/640-20250105092857969" alt="图片"></p><p>上传插件包后，就是需要把软件的相关介绍、软件包后台的各种尺寸的图片进行准备</p><p><img src="https://mmbiz.qpic.cn/sz_mmbiz_png/gCwibMtn41zOuSgJwCibvtlicksF12HghPAgN1J4cH2OoTD91fiaDmWMyqnHibc25sLNqmrsLbtichTiaVRClBvlkc0zA/640?wx_fmt=png&from=appmsg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1" alt="图片"></p><p>需要特别强调的是度及软件的权限要说明，这个说不清楚的话可能会影响审核，整过程没有过多的负责，审核也还好，1-2天就会通过，如果使用的权限越多，审核时间也就会越长。</p><p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/640-20250105092924157" alt="图片"></p><p>如果是第一次上架，需要准备对应的预览图，后台各种尺寸的图，供后台展现和用户安装时使用，如果上架过APP，那这个也很简单。</p><p>另外推荐一个icon的网站，<a href="https://hotpot.ai/icon-resizer" target="_blank" rel="noopener">https://hotpot.ai/icon-resizer</a> 如果不太会自己切图，可以使用这个免费网站。</p><p>好了，其他就是软件自己开发好，测试完没问题按我上边的步骤上传等待审核结果，就可以了。</p><p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/640-20250105092858696" alt="图片"></p><h2 id="最后一些话"><a href="#最后一些话" class="headerlink" title="最后一些话"></a>最后一些话</h2><p>如果上架过程中有问题可以进行交流，整体看比较麻烦的是开发账号支付5美元问题，其他对技术人来说都会比较简单。</p><p>如果你有好的想法和提效的都可以用插件来实现，而且插件也可以作为打造个人产品的一种方式，就入手来说比上架android和iOS的审核要简单太多。</p><p>技术人凡事就要多尝试，很多起飞的产品都是来自一个很小的mvp，多做一些产品和商业化的尝试，对技术方向掌握和运用也非常有利，学习新东西的速度也会越来越快！</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;如何快速上架chrome插件? 如何搞定chrome开发者注册？本文来进行详细的讲解一下，方便国内开发轻松上架插件。&lt;/p&gt;
+&lt;p&gt;前两天上架了个护眼助手的插件，有读者私信问上架这个国内能否访问，目前因为是google的chrome商店，如果没有科学上网，确实无法访问。（需</summary>
+      
+    
+    
+    
+    <category term="前端" scheme="https://zhulg.github.io/categories/前端/"/>
+    
+    
+    <category term="chrome" scheme="https://zhulg.github.io/tags/chrome/"/>
+    
+  </entry>
   
   <entry>
     <title>为什么Boss上那么多已读不回?</title>
@@ -487,32 +512,6 @@
     <summary type="html">&lt;p&gt;没有经历过裁员的职场是不完美的。&lt;/p&gt;
 &lt;p&gt;无论何种原因经历次裁员，可能对心智都是一次提升，前面也写过技术人怎么利用空窗期的文章技术人的空窗期，你的涅槃重生。经历过裁员的时候难免感到复杂和沉重。离开的背后，不仅有情感的波动，还有对未来的深深焦虑。&lt;/p&gt;
 &lt;p&gt;当你被通</summary>
-      
-    
-    
-    
-    <category term="技术成长" scheme="https://zhulg.github.io/categories/技术成长/"/>
-    
-    
-    <category term="技术成长" scheme="https://zhulg.github.io/tags/技术成长/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>技术人要重视写作能力</title>
-    <link href="https://zhulg.github.io/posts/7a5a1805.html"/>
-    <id>https://zhulg.github.io/posts/7a5a1805.html</id>
-    <published>2024-08-21T15:31:58.000Z</published>
-    <updated>2024-08-21T15:35:04.195Z</updated>
-    
-    <content type="html"><![CDATA[<p>技术人要重视自己起来写作能力的培养</p><p>可观来讲，技术人大部分是偏理科的这部分人，某种程度来讲，大家擅长代码的编写，而又不擅长于写作，无论是从技术博客到用于日报，周报的汇报材料，相比代码书写可能就不是那么轻松。</p><p>那技术人写作能力该不该刻意练习下？答案是肯定的，犹如你代码的写作能力，是需要锻炼起来的，先来看看写作都有哪些好处。</p><h2 id="技术人写作好处"><a href="#技术人写作好处" class="headerlink" title="技术人写作好处"></a>技术人写作好处</h2><p>在高效学习方法里，你可能听说过费曼学习方法，他简单来说，就是当你学习到新知识后，你要能用最简单的话语和描述，向别人清楚地介绍出来，来检验自己是否理解和掌握。</p><p>记得大学时候遇到一个教网络通信的一个教授说，他也是构建我国互联网通信方面的鼻祖人物，他在课堂上经常给我们讲：检验自己是否掌握知识，最好办法就是你给别人介绍时，要达到如同介绍我中午吃了什么饭一样，自己清楚明了，还要别人能听懂。</p><p>听起来话很简单，但他说的意思其实就是费曼学习方法，这里面包含了多个层面的能力锻炼</p><ol><li>知识的总结表达能力</li><li>把知识传播给他人</li><li>一个非常好的学习方法</li></ol><p>一个好的总结和表达能力也是需要通过练习和思考的过程，写作无疑是一个非常好的方式，首先需要把相关技术进行概括和总结，用抽象和简练的文字表达出来。这个过程说起来简单，但是当你实践并尝试写作进行总结和概括时，就需要你深入的理解技术对应的点，点与点关系、到面、面和面直接的关系。</p><p>当把一个复杂的技术能通过总结提炼写下来后，通过自己思考，去繁化简把最容易懂的东西呈现出来时，这也跟后来学习的人一个莫大的帮助，把技术传播下去。</p><p>如果前面2个环节已经做到，那详细这这块你的知识点和技能的掌握一定时一个深入的层次了。</p><p>除此之外，技术人写作能力在问题表达，进度汇报，述职方面等也有很大的帮助，虽有干的好的不如写的好，这样有些方面的贬义评价，但是作为正直的技术人，除了要干的好，也要锻炼自己写做能力，特别写小作文能力，这方面也要客观的学会写作表达。</p><h3 id="技术人怎么练习起来"><a href="#技术人怎么练习起来" class="headerlink" title="技术人怎么练习起来"></a>技术人怎么练习起来</h3><p>写作先从一点点练习起来，从日报，从当天计划开始写起，总结和记录自己要做目标、计划、步骤。</p><p>从日常思考和向上汇报练习写作的能力，了解写作受众时谁，目标群体是谁，所要写的内容大纲是什么，结构是什么样的，要表达和输出的思想是什么，写作前思考这些点后再动起来。</p><ul><li><p>写作的工具和辅助你呈现的数据，画图，图表，AI工具需要知道，这些能帮助你提升效率，并在写作呈现上更生动</p></li><li><p>写作风格上，更要注重语言的简练，能清晰准确表达，对复杂的技术术语能呈现出对应的例子，抽象原理，使枯燥的技术能表达有趣和易懂</p></li><li><p>写作内容上，要具备技术原理的深度，刨根问底，对原理和技术细节要负责，更不要网上拿来主义，缺少验证，不要产生垃圾技术文章，那写作也就没有意义了。</p></li></ul><p><strong>最重要的事要写作起来，思考起来，写作可以锻炼和进步，哪怕一开始写的巨烂无比，加持写加持改进才是最快的练习起来的方式。</strong></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;技术人要重视自己起来写作能力的培养&lt;/p&gt;
-&lt;p&gt;可观来讲，技术人大部分是偏理科的这部分人，某种程度来讲，大家擅长代码的编写，而又不擅长于写作，无论是从技术博客到用于日报，周报的汇报材料，相比代码书写可能就不是那么轻松。&lt;/p&gt;
-&lt;p&gt;那技术人写作能力该不该刻意练习下？答案</summary>
       
     
     
