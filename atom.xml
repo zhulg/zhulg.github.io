@@ -6,7 +6,7 @@
   <link href="https://zhulg.github.io/atom.xml" rel="self"/>
   
   <link href="https://zhulg.github.io/"/>
-  <updated>2025-01-05T01:33:01.673Z</updated>
+  <updated>2025-01-06T02:02:03.854Z</updated>
   <id>https://zhulg.github.io/</id>
   
   <author>
@@ -15,6 +15,37 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>如何构建大模型应用？一文搞懂LangChain和RAG的原理和使用</title>
+    <link href="https://zhulg.github.io/posts/e93d67e9.html"/>
+    <id>https://zhulg.github.io/posts/e93d67e9.html</id>
+    <published>2025-01-06T01:45:15.000Z</published>
+    <updated>2025-01-06T02:02:03.854Z</updated>
+    
+    <content type="html"><![CDATA[<p>目前ChatGPT、AIGC各种应用如火如荼，技术人如何使用大模服务自己的业务，如何构建大模型应用？一文搞懂LangChain和RAG的原理和使用，文中附带相关代码可以更好的理解其中的定义。</p><p>我今天通过LangChain框架，一起看下如何简化大模型应用的开发，介绍下实际的工作场景。如果你也在做大模型开发，或者正在为如何切入这一领域而苦恼，欢迎在评论区与我们分享你的想法和经验。</p><h2 id="langchain是什么"><a href="#langchain是什么" class="headerlink" title="langchain是什么?"></a>langchain是什么?</h2><p>大模型应用开发里，<strong>langchain是一个开源的框架，专门为帮助开发者构建基于大语言模型的应用程序</strong>。通俗来讲，他负责与大模型来交互，也方便提供大模型做不到的事情。</p><h3 id="为什么用LangChain"><a href="#为什么用LangChain" class="headerlink" title="为什么用LangChain"></a>为什么用LangChain</h3><p>如上边说的他作为与大模型的交互桥梁，因为大模型核心工作是作为推理和内容生成，只具备底座模型。而在真实产品中要集成和使用大模型，还要牵涉到大量的私有数据和工作要做。</p><p>如图：</p><p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/640-20250106095026224" alt="图片"></p><p>如果从图上看，可能也还有疑惑，服务端也是可以直接掉LLM的对吗？</p><p>没错。实际上是可以直接调用大模型的API. 比如openAI也提供的有接口。</p><p>但是，由于大模型有这么多，国内外成千上万，也不可能把大模型自己的API都学一遍吧？完全可以使用langchain抽象出来的接口来对接大模型。</p><p>更核心的原因是，很多大模型是无法做到的工作，比如大模型无法联网、查询私有数据库、怎么调用第三方API获取数据，大模型token限制，私有化模型调用。</p><p>这些在业务使用中大模型本身是不具备的，也不是大模型强行，大模型功能是专注推理和生成。</p><p>通俗来讲，就是大模型已经很强，但是需要我们把私有的数据、知识、客观事实提供给他，让他正确的变强，这个交互过程就有langchain来做（所以他不仅仅是个包装来调用LLM的框架）。</p><p><strong>Langchain通过简化与语言模型的交互以及整合其他工具（如搜索、数据库和API）来实现复杂的应用逻辑，看下这个框架的构成：</strong></p><p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/640-20250106094935407" alt="图片"></p><p>有了基本概念，看下通过langchain的使用场景大概就好理解了，一些场景如下：</p><p>聊天机器人类：支持多轮上下文对话，利用langchain提供的记忆模块 </p><p>自动化工作流：如客户支持、内容生成等，基于chain的设计</p><p>搜索与问答总结类：结合文档检索和生成模型，实现更准确的问答，RAG的设计</p><p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/640-20250106094902717" alt="图片"></p><p>对于开发者来说，通过langchain来开发大模型应用，可以简化很多接口的封装，langchain已经提供很多抽象，同时在向量数据库、数据存储上都有比较好的接口了，其中RAG也在langchain里有对应的设计。</p><h2 id="RAG是什么"><a href="#RAG是什么" class="headerlink" title="RAG是什么?"></a>RAG是什么?</h2><p>RAG是 LangChain 支持的一种关键技术模式，上边介绍的在使用langchain时一种比较场景的场景，在做知识检索类回答类应用时候被大量使用。单独来说一下，就是RAG技术在目前大模型中还是使用比较多的场景，他可以基于本地数据、文档和大模型来结合使用。</p><p>先来看下RAG技术的定义和构成，RAG 是一种利用检索增强生成的技术框架。它将<strong>信息检索</strong>和生成模型（LLM）结合在一起，解决大模型在特定领域的回答和一些幻觉的解决，不同于模型的微调，让回答在垂直领域更专业。</p><p><strong>工作的基本流程：</strong></p><ol><li><ol><li>检索（Retrieval）：从外部知识库（如向量数据库、文档存储）中检索与问题相关的信息。通过向量化查询找到最相关的文档或片段。</li></ol></li><li><ol start="2"><li>增强（Augmented）：将检索到的信息作为上下文，提供给生成模型（如 GPT）进行辅助。</li></ol></li><li><ol start="3"><li>生成（Generation）：基于检索到的上下文和原始输入，生成更加准确和上下文相关的回答。</li></ol></li></ol><p>RAG的使用就是为了让大模型的回答更准确，更实时和专业，根据前面介绍的langchain和RAG的定义，通过一个举例来说明下使用。</p><h2 id="举个例子，说明怎么使用"><a href="#举个例子，说明怎么使用" class="headerlink" title="举个例子，说明怎么使用"></a>举个例子，说明怎么使用</h2><p>了解大模型开发的应该知道，无论是openai的API还是其他家的，都会有token的限制，这样我们在与大模型对话时候，就不能超过最大的token限制，如果一本书有几百页，我们如何能通过大模型快速找出这本书的某一处内容，还要自然回答，如果是直接搜素（比如使用es）那肯定比较生硬。</p><p>第一步:</p><p> LangChain 的向量存储功能，将文档文本加载并存储为向量。具体需要做的是对文档内容进行分隔，embedding后存入向量数据库，目的是能够通过向量找到对应相似度，为后续搜索做准备。（这些都可以LangChain提供的组件来实现）</p><p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/640-20250106094902759" alt="图片"></p><p>第二步：</p><p>这幅图来说明通过RAG的一个工作流程，通过查询向量数据库，从向量数据库中检索相关内容，将检索到的上下文和用户问题结合，给到了LLM，最终生成具体的答案。</p><p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/640-20250106095046024" alt="图片"></p><p>如果我们用代码来模拟下看，这个对技术人来说，更容易理解（<strong>非技术可以忽略）看下边的代码来说明langchain和RAG的使用。</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line">from langchain.vectorstores import Chroma</span><br><span class="line">from langchain.embeddings.openai import OpenAIEmbeddings</span><br><span class="line">from langchain.llms import OpenAI</span><br><span class="line">from langchain.chains import RetrievalQA</span><br><span class="line">from langchain.prompts import PromptTemplate</span><br><span class="line">from langchain.text_splitter import CharacterTextSplitter</span><br><span class="line">from langchain.document_loaders import TextLoader</span><br><span class="line"></span><br><span class="line"># 设置 API 密钥（需要替换为你的 OpenAI API 密钥）</span><br><span class="line">import os</span><br><span class="line">os.environ[&quot;OPENAI_API_KEY&quot;] = &quot;your-openai-api-key&quot;</span><br><span class="line"></span><br><span class="line"># 1. 准备文档内容</span><br><span class="line"># 假设我们有一个文本文件 data.txt，包含需要存储的知识</span><br><span class="line">loader = TextLoader(&quot;data.txt&quot;)</span><br><span class="line">documents = loader.load()</span><br><span class="line"></span><br><span class="line"># 将文档分割为更小的片段以适配向量化</span><br><span class="line">text_splitter = CharacterTextSplitter(chunk_size=500, chunk_overlap=50)</span><br><span class="line">split_docs = text_splitter.split_documents(documents)</span><br><span class="line"></span><br><span class="line"># 2. 创建向量数据库</span><br><span class="line">embeddings = OpenAIEmbeddings()</span><br><span class="line">vectorstore = Chroma.from_documents(split_docs, embeddings, persist_directory=&quot;./chroma_db&quot;)</span><br><span class="line"></span><br><span class="line"># 3. 初始化检索器和大模型</span><br><span class="line">retriever = vectorstore.as_retriever(search_kwargs=&#123;&quot;k&quot;: 3&#125;)  # 检索相关性最高的3个片段</span><br><span class="line">llm = OpenAI(model=&quot;gpt-4&quot;)</span><br><span class="line"></span><br><span class="line"># 4. 定义提示模板</span><br><span class="line">prompt_template = PromptTemplate(</span><br><span class="line">    input_variables=[&quot;context&quot;, &quot;question&quot;],</span><br><span class="line">    template=&quot;&quot;&quot;</span><br><span class="line">    You are an intelligent assistant. Based on the following context:</span><br><span class="line">    &#123;context&#125;</span><br><span class="line">    Please answer the question:</span><br><span class="line">    &#123;question&#125;</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"># 5. 构建 RAG 流程</span><br><span class="line">qa_chain = RetrievalQA.from_chain_type(</span><br><span class="line">    llm=llm,</span><br><span class="line">    retriever=retriever,</span><br><span class="line">    return_source_documents=True,</span><br><span class="line">    chain_type_kwargs=&#123;&quot;prompt&quot;: prompt_template&#125;</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"># 6. 查询</span><br><span class="line">query = &quot;What is the main benefit of using RAG with LLMs?&quot;</span><br><span class="line">result = qa_chain(&#123;&quot;query&quot;: query&#125;)</span><br><span class="line"></span><br><span class="line"># 输出结果</span><br><span class="line">print(&quot;Answer:&quot;)</span><br><span class="line">print(result[&quot;result&quot;])</span><br><span class="line"></span><br><span class="line"># 如果需要查看检索到的上下文</span><br><span class="line">print(&quot;\\nSource Documents:&quot;)</span><br><span class="line">for doc in result[&quot;source_documents&quot;]:</span><br><span class="line">    print(doc.page_content)</span><br></pre></td></tr></table></figure><p>以上介绍了用langchain来做大模型开发的使用，主要是理解langchain提供的一些抽象和功能，使用langchain能做的还有更多内容，后边在对langchain的使用做一些分享，今天文章是先有个概貌的理解。</p><p><strong>ps: 后边一些代码的讲解和一些AI电子版的书籍会在视频号上进行分享，公众号的内容还是以概念和漫谈形式来写，也适合碎片化阅读习惯。</strong></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;目前ChatGPT、AIGC各种应用如火如荼，技术人如何使用大模服务自己的业务，如何构建大模型应用？一文搞懂LangChain和RAG的原理和使用，文中附带相关代码可以更好的理解其中的定义。&lt;/p&gt;
+&lt;p&gt;我今天通过LangChain框架，一起看下如何简化大模型应用的开发，</summary>
+      
+    
+    
+    
+    <category term="AI" scheme="https://zhulg.github.io/categories/AI/"/>
+    
+    
+    <category term="AI" scheme="https://zhulg.github.io/tags/AI/"/>
+    
+    <category term="大模型" scheme="https://zhulg.github.io/tags/大模型/"/>
+    
+    <category term="LangChain" scheme="https://zhulg.github.io/tags/LangChain/"/>
+    
+    <category term="RAG" scheme="https://zhulg.github.io/tags/RAG/"/>
+    
+  </entry>
   
   <entry>
     <title>从0到1，如何快速上架一款chrome插件</title>
@@ -486,32 +517,6 @@
       
     <summary type="html">&lt;p&gt;这篇文章，或许会引起那些专门售卖AI课程者的不满。我要强调，这里说的是那些纯粹割韭菜的AI课，真正有深度和干货的课程自然另当别论。&lt;/p&gt;
 &lt;p&gt;作为技术人，你是否已经注意到这些现象？这些课程大多打着“大模型”的旗号，内容却五花八门，从AI写作、AI作图、AI编程到用AI快</summary>
-      
-    
-    
-    
-    <category term="技术成长" scheme="https://zhulg.github.io/categories/技术成长/"/>
-    
-    
-    <category term="技术成长" scheme="https://zhulg.github.io/tags/技术成长/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>尽早觉醒：找到自己一人能做的互联网生意</title>
-    <link href="https://zhulg.github.io/posts/d8de0f99.html"/>
-    <id>https://zhulg.github.io/posts/d8de0f99.html</id>
-    <published>2024-08-29T00:03:58.000Z</published>
-    <updated>2024-08-29T00:06:40.927Z</updated>
-    
-    <content type="html"><![CDATA[<p>没有经历过裁员的职场是不完美的。</p><p>无论何种原因经历次裁员，可能对心智都是一次提升，前面也写过技术人怎么利用空窗期的文章技术人的空窗期，你的涅槃重生。经历过裁员的时候难免感到复杂和沉重。离开的背后，不仅有情感的波动，还有对未来的深深焦虑。</p><p>当你被通知离职的那一刻，情绪复杂得难以描述。但是，当冷静下来，你会意识到，职场就是一个大染缸，个人的价值往往被淹没在复杂的分工和协作中，逐渐失去了话语权。</p><p>在这样的环境下，早日觉醒，找到自己一人能做的互联网生意比什么都重要，毕竟打工的风险也不小。</p><h2 id="互联网的机遇"><a href="#互联网的机遇" class="headerlink" title="互联网的机遇"></a>互联网的机遇</h2><p>我们生活在一个充满机会的时代，互联网为每个人提供了一个可以大展拳脚的舞台。无论你是程序员、设计师，还是其他领域的专业人士，只要你有点子、有执行力，就有可能通过互联网打造出属于自己的一片天地。</p><p>移动互联网时代许多人通过创业实现财务自由的，他们可能只是做了一个小小的网站，或开发了一款简洁但实用的应用，就这样一步步积累财富，最终实现了阶层跃迁。但这条路并非一帆风顺，成功的背后，是无数次的失败和坚持。互联网的世界瞬息万变，只有那些能够快速适应、不断学习的人，才能真正抓住机遇，脱颖而出。</p><p>为什么？</p><p>因为互联网的诱惑也是巨大的，你有没有注意到，我们身边包括自己，也常常陷入在社交媒体上，刷短视频、看无聊的资讯，时间一晃而过，什么也没得到？这些看似无害的娱乐，其实是在悄悄蚕食我们的注意力和斗志，让我们逐渐迷失方向。我们必须清醒，主动掌控自己的时间和精力，把注意力集中在能带来实际收益的事情上。</p><h2 id="从技术到产品到生意"><a href="#从技术到产品到生意" class="headerlink" title="从技术到产品到生意"></a>从技术到产品到生意</h2><p>作为一名技术人，我曾经也接外包项目，感觉这是技术变现最好的方式。</p><p>毕竟，看上去是最实际的。但事实证明，这条路并没有我想象的那么简单。接外包不仅需要你有深厚的技术功底，更需要你能跟客户进行有效的沟通，还要应对各种突发的需求变化，还有可能最后的薪资以各种理由拿不到，还有很多时候，甲方的要求难以预料，而内部的协作也不尽如人意，搞得人筋疲力尽。还有你帮朋友忙实现了些功能，但聊钱时候又碍于面子，自己也没分成。。</p><p>接外包这种方式虽然能赚点钱，但很难长久，也没有持续的积累，你也不知道你下个项目是什么行业，什么需求，来了就接，你技术也没有深度的。</p><p>相反，我发现，如果我们通过技术产品化，自己做点小生意，反而更容易在长久的时间里积累财富。</p><p>为什么这么说呢？因为通过技术产品化，你不仅可以积累知识，还能把知识转化为产品，形成自己的竞争优势。这种优势，一旦建立起来，就是别人难以轻易复制的壁垒。</p><p>比如，早些年在移动互联网早期非常火热，自己开发了一些APP的工具类应用，这些工具类应用比较有长尾收益，虽然当时看起来很小，但是一些广告收入，一些付费用户还是可以源源不断，也算是工资外的第一桶小金。做自己的一个产品，哪怕小只要持续打磨，在某一个垂直赛道做好，那么在国内这么大的用户基数下，也是可以分一杯羹的。特别是现在AI可以做到辅助你代码，那有些不熟悉的业务领域你也是可以进入的，一旦在这些垂直赛道和传统行业进行数字化、互联网化的同时，你一定可以找到自己的小生意。</p><p>写到这，可能会有人反驳，你说的一些产品市场上已经有很多了，自己再去做毫无意义。但我想告诉你的是，只有亲自去实践，你才能发现那些不为人知的细节，找到属于自己的市场空隙，比如，你做一款产品你就知道那个地区用户最多，那个时间段，什么年龄用户最活跃等等，实践中获得的经验，尝试做自己的生意，哪怕在小，也要尽早做起来（AI时代，利用工具自己完全可以是一个团队）因为这产品只属于你，变做边改。</p><h2 id="觉醒和行动"><a href="#觉醒和行动" class="headerlink" title="觉醒和行动"></a>觉醒和行动</h2><p>在这个充满机遇与挑战的互联网时代，早点醒悟，真的很重要。</p><p>不要总想着依赖团队或者等什么大平台来拯救你，机会是靠自己去找的。别盲目跟风去追那些看似宏大的项目，脚踏实地，先从一个小生意做起。通过不断学习和积累，你会发现，渐渐地，你就拥有了属于自己的核心竞争力。</p><p>行动起来，去找到那个你一个人也能干的互联网生意。</p><p>探索、尝试，不断提升自己。别怕一开始很烂，要边做边改，要有信心持续完善，毕竟这生意属于你自己，也可能带来长尾收益。最重要的是，从中你会有不一样的收获，这也许会成为你未来成功的基石。</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;没有经历过裁员的职场是不完美的。&lt;/p&gt;
-&lt;p&gt;无论何种原因经历次裁员，可能对心智都是一次提升，前面也写过技术人怎么利用空窗期的文章技术人的空窗期，你的涅槃重生。经历过裁员的时候难免感到复杂和沉重。离开的背后，不仅有情感的波动，还有对未来的深深焦虑。&lt;/p&gt;
-&lt;p&gt;当你被通</summary>
       
     
     
