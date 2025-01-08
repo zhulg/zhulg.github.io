@@ -122,8 +122,40 @@ deploy:
   name: zhulianggang
   email: gangjie365@163.com
 
+# Sitemap 配置优化
 sitemap:
   path: sitemap.xml
+  template: ./sitemap_template.xml
+  rel: false
+  tags: true
+  categories: true
+  exclude:
+    - "404.html"
+    - "404/index.html"
+    - "/404/"
+    - "/404.html"
+    - "404/**"
+    - "sitemap/index.html"
+    - "sitemap/**"
+    - "robots.txt"
+    - "ads.txt"
+    - "*.json"
+  changefreq:
+    home: daily
+    post: weekly
+    archives: weekly
+    categories: weekly
+    tags: weekly
+  priority:
+    home: 1.0
+    post: 0.8
+    archives: 0.6
+    categories: 0.6
+    tags: 0.6
+  lastmod: true
+  clean_url: true
+
+# 百度 Sitemap
 baidusitemap:
   path: baidusitemap.xml
 
