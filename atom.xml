@@ -6,7 +6,7 @@
   <link href="https://zhulg.github.io/atom.xml" rel="self"/>
   
   <link href="https://zhulg.github.io/"/>
-  <updated>2025-01-07T01:13:52.456Z</updated>
+  <updated>2025-01-10T15:07:41.915Z</updated>
   <id>https://zhulg.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>护眼助手成功上架！在线安装或找我要软件，免费提供</title>
+    <link href="https://zhulg.github.io/posts/b249306e.html"/>
+    <id>https://zhulg.github.io/posts/b249306e.html</id>
+    <published>2025-01-10T15:04:14.000Z</published>
+    <updated>2025-01-10T15:07:41.915Z</updated>
+    
+    <content type="html"><![CDATA[<p>前两天，写了文章<a href="https://mp.weixin.qq.com/s?__biz=MzIzNDA3MzA3MQ==&mid=2464356804&idx=1&sn=51685759801e850a525205172655f1ea&scene=21#wechat_redirect" target="_blank" rel="noopener">买了个护眼显示器后，却逼我写了一个护眼软件</a>，总结了下这个护眼插件当时为什么要做的初衷，今天看已经通过chrome应用商店的审核正式上架，终于可直接安装了。（中间开发账号付费5美元也是一波三折，还好都搞定）</p><p>刚上架看到有10个用户安装体验（无任何推广），也可能是新账号提交的软件，平台有推荐吧。</p><p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/640-20250110230540136" alt="图片"></p><p>如果大家有和我一样，平常看文档比较多，比如PDF文件、电子教程等通常这种情况下，刻板的阅读色可能一会眼睛就不舒服了，无论你买的是不是护眼屏幕，可能都有眼睛不舒服情况，无法找到一种护眼色来让眼睛舒服些。</p><p>比如这个场景，没有使用前：</p><p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/640-20250110230540610" alt="图片"></p><p>打开护眼模式后：</p><p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/640-20250110230540887" alt="图片"></p><p>因为这个软件开发的背景就是我这个护眼屏无法让我眼睛舒服的阅读下开发的。</p><p>看视频的时候也可以很好支持，特意查了下通过颜色和滤镜是真的可以降低眼疲劳的程度的。</p><p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/640-20250110230604325" alt="图片"></p><p>另外场景，比如晚上你在加班，家人在休息完全可以自定义，把强光过滤，亲身体验过还是不错的。</p><p>另外这个软件也有为防止长时间对着电脑的人设计的提醒功能，可以设置间隔、倒计时方式。这个对打工人太友好了，为了自己健康有必要设置个间隔提醒，过段时间来个提醒也不错。</p><h2 id="安装问题"><a href="#安装问题" class="headerlink" title="安装问题"></a>安装问题</h2><p>目前软件已经上架，可以直接到chrome商店搜索 <strong>EyeCare Assistant</strong> ，找到该插件直接点击安装即可。</p><p><strong>安装地址：</strong></p><p><a href="https://chromewebstore.google.com/detail/eyecare-assistant/ofaccdedcjcdbkjgjepbnacoekoeoepf" target="_blank" rel="noopener">https://chromewebstore.google.com/detail/eyecare-assistant/ofaccdedcjcdbkjgjepbnacoekoeoepf</a></p><p><strong>如果无法科学上网，没发访问这个地址的怎么办？</strong></p><p><strong>可以关注私信我下或者关注回复护眼助手，免费获取该软件哈。</strong></p><p>安装的时候如果有出现这个提示，不用慌，这个是平台的安全提示，跟软件无关。</p><p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/640-20250110230702777" alt="图片"></p><p>出现这个情况的主要原因官方也做解释如下图（<strong>软件的开发都已经遵循了开发者要求，可放心安装</strong>）</p><p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/640-20250110230541662" alt="图片"></p><p>如果通过在线安装的，发现在看电子书，用浏览器打开本地PDF时发现护眼模式无法在本地PDF生效，可以等新版本更新即可。</p><p>这个问题也是我刚发现的，在开发模式下对本地打开的文件是可以通过file://协议支持的，而在应用商店安装后，由于安全问题，需要在软件里添加支持的权限才能支持本地打开的，也可以直接找我要更新包即可。</p><h3 id="体验反馈"><a href="#体验反馈" class="headerlink" title="体验反馈"></a>体验反馈</h3><p>如果和我也一样长时间电脑工作者，即便买了护眼显示器，还是觉得屏幕不舒服的可以安装体验下，相信你会用上，特别是在看文档、看视频、阅读的时候，软件做的比较赶，2天左右时间，但满足目前需求使用了。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;前两天，写了文章&lt;a href=&quot;https://mp.weixin.qq.com/s?__biz=MzIzNDA3MzA3MQ==&amp;mid=2464356804&amp;idx=1&amp;sn=51685759801e850a525205172655f1ea&amp;scene=21#wech</summary>
+      
+    
+    
+    
+    <category term="前端" scheme="https://zhulg.github.io/categories/前端/"/>
+    
+    
+    <category term="chrome" scheme="https://zhulg.github.io/tags/chrome/"/>
+    
+    <category term="插件开发" scheme="https://zhulg.github.io/tags/插件开发/"/>
+    
+  </entry>
   
   <entry>
     <title>买了个护眼显示器后，却逼我写了一个护眼软件</title>
@@ -502,31 +528,6 @@
     
     
     <category term="Rust" scheme="https://zhulg.github.io/tags/Rust/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>用2个重要途径，打造自己技术影响力</title>
-    <link href="https://zhulg.github.io/posts/c0234e14.html"/>
-    <id>https://zhulg.github.io/posts/c0234e14.html</id>
-    <published>2024-09-06T08:32:19.000Z</published>
-    <updated>2024-09-06T08:34:25.312Z</updated>
-    
-    <content type="html"><![CDATA[<p>对于绝大多数技术人来说，往往会忽略自己在行业里的影响力，更多是埋头在自己所在的技术领域里，专注于解决具体问题、提升技术能力。</p><p>然而，在现在高速发展且高度内卷的时代下，单纯拥有技术实力可能并不足以让你脱颖而出，亦或许在短期内有不错的成就，但如果没有影响力支持，这些成绩也可能难以转化为持续的发展优势。</p><p>影响力对技术人来说，实际上是一种无形的资产。它不仅能为你带来更多的机会，还能激励你不断学习和提升自己。</p><h2 id="技术影响力"><a href="#技术影响力" class="headerlink" title="技术影响力"></a>技术影响力</h2><p>技术影响力都有哪些 ，本质是什么。 </p><p>技术影响力可以是行业内的关注度，能否被行业里大家所熟知，技术相关点能否被大家认同，技术方案能否被大家认同等。其本质是技术影响力能否被影响他人决策和思考的能力（当然是最佳实践方面相关）</p><p>例如，通过对某一技术的深入理解和讲解，你可以在技术圈内扩大自己的影响力。这种影响力不仅可以在团队或公司内部建立权威和信任，还能在更广泛的社区中得到认可，进而形成对你个人品牌的强大支持。</p><h2 id="如何打造影响力"><a href="#如何打造影响力" class="headerlink" title="如何打造影响力"></a>如何打造影响力</h2><p>持续输出和分享有价值的内容，技术使用，问题分析和定位、架构设计和思考。</p><p>尝试下写作和演讲。</p><p>写作的锻炼可以从技术文档的翻译，技术方案的整理，能否被别人轻易理解和认同代表着自己写作表达和总结能力的提升，持续写作和输出。而当你逐渐掌握了写作的技巧，原创内容的输出将成为你个人品牌的一部分 。有时你会的技术和你涉及的技术方案，不一定能用文字很好的写的出来，写的出来不一定能让其他人看的懂知道你在说什么。不信的话，你可以尝试来写下，一个好的技术文档输出也绝对需要多次的打磨的。</p><p>我们写作时用心投入，结合例子让别人能快速理解，是自己的原创，不要一顿操作和转载，自己也没有消化。要对内容负责，坚持这样的写作态度才能吸引并引起读者的共鸣。还有个技巧，当写作的时候看看能否用一句最少得字数，清晰的表达出对应的技术方案，这些锻炼都有助于对文字总结概括能力的培养，我们称之为”能写“。写作的平台上可以自己建立博客，公众号、视频媒体等，看自己喜欢那种。也不要把时间对花在了影响力打造上，这样你技术钻研的时间也会很少，会变成技术人眼中的”很能说“，要追寻技术和影响力的平衡点。</p><p>技术人演讲，不仅能把自己技能分享输出扩大自己影响力，演讲的准备工作也是对自己知识点提升的重要手段，绝对是一举得到的收益。演讲不仅需要对掌握的知识的概括和总结，还需要有良好的表达能力。要成为一名优秀的技术演讲者，关键在于反复练习和精心准备，那种表达是别人容易听懂的，哪些是不需要反复啰嗦，需要精简的，如何在有效限的时间内，提炼出最核心的内容，并用简洁有力的语言表达出来。也可以多听下别人的演讲，比如TED上技术人演讲，学习他们的表达方式和逻辑结构，从魔法加自己的练习，敢于在公众面前发表自己的技术观点，可以在小组内进行技术分享，公司呢，外部社区，慢慢就会提高自己的技术演讲能力了。另外，每次在演讲后自己可以从侧面关注下听众的反馈，复盘自己的演讲，哪些点讲的不好，哪些地方需要观众互动，那个例子举的还不够贴近等等，复盘是为了下次更好。</p><h2 id="长期主义"><a href="#长期主义" class="headerlink" title="长期主义"></a>长期主义</h2><p>打造自己的技术力一定是从小范围开始并努力扩大，同时也是一件需要技术人坚持的长期主义。</p><p>有时我们被工作压的没有时间进行自我总结和分享，就更别谈尝试做技术影响力的事情了，能把当天工作做完就不错了。但作为技术人我们需要把抽时间来把自己影响力，自己的技术品牌持续维护起来，这样才能让让自己进入良性循环，毕竟除了上班打工也要把自己技能让等多人知道，为后续自己副业和人脉做准备。</p><p>影响力的积累是一个长期的过程，需要耐心和毅力，无论是进行写作还是一些演讲或者公开教程，都需要一点点积累，持续分享和帮助更多的人，把这件事作为长期主义来坚持。即使短期内效果不显著，也不要放弃。坚持做正确的事情，将影响力转化为职业生涯的强大助力，也是每个技术人应当追求的目标。</p><h2 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h2><p>影响力的建立是技术人职业发展的关键环节，它不仅反映了个人的价值，也总结和传递了自己的知识和经验，同时也是技术宣传的重要手段。每一次用心的输出和分享，都是在帮助更多的人。</p><p>真正的影响力，也不在于一朝一夕，而在于我们在不断成长中，始终如一的付出与坚持。</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;对于绝大多数技术人来说，往往会忽略自己在行业里的影响力，更多是埋头在自己所在的技术领域里，专注于解决具体问题、提升技术能力。&lt;/p&gt;
-&lt;p&gt;然而，在现在高速发展且高度内卷的时代下，单纯拥有技术实力可能并不足以让你脱颖而出，亦或许在短期内有不错的成就，但如果没有影响力支持，这</summary>
-      
-    
-    
-    
-    <category term="技术成长" scheme="https://zhulg.github.io/categories/技术成长/"/>
-    
-    
-    <category term="技术成长" scheme="https://zhulg.github.io/tags/技术成长/"/>
     
   </entry>
   
