@@ -19,7 +19,7 @@ Google这两天刚推出了Gemini CLI，它是一个基于 Gemini 模型构建�
 
 ![图片](https://raw.githubusercontent.com/zhulg/allpic/master/640-20250719132458282)
 
-*不自恋了，今天看看现在Google现在推出的 gemini CLI 效果到底如何。
+不自恋了，今天看看现在Google现在推出的 gemini CLI 效果到底如何。
 
 
 
