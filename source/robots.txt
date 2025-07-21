@@ -13,7 +13,7 @@ Disallow: /fancybox/
 
 # 添加两个 sitemap
 Sitemap: https://zhulg.github.io/sitemap.xml
-Sitemap: https://zhulg.github.io/baidusitemap.xml
+Sitemap: https://zhulg.github.io/temap.xml
 
 # 添加抓取延迟建议
 Crawl-delay: 10
