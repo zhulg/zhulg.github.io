@@ -466,6 +466,18 @@ s.parentNode.insertBefore(el, s);
 <h3 id="4-Java代码方式创建索引"><a href="#4-Java代码方式创建索引" class="headerlink" title="4,Java代码方式创建索引"></a>4,Java代码方式创建索引</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">//1,索引创建</span><br><span class="line">elasticSearch.getClient().admin().indices().prepareCreate(indices).execute().actionGet();</span><br><span class="line">//2,Mapping 构建</span><br><span class="line">XContentBuilder builder = XContentFactory.jsonBuilder().startObject().startObject(mappingType).startObject(&quot;properties&quot;)......endObject().endObject().endObject();</span><br><span class="line">//3,创建使用mapping(mapping  在 Elasticsearch  中的作用就是约束。)</span><br><span class="line">//mapping用于数据类型声明, Mapping它定义了 Type 的属性，指定分词器。如：</span><br><span class="line">//&quot;id&quot;: &#123;</span><br><span class="line">    &quot;index&quot;: &quot;not_analyzed&quot;,</span><br><span class="line">    &quot;type&quot;: &quot;string&quot;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">PutMappingRequest mapping = Requests.putMappingRequest(indices)</span><br><span class="line">					.type(mappingType).source(builder);</span><br><span class="line">elasticSearch.getClient().admin().indices().putMapping(mapping).actionGet(); </span><br><span class="line">//4,批量放入索引数据（一般循环里使用bulkRequest.add）</span><br><span class="line">BulkRequestBuilder bulkRequest = client.prepareBulk();  </span><br><span class="line">            Map&lt;String, Object&gt; map = new HashMap&lt;&gt;();  </span><br><span class="line">            map.put(&quot;name&quot;, &quot;Jack&quot;);  </span><br><span class="line">  IndexRequest request = client.prepareIndex(&quot;dept&quot;, &quot;employee&quot;,&quot;3433&quot;).setSource(map).request();  </span><br><span class="line">            bulkRequest.add(request);</span><br></pre></td></tr></table></figure>
       
     </div>
+
+    <!-- bottom -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-7730278451516700"
+         data-ad-slot="4988060849"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+
     <div class="article-footer">
       <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7730278451516700"
      crossorigin="anonymous"></script>

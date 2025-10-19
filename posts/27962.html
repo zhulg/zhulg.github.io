@@ -457,6 +457,18 @@ s.parentNode.insertBefore(el, s);
 <h4 id="实例化链码和查询"><a href="#实例化链码和查询" class="headerlink" title="实例化链码和查询"></a>实例化链码和查询</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">docker exec -it cli bash</span><br><span class="line">peer chaincode install -n mycc -v 0 -p  chaincodedev/chaincode/chaincode_example02</span><br><span class="line">peer chaincode instantiate -n mycc -v 0 -c &apos;&#123;&quot;Args&quot;:[&quot;init&quot;,&quot;a&quot;,&quot;100&quot;,&quot;b&quot;,&quot;200&quot;]&#125;&apos; -o orderer:7050 -C myc</span><br><span class="line">peer chaincode invoke -n mycc -c &apos;&#123;&quot;Args&quot;:[&quot;invoke&quot;,&quot;a&quot;,&quot;b&quot;,&quot;10&quot;]&#125;&apos; -o orderer:7050 -C myc</span><br><span class="line">peer chaincode query -n mycc -c &apos;&#123;&quot;Args&quot;:[&quot;query&quot;,&quot;a&quot;]&#125;&apos; -o orderer -C myc</span><br></pre></td></tr></table></figure>
       
     </div>
+
+    <!-- bottom -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-7730278451516700"
+         data-ad-slot="4988060849"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+
     <div class="article-footer">
       <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7730278451516700"
      crossorigin="anonymous"></script>
