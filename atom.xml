@@ -1,0 +1,551 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>良技漫谈 | 技术干货分享</title>
+  
+  <subtitle>专注全栈开发与技术成长</subtitle>
+  <link href="https://zhulg.github.io/atom.xml" rel="self"/>
+  
+  <link href="https://zhulg.github.io/"/>
+  <updated>2025-10-28T14:19:31.419Z</updated>
+  <id>https://zhulg.github.io/</id>
+  
+  <author>
+    <name>zhulg</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>可以展示照片的浏览器tab页插件:《NewTab时光》发布</title>
+    <link href="https://zhulg.github.io/posts/40058c60.html"/>
+    <id>https://zhulg.github.io/posts/40058c60.html</id>
+    <published>2025-10-18T04:16:16.000Z</published>
+    <updated>2025-10-28T14:19:31.419Z</updated>
+    
+    <content type="html"><![CDATA[<meta property="og:title" content="NewTab 时光 - 让家人照片安全出现在你的新标签页"><meta property="og:description" content="由个人开发者打造的 Chrome 插件，本地轮播家人或旅行照片，不上传云端，守护你的温柔时光。"><h2 id="起因：那些照片背后的温度"><a href="#起因：那些照片背后的温度" class="headerlink" title="起因：那些照片背后的温度"></a>起因：那些照片背后的温度</h2><p>每天我们都在电脑前工作、学习，屏幕上堆满了窗口、任务、文件。<br>可偶尔，当我看到一张家人的合照、一次旅行的瞬间，或者那只睡在沙发上的猫，<br>我会突然想起生活里那些被遗忘的温柔。</p><p>于是我就想：<br><strong>能不能让每次打开浏览器新标签页，都能看到这些瞬间？</strong><br>既治愈，又私密。<br>不依赖网络，不用上传到任何地方。</p><p>这就是我开始开发 <strong>NewTab 时光</strong> 的原因。</p><h2 id="开发初衷：安全地“重温”生活"><a href="#开发初衷：安全地“重温”生活" class="headerlink" title="开发初衷：安全地“重温”生活"></a>开发初衷：安全地“重温”生活</h2><p>很多壁纸或新标签页插件虽然好看，但都依赖云端加载，甚至要求登录。<br>我不想让私人照片离开自己的电脑。<br>我希望有一个属于每个人自己的小角落，只展示属于“我”的回忆。</p><p>所以我决定开发一个<strong>完全本地运行</strong>的新标签页插件。<br>在 <strong>NewTab 时光</strong> 里，<br>你只需选择一个照片文件夹，它就能自动在本地轮播这些照片，<br>无上传、无采集，纯粹、安心。</p><h2 id="功能亮点：简洁而温暖"><a href="#功能亮点：简洁而温暖" class="headerlink" title="功能亮点：简洁而温暖"></a>功能亮点：简洁而温暖</h2><ul><li>🌅 <strong>本地加载，更安心</strong>：图片不上传云端，100%保护隐私。  </li><li>🖼️ <strong>多图轮播切换</strong>：自动播放你最爱的照片，让浏览器也有温度。  </li><li>✨ <strong>极简界面</strong>：干净自然，不干扰日常浏览。  </li><li>🎞️ <strong>柔和动画过渡</strong>：切换时流畅自然，轻盈不突兀。  </li><li>⚙️ <strong>轻量设计</strong>：占用资源极少，启动即展示。</li></ul><p><img src="https://raw.githubusercontent.com/zhulg/allpic/refs/heads/master/newtab.png" alt="NewTab 时光 本地照片轮播插件"></p><h2 id="使用场景：工作与生活的治愈间隙"><a href="#使用场景：工作与生活的治愈间隙" class="headerlink" title="使用场景：工作与生活的治愈间隙"></a>使用场景：工作与生活的治愈间隙</h2><p>在忙碌的一天里，当我在写代码或查资料时，<br>打开新标签页看到家人的笑容、旅途的风景，<br>那种片刻的治愈就像生活轻轻地对你说：“放松一下。”</p><p>也有朋友告诉我，他们用它展示孩子成长的照片、<br>用它回忆旅行、甚至用它做“心愿相册”。<br>每一次打开浏览器，都是一次和记忆的相遇。</p><h2 id="安装体验"><a href="#安装体验" class="headerlink" title="安装体验"></a>安装体验</h2><p>你可以直接在 Chrome 应用商店安装：<br>👉 <a href="https://chromewebstore.google.com/detail/newtab%E6%97%B6%E5%85%89/kbdigfmfkgkdochfbacffcdoioofaeca" target="_blank" rel="noopener">NewTab 时光 - Chrome Web Store</a></p><p>点击安装后，只需选择你的照片文件夹上传喜欢的找，即可体验属于你的“浏览器时光”。<br><strong>如果无法安装可以找我要软件包，通过关注公众号联系我。</strong></p><h2 id="为什么我做这个插件"><a href="#为什么我做这个插件" class="headerlink" title="为什么我做这个插件"></a>为什么我做这个插件</h2><p>我一直相信，技术不仅仅是冷冰冰的工具，它也可以承载温度，让我们与生活的关系变得美好！</p><p><strong>NewTab 时光</strong> 对我来说，不只是一个插件，更像是一种“数字温情”的表达。<br>在AI、效率、自动化的浪潮里，<br>它提醒我别忘了生活的光——<br>那些属于家的、笑容的、平凡的片刻。</p><h3 id="生活，也该有柔光"><a href="#生活，也该有柔光" class="headerlink" title="生活，也该有柔光"></a>生活，也该有柔光</h3><p>有时候，我们需要的不只是效率，还有一点温柔。<br>希望这款小插件，也能在你的日常里，带来片刻的宁静与微笑！<br>在你被工作中疲惫不堪时，可以从这些照片中获得温柔的力量！</p>]]></content>
+    
+    
+    <summary type="html">NewTab 时光是一款由个人开发者打造的 Chrome 新标签页插件，可以在本地安全地轮播家人或旅行照片，不上传云端，守护你的温柔时光。</summary>
+    
+    
+    
+    <category term="产品工具" scheme="https://zhulg.github.io/categories/产品工具/"/>
+    
+    
+    <category term="Chrome插件" scheme="https://zhulg.github.io/tags/Chrome插件/"/>
+    
+    <category term="浏览器壁纸" scheme="https://zhulg.github.io/tags/浏览器壁纸/"/>
+    
+    <category term="隐私保护" scheme="https://zhulg.github.io/tags/隐私保护/"/>
+    
+    <category term="New Tab" scheme="https://zhulg.github.io/tags/New-Tab/"/>
+    
+    <category term="家人照片" scheme="https://zhulg.github.io/tags/家人照片/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Vibe Coding普通人也可以学的编程技能</title>
+    <link href="https://zhulg.github.io/posts/4a3d5e89.html"/>
+    <id>https://zhulg.github.io/posts/4a3d5e89.html</id>
+    <published>2025-10-18T03:48:36.000Z</published>
+    <updated>2025-11-03T15:15:52.019Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Vibe-Coding：用自然语言创造软件的新方式"><a href="#Vibe-Coding：用自然语言创造软件的新方式" class="headerlink" title="Vibe Coding：用自然语言创造软件的新方式"></a>Vibe Coding：用自然语言创造软件的新方式</h2><p>自从 2023 年 AI 技术爆发以来，“AI 编程” 已经从实验室话题，变成了很多人日常使用的能力。</p><p>过去，写代码是程序员的专属领域，门槛高、技术性强。但今天，AI 工具让普通人也能快速构建出能运行的产品。</p><p>有个朋友最近在做产品原型验证，他把收集到的数据丢给 AI，仅用简单的对话方式，AI 就帮他自动生成了表格和可运行的脚本。<br>他惊叹地说：“我只是描述了需求，结果 AI 就把数据和 demo 都整好了——这还要什么程序员？”</p><p>这正是如今兴起的概念——<strong>Vibe Coding</strong>。</p><h3 id="一、什么是-Vibe-Coding？"><a href="#一、什么是-Vibe-Coding？" class="headerlink" title="一、什么是 Vibe Coding？"></a>一、什么是 Vibe Coding？</h3><p>简单来说，Vibe Coding 是一种 <strong>用自然语言与 AI 协作开发的方式</strong>。<br>你不需要掌握复杂的语法，也不用规划系统架构，只要清楚地描述需求，AI 就能帮你完成从代码到产品的转化。</p><p>它不是追求代码的优雅或架构的精致，而是追求 “<strong>快速把想法变成可用的结果</strong>”。<br>这对普通人来说，是第一次能“用说的方式写代码”。</p><hr><h3 id="二、为什么现在必须开始学习-Vibe-Coding？"><a href="#二、为什么现在必须开始学习-Vibe-Coding？" class="headerlink" title="二、为什么现在必须开始学习 Vibe Coding？"></a>二、为什么现在必须开始学习 Vibe Coding？</h3><p>观察身边的人就能发现变化：<br>写作、资料查找、甚至创意生成，大家都不再依赖搜索引擎，而是直接和 AI 对话。</p><p>在各行各业，这种趋势更明显。<br>比如自媒体创作者，他们用 AI 自动转录音频、提炼金句、生成脚本；<br>设计师只需一句话就能让图片自动修复；<br>数据分析师用自然语言让 AI 生成表格模板。</p><p>而这些操作，本质上都属于 Vibe Coding 的实践——<strong>用对话的方式完成原本需要写代码的事</strong>。</p><p>如果你还没开始，这意味着你正在错过一个生产力迁移的窗口期。<br>今天会“调度 AI”的人拥有优势，明天这可能就成了每个人的标配能力。</p><h3 id="三、Vibe-Coding-的核心：清晰描述需求"><a href="#三、Vibe-Coding-的核心：清晰描述需求" class="headerlink" title="三、Vibe Coding 的核心：清晰描述需求"></a>三、Vibe Coding 的核心：清晰描述需求</h3><p>很多人抱怨 “AI 不好用”“生成的结果不准”，其实问题往往出在<strong>描述不清</strong>。</p><p>AI 的理解来自语义，而非逻辑。<br>因此，想让它理解你，你必须学会把模糊的想法变成清晰的任务：</p><ul><li>输入是什么？  </li><li>输出是什么样？  </li><li>成功的标准是什么？  </li><li>有哪些不要出现的内容？</li></ul><p>这些都属于 Vibe Coding 的基本功。描述得越清楚，AI 执行得越准确。</p><h3 id="四、普通人如何开始-Vibe-Coding？"><a href="#四、普通人如何开始-Vibe-Coding？" class="headerlink" title="四、普通人如何开始 Vibe Coding？"></a>四、普通人如何开始 Vibe Coding？</h3><p>Vibe Coding 并不是程序员的专属技能。它更像是一种“<strong>把需求说清楚，让AI帮你实现</strong>”的能力。</p><p>以下是几个简单的练习方向：</p><h4 id="1-从生活出发"><a href="#1-从生活出发" class="headerlink" title="1. 从生活出发"></a>1. 从生活出发</h4><p>想分类硬盘照片？让 AI 帮你写脚本按日期或人物自动整理。<br>想汇总账单？用 Vibe Coding 生成能读取文件并统计数据的脚本。</p><h4 id="2-从工作出发"><a href="#2-从工作出发" class="headerlink" title="2. 从工作出发"></a>2. 从工作出发</h4><p>自动化重复操作，如导表、清洗数据、生成报告。<br>让 AI 生成专属的小工具，提高效率。</p><h4 id="3-积累工具库"><a href="#3-积累工具库" class="headerlink" title="3. 积累工具库"></a>3. 积累工具库</h4><p>每解决一个问题，把提示词、代码、踩过的坑都记录下来，<br>慢慢形成自己的“AI 工具库”或“Vibe 模板库”。<br>这些是属于你个人的生产力资产。</p><h3 id="五、遇到问题怎么办？"><a href="#五、遇到问题怎么办？" class="headerlink" title="五、遇到问题怎么办？"></a>五、遇到问题怎么办？</h3><p>AI 并非完美的程序员。你可能会遇到报错或逻辑不符的问题。<br>解决方法是 <strong>把错误、目标、尝试过程一起交给 AI</strong>，<br>让它重新分析你的需求。</p><p>如果仍然无解，那就拆解任务：<br>不要让它一次写完整功能，而是让它先写“读取文件”的部分，再写“分类逻辑”，<br>逐步组合成最终版本。</p><p>这其实就是 Vibe Coding 的精髓——<strong>分步构建、逐步协作</strong>。</p><h3 id="六、写在最后"><a href="#六、写在最后" class="headerlink" title="六、写在最后"></a>六、写在最后</h3><p>Vibe Coding 并不是取代程序员的魔法，而是一种新的编程思维。<br>它让编程门槛大幅降低，让更多人能直接把想法变成现实。</p><p>无论你是否懂代码，都可以从日常问题入手，通过与 AI 的协作，打造属于自己的工具。<br>越早开始，你就越早积累属于自己的模板、脚本和经验。</p><p>而对于技术人来说，Vibe Coding 更像是一次效率革命——<br>你能更快验证想法，更快产出结果，更快进入创造的状态。</p><p>未来，人与 AI 协作的方式会越来越自然。<br>当你习惯了 Vibe Coding，你会发现：<br>只用几句自然语言，也能让 AI 成为你的得力伙伴。</p>]]></content>
+    
+    
+    <summary type="html">Vibe Coding 是一种用自然语言与 AI 协作开发的方式，让每个人都能快速把想法变成产品。本文讲解为什么现在必须学习 Vibe Coding，以及如何从零开始实践。</summary>
+    
+    
+    
+    <category term="AI" scheme="https://zhulg.github.io/categories/AI/"/>
+    
+    
+    <category term="AI编程" scheme="https://zhulg.github.io/tags/AI编程/"/>
+    
+    <category term="Vibe Coding" scheme="https://zhulg.github.io/tags/Vibe-Coding/"/>
+    
+    <category term="自然语言编程" scheme="https://zhulg.github.io/tags/自然语言编程/"/>
+    
+    <category term="自动化" scheme="https://zhulg.github.io/tags/自动化/"/>
+    
+    <category term="Prompt工程" scheme="https://zhulg.github.io/tags/Prompt工程/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>2025年，普通人如何在1个月内熟练使用AI</title>
+    <link href="https://zhulg.github.io/posts/4b7fcf21.html"/>
+    <id>https://zhulg.github.io/posts/4b7fcf21.html</id>
+    <published>2025-07-21T15:52:56.000Z</published>
+    <updated>2025-10-28T14:19:31.307Z</updated>
+    
+    <content type="html"><![CDATA[<p>2025年一定是AI领域齐头并进之年，AI基础大模型的突破不再是几个月的周期，已经到了按月周刷新速度。</p><p>从春节期间DeepSeek的爆火可以看出，国内大模型的技术也迅速实现了弯道超车，从技术创新另开辟新道，突破技术封锁。一举成名的同时，给ChatGPT也带来了不少压力,这场AI大战，谁主沉浮？</p><p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/640-20250721235633508" alt="图片"></p><p>你刚唱罢我登场的感觉，现在ChatGPT-5也会马上发布，DeepSeek也迎头赶上，Qwen也在憋大招。技术的迭代和推理能力的提升，带来了前所未有的应用创新，AI的落地速度远超我们的想象。</p><p>2025刚刚开始，AI的创新发展已经让普通人应接不暇，如果对AI的学习的话，不知道有没有这种感觉。<strong>AI学不完，根本学不完，今天学的技能，明天很可能就被新的AI能力所替代。</strong></p><p>AI的应用场景也正在悄然渗透到各行各业，并逐步改变我们的生活和工作方式。尽管看起来还没超级应用出现，但我觉得，这样的应用会在不久的将来遍布各行各业。它们将充分发挥大模型的优势，在各个垂直领域做到极致，而我们每个人，都有机会成为这一革命的参与者。</p><p>对于普通人，如何在1个月内熟练使用AI？</p><p>想分享下自己的一些看法，经过最近的AI研究学习，<strong>AI发展很快，想在一个月内掌握AI，普通人不可能在各个领域的运用都能掌握，要选择自己业务方向来结合AI。</strong>（今天分享主要针对普通人使用AI，非IT技术人）</p><h3 id="基础原理和概念"><a href="#基础原理和概念" class="headerlink" title="基础原理和概念"></a>基础原理和概念</h3><p>我们想学习和使用好AI，就需要先进行对他的原理和概念要有所了解，可以花一周左右时间来研究。</p><p>知道AI的一些关键名词概念，知道大语言模型、多模态、数据、算力、算法、预训练等，了解来龙去脉当做历史来知道，可能不需要太过技术性深入，但要知道目前的AI是怎么训练出如此智能的，围绕AI的这些概念是指的什么、他的智能是怎么经过大量知识收集学习和训练而来，有些不智能的地方你要知道为什么有幻觉情况</p><p>这样有了原理性认识，无论AI再怎么发展，你也知道他原理，对他的理解和使用也能足够认知，知道他强大的地方，也知道他目前的能力缺陷。</p><h3 id="AI使用场景和选择"><a href="#AI使用场景和选择" class="headerlink" title="AI使用场景和选择"></a>AI使用场景和选择</h3><p>普通人对AI的使用要选择直接感兴趣和自己所在行业的业务有充分结合的地方。先举个例子，如果你是一个设计师主要做一些图形的设计，那你用AI的地方，可能就是如何通过AI来帮你做一些设计灵感，绘图帮助，以及哪些在你们专业里特定的协作工作来让AI。</p><p><em>AI可以在各个领域发挥能力，但也一定是所在这个行业的人更具备充分挖掘和使用他的能力，否则你连行业名词都无法描述，AI也就给不出更专业的协助。</em></p><p>目前AI的场景很多，比如文案类工作、媒体类工作、图形类工作、编程类工作这里会有很多的垂直赛道。拿文案类来说，他会涉及到教学教案，工作计划，活动方案、自媒体文章，行政通知类等等，这些场景的选择每一个行业都有一些差异。比如你做营销类文案，就要考虑行业信息，读者受众，语言风格等因素，要把这些知识给到AI，当把给你生成相关文案时，你需要引导和修改一起完善，把他当做你的助手，发挥他的能力，这样用AI才是最有效的。</p><p>这个场景的选择和使用可能需要磨合个1-2周的时间，当你想要通过AI获得有效的帮助时，要学会提示词技巧，并进行使用的总结，什么样的描述和专业prompt能获得最专业的指导，可以每天进行使用验证。</p><h3 id="瞄准一个AI赛道深入学习"><a href="#瞄准一个AI赛道深入学习" class="headerlink" title="瞄准一个AI赛道深入学习"></a><strong>瞄准一个AI赛道深入学习</strong></h3><p>AI学习的选择不要过多涉足赛道，尝试后瞄准一个AI赛道，你可以选择文案、也可以选择AI绘画、可以选择视频制作、也可以选择AI编程赛道，如果你有音乐感兴趣可以选择音乐结合AI。</p><p><em>切记，不要觉得AI绘画好看，就扑到绘画来玩，视频好玩就扑到AI视频上，要选择自己喜欢赛道深入学习，如何制作出更高级的一般人做不出来的，才是AI结合兴趣使用之路，否则简单的描述，只能产生一些玩一玩的作品，当AI新的应用出来后，这些技能可能一文不值。</em></p><p>深入学习要对这个赛道内的动态和使用方式充分了解，最重要的是实践，能直接为你产生收益或者提效的，如果对做互联网产品感兴趣，可以学习AI编程，这样进入这个领域就不要看其他AI赛道，但要关注AI基础模型的发展。</p><p>现在应用层的AI工具也比较多了，而且也比较好上手，花上一周时间完全可以入门，剩下就是在使用的过程中进行熟练挖掘，现在无论是ChatGPT还是DeepSeek都是你很好的学习助手，你不知道的一些AI工具也完全可以通过他来获得。</p><p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/640-20250721235634340" alt="图片"></p><p>比如我问他我想学AI绘画，你可以通过问他来获得相关应用推荐。一定是根据自己的行业来选择学习，瞄准赛道。</p><h3 id="不被夸大的AI能力误导"><a href="#不被夸大的AI能力误导" class="headerlink" title="不被夸大的AI能力误导"></a><strong>不被夸大的AI能力误导</strong></h3><p>虽然AI的能力在快速进化，但我们也要清醒地认识到，目前确实存在一些泡沫，无论是资本的助推，还是媒体的过度宣传，都会让人误以为AI的能力无所不能。然而，AI的实际应用能力确实正在稳步提升，且不断创新。</p><p>对于普通人来说，学会AI的关键，是找到与自己业务最紧密结合的方向，发挥AI在自己擅长领域的最大效能。AI的提效功能已经在各行各业落地，并且在短短一个月内，你完全有可能通过深入学习，找到自己与AI结合的独特路径。</p><p>重要的是，不要被夸大的信息所干扰，频繁切换赛道。你对自己的行业已经有了深刻的理解和经验，借助AI，你能够在现有基础上再次提升自己的竞争力和创造力。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;2025年一定是AI领域齐头并进之年，AI基础大模型的突破不再是几个月的周期，已经到了按月周刷新速度。&lt;/p&gt;
+&lt;p&gt;从春节期间DeepSeek的爆火可以看出，国内大模型的技术也迅速实现了弯道超车，从技术创新另开辟新道，突破技术封锁。一举成名的同时，给ChatGPT也带来了</summary>
+      
+    
+    
+    
+    <category term="AI" scheme="https://zhulg.github.io/categories/AI/"/>
+    
+    
+    <category term="AI" scheme="https://zhulg.github.io/tags/AI/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>实测 Google Gemini CLI：从安装到使用体验，AI 命令行也开始卷起来了</title>
+    <link href="https://zhulg.github.io/posts/e3022ca1.html"/>
+    <id>https://zhulg.github.io/posts/e3022ca1.html</id>
+    <published>2025-07-19T05:21:16.000Z</published>
+    <updated>2025-10-28T14:19:31.342Z</updated>
+    
+    <content type="html"><![CDATA[<p>Google这两天刚推出了Gemini CLI，它是一个基于 Gemini 模型构建的 AI 命令行助手（Agent），支持本地运行、插件拓展，还能调用 Gemini 2.5 Pro 模型。重点是<strong>免费使用，限额相当豪横，卷的起飞的节奏。</strong></p><p>说起命令行的工具，可能更适合技术人员使用，使用起来也很高效，想起当时Chatgpt刚刚爆火的时候，各种登录不上，网络无法连接，地区封号等，于是我也写了个基于ChatGpt的CLI工具，可以直接访问大模型API，直接有效，深受好评！</p><p>无图无真相，截个图:</p><p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/640-20250719132741284" alt="图片"></p><p>运行截图：</p><p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/640-20250719132458282" alt="图片"></p><p>不自恋了，今天看看现在Google现在推出的 gemini CLI 效果到底如何。</p><ol><li>官方介绍：</li></ol><p>使用gemini CLI, 我们只需使用个人 Google 帐户登录即可获得免费的 Gemini Code Assist 许可证，同时也打通了 Gemini Code Assist 也可以在vscode里安装插件来使用。</p><p>最吸引我们的应该是这个图，允许访问 Gemini 2.5 Pro 及其庞大的 100 万个令牌上下文窗口，提供了业界最高的限额，每分钟 60 个模型请求，每天 1,000 个请求，均免费。</p><p><em>这个对于目前在使用付费版的AI工具来说最为吸引人，还付什么费用。这真正卷起来，对个人使用者来说也是白嫖了。</em></p><p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/640-20250719132459801" alt="图片"></p><p><strong>1. 快速安装Gemini</strong></p><p>安装步骤：命令行运行该命令即可，当然npm是需要安装过的。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g @google/gemini-cli</span><br></pre></td></tr></table></figure><p>安装完成，可以选择自己登录方式，如官网介绍，直接使用google账号进行登录；</p><p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/640-20250719132642260" alt="图片"></p><p>登录成功后，可以通过 / 来查看相关的菜单使用说明，比如：设置自己喜欢的Theme</p><p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/640-20250719132500414" alt="图片"></p><p>可以在命令行执行gemini来看下效果：</p><p><img src="https://mmbiz.qpic.cn/sz_mmbiz_png/gCwibMtn41zP41vNe6BpL9tw2kfdkSy7oNGEq9barKo9icsuibfSbibnn71O3E0wZICSssaiatQlY0nfudc3H1mYgPQ/640?wx_fmt=png&from=appmsg&tp=webp&wxfrom=5&wx_lazy=1" alt="图片"></p><p>比如，查看目前Gemini可用的工具：输入框输入 /tools</p><p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/640-20250719132500999" alt="图片"></p><p><strong>2. 实测：生成一个设计师个人介绍网页</strong></p><p>我们先让他实现个人介绍的网页，告诉他这个是为一名设计师来设计的网页，必然需要的效果要好一些。</p><p>先在自己命令行下，创建对应的目录：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir testGemini</span><br><span class="line">cd testGemini</span><br></pre></td></tr></table></figure><p>然后我们执行 gemini命令，把我们需要的需求直接输入，当然如果我们的prompt简单，那是无法让他完我们很好的设计。所以基于他强大的token能力，我们先让写prompt然后再进行让他代码实现。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"> 请帮我为一位设计师生成一个完整的个人介绍网页，包含内容文案、网页结构建议和代码实现。设计师擅长品牌设计、UI/UX、网页视觉，熟练使用 Photoshop、Figma、Illustrator，注重极简美学和用户体验。</span><br><span class="line"></span><br><span class="line">设计风格要求：</span><br><span class="line">整体视觉简洁、清新、克制</span><br><span class="line">主色调为“豆沙绿”（偏柔和自然的绿色系）</span><br><span class="line">字体现代、留白充分，具备高级感</span><br><span class="line"></span><br><span class="line">页面结构包括：</span><br><span class="line">顶部导航栏：左侧为个人 logo 或名字，右侧为导航链接（如“关于我 / 项目 / 联系我”）</span><br><span class="line"></span><br><span class="line">自我介绍区：</span><br><span class="line">圆形头像</span><br><span class="line">一句简洁的个人定位（如“热爱极简的 UI 设计师”）</span><br><span class="line">一段不超过 120 字的自我简介（自然、亲切，突出设计理念和经验）</span><br><span class="line"></span><br><span class="line">技能展示区：</span><br><span class="line">用图标或小标签的形式展示常用工具（Photoshop、Figma、Illustrator）</span><br><span class="line">强项（品牌设计 / UI 设计 / 视觉表达等）</span><br><span class="line"></span><br><span class="line">项目展示区：</span><br><span class="line">展示 3~6 个代表性项目，每个项目包含：项目名、一句话说明、我的角色、缩略图（可占位）</span><br><span class="line">排版美观，可卡片式或网格展示</span><br><span class="line"></span><br><span class="line">联系我模块：</span><br><span class="line">邮箱地址、Behance / Dribbble / GitHub 链接</span><br><span class="line">可选微信二维码（打赏或合作联系），加一句简洁友好的提示语，如“欢迎交流合作 👋”</span><br><span class="line"></span><br><span class="line">技术要求：</span><br><span class="line">使用 HTML + TailwindCSS（或 React + TailwindCSS）实现</span><br><span class="line">页面需要响应式设计，在移动端和桌面端都美观易读</span><br><span class="line">添加轻微的动画效果（如卡片悬浮、淡入动画等，可使用 Framer Motion 或 CSS）</span><br><span class="line"></span><br><span class="line">输出内容请包括：</span><br><span class="line"></span><br><span class="line">一段适合放网页上的“个人简介文案”</span><br><span class="line">一组技能/工具标签内容</span><br><span class="line">三个示例项目的介绍（项目名 + 简要描述 + 我的角色）</span><br><span class="line">网页代码实现（HTML 或 React，配合 TailwindCSS）</span><br><span class="line">自定义豆沙绿配色方案（Tailwind 的自定义颜色变量）</span><br><span class="line">若支持，添加打赏/联系合作二维码模块（占位图即可）</span><br></pre></td></tr></table></figure><p>执行中间我们需要确认下即可。</p><p>最后生成的效果如下：</p><p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/640-20250719132501276" alt="图片"></p><p><img src="https://mmbiz.qpic.cn/sz_mmbiz_png/gCwibMtn41zP41vNe6BpL9tw2kfdkSy7o8vUm8l1GOWpF0pn8wtriaGa7kc9ibc7wE0mdeSKmsujIwianX3EFxtRAw/640?wx_fmt=png&from=appmsg&tp=webp&wxfrom=5&wx_lazy=1" alt="图片"></p><p><strong>3. 文件操作能力：</strong></p><p>这个应该是google的基因和强项，涉及搜索，抓取和总结能力。</p><p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/640-20250719132501845" alt="图片"></p><p>提示失败，需要安全验证，我们先试用另外一篇文章看看。</p><p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/640-20250719132502343" alt="图片"></p><p>做这个验证，其实我们就可以通过命令行来批量操作，很多东西就可以实现。（懂技术就应该能领悟到我们可以用这个来做什么）</p><p><strong>4.代码定位修复能力</strong></p><p>我们通过@来在当前目录下，告诉gemini CLI 需要把我们之前的页面的元素进行修改，查找和定位能力应该也比较快和准。</p><p><em>当然这对于</em> <em>Gemini 2.5 Pro 代码能力来说应该是小菜一碟。</em></p><p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/640-20250719132615983" alt="图片"></p><p><strong>4. 验证情况总结</strong></p><p>整体来看，Gemini CLI 作为一个开源的 AI 命令行助手，已经展示出不俗的潜力，特别是在代码生成、本地文件操作、插件扩展等方面，体现出了 CLI 工具的独特优势。</p><p>不过，结合实际体验，也暴露出一些不足之处：</p><p><strong>在生成网页代码等任务时，响应时间较长，虽然这是大模型“深度思考”的副作用，但相比 Cursor 等现有工具，速度感受上明显要慢一拍。</strong></p><p><strong>Gemini CLI 支持通过</strong> <code>@文件路径</code> 操作本地文件，这本应是命令行工具的一大优势，但在我测试过程中，频繁操作时偶尔会出现界面卡顿甚至中断的情况，影响使用流畅性。</p><p>部分功能尚未开放或不稳定，例如文档中提到的 MCP接入，目前尚未成功验证，工具也偶尔报错或无响应。作为刚发布的版本，Gemini CLI 还需要时间完善生态和稳定性。</p><p><strong>尽管如此，我依然认为它是一个值得关注的新工具：</strong></p><p>CLI 工具的使用门槛虽然比 Web 高一点，但对于习惯终端工作的开发者来说，Gemini CLI 是一个极具潜力的 AI 助手。</p><p><strong>它的开源策略、大模型接入能力、插件化扩展方向，技术人员的使用，相信***</strong>*终端里的 AI 智能体，也是未来的一种技术流的交互方式。****</p><p><strong>CLI的方向就是一个让技术人员用起来更爽，操作更直接，命令行有自己的独特优势，虽然有一些小小失望，但相信gemini CLI会快速壮大，相信Google的技术实力，也相信他的开源必将更多人参与贡献。</strong></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;Google这两天刚推出了Gemini CLI，它是一个基于 Gemini 模型构建的 AI 命令行助手（Agent），支持本地运行、插件拓展，还能调用 Gemini 2.5 Pro 模型。重点是&lt;strong&gt;免费使用，限额相当豪横，卷的起飞的节奏。&lt;/strong&gt;&lt;/</summary>
+      
+    
+    
+    
+    <category term="AI" scheme="https://zhulg.github.io/categories/AI/"/>
+    
+    
+    <category term="AI" scheme="https://zhulg.github.io/tags/AI/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>写给普通人的DeepSeek介绍和使用，以及DeepSeek是不是抄袭了ChatGPT?</title>
+    <link href="https://zhulg.github.io/posts/5d1bba58.html"/>
+    <id>https://zhulg.github.io/posts/5d1bba58.html</id>
+    <published>2025-02-09T05:55:23.000Z</published>
+    <updated>2025-10-28T14:19:31.413Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong>DeepSeek不需要使用科学上网，普通人就可以使用，模型也是开源的，不用付费，而且APP现在在国内应用商店可以直接下载</strong>，这样就更容易被大众和普通人所使用，也难怪被推到了APP下载排行第一。</p><p>春节期间DeepSeek的火爆程度，普通人应该也都刷到了相关新闻。在走亲访友期间，也有不少亲戚询问 “DeepSeek这个到底是什么厉害的东西，抖音和新闻上铺天盖地宣传，听说超过了美国…”</p><p>简单来说是基于人工智能技术做的一个智能助手，可以帮助解答和解决一些你想知道的问题。当然，我这个回答比较通俗和简单，而DeepSeek做的远不止这些。也不是简单的问答，更多会在行业里进行场景重构(这个后边进行分享，不在本文展开)</p><p>至于说超过美国，他们指的是openAI的ChatGPT吧，如果从技术角度看DeepSeek确实已经与ChatGPT不分上下，但是openAI的chatGPT是不开源的，也需要科学上网，很多人都无法使用。</p><h2 id="普通人怎么使用？"><a href="#普通人怎么使用？" class="headerlink" title="普通人怎么使用？"></a>普通人怎么使用？</h2><p>在开始使用DeepSeek之前，需要做一些最基础准备工作，确保你使用的是支持互联网连接的设备，无论是手机还是电脑，都能轻松接入DeepSeek的世界。账号信息准备好常用的邮箱地址或手机号码，用于注册和验证你的DeepSeek账号（直接用手机号注册最推荐）。</p><h3 id="注册方式："><a href="#注册方式：" class="headerlink" title="注册方式："></a>注册方式：</h3><p>DeepSeek提供了多种注册方式，打开DeepSeek官网</p><p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/640-20250209135838949-20250209140217556" alt="图片"></p><p><a href="https://www.deepseek.com" target="_blank" rel="noopener">https://www.deepseek.com</a> </p><p>可以使用微信直接登录，或者手机号进行注册和登录，和使用其他软件没什么区别，注册下即可。</p><p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/640-20250209140254454" alt="图片"></p><h2 id="如何使用-DeepSeek"><a href="#如何使用-DeepSeek" class="headerlink" title="如何使用 DeepSeek"></a>如何使用 DeepSeek</h2><h3 id="基础操作："><a href="#基础操作：" class="headerlink" title="基础操作："></a>基础操作：</h3><p><strong>登录 DeepSeek 打开DeepSeek官网或相关入口，在登录页面输入你的邮箱/手机号和密码，点击“登录”按钮。</strong></p><p><strong>进入主界面：登录后，你将看到DeepSeek的主界面，这里包括对话框、功能菜单和个人中心，界面友好，操作直观。</strong></p><p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/640-20250209140333664" alt="图片"></p><h2 id="使用的领域举例"><a href="#使用的领域举例" class="headerlink" title="使用的领域举例"></a>使用的领域举例</h2><p>在自媒体领域进行创作并给与相关的指导建议：</p><p>你可以这样问DeepSeek，“我是一名自媒体创作者，我想做心理疗愈方面相关文章，你有什么好的建议” ，当然也可以换成其他你的领域，我是XXX,我想xxx, 希望你给我XXXX。</p><p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/640-20250209140346197" alt="图片"></p><p>类似的行业，你可以做教育学习、美食烹饪、转绘视频等等。</p><p>比如：我想为家人做年夜饭，你有什么好建议？你可以这样问DeepSeek，正常情况下，他要比ChatGPT可能更懂中文。</p><p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/640-20250209140357511" alt="图片"></p><p>如果你在其他行业和领域，比如金融，营销行业、销售、行政都可以使用deepSeek来进行帮助，提高工作效率。</p><h2 id="DeepSeek是不是抄袭了ChatGPT-？"><a href="#DeepSeek是不是抄袭了ChatGPT-？" class="headerlink" title="DeepSeek是不是抄袭了ChatGPT ？"></a><strong>DeepSeek是不是抄袭了ChatGPT ？</strong></h2><p>接下来聊下很多人最近开黑DeepSeek，由于DeepSeek的预训练费用比较低，而最终的效果却与ChatGPT不分上下，这让国外耗费大量资金投入的就很尴尬。</p><p>由于模型开源，对中文语境下的表现也尤为出色，能够更好地理解和生成中文文本，对国内用户也友好，无需进行科学上网，对API提供的费用也比较低，所以质疑声也很多。</p><p>技术上的效果已经与ChatGPT持平，而比较质疑的是通过蒸馏的技术抄袭了ChatGPT, 对这个观点我们算不算抄袭？</p><p>在大模型领域业界的蒸馏技术可以通俗理解为知识传递。是不是抄袭ChatGPT，为什么有人这么说？ 因为有人认为是DeepSeek通过对ChatGPT的回答来进行数据的训练和学习。</p><p>在大模型领域大家对数据的收集过程都会有涉及也很难界定，本身生成式AI就是学习和训练出来的，况且目前DeepSeek也是完全开源的，所有人能下载就能训练部署和使用，就更谈不上抄袭了，<strong>难道开源的DeepSeek抄袭了闭源的ChatGPT?</strong>  </p><p>也有人说DeepSeek黑了ChatGPT的服务器…进行了抄袭，这个就更不可能了。一切的回应我觉得，完全开源就能说明一切了。至于蒸馏技术那家的大模型也不敢说没有收集或获取过未被授权的数据而已。</p><p>目前DeepSeek还在快速的发展壮大中，在使用中也会经常出现“服务器繁忙，请稍后再试”的情况，这个因为最近访问量太大，也有一些被大洋彼岸攻击的情况，这种情况下可以多次尝试或者注册多个账号进行重试下。</p><p>相信DeepSeek的出现，为国产AI的发展也注入了新的活力，也给普通人使用AI提效带来了新的机会，更多的使用我后边也会给大家分享，让在每一个领域的人都能从AI技术中取得收获。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;&lt;strong&gt;DeepSeek不需要使用科学上网，普通人就可以使用，模型也是开源的，不用付费，而且APP现在在国内应用商店可以直接下载&lt;/strong&gt;，这样就更容易被大众和普通人所使用，也难怪被推到了APP下载排行第一。&lt;/p&gt;
+&lt;p&gt;春节期间DeepSeek的火爆程度</summary>
+      
+    
+    
+    
+    <category term="DeepSeek" scheme="https://zhulg.github.io/categories/DeepSeek/"/>
+    
+    
+    <category term="AI" scheme="https://zhulg.github.io/tags/AI/"/>
+    
+    <category term="DeepSeek" scheme="https://zhulg.github.io/tags/DeepSeek/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>AI编程很厉害，普通人来抢程序员饭碗行不行</title>
+    <link href="https://zhulg.github.io/posts/c753d3ed.html"/>
+    <id>https://zhulg.github.io/posts/c753d3ed.html</id>
+    <published>2025-02-06T09:29:47.000Z</published>
+    <updated>2025-10-28T14:19:31.321Z</updated>
+    
+    <content type="html"><![CDATA[<p>众所周知，过去的2024年AI发展迅速，2025年也必将是AI驱动行业变革之年。</p><p>在AI编程也行业正经历一场前所未有的变革，从代码自动补全Copilot到Cursor、Windsurf编程工具的诞生，AI编程已经可以让普通用户和电脑小白通过自然语言编写出各种应用。</p><p>我们也看到市面很多普通人也使用AI编程也开发出来一些简单应用，AI编程看起来确实很厉害，也有很多小白跃跃欲试，使用AI编程，来抢程序员饭碗行不行？</p><p>如果你是非开发人员，比如普通人、设计师、产品人员、运营人员肯定有这样的想法，毕竟最近的某款补光灯让很多人知道了AI编程厉害…</p><p>今天正好有时间来写下，既然AI编程这么厉害，普通人来抢程序员的饭碗到底行不行？</p><h3 id="关于AI编程原理"><a href="#关于AI编程原理" class="headerlink" title="关于AI编程原理"></a>关于AI编程原理</h3><p>先不要着急，我们先看下AI编程原理，先用技术人的话来讲，核心原理还是基于深度学习和自然语言处理技术，通过大量的数据训练模型，使其能够理解和生成代码。<strong>如果用通俗直白点的话来讲，他是经过抄袭、或者说学习了众多相关的代码之后，通过概率方式来组合生成你想要的代码。</strong></p><p>所以，了解了原理大概也就能理解他为什么让你感觉很厉害，当你觉得他写代码很厉害的地方，大概率是你的知识盲区，或者没有这么做过。</p><h3 id="AI编程局限性"><a href="#AI编程局限性" class="headerlink" title="AI编程局限性"></a>AI编程局限性</h3><p>上边了解了AI编程的原理，我们来看看AI编程有哪些局限性，或者从技术人的角度看他到底能做哪些。</p><p>编程工作不仅是代码的堆砌，更是对复杂业务逻辑的实现，AI可以生成代码，但它无法真正理解业务需求背后的逻辑和场景。编程工作包括对业务的需求分析、结合业务的架构设计、数据结构的抽象、模块间协作及可维护性，从软件工程来讲更多是需求设计，代码也只是实现的一部分。</p><p>而仅仅代码实现这部分，也需要通盘考虑模块内和模块之间的结构化的设计工作，其中也包括模型实现中的算法、性能、交互、用户体验等的设计和艺术工作。</p><p>通过编程实现一款产品，需要的是对业务领域知识和代码设计经验的完美结合，二者缺一不可，而AI只能根据已有数据生成内容，对真正在形成产品中的业务理解、架构设计、全局链路性能优化、创新能力就会显得不足。</p><h3 id="AI编程强大的地方"><a href="#AI编程强大的地方" class="headerlink" title="AI编程强大的地方"></a>AI编程强大的地方</h3><p>首先AI编程实际是一个编程的工具，而不是一个程序员的角色。</p><p>AI编程强大地方可以帮我们通过简单的文字描述生成代码，这绝对是极大地降低了编程的入门门槛。对于没有编程经验的普通人来说，能快速实现一些基础的功能，也可以生成APP和应用，可以体验下做个小产品的感觉。</p><p>在没有AI编程之前的一些个性化的小需求，过去可能投入和产出不成正比，也就没人愿意投入去做，但现在通过使用AI编程，也可以做出一些来。</p><p>AI编程也可以让普通人学会编程，帮助初学者理解代码的逻辑和结构，提供即时反馈，极大地提升学习效率，可以快速学会和认识编程语言。</p><h3 id="普通人要不要抢程序员的饭碗？"><a href="#普通人要不要抢程序员的饭碗？" class="headerlink" title="普通人要不要抢程序员的饭碗？"></a>普通人要不要抢程序员的饭碗？</h3><p>如果你认真读了上边的内容，相信心里已经有一些答案了。</p><p>AI的发展可以在很多行业里进行提升效率，而且是指数级的，但每一个行业都有自己的经验和壁垒，通过一个AI编程是不是就能杀到这个程序员的行业里？</p><p>可能你看到过市面上很多在宣讲不会编程也做出很多产品的，不可否认，这类产品大多是营销远远要比产品要好。本质上，许多自媒体和营销号不断宣传AI编程替代人类程序员的说法，或者用AI编程工具做出一个前端小产品，这种无非更多是试图吸引用户尝试他们推广的工具或课程。你为什么很少看用AI编程做出一个后端系统的产品？（大部分是前端一些基础应用、或者原来已有应用的重新复刻）。</p><p>AI编程出现虽然降低了编程的门槛，但依然需要一定的编程基础，比如：懂原理、会操作工具，一些组件原理、明白代码含义，能否给出行业里的prompt、架构设计、代码和性能优化思路、当生成的代码有问题、当工具陷入AI幻觉和怪圈时，能否给AI工具指出代码问题也很关键。</p><p>如果有了上边的一些基础底子，通过使用AI编程工具来做一些产品也是非常不错的，但绝大部分普通人更应该要做的事是应该先了解AI，如何让AI在自己的行业去更好结合，而不要进入到自己不熟悉的编程赛道。</p><p>如果普通人就对AI编程感兴趣，觉得很有意思，我觉得可以从这些方面入手，试试看，看是否真适合自己：<strong>先学基础知识，知道用什么开发语言做什么事情，大概看懂代码逻辑、掌握AI工具的使用技巧，然后通过使用工具锻炼自己问题解决能力，你要学习能够自己查找错误并理解代码的运作机制，目的是为了学会验证AI的输出结果，防止进入AI幻觉和绕弯弯，并能根据实际需求来进行调整和优化技术方案。</strong></p><h3 id="写在最后："><a href="#写在最后：" class="headerlink" title="写在最后："></a>写在最后：</h3><p>AI编程的确很厉害，它可以帮助普通人快速生成代码，提高工作效率，但目前看取代不了经验丰富的程序员，能取代的是一些基础的功能开发，不拥抱AI提效的程序员，以及对初级工程师、实习岗会确实会有一些冲击。</p><p><strong>那普通人使用AI编程能不能抢掉程序员的饭碗？</strong>首先，看看是否自己具备一些行业基础知识，学习能力、编程思维，以及复刻的产品本身是否有价值。最好不要轻信一些营销号的夸大宣传，如果觉得自己就是可以，那可以先实践用起来AI编程，做一些产品试试看，是否跟一些自媒体宣传的那么简单。</p><p>对程序员来说，编程远不止写代码，更多的是思考、设计、优化、创新，AI编程必将可以成为程序员的得力助手，但程序员的需求分析和设计、创造力、架构优化、问题解决能力及创新思维，依然是无法被替代的核心竞争力。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;众所周知，过去的2024年AI发展迅速，2025年也必将是AI驱动行业变革之年。&lt;/p&gt;
+&lt;p&gt;在AI编程也行业正经历一场前所未有的变革，从代码自动补全Copilot到Cursor、Windsurf编程工具的诞生，AI编程已经可以让普通用户和电脑小白通过自然语言编写出各种应</summary>
+      
+    
+    
+    
+    <category term="AI" scheme="https://zhulg.github.io/categories/AI/"/>
+    
+    
+    <category term="AI" scheme="https://zhulg.github.io/tags/AI/"/>
+    
+    <category term="程序员" scheme="https://zhulg.github.io/tags/程序员/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>2025年IT就业会一直崩溃溃吗？说下我的看法</title>
+    <link href="https://zhulg.github.io/posts/dff848a0.html"/>
+    <id>https://zhulg.github.io/posts/dff848a0.html</id>
+    <published>2025-01-16T15:24:15.000Z</published>
+    <updated>2025-10-28T14:19:31.312Z</updated>
+    
+    <content type="html"><![CDATA[<p>从2024年，IT行业的就业问题似乎成了一个热门话题，2025年IT就业会一直崩溃溃吗？</p><p>我不记得今年什么时候开始，身边越来越多互联网圈的朋友开始“空窗”，时不时有人问有没有推荐的岗位。起初还没当回事，但从下半年开始，这种现象变得越发明显。</p><p>最近，学计算机的亲戚都来咨询实习机会，孩子明年大学毕业，而今年实习却变得难上加难。企业招聘越发谨慎，尤其在市场竞争激烈的背景下，招聘变得更挑剔，直接上手、无需培养的即战力更受青睐。这难免让计算机专业的应届生也面临了更大的挑战。</p><p>再加上IT行业招聘中的大龄、薪资性价比问题，让很多今年失业的人感到失望和迷茫。这种情况也让大家感慨，<strong>IT就业真的崩溃了…</strong></p><h3 id="经济下行与技术节点的冲击"><a href="#经济下行与技术节点的冲击" class="headerlink" title="经济下行与技术节点的冲击"></a><strong>经济下行与技术节点的冲击</strong></h3><p>但我认为，这并不是崩溃，而是行业发展到了<strong>新旧交替的节点</strong>。</p><p>的确，今年的IT行业不好过。经济下行，公司裁员频频，市场上的求职者激增。而从技术发展看，互联网基建趋于成熟，行业正处于一个新的阶段。这种双重压力下，让很多人产生了行业崩溃的感觉。</p><p>这一阶段，伴随着洗牌、更新迭代，无论是技术还是从业者，都会经历一次重新定位的过程。</p><p>从IT行业发展来看，这背后既有危机，也孕育着新的机会。</p><h2 id="IT行业的过去与现在"><a href="#IT行业的过去与现在" class="headerlink" title="IT行业的过去与现在"></a>IT行业的过去与现在</h2><p>回顾过去，IT行业经历了从传统互联网到移动互联网的十几年发展。从最近10几年来看，当年移动端崛起开始，我在那个时候也是刚毕业没多久，赶上了移动互联网最好的时代，那时市场上的人才供不应求，甚至HR会直接到我们公司楼下“挖人”（这个是真实的情况），当年需求旺盛，技术门槛高，造就了那个风口上的黄金时代。</p><p>但随着时间推移，行业逐渐饱和。IT培训机构大量涌现，非科班出身的从业者加入，加上技术基建的成熟，入门门槛被进一步拉低。于是，供需关系改变，薪资水平被压缩，行业逐步趋于平稳。</p><p>然而，这并不意味着行业没有机会，而是要求我们重新审视自己的定位和技能，IT行业本身就是活到老学到老的行业，也必须跟上技术和基建的升级迭代。</p><h2 id="更新迭代，抓住机会"><a href="#更新迭代，抓住机会" class="headerlink" title="更新迭代，抓住机会"></a>更新迭代，抓住机会</h2><p>2024年，AI技术的崛起成为焦点。尽管有人认为AI会取代程序员、设计师等岗位，但我更愿意把AI视为一项工具，而非威胁。</p><p>AI的发展速度确实惊人，但本质上它仍然依赖于现有的数据和规则，推理、创造能力尚无法完全取代专业技术人才。<strong>这意味着，我们要学会利用AI，提升自己的竞争力，而不是被焦虑裹挟。</strong></p><p>最近自媒体热炒的“5分钟写一个APP”、“使用AI做副业月入五位数”之类的噱头，实际上只是AI在已有技术上的应用展示。真正有价值的东西，不会通过这样的方式简单呈现。这些东西商业价值有多大，还是自媒体的自嗨博眼球的获取流量的手段？更有甚的通过浮夸的言论更多是营造焦虑，忽悠非专业人士。</p><p>对于专业的IT人来说，真正的机会，是如何利用AI工具为自己的业务赋能，如何通过AI改变现有的生产力。</p><h2 id="未来的路：背水一战，迎接AI时代"><a href="#未来的路：背水一战，迎接AI时代" class="headerlink" title="未来的路：背水一战，迎接AI时代"></a>未来的路：背水一战，迎接AI时代</h2><p>面对当前的就业困境，无论你是空窗期还是在职，都要坚信：<strong>IT行业并未崩溃，危机中仍有机会。</strong></p><p>尤其是对于空窗期的朋友，我的建议是投入AI技术的学习中。<strong>学习并不意味着放弃已有技术（硬跨行业跨端学AI不可取），而是通过AI来更高效地运用和驾驭自己的核心能力，在自己熟悉的行业经验里，通过AI来一次升级与迭代的过程。</strong></p><p>行业的变革从来不是毁灭，而是新旧交替的必经阶段。IT行业有天然的学习优势，对技术工具学习和迭代有很强的适应力，但不要故步自封，仍坚持一些基础工作，而是转变思维利用AI创造更多价值，用好这个工具，因为未来还是属于那些愿意接受学习、善于应用新技术的人。</p><h2 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h2><p>无论如何，2024年IT行业有点难，2025年IT行业无需被所谓的崩溃论吓倒，坚定信心，拥抱变化，跟随技术发展，顺应市场需求，IT人依然大有可为！</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;从2024年，IT行业的就业问题似乎成了一个热门话题，2025年IT就业会一直崩溃溃吗？&lt;/p&gt;
+&lt;p&gt;我不记得今年什么时候开始，身边越来越多互联网圈的朋友开始“空窗”，时不时有人问有没有推荐的岗位。起初还没当回事，但从下半年开始，这种现象变得越发明显。&lt;/p&gt;
+&lt;p&gt;最近</summary>
+      
+    
+    
+    
+    <category term="技术成长" scheme="https://zhulg.github.io/categories/技术成长/"/>
+    
+    
+    <category term="IT" scheme="https://zhulg.github.io/tags/IT/"/>
+    
+    <category term="技术人" scheme="https://zhulg.github.io/tags/技术人/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>护眼助手成功上架！在线安装或找我要软件，免费提供</title>
+    <link href="https://zhulg.github.io/posts/b249306e.html"/>
+    <id>https://zhulg.github.io/posts/b249306e.html</id>
+    <published>2025-01-10T15:04:14.000Z</published>
+    <updated>2025-10-28T14:19:31.456Z</updated>
+    
+    <content type="html"><![CDATA[<p>前两天，写了文章<a href="https://mp.weixin.qq.com/s?__biz=MzIzNDA3MzA3MQ==&mid=2464356804&idx=1&sn=51685759801e850a525205172655f1ea&scene=21#wechat_redirect" target="_blank" rel="noopener">买了个护眼显示器后，却逼我写了一个护眼软件</a>，总结了下这个护眼插件当时为什么要做的初衷，今天看已经通过chrome应用商店的审核正式上架，终于可直接安装了。（中间开发账号付费5美元也是一波三折，还好都搞定）</p><p>刚上架看到有10个用户安装体验（无任何推广），也可能是新账号提交的软件，平台有推荐吧。</p><p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/640-20250110230540136" alt="图片"></p><p>如果大家有和我一样，平常看文档比较多，比如PDF文件、电子教程等通常这种情况下，刻板的阅读色可能一会眼睛就不舒服了，无论你买的是不是护眼屏幕，可能都有眼睛不舒服情况，无法找到一种护眼色来让眼睛舒服些。</p><p>比如这个场景，没有使用前：</p><p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/640-20250110230540610" alt="图片"></p><p>打开护眼模式后：</p><p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/640-20250110230540887" alt="图片"></p><p>因为这个软件开发的背景就是我这个护眼屏无法让我眼睛舒服的阅读下开发的。</p><p>看视频的时候也可以很好支持，特意查了下通过颜色和滤镜是真的可以降低眼疲劳的程度的。</p><p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/640-20250110230604325" alt="图片"></p><p>另外场景，比如晚上你在加班，家人在休息完全可以自定义，把强光过滤，亲身体验过还是不错的。</p><p>另外这个软件也有为防止长时间对着电脑的人设计的提醒功能，可以设置间隔、倒计时方式。这个对打工人太友好了，为了自己健康有必要设置个间隔提醒，过段时间来个提醒也不错。</p><h2 id="安装问题"><a href="#安装问题" class="headerlink" title="安装问题"></a>安装问题</h2><p>目前软件已经上架，可以直接到chrome商店搜索 <strong>EyeCare Assistant</strong> ，找到该插件直接点击安装即可。</p><p><strong>安装地址：</strong></p><p><a href="https://chromewebstore.google.com/detail/eyecare-assistant/ofaccdedcjcdbkjgjepbnacoekoeoepf" target="_blank" rel="noopener">https://chromewebstore.google.com/detail/eyecare-assistant/ofaccdedcjcdbkjgjepbnacoekoeoepf</a></p><p><strong>如果无法科学上网，没发访问这个地址的怎么办？</strong></p><p><strong>可以关注私信我下或者关注回复护眼助手，免费获取该软件哈。</strong></p><p>安装的时候如果有出现这个提示，不用慌，这个是平台的安全提示，跟软件无关。</p><p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/640-20250110230702777" alt="图片"></p><p>出现这个情况的主要原因官方也做解释如下图（<strong>软件的开发都已经遵循了开发者要求，可放心安装</strong>）</p><p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/640-20250110230541662" alt="图片"></p><p>如果通过在线安装的，发现在看电子书，用浏览器打开本地PDF时发现护眼模式无法在本地PDF生效，可以等新版本更新即可。</p><p>这个问题也是我刚发现的，在开发模式下对本地打开的文件是可以通过file://协议支持的，而在应用商店安装后，由于安全问题，需要在软件里添加支持的权限才能支持本地打开的，也可以直接找我要更新包即可。</p><h3 id="体验反馈"><a href="#体验反馈" class="headerlink" title="体验反馈"></a>体验反馈</h3><p>如果和我也一样长时间电脑工作者，即便买了护眼显示器，还是觉得屏幕不舒服的可以安装体验下，相信你会用上，特别是在看文档、看视频、阅读的时候，软件做的比较赶，2天左右时间，但满足目前需求使用了。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;前两天，写了文章&lt;a href=&quot;https://mp.weixin.qq.com/s?__biz=MzIzNDA3MzA3MQ==&amp;mid=2464356804&amp;idx=1&amp;sn=51685759801e850a525205172655f1ea&amp;scene=21#wech</summary>
+      
+    
+    
+    
+    <category term="产品工具" scheme="https://zhulg.github.io/categories/产品工具/"/>
+    
+    <category term="前端" scheme="https://zhulg.github.io/categories/产品工具/前端/"/>
+    
+    
+    <category term="chrome" scheme="https://zhulg.github.io/tags/chrome/"/>
+    
+    <category term="插件开发" scheme="https://zhulg.github.io/tags/插件开发/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>买了个护眼显示器后，却逼我写了一个护眼软件</title>
+    <link href="https://zhulg.github.io/posts/170e7a4b.html"/>
+    <id>https://zhulg.github.io/posts/170e7a4b.html</id>
+    <published>2025-01-07T01:01:39.000Z</published>
+    <updated>2025-10-28T14:19:31.379Z</updated>
+    
+    <content type="html"><![CDATA[<p>最近花了2天时间写了个护眼的插件，插件核心功能，就是为了保护眼睛，在上网中找到适合你自己舒服的阅读色，使用了8种业界公认的护眼色，也支持自定义护眼色，由于自我感觉这个插件太好，提交了chrome 插件商店，搜索”护眼助手”可以找到.</p><p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/640-20250107090417989" alt="图片"></p><p>插件核心功能，就是为了保护眼睛，在上网中找到适合你自己舒服的阅读色，使用了8种业界公认的护眼色，也支持自定义护眼色，添加了休息提醒，支持间隔和倒计时提醒，可以自定义提醒内容（当个平常重要事情提醒也支持），出发点就是保护长时间上网用眼以及长时间久坐的人，打工人必备。</p><p>最重要的一点，感觉比我买这个所谓可以调色护眼的显示器好太多了~（请允许我自夸….），读者朋友等这块应用审核通过后，在浏览器安装体验，先看下这个应用的界面。</p><p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/640-20250107090439611" alt="图片"></p><h2 id="来总结分享下这个突如其来的过程"><a href="#来总结分享下这个突如其来的过程" class="headerlink" title="来总结分享下这个突如其来的过程"></a>来总结分享下这个突如其来的过程</h2><p>最近看一些文档和PDF的东西比较多，主要是一些线性代数和大模型的一些文档，需要一边看可能一边又个操作的过程，有时眼睛还比较累，且需要来回切换屏幕。于是开始找一个竖屏的显示器，同时又希望能对看文档或者PDF文件时，对眼睛有不错护眼的功能，至少让眼睛舒服一些吧。</p><p>通过各种搜索，买了一个台显示器支持竖屏和电子书模式，在这就不说那个显示器了。因为好像这个卖点的显示器也就那几款。</p><p>其他方面竖屏这些当然还是不错的，其中有电子书模式支持，我就兴致勃勃的打开PDF文档，感觉这个应该会不错，开始使用时才意识到广告宣传这个东西太忽然，遥遥领先其实很多真的是宣传成分，就个人体验看屏幕生硬，导致我怎么调亮度和色彩都不能让我适应，一度怀疑这个是我眼睛的问题…. 为什么这么不舒服，赶紧切回了正常模式，彻底放弃了电子书模式。</p><p>心想这护眼到底提现在哪里，都在广告里啊，真假护眼不知道，但是我眼睛看这个是真不舒服，特别周六的上午阳光照进来，一些阳光打在屏幕上，此时正在看PDF文档。</p><p>这种强光下，加上pdf强光下，很难长时间看下去，决定不忍了，开始写一个护眼的插件，至少让眼睛看屏幕舒服，不刺眼吧。我在网上先搜索下也问了ChatGPT确认这些护眼色可以让眼睛舒服减少一些眼疲劳的情况。那这个就好说了。</p><p>先把关键的颜色找好，确保是对眼睛是有效果也是护眼的色值，减少蓝光刺激的颜色，于是就是软件里这8种的色值。</p><h3 id="代码构建过程"><a href="#代码构建过程" class="headerlink" title="代码构建过程"></a>代码构建过程</h3><p>剩下就是构建相关代码了，为什么用插件实现，因为我大部分场景都是浏览器，也通过chrome浏览器阅读PDF和电子书，这个场景最多，用插件设置护眼色在大部分浏览器都能用。</p><p>其实写完这个护眼色调整后，一下子调了几小时，其中尽管有AI协助，但也因为AI他的幻觉问题，导致一些逻辑进入死循环，这也是生成式AI的现状。已经有得东西他模仿和总结很快，但出现bug解决和优化，让产品达到商业化产品，目前还需要人的经验来处理bug和优化解决。回头再说这个过程，想用好他还是需要人的经验和引导。</p><p>由于太专注，几个小时没活动，起来腰酸背疼，今天又加了个消息提醒的功能，可以设置提醒方式，也可以自定义，这样至少自己不会久坐，时间长了休息下眼睛活动下身体也还是很有必要的。</p><p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/640-20250107090419650" alt="图片"></p><p>好了，今天先写到这，如果审核没什么问题到时读者朋友可以去安装，体验下。</p><p>先看下效果图吧</p><h3 id="1-阅读的时候："><a href="#1-阅读的时候：" class="headerlink" title="1.阅读的时候："></a>1.阅读的时候：</h3><p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/640-20250107090420388" alt="图片"></p><h3 id="2-上网的时候可以设置："><a href="#2-上网的时候可以设置：" class="headerlink" title="2.上网的时候可以设置："></a>2.上网的时候可以设置：</h3><p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/640-20250107090420569" alt="图片"></p><h3 id="3-看视频的时候"><a href="#3-看视频的时候" class="headerlink" title="3.看视频的时候:"></a>3.看视频的时候:</h3><p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/640-20250107090417989" alt="图片"></p><p>*<em>自己感觉还是不错，这两天有点用习惯了，关闭护眼模式还真不习惯起来了~ 后边大家使用有问题，也可以提出交流、建议哈~ *</em></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;最近花了2天时间写了个护眼的插件，插件核心功能，就是为了保护眼睛，在上网中找到适合你自己舒服的阅读色，使用了8种业界公认的护眼色，也支持自定义护眼色，由于自我感觉这个插件太好，提交了chrome 插件商店，搜索”护眼助手”可以找到.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;htt</summary>
+      
+    
+    
+    
+    <category term="前端" scheme="https://zhulg.github.io/categories/前端/"/>
+    
+    
+    <category term="前端" scheme="https://zhulg.github.io/tags/前端/"/>
+    
+    <category term="chrome" scheme="https://zhulg.github.io/tags/chrome/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>如何构建大模型应用？一文搞懂LangChain和RAG的原理和使用</title>
+    <link href="https://zhulg.github.io/posts/e93d67e9.html"/>
+    <id>https://zhulg.github.io/posts/e93d67e9.html</id>
+    <published>2025-01-06T01:45:15.000Z</published>
+    <updated>2025-10-28T14:19:31.433Z</updated>
+    
+    <content type="html"><![CDATA[<p>目前ChatGPT、AIGC各种应用如火如荼，技术人如何使用大模服务自己的业务，如何构建大模型应用？一文搞懂LangChain和RAG的原理和使用，文中附带相关代码可以更好的理解其中的定义。</p><p>我今天通过LangChain框架，一起看下如何简化大模型应用的开发，介绍下实际的工作场景。如果你也在做大模型开发，或者正在为如何切入这一领域而苦恼，欢迎在评论区与我们分享你的想法和经验。</p><h2 id="langchain是什么"><a href="#langchain是什么" class="headerlink" title="langchain是什么?"></a>langchain是什么?</h2><p>大模型应用开发里，<strong>langchain是一个开源的框架，专门为帮助开发者构建基于大语言模型的应用程序</strong>。通俗来讲，他负责与大模型来交互，也方便提供大模型做不到的事情。</p><h3 id="为什么用LangChain"><a href="#为什么用LangChain" class="headerlink" title="为什么用LangChain"></a>为什么用LangChain</h3><p>如上边说的他作为与大模型的交互桥梁，因为大模型核心工作是作为推理和内容生成，只具备底座模型。而在真实产品中要集成和使用大模型，还要牵涉到大量的私有数据和工作要做。</p><p>如图：</p><p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/640-20250106095026224" alt="图片"></p><p>如果从图上看，可能也还有疑惑，服务端也是可以直接掉LLM的对吗？</p><p>没错。实际上是可以直接调用大模型的API. 比如openAI也提供的有接口。</p><p>但是，由于大模型有这么多，国内外成千上万，也不可能把大模型自己的API都学一遍吧？完全可以使用langchain抽象出来的接口来对接大模型。</p><p>更核心的原因是，很多大模型是无法做到的工作，比如大模型无法联网、查询私有数据库、怎么调用第三方API获取数据，大模型token限制，私有化模型调用。</p><p>这些在业务使用中大模型本身是不具备的，也不是大模型强行，大模型功能是专注推理和生成。</p><p>通俗来讲，就是大模型已经很强，但是需要我们把私有的数据、知识、客观事实提供给他，让他正确的变强，这个交互过程就有langchain来做（所以他不仅仅是个包装来调用LLM的框架）。</p><p><strong>Langchain通过简化与语言模型的交互以及整合其他工具（如搜索、数据库和API）来实现复杂的应用逻辑，看下这个框架的构成：</strong></p><p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/640-20250106094935407" alt="图片"></p><p>有了基本概念，看下通过langchain的使用场景大概就好理解了，一些场景如下：</p><p>聊天机器人类：支持多轮上下文对话，利用langchain提供的记忆模块 </p><p>自动化工作流：如客户支持、内容生成等，基于chain的设计</p><p>搜索与问答总结类：结合文档检索和生成模型，实现更准确的问答，RAG的设计</p><p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/640-20250106094902717" alt="图片"></p><p>对于开发者来说，通过langchain来开发大模型应用，可以简化很多接口的封装，langchain已经提供很多抽象，同时在向量数据库、数据存储上都有比较好的接口了，其中RAG也在langchain里有对应的设计。</p><h2 id="RAG是什么"><a href="#RAG是什么" class="headerlink" title="RAG是什么?"></a>RAG是什么?</h2><p>RAG是 LangChain 支持的一种关键技术模式，上边介绍的在使用langchain时一种比较场景的场景，在做知识检索类回答类应用时候被大量使用。单独来说一下，就是RAG技术在目前大模型中还是使用比较多的场景，他可以基于本地数据、文档和大模型来结合使用。</p><p>先来看下RAG技术的定义和构成，RAG 是一种利用检索增强生成的技术框架。它将<strong>信息检索</strong>和生成模型（LLM）结合在一起，解决大模型在特定领域的回答和一些幻觉的解决，不同于模型的微调，让回答在垂直领域更专业。</p><p><strong>工作的基本流程：</strong></p><ol><li><ol><li>检索（Retrieval）：从外部知识库（如向量数据库、文档存储）中检索与问题相关的信息。通过向量化查询找到最相关的文档或片段。</li></ol></li><li><ol start="2"><li>增强（Augmented）：将检索到的信息作为上下文，提供给生成模型（如 GPT）进行辅助。</li></ol></li><li><ol start="3"><li>生成（Generation）：基于检索到的上下文和原始输入，生成更加准确和上下文相关的回答。</li></ol></li></ol><p>RAG的使用就是为了让大模型的回答更准确，更实时和专业，根据前面介绍的langchain和RAG的定义，通过一个举例来说明下使用。</p><h2 id="举个例子，说明怎么使用"><a href="#举个例子，说明怎么使用" class="headerlink" title="举个例子，说明怎么使用"></a>举个例子，说明怎么使用</h2><p>了解大模型开发的应该知道，无论是openai的API还是其他家的，都会有token的限制，这样我们在与大模型对话时候，就不能超过最大的token限制，如果一本书有几百页，我们如何能通过大模型快速找出这本书的某一处内容，还要自然回答，如果是直接搜素（比如使用es）那肯定比较生硬。</p><p>第一步:</p><p> LangChain 的向量存储功能，将文档文本加载并存储为向量。具体需要做的是对文档内容进行分隔，embedding后存入向量数据库，目的是能够通过向量找到对应相似度，为后续搜索做准备。（这些都可以LangChain提供的组件来实现）</p><p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/640-20250106094902759" alt="图片"></p><p>第二步：</p><p>这幅图来说明通过RAG的一个工作流程，通过查询向量数据库，从向量数据库中检索相关内容，将检索到的上下文和用户问题结合，给到了LLM，最终生成具体的答案。</p><p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/640-20250106095046024" alt="图片"></p><p>如果我们用代码来模拟下看，这个对技术人来说，更容易理解（<strong>非技术可以忽略）看下边的代码来说明langchain和RAG的使用。</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line">from langchain.vectorstores import Chroma</span><br><span class="line">from langchain.embeddings.openai import OpenAIEmbeddings</span><br><span class="line">from langchain.llms import OpenAI</span><br><span class="line">from langchain.chains import RetrievalQA</span><br><span class="line">from langchain.prompts import PromptTemplate</span><br><span class="line">from langchain.text_splitter import CharacterTextSplitter</span><br><span class="line">from langchain.document_loaders import TextLoader</span><br><span class="line"></span><br><span class="line"># 设置 API 密钥（需要替换为你的 OpenAI API 密钥）</span><br><span class="line">import os</span><br><span class="line">os.environ[&quot;OPENAI_API_KEY&quot;] = &quot;your-openai-api-key&quot;</span><br><span class="line"></span><br><span class="line"># 1. 准备文档内容</span><br><span class="line"># 假设我们有一个文本文件 data.txt，包含需要存储的知识</span><br><span class="line">loader = TextLoader(&quot;data.txt&quot;)</span><br><span class="line">documents = loader.load()</span><br><span class="line"></span><br><span class="line"># 将文档分割为更小的片段以适配向量化</span><br><span class="line">text_splitter = CharacterTextSplitter(chunk_size=500, chunk_overlap=50)</span><br><span class="line">split_docs = text_splitter.split_documents(documents)</span><br><span class="line"></span><br><span class="line"># 2. 创建向量数据库</span><br><span class="line">embeddings = OpenAIEmbeddings()</span><br><span class="line">vectorstore = Chroma.from_documents(split_docs, embeddings, persist_directory=&quot;./chroma_db&quot;)</span><br><span class="line"></span><br><span class="line"># 3. 初始化检索器和大模型</span><br><span class="line">retriever = vectorstore.as_retriever(search_kwargs=&#123;&quot;k&quot;: 3&#125;)  # 检索相关性最高的3个片段</span><br><span class="line">llm = OpenAI(model=&quot;gpt-4&quot;)</span><br><span class="line"></span><br><span class="line"># 4. 定义提示模板</span><br><span class="line">prompt_template = PromptTemplate(</span><br><span class="line">    input_variables=[&quot;context&quot;, &quot;question&quot;],</span><br><span class="line">    template=&quot;&quot;&quot;</span><br><span class="line">    You are an intelligent assistant. Based on the following context:</span><br><span class="line">    &#123;context&#125;</span><br><span class="line">    Please answer the question:</span><br><span class="line">    &#123;question&#125;</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"># 5. 构建 RAG 流程</span><br><span class="line">qa_chain = RetrievalQA.from_chain_type(</span><br><span class="line">    llm=llm,</span><br><span class="line">    retriever=retriever,</span><br><span class="line">    return_source_documents=True,</span><br><span class="line">    chain_type_kwargs=&#123;&quot;prompt&quot;: prompt_template&#125;</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"># 6. 查询</span><br><span class="line">query = &quot;What is the main benefit of using RAG with LLMs?&quot;</span><br><span class="line">result = qa_chain(&#123;&quot;query&quot;: query&#125;)</span><br><span class="line"></span><br><span class="line"># 输出结果</span><br><span class="line">print(&quot;Answer:&quot;)</span><br><span class="line">print(result[&quot;result&quot;])</span><br><span class="line"></span><br><span class="line"># 如果需要查看检索到的上下文</span><br><span class="line">print(&quot;\\nSource Documents:&quot;)</span><br><span class="line">for doc in result[&quot;source_documents&quot;]:</span><br><span class="line">    print(doc.page_content)</span><br></pre></td></tr></table></figure><p>以上介绍了用langchain来做大模型开发的使用，主要是理解langchain提供的一些抽象和功能，使用langchain能做的还有更多内容，后边在对langchain的使用做一些分享，今天文章是先有个概貌的理解。</p><p><strong>ps: 后边一些代码的讲解和一些AI电子版的书籍会在视频号上进行分享，公众号的内容还是以概念和漫谈形式来写，也适合碎片化阅读习惯。</strong></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;目前ChatGPT、AIGC各种应用如火如荼，技术人如何使用大模服务自己的业务，如何构建大模型应用？一文搞懂LangChain和RAG的原理和使用，文中附带相关代码可以更好的理解其中的定义。&lt;/p&gt;
+&lt;p&gt;我今天通过LangChain框架，一起看下如何简化大模型应用的开发，</summary>
+      
+    
+    
+    
+    <category term="AI" scheme="https://zhulg.github.io/categories/AI/"/>
+    
+    
+    <category term="AI" scheme="https://zhulg.github.io/tags/AI/"/>
+    
+    <category term="大模型" scheme="https://zhulg.github.io/tags/大模型/"/>
+    
+    <category term="LangChain" scheme="https://zhulg.github.io/tags/LangChain/"/>
+    
+    <category term="RAG" scheme="https://zhulg.github.io/tags/RAG/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>从0到1，如何快速上架一款chrome插件</title>
+    <link href="https://zhulg.github.io/posts/5e8ea077.html"/>
+    <id>https://zhulg.github.io/posts/5e8ea077.html</id>
+    <published>2025-01-05T01:27:20.000Z</published>
+    <updated>2025-10-28T14:19:31.402Z</updated>
+    
+    <content type="html"><![CDATA[<p>如何快速上架chrome插件? 如何搞定chrome开发者注册？本文来进行详细的讲解一下，方便国内开发轻松上架插件。</p><p>前两天上架了个护眼助手的插件，有读者私信问上架这个国内能否访问，目前因为是google的chrome商店，如果没有科学上网，确实无法访问。（需要的话可以关注公众号，回复护眼助手即可获取软件，到时添加在chrome浏览器就行。如果使用微软Edge浏览器的，等审核通过也可以安装）</p><p>今天快速介绍下，怎么从0到1上架一块插件软件，就上架来说要比Android 和iOS的审核和填写的东西要少一些。我快速介绍下给想尝试这个插件开发的读者。也顺便说一下，如果你想开发一些插件来赚钱的话，也是可以的，回头再介绍这块，先说下如何从0上架一款插件。</p><h2 id="开发账号准备"><a href="#开发账号准备" class="headerlink" title="开发账号准备"></a><strong>开发账号准备</strong></h2><p>开发插件本身不难，会JS技术并能解决用户痛点这些就可以了，上架插件就需要先有账号，用来管理你的插件后台，提交和版本更新的管理后台。</p><p>我知道很多人就卡在这一步，先注册为chrome应用开发者地址：</p><p><a href="https://chrome.google.com/webstore/devconsole/" target="_blank" rel="noopener">https://chrome.google.com/webstore/devconsole/</a></p><p>注册开发者账号的门槛就是需要支付5美元注册费。</p><p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/640" alt="图片"></p><p>这个是一次性支付，但支付是个问题，他不支持国内支付方式，需要有美国信用卡，目前支持的有通过 GPay 支付 Google 开发者账号的注册费用，或使用带有以下徽标的信用卡或借记卡：</p><ul><li>Mastercard</li><li>Visa</li><li>American Express</li><li>Discover（仅限美国）</li><li>Visa Electron（美国以外的国家/地区）</li></ul><p>是不是有点头大了？</p><p>如果没有海外信用卡或者Gpay这个基本上就没法支付，我这边也是在经过对比后选择了WildCard，他可以支持海外很多支付，下边的海外支付都支持。（我之前也用过depay就是每月有月费，不如这个划算）</p><p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/640-20250105092857762" alt="图片"></p><p>可以注册后就有了一张虚拟信用卡可以用于支付了，wildcard他支持微信和支付宝充值也比较方便。这个开卡是有费用的可以开2年或3年（这卡没有月租这点还是划算的），<strong>开卡时可以使用我的个人邀请码: LJMT</strong>，就是良技漫谈的首字母，你会有个9折优惠。</p><p>这个开卡后，可以微信支付宝支付充值，然后去chrome插件后台填写自己的虚拟卡号支付即可。（有问题可以私下我）</p><h3 id="上架应用"><a href="#上架应用" class="headerlink" title="上架应用"></a><strong>上架应用</strong></h3><p>开发账号开通后，就可以有插件后台了，去上传自己的插件就好。</p><p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/640-20250105092857969" alt="图片"></p><p>上传插件包后，就是需要把软件的相关介绍、软件包后台的各种尺寸的图片进行准备</p><p><img src="https://mmbiz.qpic.cn/sz_mmbiz_png/gCwibMtn41zOuSgJwCibvtlicksF12HghPAgN1J4cH2OoTD91fiaDmWMyqnHibc25sLNqmrsLbtichTiaVRClBvlkc0zA/640?wx_fmt=png&from=appmsg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1" alt="图片"></p><p>需要特别强调的是度及软件的权限要说明，这个说不清楚的话可能会影响审核，整过程没有过多的负责，审核也还好，1-2天就会通过，如果使用的权限越多，审核时间也就会越长。</p><p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/640-20250105092924157" alt="图片"></p><p>如果是第一次上架，需要准备对应的预览图，后台各种尺寸的图，供后台展现和用户安装时使用，如果上架过APP，那这个也很简单。</p><p>另外推荐一个icon的网站，<a href="https://hotpot.ai/icon-resizer" target="_blank" rel="noopener">https://hotpot.ai/icon-resizer</a> 如果不太会自己切图，可以使用这个免费网站。</p><p>好了，其他就是软件自己开发好，测试完没问题按我上边的步骤上传等待审核结果，就可以了。</p><p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/640-20250105092858696" alt="图片"></p><h2 id="最后一些话"><a href="#最后一些话" class="headerlink" title="最后一些话"></a>最后一些话</h2><p>如果上架过程中有问题可以进行交流，整体看比较麻烦的是开发账号支付5美元问题，其他对技术人来说都会比较简单。</p><p>如果你有好的想法和提效的都可以用插件来实现，而且插件也可以作为打造个人产品的一种方式，就入手来说比上架android和iOS的审核要简单太多。</p><p>技术人凡事就要多尝试，很多起飞的产品都是来自一个很小的mvp，多做一些产品和商业化的尝试，对技术方向掌握和运用也非常有利，学习新东西的速度也会越来越快！</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;如何快速上架chrome插件? 如何搞定chrome开发者注册？本文来进行详细的讲解一下，方便国内开发轻松上架插件。&lt;/p&gt;
+&lt;p&gt;前两天上架了个护眼助手的插件，有读者私信问上架这个国内能否访问，目前因为是google的chrome商店，如果没有科学上网，确实无法访问。（需</summary>
+      
+    
+    
+    
+    <category term="前端" scheme="https://zhulg.github.io/categories/前端/"/>
+    
+    
+    <category term="chrome" scheme="https://zhulg.github.io/tags/chrome/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>为什么Boss上那么多已读不回?</title>
+    <link href="https://zhulg.github.io/posts/7f92c8fb.html"/>
+    <id>https://zhulg.github.io/posts/7f92c8fb.html</id>
+    <published>2025-01-04T01:44:09.000Z</published>
+    <updated>2025-10-28T14:19:31.375Z</updated>
+    
+    <content type="html"><![CDATA[<p>为什么Boss上那么多已读不回？ 我最近跟一个做HR的朋友聊了下这个现象，写这篇文章喜欢对大家有所帮助。</p><p>临近年底，公司一般这个时候开始做年底总结、来年业务规划和预算。与此同时，也就会有些预期业绩和业务调整，裁员也常常发生 ，年底的离职潮也逐渐涌现。</p><p>和往年相比，今年明显能感受到，身边开始看机会的人越来越多了。交流中也时常听到抱怨，<strong>“不是我不够优秀，而是简历投了根本没人回！”</strong> 有人说：“如果不招人，那为什么要挂出JD ？”还有人说发起几百个沟通，得到的回复寥寥无几，有时是猎头礼貌回一句您不合适，大多数时候则直接是已读不回。也有人开始怀疑，是不是自己的简历格式出了问题？</p><p>我最近专门找了一位做HR的朋友聊了聊，从她那了解的情况中大概有这么种，也给出了一些建议我整理出来分享。以Boss来举例，这个目前可能是最火爆的求职平台了（从他近几年的营收情况看）</p><h3 id="平台收费模式"><a href="#平台收费模式" class="headerlink" title="平台收费模式"></a><strong>平台收费模式</strong></h3><p>据说回复率数据大概是这个样子，准确度无法严格求证，但可以说明问题，大概80-90%的简历是已读不回，5%左右简历会得到礼貌拒绝，另外有5%左右的简历才有机会进入面试。</p><p>为什么这么不喜欢回复？因为回复也是要花钱的，严格来说也不是boss们不礼貌。</p><p>HR如果要回复简历，往往需要支付一定费用，而这些费用通常是按次数收费的。这里面从发布JD，到沟通聊天，有包月套餐，有畅聊包，计费给你整的明明白白，也就是说，HR必须精打细算地选择哪些简历值得回复，对于那些明显不符合岗位要求的求职者，也就真的是不想花钱，或者她的畅聊包或者次数用完了。</p><p>了解了平台模式，大概上边的回复率数据，我估计也就是差不多这样的概率了。</p><h3 id="简历太多，不是你不优秀"><a href="#简历太多，不是你不优秀" class="headerlink" title="简历太多，不是你不优秀"></a><strong>简历太多，不是你不优秀</strong></h3><p>除了收费机制的影响，另一大原因就是HR每天面对海量简历时，根本没时间看完简历，这个真的是要拼幸运和拼打招呼的频率了，也不是你不优秀，第一步是能被看到简历。</p><p>我的HR朋友告诉我，有时她一个岗位，每天有几百个打招呼和信息，而她一个人根本没办法逐一阅读所有简历。大部分情况下，HR只能筛选那些排名靠前的简历，而这些简历往往是通过平台会员或者付费服务排上来的有些是通过推荐算法来的，所谓推荐算法无非是求职者购买服务包之类，看到没现在求职都卷的狠….</p><p>你可能还问有得打招呼的都是已读了，可以幻想起下一步的沟通交流了，而根据她的描述由于消息太多时候可以批量已读，也就是求职者觉得已读了，但仍然没回复，写也可能简历太多被一键标记已读了。</p><h3 id="从简历和打招呼优化"><a href="#从简历和打招呼优化" class="headerlink" title="从简历和打招呼优化"></a><strong>从简历和打招呼优化</strong></h3><p>了解了这些客观原因后，求职时我们也得从自身开始，把简历和打招呼方式优化好，做到能挤到10%的行列里，毕竟现在大环境下，市场上人多。boss们是用户，而求职者只是商品，就必须把自己的商品打磨好，让用户能看到先。</p><p><strong>从朋友那得到信息和建议也分享给大家：</strong></p><p>先从自己简历上优化，突出价值能提供什么给boss，过往战绩是什么，核心本领是什么，如果没有大厂背景，切记只描述工作，要突出他人亮点，这些亮点能对应JD。</p><p>一些硬性规定，比如学历（尽管有时她也反对，但老板定的），年龄，行业背景匹配，这个要求求职者不盲目投递，看好一些硬性要求，一般会写在JD或者提炼出核心关键词里体现。</p><p>薪资问题，有得20-30K的，其实只能给到22k左右，30-40K给的其实是33左右，真实情况，按她的说法现在人多岗少，除非这个岗位她招不到人。所以打招呼时薪资有可能也会跟他们不匹配，导致没法回复你，求职者看好自己的薪资区间在打招呼，打招呼也突出重点，自己做什么，工作经验，希望薪资，尽量建设模板打招呼方式，言简意赅一句话说明白。</p><p>还有一点建议，没有及时回复的，多找2个HR，这个公司可能不是一个HR，或者有其他HR也在负责这个岗，那就多打招呼。还有，如果这个boss平台没有回复的，你可以去其他招聘平台，找到这个公司的HR继续打招呼。核心，就是多些打招呼入口，增加看到你消息的概率。</p><h3 id="最后一些话"><a href="#最后一些话" class="headerlink" title="最后一些话"></a><strong>最后一些话</strong></h3><p>目前大环境影响经济下行，失业情况变多，作为求职者，我们在投递简历时，往往并不了解招聘平台背后的规则，也无法完全理解HR筛选简历的逻辑。简历被“已读”后的状态，给了我们一线希望，但也别过度期待，保持平常心才是最重要的。</p><p>不妨从简历和自我介绍的优化开始，提升自己的竞争力。除了平台投递，寻求朋友推荐也是一个非常实用的方式。如今，许多猎头和招聘人员的工作压力也不小，很多企业开始依赖内推来寻找人才。因此，通过熟人推荐和内推的渠道，仍然是许多求职者脱颖而出的捷径。</p><p><strong>面对“已读不回”这种情况，虽然它可能给求职者带来心理上的负担，但一旦理解了这些背后的机制，就能更轻松地放下心态。</strong></p><p>最重要的是，给自己信心，多尝试不同的应聘机会。在这段求职的空窗期，也不妨把精力放在提升自己身上，提升能力、学习新技能，扩展自己的人脉网络，也不把所有希望寄托在招聘平台上。</p><p>保持平和的心态，做好自己的提升工作，给自己一些时间，一定能找到最适合自己的工作。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;为什么Boss上那么多已读不回？ 我最近跟一个做HR的朋友聊了下这个现象，写这篇文章喜欢对大家有所帮助。&lt;/p&gt;
+&lt;p&gt;临近年底，公司一般这个时候开始做年底总结、来年业务规划和预算。与此同时，也就会有些预期业绩和业务调整，裁员也常常发生 ，年底的离职潮也逐渐涌现。&lt;/p&gt;
+</summary>
+      
+    
+    
+    
+    <category term="技术成长" scheme="https://zhulg.github.io/categories/技术成长/"/>
+    
+    
+    <category term="技术成长" scheme="https://zhulg.github.io/tags/技术成长/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Screenity让视频录制变得简单免费,github Star 13K技术背书</title>
+    <link href="https://zhulg.github.io/posts/6f586b6b.html"/>
+    <id>https://zhulg.github.io/posts/6f586b6b.html</id>
+    <published>2025-01-03T08:09:49.000Z</published>
+    <updated>2025-10-28T14:19:31.364Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong>今天我要推荐给你一款绝对让你眼前一亮的录屏工具，Screenity，我最近也在使用，录制课程，培训讲解，视频画中画都支持。</strong></p><p>无论你是开发者、产品经理、教师，自媒体内容创作者，在工作中总会遇到录屏的需求。可是，市面上的录屏软件大多存在功能限制，很多需要付费解锁高级功能，甚至有的还要求你充会员才能使用完整版。更别提那些软件菜单复杂、操作繁琐，让普通人看了头大的情况了…</p><p>它不仅支持多种录制选项，也可以后期编辑和标注功能，帮助你轻松录制、编辑和导出专业级视频效果。</p><p><strong>最重要的是，它完全免费、无需注册（因为代码是开源的），就让你用得安心，省心！</strong></p><h2 id="先看下作者信息"><a href="#先看下作者信息" class="headerlink" title="先看下作者信息"></a>先看下作者信息</h2><p>这个软件的作者也是一位厉害的美女开发alyssaxuu，她身兼多职也是一名连续创业者，从她的github上可以看到一些信息，她这款软件目前在github上已经13K star。</p><p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/640-20250103161356949" alt="图片"></p><p>在 Chrome Web Store 上，已经获得了 200,000+ 安装量，评分也比较高，用户也给出了极高的评价。</p><p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/640-20250103161435793" alt="图片"></p><h3 id="产品核心功能"><a href="#产品核心功能" class="headerlink" title="产品核心功能"></a>产品核心功能</h3><p>市面上很多视频制作，特别是知识讲解类视频制作，一般比较有名的有obs、screen studio 这2个如果使用过的应该知道，obs的操作上多少有些繁琐，但也比较稳定，screen studio 是在mac 上使用比较多的，最后导出视频就需要有付费账号了。</p><p><strong><em>Screenity，不错的地方就是开源、免费，操作简单，就一般制作视频讲解、录制足够用了！</em></strong></p><p>你可以录制屏幕、摄像头和音频，可以直接录制中音频录入，有丰富的注释功能，允许你在录制过程中添加文本、箭头、高亮、绘图。还支持模糊模式，比如你在录制视频中有些区域不想公开，比如你的密码，界面上个人隐私等信息。</p><p>录制中，你可以独立控制麦克风音频和系统音频，这对于做产品演示、技术讲解等场景非常实用。你可以选择只录制麦克风音频，或者录制系统音频，甚至可以使用“按键录音”模式，这样就可以避免背景噪音干扰，确保录音清晰可听。</p><p>比如这个图上你可以设置模糊部分，保护隐私。</p><p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/640-20250103161423107" alt="图片"></p><p>也可以在屏幕上随时进行标注，想要强调某个操作步骤？用画笔圈出重点；想要展示一个流程？加上箭头引导。支持实时绘制、添加文字，让你的录制更加生动、直观，绝对让人眼前一亮。</p><p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/640-20250103161358140" alt="图片"></p><p><strong>总结下功能，就是你看到市面上制作的录制讲解类、培训授课类的视频的功能它都支持，而且操作交互简单！</strong></p><h3 id="提供编辑，导出免费"><a href="#提供编辑，导出免费" class="headerlink" title="提供编辑，导出免费"></a>提供编辑，导出免费</h3><p>如果用过其他录屏的话，可能就知道很多在这一步要不就是让付费，要不就是高分辨率导出让冲会员，或者给你视频加上水印。。。</p><p>而这个完全不限制，代码都是开源的，就不用担心啦，视频在录制时可以自己选择4K，1080等，高清程度也不用担心，妥妥够用。</p><p>可以看右边的菜单，可以对视频进行裁剪和处理，当然如果是深加工可以进行用剪映来做处理，就录制来说这个已经完全够用了。</p><p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/640-20250103161358474.png" alt="图片"></p><h3 id="安装简单"><a href="#安装简单" class="headerlink" title="安装简单"></a>安装简单</h3><p>前面说了，这个软件是通过浏览器插件方式提供，所以安装简单，直接添加插件，就可以体验，目前支持中文语言，作者已支持多种语言，chrome插件商店直接安装，或者这个地址打开：</p><p><a href="https://chromewebstore.google.com/detail/screenity-screen-recorder/kbbdabhdfibnancpjfhlkhafgdilcnji?hl=en" target="_blank" rel="noopener">https://chromewebstore.google.com/detail/screenity-screen-recorder/kbbdabhdfibnancpjfhlkhafgdilcnji?hl=en</a></p><h3 id="写给技术人"><a href="#写给技术人" class="headerlink" title="写给技术人"></a>写给技术人</h3><p>这个开源的项目地址：</p><p><a href="https://github.com/alyssaxuu/screenity" target="_blank" rel="noopener">https://github.com/alyssaxuu/screenity</a> </p><p>技术人可以从里面看下载源码，自己也可以定制需求开发，最近也看到作者有在做链接共享，视频编辑器的一些功能，有兴趣也可以下载源码去学习~</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;&lt;strong&gt;今天我要推荐给你一款绝对让你眼前一亮的录屏工具，Screenity，我最近也在使用，录制课程，培训讲解，视频画中画都支持。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;无论你是开发者、产品经理、教师，自媒体内容创作者，在工作中总会遇到录屏的需求。可是，市面上的录屏软件大</summary>
+      
+    
+    
+    
+    <category term="技术成长" scheme="https://zhulg.github.io/categories/技术成长/"/>
+    
+    
+    <category term="Tools" scheme="https://zhulg.github.io/tags/Tools/"/>
+    
+    <category term="录屏工具" scheme="https://zhulg.github.io/tags/录屏工具/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>人生建议，技术人一定要学AI大模型，时代已来！</title>
+    <link href="https://zhulg.github.io/posts/94f0a6b4.html"/>
+    <id>https://zhulg.github.io/posts/94f0a6b4.html</id>
+    <published>2025-01-02T01:18:26.000Z</published>
+    <updated>2025-10-28T14:50:06.721Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/640-20250102092023826" alt="图片"></p><p>2025年，建议所有技术人、互联网人尽快把AI学起来，用在自己的工作或者生活里，跟随技术和时代的变革。</p><p>在之前的文章中，我提到过为什么每个技术人都应该拥抱AI。而今天的重点是分享如何快速入门AI大模型技术。无论你是前端、后端工程师，还是对互联网技术感兴趣的读者，都希望能从这篇文章中获得一些有价值的启发。</p><p>先说个题外话：最近，我的文章更新频率有所降低，一方面是因为纯技术类的内容流量确实不高，读者反馈也较少；不管如何我会继续分享原创内容，给大家带来有价值的技术与成长干货分享。</p><p>回到正题，最近我重新投入到AI的学习中，这也是今天这篇文章的主旨——分享我最近一些入门的经验和知识。<strong>如果你是技术人，尤其是互联网从业者，现在就开始学习AI大模型技术，真的是给你的人生一个重要建议！</strong>（毕竟几年前感兴趣学习了机器学习和推荐相关知识，后边忙其他方向也就没继续…）也不要觉得AI底层技术很难学，关键在于怎么一点点啃理论并和项目验证结合来练。</p><p>你可能会觉得我有些夸张，但实际上，就现在技术行业特别是互联网软件行业，已经有大量的技术在持续降低门槛、人员裁减也基本成为常态。没办法新业务和技术难度都在减弱，如果还坚守在原有的阵地，可能也不是一个更好的选择，AI时代，一切发展太快，现在在去找一些基础开发、前端开发特别是网页类，<strong>这些低门槛工作完全可AI实现….技术人应该觉醒了。</strong></p><p><strong>是不是AI时代，所有的程序员会淘汰？绝对不是。</strong></p><p>更有一些外行说所有人都跨行都来学编程？这个也不现实的，技术人也不用怕，里面还是有一定的门槛的，即便是AI时代，想跨行来做还是要有些基础知识和理论的，否则也无法结合AI来编程。</p><p>说了这么多，目的是想打消技术人过度的焦虑，然后找对方法，来提升自己。</p><h3 id="技术人怎么学？"><a href="#技术人怎么学？" class="headerlink" title="技术人怎么学？"></a>技术人怎么学？</h3><p><strong>那作为技术人，我觉得我们要做使用AI、调教AI的人，而不是被AI代替的人，用好AI这个智能工具服务更多业务。</strong></p><p>最好不要通过学习通过各种工具怎么生成图片、怎么生成视频，加一些特效，这些技能不是不可以学，作为技术人不应该重点学这些，因为这些东西门槛低，不能构成技术人的护城河。随着普及会会变成2000年左右的打字员一样的工种，技术人的核心要学怎么结合AI生产自己行业的工具，调优工具，而不是使用工具。</p><p>所以，如果上边我说的这个话你有共鸣，那我最近在重新学习的AI相关东西你应该也能领悟，我们先来思考下这几个问题。</p><h3 id="AI大模型本质是什么？"><a href="#AI大模型本质是什么？" class="headerlink" title="AI大模型本质是什么？"></a>AI大模型本质是什么？</h3><p>大模型的本质是一种统计推理的工具，通过在大规模数据上进行训练，内化并表达出广泛的知识和技能。它们具备高度的通用性和适应性，可以通过适当的调优应对多种任务，并展示出一定的类推理能力。</p><p>如果我们想做一些AI大模型的工作，这里面当然会有很多方向可做, 我觉得可以选取一个自己感兴趣的。所有这些的一切就是先从大模型的工作原理来开始。</p><p>之前写的文章，大模型里相关文章有原理的漫谈，<a href="http://mp.weixin.qq.com/s?__biz=MzIzNDA3MzA3MQ==&mid=2464356719&idx=1&sn=6df620a76eabec6d4fe8566ab33d95ad&chksm=ffec47efc89bcef95afddf24c3b8eafbcc606e3cc82f8670fa810344b1deb084afbd116fdfe5&scene=21#wechat_redirect" target="_blank" rel="noopener">AI时代：玩AI却不懂一点原理，真的靠谱吗？</a>这个也是相关的原理构成，大概原理知道后，就可以开始把组成的某一个部分开始进行理解。</p><h3 id="学习方法建议："><a href="#学习方法建议：" class="headerlink" title="学习方法建议："></a>学习方法建议：</h3><p>个人的建议，如果之前不是机器学习方向的，很可能就被概念和名词就会卡住，以为最近开始的学习来讲，不用怕，那个不懂学习那个，然后慢慢拼凑出一个概貌。学习最重要的途径，就是直接尝试做，遇到卡住的地方，再寻找方法补足技能，再尝试，如此循环。</p><p>比较核心一点，不要上来就勇猛的学各种书籍，比如机器学习、线性代数、微积分、离散数学，如果是学生阶段那没错，如果是已经工作的建议还是先把大模型相关操作和原理开始，遇到什么不清楚就查什么，然后继续，这样比直接啃基础反而快一些，但基础这些还是要啃。这些东西别指望一看就懂，一看就会，先吃一点，那个概念原理不清楚就去查，然后继续往下走，比如一些算法怎能也想不通，先跳过。然后空闲就把线性代数、离散数学、这些学一些。</p><p>方法有了，给大家分享下最近根据原理来重新学习的一些书籍和知识, 比如从transformer原理看，可能会遇到一些向量问题、机器学习问题，如果对向量不熟，可能就得查一下线性代数，如果对训练的过程不懂，就看下机器学习监督学习、无监督学习、强化学习这些概念。</p><h3 id="路线上可以从入门开始："><a href="#路线上可以从入门开始：" class="headerlink" title="路线上可以从入门开始："></a>路线上可以从入门开始：</h3><p>1.大语言模型的基础知识和常见术语和原理开始，最重要的是实际操作。</p><p>2.可以在本地环境搭建开源模型的推理环境。</p><p>3.了解下大模型的应用开发框架（ LangChain、Dify）Prompt 工程、 RAG、Agent 等大模型应用开发范式</p><p>4.大模型的训练微调、数据工程、推理优化，训练自己业务行业的大模型。</p><p>总之就是围绕怎么训练一个自己的大模型，这里面可能就会涉及上面的一系列问题，也需要补充各种理论基础，编程语言（比如对python）深度学习框架 PyTorch、TensorFlow等、分布式训练、模型调优等等。</p><p>上边提到的知识点都可以在网上找到不错的教程，推荐openai gpt和 llama 来开展学习，毕竟国内很多的大模型都也是套壳llama的。</p><h3 id="自己在看的资料："><a href="#自己在看的资料：" class="headerlink" title="自己在看的资料："></a>自己在看的资料：</h3><p>这块的资料很多，我一般不怎么推荐，因为每个人的学习方法不同，可以结合自己来，我目前在看的一些资料比如机器学习的经典可以看看周志华的机器学习，当成工具来查阅，其他的就是上边说的线性代数、离散数学，目前还没有进入深水区后边会继续分享，先推荐必学平台和书籍：</p><p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/640.png" alt="图片"></p><p><a href="https://learn.deeplearning.ai/" target="_blank" rel="noopener">https://learn.deeplearning.ai/</a> 吴恩达（Andrew Ng）创办里面有很多教程</p><p><strong>另外2本必看的书籍推荐：</strong></p><p><a href="https://llmbook-zh.github.io/" target="_blank" rel="noopener">https://llmbook-zh.github.io/</a> 《大语言模型》</p><p><a href="https://zh.d2l.ai/" target="_blank" rel="noopener">https://zh.d2l.ai/</a> 《动手学深度学习》</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/zhulg/allpic/master/640-20250102092023826&quot; alt=&quot;图片&quot;&gt;&lt;/p&gt;
+&lt;p&gt;2025年，建议所有技术人、互联网人尽快把AI学起来，用在自己的工</summary>
+      
+    
+    
+    
+    <category term="AI" scheme="https://zhulg.github.io/categories/AI/"/>
+    
+    
+    <category term="技术成长" scheme="https://zhulg.github.io/tags/技术成长/"/>
+    
+    <category term="AI" scheme="https://zhulg.github.io/tags/AI/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>用LM Studio工具部署本地AI大模型，真的太省事了</title>
+    <link href="https://zhulg.github.io/posts/87fa9ee5.html"/>
+    <id>https://zhulg.github.io/posts/87fa9ee5.html</id>
+    <published>2025-01-01T03:12:50.000Z</published>
+    <updated>2025-10-28T14:19:31.369Z</updated>
+    
+    <content type="html"><![CDATA[<p>普通人如何部署自己的本地大模型，如何用Studio工具部署本地AI大模型。</p><p>前面写过<a href="http://mp.weixin.qq.com/s?__biz=MzIzNDA3MzA3MQ==&mid=2464356719&idx=1&sn=6df620a76eabec6d4fe8566ab33d95ad&chksm=ffec47efc89bcef95afddf24c3b8eafbcc606e3cc82f8670fa810344b1deb084afbd116fdfe5&scene=21#wechat_redirect" target="_blank" rel="noopener">AI时代：玩AI却不懂一点原理，真的靠谱吗？</a>的基础篇，也说过这类的文章我后边会持续输出，核心目标帮助技术人、对AI感兴趣的读者，可以用一种比较轻松和漫谈的形式理解，并给大家一些学习和玩AI的方法。今天先介绍下普通人如何部署自己的本地大模型。</p><p><em>你可能会问：为什么要自己部署本地大模型？</em></p><p>我想可能有这几个原因，看看是否准确：</p><ol><li>如果你不会科学上网，是不是访问其他国外模型基本没法用，相关速度也不是快，即便科学上网，有些模型是不是还要付费订阅高级版。</li></ol><ol start="2"><li>自己是不是有些东西不想直接公开去给到大模型，害怕隐私和知识产品被大模型收集学到。</li></ol><ol start="3"><li>在某个垂直领域，是不是想训练自己的大模型，然后结合自己的产品和业务来使用。</li></ol><p>如果现在可以帮助普通人，像安装一个电脑软件一样通过简单操作，就可以运行自己的本地大模型，在自己电脑上免费使用，速度也快，也不怕自己隐私，这个是不是能满足大部分人需要了。</p><p>今天我想给大家推荐一个比 Ollama 更加清爽的工具：<strong>LM Studio（</strong>如果你还不熟悉 Ollama，它其实是一个用于安装和管理大模型的工具）， LM Studio 不仅对普通用户友好，技术人员也友好，方便地安装大模型。它提供了开发模式，让技术人员能深入了解相关参数。在用户界面方面，LM Studio 相比 Ollama 也更为出色。</p><h2 id="针对普通人用：话不多说，直接下载"><a href="#针对普通人用：话不多说，直接下载" class="headerlink" title="针对普通人用：话不多说，直接下载"></a>针对普通人用：话不多说，直接下载</h2><p>打开下载地址<a href="https://lmstudio.ai/" target="_blank" rel="noopener">https://lmstudio.ai/</a> 下载自己电脑对应操作系统，可以看到现在MAC上的用户可以安装苹果进行优化过的MLX模型。</p><p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/640-20250101111437107" alt="图片"></p><p>下载前看下自己电脑配置，大部分电脑是没问题，可以下载一些小的模型就好,mac的话要M1以上的电脑。</p><p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/640-20250101111437429" alt="图片"></p><p>下载后，就可以打开LM Studio来进行相关模型的下载，安装后可以通过左侧的搜索来找对应的模型下载，下载后可以运行对应的模型就可以直接使用了，看起来很简单。</p><p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/640-20250101111515167" alt="图片"></p><p>但是…</p><p>在安装后开始搜索模型时候，列表可以看到，但无法进行下载模型。这个时候不要慌，因为<a href="https://huggingface.co/" target="_blank" rel="noopener">https://huggingface.co/</a> 在国内是无法访问的。</p><p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/640-20250101111438109" alt="图片"></p><p>即便也有科学上网了，但是在软件内部获取模型的是通过https方式来访问的，全局代理也没有过去。</p><p><strong>怎么办，只能找国内的同步的镜像了，可以使用 hf-mirror.com，用于镜像 huggingface.co 域名，这样对应的模型就可以正常下载。</strong></p><p>我是MAC电脑，通过vscode和其他编辑器sublime text这些都可以，打开显示包内容用vscode打开文件，全局替换 huggingface.co，将 LM Studio 程序中所有使用到 huggingface.co链接的地方都搜索出来，用 hf-mirror.com 来替换，大概有5百多处（替换完后记得保存和重启软件，已经验证过没问题），如果是win用户也一样，直接找到软件安装地址，打开资源文件全局替换即可。</p><p>过了这个，就可以方便下载模型了，模型的选择可以看自己的电脑配置，其实LM studio也会根据电脑配置推荐，mac用户建议可以使用MLX的在mac上体验会更快，主要自己电脑配置要M1以上的电脑。</p><p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/640-20250101111530635" alt="图片"></p><p>模型下载完后，根据指引就可以直接进行加载了。</p><p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/640-20250101111541805" alt="图片"></p><p>模型加载后，就可以新建对话，先来进行个测试，在我箭头指示地方可以加载下载的离线模型，并开启对话。</p><p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/640-20250101111647590" alt="图片"></p><p>这样本地的模型就可以正常运行了，你可以跟他对话，来辅助你日常相关的工作内容，这个比较适合普通人，快速搭建自己本地的大模型。</p><p>针对互联网人：想多一些理解和使用大模型</p><p>大部分互联网和技术人，这个安装和使用的过程应该很简单，在搜索的列表里也可以看到市面上各家相关的大模型，都可以去下载尝试和对比。我们在上边也看到了这么多大模型，各种参数不同的大模型，以及大模型的相关格式，这些我们是否清楚相关的概念和原理？</p><p>我们在下载模型的时候，可以看到有标识大模型参数的B，比如Llama-3.2 1B ，Llama-3.2 2B ,  这些B代表着大模型的参数，那参数到底在大模型里是什么意思？理解这些参数可以更好地理解大模型。</p><p>这些参数以Billion为单位，刚才我下载的 Llama-3.2 1B 这意味着这个模型包含大约10亿个参数，而一个参数通常是模型的权重或偏置值，这些值在训练过程中被调整以使模型能够更好地进行预测，参数越多最后相关的结果就越准确，</p><p>比如在图形识别中可能就有百万计的参数来学习图像中的不同特征，如形状、大小、纹理、颜色等等，从而实现准确识别和分类。</p><p>这些参数不仅仅是数值，也是在训练过程中学习到并自动产生，这就需要海量的数据，产生的参数代表了模型如何理解和区分不同的输入数据，根据这些上亿维度的参数来最终给出相关预测的结果。</p><p>随着训练的深入，机器人不断调整这些参数，从而变得更加聪明，能够更好地完成任务，比如识别猫和狗，或者理解人类的对话。</p><p>总结下：概念和使用</p><p>整体通俗理解下，大模型和参数，大模型就是一个聪明的大脑，它通过观察大量数据图片、文字等你想让他学的一切，根据你让他学的东西，来转化成相关的参数（也就是数字，因为机器只认数字），每个参数帮助它理解数据的不同方面，比如颜色、形状或语言的含义。根据大量的数据训练的深入，不断产生、优化、调整这些参数，大脑就越聪明，能够更好地完成给他的命令。</p><p>普通人如果想玩AI大模型，使用 LM Studio 也是个不错的选择，可以安装和尝试多个模型在自己电脑上，这样隐私和你想问的问题也就更安全，速度也更快。</p><p><strong>互联网人来说，特别技术人也可以使用他提供的本地server和 lms log stream 在命令行 来看相关模型日志。</strong></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;普通人如何部署自己的本地大模型，如何用Studio工具部署本地AI大模型。&lt;/p&gt;
+&lt;p&gt;前面写过&lt;a href=&quot;http://mp.weixin.qq.com/s?__biz=MzIzNDA3MzA3MQ==&amp;mid=2464356719&amp;idx=1&amp;sn=6df620</summary>
+      
+    
+    
+    
+    <category term="AI" scheme="https://zhulg.github.io/categories/AI/"/>
+    
+    
+    <category term="技术成长" scheme="https://zhulg.github.io/tags/技术成长/"/>
+    
+    <category term="AI" scheme="https://zhulg.github.io/tags/AI/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>AI时代，只学1项技能，就学会提问</title>
+    <link href="https://zhulg.github.io/posts/b59faea6.html"/>
+    <id>https://zhulg.github.io/posts/b59faea6.html</id>
+    <published>2024-12-30T23:54:59.000Z</published>
+    <updated>2025-11-03T16:27:48.863Z</updated>
+    
+    <content type="html"><![CDATA[<p>前两天朋友私信我，问普通人在AI时代下的相关问题，他这个问题我之前也有过思考，在以往的文章里也表达过相关的观点。</p><p>他具体问题是这样的：<strong><em>现在AI这么火，我们普通人怎么学习AI，不被这个时代淘汰” 。</em></strong></p><p>坦白讲这个问题很大，但也看得出，现在很多人也感受到AI浪潮下的机遇和焦虑。他的焦虑，不知道是不是看到网上到处售卖AI学习课的缘故…（另声明，本人不售卖AI课，可免费提供粉丝AI相关帮助）</p><p>我的回答是：<strong>AI是个工具，这个工具要给你所在行业来结合起来使用。怎么结合，用你所在领域的知识、经验提问给AI，刨根问底，找出最满意的答案。</strong></p><p>之所以这样回答，是因为很多行业不同，业务和商业模式是不一样的，真正用好AI是和行业结合起来。因为AI绝不仅仅是现在市面上，教大家做个图片、制作个视频，换个声音这些操作，真正威力是大家如何使用AI来提高工作效率，渗透在自己行业里，把复杂的东西交给AI，把智能化交给AI，让自己闲下来，让企业效率也提升。</p><p>回到正题，现在信息大爆炸又有了生成式AI的协助，对于普通人，如果必须要会一种技能的话，我觉得是要学会提问，当然也可以提问给AI。不要觉得提问题简单，还要学会提问的技能？之前我也这么认为…从来没觉得提问问题还有专门的书籍（后边介绍）</p><p>为什么提问这么重要呢？</p><p>其实，不管是面对AI，还是面对生活中的各种挑战，提问能力决定了你能从这个世界获取多少有效的信息和知识。</p><p><strong>提问比告知更能解决问题</strong>，它能帮你明确方向，剖析问题，甚至打开新的思路，就像我前面提到的，AI固然强大，但如果你不会提问，给它再多的数据，它也只能给你一些表面答案，无法给出你深入的回答，况且ChatGPT有时给你的答案也是东拼西揍。</p><h3 id="能提问出好的问题，才有价值"><a href="#能提问出好的问题，才有价值" class="headerlink" title="能提问出好的问题，才有价值"></a>能提问出好的问题，才有价值</h3><p>现在信息太泛滥了，网上也有太多的文章是AI写的，有时你难以分辨真假，尽信书，不如无书。虽然，我们的知识的获取变得前所未有的容易，只要打开手机，似乎任何问题的答案都能找到。</p><p>但你有没有发现，获取答案的速度在不断提高，思考的深度却在不断下降？也许你会感叹，自己搜到了成千上万条答案，却依然解决不了实际问题。原因很简单，不是信息不够多，而是你没问对问题，没有经过思考的提问，回答的垃圾信息也就很多。</p><p>知识会贬值，但好问题永远有价值。 随着时间推移，很多知识会变得过时，但一个好的问题却可以引发持续的思考、探讨，甚至带来创新的突破。正是因为这个原因，提问能力在未来社会变得愈发重要。</p><p>想象一下，未来的你不仅需要知道如何回答问题，更需要懂得如何提出更有挑战性、更具创新性的问题，也可能是一个持续努力的方向。</p><h3 id="学会批判性思维的提问"><a href="#学会批判性思维的提问" class="headerlink" title="学会批判性思维的提问"></a>学会批判性思维的提问</h3><p><strong>学会提问，就要说到批判性思维了。</strong></p><p>学会提问，问出好的问题，首先你得有足够的知识储备和批判性思维。如果你对一个领域一无所知，这就不可能提出有深度的问题了，没有相关知识储备，你可能都不知道如何问别人，导致没有问题，有没有感同身受的感觉？</p><p><strong>知识是基础，批判性思维是方法</strong>，两者结合才能真正让你在复杂信息背景中提出好问题。</p><p>批判性思维不仅仅是质疑别人的观点，找出漏洞给别人抬杠…..而是一种系统化的思考方式。它要求你在面对信息时，能够独立分析、鉴别，得出自己的见解。而这些见解，往往就是好问题的来源。</p><p><strong>你可以提问题给大模型，他肯定不会烦你，要通过批判性思维去使用AI，提出深思熟虑的问题，结果自然会更加精准。好的提问，其实就是AI提示词（prompt）的核心部分之一。掌握好这个提问的技能，在AI时代你可能会发现自己能够学到几乎所有所需的知识。</strong></p><p>举个例子，如果你在一个技术领域已经积累了丰富的经验，那么当你面对新的挑战时，你可以提出一些基于实际需求的问题，比如：“这个技术解决方案能否提升用户体验？” ，“有哪些潜在的改进空间？”，这些问题不仅源于你的知识，更源于你对现有信息的批判性分析。当然，你在其他行业的，只要有专业经验和知识AI也不会轻易骗得了你，你用自己的专业知识尽情去提问他，直到问到准确满意的答案。</p><p><strong>怎么让自己有批判性思维的能力？</strong></p><p>个人觉得，可以这样锻炼，这个是之前网上看到的一些关于批判性思维的提问方式，比如：当你看到一件事情时候先问自己：“这是真的吗？”尝试找到支持或反驳的信息，确保自己做出的判断是基于事实而不是主观感受。这个方案对吗？有没有更好的方案？下一步如何做？等等类似的问题，锻炼自己具备这些批判思维的能力。</p><p>使用过诺基亚手机时代的话，应该就知道当年手机市场基本被诺基亚、黑莓等传统手机霸主占据。当时的手机设计围绕着物理按键和小屏幕展开，很多人认为这就是手机的未来，乔布斯采访时候有提到过，手机一定要有实体键盘吗？这也就是一种批判性思维的提问，也是触摸屏随之彻底颠覆了手机行业的创新。</p><p>还有一本比较好的书，也是个人看过的《学会提问》，可以学习提问，也可以学习英文，我买的双语版本，这本书作者是[美]尼尔·布朗(Neil Browne) ，斯图尔特·基利 ，我买的12版，推荐给大家可以看看，如下图：</p><p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/640-20241231080037649" alt="图片"></p><p>最后，AI时代下，我觉得也不要太被网上的一些信息所焦虑，要锻炼自己的批判性思维，学会提问很重要。<strong>把问题提问给AI，获取你对应行业的经验和方法，每个行业领域不一样，但提问的思维是一样的。</strong>也特别强调下，我们互联网人更要学习这种提问的思维，这也是行业创新的必备技能。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;前两天朋友私信我，问普通人在AI时代下的相关问题，他这个问题我之前也有过思考，在以往的文章里也表达过相关的观点。&lt;/p&gt;
+&lt;p&gt;他具体问题是这样的：&lt;strong&gt;&lt;em&gt;现在AI这么火，我们普通人怎么学习AI，不被这个时代淘汰” 。&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;</summary>
+      
+    
+    
+    
+    <category term="AI" scheme="https://zhulg.github.io/categories/AI/"/>
+    
+    
+    <category term="技术成长" scheme="https://zhulg.github.io/tags/技术成长/"/>
+    
+    <category term="AI" scheme="https://zhulg.github.io/tags/AI/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>技术人在数字化转型中如何为企业赋能</title>
+    <link href="https://zhulg.github.io/posts/6e29db15.html"/>
+    <id>https://zhulg.github.io/posts/6e29db15.html</id>
+    <published>2024-12-30T01:54:14.000Z</published>
+    <updated>2025-10-28T14:19:31.438Z</updated>
+    
+    <content type="html"><![CDATA[<p>在当下，数字化转型已成为众多企业生存与发展的关键路径。这不仅仅是工具或流程的变革，更是企业在思维认知上的彻底转型。<strong>数字化的核心是思维方式的改变，而不是简单的工具更新。</strong></p><p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/640-20241230095609266" alt="图片"></p><p><strong>技术驱动数字化转型的关键角色</strong></p><p>数字化转型的成败并非单纯的技术问题，但技术确实是其中不可或缺的推动者。技术的作用不仅仅是优化系统，更在于帮助企业将业务模式和技术手段紧密结合，实现降本、增效、提质，并最终反哺业务成长。</p><p>作为技术人，参与数字化转型的核心在于具备数字化思维和技术素养，同时深入了解企业的业务需求，找到技术与业务的最佳结合点。这不仅需要对现有业务的深度理解，更需要在转型过程中，通过技术手段推动企业向前发展。</p><p><strong>技术如何赋能企业数字化转型</strong></p><p>技术的价值往往体现在业务结果上。如果我们从业务结果倒推，哪些因素会影响业务的成功？这些就是技术人员需要重点关注并优化的环节。以下是我认为技术在数字化转型中能够发挥作用的几个关键领域：</p><h3 id="生产和销售链路的优化"><a href="#生产和销售链路的优化" class="headerlink" title="生产和销售链路的优化"></a>生产和销售链路的优化</h3><p>生产和销售环节往往是一个比较重要的，直接与公司的收益最相关，这种存量业务模式相对成熟且重复性较高，技术可以通过自动化、智能化手段来降低成本、提高效率。</p><p>比如，使用技术为销售人员提高客户识别、跟踪、获客、销售分析等等，生产过程中用技术改造流程，AI识别协助等，通过技术投入从而大幅提升企业的市场竞争力。</p><h3 id="产品服务价值的提升"><a href="#产品服务价值的提升" class="headerlink" title="产品服务价值的提升"></a>产品服务价值的提升</h3><p>产品服务价值链的延伸是技术发挥创新力的另一个重要领域。技术不仅能帮助企业优化现有产品，还能通过技术创新扩大服务的增量空间，通过这些服务价值给企业带来额外的收益。</p><p>比如，利用技术优化客户服务体验、通过技术投入服务潜在客户的产品、提升品牌价值，以及实现企业社会责任目标，这些都能够为企业带来长期的市场效益。</p><h3 id="企业智能化体系的建设"><a href="#企业智能化体系的建设" class="headerlink" title="企业智能化体系的建设"></a>企业智能化体系的建设</h3><p>企业智能化体系是数字化转型的核心，也是技术最为集中发挥作用的领域。从基础设施建设到云服务、大数据、人工智能的应用，技术人员不仅需要实现企业现有业务的数字化，还要建立一个智能化的生态系统，内部链接员工，外部连接客户与合作伙伴，实现真正的互联互通与数据驱动决策。</p><p>数字化转型是一个复杂而长期的过程，企业必须根据实际情况，分阶段推进智能化建设。<strong><em>技术人在这个过程中，需要明确自己的阶段性目标，确保每一步都为企业的长远发展提供技术支持。</em></strong></p><p><strong>技术人定位与价值</strong></p><p>归根结底，技术人的价值在于如何通过降本、增效、提质和反哺来助力企业成长。</p><p>降本增效方面，技术通过合理的资源配置和数据化管理，帮助企业优化决策。</p><p>在提升质量方面，技术可以通过数据分析、产品检测等手段，确保业务的高效运行。</p><p>而反哺业务的关键，则在于如何利用大数据和AI等先进技术手段，从沉淀的数据中提取洞察，助力业务持续增长。</p><p>数字化转型是一个复杂的过程，也是企业寻求新发展的必经之路，技术人也应当在这个过程中找到自己的定位，发挥最大价值，推动企业在新时代中实现新的突破。</p><p>以上讲的都是漫谈的形式，由于时间问题并没有详细展开来讲。有数字化方面感兴趣朋友可以评论发表你的思考、看法，也可私下欢迎交流~</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;在当下，数字化转型已成为众多企业生存与发展的关键路径。这不仅仅是工具或流程的变革，更是企业在思维认知上的彻底转型。&lt;strong&gt;数字化的核心是思维方式的改变，而不是简单的工具更新。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://raw.githubu</summary>
+      
+    
+    
+    
+    <category term="技术成长" scheme="https://zhulg.github.io/categories/技术成长/"/>
+    
+    
+    <category term="数字化" scheme="https://zhulg.github.io/tags/数字化/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>学python，拥抱ai：吴恩达Python初级课让你轻松上手编程</title>
+    <link href="https://zhulg.github.io/posts/5d7e12b8.html"/>
+    <id>https://zhulg.github.io/posts/5d7e12b8.html</id>
+    <published>2024-12-28T07:27:37.000Z</published>
+    <updated>2025-10-28T14:19:31.355Z</updated>
+    
+    <content type="html"><![CDATA[<p>在近年来AI应用的爆发下，一跃冲到了排行榜的首位。随着AI技术的快速进步，加上ChatGPT等智能工具的推动，编程正逐步迈向“自然语言编程”的新时代，门槛越来越低，人人皆可成为开发者。</p><p>今天，我花了一小时左右看了吴恩达老师的《AI Python for Beginners》课程（地址在文末），<strong>看下来非常推荐给没有编程背景的职场人士、学生，以及会计、金融、行政等领域的从业者来学习了解python。尽管是初级课程，也比较适合程序员来学习吴恩达老师的深入浅出教学风格。</strong></p><p>吴恩达老师是斯坦福大学的教授，还是全球人工智能领域的领军人物。他曾担任Google大脑的负责人，并在百度担任过首席科学家，拥有丰富的行业经验。</p><h2 id="课程基础有趣"><a href="#课程基础有趣" class="headerlink" title="课程基础有趣"></a>课程基础有趣</h2><p>视频里吴恩达老师也讲了他的观点，为什么其他行业人也建议学，十年前可能不建议其他行业来学，而现在因为有了生成式AI，有了助手，编程更简单了。</p><p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/640-20241228153237145" alt="图片"></p><p>非常欣赏这种大师级的人来做一些看似基础的课程，也往往能把一些基础的课，生动的讲给非计算机行业的人这个才是厉害的。视频里先从什么是计算机编程来讲起，并结合日常的例子来说明。</p><p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/640-20241228153217676" alt="图片"></p><p><em>题外话，你可能看到我截图的视频是有中文字幕的，这个建议安装个沉浸式翻译插件就好了，适合英语不好的自动就翻译了（但我建议听原版讲解）。</em></p><p>视频里也重点提到在AI的协助下可以把每个行业要做的事情步骤告诉AI，通过生成代码，来提高自己的工作效率。</p><p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/640-20241228153218235" alt="图片"></p><p>*<br>*</p><h2 id="AI-配合教学"><a href="#AI-配合教学" class="headerlink" title="AI 配合教学"></a>AI 配合教学</h2><p>视频在讲解能了解Python 基础知识，不仅能快速了解编程概念，python里的变量、函数、循环、数据结构基础语法，能快速知道编程最核心基础是什么样子的。</p><p>通过和大模型的结合调用，可以了解一些基本的调用关系，这样通过python的简单语法代码来调用LLM，也就能搞清楚AI 智能体（ai agent）是在说什么。<strong>比如下图这个，其实就是通过设置变量后，调用LLM来生产结果，这样多个调用过程结合起来就是AI agent.</strong></p><p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/640-20241228153250465" alt="图片"></p><p>如果是非计算机行业，可以慢慢看，每一步骤都有一些可执行的操作，跟着视频来做。</p><p>比如下边这个图，中间其实就是一个编辑器，你可以直接修改代码，然后点击运行，这个里面也配置了生成式的chat工具，可以通过对话来指引你程序错误的地方。</p><p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/640-20241228153218758" alt="图片"></p><p>写在最后</p><p>整体看这个视频教程非常适合新手来学习，不仅了解python的最最基础语法，也能体验和LLM来一起结合调用的体验。</p><p>当然这个虽然是大师的课程，如果想进一步学习的话，还是建议针对系统学习python开发语言，python入门简单，通过了解基础语法和生成式AI的结合，你至少要能看懂代码，然后让chatgpt来进行协助，这样很快一款真正的产品才能快速诞生。</p><p><strong>这个课程地址：</strong></p><p><a href="https://learn.deeplearning.ai/courses/ai-python-for-beginners" target="_blank" rel="noopener">https://learn.deeplearning.ai/courses/ai-python-for-beginners</a></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;在近年来AI应用的爆发下，一跃冲到了排行榜的首位。随着AI技术的快速进步，加上ChatGPT等智能工具的推动，编程正逐步迈向“自然语言编程”的新时代，门槛越来越低，人人皆可成为开发者。&lt;/p&gt;
+&lt;p&gt;今天，我花了一小时左右看了吴恩达老师的《AI Python for Beg</summary>
+      
+    
+    
+    
+    <category term="Python" scheme="https://zhulg.github.io/categories/Python/"/>
+    
+    
+    <category term="AI" scheme="https://zhulg.github.io/tags/AI/"/>
+    
+    <category term="python" scheme="https://zhulg.github.io/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>互联网小生意平台推荐，思考适合你的副业机会</title>
+    <link href="https://zhulg.github.io/posts/e3b99003.html"/>
+    <id>https://zhulg.github.io/posts/e3b99003.html</id>
+    <published>2024-12-27T23:18:43.000Z</published>
+    <updated>2025-10-28T14:19:31.389Z</updated>
+    
+    <content type="html"><![CDATA[<p>前几天写了一篇关于互联网人尽早找到自己一人能做的小生意，<a href="http://mp.weixin.qq.com/s?__biz=MzIzNDA3MzA3MQ==&mid=2464356058&idx=1&sn=4684f83f6a948c31eed382f2ccbaefec&chksm=ffec485ac89bc14ca75e6b546adc65c05d610d842b5435553863cfefac1066862d79ac7c5ad6&scene=21#wechat_redirect" target="_blank" rel="noopener">尽早觉醒：找到自己一人能做的互联网生意</a> 收到不少读者私信和评论关于小生意怎么做，能感觉到大家对于如何开启小生意及如何利用好互联网平台这块充满兴趣。</p><p>尤其是针对设计、技术等互联网行业同学，这块的读者今天重点介绍一些相关副业平台，可以从这些平台上做一些自己的小生意赚钱，或者从这些平台需求痛点上能否给你带来思考，也看看这些外面的世界和平台能否给你带来一些需求灵感，找到自己的一些小生意。</p><p><strong>通过这些小生意平台，可以尝试增加收入，更重要的是观察思考找到适合自己的发展方向和副业机会。</strong></p><p>先看一些设计类的平台吧，这些平台好的设计都能给我们生活中带来一些色彩（我知道这些设计类平台，是因为有时候我也会看下好的设计和配色如何用技术在应用里呈现），如果设计类同学还知道更多平台，可以补充到评论里，分享使人进步。</p><h1 id="设计类平台"><a href="#设计类平台" class="headerlink" title="设计类平台"></a>设计类平台</h1><h2 id="Dribbble"><a href="#Dribbble" class="headerlink" title="Dribbble"></a>Dribbble</h2><p>这个在设计圈应该都知道，通过展示作品集吸引客户，可以自己设计挂上该平台，可接单赚钱，适合平面设计、UI/UX设计等领域。</p><p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/640-20241228072233598" alt="图片"></p><p>官方地址: <a href="https://dribbble.com" target="_blank" rel="noopener">https://dribbble.com</a></p><p>99designs</p><p>设计师可以参与设计比赛，可以参加比赛获取奖金，也可以直接接设计订单，logo设计，食品包装、书籍封面等等。</p><p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/640-20241228072019669" alt="图片"></p><p>官方地址: <a href="https://99designs.com" target="_blank" rel="noopener">https://99designs.com</a></p><h2 id="Behance"><a href="#Behance" class="headerlink" title="Behance"></a>Behance</h2><p>全球设计师展示作品集的平台，也提供工作机会的板块，网站的愿景也写的比较明确，帮助招聘人员和创作者通过创意展示来找到彼此联系。</p><p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/640-20241228072019913" alt="图片"></p><p>官方地址: <a href="https://www.behance.net" target="_blank" rel="noopener">https://www.behance.net</a></p><h2 id="Creative-Market"><a href="#Creative-Market" class="headerlink" title="Creative Market"></a>Creative Market</h2><p>这个网站比较出名设计素材交易平台，适合设计师可以在这里出售自己设计的数字产品，如字体、图标、网站模板，虚拟商品，可以直接上架售卖。</p><p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/640-20241228072306096" alt="图片"></p><p>官方地址: <a href="https://creativemarket.com" target="_blank" rel="noopener">https://creativemarket.com</a></p><p><em>国内的这类平台，有站酷 、花瓣网、稿定网、包图等，整体上比较有浓浓的商业气息，个人不是很喜欢，有兴趣的设计师可以自行对比。</em></p><h1 id="技术类平台"><a href="#技术类平台" class="headerlink" title="技术类平台"></a>技术类平台</h1><p>建议首先尝试国外的一些平台，尤其是对于技术人员来说，国外的机会相对更多，回报也更可观。相比之下，国内的平台竞争激烈，出价较低，可能并不值得你投入过多的时间和精力放在互卷上，还有可能缺乏创新的东西上。</p><h2 id="GitHub-Sponsors"><a href="#GitHub-Sponsors" class="headerlink" title="GitHub Sponsors"></a>GitHub Sponsors</h2><p>开源项目资助平台，说白了就说通过自己维护开源项目来接受大赏，维护开源项目可以是代码，也可以是文档等，而且目前平台没有抽成，100%给参与的维护者，需要开通sponsors，参与开源项目维护。</p><p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/640-20241228072020397" alt="图片"></p><p>官方地址: <a href="https://github.com/sponsors" target="_blank" rel="noopener">https://github.com/sponsors</a></p><h2 id="Toptal"><a href="#Toptal" class="headerlink" title="Toptal"></a>Toptal</h2><p>这个平台适合比较有经验的程序员，从网站介绍也可以看到，当然给的薪资也不低，他的核心理念就是提供专业领域的顶级自由职业者，除了技术，也有设计，金融类项目。</p><p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/640-20241228072331776" alt="图片"></p><p>官方地址: <a href="https://www.toptal.com" target="_blank" rel="noopener">https://www.toptal.com</a></p><h2 id="Upwork"><a href="#Upwork" class="headerlink" title="Upwork"></a>Upwork</h2><p>如同网站口号，“How work should work” 他是美国的一个自由职业平台号称全球第一，说白了外包平台，提供有设计、开发、市场营销等，可以在这个上边找到对应的开发需求，比如app开发国内已经趋于饱和下，在全球来接单显然更有优势一些。</p><p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/640-20241228072020899" alt="图片"></p><p>官方地址：<a href="https://www.upwork.com/" target="_blank" rel="noopener">https://www.upwork.com/</a></p><h2 id="Freelancer"><a href="#Freelancer" class="headerlink" title="Freelancer"></a>Freelancer</h2><p>规模上和Upwork不分上下，也是为自由工作者提供工作机会，还是外包服务平台，除了技术类，也有其他设计、工程类，科学、营销等，程序员的话可以提供定制软件开发、网站构建、应用开发等接全球各地的项目，其中技术类也有前后端项目，具体可以根据自己技术来找工作。</p><p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/640-20241228072348668" alt="图片"></p><p>官方地址：<a href="https://www.freelancer.com/" target="_blank" rel="noopener">https://www.freelancer.com/</a></p><h2 id="Stack-Overflow-Jobs"><a href="#Stack-Overflow-Jobs" class="headerlink" title="Stack Overflow Jobs"></a>Stack Overflow Jobs</h2><p>这个比较适合程序员来通过Stack Overflow上的工作板块寻找远程兼职工作，这个因为可以面向全球，你可以有选择有目标来进行投递，保持技术连续性，另外也发现一下国外都在做什么应用，我随便搜索了下android这个岗位，发现也是有不少的。</p><p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/640-20241228072021432" alt="图片"></p><p><em>也说下国内的相关平台吧，猿急送，程序员可以通过接单为客户提供定制开发，也可以通过查看需求自己是否来接单，猪八戒网，里面比较多各种门类，整体来说就是有人发需求有人来接，整体来看就是我之前讲的内外套路外行，互相糊弄的居多。</em></p><h2 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h2><p>介绍这些小生意平台，不是鼓励大家都来接单赚钱，我觉得更多是帮助大家打开一些思路和点子，更好的结合自己优势和兴趣发现生意。</p><p><strong>把自己的一份时间和付出服务于更多的人，同时给自己带来盈利</strong>。之前有提过知识付费，现在也有一些这样的平台，也适合非互联网行业的人，大家都可以直接参与进去售卖所在行业知识和经验。</p><p>希望以上这些小平台能给大家带来一些观察和思考。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;前几天写了一篇关于互联网人尽早找到自己一人能做的小生意，&lt;a href=&quot;http://mp.weixin.qq.com/s?__biz=MzIzNDA3MzA3MQ==&amp;mid=2464356058&amp;idx=1&amp;sn=4684f83f6a948c31eed382f2ccb</summary>
+      
+    
+    
+    
+    <category term="技术成长" scheme="https://zhulg.github.io/categories/技术成长/"/>
+    
+    
+    <category term="互联网副业" scheme="https://zhulg.github.io/tags/互联网副业/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>互联网人必备！draw.io：免费好用的作图神器</title>
+    <link href="https://zhulg.github.io/posts/4b03ee24.html"/>
+    <id>https://zhulg.github.io/posts/4b03ee24.html</id>
+    <published>2024-12-27T03:43:07.000Z</published>
+    <updated>2025-10-28T14:19:31.385Z</updated>
+    
+    <content type="html"><![CDATA[<p>今天要给大家推荐一个超级好用的作图神器——<strong>draw.io</strong>，特别适合各行各业，尤其是我们互联网行业的朋友们，简直是作图的必备工具。</p><p>为什么说它是神器？因为draw.io支持在线使用，不需要安装繁琐的软件，打开网页就能直接使用。如果你更喜欢在本地操作，它也提供了PC安装包。支持多种存储方式、可以本地导入导出，轻松导出为图片或其他文件格式。</p><p><em>最重要的一点，*</em>称之为神器的核心原因就是：功能强大、操作便捷，而且完全免费，无任何套路！***</p><p>对互联网人来说，无论是制作产品原型图、流程图、架构图，还是项目管理图，draw.io 都不在话下，轻松拿捏。</p><p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/640-20241227114611891.gif" alt="图片"></p><h2 id="1-下载或直接打开"><a href="#1-下载或直接打开" class="headerlink" title="1. 下载或直接打开"></a>1. 下载或直接打开</h2><p>在线使用直接打开网站<a href="https://draw.io/" target="_blank" rel="noopener">https://draw.io/</a> 即可，如果想把自己历史作图文件进行保存，建议和github一起来结合（我是一直这么使用），这样源文件也进行了保存。当然也支持多种存储方式。</p><p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/640-20241227114117602-20241227114612083" alt="图片"></p><p>如果想直接安装软件在自己的电脑上，去<a href="https://www.drawio.com/" target="_blank" rel="noopener">https://www.drawio.com/</a> 下载即可</p><p><img src="https://mmbiz.qpic.cn/sz_mmbiz_png/gCwibMtn41zOFqhI6m73wjiaN1HzGeGvl6DPLBQMvR4tLTwMrNRdLY9DPYQhwNRNvtQ6oJ6PrnjTW1iaiaDq8IYs0Q/640?wx_fmt=png&from=appmsg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1" alt="图片"></p><p>你会从下载地址看到有windows、Mac版本，选择自己要下载的安装即可。</p><p>如果你想学习下构建这个桌面软件的源代码，也是可以的。从这个工程下可以链接到draw.io的代码（适合技术人员关注）</p><ol start="2"><li>轻松上手</li></ol><p>如果你喜欢使用本地版本，安装后打开可以设置语言，方便英语不熟悉的同学使用。下面这个图可以设置对应的语言选择。</p><p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/640-20241227114118163-20241227114613565" alt="图片"></p><p>打开后可以创建作图，可以建立空白工程做图，也可以从模板里进行选择。</p><p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/640-20241227114118351-20241227114613748" alt="图片"></p><p>以时序图为例，可以轻松拖拽，傻瓜式操作，到这你可能已经能看到很多比较漂亮的图，之前网上可能见到过的，这里面都有配图和操作。</p><p>下面这个图的效果是不是在一些技术博客经常看到，你可能不知道怎么做的，有这个工具你也就知道怎么做了。</p><p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/640-20241227114118541-20241227114613988" alt="图片"></p><p>也提供有丰富的多种元素供添加和使用：</p><p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/640-20241227114614292" alt="图片"></p><ol start="3"><li>支持多种导出</li></ol><p>做好图后直接选择导出方式，可以把需要的图导到本地，导出的同时可以选择必要的设置，使导出的图更加漂亮一些。</p><p><img src="https://mmbiz.qpic.cn/sz_mmbiz_png/gCwibMtn41zOibmicsRz1NEic8hV3XXm43AHkwEBLte78h6hv6LcjAYPGbTicibmpkVqseab98JEkpxBNUAopIIseCxQ/640?wx_fmt=png&from=appmsg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1" alt="图片"></p><p><strong>导出的一些效果图，这些是我之前的一些老图（看效果即可不用关注内容）</strong></p><p>技术细节时序图：</p><p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/640-20241227114614819" alt="图片"></p><p>商务类图：</p><p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/640-20241227114119353" alt="图片"></p>]]></content>
+    
+    
+    <summary type="html">推荐一款互联网人必备的免费作图工具——draw.io，支持在线使用和多种存储方式，适合制作流程图、架构图等。</summary>
+    
+    
+    
+    <category term="技术成长" scheme="https://zhulg.github.io/categories/技术成长/"/>
+    
+    
+    <category term="作图工具" scheme="https://zhulg.github.io/tags/作图工具/"/>
+    
+  </entry>
+  
+</feed>
