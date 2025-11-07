@@ -154,10 +154,12 @@ sitemap:
     tags: 0.6
   lastmod: true
   clean_url: true
+  submit: false
 
 # 百度 Sitemap
 baidusitemap:
   path: baidusitemap.xml
+  submit: false
 
 # 添加以下配置
 # 开启 nofollow 链接
