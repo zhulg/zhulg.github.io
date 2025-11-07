@@ -4,6 +4,39 @@
   
     
     <entry>
+      <title>教师工具集，专为教育工作者打造的免费工具导航站</title>
+      <link href="/posts/9bac213c.html"/>
+      <url>/posts/9bac213c.html</url>
+      
+        <content type="html"><![CDATA[<p>作为一名开发者，我身边有很多从事教育工作的朋友。每次和他们聊天，我总能深切地感受到一个普遍的“痛”：<strong>我们这个时代不缺好工具，但缺的是找到好工具的时间。</strong></p><p>你是不是也经历过这样的场景？</p><p>为了准备一堂重要的公开课，你可能需要：</p><ul><li>打开A网站，寻找精美的PPT模板；</li><li>切换到B网站，使用AI工具润色讲稿，思考如何把知识点讲得更有趣；</li><li>在C、D、E网站之间反复横跳，只为找到一张高清、无版权的教学配图；</li><li>最后，你可能还想用F工具，做一个吸引学生注意力的开场小视频……</li></ul><p>一堂课下来，你的浏览器收藏夹又增加了十几个新网址，但宝贵的备课时间也在无数次的“搜索-注册-试用”中悄然流逝。</p><p><strong>我们需要的，或许不是又一个“革命性”的工具，而是一个能把所有好工具都收纳整齐的“私人工具箱”。</strong></p><p>正是基于这个想法，我利用业余时间，开发并搭建了一个完全免费的网站——<strong>“教师工具集” (Teacher Toolset)</strong>。</p><p><strong>网站地址: <a href="https://www.teacher-toolset.online/" target="_blank" rel="noopener">https://www.teacher-toolset.online/</a></strong></p><p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/image-20251107234613766.png" alt="image-20251107234613766"></p><p>它不是一个需要你学习的复杂软件，恰恰相反，它的唯一目的，就是让你<strong>“即用即走”</strong>，在最短的时间内，找到最适合你当前教学场景的那个工具。</p><h3 id="场景一：当你要准备一节公开课"><a href="#场景一：当你要准备一节公开课" class="headerlink" title="场景一：当你要准备一节公开课"></a>场景一：当你要准备一节公开课</h3><p>公开课是展现教学功底的舞台，每一个细节都想尽善尽美。这个网站的【<strong>创作工具</strong>】和【<strong>AI工具</strong>】分类，就是你的“军火库”。</p><ul><li><strong>想让PPT制作更高效？</strong> 你可以找到像 <strong>Gamma</strong> 这样的AI工具，只需输入你的课程大纲，它就能在几分钟内为你生成一套设计精良、图文并茂的演示文稿。</li><li><strong>需要一张独特的配图？</strong> 【创作工具】里的 <strong>Midjourney for Educators</strong> 能帮你用AI画出任何你想象中的教学场景，告别千篇一律的素材库。</li><li><strong>想用视频开场？</strong> <strong>Synthesia for Teachers</strong> 可以让你用AI数字人快速生成一个欢迎视频或课程介绍，给学生带来耳目一新的感觉。</li></ul><h3 id="场景二：当你想让日常备课更轻松"><a href="#场景二：当你想让日常备课更轻松" class="headerlink" title="场景二：当你想让日常备课更轻松"></a>场景二：当你想让日常备课更轻松</h3><p>日复一日的备课工作，最需要的就是“效率”。网站的【<strong>AI工具</strong>】分类，就像你的智能备课助理。</p><ul><li><strong>没灵感时</strong>：<strong>MagicSchool.ai</strong> 或 <strong>Teacherbot</strong> 能帮你快速生成教学大纲、课堂活动点子，甚至是期末评语。</li><li><strong>写讲稿时</strong>：<strong>ChatGPT for Education</strong> 或 <strong>Gemini for Education</strong> 是你最好的文字润色伙伴，帮你把晦涩的知识点变得通俗易懂。</li><li><strong>需要分层教学？</strong> <strong>Diffit</strong> 这个工具能将同一份阅读材料，一键适配成不同难度的版本，轻松满足不同学生的学习需求。</li></ul><h3 id="场景三：当你需要管理班级或评估学生"><a href="#场景三：当你需要管理班级或评估学生" class="headerlink" title="场景三：当你需要管理班级或评估学生"></a>场景三：当你需要管理班级或评估学生</h3><p>教学不只在课堂。网站的【<strong>教学管理</strong>】和【<strong>评估</strong>】分类，也能帮你处理繁杂的课后工作。</p><ul><li><strong>想快速出几套练习题？</strong> <strong>Quizgecko</strong> 这样的AI出题工具，可以根据你指定的知识点，自动生成选择题、填空题，省去大量手动录入的时间。</li><li><strong>需要与学生协作？</strong> 【协作】分类下的工具能帮你组织在线讨论或小组项目。</li></ul><h3 id="我的初心：用技术为教育做一点小事"><a href="#我的初心：用技术为教育做一点小事" class="headerlink" title="我的初心：用技术为教育做一点小事"></a>我的初心：用技术为教育做一点小事</h3><p>你可能会好奇，我为什么要做这样一个网站。</p><p>其实很简单。我看到我身边的老师朋友们，他们对教育充满热情，却常常被这些琐碎的、重复性的技术工作所累。他们是教育的专家，却不应该是“搜寻工具”的专家。</p><p>作为一个从技术中获益的开发者，我总想着，能不能用我的专业能力，为他们做一点实实在在的贡献？</p><p>于是，“教师工具集”诞生了。我没有想过用它来盈利，它现在、未来都会是一个<strong>完全免费、无广告</strong>的纯粹的资源导航站。我所做的，就是持续地关注教育科技的最新动态，将那些真正好用、能提升效率的工具，一个个筛选、整理、收录进来。</p><h3 id="邀请你，成为这个“工具箱”的共建者"><a href="#邀请你，成为这个“工具箱”的共建者" class="headerlink" title="邀请你，成为这个“工具箱”的共建者"></a>邀请你，成为这个“工具箱”的共建者</h3><p>这个网站还很简单，但它是一个开放的、正在成长的生态。</p><p>我真诚地邀请每一位看到这篇文章的老师，来体验一下这个小小的网站。希望它能像一个安静的图书管理员，在你需要的时候，帮你快速找到那一本你最想看的书。</p><p>如果你在使用中发现任何问题，或者有更好的工具推荐，都非常欢迎你通过网站上的提交收录方式进行提交。</p><p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/image-20251107235407521.png" alt="image-20251107235407521"></p><p>让我们一起，把这个“教师工具箱”建设得越来越好用，让技术真正成为我们教育工作中的得力助手，而不是负担。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 技术应用 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 教师工具 </tag>
+            
+            <tag> 教育信息化 </tag>
+            
+            <tag> AI教育 </tag>
+            
+            <tag> 效率工具 </tag>
+            
+            <tag> 教学资源 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>N8N教程：搭建公众号自动化写作工作流完整指南</title>
       <link href="/posts/52630d3b.html"/>
       <url>/posts/52630d3b.html</url>
@@ -20,6 +53,8 @@
       
         <tags>
             
+            <tag> 效率工具 </tag>
+            
             <tag> N8N </tag>
             
             <tag> 自动化工作流 </tag>
@@ -27,8 +62,6 @@
             <tag> AIGC </tag>
             
             <tag> 公众号运营 </tag>
-            
-            <tag> 效率工具 </tag>
             
             <tag> Gemini </tag>
             

@@ -6,7 +6,7 @@
   <link href="https://zhulg.github.io/atom.xml" rel="self"/>
   
   <link href="https://zhulg.github.io/"/>
-  <updated>2025-11-03T16:46:55.142Z</updated>
+  <updated>2025-11-07T15:54:34.867Z</updated>
   <id>https://zhulg.github.io/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>教师工具集，专为教育工作者打造的免费工具导航站</title>
+    <link href="https://zhulg.github.io/posts/9bac213c.html"/>
+    <id>https://zhulg.github.io/posts/9bac213c.html</id>
+    <published>2025-11-07T14:00:00.000Z</published>
+    <updated>2025-11-07T15:54:34.867Z</updated>
+    
+    <content type="html"><![CDATA[<p>作为一名开发者，我身边有很多从事教育工作的朋友。每次和他们聊天，我总能深切地感受到一个普遍的“痛”：<strong>我们这个时代不缺好工具，但缺的是找到好工具的时间。</strong></p><p>你是不是也经历过这样的场景？</p><p>为了准备一堂重要的公开课，你可能需要：</p><ul><li>打开A网站，寻找精美的PPT模板；</li><li>切换到B网站，使用AI工具润色讲稿，思考如何把知识点讲得更有趣；</li><li>在C、D、E网站之间反复横跳，只为找到一张高清、无版权的教学配图；</li><li>最后，你可能还想用F工具，做一个吸引学生注意力的开场小视频……</li></ul><p>一堂课下来，你的浏览器收藏夹又增加了十几个新网址，但宝贵的备课时间也在无数次的“搜索-注册-试用”中悄然流逝。</p><p><strong>我们需要的，或许不是又一个“革命性”的工具，而是一个能把所有好工具都收纳整齐的“私人工具箱”。</strong></p><p>正是基于这个想法，我利用业余时间，开发并搭建了一个完全免费的网站——<strong>“教师工具集” (Teacher Toolset)</strong>。</p><p><strong>网站地址: <a href="https://www.teacher-toolset.online/" target="_blank" rel="noopener">https://www.teacher-toolset.online/</a></strong></p><p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/image-20251107234613766.png" alt="image-20251107234613766"></p><p>它不是一个需要你学习的复杂软件，恰恰相反，它的唯一目的，就是让你<strong>“即用即走”</strong>，在最短的时间内，找到最适合你当前教学场景的那个工具。</p><h3 id="场景一：当你要准备一节公开课"><a href="#场景一：当你要准备一节公开课" class="headerlink" title="场景一：当你要准备一节公开课"></a>场景一：当你要准备一节公开课</h3><p>公开课是展现教学功底的舞台，每一个细节都想尽善尽美。这个网站的【<strong>创作工具</strong>】和【<strong>AI工具</strong>】分类，就是你的“军火库”。</p><ul><li><strong>想让PPT制作更高效？</strong> 你可以找到像 <strong>Gamma</strong> 这样的AI工具，只需输入你的课程大纲，它就能在几分钟内为你生成一套设计精良、图文并茂的演示文稿。</li><li><strong>需要一张独特的配图？</strong> 【创作工具】里的 <strong>Midjourney for Educators</strong> 能帮你用AI画出任何你想象中的教学场景，告别千篇一律的素材库。</li><li><strong>想用视频开场？</strong> <strong>Synthesia for Teachers</strong> 可以让你用AI数字人快速生成一个欢迎视频或课程介绍，给学生带来耳目一新的感觉。</li></ul><h3 id="场景二：当你想让日常备课更轻松"><a href="#场景二：当你想让日常备课更轻松" class="headerlink" title="场景二：当你想让日常备课更轻松"></a>场景二：当你想让日常备课更轻松</h3><p>日复一日的备课工作，最需要的就是“效率”。网站的【<strong>AI工具</strong>】分类，就像你的智能备课助理。</p><ul><li><strong>没灵感时</strong>：<strong>MagicSchool.ai</strong> 或 <strong>Teacherbot</strong> 能帮你快速生成教学大纲、课堂活动点子，甚至是期末评语。</li><li><strong>写讲稿时</strong>：<strong>ChatGPT for Education</strong> 或 <strong>Gemini for Education</strong> 是你最好的文字润色伙伴，帮你把晦涩的知识点变得通俗易懂。</li><li><strong>需要分层教学？</strong> <strong>Diffit</strong> 这个工具能将同一份阅读材料，一键适配成不同难度的版本，轻松满足不同学生的学习需求。</li></ul><h3 id="场景三：当你需要管理班级或评估学生"><a href="#场景三：当你需要管理班级或评估学生" class="headerlink" title="场景三：当你需要管理班级或评估学生"></a>场景三：当你需要管理班级或评估学生</h3><p>教学不只在课堂。网站的【<strong>教学管理</strong>】和【<strong>评估</strong>】分类，也能帮你处理繁杂的课后工作。</p><ul><li><strong>想快速出几套练习题？</strong> <strong>Quizgecko</strong> 这样的AI出题工具，可以根据你指定的知识点，自动生成选择题、填空题，省去大量手动录入的时间。</li><li><strong>需要与学生协作？</strong> 【协作】分类下的工具能帮你组织在线讨论或小组项目。</li></ul><h3 id="我的初心：用技术为教育做一点小事"><a href="#我的初心：用技术为教育做一点小事" class="headerlink" title="我的初心：用技术为教育做一点小事"></a>我的初心：用技术为教育做一点小事</h3><p>你可能会好奇，我为什么要做这样一个网站。</p><p>其实很简单。我看到我身边的老师朋友们，他们对教育充满热情，却常常被这些琐碎的、重复性的技术工作所累。他们是教育的专家，却不应该是“搜寻工具”的专家。</p><p>作为一个从技术中获益的开发者，我总想着，能不能用我的专业能力，为他们做一点实实在在的贡献？</p><p>于是，“教师工具集”诞生了。我没有想过用它来盈利，它现在、未来都会是一个<strong>完全免费、无广告</strong>的纯粹的资源导航站。我所做的，就是持续地关注教育科技的最新动态，将那些真正好用、能提升效率的工具，一个个筛选、整理、收录进来。</p><h3 id="邀请你，成为这个“工具箱”的共建者"><a href="#邀请你，成为这个“工具箱”的共建者" class="headerlink" title="邀请你，成为这个“工具箱”的共建者"></a>邀请你，成为这个“工具箱”的共建者</h3><p>这个网站还很简单，但它是一个开放的、正在成长的生态。</p><p>我真诚地邀请每一位看到这篇文章的老师，来体验一下这个小小的网站。希望它能像一个安静的图书管理员，在你需要的时候，帮你快速找到那一本你最想看的书。</p><p>如果你在使用中发现任何问题，或者有更好的工具推荐，都非常欢迎你通过网站上的提交收录方式进行提交。</p><p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/image-20251107235407521.png" alt="image-20251107235407521"></p><p>让我们一起，把这个“教师工具箱”建设得越来越好用，让技术真正成为我们教育工作中的得力助手，而不是负担。</p>]]></content>
+    
+    
+    <summary type="html">作为一个开发者和教育关注者，我为教师们打造了一个一站式免费工具导航网站，聚合了从课件制作、AI助手到班级管理的各类高效工具，旨在解决老师们寻找教学资源的痛点，提升工作效率。</summary>
+    
+    
+    
+    <category term="技术应用" scheme="https://zhulg.github.io/categories/技术应用/"/>
+    
+    
+    <category term="教师工具" scheme="https://zhulg.github.io/tags/教师工具/"/>
+    
+    <category term="教育信息化" scheme="https://zhulg.github.io/tags/教育信息化/"/>
+    
+    <category term="AI教育" scheme="https://zhulg.github.io/tags/AI教育/"/>
+    
+    <category term="效率工具" scheme="https://zhulg.github.io/tags/效率工具/"/>
+    
+    <category term="教学资源" scheme="https://zhulg.github.io/tags/教学资源/"/>
+    
+  </entry>
   
   <entry>
     <title>N8N教程：搭建公众号自动化写作工作流完整指南</title>
@@ -33,6 +62,8 @@
     <category term="技术应用" scheme="https://zhulg.github.io/categories/技术应用/"/>
     
     
+    <category term="效率工具" scheme="https://zhulg.github.io/tags/效率工具/"/>
+    
     <category term="N8N" scheme="https://zhulg.github.io/tags/N8N/"/>
     
     <category term="自动化工作流" scheme="https://zhulg.github.io/tags/自动化工作流/"/>
@@ -40,8 +71,6 @@
     <category term="AIGC" scheme="https://zhulg.github.io/tags/AIGC/"/>
     
     <category term="公众号运营" scheme="https://zhulg.github.io/tags/公众号运营/"/>
-    
-    <category term="效率工具" scheme="https://zhulg.github.io/tags/效率工具/"/>
     
     <category term="Gemini" scheme="https://zhulg.github.io/tags/Gemini/"/>
     
@@ -531,30 +560,6 @@
     <category term="AI" scheme="https://zhulg.github.io/tags/AI/"/>
     
     <category term="python" scheme="https://zhulg.github.io/tags/python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>互联网小生意平台推荐，思考适合你的副业机会</title>
-    <link href="https://zhulg.github.io/posts/e3b99003.html"/>
-    <id>https://zhulg.github.io/posts/e3b99003.html</id>
-    <published>2024-12-27T23:18:43.000Z</published>
-    <updated>2025-10-28T14:19:31.389Z</updated>
-    
-    <content type="html"><![CDATA[<p>前几天写了一篇关于互联网人尽早找到自己一人能做的小生意，<a href="http://mp.weixin.qq.com/s?__biz=MzIzNDA3MzA3MQ==&mid=2464356058&idx=1&sn=4684f83f6a948c31eed382f2ccbaefec&chksm=ffec485ac89bc14ca75e6b546adc65c05d610d842b5435553863cfefac1066862d79ac7c5ad6&scene=21#wechat_redirect" target="_blank" rel="noopener">尽早觉醒：找到自己一人能做的互联网生意</a> 收到不少读者私信和评论关于小生意怎么做，能感觉到大家对于如何开启小生意及如何利用好互联网平台这块充满兴趣。</p><p>尤其是针对设计、技术等互联网行业同学，这块的读者今天重点介绍一些相关副业平台，可以从这些平台上做一些自己的小生意赚钱，或者从这些平台需求痛点上能否给你带来思考，也看看这些外面的世界和平台能否给你带来一些需求灵感，找到自己的一些小生意。</p><p><strong>通过这些小生意平台，可以尝试增加收入，更重要的是观察思考找到适合自己的发展方向和副业机会。</strong></p><p>先看一些设计类的平台吧，这些平台好的设计都能给我们生活中带来一些色彩（我知道这些设计类平台，是因为有时候我也会看下好的设计和配色如何用技术在应用里呈现），如果设计类同学还知道更多平台，可以补充到评论里，分享使人进步。</p><h1 id="设计类平台"><a href="#设计类平台" class="headerlink" title="设计类平台"></a>设计类平台</h1><h2 id="Dribbble"><a href="#Dribbble" class="headerlink" title="Dribbble"></a>Dribbble</h2><p>这个在设计圈应该都知道，通过展示作品集吸引客户，可以自己设计挂上该平台，可接单赚钱，适合平面设计、UI/UX设计等领域。</p><p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/640-20241228072233598" alt="图片"></p><p>官方地址: <a href="https://dribbble.com" target="_blank" rel="noopener">https://dribbble.com</a></p><p>99designs</p><p>设计师可以参与设计比赛，可以参加比赛获取奖金，也可以直接接设计订单，logo设计，食品包装、书籍封面等等。</p><p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/640-20241228072019669" alt="图片"></p><p>官方地址: <a href="https://99designs.com" target="_blank" rel="noopener">https://99designs.com</a></p><h2 id="Behance"><a href="#Behance" class="headerlink" title="Behance"></a>Behance</h2><p>全球设计师展示作品集的平台，也提供工作机会的板块，网站的愿景也写的比较明确，帮助招聘人员和创作者通过创意展示来找到彼此联系。</p><p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/640-20241228072019913" alt="图片"></p><p>官方地址: <a href="https://www.behance.net" target="_blank" rel="noopener">https://www.behance.net</a></p><h2 id="Creative-Market"><a href="#Creative-Market" class="headerlink" title="Creative Market"></a>Creative Market</h2><p>这个网站比较出名设计素材交易平台，适合设计师可以在这里出售自己设计的数字产品，如字体、图标、网站模板，虚拟商品，可以直接上架售卖。</p><p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/640-20241228072306096" alt="图片"></p><p>官方地址: <a href="https://creativemarket.com" target="_blank" rel="noopener">https://creativemarket.com</a></p><p><em>国内的这类平台，有站酷 、花瓣网、稿定网、包图等，整体上比较有浓浓的商业气息，个人不是很喜欢，有兴趣的设计师可以自行对比。</em></p><h1 id="技术类平台"><a href="#技术类平台" class="headerlink" title="技术类平台"></a>技术类平台</h1><p>建议首先尝试国外的一些平台，尤其是对于技术人员来说，国外的机会相对更多，回报也更可观。相比之下，国内的平台竞争激烈，出价较低，可能并不值得你投入过多的时间和精力放在互卷上，还有可能缺乏创新的东西上。</p><h2 id="GitHub-Sponsors"><a href="#GitHub-Sponsors" class="headerlink" title="GitHub Sponsors"></a>GitHub Sponsors</h2><p>开源项目资助平台，说白了就说通过自己维护开源项目来接受大赏，维护开源项目可以是代码，也可以是文档等，而且目前平台没有抽成，100%给参与的维护者，需要开通sponsors，参与开源项目维护。</p><p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/640-20241228072020397" alt="图片"></p><p>官方地址: <a href="https://github.com/sponsors" target="_blank" rel="noopener">https://github.com/sponsors</a></p><h2 id="Toptal"><a href="#Toptal" class="headerlink" title="Toptal"></a>Toptal</h2><p>这个平台适合比较有经验的程序员，从网站介绍也可以看到，当然给的薪资也不低，他的核心理念就是提供专业领域的顶级自由职业者，除了技术，也有设计，金融类项目。</p><p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/640-20241228072331776" alt="图片"></p><p>官方地址: <a href="https://www.toptal.com" target="_blank" rel="noopener">https://www.toptal.com</a></p><h2 id="Upwork"><a href="#Upwork" class="headerlink" title="Upwork"></a>Upwork</h2><p>如同网站口号，“How work should work” 他是美国的一个自由职业平台号称全球第一，说白了外包平台，提供有设计、开发、市场营销等，可以在这个上边找到对应的开发需求，比如app开发国内已经趋于饱和下，在全球来接单显然更有优势一些。</p><p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/640-20241228072020899" alt="图片"></p><p>官方地址：<a href="https://www.upwork.com/" target="_blank" rel="noopener">https://www.upwork.com/</a></p><h2 id="Freelancer"><a href="#Freelancer" class="headerlink" title="Freelancer"></a>Freelancer</h2><p>规模上和Upwork不分上下，也是为自由工作者提供工作机会，还是外包服务平台，除了技术类，也有其他设计、工程类，科学、营销等，程序员的话可以提供定制软件开发、网站构建、应用开发等接全球各地的项目，其中技术类也有前后端项目，具体可以根据自己技术来找工作。</p><p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/640-20241228072348668" alt="图片"></p><p>官方地址：<a href="https://www.freelancer.com/" target="_blank" rel="noopener">https://www.freelancer.com/</a></p><h2 id="Stack-Overflow-Jobs"><a href="#Stack-Overflow-Jobs" class="headerlink" title="Stack Overflow Jobs"></a>Stack Overflow Jobs</h2><p>这个比较适合程序员来通过Stack Overflow上的工作板块寻找远程兼职工作，这个因为可以面向全球，你可以有选择有目标来进行投递，保持技术连续性，另外也发现一下国外都在做什么应用，我随便搜索了下android这个岗位，发现也是有不少的。</p><p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/640-20241228072021432" alt="图片"></p><p><em>也说下国内的相关平台吧，猿急送，程序员可以通过接单为客户提供定制开发，也可以通过查看需求自己是否来接单，猪八戒网，里面比较多各种门类，整体来说就是有人发需求有人来接，整体来看就是我之前讲的内外套路外行，互相糊弄的居多。</em></p><h2 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h2><p>介绍这些小生意平台，不是鼓励大家都来接单赚钱，我觉得更多是帮助大家打开一些思路和点子，更好的结合自己优势和兴趣发现生意。</p><p><strong>把自己的一份时间和付出服务于更多的人，同时给自己带来盈利</strong>。之前有提过知识付费，现在也有一些这样的平台，也适合非互联网行业的人，大家都可以直接参与进去售卖所在行业知识和经验。</p><p>希望以上这些小平台能给大家带来一些观察和思考。</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;前几天写了一篇关于互联网人尽早找到自己一人能做的小生意，&lt;a href=&quot;http://mp.weixin.qq.com/s?__biz=MzIzNDA3MzA3MQ==&amp;mid=2464356058&amp;idx=1&amp;sn=4684f83f6a948c31eed382f2ccb</summary>
-      
-    
-    
-    
-    <category term="技术成长" scheme="https://zhulg.github.io/categories/技术成长/"/>
-    
-    
-    <category term="互联网副业" scheme="https://zhulg.github.io/tags/互联网副业/"/>
     
   </entry>
   
