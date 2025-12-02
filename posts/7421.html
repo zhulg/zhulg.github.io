@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+  <meta charset="utf-8">
+  <meta name="google-site-verification" content="hN-z0E4t2EiOQ5bJP-s-O2tG3D2AmJQjOWT1r1Z0vTQ" />
+  <meta name="baidu-site-verification" content="code-XadwrTX2mc" />
+  <meta name="sogou_site_verification" content="3gJO5GEiym" />
+  <meta name="360-site-verification" content="c5d4db78b8047356de2f87d01a63f03e" />
+  <meta name="bytedance-verification-code" content="PeN4sw6nkJKJ5ZI5zYNA" />
+
+<script>
+(function(){
+var el = document.createElement("script");
+el.src = "https://lf1-cdn-tos.bytegoofy.com/goofy/ttzz/push.js?0dfae0b5cd9f4f6b3f45e892e27fbcb4d0c37e9801116e06bfdd550c328d177830632485602430134f60bc55ca391050b680e2741bf7233a8f1da9902314a3fa";
+el.id = "ttzz";
+var s = document.getElementsByTagName("script")[0];
+s.parentNode.insertBefore(el, s);
+})(window)
+</script>
+
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>Hyperledger-Fabric-MSP分析记录 | zhulg|技术博客|编程开发与成长思考</title>
+  <meta name="description" content="fabric MSP功能及源码分析 MSP是Membership Service Provider的缩写，直译为成员关系服务提供者。 MSP作用就是负责区块链网络中对身份的管理和验证，在区块链网络中实现权限管理，包括下发、吊销及验证功能。 MSP是一个提供抽象化成员操作框架的组件,CA是MSP的具体实现。  msp常见结构 以下是一个MSP结构中常见的组成部分：  12345· 一组信任的根证书，">
+<meta name="keywords" content="区块链">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hyperledger-Fabric-MSP分析记录">
+<meta property="og:url" content="https://zhulg.github.io/posts/7421.html">
+<meta property="og:site_name" content="zhulg | 技术干货分享">
+<meta property="og:description" content="fabric MSP功能及源码分析 MSP是Membership Service Provider的缩写，直译为成员关系服务提供者。 MSP作用就是负责区块链网络中对身份的管理和验证，在区块链网络中实现权限管理，包括下发、吊销及验证功能。 MSP是一个提供抽象化成员操作框架的组件,CA是MSP的具体实现。  msp常见结构 以下是一个MSP结构中常见的组成部分：  12345· 一组信任的根证书，">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://hyperledger-fabric.readthedocs.io/en/release-1.2/_images/membership.diagram.5.png">
+<meta property="og:updated_time" content="2025-10-28T13:29:08.874Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hyperledger-Fabric-MSP分析记录">
+<meta name="twitter:description" content="fabric MSP功能及源码分析 MSP是Membership Service Provider的缩写，直译为成员关系服务提供者。 MSP作用就是负责区块链网络中对身份的管理和验证，在区块链网络中实现权限管理，包括下发、吊销及验证功能。 MSP是一个提供抽象化成员操作框架的组件,CA是MSP的具体实现。  msp常见结构 以下是一个MSP结构中常见的组成部分：  12345· 一组信任的根证书，">
+<meta name="twitter:image" content="https://hyperledger-fabric.readthedocs.io/en/release-1.2/_images/membership.diagram.5.png">
+  <!-- Canonical links -->
+  <link rel="canonical" href="https://zhulg.github.io/posts/7421.html">
+  
+    <link rel="alternate" href="/atom.xml" title="zhulg | 技术干货分享" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+  
+  
+  
+</head>
+
+
+<body class="main-center theme-black" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://zhulg.github.io/" target="_blank">
+          <img class="img-circle img-rotate" src="/images/liangjimantan.png" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">zhulg</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">技术和管理分享</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> BeiJing, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav ">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">首页</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">归档</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">分类</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">标签</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7730278451516700"
+     crossorigin="anonymous"></script>
+<!-- 侧部广告 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-7730278451516700"
+     data-ad-slot="1833144581"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p> 技术管理、成长、产品研发思考分享！</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget-body">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/AI/">AI</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/App/">App</a><span class="category-list-count">17</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/DeepSeek/">DeepSeek</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Rust/">Rust</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Scratch/">Scratch</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/go/">go</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/产品工具/">产品工具</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/产品工具/前端/">前端</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端/">前端</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/区块链/">区块链</a><span class="category-list-count">35</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术应用/">技术应用</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术成长/">技术成长</a><span class="category-list-count">29</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术运维/">技术运维</a><span class="category-list-count">6</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget-body">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI/">AI</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI教育/">AI教育</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI编程/">AI编程</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/">Android</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/App/">App</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ChatGPT/">ChatGPT</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Chrome插件/">Chrome插件</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DeepSeek/">DeepSeek</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Elasticsearch/">Elasticsearch</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IT/">IT</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JS/">JS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/K8S/">K8S</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LangChain/">LangChain</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/New-Tab/">New Tab</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Prompt工程/">Prompt工程</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RAG/">RAG</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ruby/">Ruby</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Rust/">Rust</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Scratch/">Scratch</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tools/">Tools</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vibe-Coding/">Vibe Coding</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android/">android</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/chrome/">chrome</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/composer/">composer</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/django/">django</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/">docker</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/fabric/">fabric</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/fabric-node-sdk/">fabric-node-sdk</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/flume/">flume</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/flutter/">flutter</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/go/">go</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gradle/">gradle</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hadoop/">hadoop</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hyperledger-composer/">hyperledger composer</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ios/">ios</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jenkins/">jenkins</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kafka/">kafka</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kotlin/">kotlin</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/">nginx</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/">node</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/npm/">npm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/openresty/">openresty</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/redis/">redis</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring/">spring</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/springboot/">springboot</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/springboot相关/">springboot相关</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/springcloud/">springcloud</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/stellar/">stellar</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vscode/">vscode</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web3/">web3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webstom/">webstom</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/互联网副业/">互联网副业</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/作图工具/">作图工具</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/元宇宙/">元宇宙</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/分布式-集群/">分布式/集群</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端/">前端</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/区块链/">区块链</a><span class="tag-list-count">39</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/区块链，以太坊/">区块链，以太坊</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/大数据/">大数据</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/大模型/">大模型</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/家人照片/">家人照片</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/录屏工具/">录屏工具</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/技术人/">技术人</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/技术成长/">技术成长</a><span class="tag-list-count">21</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/推荐系统/">推荐系统</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/插件开发/">插件开发</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/效率工具/">效率工具</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/教学资源/">教学资源</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/教师工具/">教师工具</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/教育信息化/">教育信息化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数字化/">数字化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/机器学习/">机器学习</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/架构/">架构</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/浏览器壁纸/">浏览器壁纸</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/程序员/">程序员</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/管理杂烩/">管理杂烩</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/自动化/">自动化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/自然语言编程/">自然语言编程</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/随笔记录/">随笔记录</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/隐私保护/">隐私保护</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/AI/" style="font-size: 13.82px;">AI</a> <a href="/tags/AI教育/" style="font-size: 13px;">AI教育</a> <a href="/tags/AI编程/" style="font-size: 13px;">AI编程</a> <a href="/tags/Android/" style="font-size: 13.64px;">Android</a> <a href="/tags/App/" style="font-size: 13.18px;">App</a> <a href="/tags/ChatGPT/" style="font-size: 13.09px;">ChatGPT</a> <a href="/tags/Chrome插件/" style="font-size: 13px;">Chrome插件</a> <a href="/tags/DeepSeek/" style="font-size: 13px;">DeepSeek</a> <a href="/tags/Elasticsearch/" style="font-size: 13.09px;">Elasticsearch</a> <a href="/tags/IT/" style="font-size: 13px;">IT</a> <a href="/tags/JS/" style="font-size: 13px;">JS</a> <a href="/tags/Java/" style="font-size: 13px;">Java</a> <a href="/tags/K8S/" style="font-size: 13.09px;">K8S</a> <a href="/tags/LangChain/" style="font-size: 13px;">LangChain</a> <a href="/tags/Linux/" style="font-size: 13.18px;">Linux</a> <a href="/tags/New-Tab/" style="font-size: 13px;">New Tab</a> <a href="/tags/Prompt工程/" style="font-size: 13px;">Prompt工程</a> <a href="/tags/RAG/" style="font-size: 13px;">RAG</a> <a href="/tags/Ruby/" style="font-size: 13px;">Ruby</a> <a href="/tags/Rust/" style="font-size: 13.55px;">Rust</a> <a href="/tags/Scratch/" style="font-size: 13.27px;">Scratch</a> <a href="/tags/Tools/" style="font-size: 13.27px;">Tools</a> <a href="/tags/Vibe-Coding/" style="font-size: 13px;">Vibe Coding</a> <a href="/tags/android/" style="font-size: 13.09px;">android</a> <a href="/tags/chrome/" style="font-size: 13.18px;">chrome</a> <a href="/tags/composer/" style="font-size: 13.18px;">composer</a> <a href="/tags/django/" style="font-size: 13px;">django</a> <a href="/tags/docker/" style="font-size: 13.09px;">docker</a> <a href="/tags/fabric/" style="font-size: 13.09px;">fabric</a> <a href="/tags/fabric-node-sdk/" style="font-size: 13px;">fabric-node-sdk</a> <a href="/tags/flume/" style="font-size: 13px;">flume</a> <a href="/tags/flutter/" style="font-size: 13.27px;">flutter</a> <a href="/tags/git/" style="font-size: 13.09px;">git</a> <a href="/tags/go/" style="font-size: 13.55px;">go</a> <a href="/tags/gradle/" style="font-size: 13px;">gradle</a> <a href="/tags/hadoop/" style="font-size: 13.18px;">hadoop</a> <a href="/tags/hexo/" style="font-size: 13px;">hexo</a> <a href="/tags/hyperledger-composer/" style="font-size: 13px;">hyperledger composer</a> <a href="/tags/ios/" style="font-size: 13.18px;">ios</a> <a href="/tags/java/" style="font-size: 13.45px;">java</a> <a href="/tags/jenkins/" style="font-size: 13px;">jenkins</a> <a href="/tags/kafka/" style="font-size: 13px;">kafka</a> <a href="/tags/kotlin/" style="font-size: 13.09px;">kotlin</a> <a href="/tags/linux/" style="font-size: 13px;">linux</a> <a href="/tags/nginx/" style="font-size: 13.18px;">nginx</a> <a href="/tags/node/" style="font-size: 13px;">node</a> <a href="/tags/npm/" style="font-size: 13px;">npm</a> <a href="/tags/openresty/" style="font-size: 13px;">openresty</a> <a href="/tags/python/" style="font-size: 13.36px;">python</a> <a href="/tags/redis/" style="font-size: 13.09px;">redis</a> <a href="/tags/spring/" style="font-size: 13px;">spring</a> <a href="/tags/springboot/" style="font-size: 13.55px;">springboot</a> <a href="/tags/springboot相关/" style="font-size: 13px;">springboot相关</a> <a href="/tags/springcloud/" style="font-size: 13.73px;">springcloud</a> <a href="/tags/stellar/" style="font-size: 13px;">stellar</a> <a href="/tags/vscode/" style="font-size: 13px;">vscode</a> <a href="/tags/web3/" style="font-size: 13px;">web3</a> <a href="/tags/webstom/" style="font-size: 13px;">webstom</a> <a href="/tags/互联网副业/" style="font-size: 13px;">互联网副业</a> <a href="/tags/作图工具/" style="font-size: 13px;">作图工具</a> <a href="/tags/元宇宙/" style="font-size: 13.09px;">元宇宙</a> <a href="/tags/分布式-集群/" style="font-size: 13.18px;">分布式/集群</a> <a href="/tags/前端/" style="font-size: 13px;">前端</a> <a href="/tags/区块链/" style="font-size: 14px;">区块链</a> <a href="/tags/区块链，以太坊/" style="font-size: 13px;">区块链，以太坊</a> <a href="/tags/大数据/" style="font-size: 13px;">大数据</a> <a href="/tags/大模型/" style="font-size: 13px;">大模型</a> <a href="/tags/家人照片/" style="font-size: 13px;">家人照片</a> <a href="/tags/录屏工具/" style="font-size: 13px;">录屏工具</a> <a href="/tags/技术人/" style="font-size: 13px;">技术人</a> <a href="/tags/技术成长/" style="font-size: 13.91px;">技术成长</a> <a href="/tags/推荐系统/" style="font-size: 13.09px;">推荐系统</a> <a href="/tags/插件开发/" style="font-size: 13px;">插件开发</a> <a href="/tags/效率工具/" style="font-size: 13px;">效率工具</a> <a href="/tags/教学资源/" style="font-size: 13px;">教学资源</a> <a href="/tags/教师工具/" style="font-size: 13px;">教师工具</a> <a href="/tags/教育信息化/" style="font-size: 13px;">教育信息化</a> <a href="/tags/数字化/" style="font-size: 13px;">数字化</a> <a href="/tags/机器学习/" style="font-size: 13.36px;">机器学习</a> <a href="/tags/架构/" style="font-size: 13px;">架构</a> <a href="/tags/浏览器壁纸/" style="font-size: 13px;">浏览器壁纸</a> <a href="/tags/程序员/" style="font-size: 13px;">程序员</a> <a href="/tags/管理杂烩/" style="font-size: 13px;">管理杂烩</a> <a href="/tags/自动化/" style="font-size: 13px;">自动化</a> <a href="/tags/自然语言编程/" style="font-size: 13px;">自然语言编程</a> <a href="/tags/随笔记录/" style="font-size: 13px;">随笔记录</a> <a href="/tags/隐私保护/" style="font-size: 13px;">隐私保护</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/11/">十一月 2025</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/10/">十月 2025</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/07/">七月 2025</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/02/">二月 2025</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/01/">一月 2025</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/12/">十二月 2024</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/11/">十一月 2024</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/09/">九月 2024</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/08/">八月 2024</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/07/">七月 2024</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">三月 2023</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/02/">二月 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">十一月 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">十月 2022</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/09/">九月 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">五月 2022</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">四月 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">二月 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">一月 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">九月 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">八月 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">三月 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">一月 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">十二月 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">十一月 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">九月 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">八月 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">七月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">一月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">十二月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">十一月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">十月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">九月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">八月 2018</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">七月 2018</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">六月 2018</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">三月 2018</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">二月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">一月 2018</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">十二月 2017</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">十月 2017</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">九月 2017</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">八月 2017</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">七月 2017</a><span class="archive-list-count">9</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/技术应用/">技术应用</a>
+              </p>
+              <p class="item-title">
+                <a href="/posts/9bac213c.html" class="title">教师工具集，专为教育工作者打造的免费工具导航站</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2025-11-07T14:00:00.000Z" itemprop="datePublished">2025-11-07</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/产品工具/">产品工具</a>
+              </p>
+              <p class="item-title">
+                <a href="/posts/40058c60.html" class="title">可以展示照片的浏览器tab页插件:《NewTab时光》发布</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2025-10-18T04:16:16.000Z" itemprop="datePublished">2025-10-18</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/AI/">AI</a>
+              </p>
+              <p class="item-title">
+                <a href="/posts/4a3d5e89.html" class="title">Vibe Coding普通人也可以学的编程技能</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2025-10-18T03:48:36.000Z" itemprop="datePublished">2025-10-18</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/AI/">AI</a>
+              </p>
+              <p class="item-title">
+                <a href="/posts/4b7fcf21.html" class="title">2025年，普通人如何在1个月内熟练使用AI</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2025-07-21T15:52:56.000Z" itemprop="datePublished">2025-07-21</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/AI/">AI</a>
+              </p>
+              <p class="item-title">
+                <a href="/posts/e3022ca1.html" class="title">实测 Google Gemini CLI：从安装到使用体验，AI 命令行也开始卷起来了</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2025-07-19T05:21:16.000Z" itemprop="datePublished">2025-07-19</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    <nav id="toc" class="article-toc">
+      <h3 class="toc-title">文章目录</h3>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#fabric-MSP功能及源码分析"><span class="toc-number">1.</span> <span class="toc-text">fabric MSP功能及源码分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#msp常见结构"><span class="toc-number">2.</span> <span class="toc-text">msp常见结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MSP实践操作"><span class="toc-number">3.</span> <span class="toc-text">MSP实践操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#用cryptogen工具来生成的MSP需要用到的证书和相关文件。"><span class="toc-number">3.1.</span> <span class="toc-text">用cryptogen工具来生成的MSP需要用到的证书和相关文件。</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#msp的作用域分类"><span class="toc-number">4.</span> <span class="toc-text">msp的作用域分类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MSP功能分类"><span class="toc-number">5.</span> <span class="toc-text">MSP功能分类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#msp与组织的对应关系"><span class="toc-number">6.</span> <span class="toc-text">msp与组织的对应关系</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MSP相关核心源码"><span class="toc-number">7.</span> <span class="toc-text">MSP相关核心源码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#分析"><span class="toc-number">8.</span> <span class="toc-text">分析</span></a></li></ol>
+    </nav>
+  </div>
+</aside>
+
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-Hyperledger-Fabric-MSP分析记录" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    
+    
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://zhulg.github.io/posts/7421.html"
+      },
+      "headline": "Hyperledger-Fabric-MSP分析记录",
+      "description": "zhulg技术博客致力于分享Java、Python、机器学习、区块链等技术干货，提供实用的开发教程、项目经验和解决方案，帮助开发者提升技术能力。",
+      "datePublished": "2018-08-30T03:31:28.000Z",
+      "dateModified": "2025-10-28T13:29:08.874Z",
+      "author": {
+        "@type": "Person",
+        "name": "zhulg",
+        "url": "https://zhulg.github.io",
+        "alternateName": "良技漫谈"
+      },
+      "image": "https://hyperledger-fabric.readthedocs.io/en/release-1.2/_images/membership.diagram.5.png",
+      "keywords": ["区块链","Hyperledger-Fabric-MSP分析记录"],
+      "publisher": {
+        "@type": "Organization",
+        "name": "良技漫谈",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://zhulg.github.io/favicon.png",
+          "width": "60",
+          "height": "60"
+        }
+      }
+    }
+    </script>
+
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Hyperledger-Fabric-MSP分析记录
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        
+<span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/posts/7421.html" class="article-date">
+	  <time datetime="2018-08-30T03:31:28.000Z" itemprop="datePublished">2018-08-30</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/区块链/">区块链</a>
+  </span>
+
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link" href="/tags/区块链/">区块链</a>
+  </span>
+
+
+        
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/posts/7421.html#comments" class="article-comment-link">评论</a></span>
+        
+	
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 3.5k(字)</span>
+	
+	
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 13(分)</span>
+	
+
+      </div>
+    </div>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7730278451516700"
+     crossorigin="anonymous"></script>
+<!-- title -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-7730278451516700"
+     data-ad-slot="3100240204"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script> 
+    
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <h2 id="fabric-MSP功能及源码分析"><a href="#fabric-MSP功能及源码分析" class="headerlink" title="fabric MSP功能及源码分析"></a>fabric MSP功能及源码分析</h2><ul>
+<li>MSP是Membership Service Provider的缩写，直译为成员关系服务提供者。</li>
+<li>MSP作用就是负责区块链网络中对身份的管理和验证，在区块链网络中实现权限管理，包括下发、吊销及验证功能。</li>
+<li>MSP是一个提供抽象化成员操作框架的组件,CA是MSP的具体实现。</li>
+</ul>
+<h2 id="msp常见结构"><a href="#msp常见结构" class="headerlink" title="msp常见结构"></a>msp常见结构</h2><ul>
+<li>以下是一个MSP结构中常见的组成部分：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">· 一组信任的根证书，是整个组织证书信任的基础，根证书可以签发中间层证书；</span><br><span class="line">· MSP的管理员的身份证书，管理员可以对MSP中证书进行管理；</span><br><span class="line">· 组织单元（Organizational Unit）列表（可选）；</span><br><span class="line">· 一组信任的中间证书，中间证书由根证书签发（可选）； </span><br><span class="line">· 证书撤销列表，代表被吊销的证书名单（可选）。</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>图片来自官网</strong></li>
+</ul>
+<p><img src="https://hyperledger-fabric.readthedocs.io/en/release-1.2/_images/membership.diagram.5.png" alt></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">Root CAs | 根证书列表</span><br><span class="line">此文件夹包含，由此MSP代表的组织信任的Root CA，自签名X.509证书列表。此MSP文件夹中必须至少有一个Root CA X.509证书。这是最重要的文件夹，因为它标识了所有其它证书。</span><br><span class="line"></span><br><span class="line">Intermediate CAs | 中间证书列表</span><br><span class="line">此文件夹包含此组织信任的Intermediate CA的X.509证书列表。每个证书都必须由MSP中的一个Root CA签署，或者由 Intermediate CA 签署。</span><br><span class="line"></span><br><span class="line">Intermediate CA可以表示组织的不同细分或组织本身（例如，如果商业CA用于组织的身份管理）。在前一种情况下，可以使用CA层次结构中，较低的其他Intermediate CA来表示组织细分。请注意，可能有一个没有任何中间CA的功能网络，在这种情况下，此文件夹将为空。</span><br><span class="line">与Root CA文件夹一样，此文件夹定义了中间证书。只有拥有了这些证书，才能被系统视为组织成员的CA。</span><br><span class="line"></span><br><span class="line">Organizational Units (OUs) | 组织单元列表</span><br><span class="line">可选的</span><br><span class="line"></span><br><span class="line">Administrators | 管理员身份证书</span><br><span class="line">该文件夹包含一个身份列表，用于定义具有该组织管理员角色的参与者。对于标准MSP类型，此列表中应该有一个或多个X.509证书。</span><br><span class="line"></span><br><span class="line">Revoked Certificates | 撤销证书列表</span><br><span class="line">可选的</span><br><span class="line"></span><br><span class="line">KeyStore for Private Key | 私钥库</span><br><span class="line">该文件夹为peer 或 orderer节点（或客户端的local MSP）的local MSP定义，并包含节点的signing key（签名密钥）。 此密钥用于签署数据，作为认可阶段的一部分。</span><br><span class="line">该文件夹对Local MSP是必须的，并且必须包含一个私钥。 很明显，访问这个文件夹，只能由，对此peer有管理权限的用户。</span><br><span class="line">Channel MSP的配置不包括此部分，因为Channel MSP旨在提供纯粹的身份验证功能，而不是签署能力。</span><br><span class="line"></span><br><span class="line">TLS Root CA | TLS根证书列表</span><br><span class="line">此文件夹包含，此组织为TLS通信所信任的Root CA的自签名X.509证书列表。 TLS通信的一个例子是，peer需要连接到orderer以便它可以接收ledger更新。</span><br><span class="line">MSP TLS信息涉及网络内的节点，即对peers 和 the orderers，此文件夹中必须至少有一个TLS Root CA X.509证书。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">TLS Intermediate CA | TLS中间证书</span><br><span class="line">此文件夹包含由此MSP代表的，组织信任的用于TLS通信的Intermediate CA证书列表。当商业CA用于组织的TLS证书时，此文件夹特别有用。 它是可选的。</span><br><span class="line">Fabric中MSP相关实现代码都在msp目录下，目前采用了bccspmsp结构来代表一个成员身份结构，并且采用了MSPConfig（主要是其成员FabricMSPConfig）结构来代表跟该实体相关的证书信息。</span><br><span class="line"></span><br><span class="line">MSP中各实体资源的证书必须被证书信任树上的叶子节点签名。中间层签名的证书会被认为是非法实体证书。</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="MSP实践操作"><a href="#MSP实践操作" class="headerlink" title="MSP实践操作"></a>MSP实践操作</h2><ul>
+<li>MSP在Fabric中的作用是对用户进行管理，实践的基本步骤：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">第一，生成MSP相关的证书和签名。</span><br><span class="line">第二，在Peer，Orderer,Channel等组件的配置文件设置关于msp的相关信息</span><br><span class="line">（即：通过crypto-config.yaml，然后配置到configtx.yaml，配置到相关peer,order）</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>实际操作中</strong></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">1. 编写crypto-config.yaml配置文件指定网络的拓扑结构和组织结构。</span><br><span class="line">2. cryptogen-生成秘钥和证书文件。</span><br><span class="line">快速地根据配置自动批量生成所需要的密钥和证书文件。</span><br><span class="line">3. 编写依赖配置文件configtx.yaml。</span><br><span class="line">该文件包含网络的定义，并给出了网络组件的每个网络实体的加密材料的存储位置。</span><br><span class="line">4. configtxgen-生成通道配置。</span><br><span class="line">在这个过程中，会生成系统channel的创世纪块。该创世纪块（genesis block）中包含所有MSP的验证元素。MSP验证元素有MSP身份标识（MSP identifier），root CAs，intermediate CAs，admin CAs，OU List，CRLs。</span><br></pre></td></tr></table></figure>
+
+<h3 id="用cryptogen工具来生成的MSP需要用到的证书和相关文件。"><a href="#用cryptogen工具来生成的MSP需要用到的证书和相关文件。" class="headerlink" title="用cryptogen工具来生成的MSP需要用到的证书和相关文件。"></a>用cryptogen工具来生成的MSP需要用到的证书和相关文件。</h3><ul>
+<li>主要包括各种证书和相关的签名。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></td><td class="code"><pre><span class="line">org1.example.com/</span><br><span class="line">├── ca     # 存放组织Org1的根证书和对应的私钥文件，默认采用EC算法，证书为自签名。组织内的实体将基于该根证书作为证书根。</span><br><span class="line">│   ├── ca.org1.example.com-cert.pem</span><br><span class="line">│   └── dfb841b77804d726eea25231ae5e89a31901ca0538688a6d764731148f0bdc5b_sk</span><br><span class="line">├── msp    # 存放代表该组织的身份信息。</span><br><span class="line">│   ├── admincerts         # 组织管理员的身份验证证书，被根证书签名。</span><br><span class="line">│   │   └── Admin@org1.example.com-cert.pem</span><br><span class="line">│   ├── cacerts # 组织的根证书，同ca目录下文件。</span><br><span class="line">│   │   └── ca.org1.example.com-cert.pem</span><br><span class="line">│   └── tlscacerts          # 用于TLS的CA证书，自签名。</span><br><span class="line">│       └── tlsca.org1.example.com-cert.pem</span><br><span class="line">├── peers   # 存放属于该组织的所有Peer节点</span><br><span class="line">│   ├── peer0.org1.example.com    # 第一个peer的信息，包括其msp证书和tls证书两类。</span><br><span class="line">│   │   ├── msp # msp相关证书   </span><br><span class="line">│   │   │   ├── admincerts  # 组织管理员的身份验证证书。Peer将基于这些证书来认证交易签署者是否为管理员身份。</span><br><span class="line">│   │   │   │   └── Admin@org1.example.com-cert.pem</span><br><span class="line">│   │   │   ├── cacerts     # 存放组织的根证书</span><br><span class="line">│   │   │   │   └── ca.org1.example.com-cert.pem</span><br><span class="line">│   │   │   ├── keystore    # 本节点的身份私钥，用来签名</span><br><span class="line">│   │   │   │   └── 59be216646c0fb18c015c58d27bf40c3845907849b1f0671562041b8fd6e0da2_sk</span><br><span class="line">│   │   │   ├── signcerts   # 验证本节点签名的证书，被组织根证书签名 </span><br><span class="line">│   │   │   │   └── peer0.org1.example.com-cert.pem</span><br><span class="line">│   │   │   └── tlscacerts  # TLS连接用到身份证书，即组织TLS证书</span><br><span class="line">│   │   │       └── tlsca.org1.example.com-cert.pem</span><br><span class="line">│   │   └── tls # tls相关证书</span><br><span class="line">│   │       ├── ca.crt      # 组织的根证书</span><br><span class="line">│   │       ├── server.crt  # 验证本节点签名的证书，被组织根证书签名</span><br><span class="line">│   │       └── server.key  # 本节点的身份私钥，用来签名</span><br><span class="line">│   └── peer1.org1.example.com    # 第二个peer的信息，结构类似。（此处省略。）</span><br><span class="line">│       ├── msp</span><br><span class="line">│       │   ├── admincerts</span><br><span class="line">│       │   │   └── Admin@org1.example.com-cert.pem</span><br><span class="line">│       │   ├── cacerts</span><br><span class="line">│       │   │   └── ca.org1.example.com-cert.pem</span><br><span class="line">│       │   ├── keystore</span><br><span class="line">│       │   │   └── 82aa3f8f9178b0a83a14fdb1a4e1f944e63b72de8df1baeea36dddf1fe110800_sk</span><br><span class="line">│       │   ├── signcerts</span><br><span class="line">│       │   │   └── peer1.org1.example.com-cert.pem</span><br><span class="line">│       │   └── tlscacerts</span><br><span class="line">│       │       └── tlsca.org1.example.com-cert.pem</span><br><span class="line">│       └── tls</span><br><span class="line">│           ├── ca.crt</span><br><span class="line">│           ├── server.crt</span><br><span class="line">│           └── server.key</span><br><span class="line">├── tlsca    # 存放tls相关的证书和私钥。</span><br><span class="line">│   ├── 00e4666e5f56804274aadb07e2192db2f005a05f2f8fcfd8a1433bdb8ee6e3cf_sk</span><br><span class="line">│   └── tlsca.org1.example.com-cert.pem</span><br><span class="line">└── users    # 存放属于该组织的用户的实体</span><br><span class="line">    ├── Admin@org1.example.com    # 管理员用户的信息，其中包括msp证书和tls证书两类。</span><br><span class="line">    │   ├── msp # msp相关证书</span><br><span class="line">    │   │   ├── admincerts     # 组织根证书作为管理员身份验证证书 </span><br><span class="line">    │   │   │   └── Admin@org1.example.com-cert.pem</span><br><span class="line">    │   │   ├── cacerts        # 存放组织的根证书</span><br><span class="line">    │   │   │   └── ca.org1.example.com-cert.pem</span><br><span class="line">    │   │   ├── keystore       # 本用户的身份私钥，用来签名</span><br><span class="line">    │   │   │   └── fa719a7d19e7b04baebbe4fa3c659a91961a084f5e7b1020670be6adc6713aa7_sk</span><br><span class="line">    │   │   ├── signcerts      # 管理员用户的身份验证证书，被组织根证书签名。要被某个Peer认可，则必须放到该Peer的msp/admincerts目录下</span><br><span class="line">    │   │   │   └── Admin@org1.example.com-cert.pem</span><br><span class="line">    │   │   └── tlscacerts     # TLS连接用的身份证书，即组织TLS证书</span><br><span class="line">    │   │       └── tlsca.org1.example.com-cert.pem</span><br><span class="line">    │   └── tls # 存放tls相关的证书和私钥。</span><br><span class="line">    │       ├── ca.crt       # 组织的根证书</span><br><span class="line">    │       ├── server.crt   # 管理员的用户身份验证证书，被组织根证书签名</span><br><span class="line">    │       └── server.key   # 管理员用户的身份私钥，被组织根证书签名。</span><br><span class="line">    └── User1@org1.example.com    # 第一个用户的信息，包括msp证书和tls证书两类</span><br><span class="line">        ├── msp # msp证书相关信息</span><br><span class="line">        │   ├── admincerts   # 组织根证书作为管理者身份验证证书。</span><br><span class="line">        │   │   └── User1@org1.example.com-cert.pem</span><br><span class="line">        │   ├── cacerts      # 存放组织的根证书</span><br><span class="line">        │   │   └── ca.org1.example.com-cert.pem</span><br><span class="line">        │   ├── keystore     # 本用户的身份私钥，用来签名</span><br><span class="line">        │   │   └── 97f2b74ee080b9bf417a4060bfb737ce08bf33d0287cb3eef9b5be9707e3c3ed_sk</span><br><span class="line">        │   ├── signcerts    # 验证本用户签名的身份证书，被组织根证书签名</span><br><span class="line">        │   │   └── User1@org1.example.com-cert.pem</span><br><span class="line">        │   └── tlscacerts   # TLS连接用的身份证书，被组织根证书签名。</span><br><span class="line">        │       └── tlsca.org1.example.com-cert.pem</span><br><span class="line">        └── tls # 组织的根证书</span><br><span class="line">            ├── ca.crt       # 组织的根证书</span><br><span class="line">            ├── server.crt   # 验证用户签名的身份证书，被根组织证书签名</span><br><span class="line">            └── server.key   # 用户的身份私钥用来签名。</span><br></pre></td></tr></table></figure>
+
+<h2 id="msp的作用域分类"><a href="#msp的作用域分类" class="headerlink" title="msp的作用域分类"></a>msp的作用域分类</h2><ul>
+<li><p>MSP出现在区块链网络中的两个地方：Channel配置（Channel MSP），以及本地（local MSP）。因此，MSP可以分为：local 和 channel MSPs</p>
+</li>
+<li><p><strong>localMSP</strong><br>localMSP，是为节点（peer 或 orderer）和用户（使用CLI或使用SDK的客户端应用程序的管理员）定义的。每个节点和用户都必须定义一个localMSP，以便在加入区块链的时候，进行权限验证。</p>
+</li>
+<li><p><strong>channelMSP（globalMSP)</strong><br>channel MSP在channel层面定义管理和参与权。参与Channel的每个组织，都必须为其定义MSP。Channel上的Peers 和 orderers将在Channel MSP上共享数据，并且此后将能够正确认证Channel参与者。这意味着如果一个组织希望加入该Channel，那么需要在Channel配置中，加入一个包含该组织成员的信任链的MSP。否则来自该组织身份的交易将被拒绝。</p>
+</li>
+</ul>
+<h2 id="MSP功能分类"><a href="#MSP功能分类" class="headerlink" title="MSP功能分类"></a>MSP功能分类</h2><ul>
+<li>Network MSP<br>通过定义参与者组织MSPs，来定义网络中的成员。同时定义这些成员中哪些成员，有权执行管理任务（例如，创建Channel）</li>
+<li>Channel MSP<br>Channel提供了一组特定的组织之间的私人通信，这些组织又对其进行管理控制。在该Channel的MSP上下文中的Channel policies定义谁能够参与Channel上的某些操作，例如添加组织或实例化chaincodes。</li>
+<li>Peer MSP<br>此Local MSP在每个peer的文件系统上定义，并且每个peer都有一个MSP实例。从概念上讲，它执行的功能与Channel MSP完全相同，限制条件是它仅用于定义它的peer上。</li>
+<li>Orderer MSP<br>与peer MSP一样，orderer local MSP也在节点的文件系统上定义，并且仅用于该节点。与peer 节点相似，orderer也由单个组织拥有，因此只有一个MSP来列出其信任的参与者或节点。</li>
+</ul>
+<h2 id="msp与组织的对应关系"><a href="#msp与组织的对应关系" class="headerlink" title="msp与组织的对应关系"></a>msp与组织的对应关系</h2><p><strong>1，组织与MSP之间建立映射关系</strong></p>
+<ul>
+<li><p>建议实际的组织和MSP之间建立一一对应关系。当然也可以选择其他类型的映射关系</p>
+</li>
+<li><p>一个组织对应多个MSP的情况<br>这种情况是一个组织有多个部门，从方便管理的角度或者隐私保护的角度而言，每个部门都要设置不同的MSP。每个Peer节点只设置一个MSP，同一组织内不同MSP的Peer节点之间不能互相认证，这样相同组织的不同部门之间不会同步数据，数据不能共享。</p>
+</li>
+<li><p>多个组织对应一个MSP<br>这种情况是同一个联盟的不同组织之间采用相同的成员管理架构，数据会在不同组织之间同步。在Peer节点之间的Gossip通信中，数据是在相同通道配置了相同MSP的Peer节点之间同步的。如果多个组织对应一个MSP，则数据就不会限制在组织内部，会跨组织进行同步。这种情况我觉得很有应用场景。比如，C9联盟可以在同一个MSP管理下，既能够确保信任的基础，又能够实现数据的共享。<br>其实这是由MSP定义的粒度问题，一个MSP可以和一个组织对应，也可以和多个组织对应，还可以和一个组织内部的多个部门对应，根据MSP配置好Peer节点后，数据同步就限制在了MSP定义的范围内。</p>
+</li>
+</ul>
+<p><strong>2，一个组织内部实现不同的权限控制</strong></p>
+<ul>
+<li><p>给组织内的所有部门定义一个MSP<br>给Peer节点配置MSP的时候，包含相同的可信根CA证书列表、中间CA证书、管理员证书，不同的Peer节点设置不同的所属部门。节点所属的部门是利用证书和部门之间映射的OrganizationalUnitIdentifiers定义的，它包含在MSP目录下配置文件“config.yaml”中。按照基于部门验证的方法来定义交易背书策略和通道管理策略，这样就可以实现不同的权限控制了。<br>这种方法会有一个问题<br>数据实际还是会在不同的Peer节点之间同步。因为Peer节点在识别组织身份类型OrgIdentityType的时候获取的是MSP标识，它会认为通道内相同MSP的节点都是可以分发数据的。</p>
+</li>
+<li><p>给组织内的每个部门单独定义MSP<br>给Peer节点配置MSP的时候，不同部门配置的可信中间CA证书、管理员证书可以是不同的，不同部门成员的证书路径也是不同的。这种方式解决了所有部门定义在一个MSP中的问题，但是会带来管理上的复杂度。</p>
+</li>
+</ul>
+<h2 id="MSP相关核心源码"><a href="#MSP相关核心源码" class="headerlink" title="MSP相关核心源码"></a>MSP相关核心源码</h2><ul>
+<li>MSP源码部分位于fabric下的msp目录</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">msp</span><br><span class="line">├── cache</span><br><span class="line">│   ├── cache.go</span><br><span class="line">│   └── cache_test.go</span><br><span class="line">├── cert.go //证书相关结构体及方法。</span><br><span class="line">├── cert_test.go</span><br><span class="line">├── configbuilder.go//提供读取证书文件并将其组装成MSP等接口所需的数据结构，以及转换配置结构体（FactoryOpts-&gt;MSPConfig）等工具函数</span><br><span class="line">├── configbuilder_test.go</span><br><span class="line">├── factory.go</span><br><span class="line">├── factory_test.go</span><br><span class="line">├── idemixmsp.go</span><br><span class="line">├── idemixmsp_test.go</span><br><span class="line">├── identities.go//实现Identity、SigningIdentity接口</span><br><span class="line">├── mgmt</span><br><span class="line">│   ├── deserializer.go//MSPPrincipalGetter接口及其实现</span><br><span class="line">│   ├── deserializer_test.go</span><br><span class="line">│   ├── mgmt.go//msp相关管理方法实现</span><br><span class="line">│   ├── mgmt_test.go</span><br><span class="line">│   ├── peermsp_test.go</span><br><span class="line">│   ├── principal.go</span><br><span class="line">│   ├── principal_test.go</span><br><span class="line">│   └── testtools</span><br><span class="line">├── mocks</span><br><span class="line">│   └── mocks.go</span><br><span class="line">├── msp.go //定义接口MSP、MSPManager、Identity、SigningIdentity等</span><br><span class="line">├── msp_test.go</span><br><span class="line">├── mspimpl.go</span><br><span class="line">├── mspimplsetup.go</span><br><span class="line">├── mspimplvalidate.go</span><br><span class="line">├── mspmgrimpl.go //实现MSP接口，即bccspmsp</span><br><span class="line">├── mspwithintermediatecas_test.go</span><br><span class="line">├── nodeous_test.go</span><br><span class="line">├── ouconfig_test.go</span><br><span class="line">├── revocation_test.go</span><br><span class="line">├── testdata//省略</span><br><span class="line">└── tls_test.go</span><br></pre></td></tr></table></figure>
+
+<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><ul>
+<li>有时间在总结</li>
+</ul>
+
+      
+    </div>
+
+    <!-- bottom -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-7730278451516700"
+         data-ad-slot="4988060849"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="https://zhulg.github.io/posts/7421.html" title="Hyperledger-Fabric-MSP分析记录" target="_blank" rel="external">https://zhulg.github.io/posts/7421.html</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <div class="qrcode-container text-center">
+      <strong>更多信息请添加公众号</strong>
+      <img src="/images/gongzhonghao.png" alt="微信公众号二维码" class="img-responsive center-block" style="max-width: 500px;">
+    </div>
+    <!-- <figure class="media">
+      <div class="media-left">
+        <a href="https://zhulg.github.io/" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/liangjimantan.png" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://zhulg.github.io/" target="_blank"><span class="text-dark">zhulg</span><small class="ml-1x">技术和管理分享</small></a></h3>
+        <div>lg.json@gmail.com | 技术博客 | 编程开发 | 全栈开发</div>
+      </div>
+    </figure> -->
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/posts/43715.html" title="Docker日志管理记录"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/posts/43591.html" title="Hyperledger Fabric Orderer分析记录"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+    <li class="toggle-toc">
+      <a class="toggle-btn collapsed" data-toggle="collapse" href="#collapseToc" aria-expanded="false" title="文章目录" role="button">
+        <span>[&nbsp;</span><span>文章目录</span>
+        <i class="text-collapsed icon icon-anchor"></i>
+        <i class="text-in icon icon-close"></i>
+        <span>]</span>
+      </a>
+    </li>
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>赏</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span>笔记总访问量: <span id="busuanzi_value_site_pv"></span>次</span>
+
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+<script src="/js/plugin.min.js"></script>
+<script src="/js/application.js"></script>
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+
+    <script>
+(function ($) {
+    $('.search-form').on('submit', function (e) {
+        var keyword = $('.search-form-input[name="wd"]').val();
+        window.location = 'https://www.baidu.com/s?wd=site:zhulg.github.io ' + keyword;
+        return false;
+    });
+})(jQuery);
+</script>
+
+
+
+
+   
+
+
+
+
+   
+
+
+
+
+
+
+</body>
+</html>

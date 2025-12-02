@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+  <meta charset="utf-8">
+  <meta name="google-site-verification" content="hN-z0E4t2EiOQ5bJP-s-O2tG3D2AmJQjOWT1r1Z0vTQ" />
+  <meta name="baidu-site-verification" content="code-XadwrTX2mc" />
+  <meta name="sogou_site_verification" content="3gJO5GEiym" />
+  <meta name="360-site-verification" content="c5d4db78b8047356de2f87d01a63f03e" />
+  <meta name="bytedance-verification-code" content="PeN4sw6nkJKJ5ZI5zYNA" />
+
+<script>
+(function(){
+var el = document.createElement("script");
+el.src = "https://lf1-cdn-tos.bytegoofy.com/goofy/ttzz/push.js?0dfae0b5cd9f4f6b3f45e892e27fbcb4d0c37e9801116e06bfdd550c328d177830632485602430134f60bc55ca391050b680e2741bf7233a8f1da9902314a3fa";
+el.id = "ttzz";
+var s = document.getElementsByTagName("script")[0];
+s.parentNode.insertBefore(el, s);
+})(window)
+</script>
+
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>Stellar区块链记录 | zhulg|技术博客|编程开发与成长思考</title>
+  <meta name="description" content="一，关于Stellar网络相关概述 Stellar 是一个基于区块链的分布式开源网络，专为即时支付转账而设计。Stellar 由 Ripple 的联合创始人 Jed McCaleb 创立，旨在以极低的成本提供金融服务， 特别是为那些不属于传统银行业服务范围的人提供服务  Stellar相关特点 像比特币一样，Stellar的网络是去中心化、分布式账本。 比特币是比特币网络的本币，而lumens则是">
+<meta name="keywords" content="区块链">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Stellar区块链记录">
+<meta property="og:url" content="https://zhulg.github.io/posts/42221.html">
+<meta property="og:site_name" content="zhulg | 技术干货分享">
+<meta property="og:description" content="一，关于Stellar网络相关概述 Stellar 是一个基于区块链的分布式开源网络，专为即时支付转账而设计。Stellar 由 Ripple 的联合创始人 Jed McCaleb 创立，旨在以极低的成本提供金融服务， 特别是为那些不属于传统银行业服务范围的人提供服务  Stellar相关特点 像比特币一样，Stellar的网络是去中心化、分布式账本。 比特币是比特币网络的本币，而lumens则是">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://www.stellar.org/wp-content/uploads/2016/06/Stellar-Ecosystem-v031.png">
+<meta property="og:image" content="https://www.stellar.org/developers/guides/anchor/assets/anchor-send-payment-compliance.png">
+<meta property="og:image" content="https://www.stellar.org/developers/guides/anchor/assets/anchor-receive-payment-compliance.png">
+<meta property="og:updated_time" content="2025-10-28T13:29:08.874Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Stellar区块链记录">
+<meta name="twitter:description" content="一，关于Stellar网络相关概述 Stellar 是一个基于区块链的分布式开源网络，专为即时支付转账而设计。Stellar 由 Ripple 的联合创始人 Jed McCaleb 创立，旨在以极低的成本提供金融服务， 特别是为那些不属于传统银行业服务范围的人提供服务  Stellar相关特点 像比特币一样，Stellar的网络是去中心化、分布式账本。 比特币是比特币网络的本币，而lumens则是">
+<meta name="twitter:image" content="https://www.stellar.org/wp-content/uploads/2016/06/Stellar-Ecosystem-v031.png">
+  <!-- Canonical links -->
+  <link rel="canonical" href="https://zhulg.github.io/posts/42221.html">
+  
+    <link rel="alternate" href="/atom.xml" title="zhulg | 技术干货分享" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+  
+  
+  
+</head>
+
+
+<body class="main-center theme-black" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://zhulg.github.io/" target="_blank">
+          <img class="img-circle img-rotate" src="/images/liangjimantan.png" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">zhulg</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">技术和管理分享</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> BeiJing, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav ">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">首页</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">归档</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">分类</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">标签</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7730278451516700"
+     crossorigin="anonymous"></script>
+<!-- 侧部广告 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-7730278451516700"
+     data-ad-slot="1833144581"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p> 技术管理、成长、产品研发思考分享！</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget-body">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/AI/">AI</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/App/">App</a><span class="category-list-count">17</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/DeepSeek/">DeepSeek</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Rust/">Rust</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Scratch/">Scratch</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/go/">go</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/产品工具/">产品工具</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/产品工具/前端/">前端</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端/">前端</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/区块链/">区块链</a><span class="category-list-count">35</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术应用/">技术应用</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术成长/">技术成长</a><span class="category-list-count">29</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术运维/">技术运维</a><span class="category-list-count">6</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget-body">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI/">AI</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI教育/">AI教育</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI编程/">AI编程</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/">Android</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/App/">App</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ChatGPT/">ChatGPT</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Chrome插件/">Chrome插件</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DeepSeek/">DeepSeek</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Elasticsearch/">Elasticsearch</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IT/">IT</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JS/">JS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/K8S/">K8S</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LangChain/">LangChain</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/New-Tab/">New Tab</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Prompt工程/">Prompt工程</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RAG/">RAG</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ruby/">Ruby</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Rust/">Rust</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Scratch/">Scratch</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tools/">Tools</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vibe-Coding/">Vibe Coding</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android/">android</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/chrome/">chrome</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/composer/">composer</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/django/">django</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/">docker</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/fabric/">fabric</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/fabric-node-sdk/">fabric-node-sdk</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/flume/">flume</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/flutter/">flutter</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/go/">go</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gradle/">gradle</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hadoop/">hadoop</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hyperledger-composer/">hyperledger composer</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ios/">ios</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jenkins/">jenkins</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kafka/">kafka</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kotlin/">kotlin</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/">nginx</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/">node</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/npm/">npm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/openresty/">openresty</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/redis/">redis</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring/">spring</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/springboot/">springboot</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/springboot相关/">springboot相关</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/springcloud/">springcloud</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/stellar/">stellar</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vscode/">vscode</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web3/">web3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webstom/">webstom</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/互联网副业/">互联网副业</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/作图工具/">作图工具</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/元宇宙/">元宇宙</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/分布式-集群/">分布式/集群</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端/">前端</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/区块链/">区块链</a><span class="tag-list-count">39</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/区块链，以太坊/">区块链，以太坊</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/大数据/">大数据</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/大模型/">大模型</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/家人照片/">家人照片</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/录屏工具/">录屏工具</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/技术人/">技术人</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/技术成长/">技术成长</a><span class="tag-list-count">21</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/推荐系统/">推荐系统</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/插件开发/">插件开发</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/效率工具/">效率工具</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/教学资源/">教学资源</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/教师工具/">教师工具</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/教育信息化/">教育信息化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数字化/">数字化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/机器学习/">机器学习</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/架构/">架构</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/浏览器壁纸/">浏览器壁纸</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/程序员/">程序员</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/管理杂烩/">管理杂烩</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/自动化/">自动化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/自然语言编程/">自然语言编程</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/随笔记录/">随笔记录</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/隐私保护/">隐私保护</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/AI/" style="font-size: 13.82px;">AI</a> <a href="/tags/AI教育/" style="font-size: 13px;">AI教育</a> <a href="/tags/AI编程/" style="font-size: 13px;">AI编程</a> <a href="/tags/Android/" style="font-size: 13.64px;">Android</a> <a href="/tags/App/" style="font-size: 13.18px;">App</a> <a href="/tags/ChatGPT/" style="font-size: 13.09px;">ChatGPT</a> <a href="/tags/Chrome插件/" style="font-size: 13px;">Chrome插件</a> <a href="/tags/DeepSeek/" style="font-size: 13px;">DeepSeek</a> <a href="/tags/Elasticsearch/" style="font-size: 13.09px;">Elasticsearch</a> <a href="/tags/IT/" style="font-size: 13px;">IT</a> <a href="/tags/JS/" style="font-size: 13px;">JS</a> <a href="/tags/Java/" style="font-size: 13px;">Java</a> <a href="/tags/K8S/" style="font-size: 13.09px;">K8S</a> <a href="/tags/LangChain/" style="font-size: 13px;">LangChain</a> <a href="/tags/Linux/" style="font-size: 13.18px;">Linux</a> <a href="/tags/New-Tab/" style="font-size: 13px;">New Tab</a> <a href="/tags/Prompt工程/" style="font-size: 13px;">Prompt工程</a> <a href="/tags/RAG/" style="font-size: 13px;">RAG</a> <a href="/tags/Ruby/" style="font-size: 13px;">Ruby</a> <a href="/tags/Rust/" style="font-size: 13.55px;">Rust</a> <a href="/tags/Scratch/" style="font-size: 13.27px;">Scratch</a> <a href="/tags/Tools/" style="font-size: 13.27px;">Tools</a> <a href="/tags/Vibe-Coding/" style="font-size: 13px;">Vibe Coding</a> <a href="/tags/android/" style="font-size: 13.09px;">android</a> <a href="/tags/chrome/" style="font-size: 13.18px;">chrome</a> <a href="/tags/composer/" style="font-size: 13.18px;">composer</a> <a href="/tags/django/" style="font-size: 13px;">django</a> <a href="/tags/docker/" style="font-size: 13.09px;">docker</a> <a href="/tags/fabric/" style="font-size: 13.09px;">fabric</a> <a href="/tags/fabric-node-sdk/" style="font-size: 13px;">fabric-node-sdk</a> <a href="/tags/flume/" style="font-size: 13px;">flume</a> <a href="/tags/flutter/" style="font-size: 13.27px;">flutter</a> <a href="/tags/git/" style="font-size: 13.09px;">git</a> <a href="/tags/go/" style="font-size: 13.55px;">go</a> <a href="/tags/gradle/" style="font-size: 13px;">gradle</a> <a href="/tags/hadoop/" style="font-size: 13.18px;">hadoop</a> <a href="/tags/hexo/" style="font-size: 13px;">hexo</a> <a href="/tags/hyperledger-composer/" style="font-size: 13px;">hyperledger composer</a> <a href="/tags/ios/" style="font-size: 13.18px;">ios</a> <a href="/tags/java/" style="font-size: 13.45px;">java</a> <a href="/tags/jenkins/" style="font-size: 13px;">jenkins</a> <a href="/tags/kafka/" style="font-size: 13px;">kafka</a> <a href="/tags/kotlin/" style="font-size: 13.09px;">kotlin</a> <a href="/tags/linux/" style="font-size: 13px;">linux</a> <a href="/tags/nginx/" style="font-size: 13.18px;">nginx</a> <a href="/tags/node/" style="font-size: 13px;">node</a> <a href="/tags/npm/" style="font-size: 13px;">npm</a> <a href="/tags/openresty/" style="font-size: 13px;">openresty</a> <a href="/tags/python/" style="font-size: 13.36px;">python</a> <a href="/tags/redis/" style="font-size: 13.09px;">redis</a> <a href="/tags/spring/" style="font-size: 13px;">spring</a> <a href="/tags/springboot/" style="font-size: 13.55px;">springboot</a> <a href="/tags/springboot相关/" style="font-size: 13px;">springboot相关</a> <a href="/tags/springcloud/" style="font-size: 13.73px;">springcloud</a> <a href="/tags/stellar/" style="font-size: 13px;">stellar</a> <a href="/tags/vscode/" style="font-size: 13px;">vscode</a> <a href="/tags/web3/" style="font-size: 13px;">web3</a> <a href="/tags/webstom/" style="font-size: 13px;">webstom</a> <a href="/tags/互联网副业/" style="font-size: 13px;">互联网副业</a> <a href="/tags/作图工具/" style="font-size: 13px;">作图工具</a> <a href="/tags/元宇宙/" style="font-size: 13.09px;">元宇宙</a> <a href="/tags/分布式-集群/" style="font-size: 13.18px;">分布式/集群</a> <a href="/tags/前端/" style="font-size: 13px;">前端</a> <a href="/tags/区块链/" style="font-size: 14px;">区块链</a> <a href="/tags/区块链，以太坊/" style="font-size: 13px;">区块链，以太坊</a> <a href="/tags/大数据/" style="font-size: 13px;">大数据</a> <a href="/tags/大模型/" style="font-size: 13px;">大模型</a> <a href="/tags/家人照片/" style="font-size: 13px;">家人照片</a> <a href="/tags/录屏工具/" style="font-size: 13px;">录屏工具</a> <a href="/tags/技术人/" style="font-size: 13px;">技术人</a> <a href="/tags/技术成长/" style="font-size: 13.91px;">技术成长</a> <a href="/tags/推荐系统/" style="font-size: 13.09px;">推荐系统</a> <a href="/tags/插件开发/" style="font-size: 13px;">插件开发</a> <a href="/tags/效率工具/" style="font-size: 13px;">效率工具</a> <a href="/tags/教学资源/" style="font-size: 13px;">教学资源</a> <a href="/tags/教师工具/" style="font-size: 13px;">教师工具</a> <a href="/tags/教育信息化/" style="font-size: 13px;">教育信息化</a> <a href="/tags/数字化/" style="font-size: 13px;">数字化</a> <a href="/tags/机器学习/" style="font-size: 13.36px;">机器学习</a> <a href="/tags/架构/" style="font-size: 13px;">架构</a> <a href="/tags/浏览器壁纸/" style="font-size: 13px;">浏览器壁纸</a> <a href="/tags/程序员/" style="font-size: 13px;">程序员</a> <a href="/tags/管理杂烩/" style="font-size: 13px;">管理杂烩</a> <a href="/tags/自动化/" style="font-size: 13px;">自动化</a> <a href="/tags/自然语言编程/" style="font-size: 13px;">自然语言编程</a> <a href="/tags/随笔记录/" style="font-size: 13px;">随笔记录</a> <a href="/tags/隐私保护/" style="font-size: 13px;">隐私保护</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/11/">十一月 2025</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/10/">十月 2025</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/07/">七月 2025</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/02/">二月 2025</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/01/">一月 2025</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/12/">十二月 2024</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/11/">十一月 2024</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/09/">九月 2024</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/08/">八月 2024</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/07/">七月 2024</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">三月 2023</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/02/">二月 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">十一月 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">十月 2022</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/09/">九月 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">五月 2022</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">四月 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">二月 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">一月 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">九月 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">八月 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">三月 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">一月 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">十二月 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">十一月 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">九月 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">八月 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">七月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">一月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">十二月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">十一月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">十月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">九月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">八月 2018</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">七月 2018</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">六月 2018</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">三月 2018</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">二月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">一月 2018</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">十二月 2017</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">十月 2017</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">九月 2017</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">八月 2017</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">七月 2017</a><span class="archive-list-count">9</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/技术应用/">技术应用</a>
+              </p>
+              <p class="item-title">
+                <a href="/posts/9bac213c.html" class="title">教师工具集，专为教育工作者打造的免费工具导航站</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2025-11-07T14:00:00.000Z" itemprop="datePublished">2025-11-07</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/产品工具/">产品工具</a>
+              </p>
+              <p class="item-title">
+                <a href="/posts/40058c60.html" class="title">可以展示照片的浏览器tab页插件:《NewTab时光》发布</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2025-10-18T04:16:16.000Z" itemprop="datePublished">2025-10-18</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/AI/">AI</a>
+              </p>
+              <p class="item-title">
+                <a href="/posts/4a3d5e89.html" class="title">Vibe Coding普通人也可以学的编程技能</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2025-10-18T03:48:36.000Z" itemprop="datePublished">2025-10-18</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/AI/">AI</a>
+              </p>
+              <p class="item-title">
+                <a href="/posts/4b7fcf21.html" class="title">2025年，普通人如何在1个月内熟练使用AI</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2025-07-21T15:52:56.000Z" itemprop="datePublished">2025-07-21</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/AI/">AI</a>
+              </p>
+              <p class="item-title">
+                <a href="/posts/e3022ca1.html" class="title">实测 Google Gemini CLI：从安装到使用体验，AI 命令行也开始卷起来了</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2025-07-19T05:21:16.000Z" itemprop="datePublished">2025-07-19</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    <nav id="toc" class="article-toc">
+      <h3 class="toc-title">文章目录</h3>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一，关于Stellar网络相关概述"><span class="toc-number">1.</span> <span class="toc-text">一，关于Stellar网络相关概述</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Stellar相关特点"><span class="toc-number">1.1.</span> <span class="toc-text">Stellar相关特点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Stellar运行方式"><span class="toc-number">1.2.</span> <span class="toc-text">Stellar运行方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Stellar的共识协议（SCP）"><span class="toc-number">1.3.</span> <span class="toc-text">Stellar的共识协议（SCP）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Stellar白皮书对FBA的简要介绍："><span class="toc-number">1.4.</span> <span class="toc-text">Stellar白皮书对FBA的简要介绍：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#lumens意义"><span class="toc-number">1.5.</span> <span class="toc-text">lumens意义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#为什么要选择Stellar"><span class="toc-number">1.6.</span> <span class="toc-text">为什么要选择Stellar</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二，Stellar网络组件"><span class="toc-number">2.</span> <span class="toc-text">二，Stellar网络组件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#账号模型和生成"><span class="toc-number">3.</span> <span class="toc-text">账号模型和生成</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#发送和接受"><span class="toc-number">4.</span> <span class="toc-text">发送和接受</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#锚点（接入Stellar网络的银行）"><span class="toc-number">5.</span> <span class="toc-text">锚点（接入Stellar网络的银行）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Customer-Accounts-客户账户"><span class="toc-number">5.1.</span> <span class="toc-text">Customer Accounts(客户账户)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#建立锚点，基础架构需要满足"><span class="toc-number">5.2.</span> <span class="toc-text">建立锚点，基础架构需要满足</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#付款"><span class="toc-number">5.3.</span> <span class="toc-text">付款</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#收款"><span class="toc-number">5.4.</span> <span class="toc-text">收款</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三，恒星里主要概念"><span class="toc-number">6.</span> <span class="toc-text">三，恒星里主要概念</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#账户"><span class="toc-number">6.1.</span> <span class="toc-text">账户</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#交易"><span class="toc-number">6.2.</span> <span class="toc-text">交易</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#资产"><span class="toc-number">6.3.</span> <span class="toc-text">资产</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Stellar相关操作"><span class="toc-number">7.</span> <span class="toc-text">Stellar相关操作</span></a></li></ol>
+    </nav>
+  </div>
+</aside>
+
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-Stellar区块链记录" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    
+    
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://zhulg.github.io/posts/42221.html"
+      },
+      "headline": "Stellar区块链记录",
+      "description": "zhulg技术博客致力于分享Java、Python、机器学习、区块链等技术干货，提供实用的开发教程、项目经验和解决方案，帮助开发者提升技术能力。",
+      "datePublished": "2018-09-25T07:55:50.000Z",
+      "dateModified": "2025-10-28T13:29:08.874Z",
+      "author": {
+        "@type": "Person",
+        "name": "zhulg",
+        "url": "https://zhulg.github.io",
+        "alternateName": "良技漫谈"
+      },
+      "image": "https://www.stellar.org/wp-content/uploads/2016/06/Stellar-Ecosystem-v031.png",
+      "keywords": ["区块链","Stellar区块链记录"],
+      "publisher": {
+        "@type": "Organization",
+        "name": "良技漫谈",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://zhulg.github.io/favicon.png",
+          "width": "60",
+          "height": "60"
+        }
+      }
+    }
+    </script>
+
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Stellar区块链记录
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        
+<span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/posts/42221.html" class="article-date">
+	  <time datetime="2018-09-25T07:55:50.000Z" itemprop="datePublished">2018-09-25</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/区块链/">区块链</a>
+  </span>
+
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link" href="/tags/区块链/">区块链</a>
+  </span>
+
+
+        
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/posts/42221.html#comments" class="article-comment-link">评论</a></span>
+        
+	
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 4.3k(字)</span>
+	
+	
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 15(分)</span>
+	
+
+      </div>
+    </div>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7730278451516700"
+     crossorigin="anonymous"></script>
+<!-- title -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-7730278451516700"
+     data-ad-slot="3100240204"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script> 
+    
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <h2 id="一，关于Stellar网络相关概述"><a href="#一，关于Stellar网络相关概述" class="headerlink" title="一，关于Stellar网络相关概述"></a>一，关于Stellar网络相关概述</h2><ul>
+<li><strong>Stellar 是一个基于区块链的分布式开源网络，专为即时支付转账而设计。Stellar 由 Ripple 的联合创始人 Jed McCaleb 创立，旨在以极低的成本提供金融服务， 特别是为那些不属于传统银行业服务范围的人提供服务</strong></li>
+</ul>
+<h3 id="Stellar相关特点"><a href="#Stellar相关特点" class="headerlink" title="Stellar相关特点"></a>Stellar相关特点</h3><ul>
+<li>像比特币一样，Stellar的网络是去中心化、分布式账本。</li>
+<li>比特币是比特币网络的本币，而lumens则是Stellar网络的本币。</li>
+<li>Stellar网络中没有挖矿; 你可以运行Stellar核心验证节点，但验证交易不会被奖励新产生的lumens。</li>
+<li>比特币使用POW作为其共识模型，而Stellar使用的是Stellar共识协议（SCP）的共识模式。SCP实施的是联邦拜占庭协议（FBA）共识模式。SCP不需要太多算力，理论上每秒交易吞吐量达到1000笔。</li>
+<li>Stellar网络交易确认时间的中值为5秒。虽然lumens是Stellar网络的原生资产，但其网络支持许多不同类型的资产，每个人都可以发行新资产。外部货币（法币或外部区块链）支持的资产由Stellar网络锚系统提供支持。</li>
+<li>Stellar网络内置了去中心化交易市场。</li>
+<li><strong>锚点作为法定货币进入Stellar网络的进入和退出点，为用户维护法币账户和Stellar钱包。如果用户将资金存入他们的法定货币账户，锚点将向用户的Stellar钱包存入等量的相应Stellar网络资产，反之亦然。大多数锚点是银行和支付公司等金融机构</strong></li>
+<li>Stellar lumens每年的固定名义通胀率为1％。还有一个收费池，用于发送网络交易的lumens费用。每个星期，由通货膨胀产生的新lumens和从收费池流出的lumens都会分配到Stellar钱包。每个钱包接收的lumens量基于投票系统。每个钱包都可以投票选择另一个钱包来接收lumens; 钱包中的每个lumens都被视为一票。</li>
+</ul>
+<h3 id="Stellar运行方式"><a href="#Stellar运行方式" class="headerlink" title="Stellar运行方式"></a>Stellar运行方式</h3><ul>
+<li>和其他基于区块链的平台一样，Stellar 平台运行在一系列分布式服务器上。它由一个分布式分类账组成，记录网络上发生的每一笔交易。分类账每两到五秒更新一次，也就是网络上交易所需的平均时间。</li>
+<li>Stellar 平台通过 Anchor（锚点）为任何想通过网络发送或接收付款的人发放信用额度。例如，如果你想向某人发送 100 美元， 需要先将钱存入 Anchor。收到这笔钱后，Anchor 会将金额记到你的 Stellar 账户。然后，你帐户里的资金可以发送给任何拥有 Stellar 帐户的人。收款人可以随时兑现 Stellar 账户里的资金</li>
+</ul>
+<h3 id="Stellar的共识协议（SCP）"><a href="#Stellar的共识协议（SCP）" class="headerlink" title="Stellar的共识协议（SCP）"></a>Stellar的共识协议（SCP）</h3><ul>
+<li>Stellar公开的白皮书（DavidMazières教授撰写）里详细介绍了Stellar共识协议（SCP）的工作原理。该白皮书在谷歌学术上列出，并在撰写此博客文章时被引用了39次。该论文长32页，技术性极强，<strong>包含关于联邦拜占庭协议（FBA）共识模型正确性的详细数学证明</strong>， </li>
+<li><strong>SCP是建立在联邦拜占庭协议（Federated Byzantine Agreement）之上的成果，是一种新的共识方法</strong><h3 id="Stellar白皮书对FBA的简要介绍："><a href="#Stellar白皮书对FBA的简要介绍：" class="headerlink" title="Stellar白皮书对FBA的简要介绍："></a>Stellar白皮书对FBA的简要介绍：</h3></li>
+<li>在FBA中，每个参与者都知道其认为重要的其它人。在认定交易完成之前，它等待绝大多数其他人就此交易达成一致。反过来，那些重要的参与者不同意交易，直到他们认为重要的参与者同意为止，等等。最终，足够的网络接受一项交易，让攻击者无法将其回滚。只有这样参与者才认为交易已经结束。FBA共识可以确保金融网络的完整性。其去中心化控制可以刺激有机增长。</li>
+<li>SCP有两个关键属性，使得Stellar网络成为强大的资产转移系统。首先，它对算力的要求极低，特别是与比特币的POW相比。其次，它具有超高的交易吞吐量，理论上可以达到每秒1000次交易。</li>
+</ul>
+<h3 id="lumens意义"><a href="#lumens意义" class="headerlink" title="lumens意义"></a>lumens意义</h3><ul>
+<li>如果Stellar网络的关键功能是自定义资产的传输和交换，为什么需要本地货币（lumens）</li>
+<li>首先，lumens在网络中起到反垃圾攻击的作用。每笔交易都有lumens费用，这使网络垃圾攻击非常昂贵。此外，其网络中的所有账户要求余额不低于20lumens。其次，lumens为Stellar的内置的去中心化交易平台增加了流动性，为低成交量货币交易对提供交易桥梁。</li>
+</ul>
+<h3 id="为什么要选择Stellar"><a href="#为什么要选择Stellar" class="headerlink" title="为什么要选择Stellar"></a>为什么要选择Stellar</h3><ul>
+<li>Stellar有可以运行的产品</li>
+<li>Stellar在SCP上有着令人印象非常深刻的白皮书。如上所述，该论文在谷歌学术上列出，在撰写本文时已经被引用了39次。这一技术实力也体现在该团队的产品——Stellar网络中。该网络功能齐全，所有核心组件都可以正常运行并记录在案。</li>
+<li>Stellar Core是充当网络骨干的软件。Stellar Core节点通过SCP验证交易来保持网络运行。节点还允许所有者在网络中发布新资产或向网络提交交易。任何人都可以下载Stellar Core并开始运行节点。Horizon是连接到Stellar Core节点的服务器应用程序，允许应用程序通过RESTful HTTP API接口与Stellar网络进行交互，这对任何有能力的Web开发人员来说都应该是熟悉的。任何人都可以下载并运行Horizon服务器。</li>
+<li>网络的锚点（记住锚点是Stellar网络的法币网关）也得到充分开发并有据可查。网桥服务器能够发送和接收符合规定的支付。每次发送或接收付款时，服务器都会通过合规服务器实现合规性，即桥服务器使用Stellar合规协议进行通信。Stellar网络也有自己的类似DNS的系统，通过可读地址映射到账户ID。该映射存储在联合服务器中。为了让网桥服务器根据人类可读地址确定账户ID，它必须通过Stellar联盟协议与联合服务器通信。</li>
+</ul>
+<h2 id="二，Stellar网络组件"><a href="#二，Stellar网络组件" class="headerlink" title="二，Stellar网络组件"></a>二，Stellar网络组件</h2><p><img src="https://www.stellar.org/wp-content/uploads/2016/06/Stellar-Ecosystem-v031.png" alt></p>
+<ul>
+<li>整个网络其实由两个组件构成,一个用于与Stellar网络交互的API服务Horizon;另一个是网络的骨干,也就是Stellar Core.</li>
+<li>网络中的所有的Horizon服务都会链接到Stellar core 上,由它通过共识算法负责交易的验证和处理工作,当我们谈到Stellar网络时,往往说的都是Stellar Core的集合,我们可以将Stellar core 理解为Bitcoin 中的节点,网络中相互连接的全部节点构成整个网络,而Horizon 就是用于与节点对话的HTTP服务了.</li>
+<li>Horizon实例是Stellar网络的开放接口访问平台，对外部应用提供访问Stellar网络的各种API，同时，当前对外提供提供JS、Go、Java、Ruby、Python和C#等版本的SDK，方便各类应用的快速接入</li>
+<li>Stellar网络中的节点种类和功能,有全节点，同步节点，归档节点，建议采用三种节点的模式进行StellarCore实例的部署，当然，也可以将三种功能进行灵活配置，形成其他的部署模式。</li>
+</ul>
+<h2 id="账号模型和生成"><a href="#账号模型和生成" class="headerlink" title="账号模型和生成"></a>账号模型和生成</h2><ul>
+<li>Stellar采用账户（Account）模型组织链上信息，所有信息都关联到账户。</li>
+<li>每个Stellar帐户都有一个公钥和一个秘密种子。 Stellar使用公钥加密来确保每个事务都是安全的。公钥通常可以安全共享 - 其他人需要它来识别您的帐户并验证您是否授权了交易。但是，种子是私人信息，证明您拥有自己的帐户。你永远不应该与任何人分享种子。</li>
+<li>秘钥种子实际上是用于为您的帐户生成公钥和私钥的单个秘密数据。为方便起见，Stellar的工具使用种子而不是私钥：要完全访问帐户，您只需提供种子而不是公钥和私钥。</li>
+<li>go语言生成公钥和种子秘钥。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">package main</span><br><span class="line"></span><br><span class="line">import (</span><br><span class="line">    &quot;log&quot;</span><br><span class="line"></span><br><span class="line">    &quot;github.com/stellar/go/keypair&quot;</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">func main() &#123;</span><br><span class="line">    pair, err := keypair.Random()</span><br><span class="line">    if err != nil &#123;</span><br><span class="line">        log.Fatal(err)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    log.Println(pair.Seed())</span><br><span class="line">    // SAV76USXIJOBMEQXPANUOQM6F5LIOTLPDIDVRJBFFE2MDJXG24TAPUU7 （种子秘钥）</span><br><span class="line">    log.Println(pair.Address())</span><br><span class="line">    // GCFXHS4GXL6BVUCXBWXGTITROWLVYXQKQLF4YH5O5JT3YZXCYPAFBJZB （公钥）</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>现在您已拥有种子和公钥，您可以创建一个帐户。为了防止人们制造大量不必要的账户，每个账户的最小余额必须为1 lumens（lumens是Stellar网络的内置货币）。但是，由于您还没有任何lumens，因此您无法支付帐户费用。在现实世界中，您通常会支付销售流明的交易所以创建新帐户。然而，在Stellar的测试网络中，您可以向我们友好的机器人Friendbot请求，为您创建一个帐户。要创建测试帐户，请向Friendbot发送您创建的公钥。它将使用该公钥作为帐户ID创建和资助新帐户</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">package main</span><br><span class="line"></span><br><span class="line">import (</span><br><span class="line">    &quot;net/http&quot;</span><br><span class="line">    &quot;io/ioutil&quot;</span><br><span class="line">    &quot;log&quot;</span><br><span class="line">    &quot;fmt&quot;</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">func main() &#123;</span><br><span class="line">    // pair is the pair that was generated from previous example, or create a pair based on </span><br><span class="line">    // existing keys.</span><br><span class="line">    address := pair.Address()</span><br><span class="line">    resp, err := http.Get(&quot;https://friendbot.stellar.org/?addr=&quot; + address)</span><br><span class="line">    if err != nil &#123;</span><br><span class="line">        log.Fatal(err)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    defer resp.Body.Close()</span><br><span class="line">    body, err := ioutil.ReadAll(resp.Body)</span><br><span class="line">    if err != nil &#123;</span><br><span class="line">        log.Fatal(err)</span><br><span class="line">    &#125;</span><br><span class="line">    fmt.Println(string(body))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>获取帐户的详细信息并检查其余额。账户可以带有多个余额 - 每种类型的货币对应一种余额,go语言代码。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">package main</span><br><span class="line"></span><br><span class="line">import (</span><br><span class="line">    &quot;fmt&quot;</span><br><span class="line">    &quot;log&quot;</span><br><span class="line"></span><br><span class="line">    &quot;github.com/stellar/go/clients/horizon&quot;</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">func main() &#123;</span><br><span class="line">    account, err := horizon.DefaultTestNetClient.LoadAccount(pair.Address())</span><br><span class="line">    if err != nil &#123;</span><br><span class="line">        log.Fatal(err)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    fmt.Println(&quot;Balances for account:&quot;, pair.Address())</span><br><span class="line"></span><br><span class="line">    for _, balance := range account.Balances &#123;</span><br><span class="line">        log.Println(balance)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="发送和接受"><a href="#发送和接受" class="headerlink" title="发送和接受"></a>发送和接受</h2><ul>
+<li>发送资产功能是给某个地址发送资产，接收功能是知道那个账号发送了资产。（代码表示参考文档发送和接收部分，暂不整理记录）</li>
+</ul>
+<h2 id="锚点（接入Stellar网络的银行）"><a href="#锚点（接入Stellar网络的银行）" class="headerlink" title="锚点（接入Stellar网络的银行）"></a>锚点（接入Stellar网络的银行）</h2><ul>
+<li>锚点是人们信任持有存款并向Stellar网络发放信用额度的实体。 Stellar网络中的所有货币交易（lumens除外）均以锚点发行的信用形式出现，因此锚点充当现有货币与Stellar网络之间的桥梁。大多数人都是银行，储蓄机构，农民合作社，中央银行和汇款公司等组织。</li>
+<li><strong>作为Anchor,一般需要维护最少两个账户:</strong></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">- 1，An issuing account：仅用于发行和销毁资产的发行帐户。</span><br><span class="line">- 2，A base account：用于与其他Stellar帐户进行交易的基本帐户。它持有发行账户发行的资产余额</span><br></pre></td></tr></table></figure>
+
+<h3 id="Customer-Accounts-客户账户"><a href="#Customer-Accounts-客户账户" class="headerlink" title="Customer Accounts(客户账户)"></a>Customer Accounts(客户账户)</h3><ul>
+<li>一般有2种方法对应用户的账号</li>
+<li>一种是给锚点（接入的中央银行）里每个用户建立一个恒星账户。</li>
+<li>另外一种是一个锚点只有一个账号，通过 federation(联合地址) 和 memo 来定位到具体的银行内部的用户。（一般采用这种方法）</li>
+</ul>
+<h3 id="建立锚点，基础架构需要满足"><a href="#建立锚点，基础架构需要满足" class="headerlink" title="建立锚点，基础架构需要满足"></a>建立锚点，基础架构需要满足</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">付款。</span><br><span class="line">收到付款后，监控Stellar帐户并更新客户帐户。</span><br><span class="line">查找并响应联合地址请求。</span><br><span class="line">遵守反洗钱（AML）规定。</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Stellar提供预构建的联合服务器（ federation server）和法规遵从性服务器（regulatory compliance server ），专为您安装和集成现有基础架构而设计。桥接服务器（ bridge server ）协调它们并简化与Stellar网络的交互。本指南演示了如何将它们与您的基础架构集成，但您也可以编写自己的自定义版本。</li>
+</ul>
+<h3 id="付款"><a href="#付款" class="headerlink" title="付款"></a>付款</h3><p><img src="https://www.stellar.org/developers/guides/anchor/assets/anchor-send-payment-compliance.png" alt></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">客户使用Anchor提供的客户端或者网页发出一笔付款;</span><br><span class="line">Anchor的内部服务通过桥接服务(Bridge)发出一笔付款;</span><br><span class="line">桥接服务决定是否需要进行合规检查并将交易的相关信息发给合规服务;</span><br><span class="line">合规服务通过查找联合抵制决定收款的账户ID;</span><br><span class="line">合规服务调用Anchor 的接口获取客户的相关信息并发送给付款组织的合规服务;</span><br><span class="line">如果通过了相关组织的合规验证,那么桥接服务就会创建并签发一笔交易,发送到Stellar 网络中;</span><br><span class="line">当交易被网络确认时,桥接服务收到消息最终更新客户的账户余额;</span><br></pre></td></tr></table></figure>
+
+<h3 id="收款"><a href="#收款" class="headerlink" title="收款"></a>收款</h3><p><img src="https://www.stellar.org/developers/guides/anchor/assets/anchor-receive-payment-compliance.png" alt></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">发送者通过查找Stellar 账户ID根据客户的联合抵制发送一笔付款;</span><br><span class="line"></span><br><span class="line">发送者将付款信息与付款方的账户信息发送给收款方的合规服务;</span><br><span class="line">合规服务联系三个不同的服务;</span><br><span class="line">1.一个用于判断发送者是否允许的支付客户的制裁回调(Sanction Callback);</span><br><span class="line">2.如果发送者想要得到客户的信息,需要由回调来决定是否提供当前的客户信息;</span><br><span class="line">3.如果决定提供客户信息,通过回调的方式进行提供;</span><br><span class="line">发送方将交易发送到Stellar网络中;</span><br><span class="line">桥接服务监控Stellar网络中的这笔交易并确认是否是3.1中已经同意的付款;</span><br><span class="line">桥接服务通知我们的服务当前交易已经确定,可更新用户的账户余额.</span><br></pre></td></tr></table></figure>
+
+<h2 id="三，恒星里主要概念"><a href="#三，恒星里主要概念" class="headerlink" title="三，恒星里主要概念"></a>三，恒星里主要概念</h2><h3 id="账户"><a href="#账户" class="headerlink" title="账户"></a>账户</h3><ul>
+<li>账户是Stellar中的核心数据结构,它是被存储在账本中的公钥标记的,账户中其他的数据结构都是属于某一个账户的,我们其中最熟悉的交易Transaction也是由账户创建的,每一笔交易都需要由当前账户的私钥签名</li>
+<li>账户的构成结构</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">struct AccountEntry &#123;</span><br><span class="line">    AccountID accountID;//是当前账户的唯一标识符,在默认情况下都是账户对应的私钥;</span><br><span class="line">    int64 balance; //当前账户持有的XLM余额</span><br><span class="line">    SequenceNumber seqNum;//最新交易的序列号</span><br><span class="line">    uint32 numSubEntries; //当前账户包含的条目数,例如:信任线,订单,数据等;</span><br><span class="line">    AccountID* inflationDest; //标识当前账户接受通货膨胀的目标地址</span><br><span class="line">    uint32 flags; //标示</span><br><span class="line">    string32 homeDomain; </span><br><span class="line">    Thresholds thresholds;</span><br><span class="line">    Signer signers&lt;20&gt;; //签名</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>每一个 Stellar 账户还都对应着唯一的 AccountEntry 以及多个 TrustLineEntry、OfferEntry 和 DataEntry</strong></li>
+<li>TrustLineEntry 为例，信任线（TrustLine）其实就是 Stellar 中的某个账户接受另一个账户发行的资产，可以理解为一个关系表，其中存储着信任的 asset 以及资产的余额。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">struct TrustLineEntry &#123;</span><br><span class="line">    AccountID accountID;</span><br><span class="line">    Asset asset;</span><br><span class="line">    int64 balance;</span><br><span class="line">    int64 limit;</span><br><span class="line">    uint32 flags;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Stellar 中的 DataEntry 可以保存一些与账户相关的数据</li>
+</ul>
+<h3 id="交易"><a href="#交易" class="headerlink" title="交易"></a>交易</h3><ul>
+<li><p>交易实体的结构</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">struct Transaction &#123;</span><br><span class="line">    AccountID sourceAccount;//也就是发出交易的源地址，该交易必须被发出交易的源地址签名</span><br><span class="line">    uint32 fee;</span><br><span class="line">    SequenceNumber seqNum;</span><br><span class="line">    TimeBounds* timeBounds;</span><br><span class="line">    Memo memo;</span><br><span class="line">    Operation operations&lt;100&gt;;//就是一个操作的数组，其中包含了这一次交易需要执行的全部操作</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>每一个 Transaction 都是由一组 Operation 构成的，可用的 Operation 包括 CreateAccount、Payment、PathPayment、ManageOffer 等等，以发出付款为例，我们可以向指定的账户发送特定数量的某资产。    这些 Operation 组成的交易就类似一个数据库中的事务，所有的操作要么执行成功，要么执行失败，Stellar 会保证一个交易的原子性</p>
+</li>
+</ul>
+<h3 id="资产"><a href="#资产" class="headerlink" title="资产"></a>资产</h3><ul>
+<li>除原生的资产 Lumens外，所有的资产都由发行人和资产类型组成。</li>
+<li>持有 Stellar 中的资产时，其实是持有特定发行人的信誉，我们相信资产的发行人能够将 Stellar 中的资产兑换成货币、昂贵金属以及其他在网络中不存在的资源。但是当我们想要持有某一个发行人的发行的资产时，需要创建一个信任线（TrustLine），这些数据会存储在 Stellar 的账本中，也就是上面提到的 TrustLineEntry</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">struct TrustLineEntry &#123;</span><br><span class="line">    AccountID accountID;</span><br><span class="line">    Asset asset;</span><br><span class="line">    int64 balance;</span><br><span class="line">    int64 limit;</span><br><span class="line">    uint32 flags;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>当用户想要持有或者交易某一种资产时，它会创建一个等待发行人审批的信任线，发行人授权该信任线之后，用户才可以接受或者发出资产；</li>
+<li>当发行人想要冻结用户访问资产的权限时，也可以随时取消用户的授权，在这之后用户就无法再发送或者接受该资产了</li>
+</ul>
+<h2 id="Stellar相关操作"><a href="#Stellar相关操作" class="headerlink" title="Stellar相关操作"></a>Stellar相关操作</h2><ul>
+<li><a href="https://www.stellar.org/laboratory" target="_blank" rel="noopener">https://www.stellar.org/laboratory</a> 恒星实验室，学习恒星操作账号创建转账等</li>
+<li><a href="https://www.youtube.com/watch?v=OLBf6YVAjuE" target="_blank" rel="noopener">https://www.youtube.com/watch?v=OLBf6YVAjuE</a> 使用laboratory进行发币流程</li>
+<li><a href="https://www.stellar.org/blog/tokens-on-stellar/（官方）" target="_blank" rel="noopener">https://www.stellar.org/blog/tokens-on-stellar/（官方）</a></li>
+</ul>
+
+      
+    </div>
+
+    <!-- bottom -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-7730278451516700"
+         data-ad-slot="4988060849"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="https://zhulg.github.io/posts/42221.html" title="Stellar区块链记录" target="_blank" rel="external">https://zhulg.github.io/posts/42221.html</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <div class="qrcode-container text-center">
+      <strong>更多信息请添加公众号</strong>
+      <img src="/images/gongzhonghao.png" alt="微信公众号二维码" class="img-responsive center-block" style="max-width: 500px;">
+    </div>
+    <!-- <figure class="media">
+      <div class="media-left">
+        <a href="https://zhulg.github.io/" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/liangjimantan.png" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://zhulg.github.io/" target="_blank"><span class="text-dark">zhulg</span><small class="ml-1x">技术和管理分享</small></a></h3>
+        <div>lg.json@gmail.com | 技术博客 | 编程开发 | 全栈开发</div>
+      </div>
+    </figure> -->
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/posts/59372.html" title="如何绑定两个Github帐号"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/posts/46484.html" title="Hyperledger-Fabric-Peer分析记录"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+    <li class="toggle-toc">
+      <a class="toggle-btn collapsed" data-toggle="collapse" href="#collapseToc" aria-expanded="false" title="文章目录" role="button">
+        <span>[&nbsp;</span><span>文章目录</span>
+        <i class="text-collapsed icon icon-anchor"></i>
+        <i class="text-in icon icon-close"></i>
+        <span>]</span>
+      </a>
+    </li>
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>赏</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span>笔记总访问量: <span id="busuanzi_value_site_pv"></span>次</span>
+
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+<script src="/js/plugin.min.js"></script>
+<script src="/js/application.js"></script>
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+
+    <script>
+(function ($) {
+    $('.search-form').on('submit', function (e) {
+        var keyword = $('.search-form-input[name="wd"]').val();
+        window.location = 'https://www.baidu.com/s?wd=site:zhulg.github.io ' + keyword;
+        return false;
+    });
+})(jQuery);
+</script>
+
+
+
+
+   
+
+
+
+
+   
+
+
+
+
+
+
+</body>
+</html>

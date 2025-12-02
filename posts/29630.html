@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+  <meta charset="utf-8">
+  <meta name="google-site-verification" content="hN-z0E4t2EiOQ5bJP-s-O2tG3D2AmJQjOWT1r1Z0vTQ" />
+  <meta name="baidu-site-verification" content="code-XadwrTX2mc" />
+  <meta name="sogou_site_verification" content="3gJO5GEiym" />
+  <meta name="360-site-verification" content="c5d4db78b8047356de2f87d01a63f03e" />
+  <meta name="bytedance-verification-code" content="PeN4sw6nkJKJ5ZI5zYNA" />
+
+<script>
+(function(){
+var el = document.createElement("script");
+el.src = "https://lf1-cdn-tos.bytegoofy.com/goofy/ttzz/push.js?0dfae0b5cd9f4f6b3f45e892e27fbcb4d0c37e9801116e06bfdd550c328d177830632485602430134f60bc55ca391050b680e2741bf7233a8f1da9902314a3fa";
+el.id = "ttzz";
+var s = document.getElementsByTagName("script")[0];
+s.parentNode.insertBefore(el, s);
+})(window)
+</script>
+
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>Fabric网络启动流程-分步分析 | zhulg|技术博客|编程开发与成长思考</title>
+  <meta name="description" content="farbic 网络启动过程 基于fabric-samples/first-network下手动网络启动相关文件生成和配置。   生成组织关系和身份证书 使用Cryptogen，消费一个包含网络拓扑的crypto-config.yaml，并允许我们为组织和属于这些组织的组件生成一组证书和密钥。 crypto-config.yaml文件内容如下，  12345678910111213141516171">
+<meta name="keywords" content="区块链">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Fabric网络启动流程-分步分析">
+<meta property="og:url" content="https://zhulg.github.io/posts/29630.html">
+<meta property="og:site_name" content="zhulg | 技术干货分享">
+<meta property="og:description" content="farbic 网络启动过程 基于fabric-samples/first-network下手动网络启动相关文件生成和配置。   生成组织关系和身份证书 使用Cryptogen，消费一个包含网络拓扑的crypto-config.yaml，并允许我们为组织和属于这些组织的组件生成一组证书和密钥。 crypto-config.yaml文件内容如下，  12345678910111213141516171">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://raw.githubusercontent.com/zhulg/allpic/master/fabric-networkup.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/zhulg/allpic/master/weixin.png">
+<meta property="og:updated_time" content="2025-10-28T13:29:08.878Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Fabric网络启动流程-分步分析">
+<meta name="twitter:description" content="farbic 网络启动过程 基于fabric-samples/first-network下手动网络启动相关文件生成和配置。   生成组织关系和身份证书 使用Cryptogen，消费一个包含网络拓扑的crypto-config.yaml，并允许我们为组织和属于这些组织的组件生成一组证书和密钥。 crypto-config.yaml文件内容如下，  12345678910111213141516171">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/zhulg/allpic/master/fabric-networkup.png">
+  <!-- Canonical links -->
+  <link rel="canonical" href="https://zhulg.github.io/posts/29630.html">
+  
+    <link rel="alternate" href="/atom.xml" title="zhulg | 技术干货分享" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+  
+  
+  
+</head>
+
+
+<body class="main-center theme-black" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://zhulg.github.io/" target="_blank">
+          <img class="img-circle img-rotate" src="/images/liangjimantan.png" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">zhulg</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">技术和管理分享</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> BeiJing, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav ">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">首页</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">归档</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">分类</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">标签</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7730278451516700"
+     crossorigin="anonymous"></script>
+<!-- 侧部广告 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-7730278451516700"
+     data-ad-slot="1833144581"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p> 技术管理、成长、产品研发思考分享！</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget-body">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/AI/">AI</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/App/">App</a><span class="category-list-count">17</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/DeepSeek/">DeepSeek</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Rust/">Rust</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Scratch/">Scratch</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/go/">go</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/产品工具/">产品工具</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/产品工具/前端/">前端</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端/">前端</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/区块链/">区块链</a><span class="category-list-count">35</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术应用/">技术应用</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术成长/">技术成长</a><span class="category-list-count">29</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术运维/">技术运维</a><span class="category-list-count">6</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget-body">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI/">AI</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI教育/">AI教育</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI编程/">AI编程</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/">Android</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/App/">App</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ChatGPT/">ChatGPT</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Chrome插件/">Chrome插件</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DeepSeek/">DeepSeek</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Elasticsearch/">Elasticsearch</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IT/">IT</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JS/">JS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/K8S/">K8S</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LangChain/">LangChain</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/New-Tab/">New Tab</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Prompt工程/">Prompt工程</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RAG/">RAG</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ruby/">Ruby</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Rust/">Rust</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Scratch/">Scratch</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tools/">Tools</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vibe-Coding/">Vibe Coding</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android/">android</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/chrome/">chrome</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/composer/">composer</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/django/">django</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/">docker</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/fabric/">fabric</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/fabric-node-sdk/">fabric-node-sdk</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/flume/">flume</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/flutter/">flutter</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/go/">go</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gradle/">gradle</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hadoop/">hadoop</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hyperledger-composer/">hyperledger composer</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ios/">ios</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jenkins/">jenkins</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kafka/">kafka</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kotlin/">kotlin</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/">nginx</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/">node</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/npm/">npm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/openresty/">openresty</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/redis/">redis</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring/">spring</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/springboot/">springboot</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/springboot相关/">springboot相关</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/springcloud/">springcloud</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/stellar/">stellar</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vscode/">vscode</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web3/">web3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webstom/">webstom</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/互联网副业/">互联网副业</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/作图工具/">作图工具</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/元宇宙/">元宇宙</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/分布式-集群/">分布式/集群</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端/">前端</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/区块链/">区块链</a><span class="tag-list-count">39</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/区块链，以太坊/">区块链，以太坊</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/大数据/">大数据</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/大模型/">大模型</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/家人照片/">家人照片</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/录屏工具/">录屏工具</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/技术人/">技术人</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/技术成长/">技术成长</a><span class="tag-list-count">21</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/推荐系统/">推荐系统</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/插件开发/">插件开发</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/效率工具/">效率工具</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/教学资源/">教学资源</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/教师工具/">教师工具</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/教育信息化/">教育信息化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数字化/">数字化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/机器学习/">机器学习</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/架构/">架构</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/浏览器壁纸/">浏览器壁纸</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/程序员/">程序员</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/管理杂烩/">管理杂烩</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/自动化/">自动化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/自然语言编程/">自然语言编程</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/随笔记录/">随笔记录</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/隐私保护/">隐私保护</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/AI/" style="font-size: 13.82px;">AI</a> <a href="/tags/AI教育/" style="font-size: 13px;">AI教育</a> <a href="/tags/AI编程/" style="font-size: 13px;">AI编程</a> <a href="/tags/Android/" style="font-size: 13.64px;">Android</a> <a href="/tags/App/" style="font-size: 13.18px;">App</a> <a href="/tags/ChatGPT/" style="font-size: 13.09px;">ChatGPT</a> <a href="/tags/Chrome插件/" style="font-size: 13px;">Chrome插件</a> <a href="/tags/DeepSeek/" style="font-size: 13px;">DeepSeek</a> <a href="/tags/Elasticsearch/" style="font-size: 13.09px;">Elasticsearch</a> <a href="/tags/IT/" style="font-size: 13px;">IT</a> <a href="/tags/JS/" style="font-size: 13px;">JS</a> <a href="/tags/Java/" style="font-size: 13px;">Java</a> <a href="/tags/K8S/" style="font-size: 13.09px;">K8S</a> <a href="/tags/LangChain/" style="font-size: 13px;">LangChain</a> <a href="/tags/Linux/" style="font-size: 13.18px;">Linux</a> <a href="/tags/New-Tab/" style="font-size: 13px;">New Tab</a> <a href="/tags/Prompt工程/" style="font-size: 13px;">Prompt工程</a> <a href="/tags/RAG/" style="font-size: 13px;">RAG</a> <a href="/tags/Ruby/" style="font-size: 13px;">Ruby</a> <a href="/tags/Rust/" style="font-size: 13.55px;">Rust</a> <a href="/tags/Scratch/" style="font-size: 13.27px;">Scratch</a> <a href="/tags/Tools/" style="font-size: 13.27px;">Tools</a> <a href="/tags/Vibe-Coding/" style="font-size: 13px;">Vibe Coding</a> <a href="/tags/android/" style="font-size: 13.09px;">android</a> <a href="/tags/chrome/" style="font-size: 13.18px;">chrome</a> <a href="/tags/composer/" style="font-size: 13.18px;">composer</a> <a href="/tags/django/" style="font-size: 13px;">django</a> <a href="/tags/docker/" style="font-size: 13.09px;">docker</a> <a href="/tags/fabric/" style="font-size: 13.09px;">fabric</a> <a href="/tags/fabric-node-sdk/" style="font-size: 13px;">fabric-node-sdk</a> <a href="/tags/flume/" style="font-size: 13px;">flume</a> <a href="/tags/flutter/" style="font-size: 13.27px;">flutter</a> <a href="/tags/git/" style="font-size: 13.09px;">git</a> <a href="/tags/go/" style="font-size: 13.55px;">go</a> <a href="/tags/gradle/" style="font-size: 13px;">gradle</a> <a href="/tags/hadoop/" style="font-size: 13.18px;">hadoop</a> <a href="/tags/hexo/" style="font-size: 13px;">hexo</a> <a href="/tags/hyperledger-composer/" style="font-size: 13px;">hyperledger composer</a> <a href="/tags/ios/" style="font-size: 13.18px;">ios</a> <a href="/tags/java/" style="font-size: 13.45px;">java</a> <a href="/tags/jenkins/" style="font-size: 13px;">jenkins</a> <a href="/tags/kafka/" style="font-size: 13px;">kafka</a> <a href="/tags/kotlin/" style="font-size: 13.09px;">kotlin</a> <a href="/tags/linux/" style="font-size: 13px;">linux</a> <a href="/tags/nginx/" style="font-size: 13.18px;">nginx</a> <a href="/tags/node/" style="font-size: 13px;">node</a> <a href="/tags/npm/" style="font-size: 13px;">npm</a> <a href="/tags/openresty/" style="font-size: 13px;">openresty</a> <a href="/tags/python/" style="font-size: 13.36px;">python</a> <a href="/tags/redis/" style="font-size: 13.09px;">redis</a> <a href="/tags/spring/" style="font-size: 13px;">spring</a> <a href="/tags/springboot/" style="font-size: 13.55px;">springboot</a> <a href="/tags/springboot相关/" style="font-size: 13px;">springboot相关</a> <a href="/tags/springcloud/" style="font-size: 13.73px;">springcloud</a> <a href="/tags/stellar/" style="font-size: 13px;">stellar</a> <a href="/tags/vscode/" style="font-size: 13px;">vscode</a> <a href="/tags/web3/" style="font-size: 13px;">web3</a> <a href="/tags/webstom/" style="font-size: 13px;">webstom</a> <a href="/tags/互联网副业/" style="font-size: 13px;">互联网副业</a> <a href="/tags/作图工具/" style="font-size: 13px;">作图工具</a> <a href="/tags/元宇宙/" style="font-size: 13.09px;">元宇宙</a> <a href="/tags/分布式-集群/" style="font-size: 13.18px;">分布式/集群</a> <a href="/tags/前端/" style="font-size: 13px;">前端</a> <a href="/tags/区块链/" style="font-size: 14px;">区块链</a> <a href="/tags/区块链，以太坊/" style="font-size: 13px;">区块链，以太坊</a> <a href="/tags/大数据/" style="font-size: 13px;">大数据</a> <a href="/tags/大模型/" style="font-size: 13px;">大模型</a> <a href="/tags/家人照片/" style="font-size: 13px;">家人照片</a> <a href="/tags/录屏工具/" style="font-size: 13px;">录屏工具</a> <a href="/tags/技术人/" style="font-size: 13px;">技术人</a> <a href="/tags/技术成长/" style="font-size: 13.91px;">技术成长</a> <a href="/tags/推荐系统/" style="font-size: 13.09px;">推荐系统</a> <a href="/tags/插件开发/" style="font-size: 13px;">插件开发</a> <a href="/tags/效率工具/" style="font-size: 13px;">效率工具</a> <a href="/tags/教学资源/" style="font-size: 13px;">教学资源</a> <a href="/tags/教师工具/" style="font-size: 13px;">教师工具</a> <a href="/tags/教育信息化/" style="font-size: 13px;">教育信息化</a> <a href="/tags/数字化/" style="font-size: 13px;">数字化</a> <a href="/tags/机器学习/" style="font-size: 13.36px;">机器学习</a> <a href="/tags/架构/" style="font-size: 13px;">架构</a> <a href="/tags/浏览器壁纸/" style="font-size: 13px;">浏览器壁纸</a> <a href="/tags/程序员/" style="font-size: 13px;">程序员</a> <a href="/tags/管理杂烩/" style="font-size: 13px;">管理杂烩</a> <a href="/tags/自动化/" style="font-size: 13px;">自动化</a> <a href="/tags/自然语言编程/" style="font-size: 13px;">自然语言编程</a> <a href="/tags/随笔记录/" style="font-size: 13px;">随笔记录</a> <a href="/tags/隐私保护/" style="font-size: 13px;">隐私保护</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/11/">十一月 2025</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/10/">十月 2025</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/07/">七月 2025</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/02/">二月 2025</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/01/">一月 2025</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/12/">十二月 2024</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/11/">十一月 2024</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/09/">九月 2024</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/08/">八月 2024</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/07/">七月 2024</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">三月 2023</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/02/">二月 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">十一月 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">十月 2022</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/09/">九月 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">五月 2022</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">四月 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">二月 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">一月 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">九月 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">八月 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">三月 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">一月 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">十二月 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">十一月 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">九月 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">八月 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">七月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">一月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">十二月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">十一月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">十月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">九月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">八月 2018</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">七月 2018</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">六月 2018</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">三月 2018</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">二月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">一月 2018</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">十二月 2017</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">十月 2017</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">九月 2017</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">八月 2017</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">七月 2017</a><span class="archive-list-count">9</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/技术应用/">技术应用</a>
+              </p>
+              <p class="item-title">
+                <a href="/posts/9bac213c.html" class="title">教师工具集，专为教育工作者打造的免费工具导航站</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2025-11-07T14:00:00.000Z" itemprop="datePublished">2025-11-07</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/产品工具/">产品工具</a>
+              </p>
+              <p class="item-title">
+                <a href="/posts/40058c60.html" class="title">可以展示照片的浏览器tab页插件:《NewTab时光》发布</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2025-10-18T04:16:16.000Z" itemprop="datePublished">2025-10-18</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/AI/">AI</a>
+              </p>
+              <p class="item-title">
+                <a href="/posts/4a3d5e89.html" class="title">Vibe Coding普通人也可以学的编程技能</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2025-10-18T03:48:36.000Z" itemprop="datePublished">2025-10-18</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/AI/">AI</a>
+              </p>
+              <p class="item-title">
+                <a href="/posts/4b7fcf21.html" class="title">2025年，普通人如何在1个月内熟练使用AI</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2025-07-21T15:52:56.000Z" itemprop="datePublished">2025-07-21</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/AI/">AI</a>
+              </p>
+              <p class="item-title">
+                <a href="/posts/e3022ca1.html" class="title">实测 Google Gemini CLI：从安装到使用体验，AI 命令行也开始卷起来了</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2025-07-19T05:21:16.000Z" itemprop="datePublished">2025-07-19</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    <nav id="toc" class="article-toc">
+      <h3 class="toc-title">文章目录</h3>
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#farbic-网络启动过程"><span class="toc-number">1.</span> <span class="toc-text">farbic 网络启动过程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#生成组织关系和身份证书"><span class="toc-number">1.1.</span> <span class="toc-text">生成组织关系和身份证书</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ordering服务启动初始区块"><span class="toc-number">2.</span> <span class="toc-text">ordering服务启动初始区块</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#创建交易通道配置"><span class="toc-number">2.1.</span> <span class="toc-text">创建交易通道配置</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#启动网络"><span class="toc-number">3.</span> <span class="toc-text">启动网络</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#创建并加入通道"><span class="toc-number">4.</span> <span class="toc-text">创建并加入通道</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#安装和实例化链码"><span class="toc-number">4.1.</span> <span class="toc-text">安装和实例化链码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#hyperledger-fabric技术交流群"><span class="toc-number">4.2.</span> <span class="toc-text">hyperledger fabric技术交流群</span></a></li></ol></li></ol>
+    </nav>
+  </div>
+</aside>
+
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-fabric网络启动流程-分步分析" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    
+    
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://zhulg.github.io/posts/29630.html"
+      },
+      "headline": "Fabric网络启动流程-分步分析",
+      "description": "zhulg技术博客致力于分享Java、Python、机器学习、区块链等技术干货，提供实用的开发教程、项目经验和解决方案，帮助开发者提升技术能力。",
+      "datePublished": "2018-03-13T07:33:57.000Z",
+      "dateModified": "2025-10-28T13:29:08.878Z",
+      "author": {
+        "@type": "Person",
+        "name": "zhulg",
+        "url": "https://zhulg.github.io",
+        "alternateName": "良技漫谈"
+      },
+      "image": "https://raw.githubusercontent.com/zhulg/allpic/master/fabric-networkup.png",
+      "keywords": ["区块链","Fabric网络启动流程-分步分析"],
+      "publisher": {
+        "@type": "Organization",
+        "name": "良技漫谈",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://zhulg.github.io/favicon.png",
+          "width": "60",
+          "height": "60"
+        }
+      }
+    }
+    </script>
+
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Fabric网络启动流程-分步分析
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        
+<span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/posts/29630.html" class="article-date">
+	  <time datetime="2018-03-13T07:33:57.000Z" itemprop="datePublished">2018-03-13</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/区块链/">区块链</a>
+  </span>
+
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link" href="/tags/区块链/">区块链</a>
+  </span>
+
+
+        
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/posts/29630.html#comments" class="article-comment-link">评论</a></span>
+        
+	
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 2.3k(字)</span>
+	
+	
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 11(分)</span>
+	
+
+      </div>
+    </div>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7730278451516700"
+     crossorigin="anonymous"></script>
+<!-- title -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-7730278451516700"
+     data-ad-slot="3100240204"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script> 
+    
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <h3 id="farbic-网络启动过程"><a href="#farbic-网络启动过程" class="headerlink" title="farbic 网络启动过程"></a>farbic 网络启动过程</h3><ul>
+<li>基于fabric-samples/first-network下手动网络启动相关文件生成和配置。</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/fabric-networkup.png" alt></p>
+<h4 id="生成组织关系和身份证书"><a href="#生成组织关系和身份证书" class="headerlink" title="生成组织关系和身份证书"></a>生成组织关系和身份证书</h4><ul>
+<li>使用Cryptogen，消费一个包含网络拓扑的crypto-config.yaml，并允许我们为组织和属于这些组织的组件生成一组证书和密钥。</li>
+<li>crypto-config.yaml文件内容如下，</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br></pre></td><td class="code"><pre><span class="line">OrdererOrgs:</span><br><span class="line">  # ---------------------------------------------------------------------------</span><br><span class="line">  # Orderer</span><br><span class="line">  # ---------------------------------------------------------------------------</span><br><span class="line">  - Name: Orderer</span><br><span class="line">    Domain: example.com</span><br><span class="line">    # ---------------------------------------------------------------------------</span><br><span class="line">    # &quot;Specs&quot; - See PeerOrgs below for complete description</span><br><span class="line">    # ---------------------------------------------------------------------------</span><br><span class="line">    Specs:</span><br><span class="line">      - Hostname: orderer</span><br><span class="line"># ---------------------------------------------------------------------------</span><br><span class="line"># &quot;PeerOrgs&quot; - Definition of organizations managing peer nodes</span><br><span class="line"># ---------------------------------------------------------------------------</span><br><span class="line">PeerOrgs:</span><br><span class="line">  # ---------------------------------------------------------------------------</span><br><span class="line">  # Org1</span><br><span class="line">  # ---------------------------------------------------------------------------</span><br><span class="line">  - Name: Org1</span><br><span class="line">    Domain: org1.example.com</span><br><span class="line">    # ---------------------------------------------------------------------------</span><br><span class="line">    # &quot;Specs&quot;</span><br><span class="line">    # ---------------------------------------------------------------------------</span><br><span class="line">    # Uncomment this section to enable the explicit definition of hosts in your</span><br><span class="line">    # configuration.  Most users will want to use Template, below</span><br><span class="line">    #</span><br><span class="line">    # Specs is an array of Spec entries.  Each Spec entry consists of two fields:</span><br><span class="line">    #   - Hostname:   (Required) The desired hostname, sans the domain.</span><br><span class="line">    #   - CommonName: (Optional) Specifies the template or explicit override for</span><br><span class="line">    #                 the CN.  By default, this is the template:</span><br><span class="line">    #</span><br><span class="line">    #                              &quot;&#123;&#123;.Hostname&#125;&#125;.&#123;&#123;.Domain&#125;&#125;&quot;</span><br><span class="line">    #</span><br><span class="line">    #                 which obtains its values from the Spec.Hostname and</span><br><span class="line">    #                 Org.Domain, respectively.</span><br><span class="line">    # ---------------------------------------------------------------------------</span><br><span class="line">    # Specs:</span><br><span class="line">    #   - Hostname: foo # implicitly &quot;foo.org1.example.com&quot;</span><br><span class="line">    #     CommonName: foo27.org5.example.com # overrides Hostname-based FQDN set above</span><br><span class="line">    #   - Hostname: bar</span><br><span class="line">    #   - Hostname: baz</span><br><span class="line">    # ---------------------------------------------------------------------------</span><br><span class="line">    # &quot;Template&quot;</span><br><span class="line">    # ---------------------------------------------------------------------------</span><br><span class="line">    # Allows for the definition of 1 or more hosts that are created sequentially</span><br><span class="line">    # from a template. By default, this looks like &quot;peer%d&quot; from 0 to Count-1.</span><br><span class="line">    # You may override the number of nodes (Count), the starting index (Start)</span><br><span class="line">    # or the template used to construct the name (Hostname).</span><br><span class="line">    #</span><br><span class="line">    # Note: Template and Specs are not mutually exclusive.  You may define both</span><br><span class="line">    # sections and the aggregate nodes will be created for you.  Take care with</span><br><span class="line">    # name collisions</span><br><span class="line">    # ---------------------------------------------------------------------------</span><br><span class="line">    Template:</span><br><span class="line">      Count: 2</span><br><span class="line">      # Start: 5</span><br><span class="line">      # Hostname: &#123;&#123;.Prefix&#125;&#125;&#123;&#123;.Index&#125;&#125; # default</span><br><span class="line">    # ---------------------------------------------------------------------------</span><br><span class="line">    # &quot;Users&quot;</span><br><span class="line">    # ---------------------------------------------------------------------------</span><br><span class="line">    # Count: The number of user accounts _in addition_ to Admin</span><br><span class="line">    # ---------------------------------------------------------------------------</span><br><span class="line">    Users:</span><br><span class="line">      Count: 1</span><br><span class="line">  # ---------------------------------------------------------------------------</span><br><span class="line">  # Org2: See &quot;Org1&quot; for full specification</span><br><span class="line">  # ---------------------------------------------------------------------------</span><br><span class="line">  - Name: Org2</span><br><span class="line">    Domain: org2.example.com</span><br><span class="line">    Template:</span><br><span class="line">      Count: 2</span><br><span class="line">    Users:</span><br><span class="line">      Count: 1</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>在这个文件里有一个count变量。我们将使用它来指定每个组织中peer的数量;例子中，每个组织有两个peer</li>
+<li>我们运行cryptogen工具，生成的证书和密钥将被保存到名为crypto-config的文件夹中。(cryptogen需要配置在环境变量才能这么用)</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cryptogen generate  --config=./crypto-config.yaml</span><br><span class="line">org1.example.com</span><br><span class="line">org2.example.com</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>其中里面生成额对应的秘钥和证书文件</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">├── ordererOrganizations</span><br><span class="line">│   └── example.com</span><br><span class="line">│       ├── ca</span><br><span class="line">│       │   ├── ca.example.com-cert.pem</span><br><span class="line">│       │   └── feb74b240fa3568a7d6966b7021cd5a7f186a1d91bece747844e27a8540dc465_sk</span><br><span class="line">│       ├── msp</span><br><span class="line">│       │   ├── admincerts</span><br><span class="line">│       │   ├── cacerts</span><br><span class="line">│       │   └── tlscacerts</span><br><span class="line">│       ├── orderers</span><br><span class="line">│       │   └── orderer.example.com</span><br><span class="line">│       ├── tlsca</span><br><span class="line">│       │   ├── e5622d48e5fd8e3b982d6e7f6ebed20321f1de0d1478f9d0c1b4f63dc894ccbf_sk</span><br><span class="line">│       │   └── tlsca.example.com-cert.pem</span><br><span class="line">│       └── users</span><br><span class="line">│           └── Admin@example.com</span><br><span class="line">└── peerOrganizations</span><br><span class="line">    ├── org1.example.com</span><br><span class="line">    │   ├── ca</span><br><span class="line">    │   │   ├── ca.org1.example.com-cert.pem</span><br><span class="line">    │   │   └── f5c0954e487ff4e71f77478db2ad2e14c92ffd0b5d093a1c73b64ae233a2813f_sk</span><br><span class="line">    │   ├── msp</span><br><span class="line">    │   │   ├── admincerts</span><br><span class="line">    │   │   ├── cacerts</span><br><span class="line">    │   │   └── tlscacerts</span><br><span class="line">    │   ├── peers</span><br><span class="line">    │   │   ├── peer0.org1.example.com</span><br><span class="line">    │   │   └── peer1.org1.example.com</span><br><span class="line">    │   ├── tlsca</span><br><span class="line">    │   │   ├── 8d07c6968bea26c1277c5cf3bba114bf7c683e97bafc8eadf412fd97d5034cad_sk</span><br><span class="line">    │   │   └── tlsca.org1.example.com-cert.pem</span><br><span class="line">    │   └── users</span><br><span class="line">    │       ├── Admin@org1.example.com</span><br><span class="line">    │       └── User1@org1.example.com</span><br><span class="line">    └── org2.example.com</span><br><span class="line">        ├── ca</span><br><span class="line">        │   ├── ca.org2.example.com-cert.pem</span><br><span class="line">        │   └── cffd49870ddd4088820ee7787c60f77ee07c42f2e05ac0e9fe94fac77c972fc1_sk</span><br><span class="line">        ├── msp</span><br><span class="line">        │   ├── admincerts</span><br><span class="line">        │   ├── cacerts</span><br><span class="line">        │   └── tlscacerts</span><br><span class="line">        ├── peers</span><br><span class="line">        │   ├── peer0.org2.example.com</span><br><span class="line">        │   └── peer1.org2.example.com</span><br><span class="line">        ├── tlsca</span><br><span class="line">        │   ├── 5f3f535f85bd861c1f7770f058f05e4a899506b5396ebd357db223b4590b49ba_sk</span><br><span class="line">        │   └── tlsca.org2.example.com-cert.pem</span><br><span class="line">        └── users</span><br><span class="line">            ├── Admin@org2.example.com</span><br><span class="line">            └── User1@org2.example.com</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>crypto-config目录下产生一个order组织目录，和peer组织目录</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"> cd crypto-config$ls</span><br><span class="line">ordererOrganizations	peerOrganizations</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>进入后发现peerOrganizations下会有2个组织(org1.example.com ，org2.example.com)，4个节点(peer0.org1.example.com，peer1.org1.example.com, peer0.org2.example.com ，peer1.org2.example.com)</p>
+</li>
+</ul>
+<h3 id="ordering服务启动初始区块"><a href="#ordering服务启动初始区块" class="headerlink" title="ordering服务启动初始区块"></a>ordering服务启动初始区块</h3><ul>
+<li>orderer节点在启动时候，可以指定使用提前生成的初始化区块文件作为系统通道的初始配置，初始区块中包含了ordering服务配置信息和联盟信息。</li>
+<li>初始区块使用configtxgen工具生成，依赖configtx.yaml文件，这个文件定义了整个网络中相关配置和拓扑结构信息。（first-network下的这个文件）</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br></pre></td><td class="code"><pre><span class="line"># Copyright IBM Corp. All Rights Reserved.</span><br><span class="line">#</span><br><span class="line"># SPDX-License-Identifier: Apache-2.0</span><br><span class="line">#</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line">################################################################################</span><br><span class="line">#</span><br><span class="line">#   Profile</span><br><span class="line">#</span><br><span class="line">#   - Different configuration profiles may be encoded here to be specified</span><br><span class="line">#   as parameters to the configtxgen tool</span><br><span class="line">#</span><br><span class="line">################################################################################</span><br><span class="line">Profiles:</span><br><span class="line"></span><br><span class="line">    TwoOrgsOrdererGenesis:</span><br><span class="line">        Orderer:</span><br><span class="line">            &lt;&lt;: *OrdererDefaults</span><br><span class="line">            Organizations:</span><br><span class="line">                - *OrdererOrg</span><br><span class="line">        Consortiums:</span><br><span class="line">            SampleConsortium:</span><br><span class="line">                Organizations:</span><br><span class="line">                    - *Org1</span><br><span class="line">                    - *Org2</span><br><span class="line">    TwoOrgsChannel:</span><br><span class="line">        Consortium: SampleConsortium</span><br><span class="line">        Application:</span><br><span class="line">            &lt;&lt;: *ApplicationDefaults</span><br><span class="line">            Organizations:</span><br><span class="line">                - *Org1</span><br><span class="line">                - *Org2</span><br><span class="line"></span><br><span class="line">################################################################################</span><br><span class="line">#</span><br><span class="line">#   Section: Organizations</span><br><span class="line">#</span><br><span class="line">#   - This section defines the different organizational identities which will</span><br><span class="line">#   be referenced later in the configuration.</span><br><span class="line">#</span><br><span class="line">################################################################################</span><br><span class="line">Organizations:</span><br><span class="line"></span><br><span class="line">    # SampleOrg defines an MSP using the sampleconfig.  It should never be used</span><br><span class="line">    # in production but may be used as a template for other definitions</span><br><span class="line">    - &amp;OrdererOrg</span><br><span class="line">        # DefaultOrg defines the organization which is used in the sampleconfig</span><br><span class="line">        # of the fabric.git development environment</span><br><span class="line">        Name: OrdererOrg</span><br><span class="line"></span><br><span class="line">        # ID to load the MSP definition as</span><br><span class="line">        ID: OrdererMSP</span><br><span class="line"></span><br><span class="line">        # MSPDir is the filesystem path which contains the MSP configuration</span><br><span class="line">        MSPDir: crypto-config/ordererOrganizations/example.com/msp</span><br><span class="line"></span><br><span class="line">    - &amp;Org1</span><br><span class="line">        # DefaultOrg defines the organization which is used in the sampleconfig</span><br><span class="line">        # of the fabric.git development environment</span><br><span class="line">        Name: Org1MSP</span><br><span class="line"></span><br><span class="line">        # ID to load the MSP definition as</span><br><span class="line">        ID: Org1MSP</span><br><span class="line"></span><br><span class="line">        MSPDir: crypto-config/peerOrganizations/org1.example.com/msp</span><br><span class="line"></span><br><span class="line">        AnchorPeers:</span><br><span class="line">            # AnchorPeers defines the location of peers which can be used</span><br><span class="line">            # for cross org gossip communication.  Note, this value is only</span><br><span class="line">            # encoded in the genesis block in the Application section context</span><br><span class="line">            - Host: peer0.org1.example.com</span><br><span class="line">              Port: 7051</span><br><span class="line"></span><br><span class="line">    - &amp;Org2</span><br><span class="line">        # DefaultOrg defines the organization which is used in the sampleconfig</span><br><span class="line">        # of the fabric.git development environment</span><br><span class="line">        Name: Org2MSP</span><br><span class="line"></span><br><span class="line">        # ID to load the MSP definition as</span><br><span class="line">        ID: Org2MSP</span><br><span class="line"></span><br><span class="line">        MSPDir: crypto-config/peerOrganizations/org2.example.com/msp</span><br><span class="line"></span><br><span class="line">        AnchorPeers:</span><br><span class="line">            # AnchorPeers defines the location of peers which can be used</span><br><span class="line">            # for cross org gossip communication.  Note, this value is only</span><br><span class="line">            # encoded in the genesis block in the Application section context</span><br><span class="line">            - Host: peer0.org2.example.com</span><br><span class="line">              Port: 7051</span><br><span class="line"></span><br><span class="line">################################################################################</span><br><span class="line">#</span><br><span class="line">#   SECTION: Orderer</span><br><span class="line">#</span><br><span class="line">#   - This section defines the values to encode into a config transaction or</span><br><span class="line">#   genesis block for orderer related parameters</span><br><span class="line">#</span><br><span class="line">################################################################################</span><br><span class="line">Orderer: &amp;OrdererDefaults</span><br><span class="line"></span><br><span class="line">    # Orderer Type: The orderer implementation to start</span><br><span class="line">    # Available types are &quot;solo&quot; and &quot;kafka&quot;</span><br><span class="line">    OrdererType: solo</span><br><span class="line"></span><br><span class="line">    Addresses:</span><br><span class="line">        - orderer.example.com:7050</span><br><span class="line"></span><br><span class="line">    # Batch Timeout: The amount of time to wait before creating a batch</span><br><span class="line">    BatchTimeout: 2s</span><br><span class="line"></span><br><span class="line">    # Batch Size: Controls the number of messages batched into a block</span><br><span class="line">    BatchSize:</span><br><span class="line"></span><br><span class="line">        # Max Message Count: The maximum number of messages to permit in a batch</span><br><span class="line">        MaxMessageCount: 10</span><br><span class="line"></span><br><span class="line">        # Absolute Max Bytes: The absolute maximum number of bytes allowed for</span><br><span class="line">        # the serialized messages in a batch.</span><br><span class="line">        AbsoluteMaxBytes: 99 MB</span><br><span class="line"></span><br><span class="line">        # Preferred Max Bytes: The preferred maximum number of bytes allowed for</span><br><span class="line">        # the serialized messages in a batch. A message larger than the preferred</span><br><span class="line">        # max bytes will result in a batch larger than preferred max bytes.</span><br><span class="line">        PreferredMaxBytes: 512 KB</span><br><span class="line"></span><br><span class="line">    Kafka:</span><br><span class="line">        # Brokers: A list of Kafka brokers to which the orderer connects</span><br><span class="line">        # NOTE: Use IP:port notation</span><br><span class="line">        Brokers:</span><br><span class="line">            - 127.0.0.1:9092</span><br><span class="line"></span><br><span class="line">    # Organizations is the list of orgs which are defined as participants on</span><br><span class="line">    # the orderer side of the network</span><br><span class="line">    Organizations:</span><br><span class="line"></span><br><span class="line">################################################################################</span><br><span class="line">#</span><br><span class="line">#   SECTION: Application</span><br><span class="line">#</span><br><span class="line">#   - This section defines the values to encode into a config transaction or</span><br><span class="line">#   genesis block for application related parameters</span><br><span class="line">#</span><br><span class="line">################################################################################</span><br><span class="line">Application: &amp;ApplicationDefaults</span><br><span class="line"></span><br><span class="line">    # Organizations is the list of orgs which are defined as participants on</span><br><span class="line">    # the application side of the network</span><br><span class="line">    Organizations:</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>该模板定义了TwoOrgsOrdererGenesis 和TwoOrgsChannel , TwoOrgsOrdererGenesis用于生成ordering服务初始区块文件。</li>
+<li><strong>BatchTimeout是配置多久产生一个区块，默认是2秒</strong>。如果配置的时间过小就会产生很多空的区块，配置时间太长，则发现等待产生区块的时间太长。具体时间由交易频率和业务量决定。我们实际项目中，通常配置在30秒。</li>
+<li><strong>MaxMessageCount是配置在一个区块中允许的交易数的最大值。默认值是10。</strong> 交易数设置过小，导致区块过多，增加orderer的负担，因为要orderer要不断的打包区块，然后deliver给通道内的所有peer,这样还容易增加网络负载，引起网络拥堵。实际项目中通常配置500，不过具体还应该看业务情况，因为如果每个交易包含的数据的size如果太大，那么500个交易可能导致一个区块太大，因此需要根据实际业务需求权衡。</li>
+<li>以上2个设置谁先满足要求，即执行。</li>
+<li>我们需要设置一个环境变量来告诉configtxgen哪里去寻找configtx.yaml。然后，我们将调用configtxgen工具去创建orderer genesis block：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">export FABRIC_CFG_PATH=$PWD</span><br><span class="line">configtxgen -profile TwoOrgsOrdererGenesis -outputBlock ./channel-artifacts/genesis.block</span><br><span class="line">2018-03-13 16:52:18.697 CST [common/configtx/tool] main -&gt; INFO 001 Loading configuration</span><br><span class="line">2018-03-13 16:52:18.736 CST [common/configtx/tool] doOutputBlock -&gt; INFO 002 Generating genesis block</span><br><span class="line">2018-03-13 16:52:18.739 CST [common/configtx/tool] doOutputBlock -&gt; INFO 003 Writing genesis block</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>在/channel-artifacts目录下看到生成的genesis.block</li>
+</ul>
+<h4 id="创建交易通道配置"><a href="#创建交易通道配置" class="headerlink" title="创建交易通道配置"></a>创建交易通道配置</h4><ul>
+<li>我们需要创建channel transaction配置。请确保替换$CHANNEL_NAME或者将CHANNEL_NAME设置为整个说明中可以使用的环境变量：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">export CHANNEL_NAME=mychannel</span><br><span class="line"># this file contains the definitions for our sample channel</span><br><span class="line">configtxgen -profile TwoOrgsChannel -outputCreateChannelTx ./channel-artifacts/channel.tx -channelID $CHANNEL_NAME</span><br><span class="line">2018-03-13 17:32:39.744 CST [common/configtx/tool] main -&gt; INFO 001 Loading configuration</span><br><span class="line">2018-03-13 17:32:39.750 CST [common/configtx/tool] doOutputChannelCreateTx -&gt; INFO 002 Generating new channel configtx</span><br><span class="line">2018-03-13 17:32:39.751 CST [common/configtx/tool] doOutputChannelCreateTx -&gt; INFO 003 Writing new channel tx</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>在channel-artifacts目录下看到生成的channel.tx</p>
+</li>
+<li><p>生成锚节点配置更新文件（每个组织中第一个节点peer0作为锚节点与其他组织进行通信）</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">configtxgen -profile TwoOrgsChannel -outputAnchorPeersUpdate ./channel-artifacts/Org1MSPanchors.</span><br><span class="line">2018-03-13 17:44:26.627 CST [common/configtx/tool] main -&gt; INFO 001 Loading configuration</span><br><span class="line">2018-03-13 17:44:26.634 CST [common/configtx/tool] doOutputAnchorPeersUpdate -&gt; INFO 002 Generating anchor peer update</span><br><span class="line">2018-03-13 17:44:26.635 CST [common/configtx/tool] doOutputAnchorPeersUpdate -&gt; INFO 003 Writing anchor peer update</span><br><span class="line">tx -channelID $CHANNEL_NAME -asOrg Org2MSPin/fabric-samples/first-network$configtxgen -profile TwoOrgsChannel -outputAnchorPeersUpdate ./channel-artifacts/Org2MSPanchors.</span><br><span class="line">2018-03-13 17:44:35.236 CST [common/configtx/tool] main -&gt; INFO 001 Loading configuration</span><br><span class="line">2018-03-13 17:44:35.239 CST [common/configtx/tool] doOutputAnchorPeersUpdate -&gt; INFO 002 Generating anchor peer update</span><br><span class="line">2018-03-13 17:44:35.239 CST [common/configtx/tool] doOutputAnchorPeersUpdate -&gt; INFO 003 Writing anchor peer update</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>channel-artifacts目录下生成了</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Org1MSPanchors.tx	Org2MSPanchors.tx	channel.tx  genesis.block</span><br></pre></td></tr></table></figure>
+
+<h3 id="启动网络"><a href="#启动网络" class="headerlink" title="启动网络"></a>启动网络</h3><ul>
+<li><p>我们将利用docker-compose-cli.yaml脚本来启动我们的区块链网络。docker-compose-cli.yaml文件利用我们之前下载的镜像，并用以前生成的genesis.block来引导orderer。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">working_dir: /opt/gopath/src/github.com/hyperledger/fabric/peer</span><br><span class="line"># command: /bin/bash -c &apos;./scripts/script.sh $&#123;CHANNEL_NAME&#125;; sleep $TIMEOUT&apos;</span><br><span class="line">volumes</span><br><span class="line">如果没有注释掉docker-compose-cli.yaml里这行，该脚本将在网络启动时执行所有命令</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>启动这个网络</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$CHANNEL_NAME=$CHANNEL_NAME TIMEOUT=1000 docker-compose -f docker-compose-cli.yaml up -d</span><br><span class="line">Creating peer0.org1.example.com ... done</span><br><span class="line">Creating cli ... done</span><br><span class="line">Creating peer0.org2.example.com ...</span><br><span class="line">Creating orderer.example.com ...</span><br><span class="line">Creating peer1.org2.example.com ...</span><br><span class="line">Creating peer0.org1.example.com ...</span><br><span class="line">Creating cli ...</span><br></pre></td></tr></table></figure>
+
+<h3 id="创建并加入通道"><a href="#创建并加入通道" class="headerlink" title="创建并加入通道"></a>创建并加入通道</h3><ul>
+<li>确保容器已经起来后，执行</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">- docker exec -it cli bash</span><br><span class="line">root@0d78bb69300d:/opt/gopath/src/github.com/hyperledger/fabric/peer#</span><br><span class="line">接下来执行：</span><br><span class="line">export CHANNEL_NAME=mychannel</span><br><span class="line">peer channel create -o orderer.example.com:7050 -c $CHANNEL_NAME -f ./channel-artifacts/channel.tx --tls $CORE_PEER_TLS_ENABLED --cafile /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>创建成功会生成 mychannel.block</li>
+<li>peer channel join -b mychannel.block 节点加入通道，这个节点是 CORE_PEER_ADDRESS=peer0.org1.example.com:7051 可以修改cli容器里的地址进行让其他节点加入进行了</li>
+</ul>
+<h4 id="安装和实例化链码"><a href="#安装和实例化链码" class="headerlink" title="安装和实例化链码"></a>安装和实例化链码</h4><ul>
+<li><a href="https://zhulg.github.io/2018/03/01/Hyperledger-Fabric-Chaincode%E7%90%86%E8%A7%A3/">参见其他笔记</a></li>
+</ul>
+<h4 id="hyperledger-fabric技术交流群"><a href="#hyperledger-fabric技术交流群" class="headerlink" title="hyperledger fabric技术交流群"></a>hyperledger fabric技术交流群</h4><ul>
+<li>到期或者失效，发邮件(<a href="mailto:lg.json@gmail.com" target="_blank" rel="noopener">lg.json@gmail.com</a>)给我你微信，拉你进群。</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/weixin.png" alt></p>
+
+      
+    </div>
+
+    <!-- bottom -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-7730278451516700"
+         data-ad-slot="4988060849"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="https://zhulg.github.io/posts/29630.html" title="Fabric网络启动流程-分步分析" target="_blank" rel="external">https://zhulg.github.io/posts/29630.html</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <div class="qrcode-container text-center">
+      <strong>更多信息请添加公众号</strong>
+      <img src="/images/gongzhonghao.png" alt="微信公众号二维码" class="img-responsive center-block" style="max-width: 500px;">
+    </div>
+    <!-- <figure class="media">
+      <div class="media-left">
+        <a href="https://zhulg.github.io/" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/liangjimantan.png" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://zhulg.github.io/" target="_blank"><span class="text-dark">zhulg</span><small class="ml-1x">技术和管理分享</small></a></h3>
+        <div>lg.json@gmail.com | 技术博客 | 编程开发 | 全栈开发</div>
+      </div>
+    </figure> -->
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/posts/60266.html" title="Fabric的背书策略记录"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/posts/23918.html" title="Go代码结构及开发注意"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+    <li class="toggle-toc">
+      <a class="toggle-btn collapsed" data-toggle="collapse" href="#collapseToc" aria-expanded="false" title="文章目录" role="button">
+        <span>[&nbsp;</span><span>文章目录</span>
+        <i class="text-collapsed icon icon-anchor"></i>
+        <i class="text-in icon icon-close"></i>
+        <span>]</span>
+      </a>
+    </li>
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>赏</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span>笔记总访问量: <span id="busuanzi_value_site_pv"></span>次</span>
+
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+<script src="/js/plugin.min.js"></script>
+<script src="/js/application.js"></script>
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+
+    <script>
+(function ($) {
+    $('.search-form').on('submit', function (e) {
+        var keyword = $('.search-form-input[name="wd"]').val();
+        window.location = 'https://www.baidu.com/s?wd=site:zhulg.github.io ' + keyword;
+        return false;
+    });
+})(jQuery);
+</script>
+
+
+
+
+   
+
+
+
+
+   
+
+
+
+
+
+
+</body>
+</html>

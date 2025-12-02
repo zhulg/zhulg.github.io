@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+  <meta charset="utf-8">
+  <meta name="google-site-verification" content="hN-z0E4t2EiOQ5bJP-s-O2tG3D2AmJQjOWT1r1Z0vTQ" />
+  <meta name="baidu-site-verification" content="code-XadwrTX2mc" />
+  <meta name="sogou_site_verification" content="3gJO5GEiym" />
+  <meta name="360-site-verification" content="c5d4db78b8047356de2f87d01a63f03e" />
+  <meta name="bytedance-verification-code" content="PeN4sw6nkJKJ5ZI5zYNA" />
+
+<script>
+(function(){
+var el = document.createElement("script");
+el.src = "https://lf1-cdn-tos.bytegoofy.com/goofy/ttzz/push.js?0dfae0b5cd9f4f6b3f45e892e27fbcb4d0c37e9801116e06bfdd550c328d177830632485602430134f60bc55ca391050b680e2741bf7233a8f1da9902314a3fa";
+el.id = "ttzz";
+var s = document.getElementsByTagName("script")[0];
+s.parentNode.insertBefore(el, s);
+})(window)
+</script>
+
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>Fabric部署例子错误日志 | zhulg|技术博客|编程开发与成长思考</title>
+  <meta name="description" content="部署Building Your First Network例子时，最后一步出现错误    日志为：Error: Error endorsing chaincode: rpc error: code = Unknown desc = Timeout expired while starting chaincode mycc:1.0(networkid:dev,peerid:peer0.org1.e">
+<meta name="keywords" content="区块链">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Fabric部署例子错误日志">
+<meta property="og:url" content="https://zhulg.github.io/posts/51437.html">
+<meta property="og:site_name" content="zhulg | 技术干货分享">
+<meta property="og:description" content="部署Building Your First Network例子时，最后一步出现错误    日志为：Error: Error endorsing chaincode: rpc error: code = Unknown desc = Timeout expired while starting chaincode mycc:1.0(networkid:dev,peerid:peer0.org1.e">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://raw.githubusercontent.com/zhulg/allpic/master/fabric-error.png">
+<meta property="og:updated_time" content="2025-10-28T13:29:08.878Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Fabric部署例子错误日志">
+<meta name="twitter:description" content="部署Building Your First Network例子时，最后一步出现错误    日志为：Error: Error endorsing chaincode: rpc error: code = Unknown desc = Timeout expired while starting chaincode mycc:1.0(networkid:dev,peerid:peer0.org1.e">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/zhulg/allpic/master/fabric-error.png">
+  <!-- Canonical links -->
+  <link rel="canonical" href="https://zhulg.github.io/posts/51437.html">
+  
+    <link rel="alternate" href="/atom.xml" title="zhulg | 技术干货分享" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+  
+  
+  
+</head>
+
+
+<body class="main-center theme-black" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://zhulg.github.io/" target="_blank">
+          <img class="img-circle img-rotate" src="/images/liangjimantan.png" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">zhulg</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">技术和管理分享</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> BeiJing, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav ">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">首页</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">归档</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">分类</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">标签</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7730278451516700"
+     crossorigin="anonymous"></script>
+<!-- 侧部广告 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-7730278451516700"
+     data-ad-slot="1833144581"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p> 技术管理、成长、产品研发思考分享！</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget-body">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/AI/">AI</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/App/">App</a><span class="category-list-count">17</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/DeepSeek/">DeepSeek</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Rust/">Rust</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Scratch/">Scratch</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/go/">go</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/产品工具/">产品工具</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/产品工具/前端/">前端</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端/">前端</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/区块链/">区块链</a><span class="category-list-count">35</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术应用/">技术应用</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术成长/">技术成长</a><span class="category-list-count">29</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术运维/">技术运维</a><span class="category-list-count">6</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget-body">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI/">AI</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI教育/">AI教育</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI编程/">AI编程</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/">Android</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/App/">App</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ChatGPT/">ChatGPT</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Chrome插件/">Chrome插件</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DeepSeek/">DeepSeek</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Elasticsearch/">Elasticsearch</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IT/">IT</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JS/">JS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/K8S/">K8S</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LangChain/">LangChain</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/New-Tab/">New Tab</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Prompt工程/">Prompt工程</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RAG/">RAG</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ruby/">Ruby</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Rust/">Rust</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Scratch/">Scratch</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tools/">Tools</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vibe-Coding/">Vibe Coding</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android/">android</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/chrome/">chrome</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/composer/">composer</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/django/">django</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/">docker</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/fabric/">fabric</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/fabric-node-sdk/">fabric-node-sdk</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/flume/">flume</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/flutter/">flutter</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/go/">go</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gradle/">gradle</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hadoop/">hadoop</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hyperledger-composer/">hyperledger composer</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ios/">ios</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jenkins/">jenkins</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kafka/">kafka</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kotlin/">kotlin</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/">nginx</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/">node</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/npm/">npm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/openresty/">openresty</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/redis/">redis</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring/">spring</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/springboot/">springboot</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/springboot相关/">springboot相关</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/springcloud/">springcloud</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/stellar/">stellar</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vscode/">vscode</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web3/">web3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webstom/">webstom</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/互联网副业/">互联网副业</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/作图工具/">作图工具</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/元宇宙/">元宇宙</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/分布式-集群/">分布式/集群</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端/">前端</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/区块链/">区块链</a><span class="tag-list-count">39</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/区块链，以太坊/">区块链，以太坊</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/大数据/">大数据</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/大模型/">大模型</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/家人照片/">家人照片</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/录屏工具/">录屏工具</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/技术人/">技术人</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/技术成长/">技术成长</a><span class="tag-list-count">21</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/推荐系统/">推荐系统</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/插件开发/">插件开发</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/效率工具/">效率工具</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/教学资源/">教学资源</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/教师工具/">教师工具</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/教育信息化/">教育信息化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数字化/">数字化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/机器学习/">机器学习</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/架构/">架构</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/浏览器壁纸/">浏览器壁纸</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/程序员/">程序员</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/管理杂烩/">管理杂烩</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/自动化/">自动化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/自然语言编程/">自然语言编程</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/随笔记录/">随笔记录</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/隐私保护/">隐私保护</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/AI/" style="font-size: 13.82px;">AI</a> <a href="/tags/AI教育/" style="font-size: 13px;">AI教育</a> <a href="/tags/AI编程/" style="font-size: 13px;">AI编程</a> <a href="/tags/Android/" style="font-size: 13.64px;">Android</a> <a href="/tags/App/" style="font-size: 13.18px;">App</a> <a href="/tags/ChatGPT/" style="font-size: 13.09px;">ChatGPT</a> <a href="/tags/Chrome插件/" style="font-size: 13px;">Chrome插件</a> <a href="/tags/DeepSeek/" style="font-size: 13px;">DeepSeek</a> <a href="/tags/Elasticsearch/" style="font-size: 13.09px;">Elasticsearch</a> <a href="/tags/IT/" style="font-size: 13px;">IT</a> <a href="/tags/JS/" style="font-size: 13px;">JS</a> <a href="/tags/Java/" style="font-size: 13px;">Java</a> <a href="/tags/K8S/" style="font-size: 13.09px;">K8S</a> <a href="/tags/LangChain/" style="font-size: 13px;">LangChain</a> <a href="/tags/Linux/" style="font-size: 13.18px;">Linux</a> <a href="/tags/New-Tab/" style="font-size: 13px;">New Tab</a> <a href="/tags/Prompt工程/" style="font-size: 13px;">Prompt工程</a> <a href="/tags/RAG/" style="font-size: 13px;">RAG</a> <a href="/tags/Ruby/" style="font-size: 13px;">Ruby</a> <a href="/tags/Rust/" style="font-size: 13.55px;">Rust</a> <a href="/tags/Scratch/" style="font-size: 13.27px;">Scratch</a> <a href="/tags/Tools/" style="font-size: 13.27px;">Tools</a> <a href="/tags/Vibe-Coding/" style="font-size: 13px;">Vibe Coding</a> <a href="/tags/android/" style="font-size: 13.09px;">android</a> <a href="/tags/chrome/" style="font-size: 13.18px;">chrome</a> <a href="/tags/composer/" style="font-size: 13.18px;">composer</a> <a href="/tags/django/" style="font-size: 13px;">django</a> <a href="/tags/docker/" style="font-size: 13.09px;">docker</a> <a href="/tags/fabric/" style="font-size: 13.09px;">fabric</a> <a href="/tags/fabric-node-sdk/" style="font-size: 13px;">fabric-node-sdk</a> <a href="/tags/flume/" style="font-size: 13px;">flume</a> <a href="/tags/flutter/" style="font-size: 13.27px;">flutter</a> <a href="/tags/git/" style="font-size: 13.09px;">git</a> <a href="/tags/go/" style="font-size: 13.55px;">go</a> <a href="/tags/gradle/" style="font-size: 13px;">gradle</a> <a href="/tags/hadoop/" style="font-size: 13.18px;">hadoop</a> <a href="/tags/hexo/" style="font-size: 13px;">hexo</a> <a href="/tags/hyperledger-composer/" style="font-size: 13px;">hyperledger composer</a> <a href="/tags/ios/" style="font-size: 13.18px;">ios</a> <a href="/tags/java/" style="font-size: 13.45px;">java</a> <a href="/tags/jenkins/" style="font-size: 13px;">jenkins</a> <a href="/tags/kafka/" style="font-size: 13px;">kafka</a> <a href="/tags/kotlin/" style="font-size: 13.09px;">kotlin</a> <a href="/tags/linux/" style="font-size: 13px;">linux</a> <a href="/tags/nginx/" style="font-size: 13.18px;">nginx</a> <a href="/tags/node/" style="font-size: 13px;">node</a> <a href="/tags/npm/" style="font-size: 13px;">npm</a> <a href="/tags/openresty/" style="font-size: 13px;">openresty</a> <a href="/tags/python/" style="font-size: 13.36px;">python</a> <a href="/tags/redis/" style="font-size: 13.09px;">redis</a> <a href="/tags/spring/" style="font-size: 13px;">spring</a> <a href="/tags/springboot/" style="font-size: 13.55px;">springboot</a> <a href="/tags/springboot相关/" style="font-size: 13px;">springboot相关</a> <a href="/tags/springcloud/" style="font-size: 13.73px;">springcloud</a> <a href="/tags/stellar/" style="font-size: 13px;">stellar</a> <a href="/tags/vscode/" style="font-size: 13px;">vscode</a> <a href="/tags/web3/" style="font-size: 13px;">web3</a> <a href="/tags/webstom/" style="font-size: 13px;">webstom</a> <a href="/tags/互联网副业/" style="font-size: 13px;">互联网副业</a> <a href="/tags/作图工具/" style="font-size: 13px;">作图工具</a> <a href="/tags/元宇宙/" style="font-size: 13.09px;">元宇宙</a> <a href="/tags/分布式-集群/" style="font-size: 13.18px;">分布式/集群</a> <a href="/tags/前端/" style="font-size: 13px;">前端</a> <a href="/tags/区块链/" style="font-size: 14px;">区块链</a> <a href="/tags/区块链，以太坊/" style="font-size: 13px;">区块链，以太坊</a> <a href="/tags/大数据/" style="font-size: 13px;">大数据</a> <a href="/tags/大模型/" style="font-size: 13px;">大模型</a> <a href="/tags/家人照片/" style="font-size: 13px;">家人照片</a> <a href="/tags/录屏工具/" style="font-size: 13px;">录屏工具</a> <a href="/tags/技术人/" style="font-size: 13px;">技术人</a> <a href="/tags/技术成长/" style="font-size: 13.91px;">技术成长</a> <a href="/tags/推荐系统/" style="font-size: 13.09px;">推荐系统</a> <a href="/tags/插件开发/" style="font-size: 13px;">插件开发</a> <a href="/tags/效率工具/" style="font-size: 13px;">效率工具</a> <a href="/tags/教学资源/" style="font-size: 13px;">教学资源</a> <a href="/tags/教师工具/" style="font-size: 13px;">教师工具</a> <a href="/tags/教育信息化/" style="font-size: 13px;">教育信息化</a> <a href="/tags/数字化/" style="font-size: 13px;">数字化</a> <a href="/tags/机器学习/" style="font-size: 13.36px;">机器学习</a> <a href="/tags/架构/" style="font-size: 13px;">架构</a> <a href="/tags/浏览器壁纸/" style="font-size: 13px;">浏览器壁纸</a> <a href="/tags/程序员/" style="font-size: 13px;">程序员</a> <a href="/tags/管理杂烩/" style="font-size: 13px;">管理杂烩</a> <a href="/tags/自动化/" style="font-size: 13px;">自动化</a> <a href="/tags/自然语言编程/" style="font-size: 13px;">自然语言编程</a> <a href="/tags/随笔记录/" style="font-size: 13px;">随笔记录</a> <a href="/tags/隐私保护/" style="font-size: 13px;">隐私保护</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/11/">十一月 2025</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/10/">十月 2025</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/07/">七月 2025</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/02/">二月 2025</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/01/">一月 2025</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/12/">十二月 2024</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/11/">十一月 2024</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/09/">九月 2024</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/08/">八月 2024</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/07/">七月 2024</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">三月 2023</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/02/">二月 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">十一月 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">十月 2022</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/09/">九月 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">五月 2022</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">四月 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">二月 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">一月 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">九月 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">八月 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">三月 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">一月 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">十二月 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">十一月 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">九月 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">八月 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">七月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">一月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">十二月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">十一月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">十月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">九月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">八月 2018</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">七月 2018</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">六月 2018</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">三月 2018</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">二月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">一月 2018</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">十二月 2017</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">十月 2017</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">九月 2017</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">八月 2017</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">七月 2017</a><span class="archive-list-count">9</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/技术应用/">技术应用</a>
+              </p>
+              <p class="item-title">
+                <a href="/posts/9bac213c.html" class="title">教师工具集，专为教育工作者打造的免费工具导航站</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2025-11-07T14:00:00.000Z" itemprop="datePublished">2025-11-07</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/产品工具/">产品工具</a>
+              </p>
+              <p class="item-title">
+                <a href="/posts/40058c60.html" class="title">可以展示照片的浏览器tab页插件:《NewTab时光》发布</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2025-10-18T04:16:16.000Z" itemprop="datePublished">2025-10-18</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/AI/">AI</a>
+              </p>
+              <p class="item-title">
+                <a href="/posts/4a3d5e89.html" class="title">Vibe Coding普通人也可以学的编程技能</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2025-10-18T03:48:36.000Z" itemprop="datePublished">2025-10-18</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/AI/">AI</a>
+              </p>
+              <p class="item-title">
+                <a href="/posts/4b7fcf21.html" class="title">2025年，普通人如何在1个月内熟练使用AI</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2025-07-21T15:52:56.000Z" itemprop="datePublished">2025-07-21</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/AI/">AI</a>
+              </p>
+              <p class="item-title">
+                <a href="/posts/e3022ca1.html" class="title">实测 Google Gemini CLI：从安装到使用体验，AI 命令行也开始卷起来了</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2025-07-19T05:21:16.000Z" itemprop="datePublished">2025-07-19</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    <nav id="toc" class="article-toc">
+      <h3 class="toc-title">文章目录</h3>
+      <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#第二天进行上述问题解决"><span class="toc-number">1.</span> <span class="toc-text">第二天进行上述问题解决</span></a></li></ol>
+    </nav>
+  </div>
+</aside>
+
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-fabric部署例子错误日志" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    
+    
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://zhulg.github.io/posts/51437.html"
+      },
+      "headline": "Fabric部署例子错误日志",
+      "description": "zhulg技术博客致力于分享Java、Python、机器学习、区块链等技术干货，提供实用的开发教程、项目经验和解决方案，帮助开发者提升技术能力。",
+      "datePublished": "2018-02-24T11:15:49.000Z",
+      "dateModified": "2025-10-28T13:29:08.878Z",
+      "author": {
+        "@type": "Person",
+        "name": "zhulg",
+        "url": "https://zhulg.github.io",
+        "alternateName": "良技漫谈"
+      },
+      "image": "https://raw.githubusercontent.com/zhulg/allpic/master/fabric-error.png",
+      "keywords": ["区块链","Fabric部署例子错误日志"],
+      "publisher": {
+        "@type": "Organization",
+        "name": "良技漫谈",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://zhulg.github.io/favicon.png",
+          "width": "60",
+          "height": "60"
+        }
+      }
+    }
+    </script>
+
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Fabric部署例子错误日志
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        
+<span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/posts/51437.html" class="article-date">
+	  <time datetime="2018-02-24T11:15:49.000Z" itemprop="datePublished">2018-02-24</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/区块链/">区块链</a>
+  </span>
+
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link" href="/tags/区块链/">区块链</a>
+  </span>
+
+
+        
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/posts/51437.html#comments" class="article-comment-link">评论</a></span>
+        
+	
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1.6k(字)</span>
+	
+	
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 9(分)</span>
+	
+
+      </div>
+    </div>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7730278451516700"
+     crossorigin="anonymous"></script>
+<!-- title -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-7730278451516700"
+     data-ad-slot="3100240204"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script> 
+    
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <ul>
+<li><p>部署Building Your First Network例子时，最后一步出现错误</p>
+</li>
+<li><p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/fabric-error.png" alt></p>
+</li>
+<li><p>日志为：Error: Error endorsing chaincode: rpc error: code = Unknown desc = Timeout expired while starting chaincode mycc:1.0(networkid:dev,peerid:peer0.org1.example.com,tx:936cdc1e9dd24b6eb0ae456ebd33b74706fdc682f5ce33c4c7bb479edc2e8353)</p>
+</li>
+<li><p>在mac环境下操作，可能与端口映射有关，暂时记录后续解决。</p>
+</li>
+</ul>
+<h4 id="第二天进行上述问题解决"><a href="#第二天进行上述问题解决" class="headerlink" title="第二天进行上述问题解决"></a>第二天进行上述问题解决</h4><ul>
+<li>网上有相同错误出现也在最后一步，目前没有人回答解决方式。</li>
+<li>把容器关掉，重启电脑，按照文档重新操作。</li>
+<li>仍旧采用手动模式启动网络和构建环境，这次在最后一步没有出现上述错误。</li>
+<li>对比之前步骤：是对代码进行重新拉取（之前操作过代码），重新参照文档进行执行步骤进行，问题解决。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br></pre></td><td class="code"><pre><span class="line">[zhulianggang@deMacBook-Pro:/Users/Meixin/Blockchain/fabric-samples/first-network$CHANNEL_NAME=$CHANNEL_NAME TIMEOUT=100 docker-compose -f docker-compose-cli.yaml up -d</span><br><span class="line">Creating peer0.org1.example.com ... done</span><br><span class="line">Creating cli ... done</span><br><span class="line">Creating peer1.org1.example.com ...</span><br><span class="line">Creating peer1.org2.example.com ...</span><br><span class="line">Creating peer0.org1.example.com ...</span><br><span class="line">Creating orderer.example.com ...</span><br><span class="line">Creating cli ...</span><br><span class="line">[zhulianggang@deMacBook-Pro:/Users/Meixin/Blockchain/fabric-samples/first-network$docker exec -it cli bash</span><br><span class="line">NNEL_NAME=mychannelopt/gopath/src/github.com/hyperledger/fabric/peer# export CHA</span><br><span class="line">root@f3f2e62d56b9:/opt/gopath/src/github.com/hyperledger/fabric/peer#</span><br><span class="line">root@f3f2e62d56b9:/opt/gopath/src/github.com/hyperledger/fabric/peer#</span><br><span class="line">NNEL_NAME=mychannelopt/gopath/src/github.com/hyperledger/fabric/peer# export CHA</span><br><span class="line">root@f3f2e62d56b9:/opt/gopath/src/github.com/hyperledger/fabric/peer#</span><br><span class="line">le.com/msp/tlscacerts/tlsca.example.com-cert.pemample.com/orderers/orderer.examp</span><br><span class="line">2018-02-26 03:12:56.001 UTC [msp] GetLocalMSP -&gt; DEBU 001 Returning existing local MSP</span><br><span class="line">2018-02-26 03:12:56.001 UTC [msp] GetDefaultSigningIdentity -&gt; DEBU 002 Obtaining default signing identity</span><br><span class="line">2018-02-26 03:12:56.013 UTC [channelCmd] InitCmdFactory -&gt; INFO 003 Endorser and orderer connections initialized</span><br><span class="line">2018-02-26 03:12:56.016 UTC [msp] GetLocalMSP -&gt; DEBU 004 Returning existing local MSP</span><br><span class="line">2018-02-26 03:12:56.016 UTC [msp] GetDefaultSigningIdentity -&gt; DEBU 005 Obtaining default signing identity</span><br><span class="line">2018-02-26 03:12:56.016 UTC [msp] GetLocalMSP -&gt; DEBU 006 Returning existing local MSP</span><br><span class="line">2018-02-26 03:12:56.016 UTC [msp] GetDefaultSigningIdentity -&gt; DEBU 007 Obtaining default signing identity</span><br><span class="line">2018-02-26 03:12:56.016 UTC [msp/identity] Sign -&gt; DEBU 008 Sign: plaintext: 0A8C060A074F7267314D53501280062D...53616D706C65436F6E736F727469756D</span><br><span class="line">2018-02-26 03:12:56.016 UTC [msp/identity] Sign -&gt; DEBU 009 Sign: digest: B5D898A654F2EABC35005D34CED73EE570B2610DD5EA613383174A3AA5C59B33</span><br><span class="line">2018-02-26 03:12:56.016 UTC [msp] GetLocalMSP -&gt; DEBU 00a Returning existing local MSP</span><br><span class="line">2018-02-26 03:12:56.016 UTC [msp] GetDefaultSigningIdentity -&gt; DEBU 00b Obtaining default signing identity</span><br><span class="line">2018-02-26 03:12:56.017 UTC [msp] GetLocalMSP -&gt; DEBU 00c Returning existing local MSP</span><br><span class="line">2018-02-26 03:12:56.017 UTC [msp] GetDefaultSigningIdentity -&gt; DEBU 00d Obtaining default signing identity</span><br><span class="line">2018-02-26 03:12:56.017 UTC [msp/identity] Sign -&gt; DEBU 00e Sign: plaintext: 0AC3060A1508021A0608B8F6CDD40522...20AA143C54061DF7DAB091F959E8DE23</span><br><span class="line">2018-02-26 03:12:56.017 UTC [msp/identity] Sign -&gt; DEBU 00f Sign: digest: AA79F2F70CBBEB5B34445F2AECA34700B0BF5C57E4532ED4032AE2560F8BD765</span><br><span class="line">2018-02-26 03:12:56.149 UTC [msp] GetLocalMSP -&gt; DEBU 010 Returning existing local MSP</span><br><span class="line">2018-02-26 03:12:56.150 UTC [msp] GetDefaultSigningIdentity -&gt; DEBU 011 Obtaining default signing identity</span><br><span class="line">2018-02-26 03:12:56.150 UTC [msp] GetLocalMSP -&gt; DEBU 012 Returning existing local MSP</span><br><span class="line">2018-02-26 03:12:56.150 UTC [msp] GetDefaultSigningIdentity -&gt; DEBU 013 Obtaining default signing identity</span><br><span class="line">2018-02-26 03:12:56.150 UTC [msp/identity] Sign -&gt; DEBU 014 Sign: plaintext: 0AC3060A1508021A0608B8F6CDD40522...B68EBE5D9DB612080A021A0012021A00</span><br><span class="line">2018-02-26 03:12:56.150 UTC [msp/identity] Sign -&gt; DEBU 015 Sign: digest: 317192563E677B3B3F16EFAC2286A09EEFF929D636C7EEEC74CECB6895601041</span><br><span class="line">2018-02-26 03:12:56.153 UTC [channelCmd] readBlock -&gt; DEBU 016 Got status: &amp;&#123;NOT_FOUND&#125;</span><br><span class="line">2018-02-26 03:12:56.154 UTC [msp] GetLocalMSP -&gt; DEBU 017 Returning existing local MSP</span><br><span class="line">2018-02-26 03:12:56.155 UTC [msp] GetDefaultSigningIdentity -&gt; DEBU 018 Obtaining default signing identity</span><br><span class="line">2018-02-26 03:12:56.170 UTC [channelCmd] InitCmdFactory -&gt; INFO 019 Endorser and orderer connections initialized</span><br><span class="line">2018-02-26 03:12:56.370 UTC [msp] GetLocalMSP -&gt; DEBU 01a Returning existing local MSP</span><br><span class="line">2018-02-26 03:12:56.371 UTC [msp] GetDefaultSigningIdentity -&gt; DEBU 01b Obtaining default signing identity</span><br><span class="line">2018-02-26 03:12:56.371 UTC [msp] GetLocalMSP -&gt; DEBU 01c Returning existing local MSP</span><br><span class="line">2018-02-26 03:12:56.371 UTC [msp] GetDefaultSigningIdentity -&gt; DEBU 01d Obtaining default signing identity</span><br><span class="line">2018-02-26 03:12:56.371 UTC [msp/identity] Sign -&gt; DEBU 01e Sign: plaintext: 0AC3060A1508021A0608B8F6CDD40522...EF996566D82D12080A021A0012021A00</span><br><span class="line">2018-02-26 03:12:56.371 UTC [msp/identity] Sign -&gt; DEBU 01f Sign: digest: 10BC20CFB31CF56778E028F01EFF2E064ABCC753200CA906B9D13B998B4427F9</span><br><span class="line">2018-02-26 03:12:56.377 UTC [channelCmd] readBlock -&gt; DEBU 020 Received block: 0</span><br><span class="line">2018-02-26 03:12:56.378 UTC [main] main -&gt; INFO 021 Exiting.....</span><br><span class="line">root@f3f2e62d56b9:/opt/gopath/src/github.com/hyperledger/fabric/peer# ls</span><br><span class="line">channel-artifacts  crypto  mychannel.block  scripts</span><br><span class="line">el join -b mychannel.block th/src/github.com/hyperledger/fabric/peer# peer chann</span><br><span class="line">2018-02-26 03:13:12.733 UTC [msp] GetLocalMSP -&gt; DEBU 001 Returning existing local MSP</span><br><span class="line">2018-02-26 03:13:12.733 UTC [msp] GetDefaultSigningIdentity -&gt; DEBU 002 Obtaining default signing identity</span><br><span class="line">2018-02-26 03:13:12.741 UTC [channelCmd] InitCmdFactory -&gt; INFO 003 Endorser and orderer connections initialized</span><br><span class="line">2018-02-26 03:13:12.742 UTC [msp/identity] Sign -&gt; DEBU 004 Sign: plaintext: 0A8A070A5C08011A0C08C8F6CDD40510...929B4E708DB81A080A000A000A000A00</span><br><span class="line">2018-02-26 03:13:12.742 UTC [msp/identity] Sign -&gt; DEBU 005 Sign: digest: 1A319B71E615CC7D4071E1587AEE41061CB4FF5E68680166310788D109AA5208</span><br><span class="line">2018-02-26 03:13:12.808 UTC [channelCmd] executeJoin -&gt; INFO 006 Peer joined the channel!</span><br><span class="line">2018-02-26 03:13:12.808 UTC [main] main -&gt; INFO 007 Exiting.....</span><br><span class="line">go/chaincode_example02v 1.0 -p github.com/hyperledger/fabric/examples/chaincode/</span><br><span class="line">2018-02-26 03:13:20.735 UTC [msp] GetLocalMSP -&gt; DEBU 001 Returning existing local MSP</span><br><span class="line">2018-02-26 03:13:20.735 UTC [msp] GetDefaultSigningIdentity -&gt; DEBU 002 Obtaining default signing identity</span><br><span class="line">2018-02-26 03:13:20.736 UTC [chaincodeCmd] checkChaincodeCmdParams -&gt; INFO 003 Using default escc</span><br><span class="line">2018-02-26 03:13:20.736 UTC [chaincodeCmd] checkChaincodeCmdParams -&gt; INFO 004 Using default vscc</span><br><span class="line">2018-02-26 03:13:20.813 UTC [golang-platform] getCodeFromFS -&gt; DEBU 005 getCodeFromFS github.com/hyperledger/fabric/examples/chaincode/go/chaincode_example02</span><br><span class="line">2018-02-26 03:13:20.993 UTC [golang-platform] func1 -&gt; DEBU 006 Discarding GOROOT package fmt</span><br><span class="line">2018-02-26 03:13:20.993 UTC [golang-platform] func1 -&gt; DEBU 007 Discarding provided package github.com/hyperledger/fabric/core/chaincode/shim</span><br><span class="line">2018-02-26 03:13:20.993 UTC [golang-platform] func1 -&gt; DEBU 008 Discarding provided package github.com/hyperledger/fabric/protos/peer</span><br><span class="line">2018-02-26 03:13:20.994 UTC [golang-platform] func1 -&gt; DEBU 009 Discarding GOROOT package strconv</span><br><span class="line">2018-02-26 03:13:20.997 UTC [golang-platform] GetDeploymentPayload -&gt; DEBU 00a done</span><br><span class="line">2018-02-26 03:13:21.005 UTC [msp/identity] Sign -&gt; DEBU 00b Sign: plaintext: 0A89070A5B08031A0B08D1F6CDD40510...5F74FD270000FFFFDB02AC89002C0000</span><br><span class="line">2018-02-26 03:13:21.005 UTC [msp/identity] Sign -&gt; DEBU 00c Sign: digest: 02E5237D20C2C3CBFE7B25142D6B768F4EA32874302BDA8FAF41094AAC54C9C5</span><br><span class="line">2018-02-26 03:13:21.010 UTC [chaincodeCmd] install -&gt; DEBU 00d Installed remotely response:&lt;status:200 payload:&quot;OK&quot; &gt;</span><br><span class="line">2018-02-26 03:13:21.010 UTC [main] main -&gt; INFO 00e Exiting.....</span><br><span class="line">&apos; -P &quot;OR (&apos;Org1MSP.member&apos;,&apos;Org2MSP.member&apos;)&quot;gs&quot;:[&quot;init&quot;,&quot;a&quot;, &quot;100&quot;, &quot;b&quot;,&quot;200&quot;]&#125;</span><br><span class="line">2018-02-26 03:13:26.505 UTC [msp] GetLocalMSP -&gt; DEBU 001 Returning existing local MSP</span><br><span class="line">2018-02-26 03:13:26.505 UTC [msp] GetDefaultSigningIdentity -&gt; DEBU 002 Obtaining default signing identity</span><br><span class="line">2018-02-26 03:13:26.512 UTC [chaincodeCmd] checkChaincodeCmdParams -&gt; INFO 003 Using default escc</span><br><span class="line">2018-02-26 03:13:26.512 UTC [chaincodeCmd] checkChaincodeCmdParams -&gt; INFO 004 Using default vscc</span><br><span class="line">2018-02-26 03:13:26.513 UTC [msp/identity] Sign -&gt; DEBU 005 Sign: plaintext: 0A95070A6708031A0C08D6F6CDD40510...324D53500A04657363630A0476736363</span><br><span class="line">2018-02-26 03:13:26.514 UTC [msp/identity] Sign -&gt; DEBU 006 Sign: digest: 4713950FB2016BDEE810A76DA80E1A73703740B5F7C8E6230E617E843605280C</span><br><span class="line">2018-02-26 03:13:39.871 UTC [msp/identity] Sign -&gt; DEBU 007 Sign: plaintext: 0A95070A6708031A0C08D6F6CDD40510...1974DA15342608566EF6D2AE756A4CBF</span><br><span class="line">2018-02-26 03:13:39.872 UTC [msp/identity] Sign -&gt; DEBU 008 Sign: digest: E32CF9439BF3964502AAA3D418094EF596F9C9E70DC3E40FFCF26F1095593FC4</span><br><span class="line">2018-02-26 03:13:39.881 UTC [main] main -&gt; INFO 009 Exiting.....</span><br><span class="line">root@f3f2e62d56b9:/opt/gopath/src/github.com/hyperledger/fabric/peer# peer chaincode query -C $CHANNEL_NAME -n mycc -c &apos;&#123;&quot;Args&quot;:[&quot;query&quot;,&quot;a&quot;]&#125;&apos;</span><br><span class="line">2018-02-26 03:14:02.583 UTC [msp] GetLocalMSP -&gt; DEBU 001 Returning existing local MSP</span><br><span class="line">2018-02-26 03:14:02.583 UTC [msp] GetDefaultSigningIdentity -&gt; DEBU 002 Obtaining default signing identity</span><br><span class="line">2018-02-26 03:14:02.583 UTC [chaincodeCmd] checkChaincodeCmdParams -&gt; INFO 003 Using default escc</span><br><span class="line">2018-02-26 03:14:02.584 UTC [chaincodeCmd] checkChaincodeCmdParams -&gt; INFO 004 Using default vscc</span><br><span class="line">2018-02-26 03:14:02.584 UTC [msp/identity] Sign -&gt; DEBU 005 Sign: plaintext: 0A95070A6708031A0C08FAF6CDD40510...6D7963631A0A0A0571756572790A0161</span><br><span class="line">2018-02-26 03:14:02.584 UTC [msp/identity] Sign -&gt; DEBU 006 Sign: digest: 681150DCAE15AFAD4F1F6755A38CEA9A1860E2900A2C06D77953F604BCBC32EF</span><br><span class="line">Query Result: 100</span><br><span class="line">2018-02-26 03:14:02.601 UTC [main] main -&gt; INFO 007 Exiting.....</span><br><span class="line">root@f3f2e62d56b9:/opt/gopath/src/github.com/hyperledger/fabric/peer#</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    <!-- bottom -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-7730278451516700"
+         data-ad-slot="4988060849"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="https://zhulg.github.io/posts/51437.html" title="Fabric部署例子错误日志" target="_blank" rel="external">https://zhulg.github.io/posts/51437.html</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <div class="qrcode-container text-center">
+      <strong>更多信息请添加公众号</strong>
+      <img src="/images/gongzhonghao.png" alt="微信公众号二维码" class="img-responsive center-block" style="max-width: 500px;">
+    </div>
+    <!-- <figure class="media">
+      <div class="media-left">
+        <a href="https://zhulg.github.io/" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/liangjimantan.png" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://zhulg.github.io/" target="_blank"><span class="text-dark">zhulg</span><small class="ml-1x">技术和管理分享</small></a></h3>
+        <div>lg.json@gmail.com | 技术博客 | 编程开发 | 全栈开发</div>
+      </div>
+    </figure> -->
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/posts/50193.html" title="Goland破解使用"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/posts/455.html" title="区块链基本概念"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+    <li class="toggle-toc">
+      <a class="toggle-btn collapsed" data-toggle="collapse" href="#collapseToc" aria-expanded="false" title="文章目录" role="button">
+        <span>[&nbsp;</span><span>文章目录</span>
+        <i class="text-collapsed icon icon-anchor"></i>
+        <i class="text-in icon icon-close"></i>
+        <span>]</span>
+      </a>
+    </li>
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>赏</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span>笔记总访问量: <span id="busuanzi_value_site_pv"></span>次</span>
+
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+<script src="/js/plugin.min.js"></script>
+<script src="/js/application.js"></script>
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+
+    <script>
+(function ($) {
+    $('.search-form').on('submit', function (e) {
+        var keyword = $('.search-form-input[name="wd"]').val();
+        window.location = 'https://www.baidu.com/s?wd=site:zhulg.github.io ' + keyword;
+        return false;
+    });
+})(jQuery);
+</script>
+
+
+
+
+   
+
+
+
+
+   
+
+
+
+
+
+
+</body>
+</html>
