@@ -411,7 +411,7 @@ s.parentNode.insertBefore(el, s);
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/posts/50924.html#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1.4k(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1.5k(字)</span>
 	
 	
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 5(分)</span>
@@ -435,7 +435,7 @@ s.parentNode.insertBefore(el, s);
     
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <ul>
+        <div id="readmore-container"><ul>
 <li>JVM 内存区域分为下面几个方面,程序计数器、Java虚拟机栈（Java栈）、Java堆、方法区、运行时常量池、本地方法栈。</li>
 </ul>
 <h3 id="1-程序计数器"><a href="#1-程序计数器" class="headerlink" title="1.程序计数器"></a>1.程序计数器</h3><ul>
@@ -495,7 +495,37 @@ s.parentNode.insertBefore(el, s);
 <ul>
 <li>直接内存（direct memory）不属于JVM运行时数据区的一部分，属于堆外内存，会被频繁使用，因此在设置各个内存范围时要留出一部分物理内存，否则也容易抛出OutOfMemoryError</li>
 </ul>
-
+</div>
+				<link rel="stylesheet" type="text/css" href="https://qiniu.techgrow.cn/readmore/dist/hexo.css">
+				<script src="https://qiniu.techgrow.cn/readmore/dist/readmore.js" type="text/javascript"></script>
+				<script>
+				var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+				var isEncrypt = document.getElementById('hexo-blog-encrypt');
+				var allowMobile = false;
+				if (!isEncrypt && (!isMobile || (isMobile && allowMobile))) {
+					try {
+						var plugin = new ReadmorePlugin();
+						plugin.init({
+							"type": "hexo",
+							"id": "readmore-container",
+							"name": "良技漫谈",
+							"blogId": "68756-0266337625647-511",
+							"qrcode": "https://zhulg.github.io/images/gongzhonghao.png",
+							"keyword": "666",
+							"random": "1",
+							"height": "auto",
+							"expires": "365",
+							"lockToc": "yes",
+							"interval": "60",
+							"baseUrl": "",
+							"tocSelector": ""
+						});
+					} catch(e) {
+						console.warn("readmore plugin occurred error: " + e.name + " | " + e.message);
+					}
+				}
+				</script>
+			
       
     </div>
 

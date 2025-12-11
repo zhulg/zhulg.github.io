@@ -411,10 +411,10 @@ s.parentNode.insertBefore(el, s);
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/posts/455.html#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 3.1k(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 3.2k(字)</span>
 	
 	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 10(分)</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 11(分)</span>
 	
 
       </div>
@@ -435,7 +435,7 @@ s.parentNode.insertBefore(el, s);
     
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <ul>
+        <div id="readmore-container"><ul>
 <li><strong>区块链:</strong> 一种新型去中心化协议，能安全地存储比特币交易或其它数据，信息不可伪造和篡改，可以自动执行智能合约，无需任何中心化机构的审核。交易既可以是比特币这样的数字货币，也可以是债权、股权、版权等数字资产，区块链技术解决了拜占庭将军问题，大大降低了现实经济的信任成本与会计成本，重新定义了互联网时代的产权制度</li>
 </ul>
 <p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/qukuailian.jpg" alt></p>
@@ -471,7 +471,37 @@ s.parentNode.insertBefore(el, s);
 <li><p><strong>共识机制：</strong> 顾名思义，就是在一个问题上达成共识的一套方法。在区块链中，共识机制也是区块链的底层技术，也是最为重要的技术。它的存在就是为了完成节点间信息同步，交易的确认，网络运行等重要任务。常见的共识机制有：POW、POS、DPOS、PBFT、SCP等。</p>
 </li>
 </ul>
-
+</div>
+				<link rel="stylesheet" type="text/css" href="https://qiniu.techgrow.cn/readmore/dist/hexo.css">
+				<script src="https://qiniu.techgrow.cn/readmore/dist/readmore.js" type="text/javascript"></script>
+				<script>
+				var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+				var isEncrypt = document.getElementById('hexo-blog-encrypt');
+				var allowMobile = false;
+				if (!isEncrypt && (!isMobile || (isMobile && allowMobile))) {
+					try {
+						var plugin = new ReadmorePlugin();
+						plugin.init({
+							"type": "hexo",
+							"id": "readmore-container",
+							"name": "良技漫谈",
+							"blogId": "68756-0266337625647-511",
+							"qrcode": "https://zhulg.github.io/images/gongzhonghao.png",
+							"keyword": "666",
+							"random": "1",
+							"height": "auto",
+							"expires": "365",
+							"lockToc": "yes",
+							"interval": "60",
+							"baseUrl": "",
+							"tocSelector": ""
+						});
+					} catch(e) {
+						console.warn("readmore plugin occurred error: " + e.name + " | " + e.message);
+					}
+				}
+				</script>
+			
       
     </div>
 

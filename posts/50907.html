@@ -409,10 +409,10 @@ s.parentNode.insertBefore(el, s);
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/posts/50907.html#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1.1k(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1.2k(字)</span>
 	
 	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 3(分)</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 4(分)</span>
 	
 
       </div>
@@ -433,7 +433,7 @@ s.parentNode.insertBefore(el, s);
     
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <ul>
+        <div id="readmore-container"><ul>
 <li>Auditability（审计性）：在一定权限和许可下，可以对链上的交易进行审计和检查。</li>
 <li>Block（区块）：代表一批得到确认的交易信息的整体，准备被共识加入到区块链中。</li>
 <li>Blockchain（区块链）：由多个区块链接而成的链表结构，除了初始区块，每个区块头部都包括前继区块内容的 hash 值。</li>
@@ -461,7 +461,37 @@ s.parentNode.insertBefore(el, s);
 <li>World State（世界状态）：即最新的全局账本状态。Fabric 用它来存储历史交易发生后产生的最新的状态，可以用键值或文档数据库实现。</li>
 <li>Anchor（锚点）：一般指作为刚启动时候的初始联络元素或与其它结构的沟通元素。如刚加入一个 channel 的节点，需要通过某个锚点节点来快速获取 channel 内的情况（如其它节点的存在信息）。</li>
 </ul>
-
+</div>
+				<link rel="stylesheet" type="text/css" href="https://qiniu.techgrow.cn/readmore/dist/hexo.css">
+				<script src="https://qiniu.techgrow.cn/readmore/dist/readmore.js" type="text/javascript"></script>
+				<script>
+				var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+				var isEncrypt = document.getElementById('hexo-blog-encrypt');
+				var allowMobile = false;
+				if (!isEncrypt && (!isMobile || (isMobile && allowMobile))) {
+					try {
+						var plugin = new ReadmorePlugin();
+						plugin.init({
+							"type": "hexo",
+							"id": "readmore-container",
+							"name": "良技漫谈",
+							"blogId": "68756-0266337625647-511",
+							"qrcode": "https://zhulg.github.io/images/gongzhonghao.png",
+							"keyword": "666",
+							"random": "1",
+							"height": "auto",
+							"expires": "365",
+							"lockToc": "yes",
+							"interval": "60",
+							"baseUrl": "",
+							"tocSelector": ""
+						});
+					} catch(e) {
+						console.warn("readmore plugin occurred error: " + e.name + " | " + e.message);
+					}
+				}
+				</script>
+			
       
     </div>
 

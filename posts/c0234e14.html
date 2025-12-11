@@ -400,7 +400,7 @@ s.parentNode.insertBefore(el, s);
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/posts/c0234e14.html#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1.6k(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1.7k(字)</span>
 	
 	
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 5(分)</span>
@@ -424,7 +424,7 @@ s.parentNode.insertBefore(el, s);
     
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <p>对于绝大多数技术人来说，往往会忽略自己在行业里的影响力，更多是埋头在自己所在的技术领域里，专注于解决具体问题、提升技术能力。</p>
+        <div id="readmore-container"><p>对于绝大多数技术人来说，往往会忽略自己在行业里的影响力，更多是埋头在自己所在的技术领域里，专注于解决具体问题、提升技术能力。</p>
 <p>然而，在现在高速发展且高度内卷的时代下，单纯拥有技术实力可能并不足以让你脱颖而出，亦或许在短期内有不错的成就，但如果没有影响力支持，这些成绩也可能难以转化为持续的发展优势。</p>
 <p>影响力对技术人来说，实际上是一种无形的资产。它不仅能为你带来更多的机会，还能激励你不断学习和提升自己。</p>
 <h2 id="技术影响力"><a href="#技术影响力" class="headerlink" title="技术影响力"></a>技术影响力</h2><p>技术影响力都有哪些 ，本质是什么。 </p>
@@ -440,7 +440,37 @@ s.parentNode.insertBefore(el, s);
 <p>影响力的积累是一个长期的过程，需要耐心和毅力，无论是进行写作还是一些演讲或者公开教程，都需要一点点积累，持续分享和帮助更多的人，把这件事作为长期主义来坚持。即使短期内效果不显著，也不要放弃。坚持做正确的事情，将影响力转化为职业生涯的强大助力，也是每个技术人应当追求的目标。</p>
 <h2 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h2><p>影响力的建立是技术人职业发展的关键环节，它不仅反映了个人的价值，也总结和传递了自己的知识和经验，同时也是技术宣传的重要手段。每一次用心的输出和分享，都是在帮助更多的人。</p>
 <p>真正的影响力，也不在于一朝一夕，而在于我们在不断成长中，始终如一的付出与坚持。</p>
-
+</div>
+				<link rel="stylesheet" type="text/css" href="https://qiniu.techgrow.cn/readmore/dist/hexo.css">
+				<script src="https://qiniu.techgrow.cn/readmore/dist/readmore.js" type="text/javascript"></script>
+				<script>
+				var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+				var isEncrypt = document.getElementById('hexo-blog-encrypt');
+				var allowMobile = false;
+				if (!isEncrypt && (!isMobile || (isMobile && allowMobile))) {
+					try {
+						var plugin = new ReadmorePlugin();
+						plugin.init({
+							"type": "hexo",
+							"id": "readmore-container",
+							"name": "良技漫谈",
+							"blogId": "68756-0266337625647-511",
+							"qrcode": "https://zhulg.github.io/images/gongzhonghao.png",
+							"keyword": "666",
+							"random": "1",
+							"height": "auto",
+							"expires": "365",
+							"lockToc": "yes",
+							"interval": "60",
+							"baseUrl": "",
+							"tocSelector": ""
+						});
+					} catch(e) {
+						console.warn("readmore plugin occurred error: " + e.name + " | " + e.message);
+					}
+				}
+				</script>
+			
       
     </div>
 

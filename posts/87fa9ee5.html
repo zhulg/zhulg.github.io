@@ -35,7 +35,7 @@ s.parentNode.insertBefore(el, s);
   
   <title>用LM Studio工具部署本地AI大模型，真的太省事了 | zhulg|技术博客|编程开发与成长思考</title>
   <meta name="description" content="普通人如何部署自己的本地大模型，如何用Studio工具部署本地AI大模型。 前面写过AI时代：玩AI却不懂一点原理，真的靠谱吗？的基础篇，也说过这类的文章我后边会持续输出，核心目标帮助技术人、对AI感兴趣的读者，可以用一种比较轻松和漫谈的形式理解，并给大家一些学习和玩AI的方法。今天先介绍下普通人如何部署自己的本地大模型。 你可能会问：为什么要自己部署本地大模型？ 我想可能有这几个原因，看看是否准">
-<meta name="keywords" content="AI,技术成长">
+<meta name="keywords" content="技术成长,AI">
 <meta property="og:type" content="article">
 <meta property="og:title" content="用LM Studio工具部署本地AI大模型，真的太省事了">
 <meta property="og:url" content="https://zhulg.github.io/posts/87fa9ee5.html">
@@ -358,7 +358,7 @@ s.parentNode.insertBefore(el, s);
         "alternateName": "良技漫谈"
       },
       "image": "https://raw.githubusercontent.com/zhulg/allpic/master/640-20250101111437107",
-      "keywords": ["AI","技术成长","用LM Studio工具部署本地AI大模型，真的太省事了"],
+      "keywords": ["技术成长","AI","用LM Studio工具部署本地AI大模型，真的太省事了"],
       "publisher": {
         "@type": "Organization",
         "name": "良技漫谈",
@@ -432,7 +432,7 @@ s.parentNode.insertBefore(el, s);
     
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <p>普通人如何部署自己的本地大模型，如何用Studio工具部署本地AI大模型。</p>
+        <div id="readmore-container"><p>普通人如何部署自己的本地大模型，如何用Studio工具部署本地AI大模型。</p>
 <p>前面写过<a href="http://mp.weixin.qq.com/s?__biz=MzIzNDA3MzA3MQ==&mid=2464356719&idx=1&sn=6df620a76eabec6d4fe8566ab33d95ad&chksm=ffec47efc89bcef95afddf24c3b8eafbcc606e3cc82f8670fa810344b1deb084afbd116fdfe5&scene=21#wechat_redirect" target="_blank" rel="noopener">AI时代：玩AI却不懂一点原理，真的靠谱吗？</a>的基础篇，也说过这类的文章我后边会持续输出，核心目标帮助技术人、对AI感兴趣的读者，可以用一种比较轻松和漫谈的形式理解，并给大家一些学习和玩AI的方法。今天先介绍下普通人如何部署自己的本地大模型。</p>
 <p><em>你可能会问：为什么要自己部署本地大模型？</em></p>
 <p>我想可能有这几个原因，看看是否准确：</p>
@@ -477,7 +477,37 @@ s.parentNode.insertBefore(el, s);
 <p>整体通俗理解下，大模型和参数，大模型就是一个聪明的大脑，它通过观察大量数据图片、文字等你想让他学的一切，根据你让他学的东西，来转化成相关的参数（也就是数字，因为机器只认数字），每个参数帮助它理解数据的不同方面，比如颜色、形状或语言的含义。根据大量的数据训练的深入，不断产生、优化、调整这些参数，大脑就越聪明，能够更好地完成给他的命令。</p>
 <p>普通人如果想玩AI大模型，使用 LM Studio 也是个不错的选择，可以安装和尝试多个模型在自己电脑上，这样隐私和你想问的问题也就更安全，速度也更快。</p>
 <p><strong>互联网人来说，特别技术人也可以使用他提供的本地server和 lms log stream 在命令行 来看相关模型日志。</strong></p>
-
+</div>
+				<link rel="stylesheet" type="text/css" href="https://qiniu.techgrow.cn/readmore/dist/hexo.css">
+				<script src="https://qiniu.techgrow.cn/readmore/dist/readmore.js" type="text/javascript"></script>
+				<script>
+				var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+				var isEncrypt = document.getElementById('hexo-blog-encrypt');
+				var allowMobile = false;
+				if (!isEncrypt && (!isMobile || (isMobile && allowMobile))) {
+					try {
+						var plugin = new ReadmorePlugin();
+						plugin.init({
+							"type": "hexo",
+							"id": "readmore-container",
+							"name": "良技漫谈",
+							"blogId": "68756-0266337625647-511",
+							"qrcode": "https://zhulg.github.io/images/gongzhonghao.png",
+							"keyword": "666",
+							"random": "1",
+							"height": "auto",
+							"expires": "365",
+							"lockToc": "yes",
+							"interval": "60",
+							"baseUrl": "",
+							"tocSelector": ""
+						});
+					} catch(e) {
+						console.warn("readmore plugin occurred error: " + e.name + " | " + e.message);
+					}
+				}
+				</script>
+			
       
     </div>
 

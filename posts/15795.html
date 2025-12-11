@@ -395,7 +395,7 @@ s.parentNode.insertBefore(el, s);
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/posts/15795.html#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 296(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 392(字)</span>
 	
 	
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 1(分)</span>
@@ -419,13 +419,43 @@ s.parentNode.insertBefore(el, s);
     
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <h3 id="推荐系统学习路线"><a href="#推荐系统学习路线" class="headerlink" title="推荐系统学习路线"></a>推荐系统学习路线</h3><ul>
+        <div id="readmore-container"><h3 id="推荐系统学习路线"><a href="#推荐系统学习路线" class="headerlink" title="推荐系统学习路线"></a>推荐系统学习路线</h3><ul>
 <li>基础知识的储备，掌握相关的基本概念、推荐算法等理论知识，活学活用。如《集体智慧编程》、《推荐系统实践》、《推荐系统》。还有殿堂级大作《Recommender systems handbook》，里面不仅对推荐系统方方面面有详细介绍，还给出了引用的论文，值得投入更多的时间和精力不断钻研。</li>
 <li>亲自动手实践才能深入体会推荐系统的各个环节，才能对各种推荐算法的优缺点有真切感受。一方面可以很熟练的完成简单的推荐算法，如content-based、item-based CF等。另一方面要掌握一些常见的推荐算法库，如SvdFeature、LibFM、Mahout、MLib等。</li>
 <li>推荐系统的方方面面提现了很多很多学科的智慧，如信息检索、数据挖掘和机器学习等，掌握这些知识，对推荐效果提升、性能优化都有极大的帮助，也会不断的拓展推荐系统的业务场景。</li>
 <li>阅读相关的paper是免不了的，Recsys、KDD、SIGIR等都有推荐系统方面的论文。</li>
 </ul>
-
+</div>
+				<link rel="stylesheet" type="text/css" href="https://qiniu.techgrow.cn/readmore/dist/hexo.css">
+				<script src="https://qiniu.techgrow.cn/readmore/dist/readmore.js" type="text/javascript"></script>
+				<script>
+				var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+				var isEncrypt = document.getElementById('hexo-blog-encrypt');
+				var allowMobile = false;
+				if (!isEncrypt && (!isMobile || (isMobile && allowMobile))) {
+					try {
+						var plugin = new ReadmorePlugin();
+						plugin.init({
+							"type": "hexo",
+							"id": "readmore-container",
+							"name": "良技漫谈",
+							"blogId": "68756-0266337625647-511",
+							"qrcode": "https://zhulg.github.io/images/gongzhonghao.png",
+							"keyword": "666",
+							"random": "1",
+							"height": "auto",
+							"expires": "365",
+							"lockToc": "yes",
+							"interval": "60",
+							"baseUrl": "",
+							"tocSelector": ""
+						});
+					} catch(e) {
+						console.warn("readmore plugin occurred error: " + e.name + " | " + e.message);
+					}
+				}
+				</script>
+			
       
     </div>
 

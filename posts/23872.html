@@ -411,7 +411,7 @@ s.parentNode.insertBefore(el, s);
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/posts/23872.html#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 266(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 362(字)</span>
 	
 	
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 1(分)</span>
@@ -435,7 +435,7 @@ s.parentNode.insertBefore(el, s);
     
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <h3 id="关于Eureka"><a href="#关于Eureka" class="headerlink" title="关于Eureka"></a>关于Eureka</h3><ul>
+        <div id="readmore-container"><h3 id="关于Eureka"><a href="#关于Eureka" class="headerlink" title="关于Eureka"></a>关于Eureka</h3><ul>
 <li>Eureka，是 Spring Cloud Eureka 的简称，是 Spring Cloud Netflix 组件之一。Spring Cloud Netflix 中核心的组件包括了服务治理（Eureka），服务容断（Hystrix），路由（Zuul）和客户端负载均衡（Ribbon）等</li>
 <li>它提供了完整的Service Registry和Service Discovery实现。也是springcloud体系中最重要最核心的组件之一。</li>
 <li>Eureka由两个组件组成：Eureka服务器和Eureka客户端。Eureka服务器用作服务注册服务器。Eureka客户端是一个java客户端，用来简化与服务器的交互、作为轮询负载均衡器，并提供服务的故障切换支持。Netflix在其生产环境中使用的是另外的客户端，它提供基于流量、资源利用率以及出错状态的加权负载均衡。</li>
@@ -447,7 +447,37 @@ s.parentNode.insertBefore(el, s);
 <li>Service Provider：服务提供方，将自身服务注册到Eureka，从而使服务消费方能够找到</li>
 <li>Service Consumer：服务消费方，从Eureka获取注册服务列表，从而能够消费服务</li>
 </ul>
-
+</div>
+				<link rel="stylesheet" type="text/css" href="https://qiniu.techgrow.cn/readmore/dist/hexo.css">
+				<script src="https://qiniu.techgrow.cn/readmore/dist/readmore.js" type="text/javascript"></script>
+				<script>
+				var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+				var isEncrypt = document.getElementById('hexo-blog-encrypt');
+				var allowMobile = false;
+				if (!isEncrypt && (!isMobile || (isMobile && allowMobile))) {
+					try {
+						var plugin = new ReadmorePlugin();
+						plugin.init({
+							"type": "hexo",
+							"id": "readmore-container",
+							"name": "良技漫谈",
+							"blogId": "68756-0266337625647-511",
+							"qrcode": "https://zhulg.github.io/images/gongzhonghao.png",
+							"keyword": "666",
+							"random": "1",
+							"height": "auto",
+							"expires": "365",
+							"lockToc": "yes",
+							"interval": "60",
+							"baseUrl": "",
+							"tocSelector": ""
+						});
+					} catch(e) {
+						console.warn("readmore plugin occurred error: " + e.name + " | " + e.message);
+					}
+				}
+				</script>
+			
       
     </div>
 

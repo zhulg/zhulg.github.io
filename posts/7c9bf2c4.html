@@ -409,10 +409,10 @@ s.parentNode.insertBefore(el, s);
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/posts/7c9bf2c4.html#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 421(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 517(字)</span>
 	
 	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 1(分)</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 2(分)</span>
 	
 
       </div>
@@ -433,7 +433,7 @@ s.parentNode.insertBefore(el, s);
     
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <p>Rust的八大用途你了解多少呢？| 良技漫谈<br>介绍下Rust的主要应用场景，特别是第8点目前也有不少在应用。</p>
+        <div id="readmore-container"><p>Rust的八大用途你了解多少呢？| 良技漫谈<br>介绍下Rust的主要应用场景，特别是第8点目前也有不少在应用。</p>
 <h2 id="1-系统编程："><a href="#1-系统编程：" class="headerlink" title="1. 系统编程："></a>1. 系统编程：</h2><p>Rust 因其内存安全性和高性能，适用于开发 操作系统、设备驱动、底层库和系统服务。</p>
 <div align="center" width="100%">
   <img width="50%" src="https://raw.githubusercontent.com/zhulg/allpic/master/63.png">
@@ -475,7 +475,37 @@ s.parentNode.insertBefore(el, s);
 <h2 id="8-其他领域："><a href="#8-其他领域：" class="headerlink" title="8. 其他领域："></a>8. 其他领域：</h2><p>Rust 在桌面应用、跨平台移动端底层组件开发、人工智能 (AI)、数据科学和音视频处理等领域逐渐得到应用，以完全和高效性能被广泛多领域选用。</p>
 <div align="center" width="100%">
   <img width="50%" src="https://raw.githubusercontent.com/zhulg/allpic/master/70.png">
-</div>
+</div></div>
+				<link rel="stylesheet" type="text/css" href="https://qiniu.techgrow.cn/readmore/dist/hexo.css">
+				<script src="https://qiniu.techgrow.cn/readmore/dist/readmore.js" type="text/javascript"></script>
+				<script>
+				var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+				var isEncrypt = document.getElementById('hexo-blog-encrypt');
+				var allowMobile = false;
+				if (!isEncrypt && (!isMobile || (isMobile && allowMobile))) {
+					try {
+						var plugin = new ReadmorePlugin();
+						plugin.init({
+							"type": "hexo",
+							"id": "readmore-container",
+							"name": "良技漫谈",
+							"blogId": "68756-0266337625647-511",
+							"qrcode": "https://zhulg.github.io/images/gongzhonghao.png",
+							"keyword": "666",
+							"random": "1",
+							"height": "auto",
+							"expires": "365",
+							"lockToc": "yes",
+							"interval": "60",
+							"baseUrl": "",
+							"tocSelector": ""
+						});
+					} catch(e) {
+						console.warn("readmore plugin occurred error: " + e.name + " | " + e.message);
+					}
+				}
+				</script>
+			
       
     </div>
 

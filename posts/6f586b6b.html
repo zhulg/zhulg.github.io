@@ -406,10 +406,10 @@ s.parentNode.insertBefore(el, s);
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/posts/6f586b6b.html#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1.1k(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1.2k(字)</span>
 	
 	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 3(分)</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 4(分)</span>
 	
 
       </div>
@@ -430,7 +430,7 @@ s.parentNode.insertBefore(el, s);
     
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <p><strong>今天我要推荐给你一款绝对让你眼前一亮的录屏工具，Screenity，我最近也在使用，录制课程，培训讲解，视频画中画都支持。</strong></p>
+        <div id="readmore-container"><p><strong>今天我要推荐给你一款绝对让你眼前一亮的录屏工具，Screenity，我最近也在使用，录制课程，培训讲解，视频画中画都支持。</strong></p>
 <p>无论你是开发者、产品经理、教师，自媒体内容创作者，在工作中总会遇到录屏的需求。可是，市面上的录屏软件大多存在功能限制，很多需要付费解锁高级功能，甚至有的还要求你充会员才能使用完整版。更别提那些软件菜单复杂、操作繁琐，让普通人看了头大的情况了…</p>
 <p>它不仅支持多种录制选项，也可以后期编辑和标注功能，帮助你轻松录制、编辑和导出专业级视频效果。</p>
 <p><strong>最重要的是，它完全免费、无需注册（因为代码是开源的），就让你用得安心，省心！</strong></p>
@@ -456,7 +456,37 @@ s.parentNode.insertBefore(el, s);
 <h3 id="写给技术人"><a href="#写给技术人" class="headerlink" title="写给技术人"></a>写给技术人</h3><p>这个开源的项目地址：</p>
 <p><a href="https://github.com/alyssaxuu/screenity" target="_blank" rel="noopener">https://github.com/alyssaxuu/screenity</a> </p>
 <p>技术人可以从里面看下载源码，自己也可以定制需求开发，最近也看到作者有在做链接共享，视频编辑器的一些功能，有兴趣也可以下载源码去学习~</p>
-
+</div>
+				<link rel="stylesheet" type="text/css" href="https://qiniu.techgrow.cn/readmore/dist/hexo.css">
+				<script src="https://qiniu.techgrow.cn/readmore/dist/readmore.js" type="text/javascript"></script>
+				<script>
+				var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+				var isEncrypt = document.getElementById('hexo-blog-encrypt');
+				var allowMobile = false;
+				if (!isEncrypt && (!isMobile || (isMobile && allowMobile))) {
+					try {
+						var plugin = new ReadmorePlugin();
+						plugin.init({
+							"type": "hexo",
+							"id": "readmore-container",
+							"name": "良技漫谈",
+							"blogId": "68756-0266337625647-511",
+							"qrcode": "https://zhulg.github.io/images/gongzhonghao.png",
+							"keyword": "666",
+							"random": "1",
+							"height": "auto",
+							"expires": "365",
+							"lockToc": "yes",
+							"interval": "60",
+							"baseUrl": "",
+							"tocSelector": ""
+						});
+					} catch(e) {
+						console.warn("readmore plugin occurred error: " + e.name + " | " + e.message);
+					}
+				}
+				</script>
+			
       
     </div>
 

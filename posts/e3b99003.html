@@ -410,7 +410,7 @@ s.parentNode.insertBefore(el, s);
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/posts/e3b99003.html#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1.5k(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1.6k(字)</span>
 	
 	
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 5(分)</span>
@@ -434,7 +434,7 @@ s.parentNode.insertBefore(el, s);
     
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <p>前几天写了一篇关于互联网人尽早找到自己一人能做的小生意，<a href="http://mp.weixin.qq.com/s?__biz=MzIzNDA3MzA3MQ==&mid=2464356058&idx=1&sn=4684f83f6a948c31eed382f2ccbaefec&chksm=ffec485ac89bc14ca75e6b546adc65c05d610d842b5435553863cfefac1066862d79ac7c5ad6&scene=21#wechat_redirect" target="_blank" rel="noopener">尽早觉醒：找到自己一人能做的互联网生意</a> 收到不少读者私信和评论关于小生意怎么做，能感觉到大家对于如何开启小生意及如何利用好互联网平台这块充满兴趣。</p>
+        <div id="readmore-container"><p>前几天写了一篇关于互联网人尽早找到自己一人能做的小生意，<a href="http://mp.weixin.qq.com/s?__biz=MzIzNDA3MzA3MQ==&mid=2464356058&idx=1&sn=4684f83f6a948c31eed382f2ccbaefec&chksm=ffec485ac89bc14ca75e6b546adc65c05d610d842b5435553863cfefac1066862d79ac7c5ad6&scene=21#wechat_redirect" target="_blank" rel="noopener">尽早觉醒：找到自己一人能做的互联网生意</a> 收到不少读者私信和评论关于小生意怎么做，能感觉到大家对于如何开启小生意及如何利用好互联网平台这块充满兴趣。</p>
 <p>尤其是针对设计、技术等互联网行业同学，这块的读者今天重点介绍一些相关副业平台，可以从这些平台上做一些自己的小生意赚钱，或者从这些平台需求痛点上能否给你带来思考，也看看这些外面的世界和平台能否给你带来一些需求灵感，找到自己的一些小生意。</p>
 <p><strong>通过这些小生意平台，可以尝试增加收入，更重要的是观察思考找到适合自己的发展方向和副业机会。</strong></p>
 <p>先看一些设计类的平台吧，这些平台好的设计都能给我们生活中带来一些色彩（我知道这些设计类平台，是因为有时候我也会看下好的设计和配色如何用技术在应用里呈现），如果设计类同学还知道更多平台，可以补充到评论里，分享使人进步。</p>
@@ -471,7 +471,37 @@ s.parentNode.insertBefore(el, s);
 <h2 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h2><p>介绍这些小生意平台，不是鼓励大家都来接单赚钱，我觉得更多是帮助大家打开一些思路和点子，更好的结合自己优势和兴趣发现生意。</p>
 <p><strong>把自己的一份时间和付出服务于更多的人，同时给自己带来盈利</strong>。之前有提过知识付费，现在也有一些这样的平台，也适合非互联网行业的人，大家都可以直接参与进去售卖所在行业知识和经验。</p>
 <p>希望以上这些小平台能给大家带来一些观察和思考。</p>
-
+</div>
+				<link rel="stylesheet" type="text/css" href="https://qiniu.techgrow.cn/readmore/dist/hexo.css">
+				<script src="https://qiniu.techgrow.cn/readmore/dist/readmore.js" type="text/javascript"></script>
+				<script>
+				var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+				var isEncrypt = document.getElementById('hexo-blog-encrypt');
+				var allowMobile = false;
+				if (!isEncrypt && (!isMobile || (isMobile && allowMobile))) {
+					try {
+						var plugin = new ReadmorePlugin();
+						plugin.init({
+							"type": "hexo",
+							"id": "readmore-container",
+							"name": "良技漫谈",
+							"blogId": "68756-0266337625647-511",
+							"qrcode": "https://zhulg.github.io/images/gongzhonghao.png",
+							"keyword": "666",
+							"random": "1",
+							"height": "auto",
+							"expires": "365",
+							"lockToc": "yes",
+							"interval": "60",
+							"baseUrl": "",
+							"tocSelector": ""
+						});
+					} catch(e) {
+						console.warn("readmore plugin occurred error: " + e.name + " | " + e.message);
+					}
+				}
+				</script>
+			
       
     </div>
 

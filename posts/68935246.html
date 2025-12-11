@@ -403,7 +403,7 @@ s.parentNode.insertBefore(el, s);
 		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1.2k(字)</span>
 	
 	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 3(分)</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 4(分)</span>
 	
 
       </div>
@@ -424,7 +424,7 @@ s.parentNode.insertBefore(el, s);
     
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <p>共识算法，简单理解是通过算法让参与其中成员共同达成共识。</p>
+        <div id="readmore-container"><p>共识算法，简单理解是通过算法让参与其中成员共同达成共识。</p>
 <p>在计算机里共识算法主要在分布式系统中通过参与之中的节点，对数据或者状态达成一致的方法。</p>
 <p>那是不是可以理解为参与人，按照认可的规则来就好。</p>
 <p>你可能会想到，那石头剪刀布游戏，参与方也认同这个规则算法，这个算不算共识算法？</p>
@@ -460,7 +460,37 @@ s.parentNode.insertBefore(el, s);
 </ul>
 <p>以下这几个更多用在区块链相关的共识算法上，可以稍微了解下证明容量（PoC）、证明燃烧（PoB）和证明时间和空间（PoST）是共识算法，通过提供存储空间、销毁资源或等待时间来获得操作权。PoC鼓励资源共享，PoB减少资源供应防止滥用，PoST结合存储和时间增加系统安全性，确保资源公平分配。这些算法在区块链和其他分布式系统中广泛应用，如分布式存储、在线服务和云存储。</p>
 <p>如前面介绍，共识算法的核心是确保分布式系统中各个节点达成一致，即使有部分节点可能出现故障或恶意行为，基于这些特性，常常在区块链、分布式数据库、云存储等领域使用。有这么一个基础，对后续一些共识领域的理解还是很有帮助的，当然每一个共识算法在具体应用中都需要深入研究和学习，我们文中介绍更多还是先有个核心原理和概念的认知。</p>
-
+</div>
+				<link rel="stylesheet" type="text/css" href="https://qiniu.techgrow.cn/readmore/dist/hexo.css">
+				<script src="https://qiniu.techgrow.cn/readmore/dist/readmore.js" type="text/javascript"></script>
+				<script>
+				var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+				var isEncrypt = document.getElementById('hexo-blog-encrypt');
+				var allowMobile = false;
+				if (!isEncrypt && (!isMobile || (isMobile && allowMobile))) {
+					try {
+						var plugin = new ReadmorePlugin();
+						plugin.init({
+							"type": "hexo",
+							"id": "readmore-container",
+							"name": "良技漫谈",
+							"blogId": "68756-0266337625647-511",
+							"qrcode": "https://zhulg.github.io/images/gongzhonghao.png",
+							"keyword": "666",
+							"random": "1",
+							"height": "auto",
+							"expires": "365",
+							"lockToc": "yes",
+							"interval": "60",
+							"baseUrl": "",
+							"tocSelector": ""
+						});
+					} catch(e) {
+						console.warn("readmore plugin occurred error: " + e.name + " | " + e.message);
+					}
+				}
+				</script>
+			
       
     </div>
 

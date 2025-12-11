@@ -399,7 +399,7 @@ s.parentNode.insertBefore(el, s);
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/posts/880.html#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1.5k(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1.6k(字)</span>
 	
 	
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 6(分)</span>
@@ -423,7 +423,7 @@ s.parentNode.insertBefore(el, s);
     
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <h3 id="hadoop-mac上安装记录"><a href="#hadoop-mac上安装记录" class="headerlink" title="hadoop mac上安装记录"></a>hadoop mac上安装记录</h3><h4 id="hadoop-概述"><a href="#hadoop-概述" class="headerlink" title="hadoop 概述"></a>hadoop 概述</h4><ul>
+        <div id="readmore-container"><h3 id="hadoop-mac上安装记录"><a href="#hadoop-mac上安装记录" class="headerlink" title="hadoop mac上安装记录"></a>hadoop mac上安装记录</h3><h4 id="hadoop-概述"><a href="#hadoop-概述" class="headerlink" title="hadoop 概述"></a>hadoop 概述</h4><ul>
 <li>Apache Hadoop 的框架最核心的设计就是：HDFS 和 MapReduce。HDFS 为海量的数据提供了存储，而 MapReduce 则为海量的数据提供了计算。</li>
 </ul>
 <h4 id="引入"><a href="#引入" class="headerlink" title="引入"></a>引入</h4><p>设想一下这样的应用场景。我有一个100M的数据库备份的sql文件。我现在想在不导入到数据库的情况下直接用grep操作通过正则过滤出我想要的内容。例如：某个表中含有相同关键字的记录那么有几种方式,一种是直接用linux的命令grep还有一种就是通过编程来读取文件,然后对每行数据进行正则匹配得到结果好了现在是100M的数据库备份。上述两种方法都可以轻松应对。</p>
@@ -515,7 +515,37 @@ s.parentNode.insertBefore(el, s);
 <li><p>mac 上下载结果是出现无法下载<a href="http://bogon:50075/xxxxx,替换bogon为localhost" target="_blank" rel="noopener">http://bogon:50075/xxxxx,替换bogon为localhost</a></p>
 </li>
 </ul>
-
+</div>
+				<link rel="stylesheet" type="text/css" href="https://qiniu.techgrow.cn/readmore/dist/hexo.css">
+				<script src="https://qiniu.techgrow.cn/readmore/dist/readmore.js" type="text/javascript"></script>
+				<script>
+				var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+				var isEncrypt = document.getElementById('hexo-blog-encrypt');
+				var allowMobile = false;
+				if (!isEncrypt && (!isMobile || (isMobile && allowMobile))) {
+					try {
+						var plugin = new ReadmorePlugin();
+						plugin.init({
+							"type": "hexo",
+							"id": "readmore-container",
+							"name": "良技漫谈",
+							"blogId": "68756-0266337625647-511",
+							"qrcode": "https://zhulg.github.io/images/gongzhonghao.png",
+							"keyword": "666",
+							"random": "1",
+							"height": "auto",
+							"expires": "365",
+							"lockToc": "yes",
+							"interval": "60",
+							"baseUrl": "",
+							"tocSelector": ""
+						});
+					} catch(e) {
+						console.warn("readmore plugin occurred error: " + e.name + " | " + e.message);
+					}
+				}
+				</script>
+			
       
     </div>
 

@@ -409,7 +409,7 @@ s.parentNode.insertBefore(el, s);
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/posts/25087.html#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 568(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 664(字)</span>
 	
 	
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 2(分)</span>
@@ -433,7 +433,7 @@ s.parentNode.insertBefore(el, s);
     
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <h3 id="关于SpringCloud和SpringBoot"><a href="#关于SpringCloud和SpringBoot" class="headerlink" title="关于SpringCloud和SpringBoot"></a>关于SpringCloud和SpringBoot</h3><ul>
+        <div id="readmore-container"><h3 id="关于SpringCloud和SpringBoot"><a href="#关于SpringCloud和SpringBoot" class="headerlink" title="关于SpringCloud和SpringBoot"></a>关于SpringCloud和SpringBoot</h3><ul>
 <li>SpringCloud: 微服务工具包，为开发者提供了在分布式系统的配置管理、服务发现、断路器、智能路由、微代理、控制总线等开发工具包。</li>
 <li>Spring Boot: 旨在简化创建产品级的 Spring 应用和服务，简化了配置文件，使用嵌入式web服务器，含有诸多开箱即用微服务功能</li>
 </ul>
@@ -454,7 +454,37 @@ s.parentNode.insertBefore(el, s);
 <li><strong>Spring Cloud Stream</strong>：数据流操作开发包，封装了与Redis,Rabbit、Kafka等发送接收消息。</li>
 <li><strong>Spring Cloud CLI</strong>：基于 Spring Boot CLI，可以让你以命令行方式快速建立云组件。</li>
 </ul>
-
+</div>
+				<link rel="stylesheet" type="text/css" href="https://qiniu.techgrow.cn/readmore/dist/hexo.css">
+				<script src="https://qiniu.techgrow.cn/readmore/dist/readmore.js" type="text/javascript"></script>
+				<script>
+				var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+				var isEncrypt = document.getElementById('hexo-blog-encrypt');
+				var allowMobile = false;
+				if (!isEncrypt && (!isMobile || (isMobile && allowMobile))) {
+					try {
+						var plugin = new ReadmorePlugin();
+						plugin.init({
+							"type": "hexo",
+							"id": "readmore-container",
+							"name": "良技漫谈",
+							"blogId": "68756-0266337625647-511",
+							"qrcode": "https://zhulg.github.io/images/gongzhonghao.png",
+							"keyword": "666",
+							"random": "1",
+							"height": "auto",
+							"expires": "365",
+							"lockToc": "yes",
+							"interval": "60",
+							"baseUrl": "",
+							"tocSelector": ""
+						});
+					} catch(e) {
+						console.warn("readmore plugin occurred error: " + e.name + " | " + e.message);
+					}
+				}
+				</script>
+			
       
     </div>
 

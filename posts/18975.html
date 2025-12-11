@@ -397,10 +397,10 @@ s.parentNode.insertBefore(el, s);
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/posts/18975.html#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 441(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 537(字)</span>
 	
 	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 1(分)</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 2(分)</span>
 	
 
       </div>
@@ -421,7 +421,7 @@ s.parentNode.insertBefore(el, s);
     
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <h3 id="kubernetes核心概念"><a href="#kubernetes核心概念" class="headerlink" title="kubernetes核心概念"></a>kubernetes核心概念</h3><ul>
+        <div id="readmore-container"><h3 id="kubernetes核心概念"><a href="#kubernetes核心概念" class="headerlink" title="kubernetes核心概念"></a>kubernetes核心概念</h3><ul>
 <li>Kubernetes（k8s）是自动化容器操作的开源平台，这些操作包括部署，调度和节点集群间扩展。如果你曾经用过Docker容器技术部署容器，那么可以将Docker看成Kubernetes内部使用的低级别组件。</li>
 <li>Kubernetes可以：</li>
 </ul>
@@ -439,7 +439,37 @@ s.parentNode.insertBefore(el, s);
 <h4 id="node"><a href="#node" class="headerlink" title="node"></a>node</h4><ul>
 <li>除了master，k8s集群中的其他节点是node节点,也是实际的工作点。node节点可以是一台物理机或者虚拟机。node节点是k8s集群中的工作负载节点，master会把一些任务调度到node节点上进行。当某个node出现故障时，master会把这个节点上的任务转移到其他节点上</li>
 </ul>
-
+</div>
+				<link rel="stylesheet" type="text/css" href="https://qiniu.techgrow.cn/readmore/dist/hexo.css">
+				<script src="https://qiniu.techgrow.cn/readmore/dist/readmore.js" type="text/javascript"></script>
+				<script>
+				var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+				var isEncrypt = document.getElementById('hexo-blog-encrypt');
+				var allowMobile = false;
+				if (!isEncrypt && (!isMobile || (isMobile && allowMobile))) {
+					try {
+						var plugin = new ReadmorePlugin();
+						plugin.init({
+							"type": "hexo",
+							"id": "readmore-container",
+							"name": "良技漫谈",
+							"blogId": "68756-0266337625647-511",
+							"qrcode": "https://zhulg.github.io/images/gongzhonghao.png",
+							"keyword": "666",
+							"random": "1",
+							"height": "auto",
+							"expires": "365",
+							"lockToc": "yes",
+							"interval": "60",
+							"baseUrl": "",
+							"tocSelector": ""
+						});
+					} catch(e) {
+						console.warn("readmore plugin occurred error: " + e.name + " | " + e.message);
+					}
+				}
+				</script>
+			
       
     </div>
 

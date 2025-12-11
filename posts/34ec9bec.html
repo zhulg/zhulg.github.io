@@ -403,7 +403,7 @@ s.parentNode.insertBefore(el, s);
 		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1.4k(字)</span>
 	
 	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 4(分)</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 5(分)</span>
 	
 
       </div>
@@ -424,7 +424,7 @@ s.parentNode.insertBefore(el, s);
     
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <p><strong>在技术团队的管理中，我们常常希望团队能够更符合自己的价值观，在用人方面也更倾向于选择与自己脾气秉性相投的人。</strong></p>
+        <div id="readmore-container"><p><strong>在技术团队的管理中，我们常常希望团队能够更符合自己的价值观，在用人方面也更倾向于选择与自己脾气秉性相投的人。</strong></p>
 <p>这种想法很自然，但它也容易让管理者掉入一个陷阱：总是想尽办法去改变团队成员的某个“缺点”，试图让团队成员在性格上趋于一致。然而，这样的团队往往缺少灵气，而改变的结果也常常适得其反。（这里所说的“缺点”，并不是指这些人能力不足或不能胜任工作，而更多是每个人独特的特点或性格因素。）</p>
 <p><strong>自己之前也犯过类似错误，随着团队管理经验磨炼，我们要发挥团队最大战斗力，最重要的在于发现和利用团队成员的长处，而不是执着于修补他们的短板。</strong></p>
 <h2 id="从“改造人”到“成就人”"><a href="#从“改造人”到“成就人”" class="headerlink" title="从“改造人”到“成就人”"></a>从“改造人”到“成就人”</h2><p>技术团队就像一片森林，每棵树都有自己的形状和特点。有的高大挺拔，有的矮小结实，各有各的用处。作为技术管理者，你是选择硬生生地把这些树都修剪成一样的模样，还是让它们各自生长，发挥所长？</p>
@@ -439,7 +439,37 @@ s.parentNode.insertBefore(el, s);
 <p>举个例子，对于那些技术能力超强的工程师，给他们挑战性的任务，同时提供一定的自由度，让他们可以发挥创造力。而对于那些沟通能力强的成员，可以让他们负责跨部门的协调工作，确保团队和其他部门的顺畅合作。</p>
 <h2 id="用人之长提升管理"><a href="#用人之长提升管理" class="headerlink" title="用人之长提升管理"></a>用人之长提升管理</h2><p>技术管理是一门艺术，而不是一门科学。管理者的职责，不是强行让每个成员变得“完美”，而是要发现每个人的长处，并加以利用。就像一支乐队，各种乐器各司其职，才能奏出和谐的乐章。</p>
 <p>当你放下改造他人的执念，(只要不是他无法胜任问题)，都应转而专注于如何让每个人都在自己擅长的领域发光，你会发现，团队的效率提高了，氛围也好了。这样的团队，不仅能在技术上有所突破，更能在项目中取得成功。</p>
-
+</div>
+				<link rel="stylesheet" type="text/css" href="https://qiniu.techgrow.cn/readmore/dist/hexo.css">
+				<script src="https://qiniu.techgrow.cn/readmore/dist/readmore.js" type="text/javascript"></script>
+				<script>
+				var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+				var isEncrypt = document.getElementById('hexo-blog-encrypt');
+				var allowMobile = false;
+				if (!isEncrypt && (!isMobile || (isMobile && allowMobile))) {
+					try {
+						var plugin = new ReadmorePlugin();
+						plugin.init({
+							"type": "hexo",
+							"id": "readmore-container",
+							"name": "良技漫谈",
+							"blogId": "68756-0266337625647-511",
+							"qrcode": "https://zhulg.github.io/images/gongzhonghao.png",
+							"keyword": "666",
+							"random": "1",
+							"height": "auto",
+							"expires": "365",
+							"lockToc": "yes",
+							"interval": "60",
+							"baseUrl": "",
+							"tocSelector": ""
+						});
+					} catch(e) {
+						console.warn("readmore plugin occurred error: " + e.name + " | " + e.message);
+					}
+				}
+				</script>
+			
       
     </div>
 

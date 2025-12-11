@@ -409,10 +409,10 @@ s.parentNode.insertBefore(el, s);
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/posts/f82f20d4.html#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1.1k(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1.2k(字)</span>
 	
 	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 3(分)</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 4(分)</span>
 	
 
       </div>
@@ -433,7 +433,7 @@ s.parentNode.insertBefore(el, s);
     
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <p>在之前的文章介绍过全栈工程师的练就之路，《<a href="http://mp.weixin.qq.com/s?__biz=MzIzNDA3MzA3MQ==&mid=2464355691&idx=1&sn=4f844933f98a26df0992a16f30af0a6e&chksm=ffec4bebc89bc2fde8d84f77d52a00e17c819cf5690add8433c658f39ee1b5da223fdad3766b&scene=21#wechat_redirect" title="全栈工程师，练就之路：如何学，如何做" target="_blank" rel="noopener">全栈工程师，练就之路：如何学，如何做</a>》今天展开来看下，最近几年比较流行的后端开发技能，也看看还有哪些没有掌握的后端技能。</p>
+        <div id="readmore-container"><p>在之前的文章介绍过全栈工程师的练就之路，《<a href="http://mp.weixin.qq.com/s?__biz=MzIzNDA3MzA3MQ==&mid=2464355691&idx=1&sn=4f844933f98a26df0992a16f30af0a6e&chksm=ffec4bebc89bc2fde8d84f77d52a00e17c819cf5690add8433c658f39ee1b5da223fdad3766b&scene=21#wechat_redirect" title="全栈工程师，练就之路：如何学，如何做" target="_blank" rel="noopener">全栈工程师，练就之路：如何学，如何做</a>》今天展开来看下，最近几年比较流行的后端开发技能，也看看还有哪些没有掌握的后端技能。</p>
 <h3 id="1-编程语言"><a href="#1-编程语言" class="headerlink" title="1. 编程语言"></a>1. 编程语言</h3><p>适合后端开发的编程语言，也是目前比较应用广泛的， <strong>Java、GO、Python、Rust 我推荐这4种，</strong>但也有node.js 和PHP、Kotlin这些（毕竟今天我主要讲主流和流行的后端技能）也有一些应用在使用，目前占比不大。</p>
 <p>java后端开发尤其是Spring框架下还是被大量应用所使用，GO因其高并发性能，在微服务和高并发场景下广泛使用，python不仅在脚本使用，大量AI和机器学习类也广泛应用。rust在后端方面以安全和高性能著称，在后端、区块链应用也有巨大优势。</p>
 <p><img src="https://github.com/zhulg/allpic/blob/master/server_2024_1.png?raw=true" alt></p>
@@ -474,7 +474,37 @@ s.parentNode.insertBefore(el, s);
 <p>如何优化分层和系统设计降低应用耦合，如何通过上线前合理规划架构和设计，上线后的日志监测和报警、服务的自恢复、降级策略的制定。</p>
 <h3 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h3><p>后端的技能也在不停迭代和更新，熟练运用现在比较流行的后端技术，清楚知道使用场景，并保持学习，从整体上来用合适的技术选择结合业务场景来确保后端服务的稳定，并保持自己在后端技术迭代升级。</p>
 <p><strong><em>PS: 也欢迎大家评论和交流~ 更多文章也可关注微信公号：良技漫谈</em></strong></p>
-
+</div>
+				<link rel="stylesheet" type="text/css" href="https://qiniu.techgrow.cn/readmore/dist/hexo.css">
+				<script src="https://qiniu.techgrow.cn/readmore/dist/readmore.js" type="text/javascript"></script>
+				<script>
+				var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+				var isEncrypt = document.getElementById('hexo-blog-encrypt');
+				var allowMobile = false;
+				if (!isEncrypt && (!isMobile || (isMobile && allowMobile))) {
+					try {
+						var plugin = new ReadmorePlugin();
+						plugin.init({
+							"type": "hexo",
+							"id": "readmore-container",
+							"name": "良技漫谈",
+							"blogId": "68756-0266337625647-511",
+							"qrcode": "https://zhulg.github.io/images/gongzhonghao.png",
+							"keyword": "666",
+							"random": "1",
+							"height": "auto",
+							"expires": "365",
+							"lockToc": "yes",
+							"interval": "60",
+							"baseUrl": "",
+							"tocSelector": ""
+						});
+					} catch(e) {
+						console.warn("readmore plugin occurred error: " + e.name + " | " + e.message);
+					}
+				}
+				</script>
+			
       
     </div>
 

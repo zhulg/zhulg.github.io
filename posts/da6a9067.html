@@ -409,7 +409,7 @@ s.parentNode.insertBefore(el, s);
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/posts/da6a9067.html#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1.3k(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1.4k(字)</span>
 	
 	
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 4(分)</span>
@@ -433,7 +433,7 @@ s.parentNode.insertBefore(el, s);
     
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <p>在技术的世界中，逻辑是至高无上的法则；而在现实中，表达能力则是成功的关键。</p>
+        <div id="readmore-container"><p>在技术的世界中，逻辑是至高无上的法则；而在现实中，表达能力则是成功的关键。</p>
 <p>互联网技术人员在与他人沟通时，常常听到被戏称为“说人话”或“听不懂”。这种现象反映出他们在表达中使用了过多的技术术语和专业痕迹，而又缺乏必要的表达锻炼，导致外行人难以理解。</p>
 <p>尤其在与业务人员和运营人员的沟通中，缺乏产品人员的协作，问题更为突出。</p>
 <p><strong>互联网技术人，如果想在职业生涯中全方位提升自己，其中表达能力也是重要的软实力，他也等同于你的技术硬实力，二者都要强，尽量不要存在短板。</strong></p>
@@ -453,7 +453,37 @@ s.parentNode.insertBefore(el, s);
 <p>你可能满头大汗写了自己的总结、发言稿、分享材料，可能写的过程中你自己都觉得不通顺、词不达意，更何况这东西是你要表达给别人的。。。没关系，先自己写出来。</p>
 <p>写完后，把自己的草稿文字和要表达的要求告诉GPT来协助优化，来看看他对某段话的表达方式，跟你草稿区别在哪里，问什么他优化的更通顺。</p>
 <p>通过对比和取舍你应该能从中学到好的表达方式，这个对表达的提升非常有帮助，与此同时也要注意防止AI的机器化，否则你的文章可能是空洞和无味，要学会取长补短的能力。</p>
-
+</div>
+				<link rel="stylesheet" type="text/css" href="https://qiniu.techgrow.cn/readmore/dist/hexo.css">
+				<script src="https://qiniu.techgrow.cn/readmore/dist/readmore.js" type="text/javascript"></script>
+				<script>
+				var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+				var isEncrypt = document.getElementById('hexo-blog-encrypt');
+				var allowMobile = false;
+				if (!isEncrypt && (!isMobile || (isMobile && allowMobile))) {
+					try {
+						var plugin = new ReadmorePlugin();
+						plugin.init({
+							"type": "hexo",
+							"id": "readmore-container",
+							"name": "良技漫谈",
+							"blogId": "68756-0266337625647-511",
+							"qrcode": "https://zhulg.github.io/images/gongzhonghao.png",
+							"keyword": "666",
+							"random": "1",
+							"height": "auto",
+							"expires": "365",
+							"lockToc": "yes",
+							"interval": "60",
+							"baseUrl": "",
+							"tocSelector": ""
+						});
+					} catch(e) {
+						console.warn("readmore plugin occurred error: " + e.name + " | " + e.message);
+					}
+				}
+				</script>
+			
       
     </div>
 

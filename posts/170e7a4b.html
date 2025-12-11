@@ -407,7 +407,7 @@ s.parentNode.insertBefore(el, s);
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/posts/170e7a4b.html#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1.2k(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1.3k(字)</span>
 	
 	
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 4(分)</span>
@@ -431,7 +431,7 @@ s.parentNode.insertBefore(el, s);
     
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <p>最近花了2天时间写了个护眼的插件，插件核心功能，就是为了保护眼睛，在上网中找到适合你自己舒服的阅读色，使用了8种业界公认的护眼色，也支持自定义护眼色，由于自我感觉这个插件太好，提交了chrome 插件商店，搜索”护眼助手”可以找到.</p>
+        <div id="readmore-container"><p>最近花了2天时间写了个护眼的插件，插件核心功能，就是为了保护眼睛，在上网中找到适合你自己舒服的阅读色，使用了8种业界公认的护眼色，也支持自定义护眼色，由于自我感觉这个插件太好，提交了chrome 插件商店，搜索”护眼助手”可以找到.</p>
 <p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/640-20250107090417989" alt="图片"></p>
 <p>插件核心功能，就是为了保护眼睛，在上网中找到适合你自己舒服的阅读色，使用了8种业界公认的护眼色，也支持自定义护眼色，添加了休息提醒，支持间隔和倒计时提醒，可以自定义提醒内容（当个平常重要事情提醒也支持），出发点就是保护长时间上网用眼以及长时间久坐的人，打工人必备。</p>
 <p>最重要的一点，感觉比我买这个所谓可以调色护眼的显示器好太多了~（请允许我自夸….），读者朋友等这块应用审核通过后，在浏览器安装体验，先看下这个应用的界面。</p>
@@ -452,7 +452,37 @@ s.parentNode.insertBefore(el, s);
 <h3 id="2-上网的时候可以设置："><a href="#2-上网的时候可以设置：" class="headerlink" title="2.上网的时候可以设置："></a>2.上网的时候可以设置：</h3><p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/640-20250107090420569" alt="图片"></p>
 <h3 id="3-看视频的时候"><a href="#3-看视频的时候" class="headerlink" title="3.看视频的时候:"></a>3.看视频的时候:</h3><p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/640-20250107090417989" alt="图片"></p>
 <p>*<em>自己感觉还是不错，这两天有点用习惯了，关闭护眼模式还真不习惯起来了~ 后边大家使用有问题，也可以提出交流、建议哈~ *</em></p>
-
+</div>
+				<link rel="stylesheet" type="text/css" href="https://qiniu.techgrow.cn/readmore/dist/hexo.css">
+				<script src="https://qiniu.techgrow.cn/readmore/dist/readmore.js" type="text/javascript"></script>
+				<script>
+				var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+				var isEncrypt = document.getElementById('hexo-blog-encrypt');
+				var allowMobile = false;
+				if (!isEncrypt && (!isMobile || (isMobile && allowMobile))) {
+					try {
+						var plugin = new ReadmorePlugin();
+						plugin.init({
+							"type": "hexo",
+							"id": "readmore-container",
+							"name": "良技漫谈",
+							"blogId": "68756-0266337625647-511",
+							"qrcode": "https://zhulg.github.io/images/gongzhonghao.png",
+							"keyword": "666",
+							"random": "1",
+							"height": "auto",
+							"expires": "365",
+							"lockToc": "yes",
+							"interval": "60",
+							"baseUrl": "",
+							"tocSelector": ""
+						});
+					} catch(e) {
+						console.warn("readmore plugin occurred error: " + e.name + " | " + e.message);
+					}
+				}
+				</script>
+			
       
     </div>
 

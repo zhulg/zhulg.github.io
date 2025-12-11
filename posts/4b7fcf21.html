@@ -403,7 +403,7 @@ s.parentNode.insertBefore(el, s);
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/posts/4b7fcf21.html#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1.8k(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1.9k(字)</span>
 	
 	
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 6(分)</span>
@@ -427,7 +427,7 @@ s.parentNode.insertBefore(el, s);
     
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <p>2025年一定是AI领域齐头并进之年，AI基础大模型的突破不再是几个月的周期，已经到了按月周刷新速度。</p>
+        <div id="readmore-container"><p>2025年一定是AI领域齐头并进之年，AI基础大模型的突破不再是几个月的周期，已经到了按月周刷新速度。</p>
 <p>从春节期间DeepSeek的爆火可以看出，国内大模型的技术也迅速实现了弯道超车，从技术创新另开辟新道，突破技术封锁。一举成名的同时，给ChatGPT也带来了不少压力,这场AI大战，谁主沉浮？</p>
 <p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/640-20250721235633508" alt="图片"></p>
 <p>你刚唱罢我登场的感觉，现在ChatGPT-5也会马上发布，DeepSeek也迎头赶上，Qwen也在憋大招。技术的迭代和推理能力的提升，带来了前所未有的应用创新，AI的落地速度远超我们的想象。</p>
@@ -451,7 +451,37 @@ s.parentNode.insertBefore(el, s);
 <h3 id="不被夸大的AI能力误导"><a href="#不被夸大的AI能力误导" class="headerlink" title="不被夸大的AI能力误导"></a><strong>不被夸大的AI能力误导</strong></h3><p>虽然AI的能力在快速进化，但我们也要清醒地认识到，目前确实存在一些泡沫，无论是资本的助推，还是媒体的过度宣传，都会让人误以为AI的能力无所不能。然而，AI的实际应用能力确实正在稳步提升，且不断创新。</p>
 <p>对于普通人来说，学会AI的关键，是找到与自己业务最紧密结合的方向，发挥AI在自己擅长领域的最大效能。AI的提效功能已经在各行各业落地，并且在短短一个月内，你完全有可能通过深入学习，找到自己与AI结合的独特路径。</p>
 <p>重要的是，不要被夸大的信息所干扰，频繁切换赛道。你对自己的行业已经有了深刻的理解和经验，借助AI，你能够在现有基础上再次提升自己的竞争力和创造力。</p>
-
+</div>
+				<link rel="stylesheet" type="text/css" href="https://qiniu.techgrow.cn/readmore/dist/hexo.css">
+				<script src="https://qiniu.techgrow.cn/readmore/dist/readmore.js" type="text/javascript"></script>
+				<script>
+				var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+				var isEncrypt = document.getElementById('hexo-blog-encrypt');
+				var allowMobile = false;
+				if (!isEncrypt && (!isMobile || (isMobile && allowMobile))) {
+					try {
+						var plugin = new ReadmorePlugin();
+						plugin.init({
+							"type": "hexo",
+							"id": "readmore-container",
+							"name": "良技漫谈",
+							"blogId": "68756-0266337625647-511",
+							"qrcode": "https://zhulg.github.io/images/gongzhonghao.png",
+							"keyword": "666",
+							"random": "1",
+							"height": "auto",
+							"expires": "365",
+							"lockToc": "yes",
+							"interval": "60",
+							"baseUrl": "",
+							"tocSelector": ""
+						});
+					} catch(e) {
+						console.warn("readmore plugin occurred error: " + e.name + " | " + e.message);
+					}
+				}
+				</script>
+			
       
     </div>
 

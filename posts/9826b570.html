@@ -400,10 +400,10 @@ s.parentNode.insertBefore(el, s);
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/posts/9826b570.html#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1.4k(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1.5k(字)</span>
 	
 	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 4(分)</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 5(分)</span>
 	
 
       </div>
@@ -424,7 +424,7 @@ s.parentNode.insertBefore(el, s);
     
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <p>首先，这篇文章没有任何广告，只是给目前前端开发、客户端开发伙伴们的一些个人思考和建议。</p>
+        <div id="readmore-container"><p>首先，这篇文章没有任何广告，只是给目前前端开发、客户端开发伙伴们的一些个人思考和建议。</p>
 <p>前几年，移动互联网如火如荼，给大家在吃住行方面带来了巨大的便利，也改变了大家的生活方式。外卖、打车、支付、金融等应用极大地方便了人们的日常生活。</p>
 <p>特别是客户端开发的岗位，前几年由于开发需求旺盛，薪资非常可观。但随着移动APP生态的完善，APP的需求也接近饱和，进入了维护期。许多资深前端工程师、客户端Android、iOS、Flutter工程师由于种种原因，职业发展也进入了瓶颈期。一方面担心失业问题，另一方面市场上的新岗位也不如以前多。</p>
 <p><strong>人通常都是有惰性的，即便知道这个行业在走下坡路，可能还是不好轻易的做出改变和尝试新赛道</strong></p>
@@ -448,7 +448,37 @@ s.parentNode.insertBefore(el, s);
 <h2 id="思考总结"><a href="#思考总结" class="headerlink" title="思考总结"></a><strong>思考总结</strong></h2><p>以上就是对前端、客户端开发，比较低成本切换到区块链岗位赛道的建议，可以业余尝试和了解，多学总是没有坏处的。</p>
 <p>技术不是一成不变的，业务需求也是一直变革，前端、客户端开发还是要做好未雨绸缪提升自己技术力。</p>
 <p>切换技术赛道和岗位时，还是要结合自身的技术栈来适应技术潮流，提升竞争力，拓宽自己的岗位选择。</p>
-
+</div>
+				<link rel="stylesheet" type="text/css" href="https://qiniu.techgrow.cn/readmore/dist/hexo.css">
+				<script src="https://qiniu.techgrow.cn/readmore/dist/readmore.js" type="text/javascript"></script>
+				<script>
+				var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+				var isEncrypt = document.getElementById('hexo-blog-encrypt');
+				var allowMobile = false;
+				if (!isEncrypt && (!isMobile || (isMobile && allowMobile))) {
+					try {
+						var plugin = new ReadmorePlugin();
+						plugin.init({
+							"type": "hexo",
+							"id": "readmore-container",
+							"name": "良技漫谈",
+							"blogId": "68756-0266337625647-511",
+							"qrcode": "https://zhulg.github.io/images/gongzhonghao.png",
+							"keyword": "666",
+							"random": "1",
+							"height": "auto",
+							"expires": "365",
+							"lockToc": "yes",
+							"interval": "60",
+							"baseUrl": "",
+							"tocSelector": ""
+						});
+					} catch(e) {
+						console.warn("readmore plugin occurred error: " + e.name + " | " + e.message);
+					}
+				}
+				</script>
+			
       
     </div>
 

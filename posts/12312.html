@@ -409,7 +409,7 @@ s.parentNode.insertBefore(el, s);
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/posts/12312.html#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 2k(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 2.1k(字)</span>
 	
 	
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 7(分)</span>
@@ -433,7 +433,7 @@ s.parentNode.insertBefore(el, s);
     
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <h2 id="1、OC调用"><a href="#1、OC调用" class="headerlink" title="1、OC调用"></a>1、OC调用</h2><ul>
+        <div id="readmore-container"><h2 id="1、OC调用"><a href="#1、OC调用" class="headerlink" title="1、OC调用"></a>1、OC调用</h2><ul>
 <li><p>C++ 会为静态创建的对象生成初始化器，与静态语言不同，OC基于Runtime机制可以用类的名字来实例化一个类的对象。Runtime 维护了一张映射类名与类的全局表，当加载一个 dylib 时，其定义的所有的类都需要被注册到这个全局表中。ObjC 在加载时可以通过 fix-up 在动态类中改变实例变量的偏移量，利用这个技术可以在不改变dylib的情况下添加另一个 dylib 中类的方法，而非常见的通过定义类别（Category）的方式改变一个类的方法。</p>
 </li>
 <li><p>主执行文件和相关的 dylib的依赖关系构成了一张巨大的有向图，执行初始化器先加载叶子节点，然后逐步向上加载中间节点，直至最后加载根节点。这种加载顺序确保了安全性，加载某个 dylib 前，其所依赖的其余 dylib 文件肯定已经被预先加载。最后 dyld 会调用 main() 函数。main() 会调用 UIApplicationMain()，程序启动。</p>
@@ -554,7 +554,37 @@ s.parentNode.insertBefore(el, s);
 <li><p>建立网络连接前需要做域名解析，如果网关出现问题，dns解析不正常时，dns的超时时间是应用控制不了的。在程序设计时要考虑这些问题，如果程序启动时有网络连接，应尽快的结束启动过程，网络访问通过线程解决，而不阻塞主线程的运行。</p>
 </li>
 </ul>
-
+</div>
+				<link rel="stylesheet" type="text/css" href="https://qiniu.techgrow.cn/readmore/dist/hexo.css">
+				<script src="https://qiniu.techgrow.cn/readmore/dist/readmore.js" type="text/javascript"></script>
+				<script>
+				var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+				var isEncrypt = document.getElementById('hexo-blog-encrypt');
+				var allowMobile = false;
+				if (!isEncrypt && (!isMobile || (isMobile && allowMobile))) {
+					try {
+						var plugin = new ReadmorePlugin();
+						plugin.init({
+							"type": "hexo",
+							"id": "readmore-container",
+							"name": "良技漫谈",
+							"blogId": "68756-0266337625647-511",
+							"qrcode": "https://zhulg.github.io/images/gongzhonghao.png",
+							"keyword": "666",
+							"random": "1",
+							"height": "auto",
+							"expires": "365",
+							"lockToc": "yes",
+							"interval": "60",
+							"baseUrl": "",
+							"tocSelector": ""
+						});
+					} catch(e) {
+						console.warn("readmore plugin occurred error: " + e.name + " | " + e.message);
+					}
+				}
+				</script>
+			
       
     </div>
 

@@ -413,7 +413,7 @@ s.parentNode.insertBefore(el, s);
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/posts/f235cc57.html#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 408(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 504(字)</span>
 	
 	
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 1(分)</span>
@@ -437,7 +437,7 @@ s.parentNode.insertBefore(el, s);
     
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <ul>
+        <div id="readmore-container"><ul>
 <li>Damus是一个建立在去中心化网络上的社交软件，目前iOS可以通过appstore直接下载使用。</li>
 <li><strong>Android版是需要通过googleplay下载Amethyst，国内Android手机由于周知原因，无法直接安装，特提供安装包供大家下载安装</strong>。</li>
 </ul>
@@ -477,7 +477,37 @@ s.parentNode.insertBefore(el, s);
 <li>到这一步可以查看了正常使用了，可以搜索关注我 <strong>npub1z40ckftt5tq70uqvtng4jz6lv34am6k85vkzlrgfzqs22rkrqjyqkga4cj</strong></li>
 <li>后边头像更换、发贴添加节点闪电网络等，<strong>进去后自己玩即可有问题可以邮件私信</strong>。</li>
 </ul>
-
+</div>
+				<link rel="stylesheet" type="text/css" href="https://qiniu.techgrow.cn/readmore/dist/hexo.css">
+				<script src="https://qiniu.techgrow.cn/readmore/dist/readmore.js" type="text/javascript"></script>
+				<script>
+				var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+				var isEncrypt = document.getElementById('hexo-blog-encrypt');
+				var allowMobile = false;
+				if (!isEncrypt && (!isMobile || (isMobile && allowMobile))) {
+					try {
+						var plugin = new ReadmorePlugin();
+						plugin.init({
+							"type": "hexo",
+							"id": "readmore-container",
+							"name": "良技漫谈",
+							"blogId": "68756-0266337625647-511",
+							"qrcode": "https://zhulg.github.io/images/gongzhonghao.png",
+							"keyword": "666",
+							"random": "1",
+							"height": "auto",
+							"expires": "365",
+							"lockToc": "yes",
+							"interval": "60",
+							"baseUrl": "",
+							"tocSelector": ""
+						});
+					} catch(e) {
+						console.warn("readmore plugin occurred error: " + e.name + " | " + e.message);
+					}
+				}
+				</script>
+			
       
     </div>
 

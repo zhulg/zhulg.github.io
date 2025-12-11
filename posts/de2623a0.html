@@ -400,10 +400,10 @@ s.parentNode.insertBefore(el, s);
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/posts/de2623a0.html#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1.2k(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1.3k(字)</span>
 	
 	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 3(分)</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 4(分)</span>
 	
 
       </div>
@@ -424,7 +424,7 @@ s.parentNode.insertBefore(el, s);
     
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <p>最近几个月，之前的同事们陆续打听有没有在招人，有没有职位空缺，他们有大厂的技术大牛，也有小公司的技术负责人。</p>
+        <div id="readmore-container"><p>最近几个月，之前的同事们陆续打听有没有在招人，有没有职位空缺，他们有大厂的技术大牛，也有小公司的技术负责人。</p>
 <p>很明显，他们并不是在找更好的跳槽机会，而是遇到了空窗期在找一份稳定踏实的工作，这种无奈和焦虑深深地触动了我，也想写一下自己对这块的一个思考。</p>
 <p><strong>每个技术人或早或晚都会经历职业生涯中的空窗期，包括自己。</strong></p>
 <p>这个空窗期可能会突如其来：比如你负责的项目要突然终止，曾经投入的工作不再需要你，曾经引以为傲的技能变得陈旧过时，然后，你可能会经历长期找不到合适工作的焦虑，看到新技术层出不穷却无力跟上的无助，甚至面对亲朋好友对你职业前景的担忧。这种空窗期就像一片无边无际的黑暗，把你推向深渊，击垮你的自信心。每一次面试的失败都像是一次次否定，让你陷入无尽的自我怀疑之中。</p>
@@ -444,7 +444,37 @@ s.parentNode.insertBefore(el, s);
 <p>最后，无论空窗期有多长，都不要放弃对未来的希望。利用这段时间好好充实自己，重新找到自己的方向和热情。</p>
 <p>相信自己，每一个低谷都是为了迎接更高的山峰，每一段黑暗都是为了见到更亮的光明。技术人的空窗期，正是你涅槃重生的最好时机。</p>
 <p><strong>“沉舟侧畔千帆过，病树前头万木春。”当你度过了这段空窗期，你会发现自己如凤凰般涅槃重生，迎来了一个崭新的起点。</strong></p>
-
+</div>
+				<link rel="stylesheet" type="text/css" href="https://qiniu.techgrow.cn/readmore/dist/hexo.css">
+				<script src="https://qiniu.techgrow.cn/readmore/dist/readmore.js" type="text/javascript"></script>
+				<script>
+				var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+				var isEncrypt = document.getElementById('hexo-blog-encrypt');
+				var allowMobile = false;
+				if (!isEncrypt && (!isMobile || (isMobile && allowMobile))) {
+					try {
+						var plugin = new ReadmorePlugin();
+						plugin.init({
+							"type": "hexo",
+							"id": "readmore-container",
+							"name": "良技漫谈",
+							"blogId": "68756-0266337625647-511",
+							"qrcode": "https://zhulg.github.io/images/gongzhonghao.png",
+							"keyword": "666",
+							"random": "1",
+							"height": "auto",
+							"expires": "365",
+							"lockToc": "yes",
+							"interval": "60",
+							"baseUrl": "",
+							"tocSelector": ""
+						});
+					} catch(e) {
+						console.warn("readmore plugin occurred error: " + e.name + " | " + e.message);
+					}
+				}
+				</script>
+			
       
     </div>
 

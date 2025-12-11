@@ -400,10 +400,10 @@ s.parentNode.insertBefore(el, s);
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/posts/4a3d5e89.html#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1.3k(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1.4k(字)</span>
 	
 	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 4(分)</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 5(分)</span>
 	
 
       </div>
@@ -424,7 +424,7 @@ s.parentNode.insertBefore(el, s);
     
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <h2 id="Vibe-Coding：用自然语言创造软件的新方式"><a href="#Vibe-Coding：用自然语言创造软件的新方式" class="headerlink" title="Vibe Coding：用自然语言创造软件的新方式"></a>Vibe Coding：用自然语言创造软件的新方式</h2><p>自从 2023 年 AI 技术爆发以来，“AI 编程” 已经从实验室话题，变成了很多人日常使用的能力。</p>
+        <div id="readmore-container"><h2 id="Vibe-Coding：用自然语言创造软件的新方式"><a href="#Vibe-Coding：用自然语言创造软件的新方式" class="headerlink" title="Vibe Coding：用自然语言创造软件的新方式"></a>Vibe Coding：用自然语言创造软件的新方式</h2><p>自从 2023 年 AI 技术爆发以来，“AI 编程” 已经从实验室话题，变成了很多人日常使用的能力。</p>
 <p>过去，写代码是程序员的专属领域，门槛高、技术性强。但今天，AI 工具让普通人也能快速构建出能运行的产品。</p>
 <p>有个朋友最近在做产品原型验证，他把收集到的数据丢给 AI，仅用简单的对话方式，AI 就帮他自动生成了表格和可运行的脚本。<br>他惊叹地说：“我只是描述了需求，结果 AI 就把数据和 demo 都整好了——这还要什么程序员？”</p>
 <p>这正是如今兴起的概念——<strong>Vibe Coding</strong>。</p>
@@ -457,7 +457,37 @@ s.parentNode.insertBefore(el, s);
 <p>而 N8N 正是实现这种 “Vibe Coding” 理念的绝佳平台。如果你想看一个完整的实战案例，了解如何将一个想法通过可视化拖拽变为强大的自动化流程，可以阅读我的这篇<a href="/posts/52630d3b.html">《N8N教程：搭建公众号自动化写作工作流完整指南》</a>。<br>越早开始，你就越早积累属于自己的模板、脚本和经验。</p>
 <p>而对于技术人来说，Vibe Coding 更像是一次效率革命——<br>你能更快验证想法，更快产出结果，更快进入创造的状态。</p>
 <p>未来，人与 AI 协作的方式会越来越自然。<br>当你习惯了 Vibe Coding，你会发现：<br>只用几句自然语言，也能让 AI 成为你的得力伙伴。</p>
-
+</div>
+				<link rel="stylesheet" type="text/css" href="https://qiniu.techgrow.cn/readmore/dist/hexo.css">
+				<script src="https://qiniu.techgrow.cn/readmore/dist/readmore.js" type="text/javascript"></script>
+				<script>
+				var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+				var isEncrypt = document.getElementById('hexo-blog-encrypt');
+				var allowMobile = false;
+				if (!isEncrypt && (!isMobile || (isMobile && allowMobile))) {
+					try {
+						var plugin = new ReadmorePlugin();
+						plugin.init({
+							"type": "hexo",
+							"id": "readmore-container",
+							"name": "良技漫谈",
+							"blogId": "68756-0266337625647-511",
+							"qrcode": "https://zhulg.github.io/images/gongzhonghao.png",
+							"keyword": "666",
+							"random": "1",
+							"height": "auto",
+							"expires": "365",
+							"lockToc": "yes",
+							"interval": "60",
+							"baseUrl": "",
+							"tocSelector": ""
+						});
+					} catch(e) {
+						console.warn("readmore plugin occurred error: " + e.name + " | " + e.message);
+					}
+				}
+				</script>
+			
       
     </div>
 

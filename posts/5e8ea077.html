@@ -407,10 +407,10 @@ s.parentNode.insertBefore(el, s);
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/posts/5e8ea077.html#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1.1k(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1.2k(字)</span>
 	
 	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 3(分)</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 4(分)</span>
 	
 
       </div>
@@ -431,7 +431,7 @@ s.parentNode.insertBefore(el, s);
     
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <p>如何快速上架chrome插件? 如何搞定chrome开发者注册？本文来进行详细的讲解一下，方便国内开发轻松上架插件。</p>
+        <div id="readmore-container"><p>如何快速上架chrome插件? 如何搞定chrome开发者注册？本文来进行详细的讲解一下，方便国内开发轻松上架插件。</p>
 <p>前两天上架了个护眼助手的插件，有读者私信问上架这个国内能否访问，目前因为是google的chrome商店，如果没有科学上网，确实无法访问。（需要的话可以关注公众号，回复护眼助手即可获取软件，到时添加在chrome浏览器就行。如果使用微软Edge浏览器的，等审核通过也可以安装）</p>
 <p>今天快速介绍下，怎么从0到1上架一块插件软件，就上架来说要比Android 和iOS的审核和填写的东西要少一些。我快速介绍下给想尝试这个插件开发的读者。也顺便说一下，如果你想开发一些插件来赚钱的话，也是可以的，回头再介绍这块，先说下如何从0上架一款插件。</p>
 <h2 id="开发账号准备"><a href="#开发账号准备" class="headerlink" title="开发账号准备"></a><strong>开发账号准备</strong></h2><p>开发插件本身不难，会JS技术并能解决用户痛点这些就可以了，上架插件就需要先有账号，用来管理你的插件后台，提交和版本更新的管理后台。</p>
@@ -465,7 +465,37 @@ s.parentNode.insertBefore(el, s);
 <h2 id="最后一些话"><a href="#最后一些话" class="headerlink" title="最后一些话"></a>最后一些话</h2><p>如果上架过程中有问题可以进行交流，整体看比较麻烦的是开发账号支付5美元问题，其他对技术人来说都会比较简单。</p>
 <p>如果你有好的想法和提效的都可以用插件来实现，而且插件也可以作为打造个人产品的一种方式，就入手来说比上架android和iOS的审核要简单太多。</p>
 <p>技术人凡事就要多尝试，很多起飞的产品都是来自一个很小的mvp，多做一些产品和商业化的尝试，对技术方向掌握和运用也非常有利，学习新东西的速度也会越来越快！</p>
-
+</div>
+				<link rel="stylesheet" type="text/css" href="https://qiniu.techgrow.cn/readmore/dist/hexo.css">
+				<script src="https://qiniu.techgrow.cn/readmore/dist/readmore.js" type="text/javascript"></script>
+				<script>
+				var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+				var isEncrypt = document.getElementById('hexo-blog-encrypt');
+				var allowMobile = false;
+				if (!isEncrypt && (!isMobile || (isMobile && allowMobile))) {
+					try {
+						var plugin = new ReadmorePlugin();
+						plugin.init({
+							"type": "hexo",
+							"id": "readmore-container",
+							"name": "良技漫谈",
+							"blogId": "68756-0266337625647-511",
+							"qrcode": "https://zhulg.github.io/images/gongzhonghao.png",
+							"keyword": "666",
+							"random": "1",
+							"height": "auto",
+							"expires": "365",
+							"lockToc": "yes",
+							"interval": "60",
+							"baseUrl": "",
+							"tocSelector": ""
+						});
+					} catch(e) {
+						console.warn("readmore plugin occurred error: " + e.name + " | " + e.message);
+					}
+				}
+				</script>
+			
       
     </div>
 

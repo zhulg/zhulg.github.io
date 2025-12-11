@@ -400,10 +400,10 @@ s.parentNode.insertBefore(el, s);
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/posts/80da3ca2.html#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1.4k(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1.5k(字)</span>
 	
 	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 4(分)</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 5(分)</span>
 	
 
       </div>
@@ -424,7 +424,7 @@ s.parentNode.insertBefore(el, s);
     
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <p>在全球经济下行的大背景下，失业潮正以不可阻挡的势头席卷而来，任何行业都很难幸免。</p>
+        <div id="readmore-container"><p>在全球经济下行的大背景下，失业潮正以不可阻挡的势头席卷而来，任何行业都很难幸免。</p>
 <p>互联网行业，曾经风光无限，如今也显得步履维艰。随着基建生态成熟，资本退潮，市场存量博弈愈发激烈，裁员的阴影也笼罩着一线大厂。从阿里的“瘦身”到腾讯的“断臂”，一波波暗流涌动的裁员潮已在行业内频繁上演，小公司的日子就更不必多言。</p>
 <p>面对这样的现实，越来越多的互联网人被迫直面失业，身边的同事、朋友大家也不把失业当成需要隐瞒的秘密，而是大家互相调侃，并能冷静应对的常态。</p>
 <p><strong>当失业情况成为常态，我们该如何面对、以及如何为未来做好准备，给自己留好退路。</strong></p>
@@ -443,7 +443,37 @@ s.parentNode.insertBefore(el, s);
 <p>可以多请教行业内资深人事，保持沟通，了解行业趋势与动向。通过他们的经验与建议，你可以更好地规划未来的发展方向。</p>
 <h2 id="保持平常心"><a href="#保持平常心" class="headerlink" title="保持平常心"></a>保持平常心</h2><p>往往行业困境中也一定蕴藏着新的生机，如果我们尽早做好准备、持续提升，失业潮不仅仅是一场挑战，更是一次重新审视自身、调整发展方向的契机，我之前文章专门写过。</p>
 <p>相信再漫长的冬季也终将过去，而春天的曙光必然会到来。保持平常心，熬过寒冬，未雨绸缪，给自己留好退路。</p>
-
+</div>
+				<link rel="stylesheet" type="text/css" href="https://qiniu.techgrow.cn/readmore/dist/hexo.css">
+				<script src="https://qiniu.techgrow.cn/readmore/dist/readmore.js" type="text/javascript"></script>
+				<script>
+				var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+				var isEncrypt = document.getElementById('hexo-blog-encrypt');
+				var allowMobile = false;
+				if (!isEncrypt && (!isMobile || (isMobile && allowMobile))) {
+					try {
+						var plugin = new ReadmorePlugin();
+						plugin.init({
+							"type": "hexo",
+							"id": "readmore-container",
+							"name": "良技漫谈",
+							"blogId": "68756-0266337625647-511",
+							"qrcode": "https://zhulg.github.io/images/gongzhonghao.png",
+							"keyword": "666",
+							"random": "1",
+							"height": "auto",
+							"expires": "365",
+							"lockToc": "yes",
+							"interval": "60",
+							"baseUrl": "",
+							"tocSelector": ""
+						});
+					} catch(e) {
+						console.warn("readmore plugin occurred error: " + e.name + " | " + e.message);
+					}
+				}
+				</script>
+			
       
     </div>
 

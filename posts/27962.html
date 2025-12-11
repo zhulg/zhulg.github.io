@@ -409,10 +409,10 @@ s.parentNode.insertBefore(el, s);
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/posts/27962.html#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 378(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 474(字)</span>
 	
 	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 1(分)</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 2(分)</span>
 	
 
       </div>
@@ -433,7 +433,7 @@ s.parentNode.insertBefore(el, s);
     
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <h4 id="在开发者模式下编写调试chaincode"><a href="#在开发者模式下编写调试chaincode" class="headerlink" title="在开发者模式下编写调试chaincode"></a>在开发者模式下编写调试chaincode</h4><ul>
+        <div id="readmore-container"><h4 id="在开发者模式下编写调试chaincode"><a href="#在开发者模式下编写调试chaincode" class="headerlink" title="在开发者模式下编写调试chaincode"></a>在开发者模式下编写调试chaincode</h4><ul>
 <li>在fabric-examples下提供有开发者模式，编译快速对chaincode的编写。</li>
 <li>进入chaincode-docker-devmode，基于docker方式快速构建一个开发模式的网络。</li>
 </ul>
@@ -454,7 +454,37 @@ s.parentNode.insertBefore(el, s);
 
 </li>
 </ul>
-<h4 id="实例化链码和查询"><a href="#实例化链码和查询" class="headerlink" title="实例化链码和查询"></a>实例化链码和查询</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">docker exec -it cli bash</span><br><span class="line">peer chaincode install -n mycc -v 0 -p  chaincodedev/chaincode/chaincode_example02</span><br><span class="line">peer chaincode instantiate -n mycc -v 0 -c &apos;&#123;&quot;Args&quot;:[&quot;init&quot;,&quot;a&quot;,&quot;100&quot;,&quot;b&quot;,&quot;200&quot;]&#125;&apos; -o orderer:7050 -C myc</span><br><span class="line">peer chaincode invoke -n mycc -c &apos;&#123;&quot;Args&quot;:[&quot;invoke&quot;,&quot;a&quot;,&quot;b&quot;,&quot;10&quot;]&#125;&apos; -o orderer:7050 -C myc</span><br><span class="line">peer chaincode query -n mycc -c &apos;&#123;&quot;Args&quot;:[&quot;query&quot;,&quot;a&quot;]&#125;&apos; -o orderer -C myc</span><br></pre></td></tr></table></figure>
+<h4 id="实例化链码和查询"><a href="#实例化链码和查询" class="headerlink" title="实例化链码和查询"></a>实例化链码和查询</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">docker exec -it cli bash</span><br><span class="line">peer chaincode install -n mycc -v 0 -p  chaincodedev/chaincode/chaincode_example02</span><br><span class="line">peer chaincode instantiate -n mycc -v 0 -c &apos;&#123;&quot;Args&quot;:[&quot;init&quot;,&quot;a&quot;,&quot;100&quot;,&quot;b&quot;,&quot;200&quot;]&#125;&apos; -o orderer:7050 -C myc</span><br><span class="line">peer chaincode invoke -n mycc -c &apos;&#123;&quot;Args&quot;:[&quot;invoke&quot;,&quot;a&quot;,&quot;b&quot;,&quot;10&quot;]&#125;&apos; -o orderer:7050 -C myc</span><br><span class="line">peer chaincode query -n mycc -c &apos;&#123;&quot;Args&quot;:[&quot;query&quot;,&quot;a&quot;]&#125;&apos; -o orderer -C myc</span><br></pre></td></tr></table></figure></div>
+				<link rel="stylesheet" type="text/css" href="https://qiniu.techgrow.cn/readmore/dist/hexo.css">
+				<script src="https://qiniu.techgrow.cn/readmore/dist/readmore.js" type="text/javascript"></script>
+				<script>
+				var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+				var isEncrypt = document.getElementById('hexo-blog-encrypt');
+				var allowMobile = false;
+				if (!isEncrypt && (!isMobile || (isMobile && allowMobile))) {
+					try {
+						var plugin = new ReadmorePlugin();
+						plugin.init({
+							"type": "hexo",
+							"id": "readmore-container",
+							"name": "良技漫谈",
+							"blogId": "68756-0266337625647-511",
+							"qrcode": "https://zhulg.github.io/images/gongzhonghao.png",
+							"keyword": "666",
+							"random": "1",
+							"height": "auto",
+							"expires": "365",
+							"lockToc": "yes",
+							"interval": "60",
+							"baseUrl": "",
+							"tocSelector": ""
+						});
+					} catch(e) {
+						console.warn("readmore plugin occurred error: " + e.name + " | " + e.message);
+					}
+				}
+				</script>
+			
       
     </div>
 

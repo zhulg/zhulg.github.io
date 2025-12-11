@@ -400,10 +400,10 @@ s.parentNode.insertBefore(el, s);
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/posts/7f92c8fb.html#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1.7k(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1.8k(字)</span>
 	
 	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 5(分)</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 6(分)</span>
 	
 
       </div>
@@ -424,7 +424,7 @@ s.parentNode.insertBefore(el, s);
     
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <p>为什么Boss上那么多已读不回？ 我最近跟一个做HR的朋友聊了下这个现象，写这篇文章喜欢对大家有所帮助。</p>
+        <div id="readmore-container"><p>为什么Boss上那么多已读不回？ 我最近跟一个做HR的朋友聊了下这个现象，写这篇文章喜欢对大家有所帮助。</p>
 <p>临近年底，公司一般这个时候开始做年底总结、来年业务规划和预算。与此同时，也就会有些预期业绩和业务调整，裁员也常常发生 ，年底的离职潮也逐渐涌现。</p>
 <p>和往年相比，今年明显能感受到，身边开始看机会的人越来越多了。交流中也时常听到抱怨，<strong>“不是我不够优秀，而是简历投了根本没人回！”</strong> 有人说：“如果不招人，那为什么要挂出JD ？”还有人说发起几百个沟通，得到的回复寥寥无几，有时是猎头礼貌回一句您不合适，大多数时候则直接是已读不回。也有人开始怀疑，是不是自己的简历格式出了问题？</p>
 <p>我最近专门找了一位做HR的朋友聊了聊，从她那了解的情况中大概有这么种，也给出了一些建议我整理出来分享。以Boss来举例，这个目前可能是最火爆的求职平台了（从他近几年的营收情况看）</p>
@@ -446,7 +446,37 @@ s.parentNode.insertBefore(el, s);
 <p><strong>面对“已读不回”这种情况，虽然它可能给求职者带来心理上的负担，但一旦理解了这些背后的机制，就能更轻松地放下心态。</strong></p>
 <p>最重要的是，给自己信心，多尝试不同的应聘机会。在这段求职的空窗期，也不妨把精力放在提升自己身上，提升能力、学习新技能，扩展自己的人脉网络，也不把所有希望寄托在招聘平台上。</p>
 <p>保持平和的心态，做好自己的提升工作，给自己一些时间，一定能找到最适合自己的工作。</p>
-
+</div>
+				<link rel="stylesheet" type="text/css" href="https://qiniu.techgrow.cn/readmore/dist/hexo.css">
+				<script src="https://qiniu.techgrow.cn/readmore/dist/readmore.js" type="text/javascript"></script>
+				<script>
+				var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+				var isEncrypt = document.getElementById('hexo-blog-encrypt');
+				var allowMobile = false;
+				if (!isEncrypt && (!isMobile || (isMobile && allowMobile))) {
+					try {
+						var plugin = new ReadmorePlugin();
+						plugin.init({
+							"type": "hexo",
+							"id": "readmore-container",
+							"name": "良技漫谈",
+							"blogId": "68756-0266337625647-511",
+							"qrcode": "https://zhulg.github.io/images/gongzhonghao.png",
+							"keyword": "666",
+							"random": "1",
+							"height": "auto",
+							"expires": "365",
+							"lockToc": "yes",
+							"interval": "60",
+							"baseUrl": "",
+							"tocSelector": ""
+						});
+					} catch(e) {
+						console.warn("readmore plugin occurred error: " + e.name + " | " + e.message);
+					}
+				}
+				</script>
+			
       
     </div>
 

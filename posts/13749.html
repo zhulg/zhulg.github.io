@@ -395,10 +395,10 @@ s.parentNode.insertBefore(el, s);
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/posts/13749.html#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 964(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1.1k(字)</span>
 	
 	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 3(分)</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 4(分)</span>
 	
 
       </div>
@@ -419,7 +419,7 @@ s.parentNode.insertBefore(el, s);
     
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <p>###kafka概述<br><image src="https://kafka.apache.org/images/logo.png" width="300"></image></p>
+        <div id="readmore-container"><p>###kafka概述<br><image src="https://kafka.apache.org/images/logo.png" width="300"></image></p>
 <h4 id="关于快速学习方法领悟"><a href="#关于快速学习方法领悟" class="headerlink" title="关于快速学习方法领悟"></a>关于快速学习方法领悟</h4><ul>
 <li>学习不熟悉的领域和知识，要快速找出技术的原理，核心功能点，能做什么能，用于解决什么问题。</li>
 <li>暂时忽略技术细节，找出技术主干，根据项目和日后学习循序渐进到细节部分。</li>
@@ -472,7 +472,37 @@ s.parentNode.insertBefore(el, s);
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin/kafka-console-consumer --bootstrap-server localhost:9092 --topic test --from-beginning</span><br></pre></td></tr></table></figure>
 
-<h4 id="设置多个broker集群方式，参见官网"><a href="#设置多个broker集群方式，参见官网" class="headerlink" title="设置多个broker集群方式，参见官网"></a>设置多个broker集群方式，参见官网</h4>
+<h4 id="设置多个broker集群方式，参见官网"><a href="#设置多个broker集群方式，参见官网" class="headerlink" title="设置多个broker集群方式，参见官网"></a>设置多个broker集群方式，参见官网</h4></div>
+				<link rel="stylesheet" type="text/css" href="https://qiniu.techgrow.cn/readmore/dist/hexo.css">
+				<script src="https://qiniu.techgrow.cn/readmore/dist/readmore.js" type="text/javascript"></script>
+				<script>
+				var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+				var isEncrypt = document.getElementById('hexo-blog-encrypt');
+				var allowMobile = false;
+				if (!isEncrypt && (!isMobile || (isMobile && allowMobile))) {
+					try {
+						var plugin = new ReadmorePlugin();
+						plugin.init({
+							"type": "hexo",
+							"id": "readmore-container",
+							"name": "良技漫谈",
+							"blogId": "68756-0266337625647-511",
+							"qrcode": "https://zhulg.github.io/images/gongzhonghao.png",
+							"keyword": "666",
+							"random": "1",
+							"height": "auto",
+							"expires": "365",
+							"lockToc": "yes",
+							"interval": "60",
+							"baseUrl": "",
+							"tocSelector": ""
+						});
+					} catch(e) {
+						console.warn("readmore plugin occurred error: " + e.name + " | " + e.message);
+					}
+				}
+				</script>
+			
       
     </div>
 

@@ -411,7 +411,7 @@ s.parentNode.insertBefore(el, s);
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/posts/4b03ee24.html#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 693(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 789(字)</span>
 	
 	
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 2(分)</span>
@@ -435,7 +435,7 @@ s.parentNode.insertBefore(el, s);
     
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <p>今天要给大家推荐一个超级好用的作图神器——<strong>draw.io</strong>，特别适合各行各业，尤其是我们互联网行业的朋友们，简直是作图的必备工具。</p>
+        <div id="readmore-container"><p>今天要给大家推荐一个超级好用的作图神器——<strong>draw.io</strong>，特别适合各行各业，尤其是我们互联网行业的朋友们，简直是作图的必备工具。</p>
 <p>为什么说它是神器？因为draw.io支持在线使用，不需要安装繁琐的软件，打开网页就能直接使用。如果你更喜欢在本地操作，它也提供了PC安装包。支持多种存储方式、可以本地导入导出，轻松导出为图片或其他文件格式。</p>
 <p><em>最重要的一点，*</em>称之为神器的核心原因就是：功能强大、操作便捷，而且完全免费，无任何套路！***</p>
 <p>对互联网人来说，无论是制作产品原型图、流程图、架构图，还是项目管理图，draw.io 都不在话下，轻松拿捏。</p>
@@ -468,7 +468,37 @@ s.parentNode.insertBefore(el, s);
 <p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/640-20241227114614819" alt="图片"></p>
 <p>商务类图：</p>
 <p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/640-20241227114119353" alt="图片"></p>
-
+</div>
+				<link rel="stylesheet" type="text/css" href="https://qiniu.techgrow.cn/readmore/dist/hexo.css">
+				<script src="https://qiniu.techgrow.cn/readmore/dist/readmore.js" type="text/javascript"></script>
+				<script>
+				var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+				var isEncrypt = document.getElementById('hexo-blog-encrypt');
+				var allowMobile = false;
+				if (!isEncrypt && (!isMobile || (isMobile && allowMobile))) {
+					try {
+						var plugin = new ReadmorePlugin();
+						plugin.init({
+							"type": "hexo",
+							"id": "readmore-container",
+							"name": "良技漫谈",
+							"blogId": "68756-0266337625647-511",
+							"qrcode": "https://zhulg.github.io/images/gongzhonghao.png",
+							"keyword": "666",
+							"random": "1",
+							"height": "auto",
+							"expires": "365",
+							"lockToc": "yes",
+							"interval": "60",
+							"baseUrl": "",
+							"tocSelector": ""
+						});
+					} catch(e) {
+						console.warn("readmore plugin occurred error: " + e.name + " | " + e.message);
+					}
+				}
+				</script>
+			
       
     </div>
 

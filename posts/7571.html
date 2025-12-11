@@ -414,7 +414,7 @@ s.parentNode.insertBefore(el, s);
 		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 2.2k(字)</span>
 	
 	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 7(分)</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 8(分)</span>
 	
 
       </div>
@@ -435,7 +435,7 @@ s.parentNode.insertBefore(el, s);
     
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <h3 id="Java后端一般架构"><a href="#Java后端一般架构" class="headerlink" title="Java后端一般架构"></a>Java后端一般架构</h3><p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/server-basic-tech-stack.png" alt></p>
+        <div id="readmore-container"><h3 id="Java后端一般架构"><a href="#Java后端一般架构" class="headerlink" title="Java后端一般架构"></a>Java后端一般架构</h3><p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/server-basic-tech-stack.png" alt></p>
 <ul>
 <li><strong>MVC框架</strong>：从十年前流行的Struts1、2到现在最为推崇的SpringMVC、Jersey以及国人开发的JFinal、阿里的WebX等等，这些框架尤其是后面流行的这些都是各有千秋的。选型的主要因素是看你的团队是否有一个对某框架能够做二次开发、定制的人在。很多时候，针对这些通用的框架，你是需要做一些特定的开发才能满足特定的需求的。比如，很多团队传递参数使用的都是UnderScore的命名法(下划线连接单词)，但是Java中确是使用LowCamel命名的。对于SpringMVC，可以通过注解的alias来指定，但这样需要对每一个参数都要指定alias有点效率太低，此外ModelAttribute也不支持别名，更好的方式是在框架层面统一对参数做Camel命名的转换达到目的。</li>
 <li><strong>IOC框架</strong>：ioc带来的好处无须多言。目前Java中最为流行的Spring自诞生就天然支持IOC。</li>
@@ -461,7 +461,37 @@ s.parentNode.insertBefore(el, s);
 <li><strong>统一调度中心</strong>: 在很多业务中，定时调度是一个非常普遍的场景，比如定时去抓取数据、定时刷新订单的状态等。通常的做法就是针对各自的业务依赖Linux的cron机制或者java中的quartz。统一调度中心则是对所有的调度任务进行管理，这样能够统一对调度集群进行调优、扩展、任务管理等。azkaban和oozie是hadoop的流式工作管理引擎，也可以作为统一调度中心来使用。当然，你也可以使用cron或者quartz来实现自己的统一调度中心。<br>根据cron表达式调度任务<br>动态修改、停止、删除任务<br>支持任务工作流：比如一个任务完成之后再执行下一个任务<br>任务支持脚本、代码、url等多种形式<br>任务执行的日志记录、故障报警<br>对于Java的quartz这里需要说明一下：这个quartz需要和spring quartz区分，后者是spring对quartz框架的简单实现也是目前使用的最多的一种调度方式。但是，其并没有做高可用集群的支持。而quartz虽然有集群的支持，但是配置起来非常复杂。现在很多方案都是使用zookeeper来实现spring quartz集群的。<br></li>
 <li><strong>统一日志服务</strong>: 日志是开发过程必不可少的东西。有时候，打印日志的时机、技巧是很能体现出工程师编码水平的。毕竟，日志是线上服务能够定位、排查异常最为直接的信息。通常的，将日志分散在各个业务中非常不方便对问题的管理和排查。统一日志服务则使用单独的日志服务器记录日志，各个业务通过统一的日志框架将日志输出到日志服务器上。可以通过实现log4j后者logback的appender来实现统一日志框架，然后通过RPC调用将日志打印到日志服务器上。</li>
 </ul>
-
+</div>
+				<link rel="stylesheet" type="text/css" href="https://qiniu.techgrow.cn/readmore/dist/hexo.css">
+				<script src="https://qiniu.techgrow.cn/readmore/dist/readmore.js" type="text/javascript"></script>
+				<script>
+				var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+				var isEncrypt = document.getElementById('hexo-blog-encrypt');
+				var allowMobile = false;
+				if (!isEncrypt && (!isMobile || (isMobile && allowMobile))) {
+					try {
+						var plugin = new ReadmorePlugin();
+						plugin.init({
+							"type": "hexo",
+							"id": "readmore-container",
+							"name": "良技漫谈",
+							"blogId": "68756-0266337625647-511",
+							"qrcode": "https://zhulg.github.io/images/gongzhonghao.png",
+							"keyword": "666",
+							"random": "1",
+							"height": "auto",
+							"expires": "365",
+							"lockToc": "yes",
+							"interval": "60",
+							"baseUrl": "",
+							"tocSelector": ""
+						});
+					} catch(e) {
+						console.warn("readmore plugin occurred error: " + e.name + " | " + e.message);
+					}
+				}
+				</script>
+			
       
     </div>
 

@@ -412,10 +412,10 @@ s.parentNode.insertBefore(el, s);
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/posts/40568.html#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 777(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 873(字)</span>
 	
 	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 2(分)</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 3(分)</span>
 	
 
       </div>
@@ -436,7 +436,7 @@ s.parentNode.insertBefore(el, s);
     
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <h3 id="fabric中默认存储库levelDb"><a href="#fabric中默认存储库levelDb" class="headerlink" title="fabric中默认存储库levelDb"></a>fabric中默认存储库levelDb</h3><h4 id="存储设计"><a href="#存储设计" class="headerlink" title="存储设计"></a>存储设计</h4><ul>
+        <div id="readmore-container"><h3 id="fabric中默认存储库levelDb"><a href="#fabric中默认存储库levelDb" class="headerlink" title="fabric中默认存储库levelDb"></a>fabric中默认存储库levelDb</h3><h4 id="存储设计"><a href="#存储设计" class="headerlink" title="存储设计"></a>存储设计</h4><ul>
 <li>要达到数据不可篡改首先从数据结构上来看是一个链式存储，也是区块链之所以称之为区块链的原因。</li>
 <li>每个存储单元包含上一存储单元的hash值以及自身存储的交易数据块，可以从表象来看就像把所有数据块连接在一起，称之为“区块链”，形成链状可追述的交易记录。</li>
 <li>这种链状结构的数据称之为账本数据，保存着所有交易的记录，有普通文件保存，还有一个“世界状态”，其实质为Key-Value数据库，维护着交易数据的最终状态，便于查询等操作运算，并且每个数据都有其对应的版本号。</li>
@@ -468,7 +468,37 @@ s.parentNode.insertBefore(el, s);
 <li>到期或者失效，发邮件(<a href="mailto:lg.json@gmail.com" target="_blank" rel="noopener">lg.json@gmail.com</a>)给我你微信，拉你进群。</li>
 </ul>
 <p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/weixin.png" alt></p>
-
+</div>
+				<link rel="stylesheet" type="text/css" href="https://qiniu.techgrow.cn/readmore/dist/hexo.css">
+				<script src="https://qiniu.techgrow.cn/readmore/dist/readmore.js" type="text/javascript"></script>
+				<script>
+				var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+				var isEncrypt = document.getElementById('hexo-blog-encrypt');
+				var allowMobile = false;
+				if (!isEncrypt && (!isMobile || (isMobile && allowMobile))) {
+					try {
+						var plugin = new ReadmorePlugin();
+						plugin.init({
+							"type": "hexo",
+							"id": "readmore-container",
+							"name": "良技漫谈",
+							"blogId": "68756-0266337625647-511",
+							"qrcode": "https://zhulg.github.io/images/gongzhonghao.png",
+							"keyword": "666",
+							"random": "1",
+							"height": "auto",
+							"expires": "365",
+							"lockToc": "yes",
+							"interval": "60",
+							"baseUrl": "",
+							"tocSelector": ""
+						});
+					} catch(e) {
+						console.warn("readmore plugin occurred error: " + e.name + " | " + e.message);
+					}
+				}
+				</script>
+			
       
     </div>
 

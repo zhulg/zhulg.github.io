@@ -400,10 +400,10 @@ s.parentNode.insertBefore(el, s);
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/posts/dff848a0.html#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1.3k(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1.4k(字)</span>
 	
 	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 4(分)</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 5(分)</span>
 	
 
       </div>
@@ -424,7 +424,7 @@ s.parentNode.insertBefore(el, s);
     
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <p>从2024年，IT行业的就业问题似乎成了一个热门话题，2025年IT就业会一直崩溃溃吗？</p>
+        <div id="readmore-container"><p>从2024年，IT行业的就业问题似乎成了一个热门话题，2025年IT就业会一直崩溃溃吗？</p>
 <p>我不记得今年什么时候开始，身边越来越多互联网圈的朋友开始“空窗”，时不时有人问有没有推荐的岗位。起初还没当回事，但从下半年开始，这种现象变得越发明显。</p>
 <p>最近，学计算机的亲戚都来咨询实习机会，孩子明年大学毕业，而今年实习却变得难上加难。企业招聘越发谨慎，尤其在市场竞争激烈的背景下，招聘变得更挑剔，直接上手、无需培养的即战力更受青睐。这难免让计算机专业的应届生也面临了更大的挑战。</p>
 <p>再加上IT行业招聘中的大龄、薪资性价比问题，让很多今年失业的人感到失望和迷茫。这种情况也让大家感慨，<strong>IT就业真的崩溃了…</strong></p>
@@ -443,7 +443,37 @@ s.parentNode.insertBefore(el, s);
 <p>尤其是对于空窗期的朋友，我的建议是投入AI技术的学习中。<strong>学习并不意味着放弃已有技术（硬跨行业跨端学AI不可取），而是通过AI来更高效地运用和驾驭自己的核心能力，在自己熟悉的行业经验里，通过AI来一次升级与迭代的过程。</strong></p>
 <p>行业的变革从来不是毁灭，而是新旧交替的必经阶段。IT行业有天然的学习优势，对技术工具学习和迭代有很强的适应力，但不要故步自封，仍坚持一些基础工作，而是转变思维利用AI创造更多价值，用好这个工具，因为未来还是属于那些愿意接受学习、善于应用新技术的人。</p>
 <h2 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h2><p>无论如何，2024年IT行业有点难，2025年IT行业无需被所谓的崩溃论吓倒，坚定信心，拥抱变化，跟随技术发展，顺应市场需求，IT人依然大有可为！</p>
-
+</div>
+				<link rel="stylesheet" type="text/css" href="https://qiniu.techgrow.cn/readmore/dist/hexo.css">
+				<script src="https://qiniu.techgrow.cn/readmore/dist/readmore.js" type="text/javascript"></script>
+				<script>
+				var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+				var isEncrypt = document.getElementById('hexo-blog-encrypt');
+				var allowMobile = false;
+				if (!isEncrypt && (!isMobile || (isMobile && allowMobile))) {
+					try {
+						var plugin = new ReadmorePlugin();
+						plugin.init({
+							"type": "hexo",
+							"id": "readmore-container",
+							"name": "良技漫谈",
+							"blogId": "68756-0266337625647-511",
+							"qrcode": "https://zhulg.github.io/images/gongzhonghao.png",
+							"keyword": "666",
+							"random": "1",
+							"height": "auto",
+							"expires": "365",
+							"lockToc": "yes",
+							"interval": "60",
+							"baseUrl": "",
+							"tocSelector": ""
+						});
+					} catch(e) {
+						console.warn("readmore plugin occurred error: " + e.name + " | " + e.message);
+					}
+				}
+				</script>
+			
       
     </div>
 

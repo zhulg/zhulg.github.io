@@ -400,7 +400,7 @@ s.parentNode.insertBefore(el, s);
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/posts/d8de0f99.html#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1.6k(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1.7k(字)</span>
 	
 	
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 5(分)</span>
@@ -424,7 +424,7 @@ s.parentNode.insertBefore(el, s);
     
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <p>没有经历过裁员的职场是不完美的。</p>
+        <div id="readmore-container"><p>没有经历过裁员的职场是不完美的。</p>
 <p>无论何种原因经历次裁员，可能对心智都是一次提升，前面也写过技术人怎么利用空窗期的文章技术人的空窗期，你的涅槃重生。经历过裁员的时候难免感到复杂和沉重。离开的背后，不仅有情感的波动，还有对未来的深深焦虑。</p>
 <p>当你被通知离职的那一刻，情绪复杂得难以描述。但是，当冷静下来，你会意识到，职场就是一个大染缸，个人的价值往往被淹没在复杂的分工和协作中，逐渐失去了话语权。</p>
 <p>在这样的环境下，早日觉醒，找到自己一人能做的互联网生意比什么都重要，毕竟打工的风险也不小。</p>
@@ -443,7 +443,37 @@ s.parentNode.insertBefore(el, s);
 <p>不要总想着依赖团队或者等什么大平台来拯救你，机会是靠自己去找的。别盲目跟风去追那些看似宏大的项目，脚踏实地，先从一个小生意做起。通过不断学习和积累，你会发现，渐渐地，你就拥有了属于自己的核心竞争力。</p>
 <p>行动起来，去找到那个你一个人也能干的互联网生意。</p>
 <p>探索、尝试，不断提升自己。别怕一开始很烂，要边做边改，要有信心持续完善，毕竟这生意属于你自己，也可能带来长尾收益。最重要的是，从中你会有不一样的收获，这也许会成为你未来成功的基石。</p>
-
+</div>
+				<link rel="stylesheet" type="text/css" href="https://qiniu.techgrow.cn/readmore/dist/hexo.css">
+				<script src="https://qiniu.techgrow.cn/readmore/dist/readmore.js" type="text/javascript"></script>
+				<script>
+				var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+				var isEncrypt = document.getElementById('hexo-blog-encrypt');
+				var allowMobile = false;
+				if (!isEncrypt && (!isMobile || (isMobile && allowMobile))) {
+					try {
+						var plugin = new ReadmorePlugin();
+						plugin.init({
+							"type": "hexo",
+							"id": "readmore-container",
+							"name": "良技漫谈",
+							"blogId": "68756-0266337625647-511",
+							"qrcode": "https://zhulg.github.io/images/gongzhonghao.png",
+							"keyword": "666",
+							"random": "1",
+							"height": "auto",
+							"expires": "365",
+							"lockToc": "yes",
+							"interval": "60",
+							"baseUrl": "",
+							"tocSelector": ""
+						});
+					} catch(e) {
+						console.warn("readmore plugin occurred error: " + e.name + " | " + e.message);
+					}
+				}
+				</script>
+			
       
     </div>
 

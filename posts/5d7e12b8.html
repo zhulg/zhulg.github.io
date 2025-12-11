@@ -406,7 +406,7 @@ s.parentNode.insertBefore(el, s);
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/posts/5d7e12b8.html#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 911(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1k(字)</span>
 	
 	
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 3(分)</span>
@@ -430,7 +430,7 @@ s.parentNode.insertBefore(el, s);
     
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <p>在近年来AI应用的爆发下，一跃冲到了排行榜的首位。随着AI技术的快速进步，加上ChatGPT等智能工具的推动，编程正逐步迈向“自然语言编程”的新时代，门槛越来越低，人人皆可成为开发者。</p>
+        <div id="readmore-container"><p>在近年来AI应用的爆发下，一跃冲到了排行榜的首位。随着AI技术的快速进步，加上ChatGPT等智能工具的推动，编程正逐步迈向“自然语言编程”的新时代，门槛越来越低，人人皆可成为开发者。</p>
 <p>今天，我花了一小时左右看了吴恩达老师的《AI Python for Beginners》课程（地址在文末），<strong>看下来非常推荐给没有编程背景的职场人士、学生，以及会计、金融、行政等领域的从业者来学习了解python。尽管是初级课程，也比较适合程序员来学习吴恩达老师的深入浅出教学风格。</strong></p>
 <p>吴恩达老师是斯坦福大学的教授，还是全球人工智能领域的领军人物。他曾担任Google大脑的负责人，并在百度担任过首席科学家，拥有丰富的行业经验。</p>
 <h2 id="课程基础有趣"><a href="#课程基础有趣" class="headerlink" title="课程基础有趣"></a>课程基础有趣</h2><p>视频里吴恩达老师也讲了他的观点，为什么其他行业人也建议学，十年前可能不建议其他行业来学，而现在因为有了生成式AI，有了助手，编程更简单了。</p>
@@ -452,7 +452,37 @@ s.parentNode.insertBefore(el, s);
 <p>当然这个虽然是大师的课程，如果想进一步学习的话，还是建议针对系统学习python开发语言，python入门简单，通过了解基础语法和生成式AI的结合，你至少要能看懂代码，然后让chatgpt来进行协助，这样很快一款真正的产品才能快速诞生。</p>
 <p><strong>这个课程地址：</strong></p>
 <p><a href="https://learn.deeplearning.ai/courses/ai-python-for-beginners" target="_blank" rel="noopener">https://learn.deeplearning.ai/courses/ai-python-for-beginners</a></p>
-
+</div>
+				<link rel="stylesheet" type="text/css" href="https://qiniu.techgrow.cn/readmore/dist/hexo.css">
+				<script src="https://qiniu.techgrow.cn/readmore/dist/readmore.js" type="text/javascript"></script>
+				<script>
+				var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+				var isEncrypt = document.getElementById('hexo-blog-encrypt');
+				var allowMobile = false;
+				if (!isEncrypt && (!isMobile || (isMobile && allowMobile))) {
+					try {
+						var plugin = new ReadmorePlugin();
+						plugin.init({
+							"type": "hexo",
+							"id": "readmore-container",
+							"name": "良技漫谈",
+							"blogId": "68756-0266337625647-511",
+							"qrcode": "https://zhulg.github.io/images/gongzhonghao.png",
+							"keyword": "666",
+							"random": "1",
+							"height": "auto",
+							"expires": "365",
+							"lockToc": "yes",
+							"interval": "60",
+							"baseUrl": "",
+							"tocSelector": ""
+						});
+					} catch(e) {
+						console.warn("readmore plugin occurred error: " + e.name + " | " + e.message);
+					}
+				}
+				</script>
+			
       
     </div>
 

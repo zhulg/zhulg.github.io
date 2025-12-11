@@ -400,10 +400,10 @@ s.parentNode.insertBefore(el, s);
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/posts/4f00c682.html#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 786(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 882(字)</span>
 	
 	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 2(分)</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 3(分)</span>
 	
 
       </div>
@@ -424,7 +424,7 @@ s.parentNode.insertBefore(el, s);
     
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <p>在之前的文章《<a href="http://mp.weixin.qq.com/s?__biz=MzIzNDA3MzA3MQ==&mid=2464356238&idx=1&sn=d22e9c4604c35adb11c714ff8754f45b&chksm=ffec490ec89bc018245032ac8b6cd2b5168f0d28e019123707e542836e6bb744b425891256cd&scene=21#wechat_redirect" target="_blank" rel="noopener">经济下行的时候，这些行业可能会更好</a>》中，我简单提到过用 Rust 做电子书，有收到读者朋友的私信，问怎么做电子书。今天正好有空，就来快速为大家做一个详细的介绍。  </p>
+        <div id="readmore-container"><p>在之前的文章《<a href="http://mp.weixin.qq.com/s?__biz=MzIzNDA3MzA3MQ==&mid=2464356238&idx=1&sn=d22e9c4604c35adb11c714ff8754f45b&chksm=ffec490ec89bc018245032ac8b6cd2b5168f0d28e019123707e542836e6bb744b425891256cd&scene=21#wechat_redirect" target="_blank" rel="noopener">经济下行的时候，这些行业可能会更好</a>》中，我简单提到过用 Rust 做电子书，有收到读者朋友的私信，问怎么做电子书。今天正好有空，就来快速为大家做一个详细的介绍。  </p>
 <p>制作电子书其实用途广泛，不仅可以用于技术文档、用户手册、教程等，还可以应用于文学创作。如果你有想法写小说或者做知识付费，电子书也是一个不错的切入点。特别是知识付费领域，通过小范围试水电子书，收集读者反馈，进一步打磨内容，最后也可以出版成书。</p>
 <p>好了，有点扯远了，我们重点先说下怎么用Rust做电子书。</p>
 <h2 id="1-环境准备"><a href="#1-环境准备" class="headerlink" title="1. 环境准备"></a>1. 环境准备</h2><p>我们准备用Rust来创建电子书，首先，需要安装有Rust的环境，Rust环境安装也比较简单打开官方地址，复制安装命令安装即可。</p>
@@ -453,7 +453,37 @@ s.parentNode.insertBefore(el, s);
 <p>可以对chapter_1.md进行内容写作，就可以形成对应的电子书的内容了。</p>
 <p>比如这个我复制了个内容，修改了章节命名，然后重新刷新即可看到内容。</p>
 <h2 id="4-部署"><a href="#4-部署" class="headerlink" title="4. 部署"></a>4. 部署</h2><p>电子书制作完后，编译后会发现在book的目录下会有编译好的文件，可以通过GitHub Pages上这样完全可以免费，也可以支持远程别人打开和阅读。</p>
-
+</div>
+				<link rel="stylesheet" type="text/css" href="https://qiniu.techgrow.cn/readmore/dist/hexo.css">
+				<script src="https://qiniu.techgrow.cn/readmore/dist/readmore.js" type="text/javascript"></script>
+				<script>
+				var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+				var isEncrypt = document.getElementById('hexo-blog-encrypt');
+				var allowMobile = false;
+				if (!isEncrypt && (!isMobile || (isMobile && allowMobile))) {
+					try {
+						var plugin = new ReadmorePlugin();
+						plugin.init({
+							"type": "hexo",
+							"id": "readmore-container",
+							"name": "良技漫谈",
+							"blogId": "68756-0266337625647-511",
+							"qrcode": "https://zhulg.github.io/images/gongzhonghao.png",
+							"keyword": "666",
+							"random": "1",
+							"height": "auto",
+							"expires": "365",
+							"lockToc": "yes",
+							"interval": "60",
+							"baseUrl": "",
+							"tocSelector": ""
+						});
+					} catch(e) {
+						console.warn("readmore plugin occurred error: " + e.name + " | " + e.message);
+					}
+				}
+				</script>
+			
       
     </div>
 

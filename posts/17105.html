@@ -411,10 +411,10 @@ s.parentNode.insertBefore(el, s);
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/posts/17105.html#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 419(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 515(字)</span>
 	
 	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 1(分)</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 2(分)</span>
 	
 
       </div>
@@ -435,7 +435,7 @@ s.parentNode.insertBefore(el, s);
     
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <h3 id="Eureka集群注册"><a href="#Eureka集群注册" class="headerlink" title="Eureka集群注册"></a>Eureka集群注册</h3><ul>
+        <div id="readmore-container"><h3 id="Eureka集群注册"><a href="#Eureka集群注册" class="headerlink" title="Eureka集群注册"></a>Eureka集群注册</h3><ul>
 <li>Eureka注册中心提供关键的服务，如果是单点话，遇到故障就是毁灭性的。在一个分布式系统中，服务注册中心是最重要的基础部分，理应随时处于可以提供服务的状态。为了维持其可用性，使用集群是很好的解决方案。</li>
 <li>Eureka通过互相注册的方式来实现高可用的部署。<h3 id="集群注册步骤"><a href="#集群注册步骤" class="headerlink" title="集群注册步骤"></a>集群注册步骤</h3></li>
 </ul>
@@ -454,7 +454,37 @@ s.parentNode.insertBefore(el, s);
 <p>5,启动 <a href="http://localhost:8001/" target="_blank" rel="noopener">http://localhost:8001/</a></p>
 <p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/eureka.png" alt="eureka"></p>
 <p>6,异常备注，开始折腾了很久，遇到什么权限没有，端口不能访问时。需要把服务彻底关掉，开启服务peer1时可能会有错误，原因服务没起来忽略即可。出去下上图说明已经建立成功。多个集群同理配置。<br>7，在MAC 环境下网上很多demo端口为1001之类的，在mac上端口会占用失败，继采用8001端口。</p>
-
+</div>
+				<link rel="stylesheet" type="text/css" href="https://qiniu.techgrow.cn/readmore/dist/hexo.css">
+				<script src="https://qiniu.techgrow.cn/readmore/dist/readmore.js" type="text/javascript"></script>
+				<script>
+				var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+				var isEncrypt = document.getElementById('hexo-blog-encrypt');
+				var allowMobile = false;
+				if (!isEncrypt && (!isMobile || (isMobile && allowMobile))) {
+					try {
+						var plugin = new ReadmorePlugin();
+						plugin.init({
+							"type": "hexo",
+							"id": "readmore-container",
+							"name": "良技漫谈",
+							"blogId": "68756-0266337625647-511",
+							"qrcode": "https://zhulg.github.io/images/gongzhonghao.png",
+							"keyword": "666",
+							"random": "1",
+							"height": "auto",
+							"expires": "365",
+							"lockToc": "yes",
+							"interval": "60",
+							"baseUrl": "",
+							"tocSelector": ""
+						});
+					} catch(e) {
+						console.warn("readmore plugin occurred error: " + e.name + " | " + e.message);
+					}
+				}
+				</script>
+			
       
     </div>
 

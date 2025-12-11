@@ -402,10 +402,10 @@ s.parentNode.insertBefore(el, s);
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/posts/40058c60.html#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 783(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 879(字)</span>
 	
 	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 2(分)</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 3(分)</span>
 	
 
       </div>
@@ -426,7 +426,7 @@ s.parentNode.insertBefore(el, s);
     
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <meta property="og:title" content="NewTab 时光 - 让家人照片安全出现在你的新标签页">
+        <div id="readmore-container"><meta property="og:title" content="NewTab 时光 - 让家人照片安全出现在你的新标签页">
 <meta property="og:description" content="由个人开发者打造的 Chrome 插件，本地轮播家人或旅行照片，不上传云端，守护你的温柔时光。">
 
 
@@ -450,7 +450,37 @@ s.parentNode.insertBefore(el, s);
 <h2 id="为什么我做这个插件"><a href="#为什么我做这个插件" class="headerlink" title="为什么我做这个插件"></a>为什么我做这个插件</h2><p>我一直相信，技术不仅仅是冷冰冰的工具，它也可以承载温度，让我们与生活的关系变得美好！</p>
 <p><strong>NewTab 时光</strong> 对我来说，不只是一个插件，更像是一种“数字温情”的表达。<br>在AI、效率、自动化的浪潮里，<br>它提醒我别忘了生活的光——<br>那些属于家的、笑容的、平凡的片刻。</p>
 <h3 id="生活，也该有柔光"><a href="#生活，也该有柔光" class="headerlink" title="生活，也该有柔光"></a>生活，也该有柔光</h3><p>有时候，我们需要的不只是效率，还有一点温柔。<br>希望这款小插件，也能在你的日常里，带来片刻的宁静与微笑！<br>在你被工作中疲惫不堪时，可以从这些照片中获得温柔的力量！</p>
-
+</div>
+				<link rel="stylesheet" type="text/css" href="https://qiniu.techgrow.cn/readmore/dist/hexo.css">
+				<script src="https://qiniu.techgrow.cn/readmore/dist/readmore.js" type="text/javascript"></script>
+				<script>
+				var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+				var isEncrypt = document.getElementById('hexo-blog-encrypt');
+				var allowMobile = false;
+				if (!isEncrypt && (!isMobile || (isMobile && allowMobile))) {
+					try {
+						var plugin = new ReadmorePlugin();
+						plugin.init({
+							"type": "hexo",
+							"id": "readmore-container",
+							"name": "良技漫谈",
+							"blogId": "68756-0266337625647-511",
+							"qrcode": "https://zhulg.github.io/images/gongzhonghao.png",
+							"keyword": "666",
+							"random": "1",
+							"height": "auto",
+							"expires": "365",
+							"lockToc": "yes",
+							"interval": "60",
+							"baseUrl": "",
+							"tocSelector": ""
+						});
+					} catch(e) {
+						console.warn("readmore plugin occurred error: " + e.name + " | " + e.message);
+					}
+				}
+				</script>
+			
       
     </div>
 

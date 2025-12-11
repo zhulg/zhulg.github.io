@@ -422,7 +422,7 @@ s.parentNode.insertBefore(el, s);
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/posts/e3022ca1.html#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1.8k(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1.9k(字)</span>
 	
 	
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 6(分)</span>
@@ -446,7 +446,7 @@ s.parentNode.insertBefore(el, s);
     
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <p>Google这两天刚推出了Gemini CLI，它是一个基于 Gemini 模型构建的 AI 命令行助手（Agent），支持本地运行、插件拓展，还能调用 Gemini 2.5 Pro 模型。重点是<strong>免费使用，限额相当豪横，卷的起飞的节奏。</strong></p>
+        <div id="readmore-container"><p>Google这两天刚推出了Gemini CLI，它是一个基于 Gemini 模型构建的 AI 命令行助手（Agent），支持本地运行、插件拓展，还能调用 Gemini 2.5 Pro 模型。重点是<strong>免费使用，限额相当豪横，卷的起飞的节奏。</strong></p>
 <p>说起命令行的工具，可能更适合技术人员使用，使用起来也很高效，想起当时Chatgpt刚刚爆火的时候，各种登录不上，网络无法连接，地区封号等，于是我也写了个基于ChatGpt的CLI工具，可以直接访问大模型API，直接有效，深受好评！</p>
 <p>无图无真相，截个图:</p>
 <p><img src="https://raw.githubusercontent.com/zhulg/allpic/master/640-20250719132741284" alt="图片"></p>
@@ -510,7 +510,37 @@ s.parentNode.insertBefore(el, s);
 <p>CLI 工具的使用门槛虽然比 Web 高一点，但对于习惯终端工作的开发者来说，Gemini CLI 是一个极具潜力的 AI 助手。</p>
 <p><strong>它的开源策略、大模型接入能力、插件化扩展方向，技术人员的使用，相信***</strong>*终端里的 AI 智能体，也是未来的一种技术流的交互方式。****</p>
 <p><strong>CLI的方向就是一个让技术人员用起来更爽，操作更直接，命令行有自己的独特优势，虽然有一些小小失望，但相信gemini CLI会快速壮大，相信Google的技术实力，也相信他的开源必将更多人参与贡献。</strong></p>
-
+</div>
+				<link rel="stylesheet" type="text/css" href="https://qiniu.techgrow.cn/readmore/dist/hexo.css">
+				<script src="https://qiniu.techgrow.cn/readmore/dist/readmore.js" type="text/javascript"></script>
+				<script>
+				var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+				var isEncrypt = document.getElementById('hexo-blog-encrypt');
+				var allowMobile = false;
+				if (!isEncrypt && (!isMobile || (isMobile && allowMobile))) {
+					try {
+						var plugin = new ReadmorePlugin();
+						plugin.init({
+							"type": "hexo",
+							"id": "readmore-container",
+							"name": "良技漫谈",
+							"blogId": "68756-0266337625647-511",
+							"qrcode": "https://zhulg.github.io/images/gongzhonghao.png",
+							"keyword": "666",
+							"random": "1",
+							"height": "auto",
+							"expires": "365",
+							"lockToc": "yes",
+							"interval": "60",
+							"baseUrl": "",
+							"tocSelector": ""
+						});
+					} catch(e) {
+						console.warn("readmore plugin occurred error: " + e.name + " | " + e.message);
+					}
+				}
+				</script>
+			
       
     </div>
 

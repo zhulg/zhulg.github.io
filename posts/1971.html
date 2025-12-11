@@ -409,7 +409,7 @@ s.parentNode.insertBefore(el, s);
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/posts/1971.html#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 225(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 321(字)</span>
 	
 	
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 1(分)</span>
@@ -433,7 +433,7 @@ s.parentNode.insertBefore(el, s);
     
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <h2 id="Scratch-APK"><a href="#Scratch-APK" class="headerlink" title="Scratch APK"></a>Scratch APK</h2><ul>
+        <div id="readmore-container"><h2 id="Scratch-APK"><a href="#Scratch-APK" class="headerlink" title="Scratch APK"></a>Scratch APK</h2><ul>
 <li>Scratch由于官网被墙，正常的话也无法从googlePlay进行安装。而官方的APK安装包可以进行参考对二次开发的话需要安装。</li>
 <li>Scratch APK的下载可以从googleplay上下载国内被墙也基本上无法用，需要下载最新的APK包进行安装。</li>
 </ul>
@@ -450,7 +450,37 @@ s.parentNode.insertBefore(el, s);
 <h2 id="最新安装包"><a href="#最新安装包" class="headerlink" title="最新安装包"></a>最新安装包</h2><ul>
 <li>目前最新安装包已下载，如有童鞋需要可以邮件我</li>
 </ul>
-
+</div>
+				<link rel="stylesheet" type="text/css" href="https://qiniu.techgrow.cn/readmore/dist/hexo.css">
+				<script src="https://qiniu.techgrow.cn/readmore/dist/readmore.js" type="text/javascript"></script>
+				<script>
+				var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+				var isEncrypt = document.getElementById('hexo-blog-encrypt');
+				var allowMobile = false;
+				if (!isEncrypt && (!isMobile || (isMobile && allowMobile))) {
+					try {
+						var plugin = new ReadmorePlugin();
+						plugin.init({
+							"type": "hexo",
+							"id": "readmore-container",
+							"name": "良技漫谈",
+							"blogId": "68756-0266337625647-511",
+							"qrcode": "https://zhulg.github.io/images/gongzhonghao.png",
+							"keyword": "666",
+							"random": "1",
+							"height": "auto",
+							"expires": "365",
+							"lockToc": "yes",
+							"interval": "60",
+							"baseUrl": "",
+							"tocSelector": ""
+						});
+					} catch(e) {
+						console.warn("readmore plugin occurred error: " + e.name + " | " + e.message);
+					}
+				}
+				</script>
+			
       
     </div>
 

@@ -413,10 +413,10 @@ s.parentNode.insertBefore(el, s);
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/posts/55503.html#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 496(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 592(字)</span>
 	
 	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 1(分)</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 2(分)</span>
 	
 
       </div>
@@ -437,7 +437,7 @@ s.parentNode.insertBefore(el, s);
     
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <h2 id="web3是什么"><a href="#web3是什么" class="headerlink" title="web3是什么"></a>web3是什么</h2><h3 id="1-先从维基百科看Web3的解释"><a href="#1-先从维基百科看Web3的解释" class="headerlink" title="1.先从维基百科看Web3的解释:"></a>1.先从维基百科看Web3的解释:</h3><ul>
+        <div id="readmore-container"><h2 id="web3是什么"><a href="#web3是什么" class="headerlink" title="web3是什么"></a>web3是什么</h2><h3 id="1-先从维基百科看Web3的解释"><a href="#1-先从维基百科看Web3的解释" class="headerlink" title="1.先从维基百科看Web3的解释:"></a>1.先从维基百科看Web3的解释:</h3><ul>
 <li>Web 3.0是关于万维网发展的一个概念，主要与基于区块链的去中心化、加密货币以及非同质化代币有关。</li>
 <li>区块链有关的web3概念是由以太坊联合创始人Gavin Wood于2014年提出，并于2021年受到加密货币爱好者、大型科技公司, 风险投资公司的关注Web3</li>
 </ul>
@@ -464,7 +464,37 @@ s.parentNode.insertBefore(el, s);
 
 <div align="center" width="100%">
   <img width="90%" src="https://github.com/zhulg/allpic/blob/master/web3chain.png?raw=true">
-</div>
+</div></div>
+				<link rel="stylesheet" type="text/css" href="https://qiniu.techgrow.cn/readmore/dist/hexo.css">
+				<script src="https://qiniu.techgrow.cn/readmore/dist/readmore.js" type="text/javascript"></script>
+				<script>
+				var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+				var isEncrypt = document.getElementById('hexo-blog-encrypt');
+				var allowMobile = false;
+				if (!isEncrypt && (!isMobile || (isMobile && allowMobile))) {
+					try {
+						var plugin = new ReadmorePlugin();
+						plugin.init({
+							"type": "hexo",
+							"id": "readmore-container",
+							"name": "良技漫谈",
+							"blogId": "68756-0266337625647-511",
+							"qrcode": "https://zhulg.github.io/images/gongzhonghao.png",
+							"keyword": "666",
+							"random": "1",
+							"height": "auto",
+							"expires": "365",
+							"lockToc": "yes",
+							"interval": "60",
+							"baseUrl": "",
+							"tocSelector": ""
+						});
+					} catch(e) {
+						console.warn("readmore plugin occurred error: " + e.name + " | " + e.message);
+					}
+				}
+				</script>
+			
       
     </div>
 
