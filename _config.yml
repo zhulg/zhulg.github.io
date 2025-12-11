@@ -173,3 +173,15 @@ feed:
   type: atom
   path: atom.xml
   limit: 20
+
+readmore:
+  enable: true
+  blogId: "68756-0266337625647-511"
+  name: "良技漫谈"
+  keyword: "666"
+  qrcode: "https://zhulg.github.io/images/gongzhonghao.png"
+  height: "auto"
+  expires: 365
+  interval: 60
+  random: 1
+  allowMobile: false
